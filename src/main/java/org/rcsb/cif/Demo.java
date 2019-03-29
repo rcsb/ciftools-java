@@ -1,37 +1,41 @@
 package org.rcsb.cif;
 
-import org.rcsb.cif.api.CIFFile;
-import org.rcsb.cif.api.Category;
-import org.rcsb.cif.api.Column;
-import org.rcsb.cif.api.DataBlock;
-import org.rcsb.cif.binary.BinaryCIFParser;
+import org.rcsb.cif.model.CifBlock;
+import org.rcsb.cif.model.CifCategory;
+import org.rcsb.cif.model.CifField;
+import org.rcsb.cif.model.CifFile;
 
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.stream.Collectors;
 
 public class Demo {
-    public static void main(String[] args) throws IOException {
-//        InputStream inputStream = new URL("https://files.rcsb.org/download/1pga.cif").openStream();
-//        CIFFile cifFile = new TextCIFParser().parse(inputStream);
+    public static void main(String[] args) throws IOException, ParsingException {
+        InputStream inputStream = new URL("https://files.rcsb.org/download/1pga.cif").openStream();
+        CifFile cifFile = CifParser.parseText(new BufferedReader(new InputStreamReader(inputStream))
+                .lines()
+                .collect(Collectors.joining(System.lineSeparator())));
 
-        InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/1pga").openStream();
-        CIFFile cifFile = new BinaryCIFParser().parse(inputStream);
+//        InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/1pga").openStream();
+//        CIFFile cifFile = new BinaryCIFParser().parse(inputStream);
 
-        DataBlock data = cifFile.getDataBlocks().get(0);
-        Category _atom_site = data.getCategory("_atom_site");
+        CifBlock data = cifFile.getBlocks().get(0);
+        CifCategory _atom_site = data.getCategories().get("atom_site");
 
-        Column Cartn_x = _atom_site.getColumn("Cartn_x");
+        CifField Cartn_x = _atom_site.getFields().get("Cartn_x");
 
         // gets a float value from the 1st row
-        float floatValue = Cartn_x.getFloat(0);
+        double floatValue = Cartn_x.getDouble(0);
         System.out.println(floatValue);
 
         // the last residue sequence id
-        int intValue = _atom_site.getColumn("label_seq_id").getInteger(_atom_site.getRowCount() - 1);
+        int intValue = _atom_site.getFields().get("label_seq_id").getInt(_atom_site.getFields().size() - 1);
         System.out.println(intValue);
 
-        String stringValue = data.getCategory("_entry").getColumn("id").getString(0);
+        String stringValue = data.getCategories().get("entry").getFields().get("id").getStr(0);
         System.out.println(stringValue);
     }
 }

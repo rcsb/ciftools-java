@@ -1,5 +1,7 @@
 package org.rcsb.cif.api;
 
+import org.rcsb.cif.model.ValueKind;
+
 public interface Column {
     Column UNDEFINED_COLUMN = new Column() {
         @Override
@@ -23,8 +25,8 @@ public interface Column {
         }
 
         @Override
-        public ValuePresence getValuePresence(int row) {
-            return ValuePresence.NOT_SPECIFIED;
+        public ValueKind getValuePresence(int row) {
+            return ValueKind.NOT_PRESENT;
         }
 
         @Override
@@ -46,7 +48,7 @@ public interface Column {
 
     float getFloat(int row);
 
-    ValuePresence getValuePresence(int row);
+    ValueKind getValuePresence(int row);
 
     boolean areEqualByValue(int rowA, int rowB);
 

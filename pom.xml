@@ -19,8 +19,8 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
+            <version>4.12</version>
         </dependency>
     </dependencies>
 
@@ -33,15 +33,15 @@
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
-                    <excludes>
-                        <exclude>**/logback.xml</exclude>
-                    </excludes>
                 </configuration>
             </plugin>
         </plugins>
     </build>
 
     <properties>
+        <jdk.version>1.8</jdk.version>
+        <maven.enforcer.jdk-version>1.8</maven.enforcer.jdk-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
     </properties>
 </project>

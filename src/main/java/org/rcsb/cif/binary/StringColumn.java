@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary;
 
 import org.rcsb.cif.api.Column;
-import org.rcsb.cif.api.ValuePresence;
+import org.rcsb.cif.model.ValueKind;
 
 public class StringColumn implements Column {
     private final String[] data;
@@ -31,8 +31,8 @@ public class StringColumn implements Column {
     }
 
     @Override
-    public ValuePresence getValuePresence(int row) {
-        return ValuePresence.PRESENT;
+    public ValueKind getValuePresence(int row) {
+        return ValueKind.PRESENT;
     }
 
     @Override

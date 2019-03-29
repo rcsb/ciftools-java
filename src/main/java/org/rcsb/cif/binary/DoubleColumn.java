@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary;
 
 import org.rcsb.cif.api.Column;
-import org.rcsb.cif.api.ValuePresence;
+import org.rcsb.cif.model.ValueKind;
 
 public class DoubleColumn implements Column {
     private final double[] data;
@@ -31,7 +31,7 @@ public class DoubleColumn implements Column {
     }
 
     @Override
-    public ValuePresence getValuePresence(int row) {
+    public ValueKind getValuePresence(int row) {
         return null;
     }
 

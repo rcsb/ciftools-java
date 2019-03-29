@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.nio.ByteBuffer;
 
-public class DecoderTest {
+public class DecoderUnitTest {
     /**
      * Run length decode int test.
      */

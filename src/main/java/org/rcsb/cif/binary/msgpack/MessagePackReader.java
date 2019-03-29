@@ -1,7 +1,10 @@
 package org.rcsb.cif.binary.msgpack;
 
+import org.rcsb.cif.binary.codec.Decoder;
+
 import java.io.DataInputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -73,6 +76,7 @@ public class MessagePackReader {
         this.stream = dataInputStream;
     }
 
+    @SuppressWarnings("unchecked")
     public Map<String, Object> readMap() throws IOException {
         return (Map<String, Object>) getNext(null, 0);
     }
@@ -318,9 +322,9 @@ public class MessagePackReader {
     }
 
     private String readString(int nChar) throws IOException {
-        byte[] temp = new byte[nChar];
+        byte[] temp = Decoder.flipByteOrder(new byte[nChar], 1);
         int n = readByteArray(temp, nChar);
-        return new String(temp, 0, n, "UTF-8");
+        return new String(temp, 0, n, StandardCharsets.UTF_8);
     }
 
     private short readShort() throws IOException {
@@ -363,11 +367,6 @@ public class MessagePackReader {
 
     private double ioReadDouble() throws IOException {
         return stream.readDouble();
-    }
-
-    private static int bytesToInt(byte[] bytes, int j) {
-        return ((bytes[j++] & 0xff) | (bytes[j++] & 0xff) << 8
-                | (bytes[j++] & 0xff) << 16 | (bytes[j++] & 0xff) << 24);
     }
 
     private static float intToFloat(int x) {

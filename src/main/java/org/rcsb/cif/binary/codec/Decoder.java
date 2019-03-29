@@ -73,7 +73,7 @@ public class Decoder {
         return outArray;
     }
 
-    static byte[] flipByteOrder(byte[] data, int bytes) {
+    public static byte[] flipByteOrder(byte[] data, int bytes) {
         byte[] ret = new byte[data.length];
         for (int i = 0, n = data.length; i < n; i += bytes) {
             for (int j = 0; j < bytes; j++) {

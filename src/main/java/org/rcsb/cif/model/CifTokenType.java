@@ -1,6 +1,6 @@
-package org.rcsb.cif.text;
+package org.rcsb.cif.model;
 
-public enum CIFTokenType {
+public enum CifTokenType {
     DATA,
     SAVE,
     LOOP,
