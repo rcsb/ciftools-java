@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class Demo {
     public static void main(String[] args) throws IOException, ParsingException {
-        String pdbId = "1pga";
+        String pdbId = "1acj";
         boolean parseBinary = true;
 
         CifFile cifFile;

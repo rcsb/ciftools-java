@@ -24,7 +24,6 @@ public class BinaryCifField implements CifField {
         STRING
     }
 
-    // TODO throwing constructors are not that nice
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) throws ParsingException {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;

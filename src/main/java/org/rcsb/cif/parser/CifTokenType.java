@@ -1,6 +1,6 @@
 package org.rcsb.cif.parser;
 
-public enum CifTokenType {
+enum CifTokenType {
     DATA,
     SAVE,
     LOOP,

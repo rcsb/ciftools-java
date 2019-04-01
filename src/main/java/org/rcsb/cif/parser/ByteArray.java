@@ -16,24 +16,55 @@ import java.util.Map;
  * @author Alexander Rose <alexander.rose@weirdbyte.de>
  * @author David Sehnal <david.sehnal@gmail.com>
  */
-public class ByteArray {
-    // TODO need to respect byte order
-    private static final boolean BIG_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.BIG_ENDIAN);
+class ByteArray {
+    private static final boolean IS_NATIVE_LITTLE_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN);
     private final ByteBuffer buffer;
     private final int length;
 
-    public ByteArray(byte[] data) {
+    /**
+     * The constructor for byte arrays to handle MessagePack data. I.e., big-endian and do not care about possible byte
+     * order shenanigans.
+     * @param data the raw MessagePack data
+     */
+    ByteArray(byte[] data) {
         this.buffer = ByteBuffer.wrap(data);
+        // byte order in MessagePack is big-endian
         this.buffer.order(ByteOrder.BIG_ENDIAN);
         this.length = data.length;
     }
 
+    /**
+     * The constructor to handle binary CIF data. This time, be byte order aware. If needed (i.e. platform is
+     * little-endian) then flip byte order.
+     * @param data the raw binary CIF data
+     * @param numberOfBytes the number of bytes in the target array (i.e. 1 byte -> int8, 2 bytes -> int16, 4 bytes to
+     *                      int 32, 8 bytes to double)
+     */
+    ByteArray(byte[] data, int numberOfBytes) {
+        if (!IS_NATIVE_LITTLE_ENDIAN) {
+            data = flipByteOrder(data, numberOfBytes);
+        }
+        this.buffer = ByteBuffer.wrap(data);
+        this.buffer.order(ByteOrder.LITTLE_ENDIAN);
+        this.length = data.length;
+    }
+
+    private byte[] flipByteOrder(byte[] data, int bytes) {
+        byte[] buffer = new byte[data.length];
+        for (int i = 0, n = data.length; i < n; i += bytes) {
+            for (int j = 0; j < bytes; j++) {
+                buffer[i + bytes - j - 1] = data[i + j];
+            }
+        }
+        return buffer;
+    }
+
     @SuppressWarnings("unchecked")
-    public Map<String, Object> parseAsMap() throws ParsingException {
+    Map<String, Object> parseAsMap() throws ParsingException {
         return (Map<String, Object>) parseInternal();
     }
 
-    public int[] parseAsUint8() {
+    int[] parseAsUint8() {
         int[] out = new int[length];
         for (int i = 0; i < out.length; i++) {
             out[i] = getUint8();
@@ -41,7 +72,7 @@ public class ByteArray {
         return out;
     }
 
-    public int[] parseAsUint16() {
+    int[] parseAsUint16() {
         int[] out = new int[length / 2];
         for (int i = 0; i < out.length; i++) {
             out[i] = getUint16();
@@ -49,7 +80,7 @@ public class ByteArray {
         return out;
     }
 
-    public int[] parseAsUint32() {
+    int[] parseAsUint32() {
         int[] out = new int[length / 4];
         for (int i = 0; i < out.length; i++) {
             out[i] = getUint32();
@@ -57,7 +88,7 @@ public class ByteArray {
         return out;
     }
 
-    public int[] parseAsInt8() {
+    int[] parseAsInt8() {
         int[] out = new int[length];
         for (int i = 0; i < out.length; i++) {
             out[i] = getInt8();
@@ -65,7 +96,7 @@ public class ByteArray {
         return out;
     }
 
-    public int[] parseAsInt16() {
+    int[] parseAsInt16() {
         int[] out = new int[length / 2];
         for (int i = 0; i < out.length; i++) {
             out[i] = getInt16();
@@ -73,7 +104,7 @@ public class ByteArray {
         return out;
     }
 
-    public int[] parseAsInt32() {
+    int[] parseAsInt32() {
         int[] out = new int[length / 4];
         for (int i = 0; i < out.length; i++) {
             out[i] = getInt32();
@@ -81,7 +112,7 @@ public class ByteArray {
         return out;
     }
 
-    public double[] parseAsFloat() {
+    double[] parseAsFloat() {
         double[] out = new double[length / 4];
         for (int i = 0; i < out.length; i++) {
             out[i] = getFloat();
@@ -89,7 +120,7 @@ public class ByteArray {
         return out;
     }
 
-    public double[] parseAsDouble() {
+    double[] parseAsDouble() {
         double[] out = new double[length / 8];
         for (int i = 0; i < out.length; i++) {
             out[i] = getDouble();
@@ -103,7 +134,11 @@ public class ByteArray {
     private Map<String, Object> map(int length) throws ParsingException {
         Map<String, Object> value = new HashMap<>();
         for (int i = 0; i < length; i++) {
-            value.put(parseInternal().toString(), parseInternal());
+            Object k = parseInternal();
+            Object v = parseInternal();
+            if (k != null) {
+                value.put(k.toString(), v);
+            }
         }
         return value;
     }

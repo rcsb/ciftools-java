@@ -6,7 +6,7 @@
     <groupId>org.rcsb</groupId>
     <artifactId>ciftools-java</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <description>
         A Java library for handling text and binary CIF files.
     </description>

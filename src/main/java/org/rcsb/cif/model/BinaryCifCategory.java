@@ -30,6 +30,7 @@ public class BinaryCifCategory implements CifCategory {
         return rowCount;
     }
 
+    @SuppressWarnings("unchecked")
     private Optional<Map<String, Object>> find(String name) {
         return Stream.of(encodedFields)
                 .map(m -> (Map<String, Object>) m)
@@ -47,6 +48,7 @@ public class BinaryCifCategory implements CifCategory {
         if (decodedFields.containsKey(name)) {
             return decodedFields.get(name);
         }
+        System.out.println("decoding field: " + name);
         BinaryCifField decodedField = new BinaryCifField(optional.get());
         decodedFields.put(name, decodedField);
         return decodedField;

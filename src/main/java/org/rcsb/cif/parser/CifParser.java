@@ -26,7 +26,16 @@ public class CifParser {
 
     @SuppressWarnings("unchecked")
     private static CifFile parseBinary(byte[] data) throws ParsingException {
-        Map<String, Object> unpacked = new ByteArray(data).parseAsMap();
+        if (data.length == 0) {
+            throw new ParsingException("Cannot parse empty file.");
+        }
+
+        Map<String, Object> unpacked;
+        try {
+            unpacked = new ByteArray(data).parseAsMap();
+        } catch (ClassCastException e) {
+            throw new ParsingException("File seems to be not in binary CIF. Encountered unexpected cast.", e);
+        }
 
         String versionString = (String) unpacked.get("version");
         if (!versionString.startsWith(MIN_VERSION)) {
@@ -67,6 +76,10 @@ public class CifParser {
     }
 
     public static CifFile parseText(String data) throws ParsingException {
+        if (data.isEmpty()) {
+            throw new ParsingException("Cannot parse empty file.");
+        }
+
         final List<CifBlock> dataBlocks = new ArrayList<>();
         final TokenizerState tokenizer = new TokenizerState(data);
         String blockHeader = "";

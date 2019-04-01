@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 public class BinaryDecoder {
     /**
@@ -25,24 +24,23 @@ public class BinaryDecoder {
     private static Object decodeStep(Object data, Map<String, Object> encoding) throws ParsingException {
         switch ((String) encoding.get("kind")) {
             case "ByteArray":
-                ByteArray byteArray = new ByteArray((byte[]) data);
                 switch ((int) encoding.get("type")) {
                     case 1:
-                        return byteArray.parseAsInt8();
+                        return new ByteArray((byte[]) data, 1).parseAsInt8();
                     case 2:
-                        return byteArray.parseAsInt16();
+                        return new ByteArray((byte[]) data, 2).parseAsInt16();
                     case 3:
-                        return byteArray.parseAsInt32();
+                        return new ByteArray((byte[]) data, 4).parseAsInt32();
                     case 4:
-                        return byteArray.parseAsUint8();
+                        return new ByteArray((byte[]) data, 1).parseAsUint8();
                     case 5:
-                        return byteArray.parseAsUint16();
+                        return new ByteArray((byte[]) data, 2).parseAsUint16();
                     case 6:
-                        return byteArray.parseAsUint32();
+                        return new ByteArray((byte[]) data, 4).parseAsUint32();
                     case 32:
-                        return byteArray.parseAsFloat();
+                        return new ByteArray((byte[]) data, 4).parseAsFloat();
                     case 33:
-                        return byteArray.parseAsDouble();
+                        return new ByteArray((byte[]) data, 8).parseAsDouble();
                     default:
                         throw new ParsingException("Unsupported ByteArray type: " + encoding.get("type"));
                 }
@@ -71,7 +69,7 @@ public class BinaryDecoder {
                 integerPacking(data, encoding, false);
     }
 
-    static int[] integerPacking(int[] data, Map<String, Object> encoding, boolean isUnsigned) {
+    private static int[] integerPacking(int[] data, Map<String, Object> encoding, boolean isUnsigned) {
         int upperLimit;
         int lowerLimit = 0;
         if (isUnsigned) {
@@ -84,21 +82,16 @@ public class BinaryDecoder {
         int[] output = new int[(int) encoding.get("srcSize")];
         int i = 0;
         int j = 0;
-        // TODO strange behavior for 1acj (ArrayIndexOutOfBonds) and summing upper limit with negative values?!
-//        System.out.println("upper: " + upperLimit);
-//        System.out.println("lower: " + lowerLimit);
-//        System.out.println("actual upper: " + IntStream.of(data).max().getAsInt());
-//        System.out.println("actual lower: " + IntStream.of(data).min().getAsInt());
         while (i < n) {
             int value = 0;
             int t = data[i];
             while (isUnsigned ? t == upperLimit : t == upperLimit || t == lowerLimit) {
-//                System.out.println("merging " + t + " onto " + data[i + 1] + " prev: " + data[i - 1]);
                 value += t;
                 i++;
                 t = data[i];
             }
             value += t;
+            System.out.println("assigning " + value + " to " + j);
             output[j] = value;
             i++;
             j++;
@@ -119,7 +112,7 @@ public class BinaryDecoder {
         dataTask.put("data", byteData);
         dataTask.put("encoding", dataEncodings);
 
-        int[] offsets = offsetEncodings != null ? (int[]) decode(offsetTask) : new ByteArray(encodedOffsets).parseAsUint8();
+        int[] offsets = offsetEncodings != null ? (int[]) decode(offsetTask) : new ByteArray(encodedOffsets, 1).parseAsUint8();
         int[] indices = (int[]) decode(dataTask);
         String[] result = new String[indices.length];
         int offset = 0;
@@ -145,18 +138,11 @@ public class BinaryDecoder {
     }
 
     static int[] runLength(int[] data) {
-        // TODO screen for total number of repeats and initialize array with known size
-        // TODO discuss byte order shenanigans
+        // determine number of entries in output array
         List<Integer> output = new ArrayList<>();
         for (int i = 0; i < data.length; i += 2) {
-            int value = Integer.reverseBytes(data[i]);  // value to be repeated
-            int length = Integer.reverseBytes(data[i + 1]);  // number of repeats
-            int reversedLength = Integer.reverseBytes(length);
-            boolean shouldReverseByteOrder = length < 0 || (reversedLength > 0 && reversedLength < length);
-            if (shouldReverseByteOrder) {
-                value = Integer.reverseBytes(value);
-                length = reversedLength;
-            }
+            int value = data[i];  // value to be repeated
+            int length = data[i + 1];  // number of repeats
             for (int j = 0; j < length; ++j) {
                 output.add(value);
             }

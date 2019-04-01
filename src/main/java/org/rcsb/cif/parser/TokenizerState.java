@@ -7,7 +7,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class TokenizerState {
+class TokenizerState {
     private String data;
 
     private int position;
@@ -19,7 +19,7 @@ public class TokenizerState {
     private int tokenStart;
     private int tokenEnd;
 
-    public TokenizerState(String data) {
+    TokenizerState(String data) {
         this.data = data;
 
         this.position = 0;
@@ -31,23 +31,23 @@ public class TokenizerState {
         this.isEscaped = false;
     }
 
-    public CifTokenType getTokenType() {
+    CifTokenType getTokenType() {
         return tokenType;
     }
 
-    public int getLineNumber() {
+    int getLineNumber() {
         return lineNumber;
     }
 
-    public int getTokenStart() {
+    int getTokenStart() {
         return tokenStart;
     }
 
-    public int getTokenEnd() {
+    int getTokenEnd() {
         return tokenEnd;
     }
 
-    public String getData() {
+    String getData() {
         return data;
     }
 
@@ -323,7 +323,7 @@ public class TokenizerState {
     /**
      * Move to the next non-comment token.
      */
-    public void moveNext() {
+    void moveNext() {
         moveNextInternal();
         while (tokenType == CifTokenType.COMMENT) {
             moveNextInternal();
@@ -332,10 +332,10 @@ public class TokenizerState {
 
     /**
      * Reads a category containing a single row.
-     * @param ctx
-     * @throws ParsingException
+     * @param ctx the context values will be assigned to
+     * @throws ParsingException throws when file is malformed
      */
-    public void handleSingle(FrameContext ctx) throws ParsingException {
+    void handleSingle(FrameContext ctx) throws ParsingException {
         final int nsStart = tokenStart;
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
@@ -358,9 +358,9 @@ public class TokenizerState {
 
     /**
      * Reads a loop.
-     * @param ctx
+     * @param ctx the context values will be assigned to
      */
-    public void handleLoop(FrameContext ctx) {
+    void handleLoop(FrameContext ctx) {
         final int loopLine = lineNumber;
 
         moveNext();

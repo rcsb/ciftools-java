@@ -7,6 +7,21 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BinaryDecoderTest {
+    @Test
+    public void integerPackingTest() {
+        // TODO impl
+    }
+
+    @Test
+    public void stringArrayTest() {
+        // TODO impl
+    }
+
+    @Test
+    public void intervalQuantizationTest() {
+        // TODO impl
+    }
+
     /**
      * Run length decode int test.
      */

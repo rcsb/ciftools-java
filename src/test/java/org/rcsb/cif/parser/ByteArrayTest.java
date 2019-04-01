@@ -13,7 +13,7 @@ public class ByteArrayTest {
     public final void parseInt8() {
         int[] testIntArray = { -12, 123, -24 };
         byte[] byteArray = { (byte) -12, (byte) 123, (byte) -24 };
-        int[] intArray = new ByteArray(byteArray).parseAsInt8();
+        int[] intArray = new ByteArray(byteArray, 1).parseAsInt8();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
@@ -24,7 +24,7 @@ public class ByteArrayTest {
     public final void parseInt16(){
         int[] testIntArray = { 1000, -1002, 546 };
         byte[] byteArray = getByteArray(testIntArray,2);
-        int[] intArray = new ByteArray(byteArray).parseAsInt16();
+        int[] intArray = new ByteArray(byteArray, 2).parseAsInt16();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
@@ -35,7 +35,7 @@ public class ByteArrayTest {
     public final void parseInt32() {
         int[] testIntArray = { -32403, 11200, 100090 };
         byte[] byteArray = getByteArray(testIntArray,4);
-        int[] intArray = new ByteArray(byteArray).parseAsInt32();
+        int[] intArray = new ByteArray(byteArray, 4).parseAsInt32();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
@@ -61,9 +61,7 @@ public class ByteArrayTest {
             else {
                 intBytes = new byte[numBytes];
             }
-            for (int j = 0; j < numBytes; j++) {
-                outBytes[i * numBytes + j] = intBytes[j];
-            }
+            System.arraycopy(intBytes, 0, outBytes, i * numBytes, numBytes);
         }
         return outBytes;
     }
@@ -72,7 +70,7 @@ public class ByteArrayTest {
     public void parseAsUint8() {
         int[] testIntArray = { 244, 123, 232 };
         byte[] byteArray = { (byte) -12, (byte) 123, (byte) -24 };
-        int[] intArray = new ByteArray(byteArray).parseAsUint8();
+        int[] intArray = new ByteArray(byteArray, 1).parseAsUint8();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
@@ -80,7 +78,7 @@ public class ByteArrayTest {
     public void parseAsUint16() {
         int[] testIntArray = { 1000, 64534, 546 };
         byte[] byteArray = getByteArray(testIntArray,2);
-        int[] intArray = new ByteArray(byteArray).parseAsUint16();
+        int[] intArray = new ByteArray(byteArray, 2).parseAsUint16();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
@@ -88,7 +86,7 @@ public class ByteArrayTest {
     public void parseAsUint32() {
         int[] testIntArray = { Integer.MAX_VALUE - 32403, 11200, 100090 };
         byte[] byteArray = getByteArray(testIntArray,4);
-        int[] intArray = new ByteArray(byteArray).parseAsUint32();
+        int[] intArray = new ByteArray(byteArray, 4).parseAsUint32();
         Assert.assertArrayEquals(testIntArray, intArray);
     }
 
