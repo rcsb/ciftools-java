@@ -14,6 +14,7 @@ public class TestHelper {
 
     @Test
     public void shouldAcquireInputStream() {
-        Assert.assertNotNull("could not acquire inputstream of local resource", getInputStream("cif/1acj.cif"));
+        // TODO why you no work?
+        Assert.assertNotNull("Could not acquire inputstream of local resource", getInputStream("cif/1acj.cif"));
     }
 }

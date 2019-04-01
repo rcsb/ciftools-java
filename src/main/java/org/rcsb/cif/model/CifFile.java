@@ -1,8 +1,7 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.model.CifBlock;
-
 import java.util.List;
+import java.util.stream.Stream;
 
 public class CifFile {
     private final List<CifBlock> blocks;
@@ -19,6 +18,10 @@ public class CifFile {
 
     public List<CifBlock> getBlocks() {
         return blocks;
+    }
+
+    public Stream<CifBlock> blocks() {
+        return blocks.stream();
     }
 
     public String getName() {

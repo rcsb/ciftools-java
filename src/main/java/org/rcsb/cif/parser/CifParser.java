@@ -1,25 +1,72 @@
-package org.rcsb.cif;
+package org.rcsb.cif.parser;
 
 import org.rcsb.cif.model.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.*;
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CifParser {
-    public static CifFile parse(String data) throws IOException, ParsingException {
-        return parse(new ByteArrayInputStream(StandardCharsets.UTF_16.encode(data).array()));
+    private static final String MIN_VERSION = "0.3";
+
+    public static CifFile parseBinary(InputStream inputStream) throws ParsingException, IOException {
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[1024];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        buffer.flush();
+        byte[] byteArray = buffer.toByteArray();
+
+        return parseBinary(byteArray);
     }
 
-    public static CifFile parse(InputStream inputStream) throws IOException, ParsingException {
-//        DataInputStream dataInputStream = new DataInputStream(inputStream);
-        return null;
+    @SuppressWarnings("unchecked")
+    private static CifFile parseBinary(byte[] data) throws ParsingException {
+        Map<String, Object> unpacked = new ByteArray(data).parseAsMap();
+
+        String versionString = (String) unpacked.get("version");
+        if (!versionString.startsWith(MIN_VERSION)) {
+            throw new ParsingException("Unsupported format version. Current " + versionString +
+                    ", required " + MIN_VERSION + ".");
+        }
+
+        List<CifBlock> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
+                .map(entry -> {
+                    Map<String, Object> map = (Map<String, Object>) entry;
+                    String header = (String) map.get("header");
+                    Map<String, CifCategory> categories = new LinkedHashMap<>();
+
+                    for (Object o : (Object[]) map.get("categories")) {
+                        Map<String, Object> cat = (Map<String, Object>) o;
+                        String name = (String) cat.get("name");
+                        categories.put(name.substring(1), createCategory(cat));
+                    }
+
+                    return new CifBlock(categories, header, new ArrayList<>());
+                })
+                .collect(Collectors.toList());
+
+        return new CifFile(dataBlocks);
     }
 
-    public static CifFile parseText(String data) throws IOException, ParsingException {
+    private static CifCategory createCategory(Map<String, Object> encodedCategory) {
+        String name = (String) encodedCategory.get("name");
+        int rowCount = (int) encodedCategory.get("rowCount");
+        Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+        return new BinaryCifCategory(name, rowCount, encodedFields);
+    }
+
+    public static CifFile parseText(InputStream inputStream) throws ParsingException {
+        return parseText(new BufferedReader(new InputStreamReader(inputStream))
+                .lines()
+                .collect(Collectors.joining(System.lineSeparator())));
+    }
+
+    public static CifFile parseText(String data) throws ParsingException {
         final List<CifBlock> dataBlocks = new ArrayList<>();
         final TokenizerState tokenizer = new TokenizerState(data);
         String blockHeader = "";

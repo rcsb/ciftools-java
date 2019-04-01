@@ -1,9 +1,10 @@
 package org.rcsb.cif.model;
 
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class CifFrame {
-    private String header;
+    private final String header;
     /**
      * Implementation does not use list/array of category names to ensure order. Rather strictly depends on the proper
      * map implementation. Here {@link java.util.LinkedHashMap} is used.
@@ -21,5 +22,9 @@ public class CifFrame {
 
     public Map<String, CifCategory> getCategories() {
         return categories;
+    }
+
+    public Stream<CifCategory> categories() {
+        return categories.values().stream();
     }
 }

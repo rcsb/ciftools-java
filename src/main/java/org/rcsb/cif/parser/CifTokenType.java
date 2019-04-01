@@ -1,4 +1,4 @@
-package org.rcsb.cif.model;
+package org.rcsb.cif.parser;
 
 public enum CifTokenType {
     DATA,
