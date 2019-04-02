@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.parser.ParsingException;
+import org.rcsb.cif.reader.ParsingException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -48,7 +48,6 @@ public class BinaryCifCategory implements CifCategory {
         if (decodedFields.containsKey(name)) {
             return decodedFields.get(name);
         }
-        System.out.println("decoding field: " + name);
         BinaryCifField decodedField = new BinaryCifField(optional.get());
         decodedFields.put(name, decodedField);
         return decodedField;
