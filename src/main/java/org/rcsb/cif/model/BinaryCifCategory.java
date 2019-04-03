@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.reader.ParsingException;
+import org.rcsb.cif.ParsingException;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.reader.ParsingException;
+import org.rcsb.cif.ParsingException;
 
 public interface CifCategory {
     String getName();

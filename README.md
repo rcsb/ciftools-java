@@ -46,5 +46,5 @@ class Demo {
 
 This implementation is based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
-- [Mol*](molstar.github.io) by Alexander Rose and David Sehnal
-- [MMTF](http://mmtf.rcsb.org/)
+- [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
+- [MMTF](https://mmtf.rcsb.org/)

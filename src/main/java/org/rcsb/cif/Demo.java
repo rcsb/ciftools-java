@@ -4,8 +4,6 @@ import org.rcsb.cif.model.CifBlock;
 import org.rcsb.cif.model.CifCategory;
 import org.rcsb.cif.model.CifField;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.reader.CifReader;
-import org.rcsb.cif.reader.ParsingException;
 
 import java.io.IOException;
 import java.io.InputStream;

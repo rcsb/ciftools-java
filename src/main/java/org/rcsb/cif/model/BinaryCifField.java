@@ -1,8 +1,7 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.reader.ParsingException;
-import org.rcsb.cif.reader.binary.codec.Codec;
-import org.rcsb.cif.reader.binary.codec.CodecFactory;
+import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.binary.old.codec.Codec;
 
 import java.util.Map;
 import java.util.stream.DoubleStream;
@@ -28,8 +27,8 @@ public class BinaryCifField implements CifField {
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) throws ParsingException {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
-        this.mask = hasMask ? (int[]) CodecFactory.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
-        Object data = CodecFactory.decode((Map<String, Object>) encodedColumn.get("data"));
+        this.mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
+        Object data = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
 
         // decide data type and store in a type-safe way
         if (data instanceof int[]) {
