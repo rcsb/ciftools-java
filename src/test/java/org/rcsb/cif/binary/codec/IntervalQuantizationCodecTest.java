@@ -30,4 +30,6 @@ public class IntervalQuantizationCodecTest {
 
         assertArrayEquals(expected.getArray(), encodedData.getData().getArray());
     }
+
+    // no round-trip or decode test as codec is not lossless
 }

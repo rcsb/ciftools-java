@@ -37,6 +37,7 @@ public class CodecData<T> {
         return codecData;
     }
 
+    // TODO could use a better/safer builder which cares about all parameters being present and types being compatible
     public static class CodecDataBuilder<T> {
         private final T data;
         private final Map<String, Object> parameters;
