@@ -15,7 +15,7 @@ public class IntegerPackingCodecTest {
     public void testForward() {
         // create test case
         Int32Array plainArray = new Int32Array(-1, 2, -100, 42, 126);
-        CodecData<Int32Array> plainData = CodecData.of(plainArray).create(FixedPointCodec.KIND);
+        CodecData<Int32Array> plainData = CodecData.of(plainArray).create(IntegerPackingCodec.KIND);
 
         // encode
         CodecData<IntArray> encodedData = INTEGER_PACKING_CODEC.encodeInternally(plainData);
