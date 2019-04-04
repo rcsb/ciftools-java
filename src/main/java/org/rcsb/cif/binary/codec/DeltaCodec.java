@@ -21,7 +21,7 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
             throw new IllegalArgumentException("Only signed integer types can be encoded using delta encoding.");
         }
 
-        int srcType = 0;
+        int srcType;
         if (data.getParameters().get("srcType") == null) {
             input = new Int32Array(input.getArray());
             srcType = Int32Array.TYPE;

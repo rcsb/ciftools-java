@@ -5,17 +5,17 @@ public interface IntArray extends NumberArray<int[]> {
 
     static IntArray get(int srcType, int length) {
         switch (srcType) {
-            case 1:
+            case Int8Array.TYPE:
                 return new Int8Array(new int[length]);
-            case 2:
+            case Int16Array.TYPE:
                 return new Int16Array(new int[length]);
-            case 3:
+            case Int32Array.TYPE:
                 return new Int32Array(new int[length]);
-            case 4:
+            case Uint8Array.TYPE:
                 return new Uint8Array(new int[length]);
-            case 5:
+            case Uint16Array.TYPE:
                 return new Uint16Array(new int[length]);
-            case 6:
+            case Uint32Array.TYPE:
                 return new Uint32Array(new int[length]);
             default:
                 throw new IllegalArgumentException("Unknown array type " + srcType);

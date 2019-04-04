@@ -10,6 +10,7 @@ public class Float32Array implements FloatArray {
     public static final int TYPE = 32;
     private final double[] array;
 
+    // TODO array constructors can be mistaken for init(length)
     public Float32Array(double... array) {
         this.array = array;
     }
