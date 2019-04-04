@@ -7,7 +7,7 @@ import java.io.UncheckedIOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /**
@@ -45,7 +45,7 @@ public class MessagePackCodec {
             int length = value.getBytes(StandardCharsets.UTF_8).length;
             // fix str
             if (length < 0x20) {
-                stream.writeByte(length != 0 ? length : 0xA0);
+                stream.writeByte(length | 0xA0);
             // str 8
             } else if (length < 0x100) {
                 stream.writeByte(0xD9);
@@ -59,7 +59,7 @@ public class MessagePackCodec {
                 stream.writeByte(0xDB);
                 stream.writeInt(length);
             }
-            stream.writeUTF(value);
+            writeUTF(value, stream);
             return;
         }
 
@@ -135,6 +135,7 @@ public class MessagePackCodec {
                 stream.writeByte(0xD2);
                 stream.writeInt(value);
             }
+            return;
         }
 
         // null
@@ -151,8 +152,7 @@ public class MessagePackCodec {
         }
 
         // Container Types
-        int length = 0;
-        int size = 0;
+        int length;
         boolean isArray = input.getClass().isArray();
 
         if (isArray) {
@@ -162,7 +162,7 @@ public class MessagePackCodec {
         }
 
         if (length < 0x10) {
-            stream.writeByte(length != 0 ? length : isArray ? 0x90 : 0x80);
+            stream.writeByte(length | (isArray ? 0x90 : 0x80));
         } else if (length < 0x10000) {
             stream.writeByte(isArray ? 0xDC : 0xDE);
             stream.writeShort(length);
@@ -181,6 +181,34 @@ public class MessagePackCodec {
             for (Object key : value.keySet()) {
                 encodeInternal(key, stream);
                 encodeInternal(value.get(key), stream);
+            }
+        }
+    }
+
+    private void writeUTF(String data, DataOutputStream stream) throws IOException {
+        for (int i = 0; i < data.length(); i++) {
+            int codePoint = Character.codePointAt(data, i);
+
+            // one byte of UTF-8
+            if (codePoint < 0x80) {
+                stream.writeByte(codePoint & 0x7f);
+            // two bytes of UTF-8
+            } else if (codePoint < 0x800) {
+                stream.writeByte(codePoint >>> 6 & 0x1f | 0xc0);
+                stream.writeByte(codePoint & 0x3f | 0x80);
+            // three bytes of UTF-8
+            } else if (codePoint < 0x10000) {
+                stream.writeByte(codePoint >>> 12 & 0x0f | 0xe0);
+                stream.writeByte(codePoint >>> 6 & 0x3f | 0x80);
+                stream.writeByte(codePoint & 0x3f | 0x80);
+            // four bytes of UTF-8
+            } else if (codePoint < 0x110000) {
+                stream.writeByte(codePoint >>> 18 & 0x07 | 0xf0);
+                stream.writeByte(codePoint >>> 12 & 0x3f | 0x80);
+                stream.writeByte(codePoint >>> 6 & 0x3f | 0x80);
+                stream.writeByte(codePoint & 0x3f | 0x80);
+            } else {
+                throw new IllegalArgumentException("Bad codepoint " + codePoint);
             }
         }
     }
@@ -291,7 +319,7 @@ public class MessagePackCodec {
     }
 
     private Map<String, Object> map(ByteBuffer buffer, int length) {
-        Map<String, Object> value = new HashMap<>();
+        Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
             Object k = decodeInternal(buffer);
             Object v = decodeInternal(buffer);
