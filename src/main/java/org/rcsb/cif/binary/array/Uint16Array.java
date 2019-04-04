@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class Uint16Array extends Int16Array {
     private static final int NUMBER_OF_BYTES = 2;
-    private static final int TYPE = 5;
+    public static final int TYPE = 5;
 
     public Uint16Array(int... array) {
         super(array);

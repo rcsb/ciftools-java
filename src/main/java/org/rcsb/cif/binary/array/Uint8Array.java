@@ -5,7 +5,7 @@ import java.util.Arrays;
 
 public class Uint8Array extends Int8Array {
     private static final int NUMBER_OF_BYTES = 1;
-    private static final int TYPE = 4;
+    public static final int TYPE = 4;
 
     public Uint8Array(int... array) {
         super(array);

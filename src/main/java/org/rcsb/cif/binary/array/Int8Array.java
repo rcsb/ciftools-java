@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 
 public class Int8Array implements IntArray {
     private static final int NUMBER_OF_BYTES = 1;
-    private static final int TYPE = 1;
+    public static final int TYPE = 1;
     protected final int[] array;
 
     public Int8Array(int... array) {

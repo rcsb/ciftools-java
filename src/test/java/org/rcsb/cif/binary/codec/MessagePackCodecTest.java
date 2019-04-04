@@ -138,7 +138,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testForwards() {
+    public void testForward() {
         // create test case
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("S1", "Lorem");
@@ -169,7 +169,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testBackwards() throws IOException {
+    public void testBackward() throws IOException {
         // obtain example file
         byte[] bytes = TestHelper.getBytes("bcif/1pga.bcif");
 

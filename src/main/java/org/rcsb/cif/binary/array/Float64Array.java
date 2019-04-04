@@ -7,7 +7,7 @@ import java.util.stream.DoubleStream;
 
 public class Float64Array implements FloatArray {
     private static final int NUMBER_OF_BYTES = 8;
-    private static final int TYPE = 33;
+    public static final int TYPE = 33;
     private final double[] array;
 
     public Float64Array(double... array) {

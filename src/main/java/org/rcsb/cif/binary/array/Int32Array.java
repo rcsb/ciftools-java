@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class Int32Array implements IntArray {
     private static final int NUMBER_OF_BYTES = 4;
-    private static final int TYPE = 3;
+    public static final int TYPE = 3;
     protected final int[] array;
 
     public Int32Array(int... array) {

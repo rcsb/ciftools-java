@@ -7,7 +7,7 @@ import java.util.stream.DoubleStream;
 
 public class Float32Array implements FloatArray {
     private static final int NUMBER_OF_BYTES = 4;
-    private static final int TYPE = 32;
+    public static final int TYPE = 32;
     private final double[] array;
 
     public Float32Array(double... array) {

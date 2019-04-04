@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 
 public class Int16Array implements IntArray {
     private static final int NUMBER_OF_BYTES = 2;
-    private static final int TYPE = 2;
+    public static final int TYPE = 2;
     protected final int[] array;
 
     public Int16Array(int... array) {
