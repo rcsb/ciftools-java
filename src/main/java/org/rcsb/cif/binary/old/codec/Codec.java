@@ -89,7 +89,7 @@ public interface Codec<P, E, M extends CodecParameters> {
             case "Delta":
                 return DELTA.decode(new CodecData<>((int[]) data,
                         new DeltaParameters((int) encoding.get("origin"))));
-            case "IntegerPacking":
+            case "IntegerPackingCodec":
                 return INTEGER_PACKING.decode(new CodecData<>((int[]) data,
                         new IntegerPackingParameters((int) encoding.get("byteCount"), (boolean) encoding.get("isUnsigned"), (int) encoding.get("srcSize"))));
             case "StringArray":

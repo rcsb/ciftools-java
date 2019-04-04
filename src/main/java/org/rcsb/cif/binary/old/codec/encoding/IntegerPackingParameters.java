@@ -27,6 +27,6 @@ public class IntegerPackingParameters implements CodecParameters {
 
     @Override
     public String getKind() {
-        return "IntegerPacking";
+        return "IntegerPackingCodec";
     }
 }

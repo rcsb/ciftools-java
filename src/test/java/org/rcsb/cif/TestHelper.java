@@ -6,7 +6,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -22,9 +21,10 @@ public class TestHelper {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
         byte[] data = new byte[1024];
-        InputStream inputStream = getInputStream(localPath);
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
+        try (InputStream inputStream = getInputStream(localPath)) {
+            while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+                buffer.write(data, 0, nRead);
+            }
         }
 
         buffer.flush();

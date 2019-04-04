@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary;
 
+import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
-import org.rcsb.cif.binary.old.codec.Codec;
 import org.rcsb.cif.model.BinaryCifCategory;
 import org.rcsb.cif.model.CifBlock;
 import org.rcsb.cif.model.CifCategory;

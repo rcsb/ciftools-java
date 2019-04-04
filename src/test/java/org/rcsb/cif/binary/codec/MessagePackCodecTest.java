@@ -13,6 +13,10 @@ import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.convertToIntArray;
 import static org.rcsb.cif.binary.codec.MessagePackCodec.MESSAGE_PACK_CODEC;
 
+/**
+ * - Obtain MessagePacked data at: https://msgpack.org/
+ * - Always use a sorted Map implementation (e.g. LinkedHashMap) as order matters.
+ */
 public class MessagePackCodecTest {
     @Test
     public void encodeString() {
