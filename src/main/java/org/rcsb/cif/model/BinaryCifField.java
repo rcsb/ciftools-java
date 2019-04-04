@@ -1,6 +1,8 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.binary.array.FloatArray;
+import org.rcsb.cif.binary.array.IntArray;
 import org.rcsb.cif.binary.codec.Codec;
 
 import java.util.Map;
@@ -27,19 +29,19 @@ public class BinaryCifField implements CifField {
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) throws ParsingException {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
-        this.mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
+        this.mask = hasMask ? ((IntArray) Codec.decode((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;
         Object data = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
 
         // decide data type and store in a type-safe way
-        if (data instanceof int[]) {
-            this.intData = (int[]) data;
+        if (data instanceof IntArray) {
+            this.intData = ((IntArray) data).getArray();
             this.doubleData = null;
             this.stringData = null;
             this.dataType = DataType.INT;
             this.rowCount = intData.length;
-        } else if (data instanceof double[]) {
+        } else if (data instanceof FloatArray) {
             this.intData = null;
-            this.doubleData = (double[]) data;
+            this.doubleData = ((FloatArray) data).getArray();
             this.stringData = null;
             this.dataType = DataType.DOUBLE;
             this.rowCount = doubleData.length;

@@ -20,9 +20,10 @@ import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 
 public class CifReaderTest {
+    // TODO create round-trip tests - forward and backward
+
     @SuppressWarnings("unchecked")
     private static final Map<String, List<Object>> testCases = Stream.of(
-            // TODO actually find meaningful test cases of files with special needs
             new Object[] { "1acj", Stream.of(-12.503, 535, "1ACJ").collect(Collectors.toList()) },
             new Object[] { "1pga", Stream.of(26.778, 56, "1PGA").collect(Collectors.toList()) }
     ).collect(Collectors.toMap((Object[] e) -> (String) e[0], (Object[] e) -> (List<Object>) e[1]));
