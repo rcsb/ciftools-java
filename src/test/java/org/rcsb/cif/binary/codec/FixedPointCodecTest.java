@@ -14,7 +14,8 @@ public class FixedPointCodecTest {
     public void testForward() {
         // create test case
         int factor = 1000;
-        FloatArray plainArray = new Float64Array(-1, 2.04, -100.5893, 42, Integer.MAX_VALUE / factor, Integer.MIN_VALUE / factor);
+        FloatArray plainArray = new Float64Array(-1, 2.04, -100.5893, 42, Integer.MAX_VALUE / (double) factor,
+                Integer.MIN_VALUE / (double) factor);
         CodecData<FloatArray> plainData = CodecData.of(plainArray)
                 .addParameter("factor", factor)
                 .addParameter("srcType", Float64Array.TYPE)

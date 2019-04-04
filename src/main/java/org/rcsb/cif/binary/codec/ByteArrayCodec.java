@@ -18,6 +18,7 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
 
     @Override
     protected CodecData<byte[]> encodeInternally(CodecData codecData) {
+        // TODO method to ensure all fields needed in the parameters are provided
         NumberArray data = (NumberArray) codecData.getData();
         byte[] array = ensureOrder(data.toByteArray(), data.getNumberOfBytes(), ByteOrder.LITTLE_ENDIAN);
         return CodecData.of(array)
