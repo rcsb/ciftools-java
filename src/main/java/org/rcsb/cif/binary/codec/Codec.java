@@ -7,6 +7,7 @@ import java.util.function.Function;
 import java.util.stream.DoubleStream;
 
 public abstract class Codec<PLAIN, ENCODED> {
+    public static final String CODEC_NAME = "ciftools-java";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
 

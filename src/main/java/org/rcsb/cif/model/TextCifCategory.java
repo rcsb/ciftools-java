@@ -1,6 +1,9 @@
 package org.rcsb.cif.model;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class TextCifCategory implements CifCategory {
@@ -17,14 +20,6 @@ public class TextCifCategory implements CifCategory {
         return name;
     }
 
-    public Map<String, CifField> getFields() {
-        return fields;
-    }
-
-    public Stream<CifField> fields() {
-        return fields.values().stream();
-    }
-
     @Override
     public CifField getField(String name) {
         return fields.get(name);
@@ -32,7 +27,15 @@ public class TextCifCategory implements CifCategory {
 
     @Override
     public int getRowCount() {
-        return fields().findFirst().map(CifField::getRowCount).orElse(0);
+        return fields.values()
+                .stream()
+                .findFirst()
+                .map(CifField::getRowCount)
+                .orElse(0);
     }
 
+    @Override
+    public List<String> getFieldNames() {
+        return new ArrayList<>(fields.keySet());
+    }
 }

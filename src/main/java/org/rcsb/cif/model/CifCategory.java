@@ -1,11 +1,13 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.ParsingException;
+import java.util.List;
 
 public interface CifCategory {
     String getName();
 
-    CifField getField(String name) throws ParsingException;
+    CifField getField(String name);
+
+    List<String> getFieldNames();
 
     int getRowCount();
 }

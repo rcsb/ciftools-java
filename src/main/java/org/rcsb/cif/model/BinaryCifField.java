@@ -20,14 +20,8 @@ public class BinaryCifField implements CifField {
     private final DataType dataType;
     private final boolean hasMask;
 
-    public enum DataType {
-        INT,
-        DOUBLE,
-        STRING
-    }
-
     @SuppressWarnings("unchecked")
-    public BinaryCifField(Map<String, Object> encodedColumn) throws ParsingException {
+    public BinaryCifField(Map<String, Object> encodedColumn) {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
         this.mask = hasMask ? ((IntArray) Codec.decodeMap((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;
         Object data = Codec.decodeMap((Map<String, Object>) encodedColumn.get("data"));
@@ -37,30 +31,31 @@ public class BinaryCifField implements CifField {
             this.intData = ((IntArray) data).getArray();
             this.doubleData = null;
             this.stringData = null;
-            this.dataType = DataType.INT;
+            this.dataType = DataType.Int;
             this.rowCount = intData.length;
         } else if (data instanceof FloatArray) {
             this.intData = null;
             this.doubleData = ((FloatArray) data).getArray();
             this.stringData = null;
-            this.dataType = DataType.DOUBLE;
+            this.dataType = DataType.Float;
             this.rowCount = doubleData.length;
         } else if (data instanceof String[]) {
             this.intData = null;
             this.doubleData = null;
             this.stringData = (String[]) data;
-            this.dataType = DataType.STRING;
+            this.dataType = DataType.Str;
             this.rowCount = stringData.length;
         } else {
             throw new ParsingException("novel data type: " + data.getClass().getSimpleName());
         }
-        this.isNumeric = dataType == DataType.INT || dataType == DataType.DOUBLE;
+        this.isNumeric = dataType == DataType.Int || dataType == DataType.Float;
     }
 
     public boolean isNumeric() {
         return isNumeric;
     }
 
+    @Override
     public DataType getDataType() {
         return dataType;
     }
@@ -77,17 +72,17 @@ public class BinaryCifField implements CifField {
 
     @Override
     public String getString(int row) {
-        if (dataType == DataType.STRING) {
+        if (dataType == DataType.Str) {
             return !hasMask || mask[row] == ValueKind.PRESENT.ordinal() ? stringData[row] : "";
         }
         return !hasMask || mask[row] == ValueKind.PRESENT.ordinal() ?
-                String.valueOf(dataType == DataType.INT ? intData[row] : doubleData[row]) : "";
+                String.valueOf(dataType == DataType.Int ? intData[row] : doubleData[row]) : "";
     }
 
     @Override
     public int getInt(int row) {
         if (isNumeric) {
-            return dataType == DataType.INT ? intData[row] : (int) doubleData[row];
+            return dataType == DataType.Int ? intData[row] : (int) doubleData[row];
         }
         return Integer.parseInt(stringData[row]);
     }
@@ -95,7 +90,7 @@ public class BinaryCifField implements CifField {
     @Override
     public double getDouble(int row) {
         if (isNumeric) {
-            return dataType == DataType.INT ? intData[row] : doubleData[row];
+            return dataType == DataType.Int ? intData[row] : doubleData[row];
         }
         return Double.parseDouble(stringData[row]);
     }
@@ -111,12 +106,12 @@ public class BinaryCifField implements CifField {
     @Override
     public boolean areEqualByValue(int rowA, int rowB) {
         switch (dataType) {
-            case INT:
+            case Int:
                 return intData[rowA] == intData[rowB];
-            case DOUBLE:
+            case Float:
                 // TODO address rounding errors?
                 return doubleData[rowA] == doubleData[rowB];
-            case STRING:
+            case Str:
                 return stringData[rowA].equals(stringData[rowB]);
             default:
                 throw new RuntimeException("Unrecognized data type.");
@@ -132,7 +127,7 @@ public class BinaryCifField implements CifField {
     @Override
     public IntStream ints() {
         if (isNumeric) {
-            return dataType == DataType.INT ? IntStream.of(intData) :
+            return dataType == DataType.Int ? IntStream.of(intData) :
                     DoubleStream.of(doubleData).mapToInt(d -> (int) d);
         }
         return Stream.of(stringData)
@@ -142,7 +137,7 @@ public class BinaryCifField implements CifField {
     @Override
     public DoubleStream doubles() {
         if (isNumeric) {
-            return dataType == DataType.INT ? IntStream.of(intData).mapToDouble(i -> i) :
+            return dataType == DataType.Int ? IntStream.of(intData).mapToDouble(i -> i) :
                     DoubleStream.of(doubleData);
         }
         return Stream.of(stringData)

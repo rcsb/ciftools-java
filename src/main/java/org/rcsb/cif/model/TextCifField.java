@@ -9,6 +9,7 @@ public class TextCifField implements CifField {
     private final String data;
     private final int[] start;
     private final int[] end;
+    private DataType dataType;
 
     public TextCifField(String data, int startToken, int endToken) {
         this(data, new int[] { startToken }, new int[] { endToken });
@@ -110,5 +111,43 @@ public class TextCifField implements CifField {
             }
         }
         return true;
+    }
+
+    @Override
+    public DataType getDataType() {
+        // try to be lazy and determine type only when requested
+        if (dataType == null) {
+            dataType = determineDataType();
+        }
+        return dataType;
+    }
+
+    private DataType determineDataType() {
+        // might be ambiguous, so the most restrictive type (i.e. int) is returned
+        if (strings().allMatch(this::isInt)) {
+            return DataType.Int;
+        } else if (strings().allMatch(this::isDouble)) {
+            return DataType.Float;
+        } else {
+            return DataType.Str;
+        }
+    }
+
+    private boolean isInt(String str) {
+        try {
+            Integer.parseInt(str);
+            return !str.contains(".");
+        } catch (NumberFormatException e) {
+            return false;
+        }
+    }
+
+    private boolean isDouble(String str) {
+        try {
+            Double.parseDouble(str);
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
+        }
     }
 }

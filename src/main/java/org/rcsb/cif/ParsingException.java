@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-public class ParsingException extends Exception {
+public class ParsingException extends RuntimeException {
     public ParsingException(String message) {
         super(message);
     }

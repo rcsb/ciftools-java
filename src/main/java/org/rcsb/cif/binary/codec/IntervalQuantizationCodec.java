@@ -53,8 +53,7 @@ public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
             if (v <= min) {
                 outputArray[i] = 0;
             } else if (v >= max) {
-                // TODO difference to reference impl at https://github.com/molstar/molstar-proto/blob/50ebd5467cbf80da6898bf307a8062f9cd300b6d/src/mol-io/common/binary-cif/array-encoder.ts#L175
-                outputArray[i] = max;
+                outputArray[i] = numSteps - 1;
             } else {
                 outputArray[i] = delta == 0 ? 0 : (int) Math.round((v - min) / delta);
             }
