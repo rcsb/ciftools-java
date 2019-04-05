@@ -31,7 +31,7 @@ public class Demo {
         CifField cartn_x = _atom_site.getField("Cartn_x");
 
         // print x-coordinates of the first 10 atoms
-        cartn_x.doubles().limit(10).forEach(System.out::println);
+        cartn_x.floats().limit(10).forEach(System.out::println);
 
         // print the last residue sequence id
         CifField label_seq_id = _atom_site.getField("label_seq_id");

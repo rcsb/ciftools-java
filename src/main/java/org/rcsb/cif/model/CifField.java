@@ -12,7 +12,7 @@ public interface CifField {
 
     String getString(int row);
     int getInt(int row);
-    double getDouble(int row);
+    double getFloat(int row);
 
     ValueKind getValueKind(int row);
 
@@ -20,5 +20,7 @@ public interface CifField {
 
     Stream<String> strings();
     IntStream ints();
-    DoubleStream doubles();
+    DoubleStream floats();
+
+    String getName();
 }

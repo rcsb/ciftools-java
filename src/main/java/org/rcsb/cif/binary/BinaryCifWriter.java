@@ -10,10 +10,11 @@ import org.rcsb.cif.binary.codec.CodecData;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.*;
 
-import java.io.ByteArrayOutputStream;
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.*;
+import java.io.InputStream;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 import static org.rcsb.cif.binary.codec.MessagePackCodec.MESSAGE_PACK_CODEC;
@@ -26,7 +27,7 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     @Override
-    public OutputStream write(CifFile cifFile) throws IOException {
+    public InputStream write(CifFile cifFile) throws IOException {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", Codec.CODEC_NAME);
@@ -35,10 +36,9 @@ public class BinaryCifWriter implements CifWriter {
         int blockCount = 0;
         file.put("dataBlocks", blocks);
 
-        // TODO filter support
         for (CifBlock cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
-            block.put("header", cifBlock.getHeader().replaceAll("[ \n\t]", "").toUpperCase());
+            block.put("header", CifWriter.formatHeader(cifBlock.getHeader()));
             Object[] categories = new Object[cifBlock.getCategories().size()];
             int categoryCount = 0;
             block.put("categories", categories);
@@ -62,10 +62,7 @@ public class BinaryCifWriter implements CifWriter {
         }
 
         byte[] ret = messagePackCodec.encode(file);
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        outputStream.write(ret);
-
-        return outputStream;
+        return new ByteArrayInputStream(ret);
     }
 
     private Map<String, Object> classifyField(CifField cifField, String name) {
@@ -79,7 +76,7 @@ public class BinaryCifWriter implements CifWriter {
             field.put("valueKind", null); // TODO handle value kind
             return field;
         } else if (type == DataType.Float) {
-            double[] values = cifField.doubles().toArray();
+            double[] values = cifField.floats().toArray();
             field.put("type", "Float");
             field.put("value", values);
             field.put("valueKind", null); // TODO handle value kind

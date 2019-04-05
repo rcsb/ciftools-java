@@ -349,7 +349,7 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            fields.put(fieldName, new TextCifField(data, tokenStart, tokenEnd));
+            fields.put(fieldName, new TextCifField(data, tokenStart, tokenEnd, fieldName));
             moveNext();
         }
 
@@ -394,7 +394,8 @@ class TokenizerState {
         for (int i = 0; i < start.size(); i++) {
             fields.put(fieldNames.get(i), new TextCifField(data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
-                    end.get(i).stream().mapToInt(j -> j).toArray()));
+                    end.get(i).stream().mapToInt(j -> j).toArray(),
+                    fieldNames.get(i)));
         }
 
         String catName = name.substring(1);

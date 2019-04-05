@@ -1,9 +1,6 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.CifReader;
-import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.TestHelper;
 import org.rcsb.cif.model.CifBlock;
 import org.rcsb.cif.model.CifCategory;
 import org.rcsb.cif.model.CifField;
@@ -55,7 +52,7 @@ public class CifReaderTest {
     private void checkParsedEntity(CifFile cifFile, List<Object> testData) throws ParsingException {
         CifBlock data = cifFile.getBlocks().get(0);
         CifCategory _atom_site = data.getCategory("atom_site");
-        double firstCoordinate = _atom_site.getField("Cartn_x").getDouble(0);
+        double firstCoordinate = _atom_site.getField("Cartn_x").getFloat(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);
 
         // the last residue sequence id

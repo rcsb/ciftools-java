@@ -5,19 +5,26 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.text.TextCifWriter;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 
 public interface CifWriter {
-    OutputStream write(CifFile cifFile) throws IOException;
+    InputStream write(CifFile cifFile) throws IOException;
 
     CifWriter BINARY_INSTANCE = new BinaryCifWriter();
     CifWriter TEXT_INSTANCE = new TextCifWriter();
 
-    static OutputStream writeBinary(CifFile cifFile) throws IOException {
+    // TODO impl filter and formatter
+
+    static InputStream writeBinary(CifFile cifFile) throws IOException {
         return BINARY_INSTANCE.write(cifFile);
     }
 
-    static OutputStream writeText(CifFile cifFile) throws IOException {
+    static InputStream writeText(CifFile cifFile) throws IOException {
         return TEXT_INSTANCE.write(cifFile);
+    }
+
+    static String formatHeader(String header) {
+        return header.replaceAll("[ \n\t]", "").toUpperCase();
     }
 }

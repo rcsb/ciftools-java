@@ -19,7 +19,7 @@ public class BinaryCifField implements CifField {
     private final boolean isNumeric;
     private final DataType dataType;
     private final boolean hasMask;
-
+    private final String name;
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
@@ -49,6 +49,7 @@ public class BinaryCifField implements CifField {
             throw new ParsingException("novel data type: " + data.getClass().getSimpleName());
         }
         this.isNumeric = dataType == DataType.Int || dataType == DataType.Float;
+        this.name = (String) encodedColumn.get("name");
     }
 
     public boolean isNumeric() {
@@ -88,7 +89,7 @@ public class BinaryCifField implements CifField {
     }
 
     @Override
-    public double getDouble(int row) {
+    public double getFloat(int row) {
         if (isNumeric) {
             return dataType == DataType.Int ? intData[row] : doubleData[row];
         }
@@ -135,12 +136,17 @@ public class BinaryCifField implements CifField {
     }
 
     @Override
-    public DoubleStream doubles() {
+    public DoubleStream floats() {
         if (isNumeric) {
             return dataType == DataType.Int ? IntStream.of(intData).mapToDouble(i -> i) :
                     DoubleStream.of(doubleData);
         }
         return Stream.of(stringData)
                 .mapToDouble(Double::parseDouble);
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }

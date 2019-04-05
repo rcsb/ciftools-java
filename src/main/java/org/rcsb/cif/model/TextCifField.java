@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -9,17 +10,21 @@ public class TextCifField implements CifField {
     private final String data;
     private final int[] start;
     private final int[] end;
+    private final String name;
     private DataType dataType;
 
-    public TextCifField(String data, int startToken, int endToken) {
-        this(data, new int[] { startToken }, new int[] { endToken });
+    public TextCifField(String data, int startToken, int endToken, String name) {
+        this(data, new int[] { startToken }, new int[] { endToken }, name);
     }
 
-    public TextCifField(String data, int[] start, int[] end) {
+    public TextCifField(String data, int[] start, int[] end, String name) {
         this.rowCount = start.length;
         this.data = data;
         this.start = start;
         this.end = end;
+        this.name = name;
+
+//        System.out.println(name + ", values: [" + this.strings().collect(Collectors.joining(", ")) + "]");
     }
 
     @Override
@@ -47,7 +52,7 @@ public class TextCifField implements CifField {
     }
 
     @Override
-    public double getDouble(int row) {
+    public double getFloat(int row) {
         return Double.parseDouble(data.substring(start[row], end[row]));
     }
 
@@ -91,7 +96,7 @@ public class TextCifField implements CifField {
     }
 
     @Override
-    public DoubleStream doubles() {
+    public DoubleStream floats() {
         return strings()
                 // TODO correct behavior?
                 .filter(s -> !"?".equals(s) && !".".equals(s))
@@ -149,5 +154,10 @@ public class TextCifField implements CifField {
         } catch (NumberFormatException e) {
             return false;
         }
+    }
+
+    @Override
+    public String getName() {
+        return name;
     }
 }
