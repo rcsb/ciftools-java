@@ -15,6 +15,10 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         return RUN_LENGTH_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<Int32Array> encode(CodecData<IntArray> codecData) {
+        return RUN_LENGTH_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     protected CodecData<Int32Array> encodeInternally(CodecData data) {
         IntArray input = (IntArray) data.getData();
@@ -30,9 +34,10 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         int[] inputArray = input.getArray();
         if (inputArray.length == 0) {
             return CodecData.of(new Int32Array(new int[0]))
+                    .startEncoding(KIND)
                     .addParameter("srcType", Int32Array.TYPE)
                     .addParameter("srcSize", 0)
-                    .create(KIND);
+                    .build();
         }
 
         // calculate output size
@@ -59,13 +64,15 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         outputArray[offset + 1] = runLength;
 
         return CodecData.of(new Int32Array(outputArray))
+                .startEncoding(KIND)
                 .addParameter("srcType", Int32Array.TYPE)
                 .addParameter("srcSize", inputArray.length)
-                .create(KIND);
+                .build();
     }
 
     @Override
     protected IntArray decodeInternally(CodecData data) {
+        ensureParametersPresent(data, "srcType", "srcSize");
         int srcType = (int) data.getParameters().get("srcType");
         int srcSize = (int) data.getParameters().get("srcSize");
 

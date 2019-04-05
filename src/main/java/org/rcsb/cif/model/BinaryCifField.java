@@ -29,8 +29,8 @@ public class BinaryCifField implements CifField {
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) throws ParsingException {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
-        this.mask = hasMask ? ((IntArray) Codec.decode((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;
-        Object data = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
+        this.mask = hasMask ? ((IntArray) Codec.decodeMap((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;
+        Object data = Codec.decodeMap((Map<String, Object>) encodedColumn.get("data"));
 
         // decide data type and store in a type-safe way
         if (data instanceof IntArray) {

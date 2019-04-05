@@ -16,19 +16,23 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
         return BYTE_ARRAY_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<byte[]> encode(CodecData<NumberArray> codecData) {
+        return BYTE_ARRAY_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     protected CodecData<byte[]> encodeInternally(CodecData codecData) {
-        // TODO method to ensure all fields needed in the parameters are provided
         NumberArray data = (NumberArray) codecData.getData();
         byte[] array = ensureOrder(data.toByteArray(), data.getNumberOfBytes(), ByteOrder.LITTLE_ENDIAN);
         return CodecData.of(array)
-                .addParameter("kind", KIND)
+                .startEncoding(KIND)
                 .addParameter("type", data.getType())
-                .create(KIND);
+                .build();
     }
 
     @Override
     protected NumberArray decodeInternally(CodecData<byte[]> codecData) {
+        ensureParametersPresent(codecData, "type");
         byte[] data = codecData.getData();
         switch ((int) codecData.getParameters().get("type")) {
             case 1:

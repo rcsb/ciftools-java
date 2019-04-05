@@ -17,10 +17,11 @@ public class IntervalQuantizationCodecTest {
         FloatArray plainArray = new Float32Array(0.5, 1, 1.5, 2, 3, 1.345);
         Int32Array expected = new Int32Array(0, 0, 1, 2, 2, 1);
         CodecData<FloatArray> plainData = CodecData.of(plainArray)
+                .startEncoding(IntervalQuantizationCodec.KIND)
                 .addParameter("min", 1)
                 .addParameter("max", 2)
                 .addParameter("numSteps", 3)
-                .create(IntervalQuantizationCodec.KIND);
+                .build();
 
         // encode
         CodecData<Int32Array> encodedData = INTERVAL_QUANTIZATION_CODEC.encodeInternally(plainData);

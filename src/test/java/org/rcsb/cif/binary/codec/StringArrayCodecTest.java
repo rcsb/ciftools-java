@@ -12,7 +12,9 @@ public class StringArrayCodecTest {
     public void testForward() {
         // create test case
         String[] plainArray = new String[] { "a", "AB", "a" };
-        CodecData<String[]> plainData = CodecData.of(plainArray).create(IntegerPackingCodec.KIND);
+        CodecData<String[]> plainData = CodecData.of(plainArray)
+                .startEncoding(IntegerPackingCodec.KIND)
+                .build();
 
         // encode
         CodecData<byte[]> encodedData = STRING_ARRAY_CODEC.encodeInternally(plainData);

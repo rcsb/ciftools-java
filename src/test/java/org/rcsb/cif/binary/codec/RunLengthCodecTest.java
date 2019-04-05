@@ -16,7 +16,9 @@ public class RunLengthCodecTest {
     public void testForward() {
         // create test case
         Int32Array plainArray = new Int32Array(15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000);
-        CodecData<Int32Array> plainData = CodecData.of(plainArray).create(IntegerPackingCodec.KIND);
+        CodecData<Int32Array> plainData = CodecData.of(plainArray)
+                .startEncoding(IntegerPackingCodec.KIND)
+                .build();
 
         // encode
         CodecData<Int32Array> encodedData = RUN_LENGTH_CODEC.encodeInternally(plainData);
@@ -36,7 +38,8 @@ public class RunLengthCodecTest {
         int[] expected = new int[] { 1, 3, 2, 1, 3, 2 };
         Int8Array plainArray = new Int8Array(1, 1, 1, 2, 3, 3);
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
-                .create(RunLengthCodec.KIND);
+                .startEncoding(RunLengthCodec.KIND)
+                .build();
 
         CodecData<Int32Array> encodedData = RUN_LENGTH_CODEC.encodeInternally(plainData);
 
@@ -51,9 +54,10 @@ public class RunLengthCodecTest {
         int[] expected = new int[] { 15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000 };
         Int32Array encodedArray = new Int32Array(15, 3, 100, 2, 111, 4, 10000, 6);
         CodecData<Int32Array> encodedData = CodecData.of(encodedArray)
+                .startEncoding(RunLengthCodec.KIND)
                 .addParameter("srcType", 3)
                 .addParameter("srcSize", expected.length)
-                .create(RunLengthCodec.KIND);
+                .build();
 
         IntArray plainData = RUN_LENGTH_CODEC.decodeInternally(encodedData);
 

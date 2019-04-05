@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
 import org.rcsb.cif.binary.array.Uint8Array;
 
@@ -17,27 +18,32 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
         return STRING_ARRAY_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<byte[]> encode(CodecData<String[]> codecData) {
+        return STRING_ARRAY_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     protected CodecData<byte[]> encodeInternally(CodecData<String[]> data) {
         String[] inputArray = data.getData();
 
         Map<String, Integer> map = new HashMap<>();
         List<String> strings = new ArrayList<>();
-        int[] output = new int[inputArray.length];
+        int[] outputArray = new int[inputArray.length];
         List<Integer> offsets = new ArrayList<>();
+        offsets.add(0);
 
         int accLength = 0;
         int i = 0;
         for (String s : inputArray) {
             // handle null strings
             if (s == null || s.isEmpty()) {
-                output[i++] = -1;
+                outputArray[i++] = -1;
                 continue;
             }
 
             if (map.containsKey(s)) {
                 int index = map.get(s);
-                output[i++] = index;
+                outputArray[i++] = index;
             } else {
                 // increment the length
                 accLength += s.length();
@@ -49,39 +55,59 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
 
                 // store offset
                 offsets.add(accLength);
-                output[i++] = index;
+                outputArray[i++] = index;
             }
         }
 
         int[] offsetArray = offsets.stream().mapToInt(n -> n).toArray();
+        Int32Array offsetData = new Int32Array(offsetArray);
+        Int32Array output = new Int32Array(outputArray);
 
-        // TODO classify, encode, return
-        return null;
+        CodecData<IntArray> offsetEncoding = classifyArray(offsetData);
+//        System.out.println("offset encoding");
+//        System.out.println(Arrays.toString(offsetEncoding.getEncoding()));
+        CodecData<byte[]> encodedOffsets = Codec.encodeMap(offsetEncoding);
+        CodecData<IntArray> dataEncoding = classifyArray(output);
+//        System.out.println("data encoding");
+//        System.out.println(Arrays.toString(dataEncoding.getEncoding()));
+        CodecData<byte[]> encodedData = Codec.encodeMap(dataEncoding);
+
+        CodecData<byte[]> composed = CodecData.of(encodedData.getData())
+                .startEncoding(StringArrayCodec.KIND)
+                .addParameter("dataEncoding", encodedData.getEncoding())
+                .addParameter("stringData", String.join("", strings))
+                .addParameter("offsetEncoding",encodedOffsets.getEncoding())
+                .addParameter("offsets", encodedOffsets.getData())
+                .build();
+        return composed;
     }
 
     @Override
     protected String[] decodeInternally(CodecData<byte[]> data) {
+        ensureParametersPresent(data, "stringData", "offsets", "dataEncoding");
+
         Map<String, Object> parameters = data.getParameters();
         String stringData = (String) parameters.get("stringData");
 
         int[] offsets;
-        if (parameters.containsKey("offsetEncodings")) {
+        if (parameters.containsKey("offsetEncoding")) {
             Map<String, Object> offsetTask = new LinkedHashMap<>();
             offsetTask.put("data", parameters.get("offsets"));
             offsetTask.put("encoding", parameters.get("offsetEncoding"));
-            offsets = (int[]) Codec.decode(offsetTask);
+            offsets = ((IntArray) Codec.decodeMap(offsetTask)).getArray();
         } else {
-            offsets = (int[]) ByteArrayCodec.decode(CodecData.of((byte[]) parameters.get("offsets"))
+            offsets = ((IntArray) ByteArrayCodec.decode(CodecData.of((byte[]) parameters.get("offsets"))
+                    .startEncoding(KIND)
                     .addParameter("type", Uint8Array.TYPE)
-                    .create(ByteArrayCodec.KIND))
-                    .getArray();
+                    .build())
+                    .getArray()).getArray();
         }
 
         Map<String, Object> dataTask = new LinkedHashMap<>();
         dataTask.put("data", data.getData());
         dataTask.put("encoding", parameters.get("dataEncoding"));
 
-        int[] indices = ((IntArray) Codec.decode(dataTask)).getArray();
+        int[] indices = ((IntArray) Codec.decodeMap(dataTask)).getArray();
 
         String[] result = new String[indices.length];
         int offset = 0;

@@ -1,9 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.Float32Array;
-import org.rcsb.cif.binary.array.Float64Array;
-import org.rcsb.cif.binary.array.FloatArray;
-import org.rcsb.cif.binary.array.Int32Array;
+import org.rcsb.cif.binary.array.*;
 
 import java.util.stream.IntStream;
 
@@ -19,6 +16,10 @@ public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
         return INTERVAL_QUANTIZATION_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<Int32Array> encode(CodecData<FloatArray> codecData) {
+        return INTERVAL_QUANTIZATION_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     protected CodecData<Int32Array> encodeInternally(CodecData data) {
         FloatArray input = (FloatArray) data.getData();
@@ -30,11 +31,12 @@ public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
 
         if (inputArray.length == 0) {
             return CodecData.of(new Int32Array(new int[0]))
+                    .startEncoding(KIND)
                     .addParameter("min", min)
                     .addParameter("max", max)
                     .addParameter("numSteps", numSteps)
                     .addParameter("srcType", Int32Array.TYPE)
-                    .create(KIND);
+                    .build();
         }
 
         if (max < min) {
@@ -59,18 +61,21 @@ public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
         }
 
         return CodecData.of(new Int32Array(outputArray))
+                .startEncoding(KIND)
                 .addParameter("min", min)
                 .addParameter("max", max)
                 .addParameter("numSteps", numSteps)
                 .addParameter("srcType", input.getType())
-                .create(KIND);
+                .build();
     }
 
     @Override
     protected FloatArray decodeInternally(CodecData data) {
-        Int32Array input = (Int32Array) data.getData();
+        ensureParametersPresent(data, "min", "max", "numSteps", "srcType");
+
         int min = (int) data.getParameters().get("min");
         int max = (int) data.getParameters().get("max");
+        Int32Array input = (Int32Array) data.getData();
         int numSteps = (int) data.getParameters().get("numSteps");
         int srcType = (int) data.getParameters().get("srcType");
 

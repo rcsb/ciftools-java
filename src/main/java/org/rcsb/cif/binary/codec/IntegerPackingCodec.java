@@ -17,11 +17,16 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         return INTEGER_PACKING_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<IntArray> encode(CodecData<Int32Array> codecData) {
+        return INTEGER_PACKING_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     protected CodecData<IntArray> encodeInternally(CodecData data) {
         if (!(data.getData() instanceof Int32Array)) {
-            throw new IllegalArgumentException("Integer packing can only be applied to Int32 data.");
+            throw new IllegalArgumentException("Integer packing can only be applied to Int32 data. Found " +
+                    data.getData().getClass().getSimpleName());
         }
 
         Int32Array input = (Int32Array) data.getData();
@@ -62,10 +67,11 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         IntArray output = packing.signed ? packing.bytesPerElement == 1 ? new Int8Array(outputArray) : new Int16Array(outputArray) :
                 packing.bytesPerElement == 1 ? new Uint8Array(outputArray) : new Uint16Array(outputArray);
         return CodecData.of(output)
+                .startEncoding(KIND)
                 .addParameter("byteCount", packing.bytesPerElement)
                 .addParameter("isUnsigned", !packing.signed)
                 .addParameter("srcSize", packing.size)
-                .create(KIND);
+                .build();
     }
 
     class Packing {
@@ -119,6 +125,8 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
 
     @Override
     protected Int32Array decodeInternally(CodecData<IntArray> data) {
+        ensureParametersPresent(data, "isUnsigned", "srcSize", "byteCount");
+
         IntArray input = data.getData();
         int[] inputArray = input.getArray();
 

@@ -17,9 +17,10 @@ public class FixedPointCodecTest {
         FloatArray plainArray = new Float64Array(-1, 2.04, -100.5893, 42, Integer.MAX_VALUE / (double) factor,
                 Integer.MIN_VALUE / (double) factor);
         CodecData<FloatArray> plainData = CodecData.of(plainArray)
+                .startEncoding(FixedPointCodec.KIND)
                 .addParameter("factor", factor)
                 .addParameter("srcType", Float64Array.TYPE)
-                .create(FixedPointCodec.KIND);
+                .build();
 
         // encode
         CodecData<Int32Array> encodedData = FIXED_POINT_CODEC.encodeInternally(plainData);
@@ -39,9 +40,11 @@ public class FixedPointCodecTest {
         IntArray intArray = new Int32Array(10001, 100203, 124542);
         FloatArray testFloatArray = new Float64Array(10.001, 100.203, 124.542);
         CodecData<IntArray> codecData = CodecData.of(intArray)
+                .startEncoding(FixedPointCodec.KIND)
                 .addParameter("factor", 1000)
                 .addParameter("srcType", 33)
-                .create(FixedPointCodec.KIND);
+                .build();
+
         double[] floatArray = FIXED_POINT_CODEC.decodeInternally(codecData).getArray();
         assertArrayEquals(testFloatArray.getArray(), floatArray, 0.001f);
     }

@@ -1,9 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.Float32Array;
-import org.rcsb.cif.binary.array.Float64Array;
-import org.rcsb.cif.binary.array.FloatArray;
-import org.rcsb.cif.binary.array.Int32Array;
+import org.rcsb.cif.binary.array.*;
 
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
@@ -18,6 +15,10 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
 
     public static FloatArray decode(CodecData<Int32Array> codecData) {
         return FIXED_POINT_CODEC.decodeInternally(codecData);
+    }
+
+    public static CodecData<Int32Array> encode(CodecData<FloatArray> codecData) {
+        return FIXED_POINT_CODEC.encodeInternally(codecData);
     }
 
     @Override
@@ -36,16 +37,15 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
                 .toArray();
 
         return CodecData.of(new Int32Array(outputArray))
+                .startEncoding(KIND)
                 .addParameter("factor", factor)
                 .addParameter("srcType", srcType)
-                .create(KIND);
+                .build();
     }
 
     @Override
     protected FloatArray decodeInternally(CodecData data) {
-        if (!data.getParameters().containsKey("srcType")) {
-            throw new IllegalArgumentException("No srcType provided for FixedPointCodec");
-        }
+        ensureParametersPresent(data, "factor", "srcType");
 
         Int32Array input = (Int32Array) data.getData();
         int[] inputArray = input.getArray();

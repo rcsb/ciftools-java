@@ -14,6 +14,10 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
         return DELTA_CODEC.decodeInternally(codecData);
     }
 
+    public static CodecData<IntArray> encode(CodecData<IntArray> codecData) {
+        return DELTA_CODEC.encodeInternally(codecData);
+    }
+
     @Override
     protected CodecData<IntArray> encodeInternally(CodecData data) {
         IntArray input = (IntArray) data.getData();
@@ -32,9 +36,10 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
         int[] inputArray = input.getArray();
         if (inputArray.length == 0) {
             return CodecData.of(IntArray.get(srcType, 0))
+                    .startEncoding(KIND)
                     .addParameter("origin", 0)
                     .addParameter("srcType", srcType)
-                    .create(KIND);
+                    .build();
         }
 
         IntArray output = IntArray.get(srcType, inputArray.length);
@@ -47,13 +52,15 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
         outputArray[0] = 0;
 
         return CodecData.of(output)
+                .startEncoding(KIND)
                 .addParameter("origin", origin)
                 .addParameter("srcType", srcType)
-                .create(KIND);
+                .build();
     }
 
     @Override
     protected IntArray decodeInternally(CodecData<IntArray> data) {
+        ensureParametersPresent(data, "origin", "srcType");
         int[] input = data.getData().getArray();
         int origin = (int) data.getParameters().get("origin");
         int srcType = (int) data.getParameters().get("srcType");
