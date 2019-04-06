@@ -160,4 +160,10 @@ public class TextCifField implements CifField {
     public String getName() {
         return name;
     }
+
+    @Override
+    public Stream<ValueKind> valueKinds() {
+        return IntStream.range(0, rowCount)
+                .mapToObj(this::getValueKind);
+    }
 }

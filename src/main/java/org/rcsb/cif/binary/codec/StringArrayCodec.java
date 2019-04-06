@@ -64,22 +64,17 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
         Int32Array output = new Int32Array(outputArray);
 
         CodecData<IntArray> offsetEncoding = classifyArray(offsetData);
-//        System.out.println("offset encoding");
-//        System.out.println(Arrays.toString(offsetEncoding.getEncoding()));
         CodecData<byte[]> encodedOffsets = Codec.encodeMap(offsetEncoding);
         CodecData<IntArray> dataEncoding = classifyArray(output);
-//        System.out.println("data encoding");
-//        System.out.println(Arrays.toString(dataEncoding.getEncoding()));
         CodecData<byte[]> encodedData = Codec.encodeMap(dataEncoding);
 
-        CodecData<byte[]> composed = CodecData.of(encodedData.getData())
+        return CodecData.of(encodedData.getData())
                 .startEncoding(StringArrayCodec.KIND)
                 .addParameter("dataEncoding", encodedData.getEncoding())
                 .addParameter("stringData", String.join("", strings))
                 .addParameter("offsetEncoding",encodedOffsets.getEncoding())
                 .addParameter("offsets", encodedOffsets.getData())
                 .build();
-        return composed;
     }
 
     @Override

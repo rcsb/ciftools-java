@@ -6,7 +6,12 @@ import static org.junit.Assert.fail;
 
 public class CifIntegrationTest {
     @Test
-    public void roundTripCifToBcif() {
+    public void roundTripCifViaBcifToCif() {
+        fail("impl");
+    }
+
+    @Test
+    public void roundTripBcifViaCifToBcif() {
         fail("impl");
     }
 }

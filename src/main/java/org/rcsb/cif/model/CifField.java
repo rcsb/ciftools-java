@@ -21,6 +21,7 @@ public interface CifField {
     Stream<String> strings();
     IntStream ints();
     DoubleStream floats();
+    Stream<ValueKind> valueKinds();
 
     String getName();
 }

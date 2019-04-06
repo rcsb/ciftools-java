@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 import static org.junit.Assert.assertEquals;
 
 public class CifWriterTest {
-    private static final List<String> testCases = Stream.of("1acj", "1pga")
+    private static final List<String> testCases = Stream.of("1acj", "1pga") // TODO expand for ligand data? e.g. THA
             .collect(Collectors.toList());
 
     @Test

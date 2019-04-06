@@ -11,6 +11,7 @@ public class Float32Array implements FloatArray {
     private final double[] array;
 
     // TODO array constructors can be mistaken for init(length)
+    // TODO could use dedicated String[] and byte[]
     public Float32Array(double... array) {
         this.array = array;
     }
