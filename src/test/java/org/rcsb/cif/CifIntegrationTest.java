@@ -10,7 +10,6 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.fail;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifIntegrationTest {

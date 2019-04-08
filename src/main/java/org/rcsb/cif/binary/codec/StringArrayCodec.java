@@ -24,6 +24,7 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
 
     @Override
     protected CodecData<byte[]> encodeInternally(CodecData<String[]> data) {
+//        System.out.println("@encoding");
         String[] inputArray = data.getData();
 
         Map<String, Integer> map = new HashMap<>();
@@ -65,8 +66,12 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
 
         CodecData<IntArray> offsetEncoding = classifyArray(offsetData);
         CodecData<byte[]> encodedOffsets = Codec.encodeMap(offsetEncoding);
+//        System.out.println("offsets: " + Arrays.toString(offsetData.getArray()));
+//        System.out.println("encoded: " + Arrays.toString(encodedOffsets.getData()));
         CodecData<IntArray> dataEncoding = classifyArray(output);
         CodecData<byte[]> encodedData = Codec.encodeMap(dataEncoding);
+//        System.out.println("data: " + Arrays.toString(output.getArray()));
+//        System.out.println("encoded: " + Arrays.toString(encodedData.getData()));
 
         return CodecData.of(encodedData.getData())
                 .startEncoding(StringArrayCodec.KIND)
@@ -79,6 +84,7 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
 
     @Override
     protected String[] decodeInternally(CodecData<byte[]> data) {
+//        System.out.println("@decoding");
         ensureParametersPresent(data, "stringData", "offsets", "dataEncoding");
 
         Map<String, Object> parameters = data.getParameters();
@@ -90,6 +96,8 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
             offsetTask.put("data", parameters.get("offsets"));
             offsetTask.put("encoding", parameters.get("offsetEncoding"));
             offsets = ((IntArray) Codec.decodeMap(offsetTask)).getArray();
+//            System.out.println("offsets: " + Arrays.toString(offsets));
+//            System.out.println("encoded: " + Arrays.toString((byte[]) parameters.get("offsets")));
         } else {
             offsets = ((IntArray) ByteArrayCodec.decode(CodecData.of((byte[]) parameters.get("offsets"))
                     .startEncoding(KIND)
@@ -101,8 +109,10 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
         Map<String, Object> dataTask = new LinkedHashMap<>();
         dataTask.put("data", data.getData());
         dataTask.put("encoding", parameters.get("dataEncoding"));
-
         int[] indices = ((IntArray) Codec.decodeMap(dataTask)).getArray();
+
+//        System.out.println("data: " + Arrays.toString(indices));
+//        System.out.println("encoded: " + Arrays.toString(data.getData()));
 
         String[] result = new String[indices.length];
         int offset = 0;

@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
+import com.sun.tools.javac.jvm.Code;
 import org.rcsb.cif.binary.array.*;
 
 import java.util.stream.IntStream;
@@ -35,7 +36,12 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         Packing packing = determinePacking(inputArray);
         if (packing.bytesPerElement == 4) {
             // TODO needs downstream wrapping by byte array
-            return (CodecData<IntArray>) data;
+            return CodecData.of((IntArray) input)
+                    .startEncoding(KIND)
+                    .addParameter("byteCount", 4)
+                    .addParameter("isUnsigned", false)
+                    .addParameter("srcSize", inputArray.length)
+                    .build();
         }
 
         int upperLimit = packing.signed ? packing.bytesPerElement == 1 ? 0x7F : 0x7FFF :
@@ -134,7 +140,7 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         int byteCount = (int) data.getParameters().get("byteCount");
         int srcSize = (int) data.getParameters().get("srcSize");
 
-        if (inputArray.length == srcSize) {
+        if (inputArray.length == srcSize && byteCount == 4) {
             return new Int32Array(inputArray);
         }
 

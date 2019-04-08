@@ -32,10 +32,6 @@ public abstract class Codec<PLAIN, ENCODED> {
         Object current = map.get("data");
         Object[] encodings = (Object[]) map.get("encoding");
 
-        if(encodings == null) {
-            System.out.println();
-        }
-
         for (int i = encodings.length - 1; i >= 0; i--) {
             current = decodeInternal(CodecData.of(current, (Map<String, Object>) encodings[i]));
         }
@@ -45,9 +41,6 @@ public abstract class Codec<PLAIN, ENCODED> {
     @SuppressWarnings("unchecked")
     private static Object decodeInternal(CodecData<?> codecData) {
         String kind = (String) codecData.getParameters().get("kind");
-        if(kind==null) {
-            System.out.println(kind);
-        }
         switch (kind) {
             case "ByteArray":
                 return ByteArrayCodec.decode((CodecData<byte[]>) codecData);
@@ -303,11 +296,12 @@ public abstract class Codec<PLAIN, ENCODED> {
 
     private static final double DELTA = 1e-6;
 
-    protected void ensureParametersPresent(CodecData codecData, String... types) {
+    protected void ensureParametersPresent(CodecData<?> codecData, String... types) {
         Map<String, Object> parameters = codecData.getParameters();
         for (String s : types) {
             if (!parameters.containsKey(s)) {
                 throw new IllegalArgumentException("parameter '" + s + "' is missing for codec '" + parameters.get("kind") + "'");
+//                System.err.println("parameter '" + s + "' is missing for codec '" + parameters.get("kind") + "'");
             }
         }
     }
