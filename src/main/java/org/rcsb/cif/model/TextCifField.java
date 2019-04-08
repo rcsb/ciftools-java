@@ -1,5 +1,7 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -23,7 +25,11 @@ public class TextCifField implements CifField {
         this.end = end;
         this.name = name;
 
-//        System.out.println(name + ", values: [" + this.strings().collect(Collectors.joining(", ")) + "]");
+//        if (name.equals("label_seq_id")) {
+//
+//            System.out.println(name + " " + getDataType() + ", " + ints().count() + " values: [" + this.strings().collect(Collectors.joining(", ")) + "]");
+//            System.out.println(Arrays.toString(ints().toArray()));
+//        }
     }
 
     @Override
@@ -89,17 +95,25 @@ public class TextCifField implements CifField {
     @Override
     public IntStream ints() {
         return strings()
+                // approach: omit missing values
                 // TODO correct behavior?
-                .filter(s -> !"?".equals(s) && !".".equals(s))
-                .mapToInt(Integer::parseInt);
+//                .filter(s -> !"?".equals(s) && !".".equals(s))
+//                .mapToInt(Integer::parseInt);
+
+                // approach: 0 for missing values
+                .mapToInt(s -> s.equals("?") || s.equals(".") ? 0 : Integer.parseInt(s));
     }
 
     @Override
     public DoubleStream floats() {
         return strings()
+                // approach: omit missing values
                 // TODO correct behavior?
-                .filter(s -> !"?".equals(s) && !".".equals(s))
-                .mapToDouble(Double::parseDouble);
+//                .filter(s -> !"?".equals(s) && !".".equals(s))
+//                .mapToDouble(Double::parseDouble);
+
+                // approach: 0 for missing values
+                .mapToDouble(s -> s.equals("?") || s.equals(".") ? 0 : Double.parseDouble(s));
     }
 
     private static boolean areValuesEqualProvider(String data, int[] start, int[] end, int rowA, int rowB) {
@@ -142,7 +156,8 @@ public class TextCifField implements CifField {
             Integer.parseInt(str);
             return !str.contains(".");
         } catch (NumberFormatException e) {
-            return false;
+            // ignore missing values for the determination of type
+            return str.equals(".") || str.equals("?");
         }
     }
 
@@ -151,7 +166,8 @@ public class TextCifField implements CifField {
             Double.parseDouble(str);
             return true;
         } catch (NumberFormatException e) {
-            return false;
+            // ignore missing values for the determination of type
+            return str.equals(".") || str.equals("?");
         }
     }
 

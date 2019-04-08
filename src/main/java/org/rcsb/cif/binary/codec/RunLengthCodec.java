@@ -4,6 +4,8 @@ import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
 import org.rcsb.cif.binary.array.NumberArray;
 
+import java.util.Arrays;
+
 public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     public static final String KIND = "RunLength";
     public static final RunLengthCodec RUN_LENGTH_CODEC = new RunLengthCodec();
@@ -49,6 +51,7 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
             }
         }
         int[] outputArray = new int[fullLength];
+        Int32Array output = new Int32Array(outputArray);
         int offset = 0;
         int runLength = 1;
         for (int i = 1; i < inputArray.length; i++) {
@@ -64,7 +67,10 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         outputArray[offset] = inputArray[inputArray.length - 1];
         outputArray[offset + 1] = runLength;
 
-        return CodecData.of(new Int32Array(outputArray))
+//        System.out.println(Arrays.toString(inputArray));
+//        System.out.println(Arrays.toString(outputArray));
+
+        return CodecData.of(output)
                 .startEncoding(KIND)
                 .addParameter("srcType", Int32Array.TYPE)
                 .addParameter("srcSize", inputArray.length)
@@ -88,7 +94,10 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         IntArray output = IntArray.get(srcType, srcSize);
         int[] outputArray = output.getArray();
 
-        for (int i = 0; i < inputArray.length; i += 2) {
+        if (inputArray.length % 2 == 1) {
+            System.err.println("FIXME: source array has odd number of elements");
+        }
+        for (int i = 0; i < inputArray.length - 1 /* TODO remove -1 which should point to problems */; i += 2) {
             int value = inputArray[i];  // value to be repeated
             int length = inputArray[i + 1];  // number of repeats
             for (int j = 0; j < length; ++j) {

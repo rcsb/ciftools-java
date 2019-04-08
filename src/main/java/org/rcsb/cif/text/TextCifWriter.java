@@ -240,7 +240,13 @@ public class TextCifWriter implements CifWriter {
         // TODO change to DecimalFormat or something
         // FIXME honor dynamic precision
         // TODO dirty
-        output.append(val == Math.round(val) ? String.valueOf((int) val) : String.valueOf(val))
+        String s;
+        if (val == Math.round(val)) {
+            s = String.valueOf((int) val);
+        } else {
+            s = String.valueOf(Math.round(val * 1_000_000) / (1_000_000.0));
+        }
+        output.append(s)
                 .append(" ");
     }
 

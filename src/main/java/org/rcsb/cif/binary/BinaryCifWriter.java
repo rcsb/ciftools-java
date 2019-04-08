@@ -43,6 +43,7 @@ public class BinaryCifWriter implements CifWriter {
             for (CifCategory cifCategory : cifBlock.getCategories().values()) {
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getName());
+//                System.out.println(cifCategory.getName());
                 Object[] fields = new Object[cifCategory.getFieldNames().size()];
                 int fieldCount = 0;
                 category.put("rowCount", cifCategory.getField(cifCategory.getFieldNames().get(0)).getRowCount());
@@ -104,14 +105,9 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> encodeField(Map<String, Object> fieldMap, CifField cifField, CodecData<?> encoder) {
-//        if (cifField.getName().equals("formula_weight")) {
+//        if (cifField.getName().equals("label_seq_id")) {
 //            System.out.println();
 //        }
-
-        if (cifField.getName().equals("pdbx_synonyms")) {
-
-            System.out.println();
-        }
 
         Map<String, Object> fieldData = getFieldData(fieldMap, cifField);
         boolean allPresent = (boolean) fieldData.get("allPresent");
