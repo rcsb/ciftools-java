@@ -22,6 +22,10 @@ public class BinaryCifField implements CifField {
     private final String name;
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) {
+        if (encodedColumn.get("name").equals("pdbx_synonyms")) {
+
+            System.out.println();
+        }
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null && !((Map) encodedColumn.get("mask")).isEmpty();
         System.out.println("decoding mask of " + encodedColumn.get("name") + ": " + hasMask);
         this.mask = hasMask ? ((IntArray) Codec.decodeMap((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;

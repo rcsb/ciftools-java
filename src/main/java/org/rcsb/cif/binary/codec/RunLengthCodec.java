@@ -2,6 +2,7 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
+import org.rcsb.cif.binary.array.NumberArray;
 
 public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     public static final String KIND = "RunLength";
@@ -71,7 +72,7 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     }
 
     @Override
-    protected IntArray decodeInternally(CodecData data) {
+    protected IntArray decodeInternally(CodecData<Int32Array> data) {
         ensureParametersPresent(data, "srcType", "srcSize");
         int srcType = (int) data.getParameters().get("srcType");
         int srcSize = (int) data.getParameters().get("srcSize");

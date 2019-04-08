@@ -108,6 +108,11 @@ public class BinaryCifWriter implements CifWriter {
 //            System.out.println();
 //        }
 
+        if (cifField.getName().equals("pdbx_synonyms")) {
+
+            System.out.println();
+        }
+
         Map<String, Object> fieldData = getFieldData(fieldMap, cifField);
         boolean allPresent = (boolean) fieldData.get("allPresent");
         Uint8Array mask = (Uint8Array) fieldData.get("mask");
@@ -147,9 +152,12 @@ public class BinaryCifWriter implements CifWriter {
                 maskData.put("data", maskRLE.getData());
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
                 encoding1.put("kind", RunLengthCodec.KIND);
+                Map<String, Object> e = (Map<String, Object>) maskRLE.getEncoding()[0];
+                encoding1.put("srcType", e.get("srcType"));
+                encoding1.put("srcSize", e.get("srcSize"));
                 Map<String, Object> encoding2 = new LinkedHashMap<>();
                 encoding2.put("kind", ByteArrayCodec.KIND);
-                encoding2.put("type", Uint8Array.TYPE);
+                encoding2.put("type", Int32Array.TYPE);
                 maskData.put("encoding", new Object[] { encoding1, encoding2 });
             } else {
                 CodecData<byte[]> encodedMask = Codec.encodeMap(CodecData.of(mask)
