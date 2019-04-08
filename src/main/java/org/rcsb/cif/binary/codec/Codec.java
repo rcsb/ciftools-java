@@ -119,27 +119,33 @@ public abstract class Codec<PLAIN, ENCODED> {
 
         List<EncodingSize> sizes = getSize(data);
         EncodingSize size = sizes.get(0);
+//        sizes.stream().map(s -> s.kind + " " + s.length + " " + s.elem).forEach(System.out::println);
+        if (size.length == sizes.get(1).length) {
+            // TODO fix potential problems with wrong order of encodings
+            System.out.println("tie!");
+            sizes.stream().map(s -> s.kind + " " + s.length + " " + s.elem).forEach(System.out::println);
+        }
 
         switch (size.kind) {
             case "pack":
                 return CodecData.of(data)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-                        .addParameter("type", data.getType())
+//                        .addParameter("type", data.getType())
                         .build();
             case "rle":
                 return CodecData.of(data)
                         .startEncoding(RunLengthCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-                        .addParameter("type", data.getType())
+//                        .addParameter("type", data.getType())
                         .build();
             case "delta":
                 return CodecData.of(data)
                         .startEncoding(DeltaCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-                        .addParameter("type", data.getType())
+//                        .addParameter("type", data.getType())
                         .build();
             case "delta-rle":
                 return CodecData.of(data)
@@ -147,7 +153,7 @@ public abstract class Codec<PLAIN, ENCODED> {
                         .startEncoding(RunLengthCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-                        .addParameter("type", data.getType())
+//                        .addParameter("type", data.getType())
                         .build();
             default:
                 throw new IllegalArgumentException("Determined encoding type is unknown. " + size.kind);
@@ -159,9 +165,8 @@ public abstract class Codec<PLAIN, ENCODED> {
     }
 
     private static IntColumnInfo getInfo(IntArray data) {
-        // TODO check: unsigned always false
         boolean unsigned = data instanceof Uint8Array || data instanceof Uint16Array || data instanceof Uint32Array;
-        return unsigned ? new IntColumnInfo(!unsigned, 0xFF, 0xFFFF) : new IntColumnInfo(!unsigned, 0x7F, 0x7FFF);
+        return !unsigned ? new IntColumnInfo(true, 0x7F, 0x7FFF) : new IntColumnInfo(false, 0xFF, 0xFFFF);
     }
 
     static class IntColumnInfo {
@@ -207,7 +212,7 @@ public abstract class Codec<PLAIN, ENCODED> {
     private static ByteSize byteSize(SizeInfo sizeInfo) {
         if (sizeInfo.count * 4 < sizeInfo.pack16 * 2) {
             return new ByteSize(sizeInfo.count * 4, 4);
-        } else if (sizeInfo.count * 2 < sizeInfo.pack8) {
+        } else if (sizeInfo.pack16 * 2 < sizeInfo.pack8) {
             return new ByteSize(sizeInfo.pack16 * 2, 2);
         } else {
             return new ByteSize(sizeInfo.pack8, 1);

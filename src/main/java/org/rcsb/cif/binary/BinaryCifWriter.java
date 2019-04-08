@@ -46,9 +46,8 @@ public class BinaryCifWriter implements CifWriter {
 //                System.out.println(cifCategory.getName());
                 Object[] fields = new Object[cifCategory.getFieldNames().size()];
                 int fieldCount = 0;
-                category.put("rowCount", cifCategory.getField(cifCategory.getFieldNames().get(0)).getRowCount());
-                // FIXME rowCount before columns omits missing row count at some occasion
                 category.put("columns", fields);
+                category.put("rowCount", cifCategory.getField(cifCategory.getFieldNames().get(0)).getRowCount());
 
                 for (String fieldName : cifCategory.getFieldNames()) {
                     fields[fieldCount++] = classifyField(cifCategory.getField(fieldName), fieldName);
