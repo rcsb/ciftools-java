@@ -8,30 +8,30 @@ import java.util.stream.DoubleStream;
 public class Float64Array implements FloatArray {
     private static final int NUMBER_OF_BYTES = 8;
     public static final int TYPE = 33;
-    private final double[] array;
+    private final double[] data;
 
-    public Float64Array(double... array) {
-        this.array = array;
+    Float64Array(double[] data) {
+        this.data = data;
     }
 
-    public Float64Array(byte... bytes) {
-        this.array = new double[bytes.length / NUMBER_OF_BYTES];
+    Float64Array(byte[] bytes) {
+        this.data = new double[bytes.length / NUMBER_OF_BYTES];
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = byteBuffer.getDouble();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = byteBuffer.getDouble();
         }
     }
 
     @Override
-    public double[] getArray() {
-        return array;
+    public double[] getData() {
+        return data;
     }
 
     @Override
     public byte[] toByteArray() {
-        ByteBuffer buffer = ByteBuffer.allocate(array.length * NUMBER_OF_BYTES);
+        ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        DoubleStream.of(array).forEach(buffer::putDouble);
+        DoubleStream.of(data).forEach(buffer::putDouble);
         return buffer.array();
     }
 
@@ -47,6 +47,6 @@ public class Float64Array implements FloatArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(array);
+        return getClass().getSimpleName() + ": " + Arrays.toString(data);
     }
 }

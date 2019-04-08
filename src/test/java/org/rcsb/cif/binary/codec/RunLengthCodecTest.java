@@ -1,10 +1,7 @@
 package org.rcsb.cif.binary.codec;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.array.Int32Array;
-import org.rcsb.cif.binary.array.Int8Array;
-import org.rcsb.cif.binary.array.IntArray;
-import org.rcsb.cif.binary.array.NumberArray;
+import org.rcsb.cif.binary.array.*;
 
 import java.util.Arrays;
 
@@ -15,7 +12,7 @@ public class RunLengthCodecTest {
     @Test
     public void testForward() {
         // create test case
-        Int32Array plainArray = new Int32Array(15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000);
+        Int32Array plainArray = ArrayFactory.int32Array(new int[] { 15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000 });
         CodecData<Int32Array> plainData = CodecData.of(plainArray)
                 .startEncoding(IntegerPackingCodec.KIND)
                 .build();
@@ -23,20 +20,20 @@ public class RunLengthCodecTest {
         // encode
         CodecData<Int32Array> encodedData = RUN_LENGTH_CODEC.encodeInternally(plainData);
 
-        System.out.println(Arrays.toString(encodedData.getData().getArray()));
+        System.out.println(Arrays.toString(encodedData.getData().getData()));
 
         // decode
         NumberArray decodedArray = RUN_LENGTH_CODEC.decodeInternally(encodedData);
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testEncode() {
         int[] expected = new int[] { 1, 3, 2, 1, 3, 2 };
-        Int8Array plainArray = new Int8Array(1, 1, 1, 2, 3, 3);
+        Int8Array plainArray = ArrayFactory.int8Array(new int[] { 1, 1, 1, 2, 3, 3 });
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(RunLengthCodec.KIND)
                 .build();
@@ -44,15 +41,15 @@ public class RunLengthCodecTest {
         CodecData<Int32Array> encodedData = RUN_LENGTH_CODEC.encodeInternally(plainData);
 
         System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(encodedData.getData().getArray()));
+        System.out.println(Arrays.toString(encodedData.getData().getData()));
 
-        assertArrayEquals(expected, encodedData.getData().getArray());
+        assertArrayEquals(expected, encodedData.getData().getData());
     }
 
     @Test
     public void testDecode() {
         int[] expected = new int[] { 15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000 };
-        Int32Array encodedArray = new Int32Array(15, 3, 100, 2, 111, 4, 10000, 6);
+        Int32Array encodedArray = ArrayFactory.int32Array(new int[] { 15, 3, 100, 2, 111, 4, 10000, 6 });
         CodecData<Int32Array> encodedData = CodecData.of(encodedArray)
                 .startEncoding(RunLengthCodec.KIND)
                 .addParameter("srcType", 3)
@@ -62,8 +59,8 @@ public class RunLengthCodecTest {
         IntArray plainData = RUN_LENGTH_CODEC.decodeInternally(encodedData);
 
         System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(plainData.getArray()));
+        System.out.println(Arrays.toString(plainData.getData()));
 
-        assertArrayEquals(expected, plainData.getArray());
+        assertArrayEquals(expected, plainData.getData());
     }
 }

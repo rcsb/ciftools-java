@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 public class CifFrame {
     private final String header;
     /**
-     * Implementation does not use list/array of category names to ensure order. Rather strictly depends on the proper
+     * Implementation does not use list/data of category names to ensure order. Rather strictly depends on the proper
      * map implementation. Here {@link java.util.LinkedHashMap} is used.
      */
     private Map<String, CifCategory> categories;

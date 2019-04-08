@@ -36,21 +36,21 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
         byte[] data = codecData.getData();
         switch ((int) codecData.getParameters().get("type")) {
             case 1:
-                return new Int8Array(data);
+                return ArrayFactory.int8Array(data);
             case 2:
-                return new Int16Array(data);
+                return ArrayFactory.int16Array(data);
             case 3:
-                return new Int32Array(data);
+                return ArrayFactory.int32Array(data);
             case 4:
-                return new Uint8Array(data);
+                return ArrayFactory.uint8Array(data);
             case 5:
-                return new Uint16Array(data);
+                return ArrayFactory.uint16Array(data);
             case 6:
-                return new Uint32Array(data);
+                return ArrayFactory.uint32Array(data);
             case 32:
-                return new Float32Array(data);
+                return ArrayFactory.float32Array(data);
             case 33:
-                return new Float64Array(data);
+                return ArrayFactory.float64Array(data);
             default:
                 throw new IllegalArgumentException("Unsupported byte type " + codecData.getParameters().get("type"));
         }

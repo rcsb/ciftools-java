@@ -4,32 +4,36 @@ import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Int8Array implements IntArray {
+public class Int8Array implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     public static final int TYPE = 1;
-    protected final int[] array;
+    private final int[] data;
 
-    public Int8Array(int... array) {
-        this.array = array;
+    Int8Array(int[] data) {
+        this.data = data;
     }
 
-    public Int8Array(byte... bytes) {
-        this.array = new int[bytes.length];
+    Int8Array(byte[] bytes) {
+        this.data = new int[bytes.length];
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = byteBuffer.get();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = byteBuffer.get();
         }
     }
 
     @Override
-    public int[] getArray() {
-        return array;
+    public int[] getData() {
+        return data;
     }
 
     @Override
     public byte[] toByteArray() {
-        ByteBuffer buffer = ByteBuffer.allocate(array.length);
-        IntStream.of(array).forEach(i -> buffer.put((byte) i));
+        return int8ToByteArray(data);
+    }
+
+    static byte[] int8ToByteArray(int[] data) {
+        ByteBuffer buffer = ByteBuffer.allocate(data.length);
+        IntStream.of(data).forEach(i -> buffer.put((byte) i));
         return buffer.array();
     }
 
@@ -45,6 +49,6 @@ public class Int8Array implements IntArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(array);
+        return getClass().getSimpleName() + ": " + Arrays.toString(data);
     }
 }

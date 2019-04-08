@@ -3,20 +3,36 @@ package org.rcsb.cif.binary.array;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 
-public class Uint8Array extends Int8Array {
+public class Uint8Array implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     public static final int TYPE = 4;
+    private final int[] data;
 
-    public Uint8Array(int... array) {
-        super(array);
+    Uint8Array(int[] data) {
+        this.data = data;
     }
 
-    public Uint8Array(byte... bytes) {
-        super(new int[bytes.length]);
+    Uint8Array(byte[] bytes) {
+        this.data = new int[bytes.length];
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = byteBuffer.get() & 0xFF;
+        for (int i = 0; i < data.length; i++) {
+            data[i] = byteBuffer.get() & 0xFF;
         }
+    }
+
+    @Override
+    public int[] getData() {
+        return data;
+    }
+
+    @Override
+    public byte[] toByteArray() {
+        return Int8Array.int8ToByteArray(data);
+    }
+
+    @Override
+    public int getNumberOfBytes() {
+        return NUMBER_OF_BYTES;
     }
 
     @Override
@@ -26,6 +42,6 @@ public class Uint8Array extends Int8Array {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(array);
+        return getClass().getSimpleName() + ": " + Arrays.toString(data);
     }
 }

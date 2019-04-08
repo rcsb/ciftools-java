@@ -111,7 +111,7 @@ public abstract class Codec<PLAIN, ENCODED> {
     protected abstract CodecData<ENCODED> encodeInternally(CodecData<PLAIN> data);
 
     public static CodecData<IntArray> classifyArray(IntArray data) {
-        if (data.getArray().length < 2) {
+        if (data.getData().length < 2) {
             return CodecData.of(data)
                     .startEncoding(ByteArrayCodec.KIND)
                     .addParameter("type", data.getType())
@@ -285,7 +285,7 @@ public abstract class Codec<PLAIN, ENCODED> {
 
     private static List<EncodingSize> getSize(IntArray data) {
         IntColumnInfo info = getInfo(data);
-        int[] array = data.getArray();
+        int[] array = data.getData();
         List<EncodingSize> sizes = new ArrayList<>();
         sizes.add(packingSize(array, info));
         sizes.add(rleSize(array, info));
@@ -309,7 +309,7 @@ public abstract class Codec<PLAIN, ENCODED> {
     public static CodecData<FloatArray> classifyArray(FloatArray data) {
         int maxDigits = 4;
 
-        int[] arrayDigitCount = getArrayDigitCount(data.getArray(), maxDigits);
+        int[] arrayDigitCount = getArrayDigitCount(data.getData(), maxDigits);
         int mantissaDigits = arrayDigitCount[0];
         int integerDigits = arrayDigitCount[1];
 
@@ -324,11 +324,11 @@ public abstract class Codec<PLAIN, ENCODED> {
         }
 
         int multiplier = getMultiplier(mantissaDigits);
-        int[] intArray = DoubleStream.of(data.getArray())
+        int[] intArray = DoubleStream.of(data.getData())
                 .mapToInt(d -> (int) Math.round(multiplier * d))
                 .toArray();
 
-        List<EncodingSize> sizes = getSize(new Int32Array(intArray));
+        List<EncodingSize> sizes = getSize(ArrayFactory.int32Array(intArray));
         EncodingSize size = sizes.get(0);
 
         switch (size.kind) {
@@ -376,7 +376,7 @@ public abstract class Codec<PLAIN, ENCODED> {
     }
 
     /**
-     * Determine the maximum number of digits in a floating point array.
+     * Determine the maximum number of digits in a floating point data.
      * Find a number M such that round(M * v) - M * v <= delta.
      * If no such M exists, return -1.
      */

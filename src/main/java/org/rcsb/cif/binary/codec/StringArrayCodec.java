@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.binary.array.ArrayFactory;
 import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
 import org.rcsb.cif.binary.array.Uint8Array;
@@ -60,8 +61,8 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
         }
 
         int[] offsetArray = offsets.stream().mapToInt(n -> n).toArray();
-        Int32Array offsetData = new Int32Array(offsetArray);
-        Int32Array output = new Int32Array(outputArray);
+        Int32Array offsetData = ArrayFactory.int32Array(offsetArray);
+        Int32Array output = ArrayFactory.int32Array(outputArray);
 
         CodecData<IntArray> offsetEncoding = classifyArray(offsetData);
         CodecData<byte[]> encodedOffsets = Codec.encodeMap(offsetEncoding);
@@ -89,19 +90,19 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
             Map<String, Object> offsetTask = new LinkedHashMap<>();
             offsetTask.put("data", parameters.get("offsets"));
             offsetTask.put("encoding", parameters.get("offsetEncoding"));
-            offsets = ((IntArray) Codec.decodeMap(offsetTask)).getArray();
+            offsets = ((IntArray) Codec.decodeMap(offsetTask)).getData();
         } else {
             offsets = ((IntArray) ByteArrayCodec.decode(CodecData.of((byte[]) parameters.get("offsets"))
                     .startEncoding(KIND)
                     .addParameter("type", Uint8Array.TYPE)
                     .build())
-                    .getArray()).getArray();
+                    .getData()).getData();
         }
 
         Map<String, Object> dataTask = new LinkedHashMap<>();
         dataTask.put("data", data.getData());
         dataTask.put("encoding", parameters.get("dataEncoding"));
-        int[] indices = ((IntArray) Codec.decodeMap(dataTask)).getArray();
+        int[] indices = ((IntArray) Codec.decodeMap(dataTask)).getData();
 
         String[] result = new String[indices.length];
         int offset = 0;

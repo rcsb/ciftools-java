@@ -1,10 +1,7 @@
 package org.rcsb.cif.binary.codec;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.array.Int32Array;
-import org.rcsb.cif.binary.array.Int8Array;
-import org.rcsb.cif.binary.array.IntArray;
-import org.rcsb.cif.binary.array.NumberArray;
+import org.rcsb.cif.binary.array.*;
 
 import java.util.Arrays;
 
@@ -15,7 +12,7 @@ public class DeltaCodecTest {
     @Test
     public void testForward() {
         // create test case
-        Int8Array plainArray = new Int8Array(1, 2, 3, 4, 5, 6);
+        Int8Array plainArray = ArrayFactory.int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(DeltaCodec.KIND)
                 .build();
@@ -23,20 +20,20 @@ public class DeltaCodecTest {
         // encode
         CodecData<IntArray> encodedData = DELTA_CODEC.encodeInternally(plainData);
 
-        System.out.println(Arrays.toString(encodedData.getData().getArray()));
+        System.out.println(Arrays.toString(encodedData.getData().getData()));
 
         // decode
         NumberArray decodedArray = DELTA_CODEC.decodeInternally(encodedData);
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void honorSrcType() {
         // create test case
-        Int8Array plainArray = new Int8Array(1, 2, 3, 4, 5, 6);
+        Int8Array plainArray = ArrayFactory.int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(DeltaCodec.KIND)
                 .addParameter("srcType", 1)
@@ -56,7 +53,7 @@ public class DeltaCodecTest {
     @Test
     public void fallbackToInt32Array() {
         // create test case
-        Int8Array plainArray = new Int8Array(1, 2, 3, 4, 5, 6);
+        Int8Array plainArray = ArrayFactory.int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(DeltaCodec.KIND)
                 .build();
@@ -74,7 +71,7 @@ public class DeltaCodecTest {
 
     @Test
     public void emptyCase() {
-        Int8Array plainArray = new Int8Array();
+        Int8Array plainArray = ArrayFactory.int8Array(new int[0]);
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(DeltaCodec.KIND)
                 .build();
@@ -82,11 +79,11 @@ public class DeltaCodecTest {
         // encode
         CodecData<IntArray> encodedData = DELTA_CODEC.encodeInternally(plainData);
 
-        assertEquals(0, encodedData.getData().getArray().length);
+        assertEquals(0, encodedData.getData().length());
 
         // decode
         NumberArray decodedArray = DELTA_CODEC.decodeInternally(encodedData);
 
-        assertEquals(0, ((int[]) decodedArray.getArray()).length);
+        assertEquals(0, ((int[]) decodedArray.getData()).length);
     }
 }

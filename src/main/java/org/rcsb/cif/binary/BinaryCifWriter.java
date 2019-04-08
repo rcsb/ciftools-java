@@ -78,7 +78,7 @@ public class BinaryCifWriter implements CifWriter {
             fieldMap.put("value", values);
             fieldMap.put("valueKind", cifField.valueKinds().mapToInt(Enum::ordinal).toArray());
             fieldMap.put("typedArray", "Float64Array");
-            CodecData<FloatArray> encoder = Codec.classifyArray(new Float64Array(values));
+            CodecData<FloatArray> encoder = Codec.classifyArray(ArrayFactory.float64Array(values));
             return encodeField(fieldMap, cifField, encoder);
         } else {
             int[] values = cifField.ints().toArray();
@@ -86,7 +86,7 @@ public class BinaryCifWriter implements CifWriter {
             fieldMap.put("value", values);
             fieldMap.put("valueKind", cifField.valueKinds().mapToInt(Enum::ordinal).toArray());
             fieldMap.put("typedArray", "Int32Array");
-            CodecData<IntArray> encoder = Codec.classifyArray(new Int32Array(values));
+            CodecData<IntArray> encoder = Codec.classifyArray(ArrayFactory.int32Array(values));
             return encodeField(fieldMap, cifField, encoder);
         }
     }
@@ -113,7 +113,7 @@ public class BinaryCifWriter implements CifWriter {
                     .startEncoding(ByteArrayCodec.KIND)
                     .build());
 
-            if (maskRLE.getData().length < mask.getArray().length) {
+            if (maskRLE.getData().length < mask.getData().length) {
                 maskData.put("data", maskRLE.getData());
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
                 encoding1.put("kind", RunLengthCodec.KIND);
@@ -153,10 +153,10 @@ public class BinaryCifWriter implements CifWriter {
         String type = (String) fieldMap.get("type");
         // TODO save them resources
         String[] stringArray = new String[length];
-        Float64Array floatArray = new Float64Array(new double[length]);
-        Int32Array intArray = new Int32Array(new int[length]);
+        Float64Array floatArray = ArrayFactory.float64Array(new double[length]);
+        Int32Array intArray = ArrayFactory.int32Array(new int[length]);
         int[] mask = new int[length];
-        Uint8Array maskArray = new Uint8Array(mask);
+        Uint8Array maskArray = ArrayFactory.uint8Array(mask);
         boolean allPresent = true;
 
         for (int row = 0; row < length; row++) {
@@ -178,14 +178,14 @@ public class BinaryCifWriter implements CifWriter {
                 if ("Str".equals(type)) {
                     stringArray[row] = cifField.getString(row);
                 } else if ("Float".equals(type)) {
-                    floatArray.getArray()[row] = cifField.getFloat(row);
+                    floatArray.getData()[row] = cifField.getFloat(row);
                 } else {
-                    intArray.getArray()[row] = cifField.getInt(row);
+                    intArray.getData()[row] = cifField.getInt(row);
                 }
             }
         }
 
-        data.put("array", "Str".equals(type) ? stringArray : "Float".equals(type) ? floatArray : intArray);
+        data.put("data", "Str".equals(type) ? stringArray : "Float".equals(type) ? floatArray : intArray);
         data.put("allPresent", allPresent);
         data.put("mask", maskArray);
 

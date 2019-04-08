@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.binary.array.ArrayFactory;
 import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
 
@@ -22,9 +23,9 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     @Override
     protected CodecData<Int32Array> encodeInternally(CodecData data) {
         IntArray input = (IntArray) data.getData();
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
         if (inputArray.length == 0) {
-            return CodecData.of(new Int32Array(new int[0]))
+            return CodecData.of(ArrayFactory.int32Array(new int[0]))
                     .startEncoding(KIND)
                     .addParameter("srcType", Int32Array.TYPE)
                     .addParameter("srcSize", 0)
@@ -39,7 +40,7 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
             }
         }
         int[] outputArray = new int[fullLength];
-        Int32Array output = new Int32Array(outputArray);
+        Int32Array output =ArrayFactory.int32Array(outputArray);
         int offset = 0;
         int runLength = 1;
         for (int i = 1; i < inputArray.length; i++) {
@@ -69,18 +70,18 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         int srcSize = (int) data.getParameters().get("srcSize");
 
         Int32Array input = data.getData();
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
 
         if (inputArray.length == 0) {
             return data.getData();
         }
 
         int dataOffset = 0;
-        IntArray output = IntArray.get(srcType, srcSize);
-        int[] outputArray = output.getArray();
+        IntArray output = ArrayFactory.intArray(srcType, srcSize);
+        int[] outputArray = output.getData();
 
         if (inputArray.length % 2 == 1) {
-            System.err.println("FIXME: source array has odd number of elements");
+            System.err.println("FIXME: source data has odd number of elements");
         }
         for (int i = 0; i < inputArray.length - 1 /* TODO remove -1 which should point to problems */; i += 2) {
             int value = inputArray[i];  // value to be repeated

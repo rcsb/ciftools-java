@@ -27,23 +27,23 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
 
         int srcType;
         if (data.getParameters().get("srcType") == null) {
-            input = new Int32Array(input.getArray());
+            input = ArrayFactory.int32Array(input.getData());
             srcType = Int32Array.TYPE;
         } else {
             srcType = (int) data.getParameters().get("srcType");
         }
 
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
         if (inputArray.length == 0) {
-            return CodecData.of(IntArray.get(srcType, 0))
+            return CodecData.of(ArrayFactory.intArray(srcType, 0))
                     .startEncoding(KIND)
                     .addParameter("origin", 0)
                     .addParameter("srcType", srcType)
                     .build();
         }
 
-        IntArray output = IntArray.get(srcType, inputArray.length);
-        int[] outputArray = output.getArray();
+        IntArray output = ArrayFactory.intArray(srcType, inputArray.length);
+        int[] outputArray = output.getData();
         int origin = inputArray[0];
         outputArray[0] = inputArray[0];
         for (int i = 1; i < inputArray.length; i++) {
@@ -61,17 +61,17 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
     @Override
     protected IntArray decodeInternally(CodecData<IntArray> data) {
         ensureParametersPresent(data, "origin", "srcType");
-        int[] input = data.getData().getArray();
+        int[] input = data.getData().getData();
         int origin = (int) data.getParameters().get("origin");
         int srcType = (int) data.getParameters().get("srcType");
-        IntArray output = IntArray.get(srcType, input.length);
+        IntArray output = ArrayFactory.intArray(srcType, input.length);
 
         int n = input.length;
         if (n == 0) {
             return output;
         }
 
-        int[] outputArray = output.getArray();
+        int[] outputArray = output.getData();
         outputArray[0] = input[0] + origin;
         for (int i = 1; i < n; ++i) {
             outputArray[i] = input[i] + outputArray[i - 1];

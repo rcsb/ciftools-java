@@ -28,7 +28,7 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
         }
 
         FloatArray input = (FloatArray) data.getData();
-        double[] inputArray = input.getArray();
+        double[] inputArray = input.getData();
         int srcType = input.getType();
         int factor = (int) data.getParameters().get("factor");
 
@@ -36,7 +36,7 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
                 .mapToInt(d -> (int) Math.round(d * factor))
                 .toArray();
 
-        return CodecData.of(new Int32Array(outputArray))
+        return CodecData.of(ArrayFactory.int32Array(outputArray))
                 .startEncoding(KIND)
                 .addParameter("factor", factor)
                 .addParameter("srcType", srcType)
@@ -48,7 +48,7 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
         ensureParametersPresent(data, "factor", "srcType");
 
         Int32Array input = (Int32Array) data.getData();
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
         int srcType = (int) data.getParameters().get("srcType");
         double f = 1.0 / (int) data.getParameters().get("factor");
 
@@ -56,6 +56,6 @@ public class FixedPointCodec extends Codec<FloatArray, Int32Array> {
                 .mapToDouble(i -> f * i)
                 .toArray();
 
-        return srcType == Float32Array.TYPE ? new Float32Array(outputArray) : new Float64Array(outputArray);
+        return srcType == Float32Array.TYPE ? ArrayFactory.float32Array(outputArray) : ArrayFactory.float64Array(outputArray);
     }
 }

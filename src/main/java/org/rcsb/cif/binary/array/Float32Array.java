@@ -8,32 +8,30 @@ import java.util.stream.DoubleStream;
 public class Float32Array implements FloatArray {
     private static final int NUMBER_OF_BYTES = 4;
     public static final int TYPE = 32;
-    private final double[] array;
+    private final double[] data;
 
-    // TODO array constructors can be mistaken for init(length)
-    // TODO could use dedicated String[] and byte[]
-    public Float32Array(double... array) {
-        this.array = array;
+    Float32Array(double[] data) {
+        this.data = data;
     }
 
-    public Float32Array(byte... bytes) {
-        this.array = new double[bytes.length / NUMBER_OF_BYTES];
+    Float32Array(byte[] bytes) {
+        this.data = new double[bytes.length / NUMBER_OF_BYTES];
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = byteBuffer.getFloat();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = byteBuffer.getFloat();
         }
     }
 
     @Override
-    public double[] getArray() {
-        return array;
+    public double[] getData() {
+        return data;
     }
 
     @Override
     public byte[] toByteArray() {
-        ByteBuffer buffer = ByteBuffer.allocate(array.length * NUMBER_OF_BYTES);
+        ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        DoubleStream.of(array).forEach(f -> buffer.putFloat((float) f));
+        DoubleStream.of(data).forEach(f -> buffer.putFloat((float) f));
         return buffer.array();
     }
 
@@ -49,6 +47,6 @@ public class Float32Array implements FloatArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(array);
+        return getClass().getSimpleName() + ": " + Arrays.toString(data);
     }
 }

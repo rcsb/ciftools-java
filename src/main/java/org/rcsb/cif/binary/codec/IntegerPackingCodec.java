@@ -30,7 +30,7 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         }
 
         Int32Array input = (Int32Array) data.getData();
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
 
         Packing packing = determinePacking(inputArray);
         if (packing.bytesPerElement == 4) {
@@ -68,8 +68,8 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
             ++j;
         }
 
-        IntArray output = packing.signed ? packing.bytesPerElement == 1 ? new Int8Array(outputArray) : new Int16Array(outputArray) :
-                packing.bytesPerElement == 1 ? new Uint8Array(outputArray) : new Uint16Array(outputArray);
+        IntArray output = packing.signed ? packing.bytesPerElement == 1 ? ArrayFactory.int8Array(outputArray) : ArrayFactory.int16Array(outputArray) :
+                packing.bytesPerElement == 1 ? ArrayFactory.uint8Array(outputArray) : ArrayFactory.uint16Array(outputArray);
         return CodecData.of(output)
                 .startEncoding(KIND)
                 .addParameter("byteCount", packing.bytesPerElement)
@@ -132,14 +132,14 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         ensureParametersPresent(data, "isUnsigned", "srcSize", "byteCount");
 
         IntArray input = data.getData();
-        int[] inputArray = input.getArray();
+        int[] inputArray = input.getData();
 
         boolean unsigned = (boolean) data.getParameters().get("isUnsigned");
         int byteCount = (int) data.getParameters().get("byteCount");
         int srcSize = (int) data.getParameters().get("srcSize");
 
         if (inputArray.length == srcSize && byteCount == 4) {
-            return new Int32Array(inputArray);
+            return ArrayFactory.int32Array(inputArray);
         }
 
         int upperLimit;
@@ -169,6 +169,6 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
             j++;
         }
 
-        return new Int32Array(outputArray);
+        return ArrayFactory.int32Array(outputArray);
     }
 }

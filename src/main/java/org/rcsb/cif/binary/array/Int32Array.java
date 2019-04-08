@@ -5,33 +5,37 @@ import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Int32Array implements IntArray {
+public class Int32Array implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
     public static final int TYPE = 3;
-    protected final int[] array;
+    private final int[] data;
 
-    public Int32Array(int... array) {
-        this.array = array;
+    Int32Array(int[] data) {
+        this.data = data;
     }
 
-    public Int32Array(byte... bytes) {
-        this.array = new int[bytes.length / NUMBER_OF_BYTES];
+    Int32Array(byte[] bytes) {
+        this.data = new int[bytes.length / NUMBER_OF_BYTES];
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < array.length; i++) {
-            array[i] = byteBuffer.getInt();
+        for (int i = 0; i < data.length; i++) {
+            data[i] = byteBuffer.getInt();
         }
     }
 
     @Override
-    public int[] getArray() {
-        return array;
+    public int[] getData() {
+        return data;
     }
 
     @Override
     public byte[] toByteArray() {
-        ByteBuffer buffer = ByteBuffer.allocate(array.length * NUMBER_OF_BYTES);
+        return int32ToByteArray(data);
+    }
+
+    static byte[] int32ToByteArray(int[] data) {
+        ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        IntStream.of(array).forEach(buffer::putInt);
+        IntStream.of(data).forEach(buffer::putInt);
         return buffer.array();
     }
 
@@ -47,6 +51,6 @@ public class Int32Array implements IntArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(array);
+        return getClass().getSimpleName() + ": " + Arrays.toString(data);
     }
 }

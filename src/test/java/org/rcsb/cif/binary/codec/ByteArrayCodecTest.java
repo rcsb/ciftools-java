@@ -13,7 +13,7 @@ public class ByteArrayCodecTest {
     @Test
     public void testForwardInt8() {
         // create test case
-        Int8Array plainArray = new Int8Array(1, 2, 3, 4, -128, 127);
+        Int8Array plainArray = ArrayFactory.int8Array(new int[] { 1, 2, 3, 4, -128, 127 });
         CodecData<Int8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -28,13 +28,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardInt16() {
         // create test case
-        Int16Array plainArray = new Int16Array(1, 2, 3, 4, -32_768, 32_767);
+        Int16Array plainArray = ArrayFactory.int16Array(new int[] { 1, 2, 3, 4, -32_768, 32_767 });
         CodecData<Int16Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -49,13 +49,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardInt32() {
         // create test case
-        Int32Array plainArray = new Int32Array(1, 2, 3, 4, -2_147_483_648, 2_147_483_647);
+        Int32Array plainArray = ArrayFactory.int32Array(new int[] { 1, 2, 3, 4, -2_147_483_648, 2_147_483_647 });
         CodecData<Int32Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -70,13 +70,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardUint8() {
         // create test case
-        Uint8Array plainArray = new Uint8Array(1, 2, 3, 4, 0, 255);
+        Uint8Array plainArray = ArrayFactory.uint8Array(new int[] { 1, 2, 3, 4, 0, 255 });
         CodecData<Uint8Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -91,13 +91,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardUint16() {
         // create test case
-        Uint16Array plainArray = new Uint16Array(1, 2, 3, 4, 0, 65_535);
+        Uint16Array plainArray = ArrayFactory.uint16Array(new int[] { 1, 2, 3, 4, 0, 65_535 });
         CodecData<Uint16Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -112,13 +112,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardUint32() {
         // create test case
-        Uint32Array plainArray = new Uint32Array(1, 2, 3, 4, 0, /*4_294_967_295*/ Integer.MAX_VALUE);
+        Uint32Array plainArray = ArrayFactory.uint32Array(new int[] { 1, 2, 3, 4, 0, /*4_294_967_295*/ Integer.MAX_VALUE });
         CodecData<Uint32Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -133,13 +133,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (int[]) decodedArray.getArray());
+        assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
     @Test
     public void testForwardFloat32() {
         // create test case
-        Float32Array plainArray = new Float32Array(-1.0, 2.3, -3.5, 4, -Float.MAX_VALUE, Float.MAX_VALUE);
+        Float32Array plainArray = ArrayFactory.float32Array(new double[] { -1.0, 2.3, -3.5, 4, -Float.MAX_VALUE, Float.MAX_VALUE });
         CodecData<Float32Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -154,13 +154,13 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (double[]) decodedArray.getArray(), TestHelper.ERROR_MARGIN);
+        assertArrayEquals(plainArray.getData(), (double[]) decodedArray.getData(), TestHelper.ERROR_MARGIN);
     }
 
     @Test
     public void testForwardFloat64() {
         // create test case
-        Float64Array plainArray = new Float64Array(-1.0, 2.3, -3.5, 4, -Double.MAX_VALUE, Double.MAX_VALUE);
+        Float64Array plainArray = ArrayFactory.float64Array(new double[] { -1.0, 2.3, -3.5, 4, -Double.MAX_VALUE, Double.MAX_VALUE });
         CodecData<Float64Array> plainData = CodecData.of(plainArray)
                 .startEncoding(ByteArrayCodec.KIND)
                 .build();
@@ -175,6 +175,6 @@ public class ByteArrayCodecTest {
 
         System.out.println(plainArray);
         System.out.println(decodedArray);
-        assertArrayEquals(plainArray.getArray(), (double[]) decodedArray.getArray(), TestHelper.ERROR_MARGIN);
+        assertArrayEquals(plainArray.getData(), (double[]) decodedArray.getData(), TestHelper.ERROR_MARGIN);
     }
 }
