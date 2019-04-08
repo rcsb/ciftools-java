@@ -12,21 +12,20 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
+import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifWriterTest {
-    private static final List<String> testCases = Stream.of("1acj", "1pga") // TODO expand for ligand data? e.g. THA
-            .collect(Collectors.toList());
 
     @Test
     public void writeText() throws ParsingException, IOException {
-        for (String id : testCases) {
+        for (String id : TEST_CASES.keySet()) {
             writeText(id);
         }
     }
 
     @Test
     public void writeBinary() throws ParsingException, IOException {
-        for (String id : testCases) {
+        for (String id : TEST_CASES.keySet()) {
             writeBinary(id);
         }
     }
@@ -58,7 +57,7 @@ public class CifWriterTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        // TODO line breaks
+        System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
         assertEquals(original, copy);
     }
 }

@@ -15,16 +15,9 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
+import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifReaderTest {
-    // TODO create round-trip tests - forward and backward
-
-    @SuppressWarnings("unchecked")
-    private static final Map<String, List<Object>> testCases = Stream.of(
-            new Object[] { "1acj", Stream.of(-12.503, 535, "1ACJ").collect(Collectors.toList()) },
-            new Object[] { "1pga", Stream.of(26.778, 56, "1PGA").collect(Collectors.toList()) }
-    ).collect(Collectors.toMap((Object[] e) -> (String) e[0], (Object[] e) -> (List<Object>) e[1]));
-
     @Test
     public void parse3j3q() throws IOException, ParsingException {
         InputStream inputStream = TestHelper.getInputStream("bcif/3j3q.bcif");
@@ -33,7 +26,7 @@ public class CifReaderTest {
 
     @Test
     public void parseBinary() throws IOException, ParsingException {
-        for (Map.Entry<String, List<Object>> testCase : testCases.entrySet()) {
+        for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             System.out.println("test cases: " + testCase.getKey() + " - binary parsing");
             InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifReader.parseBinary(inputStream), testCase.getValue());
@@ -42,7 +35,7 @@ public class CifReaderTest {
 
     @Test
     public void parseText() throws ParsingException, IOException {
-        for (Map.Entry<String, List<Object>> testCase : testCases.entrySet()) {
+        for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             System.out.println("test cases: " + testCase.getKey() + " - text parsing");
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
             checkParsedEntity(CifReader.parseText(inputStream), testCase.getValue());

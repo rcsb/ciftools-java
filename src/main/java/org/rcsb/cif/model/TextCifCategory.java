@@ -3,8 +3,6 @@ package org.rcsb.cif.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class TextCifCategory implements CifCategory {
     private final String name;

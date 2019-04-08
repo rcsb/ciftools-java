@@ -1,11 +1,6 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.ParsingException;
-
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -22,10 +17,14 @@ public class BinaryCifCategory implements CifCategory {
         this.rowCount = rowCount;
         this.encodedFields = encodedFields;
         this.decodedFields = new LinkedHashMap<>();
-        this.fieldNames = Stream.of(encodedFields)
-                .map(map -> ((Map<String, Object>) map).get("name"))
-                .map(String.class::cast)
-                .collect(Collectors.toList());
+        try {
+            this.fieldNames = Stream.of(encodedFields)
+                    .map(map -> ((Map<String, Object>) map).get("name"))
+                    .map(String.class::cast)
+                    .collect(Collectors.toList());
+        }catch(Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override

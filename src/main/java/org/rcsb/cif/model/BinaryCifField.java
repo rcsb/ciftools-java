@@ -22,7 +22,7 @@ public class BinaryCifField implements CifField {
     private final String name;
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) {
-        this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null;
+        this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null && !((Map) encodedColumn.get("mask")).isEmpty();
         this.mask = hasMask ? ((IntArray) Codec.decodeMap((Map<String, Object>) encodedColumn.get("mask"))).getArray() : null;
         Object data = Codec.decodeMap((Map<String, Object>) encodedColumn.get("data"));
 
@@ -98,7 +98,7 @@ public class BinaryCifField implements CifField {
 
     @Override
     public ValueKind getValueKind(int row) {
-        if (hasMask) {
+        if (!hasMask) {
             return ValueKind.PRESENT;
         }
         return ValueKind.values()[mask[row]];

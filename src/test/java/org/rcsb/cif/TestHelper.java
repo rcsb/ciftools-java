@@ -5,12 +5,22 @@ import org.junit.Test;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertNotNull;
 
 public class TestHelper {
     public static final double ERROR_MARGIN = 0.001;
+
+    @SuppressWarnings("unchecked")
+    public static final Map<String, List<Object>> TEST_CASES = Stream.of(
+            new Object[] { "1acj", Stream.of(-12.503, 535, "1ACJ").collect(Collectors.toList()) },
+            new Object[] { "1pga", Stream.of(26.778, 56, "1PGA").collect(Collectors.toList()) }
+    ).collect(Collectors.toMap((Object[] e) -> (String) e[0], (Object[] e) -> (List<Object>) e[1]));
 
     public static InputStream getInputStream(String localPath) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(localPath);

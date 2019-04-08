@@ -12,10 +12,7 @@ import org.rcsb.cif.ParsingException;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -65,33 +62,38 @@ public class BinaryCifReader implements CifReader {
                     ", required " + Codec.MIN_VERSION + ".");
         }
 
-        try {
-            List<CifBlock> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
-                    .map(entry -> {
-                        Map<String, Object> map = (Map<String, Object>) entry;
-                        String header = (String) map.get("header");
-                        Map<String, CifCategory> categories = new LinkedHashMap<>();
+        List<CifBlock> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
+                .map(entry -> {
+                    Map<String, Object> map = (Map<String, Object>) entry;
+                    String header = (String) map.get("header");
+                    Map<String, CifCategory> categories = new LinkedHashMap<>();
 
-                        for (Object o : (Object[]) map.get("categories")) {
-                            Map<String, Object> cat = (Map<String, Object>) o;
-                            String name = (String) cat.get("name");
-                            categories.put(name.substring(1), createCategory(cat));
-                        }
+                    for (Object o : (Object[]) map.get("categories")) {
+                        Map<String, Object> cat = (Map<String, Object>) o;
+                        String name = (String) cat.get("name");
+                        categories.put(name.substring(1), createCategory(cat));
+                    }
 
-                        return new CifBlock(categories, header, new ArrayList<>());
-                    })
-                    .collect(Collectors.toList());
+                    return new CifBlock(categories, header, new ArrayList<>());
+                })
+                .collect(Collectors.toList());
 
-            return new CifFile(dataBlocks);
-        } catch (Exception e) {
-            throw new ParsingException("Parsing failed.", e);
-        }
+        return new CifFile(dataBlocks);
     }
 
     private CifCategory createCategory(Map<String, Object> encodedCategory) {
-        String name = (String) encodedCategory.get("name");
-        int rowCount = (int) encodedCategory.get("rowCount");
+//        System.out.println(encodedCategory.get("name"));
+//        System.out.println(Arrays.toString((Object[]) encodedCategory.get("columns")));
+//        System.out.println(encodedCategory.get("rowCount"));
+        String name = ((String) encodedCategory.get("name")).substring(1);
+
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+//        int rowCount = 0;
+//        try {
+            int rowCount = (int) encodedCategory.get("rowCount");
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
         return new BinaryCifCategory(name, rowCount, encodedFields);
     }
 }

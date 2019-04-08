@@ -22,14 +22,14 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     @Override
     protected CodecData<Int32Array> encodeInternally(CodecData data) {
         IntArray input = (IntArray) data.getData();
-        int srcType;
-
-        if (data.getParameters().containsKey("srcType")) {
-            srcType = (int) data.getParameters().get("srcType");
-        } else {
-            input = new Int32Array(input.getArray());
-            srcType = Int32Array.TYPE;
-        }
+//        int srcType;
+//
+//        if (data.getParameters().containsKey("srcType")) {
+//            srcType = (int) data.getParameters().get("srcType");
+//        } else {
+//            input = new Int32Array(input.getArray());
+//            srcType = Int32Array.TYPE;
+//        }
 
         int[] inputArray = input.getArray();
         if (inputArray.length == 0) {

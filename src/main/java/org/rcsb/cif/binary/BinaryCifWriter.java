@@ -1,11 +1,8 @@
 package org.rcsb.cif.binary;
 
-import com.sun.tools.javac.jvm.Code;
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.rcsb.cif.CifWriter;
-import org.rcsb.cif.binary.array.Float64Array;
-import org.rcsb.cif.binary.array.FloatArray;
-import org.rcsb.cif.binary.array.Int32Array;
-import org.rcsb.cif.binary.array.IntArray;
+import org.rcsb.cif.binary.array.*;
 import org.rcsb.cif.binary.codec.*;
 import org.rcsb.cif.model.*;
 
@@ -47,6 +44,8 @@ public class BinaryCifWriter implements CifWriter {
                 category.put("name", "_" + cifCategory.getName());
                 Object[] fields = new Object[cifCategory.getFieldNames().size()];
                 int fieldCount = 0;
+                category.put("rowCount", cifCategory.getField(cifCategory.getFieldNames().get(0)).getRowCount());
+                // FIXME rowCount before columns omits missing row count at some occasion
                 category.put("columns", fields);
 
                 for (String fieldName : cifCategory.getFieldNames()) {
@@ -58,6 +57,15 @@ public class BinaryCifWriter implements CifWriter {
         }
 
         byte[] ret = messagePackCodec.encode(file);
+
+//        for (Object block : (Object[]) file.get("dataBlocks")) {
+//            for (Object category : (Object[]) ((Map<String, Object>) block).get("categories")) {
+//                if (((Map<String, Object>) category).get("name").equals("_pdbx_poly_seq_scheme")) {
+//                    System.out.println(category);
+//                }
+//            }
+//        }
+
         return new ByteArrayInputStream(ret);
     }
 
@@ -67,10 +75,14 @@ public class BinaryCifWriter implements CifWriter {
         fieldMap.put("name", name);
 
         if (type == DataType.Str) {
+            String[] data = cifField.strings().toArray(String[]::new);
             fieldMap.put("type", "Str");
-            fieldMap.put("value", cifField.strings().collect(Collectors.toList()));
+            fieldMap.put("value", data);
             fieldMap.put("valueKind", cifField.valueKinds().mapToInt(Enum::ordinal).toArray());
-            return encode(fieldMap, cifField,null);
+//            CodecData<String[]> encoder = CodecData.of(data)
+//                    .startEncoding(StringArrayCodec.KIND)
+//                    .build();
+            return encodeField(fieldMap, cifField, null);
         } else if (type == DataType.Float) {
             double[] values = cifField.floats().toArray();
             fieldMap.put("type", "Float");
@@ -78,7 +90,7 @@ public class BinaryCifWriter implements CifWriter {
             fieldMap.put("valueKind", cifField.valueKinds().mapToInt(Enum::ordinal).toArray());
             fieldMap.put("typedArray", "Float64Array");
             CodecData<FloatArray> encoder = Codec.classifyArray(new Float64Array(values));
-            return encode(fieldMap, cifField, encoder);
+            return encodeField(fieldMap, cifField, encoder);
         } else {
             int[] values = cifField.ints().toArray();
             fieldMap.put("type", "Int");
@@ -86,33 +98,79 @@ public class BinaryCifWriter implements CifWriter {
             fieldMap.put("valueKind", cifField.valueKinds().mapToInt(Enum::ordinal).toArray());
             fieldMap.put("typedArray", "Int32Array");
             CodecData<IntArray> encoder = Codec.classifyArray(new Int32Array(values));
-            return encode(fieldMap, cifField, encoder);
+            return encodeField(fieldMap, cifField, encoder);
         }
     }
 
-    private Map<String, Object> encode(Map<String, Object> fieldMap, CifField cifField, CodecData<?> encoder) {
+    private Map<String, Object> encodeField(Map<String, Object> fieldMap, CifField cifField, CodecData<?> encoder) {
         Map<String, Object> fieldData = getFieldData(fieldMap, cifField);
+        boolean allPresent = (boolean) fieldData.get("allPresent");
+        Uint8Array mask = (Uint8Array) fieldData.get("mask");
 
         // default encoding
         // TODO support for auto encoding etc
+        CodecData<byte[]> encoded;
+        Map<String, Object> encodedMap = new LinkedHashMap<>();
         if (encoder == null) {
             // TODO need byte array codec explicitly?
             if (cifField.getDataType() == DataType.Str) {
-                CodecData<?> codec = CodecData.of((String[]) fieldData.get("array"))
+                CodecData<String[]> codec = CodecData.of((String[]) fieldData.get("array"))
                         .startEncoding(StringArrayCodec.KIND)
                         .build();
-                Codec.encodeMap();
+                encoded = Codec.encodeMap(codec);
+                System.out.print("str: ");
             } else {
+                System.out.println("the never-happen case");
                 CodecData<Object> codec = CodecData.of(fieldData.get("array"))
                         .startEncoding(ByteArrayCodec.KIND)
                         .build();
-                Codec.encodeMap();
+                encoded = Codec.encodeMap(codec);
             }
         } else {
-            Codec.encodeMap();
+            encoded = Codec.encodeMap(encoder);
+            System.out.print("number: ");
         }
 
-        return null;
+        // TODO function to create maps from codec data
+        encodedMap.put("encoding", encoded.getEncoding());
+        encodedMap.put("data", encoded.getData());
+        System.out.println(encodedMap);
+
+        Map<String, Object> maskData = new LinkedHashMap<>();
+        // encode mask
+        if (!allPresent) {
+            CodecData<byte[]> maskRLE = Codec.encodeMap(CodecData.of(mask)
+                    .startEncoding(RunLengthCodec.KIND)
+                    .startEncoding(ByteArrayCodec.KIND)
+                    .build());
+
+            if (maskRLE.getData().length < mask.getArray().length) {
+//                maskData = maskRLE;
+                maskData.put("data", maskRLE.getData());
+                Map<String, Object> encoding1 = new LinkedHashMap<>();
+                encoding1.put("type", RunLengthCodec.KIND);
+                Map<String, Object> encoding2 = new LinkedHashMap<>();
+                encoding2.put("type", ByteArrayCodec.KIND);
+                maskData.put("encoding", new Object[] { encoding1, encoding2 });
+            } else {
+                CodecData<byte[]> encodedMask = Codec.encodeMap(CodecData.of(mask)
+                        .startEncoding(ByteArrayCodec.KIND)
+                        .addParameter("type", Uint8Array.TYPE)
+                        .build());
+                maskData.put("data", encodedMask.getData());
+                Map<String, Object> encoding = new LinkedHashMap<>();
+                encoding.put("type", ByteArrayCodec.KIND);
+                maskData.put("encoding", new Object[] { encoding });
+            }
+        }
+
+        // create Map
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("name", cifField.getName());
+        map.put("data", encodedMap);
+        map.put("mask", maskData);
+
+        return map;
     }
 
     private Map<String, Object> getFieldData(Map<String, Object> fieldMap, CifField cifField) {
@@ -124,7 +182,8 @@ public class BinaryCifWriter implements CifWriter {
         String[] stringArray = new String[length];
         Float64Array floatArray = new Float64Array(new double[length]);
         Int32Array intArray = new Int32Array(new int[length]);
-        byte[] mask = new byte[length];
+        int[] mask = new int[length];
+        Uint8Array maskArray = new Uint8Array(mask);
         boolean allPresent = true;
 
         for (int row = 0; row < length; row++) {
@@ -155,7 +214,7 @@ public class BinaryCifWriter implements CifWriter {
 
         data.put("array", "Str".equals(type) ? stringArray : "Float".equals(type) ? floatArray : intArray);
         data.put("allPresent", allPresent);
-        data.put("mask", mask);
+        data.put("mask", maskArray);
 
         return data;
     }

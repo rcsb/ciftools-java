@@ -7,7 +7,7 @@ import java.util.function.Function;
 import java.util.stream.DoubleStream;
 
 public abstract class Codec<PLAIN, ENCODED> {
-    public static final String CODEC_NAME = "ciftools-java";
+    public static final String CODEC_NAME = /*"ciftools-java"*/ "mol*";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
 
@@ -25,14 +25,16 @@ public abstract class Codec<PLAIN, ENCODED> {
 
     protected abstract PLAIN decodeInternally(CodecData<ENCODED> data);
 
-    public Function<CodecData<ENCODED>, PLAIN> decode() {
-        return this::decodeInternally;
-    }
+    // TODO type-safe chains of encoding/decoding steps
 
     @SuppressWarnings("unchecked")
     public static Object decodeMap(Map<String, Object> map) {
         Object current = map.get("data");
         Object[] encodings = (Object[]) map.get("encoding");
+
+        if(encodings == null) {
+            System.out.println();
+        }
 
         for (int i = encodings.length - 1; i >= 0; i--) {
             current = decodeInternal(CodecData.of(current, (Map<String, Object>) encodings[i]));
@@ -43,6 +45,9 @@ public abstract class Codec<PLAIN, ENCODED> {
     @SuppressWarnings("unchecked")
     private static Object decodeInternal(CodecData<?> codecData) {
         String kind = (String) codecData.getParameters().get("kind");
+        if(kind==null) {
+            System.out.println(kind);
+        }
         switch (kind) {
             case "ByteArray":
                 return ByteArrayCodec.decode((CodecData<byte[]>) codecData);
@@ -65,7 +70,7 @@ public abstract class Codec<PLAIN, ENCODED> {
     /* encoding */
 
     @SuppressWarnings("unchecked")
-    public static CodecData<byte[]> encodeMap(CodecData<? extends NumberArray> codecData) {
+    public static CodecData<byte[]> encodeMap(CodecData<?> codecData) {
         Object current = codecData.getData();
         Object[] encodings = codecData.getEncoding();
 
@@ -110,10 +115,6 @@ public abstract class Codec<PLAIN, ENCODED> {
     }
 
     protected abstract CodecData<ENCODED> encodeInternally(CodecData<PLAIN> data);
-
-    public Function<CodecData<PLAIN>, CodecData<ENCODED>> encode() {
-        return this::encodeInternally;
-    }
 
     public static CodecData<IntArray> classifyArray(IntArray data) {
         if (data.getArray().length < 2) {
