@@ -1,35 +1,40 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Int16Array implements SignedIntArray {
+public class Int16Array extends DataArray implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     public static final int TYPE = 2;
-    private final int[] data;
 
     Int16Array(int[] data) {
-        this.data = data;
+        super(data);
     }
 
     Int16Array(byte[] bytes) {
-        this.data = new int[bytes.length / NUMBER_OF_BYTES];
+        super(new int[bytes.length / NUMBER_OF_BYTES]);
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < data.length; i++) {
+        int[] data = getData();
+        for (int i = 0; i < length(); i++) {
             data[i] = byteBuffer.getShort();
         }
     }
 
     @Override
     public int[] getData() {
-        return data;
+        return (int[]) get("data");
+    }
+
+    @Override
+    public int length() {
+        return getData().length;
     }
 
     @Override
     public byte[] toByteArray() {
-        return int16ToByteArray(data);
+        return int16ToByteArray(getData());
     }
 
     static byte[] int16ToByteArray(int[] data) {
@@ -51,6 +56,6 @@ public class Int16Array implements SignedIntArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(data);
+        return getClass().getSimpleName() + ": " + Arrays.toString(getData());
     }
 }

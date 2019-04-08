@@ -1,58 +1,56 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
 
 import java.util.Arrays;
 
-public class ByteArray implements DataArray {
-    private final byte[] data;
-
+public class ByteArray extends DataArray {
     ByteArray(byte[] data) {
-        this.data = data;
+        super(data);
     }
 
     @Override
     public byte[] getData() {
-        return data;
+        return (byte[]) get("data");
     }
 
     @Override
     public int length() {
-        return data.length;
+        return getData().length;
     }
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(data);
+        return getClass().getSimpleName() + ": " + Arrays.toString(getData());
     }
 
     public Float32Array toFloat32Array() {
-        return new Float32Array(data);
+        return new Float32Array(getData());
     }
 
     public Float64Array toFloat64Array() {
-        return new Float64Array(data);
+        return new Float64Array(getData());
     }
 
     public Int8Array toInt82Array() {
-        return new Int8Array(data);
+        return new Int8Array(getData());
     }
 
     public Int16Array toInt16Array() {
-        return new Int16Array(data);
+        return new Int16Array(getData());
     }
 
     public Int32Array toInt32Array() {
-        return new Int32Array(data);
+        return new Int32Array(getData());
     }
 
     public Uint8Array toUint8Array() {
-        return new Uint8Array(data);
+        return new Uint8Array(getData());
     }
 
     public Uint16Array toUint16Array() {
-        return new Uint16Array(data);
+        return new Uint16Array(getData());
     }
 
     public Uint32Array toUint32Array() {
-        return new Uint32Array(data);
+        return new Uint32Array(getData());
     }
 }

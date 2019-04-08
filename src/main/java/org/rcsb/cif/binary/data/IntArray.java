@@ -1,4 +1,4 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
 
 public interface IntArray extends NumberArray {
     int[] getData();

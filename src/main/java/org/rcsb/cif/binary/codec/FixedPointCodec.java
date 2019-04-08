@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.*;
+import org.rcsb.cif.binary.data.*;
 
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;

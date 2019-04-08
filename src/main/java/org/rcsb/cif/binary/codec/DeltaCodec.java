@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.*;
+import org.rcsb.cif.binary.data.*;
 
 public class DeltaCodec extends Codec<IntArray, IntArray> {
     public static final String KIND = "Delta";

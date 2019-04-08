@@ -1,6 +1,6 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
 
-public interface NumberArray extends DataArray {
+public interface NumberArray {
     Object getData();
 
     byte[] toByteArray();

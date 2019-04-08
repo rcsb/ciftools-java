@@ -1,8 +1,8 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.ArrayFactory;
-import org.rcsb.cif.binary.array.Int32Array;
-import org.rcsb.cif.binary.array.IntArray;
+import org.rcsb.cif.binary.data.ArrayFactory;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.IntArray;
 
 public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     public static final String KIND = "RunLength";

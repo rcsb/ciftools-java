@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary;
 
 import org.rcsb.cif.CifWriter;
-import org.rcsb.cif.binary.array.*;
+import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.codec.*;
 import org.rcsb.cif.model.*;
 

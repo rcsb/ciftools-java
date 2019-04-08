@@ -1,4 +1,4 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
 
 public class ArrayFactory {
     public static ByteArray byteArray(byte[] bytes) {

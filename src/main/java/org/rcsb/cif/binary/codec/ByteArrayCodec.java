@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.array.*;
+import org.rcsb.cif.binary.data.*;
 
 import java.nio.ByteOrder;
 
@@ -23,7 +23,7 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
     @Override
     protected CodecData<byte[]> encodeInternally(CodecData codecData) {
         NumberArray data = (NumberArray) codecData.getData();
-        byte[] array = ensureOrder(data.toByteArray(), data.getNumberOfBytes(), ByteOrder.LITTLE_ENDIAN);
+        byte[] array = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
         return CodecData.of(array)
                 .startEncoding(KIND)
                 .addParameter("type", data.getType())
@@ -68,9 +68,8 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
         return buffer;
     }
 
-    private static byte[] ensureOrder(byte[] bytes, int numberOfBytes, ByteOrder byteOrder) {
-        if (!IS_NATIVE_LITTLE_ENDIAN && byteOrder == ByteOrder.LITTLE_ENDIAN ||
-                IS_NATIVE_LITTLE_ENDIAN && byteOrder == ByteOrder.BIG_ENDIAN) {
+    private static byte[] ensureOrder(byte[] bytes, int numberOfBytes) {
+        if (!IS_NATIVE_LITTLE_ENDIAN) {
             bytes = flipByteOrder(bytes, numberOfBytes);
         }
         return bytes;

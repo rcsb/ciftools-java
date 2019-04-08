@@ -2,7 +2,7 @@ package org.rcsb.cif.binary.codec;
 
 import org.junit.Test;
 import org.rcsb.cif.TestHelper;
-import org.rcsb.cif.binary.array.*;
+import org.rcsb.cif.binary.data.*;
 
 import java.util.Arrays;
 

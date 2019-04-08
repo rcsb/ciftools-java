@@ -1,34 +1,41 @@
-package org.rcsb.cif.binary.array;
+package org.rcsb.cif.binary.data;
+
+import org.omg.CORBA.BAD_QOS;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
 import java.util.stream.IntStream;
 
-public class Int8Array implements SignedIntArray {
+public class Int8Array extends DataArray implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     public static final int TYPE = 1;
-    private final int[] data;
 
     Int8Array(int[] data) {
-        this.data = data;
+        super(data);
     }
 
     Int8Array(byte[] bytes) {
-        this.data = new int[bytes.length];
+        super(new int[bytes.length]);
         ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        for (int i = 0; i < data.length; i++) {
+        int[] data = getData();
+        for (int i = 0; i < length(); i++) {
             data[i] = byteBuffer.get();
         }
     }
 
     @Override
     public int[] getData() {
-        return data;
+        return (int[]) get("data");
+    }
+
+    @Override
+    public int length() {
+        return getData().length;
     }
 
     @Override
     public byte[] toByteArray() {
-        return int8ToByteArray(data);
+        return int8ToByteArray(getData());
     }
 
     static byte[] int8ToByteArray(int[] data) {
@@ -49,6 +56,6 @@ public class Int8Array implements SignedIntArray {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + ": " + Arrays.toString(data);
+        return getClass().getSimpleName() + ": " + Arrays.toString(getData());
     }
 }

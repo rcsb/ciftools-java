@@ -1,10 +1,9 @@
 package org.rcsb.cif.binary.codec;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.array.ArrayFactory;
-import org.rcsb.cif.binary.array.Float32Array;
-import org.rcsb.cif.binary.array.FloatArray;
-import org.rcsb.cif.binary.array.Int32Array;
+import org.rcsb.cif.binary.data.ArrayFactory;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
 
 import java.util.Arrays;
 

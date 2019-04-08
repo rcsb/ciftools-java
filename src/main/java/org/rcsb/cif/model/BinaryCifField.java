@@ -1,8 +1,8 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.binary.array.FloatArray;
-import org.rcsb.cif.binary.array.IntArray;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.codec.Codec;
 
 import java.util.Map;
