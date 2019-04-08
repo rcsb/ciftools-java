@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary;
 
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.binary.array.*;
 import org.rcsb.cif.binary.codec.*;
@@ -8,10 +7,8 @@ import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static org.rcsb.cif.binary.codec.MessagePackCodec.MESSAGE_PACK_CODEC;
 
@@ -43,7 +40,6 @@ public class BinaryCifWriter implements CifWriter {
             for (CifCategory cifCategory : cifBlock.getCategories().values()) {
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getName());
-//                System.out.println(cifCategory.getName());
                 Object[] fields = new Object[cifCategory.getFieldNames().size()];
                 int fieldCount = 0;
                 category.put("columns", fields);
@@ -58,14 +54,6 @@ public class BinaryCifWriter implements CifWriter {
         }
 
         byte[] ret = messagePackCodec.encode(file);
-
-//        for (Object block : (Object[]) file.get("dataBlocks")) {
-//            for (Object category : (Object[]) ((Map<String, Object>) block).get("categories")) {
-//                if (((Map<String, Object>) category).get("name").equals("_pdbx_poly_seq_scheme")) {
-//                    System.out.println(category);
-//                }
-//            }
-//        }
 
         return new ByteArrayInputStream(ret);
     }
@@ -104,35 +92,18 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> encodeField(Map<String, Object> fieldMap, CifField cifField, CodecData<?> encoder) {
-//        if (cifField.getName().equals("label_seq_id")) {
-//            System.out.println();
-//        }
-
         Map<String, Object> fieldData = getFieldData(fieldMap, cifField);
         boolean allPresent = (boolean) fieldData.get("allPresent");
         Uint8Array mask = (Uint8Array) fieldData.get("mask");
 
         // default encoding
         // TODO support for auto encoding etc
-        CodecData<byte[]> encoded;
+        CodecData<byte[]> encoded = Codec.encodeMap(encoder);
         Map<String, Object> encodedMap = new LinkedHashMap<>();
-//        if (encoder == null) {
-//            if (cifField.getDataType() == DataType.Str) {
-//                CodecData<String[]> codec = CodecData.of((String[]) fieldData.get("array"))
-//                        .startEncoding(StringArrayCodec.KIND)
-//                        .build();
-//                encoded = Codec.encodeMap(codec);
-//                System.out.print("str: ");
-//            }
-//        } else {
-            encoded = Codec.encodeMap(encoder);
-//            System.out.print("number: ");
-//        }
 
         // TODO function to create maps from codec data
         encodedMap.put("encoding", encoded.getEncoding());
         encodedMap.put("data", encoded.getData());
-//        System.out.println(encodedMap);
 
         Map<String, Object> maskData = new LinkedHashMap<>();
         // encode mask
@@ -143,7 +114,6 @@ public class BinaryCifWriter implements CifWriter {
                     .build());
 
             if (maskRLE.getData().length < mask.getArray().length) {
-//                maskData = maskRLE;
                 maskData.put("data", maskRLE.getData());
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
                 encoding1.put("kind", RunLengthCodec.KIND);
@@ -172,10 +142,6 @@ public class BinaryCifWriter implements CifWriter {
         map.put("name", cifField.getName());
         map.put("data", encodedMap);
         map.put("mask", maskData);
-
-//        System.out.println(cifField.getName());
-//        System.out.println(Arrays.toString((Object[]) encodedMap.get("encoding")));
-//        System.out.println(Arrays.toString((Object[]) maskData.get("encoding")));
 
         return map;
     }

@@ -2,8 +2,10 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.array.*;
 
-import java.util.*;
-import java.util.function.Function;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.DoubleStream;
 
 public abstract class Codec<PLAIN, ENCODED> {
@@ -77,7 +79,6 @@ public abstract class Codec<PLAIN, ENCODED> {
             current = CodecData.of(current, encoding);
             current = encodeInternal((CodecData<?>) current);
             Map<String, Object> e2 = ((CodecData<?>) current).getParameters();
-//            System.out.println(e2);
             encodings[i] = e2;
             current = ((CodecData<?>) current).getData();
         }
@@ -119,10 +120,9 @@ public abstract class Codec<PLAIN, ENCODED> {
 
         List<EncodingSize> sizes = getSize(data);
         EncodingSize size = sizes.get(0);
-//        sizes.stream().map(s -> s.kind + " " + s.length + " " + s.elem).forEach(System.out::println);
         if (size.length == sizes.get(1).length) {
             // TODO fix potential problems with wrong order of encodings
-            System.out.println("tie!");
+            System.out.println("tie - packing size ambiguous");
             sizes.stream().map(s -> s.kind + " " + s.length + " " + s.elem).forEach(System.out::println);
         }
 
@@ -131,21 +131,18 @@ public abstract class Codec<PLAIN, ENCODED> {
                 return CodecData.of(data)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-//                        .addParameter("type", data.getType())
                         .build();
             case "rle":
                 return CodecData.of(data)
                         .startEncoding(RunLengthCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-//                        .addParameter("type", data.getType())
                         .build();
             case "delta":
                 return CodecData.of(data)
                         .startEncoding(DeltaCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-//                        .addParameter("type", data.getType())
                         .build();
             case "delta-rle":
                 return CodecData.of(data)
@@ -153,7 +150,6 @@ public abstract class Codec<PLAIN, ENCODED> {
                         .startEncoding(RunLengthCodec.KIND)
                         .startEncoding(IntegerPackingCodec.KIND)
                         .startEncoding(ByteArrayCodec.KIND)
-//                        .addParameter("type", data.getType())
                         .build();
             default:
                 throw new IllegalArgumentException("Determined encoding type is unknown. " + size.kind);
@@ -301,12 +297,11 @@ public abstract class Codec<PLAIN, ENCODED> {
 
     private static final double DELTA = 1e-6;
 
-    protected void ensureParametersPresent(CodecData<?> codecData, String... types) {
+    void ensureParametersPresent(CodecData<?> codecData, String... types) {
         Map<String, Object> parameters = codecData.getParameters();
         for (String s : types) {
             if (!parameters.containsKey(s)) {
                 throw new IllegalArgumentException("parameter '" + s + "' is missing for codec '" + parameters.get("kind") + "'");
-//                System.err.println("parameter '" + s + "' is missing for codec '" + parameters.get("kind") + "'");
             }
         }
     }
@@ -318,16 +313,14 @@ public abstract class Codec<PLAIN, ENCODED> {
         int mantissaDigits = arrayDigitCount[0];
         int integerDigits = arrayDigitCount[1];
 
-        // TODO: better check for overflows here?
         if (mantissaDigits < 0 || mantissaDigits + integerDigits > 10) {
             return CodecData.of(data)
                     .startEncoding(ByteArrayCodec.KIND)
                     .build();
         }
-        // TODO: this needs a conversion to Int?Array?
+
         if (mantissaDigits == 0) {
             throw new UnsupportedOperationException("cannot handle yet, impl me");
-//            return classifyArray(new Int32Array(DoubleStream.of(data.getArray()).mapToInt(d -> (int) d).toArray()));
         }
 
         int multiplier = getMultiplier(mantissaDigits);

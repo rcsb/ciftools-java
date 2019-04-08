@@ -82,18 +82,10 @@ public class BinaryCifReader implements CifReader {
     }
 
     private CifCategory createCategory(Map<String, Object> encodedCategory) {
-//        System.out.println(encodedCategory.get("name"));
-//        System.out.println(Arrays.toString((Object[]) encodedCategory.get("columns")));
-//        System.out.println(encodedCategory.get("rowCount"));
         String name = ((String) encodedCategory.get("name")).substring(1);
 
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
-//        int rowCount = 0;
-//        try {
-            int rowCount = (int) encodedCategory.get("rowCount");
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        int rowCount = (int) encodedCategory.get("rowCount");
         return new BinaryCifCategory(name, rowCount, encodedFields);
     }
 }

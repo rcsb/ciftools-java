@@ -2,9 +2,6 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.array.Int32Array;
 import org.rcsb.cif.binary.array.IntArray;
-import org.rcsb.cif.binary.array.NumberArray;
-
-import java.util.Arrays;
 
 public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     public static final String KIND = "RunLength";
@@ -25,15 +22,6 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
     @Override
     protected CodecData<Int32Array> encodeInternally(CodecData data) {
         IntArray input = (IntArray) data.getData();
-//        int srcType;
-//
-//        if (data.getParameters().containsKey("srcType")) {
-//            srcType = (int) data.getParameters().get("srcType");
-//        } else {
-//            input = new Int32Array(input.getArray());
-//            srcType = Int32Array.TYPE;
-//        }
-
         int[] inputArray = input.getArray();
         if (inputArray.length == 0) {
             return CodecData.of(new Int32Array(new int[0]))
@@ -67,9 +55,6 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         outputArray[offset] = inputArray[inputArray.length - 1];
         outputArray[offset + 1] = runLength;
 
-//        System.out.println(Arrays.toString(inputArray));
-//        System.out.println(Arrays.toString(outputArray));
-
         return CodecData.of(output)
                 .startEncoding(KIND)
                 .addParameter("srcType", Int32Array.TYPE)
@@ -83,11 +68,11 @@ public class RunLengthCodec extends Codec<IntArray, Int32Array> {
         int srcType = (int) data.getParameters().get("srcType");
         int srcSize = (int) data.getParameters().get("srcSize");
 
-        Int32Array input = (Int32Array) data.getData();
+        Int32Array input = data.getData();
         int[] inputArray = input.getArray();
 
         if (inputArray.length == 0) {
-            return (IntArray) data.getData();
+            return data.getData();
         }
 
         int dataOffset = 0;

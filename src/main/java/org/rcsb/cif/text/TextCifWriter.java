@@ -61,12 +61,9 @@ public class TextCifWriter implements CifWriter {
         int width = optionalWidth.getAsInt() + 6 + cifCategory.getName().length();
         int[] floatPrecisions = getFloatPrecisions(cifFields);
 
-        for (int _f = 0; _f < cifFields.size(); _f++) {
-            CifField cifField = cifFields.get(_f);
-
+        for (CifField cifField : cifFields) {
             writePadRight(output, "_" + cifCategory.getName() + "." + cifField.getName(), width);
 
-            // TODO remove loop
             for (int row = 0; row < cifField.getRowCount(); row++) {
                 boolean multiline = writeValue(output, cifField, row, floatPrecisions[row]);
                 if (!multiline) {
