@@ -1,15 +1,28 @@
 package org.rcsb.cif.binary.data;
 
-import java.util.Arrays;
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
-public class StringArray extends DataArray {
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class StringArray extends AbstractEncodedData<String[]> {
+    public StringArray(Object data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
+    }
+
     StringArray(String[] data) {
-        super(data);
+        this(data, new LinkedList<>());
+    }
+
+    StringArray(String[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public String[] getData() {
-        return (String[]) get("data");
+        return (String[]) data;
     }
 
     @Override
@@ -20,5 +33,9 @@ public class StringArray extends DataArray {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
+    }
+
+    public ByteArray encode(StringArrayEncoding encoding) {
+        return Codec.STRING_ARRAY_CODEC.encode(this, encoding);
     }
 }

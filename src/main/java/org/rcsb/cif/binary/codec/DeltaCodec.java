@@ -1,48 +1,29 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.SignedIntArray;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
 
-public class DeltaCodec extends Codec<IntArray, IntArray> {
-    public static final String KIND = "Delta";
-    public static final DeltaCodec DELTA_CODEC = new DeltaCodec();
+import java.util.LinkedList;
 
-    private DeltaCodec() {
-        super(KIND);
-    }
-
-    public static IntArray decode(CodecData<IntArray> codecData) {
-        return DELTA_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<IntArray> encode(CodecData<IntArray> codecData) {
-        return DELTA_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    protected CodecData<IntArray> encodeInternally(CodecData data) {
-        IntArray input = (IntArray) data.getData();
-        if (input instanceof Uint8Array || input instanceof Uint16Array || input instanceof Uint32Array) {
-            throw new IllegalArgumentException("Only signed integer types can be encoded using delta encoding.");
-        }
-
-        int srcType;
-        if (data.getParameters().get("srcType") == null) {
-            input = ArrayFactory.int32Array(input.getData());
-            srcType = Int32Array.TYPE;
-        } else {
-            srcType = (int) data.getParameters().get("srcType");
-        }
-
-        int[] inputArray = input.getData();
+public class DeltaCodec {
+    @SuppressWarnings("unchecked")
+    public <T extends SignedIntArray> T encode(T data, DeltaEncoding encoding) {
+        int srcType = data.getType();
+        int[] inputArray = data.getData();
         if (inputArray.length == 0) {
-            return CodecData.of(ArrayFactory.intArray(srcType, 0))
-                    .startEncoding(KIND)
-                    .addParameter("origin", 0)
-                    .addParameter("srcType", srcType)
-                    .build();
+            T output = (T) EncodedDataFactory.intArray(srcType, 0);
+
+            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+            encoding.setOrigin(0);
+            encoding.setSrcType(srcType);
+            enc.add(encoding);
+            output.setEncoding(enc);
+            return output;
         }
 
-        IntArray output = ArrayFactory.intArray(srcType, inputArray.length);
+        T output = (T) EncodedDataFactory.intArray(srcType, inputArray.length);
         int[] outputArray = output.getData();
         int origin = inputArray[0];
         outputArray[0] = inputArray[0];
@@ -51,20 +32,20 @@ public class DeltaCodec extends Codec<IntArray, IntArray> {
         }
         outputArray[0] = 0;
 
-        return CodecData.of(output)
-                .startEncoding(KIND)
-                .addParameter("origin", origin)
-                .addParameter("srcType", srcType)
-                .build();
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        encoding.setOrigin(origin);
+        encoding.setSrcType(srcType);
+        enc.add(encoding);
+        output.setEncoding(enc);
+        return output;
     }
 
-    @Override
-    protected IntArray decodeInternally(CodecData<IntArray> data) {
-        ensureParametersPresent(data, "origin", "srcType");
-        int[] input = data.getData().getData();
-        int origin = (int) data.getParameters().get("origin");
-        int srcType = (int) data.getParameters().get("srcType");
-        IntArray output = ArrayFactory.intArray(srcType, input.length);
+    @SuppressWarnings("unchecked")
+    public <T extends SignedIntArray> T decode(T data, DeltaEncoding encoding) {
+        int[] input = data.getData();
+        int origin = encoding.getOrigin();
+        int srcType = encoding.getSrcType();
+        T output = (T) EncodedDataFactory.intArray(srcType, input.length);
 
         int n = input.length;
         if (n == 0) {

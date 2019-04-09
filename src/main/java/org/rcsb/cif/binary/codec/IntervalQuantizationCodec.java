@@ -1,42 +1,28 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
-    public static final String KIND = "IntervalQuantization";
-    public static final IntervalQuantizationCodec INTERVAL_QUANTIZATION_CODEC = new IntervalQuantizationCodec();
+public class IntervalQuantizationCodec {
+    public Int32Array encode(FloatArray data, IntervalQuantizationEncoding encoding) {
+        double[] input = data.getData();
 
-    private IntervalQuantizationCodec() {
-        super(KIND);
-    }
+        int min = encoding.getMin();
+        int max = encoding.getMax();
+        int numSteps = encoding.getNumSteps();
+        int srcType = data.getType();
 
-    public static FloatArray decode(CodecData<Int32Array> codecData) {
-        return INTERVAL_QUANTIZATION_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<Int32Array> encode(CodecData<FloatArray> codecData) {
-        return INTERVAL_QUANTIZATION_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    protected CodecData<Int32Array> encodeInternally(CodecData data) {
-        FloatArray input = (FloatArray) data.getData();
-        double[] inputArray = input.getData();
-
-        int min = (int) data.getParameters().get("min");
-        int max = (int) data.getParameters().get("max");
-        int numSteps = (int) data.getParameters().get("numSteps");
-
-        if (inputArray.length == 0) {
-            return CodecData.of(ArrayFactory.int32Array(new int[0]))
-                    .startEncoding(KIND)
-                    .addParameter("min", min)
-                    .addParameter("max", max)
-                    .addParameter("numSteps", numSteps)
-                    .addParameter("srcType", Int32Array.TYPE)
-                    .build();
+        if (input.length == 0) {
+            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+            encoding.setSrcType(3);
+            enc.add(encoding);
+            return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
         if (max < min) {
@@ -47,42 +33,36 @@ public class IntervalQuantizationCodec extends Codec<FloatArray, Int32Array> {
 
         double delta = (max - min) / (numSteps - 1.0);
 
-        int[] outputArray = new int[inputArray.length];
-        for (int i = 0; i < inputArray.length; i++) {
-            double v = inputArray[i];
+        int[] output = new int[input.length];
+        for (int i = 0; i < input.length; i++) {
+            double v = input[i];
             if (v <= min) {
-                outputArray[i] = 0;
+                output[i] = 0;
             } else if (v >= max) {
-                outputArray[i] = numSteps - 1;
+                output[i] = numSteps - 1;
             } else {
-                outputArray[i] = delta == 0 ? 0 : (int) Math.round((v - min) / delta);
+                output[i] = delta == 0 ? 0 : (int) Math.round((v - min) / delta);
             }
         }
 
-        return CodecData.of(ArrayFactory.int32Array(outputArray))
-                .startEncoding(KIND)
-                .addParameter("min", min)
-                .addParameter("max", max)
-                .addParameter("numSteps", numSteps)
-                .addParameter("srcType", input.getType())
-                .build();
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        encoding.setSrcType(srcType);
+        enc.add(encoding);
+        return EncodedDataFactory.int32Array(output, enc);
     }
 
-    @Override
-    protected FloatArray decodeInternally(CodecData data) {
-        ensureParametersPresent(data, "min", "max", "numSteps", "srcType");
-
-        int min = (int) data.getParameters().get("min");
-        int max = (int) data.getParameters().get("max");
-        Int32Array input = (Int32Array) data.getData();
-        int numSteps = (int) data.getParameters().get("numSteps");
-        int srcType = (int) data.getParameters().get("srcType");
+    public FloatArray decode(Int32Array data, IntervalQuantizationEncoding encoding) {
+        int min = encoding.getMin();
+        int max = encoding.getMax();
+        int numSteps = encoding.getNumSteps();
+        int srcType = encoding.getSrcType();
 
         double delta = (max - min) / (numSteps - 1.0);
 
-        double[] output = IntStream.of(input.getData())
-                .mapToDouble(i -> min + delta * i)
+        double[] output = IntStream.of(data.getData())
+                .mapToDouble(i -> min + delta * 1)
                 .toArray();
-        return srcType == 32 ? ArrayFactory.float32Array(output) : ArrayFactory.float64Array(output);
+
+        return srcType == 32 ? EncodedDataFactory.float32Array(output) : EncodedDataFactory.float64Array(output);
     }
 }

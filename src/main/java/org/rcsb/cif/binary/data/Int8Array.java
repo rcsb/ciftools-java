@@ -1,31 +1,29 @@
 package org.rcsb.cif.binary.data;
 
-import org.omg.CORBA.BAD_QOS;
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteBuffer;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class Int8Array extends DataArray implements SignedIntArray {
+public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     public static final int TYPE = 1;
 
     Int8Array(int[] data) {
-        super(data);
+        this(data, new LinkedList<>());
     }
 
-    Int8Array(byte[] bytes) {
-        super(new int[bytes.length]);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        int[] data = getData();
-        for (int i = 0; i < length(); i++) {
-            data[i] = byteBuffer.get();
-        }
+    Int8Array(int[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public int[] getData() {
-        return (int[]) get("data");
+        return (int[]) data;
     }
 
     @Override
@@ -57,5 +55,15 @@ public class Int8Array extends DataArray implements SignedIntArray {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
+    }
+
+    @Override
+    public Int8Array encode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.encode(this, encoding);
+    }
+
+    @Override
+    public Int8Array decode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.decode(this, encoding);
     }
 }

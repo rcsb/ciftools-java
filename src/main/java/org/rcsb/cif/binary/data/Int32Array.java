@@ -1,30 +1,30 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.codec.Classifier;
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.encoding.*;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class Int32Array extends DataArray implements SignedIntArray {
+public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
     public static final int TYPE = 3;
 
     Int32Array(int[] data) {
-        super(data);
+        this(data, new LinkedList<>());
     }
 
-    Int32Array(byte[] bytes) {
-        super(new int[bytes.length / NUMBER_OF_BYTES]);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        int[] data = getData();
-        for (int i = 0; i < length(); i++) {
-            data[i] = byteBuffer.getInt();
-        }
+    Int32Array(int[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public int[] getData() {
-        return (int[]) get("data");
+        return (int[]) data;
     }
 
     @Override
@@ -57,5 +57,31 @@ public class Int32Array extends DataArray implements SignedIntArray {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
+    }
+
+    public IntArray encode(IntegerPackingEncoding encoding) {
+        return Codec.INTEGER_PACKING_CODEC.encode(this, encoding);
+    }
+
+    @Override
+    public Int32Array encode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.encode(this, encoding);
+    }
+
+    @Override
+    public Int32Array decode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.decode(this, encoding);
+    }
+
+    public FloatArray decode(FixedPointEncoding encoding) {
+        return Codec.FIXED_POINT_CODEC.decode(this, encoding);
+    }
+
+    public IntArray decode(RunLengthEncoding encoding) {
+        return Codec.RUN_LENGTH_CODEC.decode(this, encoding);
+    }
+
+    public ByteArray classify() {
+        return Classifier.classify(this);
     }
 }

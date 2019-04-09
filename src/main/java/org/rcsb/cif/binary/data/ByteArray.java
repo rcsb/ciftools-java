@@ -1,15 +1,27 @@
 package org.rcsb.cif.binary.data;
 
-import java.util.Arrays;
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
-public class ByteArray extends DataArray {
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class ByteArray extends AbstractEncodedData<byte[]> {
     ByteArray(byte[] data) {
-        super(data);
+        this(data, new LinkedList<>());
+    }
+
+    ByteArray(byte[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public byte[] getData() {
-        return (byte[]) get("data");
+        return (byte[]) data;
     }
 
     @Override
@@ -22,35 +34,83 @@ public class ByteArray extends DataArray {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
     }
 
-    public Float32Array toFloat32Array() {
-        return new Float32Array(getData());
+    public NumberArray decode(ByteArrayEncoding encoding) {
+        return Codec.BYTE_ARRAY_CODEC.decode(this, encoding);
     }
 
-    public Float64Array toFloat64Array() {
-        return new Float64Array(getData());
+    public StringArray decode(StringArrayEncoding encoding) {
+        return Codec.STRING_ARRAY_CODEC.decode(this, encoding);
     }
 
-    public Int8Array toInt82Array() {
-        return new Int8Array(getData());
+    public Int8Array toInt8Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length()];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.get();
+        }
+        return new Int8Array(ints, encoding);
     }
 
-    public Int16Array toInt16Array() {
-        return new Int16Array(getData());
+    public Int16Array toInt16Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length() / 2];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getShort();
+        }
+        return new Int16Array(ints, encoding);
     }
 
-    public Int32Array toInt32Array() {
-        return new Int32Array(getData());
+    public Int32Array toInt32Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getInt();
+        }
+        return new Int32Array(ints, encoding);
     }
 
-    public Uint8Array toUint8Array() {
-        return new Uint8Array(getData());
+    public Uint8Array toUint8Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length()];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.get() & 0xFF;;
+        }
+        return new Uint8Array(ints, encoding);
     }
 
-    public Uint16Array toUint16Array() {
-        return new Uint16Array(getData());
+    public Uint16Array toUint16Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length() / 2];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getShort() & 0xFFFF;
+        }
+        return new Uint16Array(ints, encoding);
     }
 
-    public Uint32Array toUint32Array() {
-        return new Uint32Array(getData());
+    public Uint32Array toUint32Array(LinkedList<Encoding> encoding) {
+        int[] ints = new int[length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = (int) (byteBuffer.getInt() & 0xFFFFFFFFL);
+        }
+        return new Uint32Array(ints, encoding);
+    }
+
+    public Float32Array toFloat32Array(LinkedList<Encoding> encoding) {
+        double[] doubles = new double[length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < doubles.length; i++) {
+            doubles[i] = byteBuffer.getFloat();
+        }
+        return new Float32Array(doubles, encoding);
+    }
+
+    public Float64Array toFloat64Array(LinkedList<Encoding> encoding) {
+        double[] doubles = new double[length() / 8];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < doubles.length; i++) {
+            doubles[i] = byteBuffer.getDouble();
+        }
+        return new Float64Array(doubles, encoding);
     }
 }

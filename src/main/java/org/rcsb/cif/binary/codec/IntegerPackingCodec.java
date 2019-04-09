@@ -1,45 +1,26 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.IntArray;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
-    public static final String KIND = "IntegerPacking";
-    public static final IntegerPackingCodec INTEGER_PACKING_CODEC = new IntegerPackingCodec();
+public class IntegerPackingCodec {
+    public IntArray encode(Int32Array data, IntegerPackingEncoding encoding) {
+        int[] input = data.getData();
 
-    private IntegerPackingCodec() {
-        super(KIND);
-    }
-
-    @SuppressWarnings("unchecked")
-    public static Int32Array decode(CodecData<IntArray> codecData) {
-        return INTEGER_PACKING_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<IntArray> encode(CodecData<Int32Array> codecData) {
-        return INTEGER_PACKING_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    @SuppressWarnings("unchecked")
-    protected CodecData<IntArray> encodeInternally(CodecData data) {
-        if (!(data.getData() instanceof Int32Array)) {
-            throw new IllegalArgumentException("Integer packing can only be applied to Int32 data. Found " +
-                    data.getData().getClass().getSimpleName());
-        }
-
-        Int32Array input = (Int32Array) data.getData();
-        int[] inputArray = input.getData();
-
-        Packing packing = determinePacking(inputArray);
+        Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            return CodecData.of((IntArray) input)
-                    .startEncoding(KIND)
-                    .addParameter("byteCount", 4)
-                    .addParameter("isUnsigned", false)
-                    .addParameter("srcSize", inputArray.length)
-                    .build();
+            LinkedList<Encoding> enc = data.getEncoding();
+            encoding.setByteCount(4);
+            encoding.setUnsigned(false);
+            encoding.setSrcSize(input.length);
+            enc.add(encoding);
+            return EncodedDataFactory.int32Array(input, enc);
         }
 
         int upperLimit = packing.signed ? packing.bytesPerElement == 1 ? 0x7F : 0x7FFF :
@@ -49,7 +30,7 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         int[] outputArray = new int[packing.size];
         int j = 0;
 
-        for (int i1 : inputArray) {
+        for (int i1 : input) {
             int value = i1;
             if (value >= 0) {
                 while (value >= upperLimit) {
@@ -68,14 +49,29 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
             ++j;
         }
 
-        IntArray output = packing.signed ? packing.bytesPerElement == 1 ? ArrayFactory.int8Array(outputArray) : ArrayFactory.int16Array(outputArray) :
-                packing.bytesPerElement == 1 ? ArrayFactory.uint8Array(outputArray) : ArrayFactory.uint16Array(outputArray);
-        return CodecData.of(output)
-                .startEncoding(KIND)
-                .addParameter("byteCount", packing.bytesPerElement)
-                .addParameter("isUnsigned", !packing.signed)
-                .addParameter("srcSize", packing.size)
-                .build();
+        IntArray output;
+        if (packing.signed) {
+            if (packing.bytesPerElement == 1) {
+                output = EncodedDataFactory.int8Array(outputArray);
+            } else {
+                output = EncodedDataFactory.int16Array(outputArray);
+            }
+        } else {
+            if (packing.bytesPerElement == 1) {
+                output = EncodedDataFactory.uint8Array(outputArray);
+            } else {
+                output = EncodedDataFactory.uint16Array(outputArray);
+            }
+        }
+
+        LinkedList<Encoding> enc = output.getEncoding();
+        encoding.setByteCount(packing.bytesPerElement);
+        encoding.setUnsigned(!packing.signed);
+        encoding.setSrcSize(packing.size);
+        enc.add(encoding);
+        output.setEncoding(enc);
+
+        return output;
     }
 
     class Packing {
@@ -127,19 +123,15 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
         return size;
     }
 
-    @Override
-    protected Int32Array decodeInternally(CodecData<IntArray> data) {
-        ensureParametersPresent(data, "isUnsigned", "srcSize", "byteCount");
+    public Int32Array decode(IntArray data, IntegerPackingEncoding encoding) {
+        int[] input = data.getData();
 
-        IntArray input = data.getData();
-        int[] inputArray = input.getData();
+        int byteCount = encoding.getByteCount();
+        boolean unsigned = encoding.isUnsigned();
+        int srcSize = encoding.getSrcSize();
 
-        boolean unsigned = (boolean) data.getParameters().get("isUnsigned");
-        int byteCount = (int) data.getParameters().get("byteCount");
-        int srcSize = (int) data.getParameters().get("srcSize");
-
-        if (inputArray.length == srcSize && byteCount == 4) {
-            return ArrayFactory.int32Array(inputArray);
+        if (input.length == srcSize && byteCount == 4) {
+            return EncodedDataFactory.int32Array(input, data.getEncoding());
         }
 
         int upperLimit;
@@ -151,24 +143,24 @@ public class IntegerPackingCodec extends Codec<Int32Array, IntArray> {
             lowerLimit = -upperLimit - 1;
         }
 
-        int n = inputArray.length;
-        int[] outputArray = new int[srcSize];
+        int n = input.length;
+        int[] output = new int[srcSize];
         int i = 0;
         int j = 0;
         while (i < n) {
             int value = 0;
-            int t = inputArray[i];
+            int t = input[i];
             while (unsigned ? t == upperLimit : t == upperLimit || t == lowerLimit) {
                 value += t;
                 i++;
-                t = inputArray[i];
+                t = input[i];
             }
             value += t;
-            outputArray[j] = value;
+            output[j] = value;
             i++;
             j++;
         }
 
-        return ArrayFactory.int32Array(outputArray);
+        return EncodedDataFactory.int32Array(output, data.getEncoding());
     }
 }

@@ -23,19 +23,19 @@ public class BinaryCifField implements CifField {
     @SuppressWarnings("unchecked")
     public BinaryCifField(Map<String, Object> encodedColumn) {
         this.hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null && !((Map) encodedColumn.get("mask")).isEmpty();
-        this.mask = hasMask ? ((IntArray) Codec.decodeMap((Map<String, Object>) encodedColumn.get("mask"))).getData() : null;
-        Object data = Codec.decodeMap((Map<String, Object>) encodedColumn.get("data"));
+        this.mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
+        Object data = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
 
         // decide data type and store in a type-safe way
-        if (data instanceof IntArray) {
-            this.intData = ((IntArray) data).getData();
+        if (data instanceof int[]) {
+            this.intData = (int[]) data;
             this.doubleData = null;
             this.stringData = null;
             this.dataType = DataType.Int;
             this.rowCount = intData.length;
-        } else if (data instanceof FloatArray) {
+        } else if (data instanceof double[]) {
             this.intData = null;
-            this.doubleData = ((FloatArray) data).getData();
+            this.doubleData = (double[]) data;
             this.stringData = null;
             this.dataType = DataType.Float;
             this.rowCount = doubleData.length;

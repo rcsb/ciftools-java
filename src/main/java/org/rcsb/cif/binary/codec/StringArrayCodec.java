@@ -1,41 +1,27 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.ArrayFactory;
-import org.rcsb.cif.binary.data.Int32Array;
-import org.rcsb.cif.binary.data.IntArray;
-import org.rcsb.cif.binary.data.Uint8Array;
+import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.StringArray;
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
 import java.util.*;
 
-public class StringArrayCodec extends Codec<String[], byte[]> {
-    public static final String KIND = "StringArray";
-    public static final StringArrayCodec STRING_ARRAY_CODEC = new StringArrayCodec();
-
-    private StringArrayCodec() {
-        super(KIND);
-    }
-
-    public static String[] decode(CodecData<byte[]> codecData) {
-        return STRING_ARRAY_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<byte[]> encode(CodecData<String[]> codecData) {
-        return STRING_ARRAY_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    protected CodecData<byte[]> encodeInternally(CodecData<String[]> data) {
-        String[] inputArray = data.getData();
+public class StringArrayCodec {
+    public ByteArray encode(StringArray data, StringArrayEncoding encoding) {
+        String[] input = data.getData();
 
         Map<String, Integer> map = new HashMap<>();
         List<String> strings = new ArrayList<>();
-        int[] outputArray = new int[inputArray.length];
-        List<Integer> offsets = new ArrayList<>();
-        offsets.add(0);
+        int[] outputArray = new int[input.length];
+        List<Integer> offsetList = new ArrayList<>();
+        offsetList.add(0);
 
         int accLength = 0;
         int i = 0;
-        for (String s : inputArray) {
+        for (String s : input) {
             // handle null strings
             if (s == null || s.isEmpty()) {
                 outputArray[i++] = -1;
@@ -55,54 +41,42 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
                 map.put(s, index);
 
                 // store offset
-                offsets.add(accLength);
+                offsetList.add(accLength);
                 outputArray[i++] = index;
             }
         }
 
-        int[] offsetArray = offsets.stream().mapToInt(n -> n).toArray();
-        Int32Array offsetData = ArrayFactory.int32Array(offsetArray);
-        Int32Array output = ArrayFactory.int32Array(outputArray);
+        ByteArray offsets = Classifier.classify(EncodedDataFactory.int32Array(offsetList.stream().mapToInt(n -> n).toArray()));
+        ByteArray output = Classifier.classify(EncodedDataFactory.int32Array(outputArray));
 
-        CodecData<IntArray> offsetEncoding = classifyArray(offsetData);
-        CodecData<byte[]> encodedOffsets = Codec.encodeMap(offsetEncoding);
-        CodecData<IntArray> dataEncoding = classifyArray(output);
-        CodecData<byte[]> encodedData = Codec.encodeMap(dataEncoding);
-
-        return CodecData.of(encodedData.getData())
-                .startEncoding(StringArrayCodec.KIND)
-                .addParameter("dataEncoding", encodedData.getEncoding())
-                .addParameter("stringData", String.join("", strings))
-                .addParameter("offsetEncoding",encodedOffsets.getEncoding())
-                .addParameter("offsets", encodedOffsets.getData())
-                .build();
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        encoding.setOffsets(offsets.getData());
+        encoding.setOffsetEncoding(offsets.getEncoding());
+        encoding.setStringData(String.join("", strings));
+        encoding.setDataEncoding(output.getEncoding());
+        enc.add(encoding);
+        return EncodedDataFactory.byteArray(output.getData(), enc);
     }
 
-    @Override
-    protected String[] decodeInternally(CodecData<byte[]> data) {
-        ensureParametersPresent(data, "stringData", "offsets", "dataEncoding");
-
-        Map<String, Object> parameters = data.getParameters();
-        String stringData = (String) parameters.get("stringData");
+    public StringArray decode(ByteArray data, StringArrayEncoding encoding) {
+        String stringData = encoding.getStringData();
+        System.out.println("stringdata " + stringData);
 
         int[] offsets;
-        if (parameters.containsKey("offsetEncoding")) {
-            Map<String, Object> offsetTask = new LinkedHashMap<>();
-            offsetTask.put("data", parameters.get("offsets"));
-            offsetTask.put("encoding", parameters.get("offsetEncoding"));
-            offsets = ((IntArray) Codec.decodeMap(offsetTask)).getData();
+        if (encoding.getOffsetEncoding() != null && encoding.getOffsetEncoding().size() > 0) {
+            offsets = (int[]) EncodedDataFactory.byteArray(encoding.getOffsets(), encoding.getOffsetEncoding())
+                    .decode()
+                    .getData();
         } else {
-            offsets = ((IntArray) ByteArrayCodec.decode(CodecData.of((byte[]) parameters.get("offsets"))
-                    .startEncoding(KIND)
-                    .addParameter("type", Uint8Array.TYPE)
-                    .build())
-                    .getData()).getData();
+            offsets = (int[]) EncodedDataFactory.byteArray(encoding.getOffsets())
+                    .decode(new ByteArrayEncoding(4))
+                    .getData();
         }
+        System.out.println("offsets " + Arrays.toString(offsets));
 
-        Map<String, Object> dataTask = new LinkedHashMap<>();
-        dataTask.put("data", data.getData());
-        dataTask.put("encoding", parameters.get("dataEncoding"));
-        int[] indices = ((IntArray) Codec.decodeMap(dataTask)).getData();
+        data.setEncoding(encoding.getDataEncoding());
+        int[] indices = (int[]) data.decode().getData();
+        System.out.println("data " + Arrays.toString(indices));
 
         String[] result = new String[indices.length];
         int offset = 0;
@@ -113,6 +87,7 @@ public class StringArrayCodec extends Codec<String[], byte[]> {
             }
             result[offset++] = stringData.substring(offsets[i], offsets[i + 1]);
         }
-        return result;
+
+        return EncodedDataFactory.stringArray(result);
     }
 }

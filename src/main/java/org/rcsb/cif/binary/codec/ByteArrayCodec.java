@@ -1,58 +1,40 @@
 package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteOrder;
+import java.util.LinkedList;
 
-public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
-    public static final String KIND = "ByteArray";
-    public static final ByteArrayCodec BYTE_ARRAY_CODEC = new ByteArrayCodec();
+public class ByteArrayCodec {
+    public <D> ByteArray encode(NumberArray<D> data, ByteArrayEncoding encoding) {
+        int type = determineType(data);
+        byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-    private ByteArrayCodec() {
-        super(KIND);
+        encoding.setType(type);
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        enc.add(encoding);
+        return EncodedDataFactory.byteArray(bytes, enc);
     }
 
-    public static NumberArray decode(CodecData<byte[]> codecData) {
-        return BYTE_ARRAY_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<byte[]> encode(CodecData<NumberArray> codecData) {
-        return BYTE_ARRAY_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    protected CodecData<byte[]> encodeInternally(CodecData codecData) {
-        NumberArray data = (NumberArray) codecData.getData();
-        byte[] array = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
-        return CodecData.of(array)
-                .startEncoding(KIND)
-                .addParameter("type", data.getType())
-                .build();
-    }
-
-    @Override
-    protected NumberArray decodeInternally(CodecData<byte[]> codecData) {
-        ensureParametersPresent(codecData, "type");
-        byte[] data = codecData.getData();
-        switch ((int) codecData.getParameters().get("type")) {
-            case 1:
-                return ArrayFactory.int8Array(data);
-            case 2:
-                return ArrayFactory.int16Array(data);
-            case 3:
-                return ArrayFactory.int32Array(data);
-            case 4:
-                return ArrayFactory.uint8Array(data);
-            case 5:
-                return ArrayFactory.uint16Array(data);
-            case 6:
-                return ArrayFactory.uint32Array(data);
-            case 32:
-                return ArrayFactory.float32Array(data);
-            case 33:
-                return ArrayFactory.float64Array(data);
-            default:
-                throw new IllegalArgumentException("Unsupported byte type " + codecData.getParameters().get("type"));
+    private int determineType(NumberArray data) {
+        if (data instanceof Int8Array) {
+            return 1;
+        } else if (data instanceof Int16Array) {
+            return 2;
+        } else if (data instanceof Int32Array) {
+            return 3;
+        } else if (data instanceof Uint8Array) {
+            return 4;
+        } else if (data instanceof Uint16Array) {
+            return 5;
+        } else if (data instanceof Uint32Array) {
+            return 6;
+        } else if (data instanceof Float32Array) {
+            return 32;
+        } else {
+            return 33;
         }
     }
 
@@ -73,5 +55,30 @@ public class ByteArrayCodec extends Codec<NumberArray, byte[]> {
             bytes = flipByteOrder(bytes, numberOfBytes);
         }
         return bytes;
+    }
+
+    public NumberArray decode(ByteArray data, ByteArrayEncoding encoding) {
+        int type = encoding.getType();
+
+        switch (type) {
+            case 1:
+                return data.toInt8Array(data.getEncoding());
+            case 2:
+                return data.toInt16Array(data.getEncoding());
+            case 3:
+                return data.toInt32Array(data.getEncoding());
+            case 4:
+                return data.toUint8Array(data.getEncoding());
+            case 5:
+                return data.toUint16Array(data.getEncoding());
+            case 6:
+                return data.toUint32Array(data.getEncoding());
+            case 32:
+                return data.toFloat32Array(data.getEncoding());
+            case 33:
+                return data.toFloat64Array(data.getEncoding());
+            default:
+                throw new IllegalArgumentException("Unsupported byte type " + type);
+        }
     }
 }

@@ -14,12 +14,6 @@ import java.util.Map;
  * considered.
  */
 public class MessagePackCodec {
-    public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
-
-    private MessagePackCodec() {
-
-    }
-
     /* encoding */
 
     public byte[] encode(Map<String, Object> input) {

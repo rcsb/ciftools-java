@@ -1,91 +1,74 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.ArrayFactory;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
-public class RunLengthCodec extends Codec<IntArray, Int32Array> {
-    public static final String KIND = "RunLength";
-    public static final RunLengthCodec RUN_LENGTH_CODEC = new RunLengthCodec();
+import java.util.LinkedList;
 
-    private RunLengthCodec() {
-        super(KIND);
-    }
-
-    public static IntArray decode(CodecData<Int32Array> codecData) {
-        return RUN_LENGTH_CODEC.decodeInternally(codecData);
-    }
-
-    public static CodecData<Int32Array> encode(CodecData<IntArray> codecData) {
-        return RUN_LENGTH_CODEC.encodeInternally(codecData);
-    }
-
-    @Override
-    protected CodecData<Int32Array> encodeInternally(CodecData data) {
-        IntArray input = (IntArray) data.getData();
-        int[] inputArray = input.getData();
-        if (inputArray.length == 0) {
-            return CodecData.of(ArrayFactory.int32Array(new int[0]))
-                    .startEncoding(KIND)
-                    .addParameter("srcType", Int32Array.TYPE)
-                    .addParameter("srcSize", 0)
-                    .build();
+public class RunLengthCodec {
+    public Int32Array encode(IntArray data, RunLengthEncoding encoding) {
+        int[] input = data.getData();
+        if (input.length == 0) {
+            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+            encoding.setSrcType(3);
+            encoding.setSrcSize(0);
+            enc.add(encoding);
+            return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
         // calculate output size
         int fullLength = 2;
-        for (int i = 1; i < inputArray.length; i++) {
-            if (inputArray[i - 1] != inputArray[i]) {
+        for (int i = 1; i < input.length; i++) {
+            if (input[i - 1] != input[i]) {
                 fullLength += 2;
             }
         }
-        int[] outputArray = new int[fullLength];
-        Int32Array output =ArrayFactory.int32Array(outputArray);
+
+        int[] output = new int[fullLength];
         int offset = 0;
         int runLength = 1;
-        for (int i = 1; i < inputArray.length; i++) {
-            if (inputArray[i - 1] != inputArray[i]) {
-                outputArray[offset] = inputArray[i - 1];
-                outputArray[offset + 1] = runLength;
+        for (int i = 1; i < input.length; i++) {
+            if (input[i - 1] != input[i]) {
+                output[offset] = input[i - 1];
+                output[offset + 1] = runLength;
                 runLength = 1;
                 offset += 2;
             } else {
                 ++runLength;
             }
         }
-        outputArray[offset] = inputArray[inputArray.length - 1];
-        outputArray[offset + 1] = runLength;
+        output[offset] = input[input.length - 1];
+        output[offset + 1] = runLength;
 
-        return CodecData.of(output)
-                .startEncoding(KIND)
-                .addParameter("srcType", Int32Array.TYPE)
-                .addParameter("srcSize", inputArray.length)
-                .build();
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        encoding.setSrcType(3);
+        encoding.setSrcSize(input.length);
+        enc.add(encoding);
+        return EncodedDataFactory.int32Array(output, enc);
     }
 
-    @Override
-    protected IntArray decodeInternally(CodecData<Int32Array> data) {
-        ensureParametersPresent(data, "srcType", "srcSize");
-        int srcType = (int) data.getParameters().get("srcType");
-        int srcSize = (int) data.getParameters().get("srcSize");
+    public IntArray decode(Int32Array data, RunLengthEncoding encoding) {
+        int srcType = encoding.getSrcType();
+        int srcSize = encoding.getSrcSize();
 
-        Int32Array input = data.getData();
-        int[] inputArray = input.getData();
-
-        if (inputArray.length == 0) {
-            return data.getData();
+        int[] input = data.getData();
+        if (input.length == 0) {
+            return data;
         }
 
         int dataOffset = 0;
-        IntArray output = ArrayFactory.intArray(srcType, srcSize);
+        IntArray output = EncodedDataFactory.intArray(srcType, srcSize);
         int[] outputArray = output.getData();
 
-        if (inputArray.length % 2 == 1) {
+        if (input.length % 2 == 1) {
             System.err.println("FIXME: source data has odd number of elements");
         }
-        for (int i = 0; i < inputArray.length - 1 /* TODO remove -1 which should point to problems */; i += 2) {
-            int value = inputArray[i];  // value to be repeated
-            int length = inputArray[i + 1];  // number of repeats
+        for (int i = 0; i < data.length() - 1 /* TODO remove -1 which should point to problems */; i += 2) {
+            int value = input[i];  // value to be repeated
+            int length = input[i + 1];  // number of repeats
             for (int j = 0; j < length; ++j) {
                 outputArray[dataOffset++] = value;
             }

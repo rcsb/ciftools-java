@@ -1,28 +1,25 @@
 package org.rcsb.cif.binary.data;
 
-import java.nio.ByteBuffer;
-import java.util.Arrays;
+import org.rcsb.cif.binary.encoding.Encoding;
 
-public class Uint8Array extends DataArray implements UnsignedIntArray {
+import java.util.Arrays;
+import java.util.LinkedList;
+
+public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     public static final int TYPE = 4;
 
     Uint8Array(int[] data) {
-        super(data);
+        this(data, new LinkedList<>());
     }
 
-    Uint8Array(byte[] bytes) {
-        super(new int[bytes.length]);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        int[] data = getData();
-        for (int i = 0; i < length(); i++) {
-            data[i] = byteBuffer.get() & 0xFF;
-        }
+    Uint8Array(int[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public int[] getData() {
-        return (int[]) get("data");
+        return (int[]) data;
     }
 
     @Override

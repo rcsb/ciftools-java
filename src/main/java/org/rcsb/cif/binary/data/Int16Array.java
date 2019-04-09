@@ -1,30 +1,30 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.stream.IntStream;
 
-public class Int16Array extends DataArray implements SignedIntArray {
+public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     public static final int TYPE = 2;
 
     Int16Array(int[] data) {
-        super(data);
+        this(data, new LinkedList<>());
     }
 
-    Int16Array(byte[] bytes) {
-        super(new int[bytes.length / NUMBER_OF_BYTES]);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        int[] data = getData();
-        for (int i = 0; i < length(); i++) {
-            data[i] = byteBuffer.getShort();
-        }
+    Int16Array(int[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public int[] getData() {
-        return (int[]) get("data");
+        return (int[]) data;
     }
 
     @Override
@@ -57,5 +57,15 @@ public class Int16Array extends DataArray implements SignedIntArray {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
+    }
+
+    @Override
+    public Int16Array encode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.encode(this, encoding);
+    }
+
+    @Override
+    public Int16Array decode(DeltaEncoding encoding) {
+        return Codec.DELTA_CODEC.decode(this, encoding);
     }
 }

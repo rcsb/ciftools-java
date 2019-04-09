@@ -1,30 +1,29 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.codec.Classifier;
+import org.rcsb.cif.binary.encoding.Encoding;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.stream.DoubleStream;
 
-public class Float64Array extends DataArray implements FloatArray {
+public class Float64Array extends AbstractEncodedData<double[]> implements FloatArray {
     private static final int NUMBER_OF_BYTES = 8;
     public static final int TYPE = 33;
 
     Float64Array(double[] data) {
-        super(data);
+        this(data, new LinkedList<>());
     }
 
-    Float64Array(byte[] bytes) {
-        super(new double[bytes.length / NUMBER_OF_BYTES]);
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes).order(ByteOrder.LITTLE_ENDIAN);
-        double[] data = getData();
-        for (int i = 0; i < length(); i++) {
-            data[i] = byteBuffer.getDouble();
-        }
+    Float64Array(double[] data, LinkedList<Encoding> encoding) {
+        super(data, encoding);
     }
 
     @Override
     public double[] getData() {
-        return (double[]) get("data");
+        return (double[]) data;
     }
 
     @Override
@@ -53,5 +52,9 @@ public class Float64Array extends DataArray implements FloatArray {
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
+    }
+
+    public ByteArray classify() {
+        return Classifier.classify(this);
     }
 }

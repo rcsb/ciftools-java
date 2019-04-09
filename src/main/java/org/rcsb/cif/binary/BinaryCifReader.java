@@ -1,30 +1,24 @@
 package org.rcsb.cif.binary;
 
+import org.rcsb.cif.CifReader;
+import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.BinaryCifCategory;
 import org.rcsb.cif.model.CifBlock;
 import org.rcsb.cif.model.CifCategory;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.CifReader;
-import org.rcsb.cif.ParsingException;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.rcsb.cif.binary.codec.MessagePackCodec.MESSAGE_PACK_CODEC;
-
 public class BinaryCifReader implements CifReader {
-    private final MessagePackCodec messagePackCodec;
-
-    public BinaryCifReader() {
-        this.messagePackCodec = MESSAGE_PACK_CODEC;
-    }
-
     @Override
     public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
@@ -49,7 +43,7 @@ public class BinaryCifReader implements CifReader {
 
         Map<String, Object> unpacked;
         try {
-            unpacked = messagePackCodec.decode(data);
+            unpacked = Codec.MESSAGE_PACK_CODEC.decode(data);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to be not in binary CIF. Encountered unexpected cast.", e);
         } catch (Exception e) {
