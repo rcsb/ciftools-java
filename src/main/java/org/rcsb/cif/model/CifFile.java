@@ -5,15 +5,9 @@ import java.util.stream.Stream;
 
 public class CifFile {
     private final List<CifBlock> blocks;
-    private final String name;
-
-    public CifFile(List<CifBlock> blocks, String name) {
-        this.blocks = blocks;
-        this.name = name;
-    }
 
     public CifFile(List<CifBlock> blocks) {
-        this(blocks, "");
+        this.blocks = blocks;
     }
 
     public List<CifBlock> getBlocks() {
@@ -22,9 +16,5 @@ public class CifFile {
 
     public Stream<CifBlock> blocks() {
         return blocks.stream();
-    }
-
-    public String getName() {
-        return name;
     }
 }
