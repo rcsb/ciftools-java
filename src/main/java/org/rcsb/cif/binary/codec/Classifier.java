@@ -3,9 +3,7 @@ package org.rcsb.cif.binary.codec;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.*;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.DoubleStream;
 
 public class Classifier {
@@ -14,13 +12,7 @@ public class Classifier {
             return data.encode(new ByteArrayEncoding());
         }
 
-        List<EncodingSize> sizes = getSize(data);
-        EncodingSize size = sizes.get(0);
-//        if (size.length == sizes.get(1).length) {
-//            // TODO fix potential problems with wrong order of encodings
-//            System.out.println("tie - packing size ambiguous");
-//            sizes.stream().map(s -> s.kind + " " + s.length + " " + s.elem).forEach(System.out::println);
-//        }
+        EncodingSize size = getSize(data);
 
         switch (size.kind) {
             case "pack":
@@ -155,7 +147,7 @@ public class Classifier {
         int prevValue = 0;
         for (int i = 1; i < data.length; i++) {
             int v = data[i] - prev;
-            if (prev != v) {
+            if (prevValue != v) {
                 incSizeSigned(size, prevValue);
                 incSizeSigned(size, run);
                 run = 1;
@@ -171,7 +163,7 @@ public class Classifier {
         return new EncodingSize(byteSize(size), "delta-rle");
     }
 
-    private static List<EncodingSize> getSize(IntArray data) {
+    private static EncodingSize getSize(IntArray data) {
         IntColumnInfo info = getInfo(data);
         int[] array = data.getData();
         List<EncodingSize> sizes = new ArrayList<>();
@@ -179,8 +171,8 @@ public class Classifier {
         sizes.add(rleSize(array, info));
         sizes.add(deltaSize(array));
         sizes.add(deltaRleSize(array));
-        sizes.sort(Comparator.comparingInt(e -> e.length));
-        return sizes;
+        int min = sizes.stream().mapToInt(encodingSize -> encodingSize.length).min().orElseThrow(NoSuchElementException::new);
+        return sizes.stream().filter(encodingSize -> encodingSize.length == min).findFirst().orElseThrow(NoSuchElementException::new);
     }
 
     private static final double DELTA = 1e-6;
@@ -205,10 +197,9 @@ public class Classifier {
                 .mapToInt(d -> (int) Math.round(multiplier * d))
                 .toArray();
 
-        List<EncodingSize> sizes = getSize(EncodedDataFactory.int32Array(intArray));
-        EncodingSize size = sizes.get(0);
+        EncodingSize size = getSize(EncodedDataFactory.int32Array(intArray));
 
-        Int32Array fp = data.encode(new FixedPointEncoding(multiplier, data.getType()));
+        Int32Array fp = data.encode(new FixedPointEncoding(multiplier));
         switch (size.kind) {
             case "pack":
                 return fp.encode(new IntegerPackingEncoding())

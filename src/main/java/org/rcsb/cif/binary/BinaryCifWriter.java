@@ -72,6 +72,16 @@ public class BinaryCifWriter implements CifWriter {
                     .classify();
             return encodeField(cifField, "Int", byteArray);
         }
+            // no auto-encoding
+//        } else if (type == DataType.Float) {
+//            ByteArray byteArray = EncodedDataFactory.float64Array(cifField.floats().toArray())
+//                    .encode(new ByteArrayEncoding());
+//            return encodeField(cifField, "Float", byteArray);
+//        } else {
+//            ByteArray byteArray = EncodedDataFactory.int32Array(cifField.ints().toArray())
+//                    .encode(new ByteArrayEncoding());
+//            return encodeField(cifField, "Int", byteArray);
+//        }
     }
 
     private Map<String, Object> encodeField(CifField cifField, String type, ByteArray byteArray) {
@@ -89,8 +99,6 @@ public class BinaryCifWriter implements CifWriter {
             ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode(new ByteArrayEncoding());
 
             if (maskRLE.getData().length < mask.getData().length) {
-                maskData.put("data", maskRLE.getData());
-
                 RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().get(0);
 
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
@@ -103,13 +111,14 @@ public class BinaryCifWriter implements CifWriter {
                 encoding2.put("type", 3);
 
                 maskData.put("encoding", new Object[] { encoding1, encoding2 });
+                maskData.put("data", maskRLE.getData());
             } else {
                 ByteArray encodedMask = mask.encode(new ByteArrayEncoding(4));
-                maskData.put("data", encodedMask.getData());
                 Map<String, Object> encoding = new LinkedHashMap<>();
                 encoding.put("kind", "ByteArray");
                 encoding.put("type", 4);
                 maskData.put("encoding", new Object[] { encoding });
+                maskData.put("data", encodedMask.getData());
             }
         }
 
