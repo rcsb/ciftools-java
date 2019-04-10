@@ -43,14 +43,11 @@ public class Codec {
         for (int i = encodings.length - 1; i >= 0; i--) {
             current = decodeStep(current, wrap((Map<String, Object>) encodings[i]));
         }
-
-        System.out.println(current);
         return current.getData();
     }
 
     @SuppressWarnings("unchecked")
     private static Encoding wrap(Map<String, Object> encoding) {
-        System.out.println(encoding);
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":

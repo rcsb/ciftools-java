@@ -23,6 +23,7 @@ public class CifWriterTest {
 
     @Test
     public void writeBinary() throws ParsingException, IOException {
+        // FIXME failing
         for (String id : TEST_CASES.keySet()) {
             writeBinary(id);
         }

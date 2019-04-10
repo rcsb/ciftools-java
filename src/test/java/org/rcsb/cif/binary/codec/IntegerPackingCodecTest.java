@@ -22,7 +22,6 @@ public class IntegerPackingCodecTest {
 
         // decode
         Int32Array decodedArray = encodedData.decode(integerPackingEncoding);
-//        new IntegerPackingEncoding(4, false, plainArray.length()));
 
         System.out.println(plainArray);
         System.out.println(decodedArray);

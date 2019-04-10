@@ -12,9 +12,10 @@ public class ByteArrayCodec {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        encoding.setType(type);
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        encoding.setType(type);
         enc.add(encoding);
+
         return EncodedDataFactory.byteArray(bytes, enc);
     }
 

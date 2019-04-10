@@ -35,6 +35,7 @@ public class FixedPointCodec {
                 .mapToDouble(i -> f * i)
                 .toArray();
 
-        return srcType == 32 ? EncodedDataFactory.float32Array(outputArray) : EncodedDataFactory.float64Array(outputArray);
+        return srcType == 32 ? EncodedDataFactory.float32Array(outputArray, data.getEncoding()) :
+                EncodedDataFactory.float64Array(outputArray, data.getEncoding());
     }
 }

@@ -3,7 +3,6 @@ package org.rcsb.cif.binary.codec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.StringArray;
-import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
@@ -60,34 +59,24 @@ public class StringArrayCodec {
 
     public StringArray decode(ByteArray data, StringArrayEncoding encoding) {
         String stringData = encoding.getStringData();
-        System.out.println("stringdata " + stringData);
-
-        int[] offsets;
-        if (encoding.getOffsetEncoding() != null && encoding.getOffsetEncoding().size() > 0) {
-            offsets = (int[]) EncodedDataFactory.byteArray(encoding.getOffsets(), encoding.getOffsetEncoding())
+        int[] offsets = (int[]) EncodedDataFactory.byteArray(encoding.getOffsets(), encoding.getOffsetEncoding())
                     .decode()
                     .getData();
-        } else {
-            offsets = (int[]) EncodedDataFactory.byteArray(encoding.getOffsets())
-                    .decode(new ByteArrayEncoding(4))
-                    .getData();
-        }
-        System.out.println("offsets " + Arrays.toString(offsets));
-
         data.setEncoding(encoding.getDataEncoding());
         int[] indices = (int[]) data.decode().getData();
-        System.out.println("data " + Arrays.toString(indices));
 
-        String[] result = new String[indices.length];
-        int offset = 0;
-        for (int i : indices) {
-            if (i < 0) {
-                result[offset++] = null;
-                continue;
-            }
-            result[offset++] = stringData.substring(offsets[i], offsets[i + 1]);
+        String[] strings = new String[offsets.length];
+        strings[0] = "";
+        for (int i = 1; i < offsets.length; i++) {
+            strings[i] = stringData.substring(offsets[i - 1], offsets[i]);
         }
 
-        return EncodedDataFactory.stringArray(result);
+        int offset = 0;
+        String[] result = new String[indices.length];
+        for (int index : indices) {
+            result[offset++] = strings[index + 1];
+        }
+
+        return EncodedDataFactory.stringArray(result, data.getEncoding());
     }
 }

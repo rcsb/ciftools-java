@@ -46,6 +46,7 @@ public class DeltaCodec {
         int origin = encoding.getOrigin();
         int srcType = encoding.getSrcType();
         T output = (T) EncodedDataFactory.intArray(srcType, input.length);
+        output.setEncoding(data.getEncoding());
 
         int n = input.length;
         if (n == 0) {

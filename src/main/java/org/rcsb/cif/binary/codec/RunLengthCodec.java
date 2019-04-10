@@ -47,6 +47,7 @@ public class RunLengthCodec {
         encoding.setSrcType(3);
         encoding.setSrcSize(input.length);
         enc.add(encoding);
+
         return EncodedDataFactory.int32Array(output, enc);
     }
 
@@ -61,6 +62,7 @@ public class RunLengthCodec {
 
         int dataOffset = 0;
         IntArray output = EncodedDataFactory.intArray(srcType, srcSize);
+        output.setEncoding(data.getEncoding());
         int[] outputArray = output.getData();
 
         if (input.length % 2 == 1) {

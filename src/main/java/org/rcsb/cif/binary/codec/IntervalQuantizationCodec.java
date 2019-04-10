@@ -20,8 +20,8 @@ public class IntervalQuantizationCodec {
 
         if (input.length == 0) {
             LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
-            encoding.setSrcType(3);
             enc.add(encoding);
+            encoding.setSrcType(3);
             return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
@@ -63,6 +63,7 @@ public class IntervalQuantizationCodec {
                 .mapToDouble(i -> min + delta * 1)
                 .toArray();
 
-        return srcType == 32 ? EncodedDataFactory.float32Array(output) : EncodedDataFactory.float64Array(output);
+        return srcType == 32 ? EncodedDataFactory.float32Array(output, data.getEncoding()) :
+                EncodedDataFactory.float64Array(output, data.getEncoding());
     }
 }

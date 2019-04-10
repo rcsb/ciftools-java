@@ -4,7 +4,6 @@ import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
-import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
@@ -15,7 +14,6 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class BinaryCifWriter implements CifWriter {
@@ -115,7 +113,7 @@ public class BinaryCifWriter implements CifWriter {
             }
         }
 
-        // create Map
+        // create map
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("name", cifField.getName());
         map.put("data", encodedMap);

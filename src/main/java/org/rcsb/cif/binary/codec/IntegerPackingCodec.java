@@ -15,7 +15,7 @@ public class IntegerPackingCodec {
 
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            LinkedList<Encoding> enc = data.getEncoding();
+            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
             encoding.setByteCount(4);
             encoding.setUnsigned(false);
             encoding.setSrcSize(input.length);
@@ -64,7 +64,7 @@ public class IntegerPackingCodec {
             }
         }
 
-        LinkedList<Encoding> enc = output.getEncoding();
+        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setByteCount(packing.bytesPerElement);
         encoding.setUnsigned(!packing.signed);
         encoding.setSrcSize(packing.size);
@@ -131,7 +131,9 @@ public class IntegerPackingCodec {
         int srcSize = encoding.getSrcSize();
 
         if (input.length == srcSize && byteCount == 4) {
-            return EncodedDataFactory.int32Array(input, data.getEncoding());
+            Int32Array output = EncodedDataFactory.int32Array(input, data.getEncoding());
+            output.setEncoding(data.getEncoding());
+            return output;
         }
 
         int upperLimit;
