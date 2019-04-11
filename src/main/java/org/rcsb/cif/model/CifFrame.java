@@ -27,4 +27,8 @@ public class CifFrame {
     public Stream<CifCategory> categories() {
         return categories.values().stream();
     }
+
+    public CifCategory getCategory(String name) {
+        return categories.get(name);
+    }
 }

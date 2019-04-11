@@ -12,10 +12,6 @@ public class CifBlock extends CifFrame {
         this.saveFrames = saveFrames;
     }
 
-    public CifCategory getCategory(String name) {
-        return getCategories().get(name);
-    }
-
     public List<CifFrame> getSaveFrames() {
         return saveFrames;
     }
