@@ -2,7 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.internal.CifFile;
 
 import java.io.BufferedReader;
 import java.io.IOException;

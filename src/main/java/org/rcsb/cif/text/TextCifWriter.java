@@ -1,7 +1,7 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifWriter;
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.internal.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

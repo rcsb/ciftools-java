@@ -1,10 +1,10 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.model.CifBlock;
-import org.rcsb.cif.model.CifCategory;
-import org.rcsb.cif.model.CifField;
-import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.internal.CifBlock;
+import org.rcsb.cif.model.internal.CifCategory;
+import org.rcsb.cif.model.internal.CifField;
+import org.rcsb.cif.model.internal.CifFile;
 
 import java.io.IOException;
 import java.io.InputStream;

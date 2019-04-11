@@ -1,0 +1,41 @@
+package org.rcsb.cif.model.generated.structconntype;
+
+import org.rcsb.cif.model.BaseCifCategory;
+import org.rcsb.cif.model.CifColumn;
+
+import java.util.Map;
+
+public class StructConnType extends BaseCifCategory {
+    public StructConnType(String name, Map<String, CifColumn> columns) {
+        super(name, columns);
+    }
+
+    public StructConnType(String name, int rowCount, Object[] encodedColumns) {
+        super(name, rowCount, encodedColumns);
+    }
+
+    /**
+     * The criteria used to define the interaction.
+     * @return Criteria
+     */
+    public Criteria getCriteria() {
+        return (Criteria) (isText ? getTextColumn("criteria") : getBinaryColumn("criteria", "Criteria"));
+    }
+
+    /**
+     * The chemical or structural type of the interaction.
+     * @return Id
+     */
+    public Id getId() {
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+    }
+
+    /**
+     * A reference that specifies the criteria used to define the
+     * interaction.
+     * @return Reference
+     */
+    public Reference getReference() {
+        return (Reference) (isText ? getTextColumn("reference") : getBinaryColumn("reference", "Reference"));
+    }
+}

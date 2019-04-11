@@ -6,7 +6,7 @@ import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.internal.*;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;

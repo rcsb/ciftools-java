@@ -1,8 +1,8 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.model.CifBlock;
-import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.CifFrame;
+import org.rcsb.cif.model.internal.CifBlock;
+import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.internal.CifFrame;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 

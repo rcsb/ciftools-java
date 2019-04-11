@@ -1,6 +1,6 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.model.CifCategory;
+import org.rcsb.cif.model.internal.CifCategory;
 
 import java.util.*;
 

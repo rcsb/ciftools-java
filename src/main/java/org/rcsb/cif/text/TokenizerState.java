@@ -1,7 +1,9 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.model.*;
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.model.internal.CifField;
+import org.rcsb.cif.model.internal.TextCifCategory;
+import org.rcsb.cif.model.internal.TextCifField;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

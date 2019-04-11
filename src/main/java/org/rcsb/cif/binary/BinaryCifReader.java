@@ -3,10 +3,10 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.BinaryCifCategory;
-import org.rcsb.cif.model.CifBlock;
-import org.rcsb.cif.model.CifCategory;
-import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.internal.BinaryCifCategory;
+import org.rcsb.cif.model.internal.CifBlock;
+import org.rcsb.cif.model.internal.CifCategory;
+import org.rcsb.cif.model.internal.CifFile;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

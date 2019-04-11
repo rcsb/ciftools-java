@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.internal.CifFile;
 import org.rcsb.cif.binary.BinaryCifReader;
 import org.rcsb.cif.text.TextCifReader;
 

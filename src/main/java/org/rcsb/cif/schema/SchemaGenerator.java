@@ -1,12 +1,18 @@
 package org.rcsb.cif.schema;
 
 import org.rcsb.cif.CifReader;
-import org.rcsb.cif.model.CifCategory;
-import org.rcsb.cif.model.CifField;
-import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.CifFrame;
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.internal.CifCategory;
+import org.rcsb.cif.model.internal.CifField;
+import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.internal.CifFrame;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -14,6 +20,240 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class SchemaGenerator {
+    private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
+    private static final String BASE_PACKAGE = "org.rcsb.cif.model.generated";
+
+    private static final String ROOT_NAME = "CifFile";
+    private static final String ROOT_DESCRIPTION = "Root";
+    private final Map<String, List<String>> filter;
+
+    public static void main(String[] args) throws IOException {
+        new SchemaGenerator().generate();
+    }
+
+    private void generate() throws IOException {
+        getCategoryMetadata();
+
+        buildListOfLinksBetweenCategories();
+
+        getFieldData();
+
+        writeClasses();
+    }
+
+    private void writeClasses() throws IOException {
+        writeBlock("CifBlock", schema, OUTPUT_PATH);
+    }
+
+    // TODO use fully qualified package names
+
+    private void writeBlock(String className, Map<String, Table> content, Path path) throws IOException {
+        System.out.println(className);
+
+        StringJoiner output = new StringJoiner("\n");
+        output.add("package " + BASE_PACKAGE + ";");
+        output.add("");
+
+        StringJoiner getters = new StringJoiner("\n");
+
+        for (Map.Entry<String, Table> entry : content.entrySet()) {
+            String categoryName = entry.getKey();
+            Table category = entry.getValue();
+
+            if (!filter.containsKey(categoryName)) {
+                continue;
+            }
+
+            String categoryClassName = toClassName(categoryName);
+
+            getters.add("    /**");
+            String description = Pattern.compile("\n").splitAsStream(category.getDescription())
+                    .map(s -> "     * " + s)
+                    .collect(Collectors.joining("\n"));
+            getters.add(description);
+            getters.add("     * @return " + categoryClassName);
+            getters.add("     */");
+            getters.add("    public " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." + categoryClassName +
+                    " get" + categoryClassName + "() {");
+            getters.add("        return (" + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." +
+                    categoryClassName + ") categories.get(\"" + categoryName + "\");");
+            getters.add("    }");
+            getters.add("");
+
+            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), filter.get(categoryName));
+        }
+
+        output.add("import org.rcsb.cif.model.BaseCifBlock;");
+        output.add("import org.rcsb.cif.model.CifCategory;");
+        output.add("");
+        output.add("import java.util.Map;");
+        output.add("");
+        output.add("public class " + className + " extends " + BaseCifBlock.class.getSimpleName() + " {");
+
+        // constructor
+        output.add("    public " + className + "(Map<String, CifCategory> categories, String header) {");
+        output.add("        super(categories, header);");
+        output.add("    }");
+        output.add("");
+
+        // getters
+        output.add(getters.toString() + "}");
+        output.add("");
+
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+    }
+
+    private void writeCategory(String className, Table content, Path path, List<String> colFilter) throws IOException {
+        System.out.println(" -> " + className);
+
+        if (!Files.exists(path)) {
+            Files.createDirectory(path);
+        }
+
+        StringJoiner output = new StringJoiner("\n");
+        output.add("package " + BASE_PACKAGE + "." + className.toLowerCase() + ";");
+        output.add("");
+        output.add("import org.rcsb.cif.model.BaseCifCategory;");
+        output.add("import org.rcsb.cif.model.CifColumn;");
+        output.add("");
+        output.add("import java.util.Map;");
+        output.add("");
+
+        output.add("public class " + className + " extends " + BaseCifCategory.class.getSimpleName() + " {");
+
+        StringJoiner getters = new StringJoiner("\n");
+
+        for (Map.Entry<String, Object> entry : content.getColumns().entrySet()) {
+            String columnName = entry.getKey();
+            Col column = (Col) entry.getValue();
+
+            if (!colFilter.contains(columnName)) {
+                continue;
+            }
+
+            String columnClassName = toClassName(columnName);
+
+            getters.add("    /**");
+            String description = Pattern.compile("\n").splitAsStream(column.getDescription())
+                    .map(s -> "     * " + s)
+                    .collect(Collectors.joining("\n"));
+            getters.add(description);
+            getters.add("     * @return " + columnClassName);
+            getters.add("     */");
+            getters.add("    public " + columnClassName + " get" + columnClassName + "() {");
+            getters.add("        return (" + columnClassName + ") (isText ? getTextColumn(\"" + columnName +
+                    "\") : getBinaryColumn(\"" + columnName + "\", \"" + columnClassName + "\"));");
+            getters.add("    }");
+            getters.add("");
+
+            writeColumn(columnClassName, column, path);
+        }
+
+        // constructor
+        output.add("    public " + className + "(String name, Map<String, CifColumn> columns) {");
+        output.add("        super(name, columns);");
+        output.add("    }");
+        output.add("");
+
+        output.add("    public " + className + "(String name, int rowCount, Object[] encodedColumns) {");
+        output.add("        super(name, rowCount, encodedColumns);");
+        output.add("    }");
+        output.add("");
+
+        // getters
+        output.add(getters.toString() + "}");
+        output.add("");
+
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+    }
+
+    private void writeColumn(String className, Col content, Path path) throws IOException {
+        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType()));
+
+        StringJoiner output = new StringJoiner("\n");
+        output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
+        output.add("");
+        output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
+        output.add("");
+        output.add("import java.util.Map;");
+        output.add("");
+        output.add("public class " + className + " extends " + getBaseClass(content.getType()) + " {");
+
+        output.add("    public " + className + "(String data, int startToken, int endToken, String name) {");
+        output.add("        super(data, startToken, endToken, name);");
+        output.add("    }");
+        output.add("");
+
+        output.add("    public " + className + "(String data, int[] startToken, int[] endToken, String name) {");
+        output.add("        super(data, startToken, endToken, name);");
+        output.add("    }");
+        output.add("");
+
+        output.add("    public " + className + "(Map<String, Object> encodedColumn) {");
+        output.add("        super(encodedColumn);");
+        output.add("    }");
+
+        output.add("}");
+        output.add("");
+
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+    }
+
+    private String getBaseClass(String type) {
+        Class<?> clazz;
+        switch (type) {
+            case "coord":
+                clazz = CoordColumn.class; break;
+            case "enum":
+                clazz = EnumColumn.class; break;
+            case "float":
+                clazz = FloatColumn.class; break;
+            case "int":
+                clazz = IntColumn.class; break;
+            case "list":
+                clazz = ListColumn.class; break;
+            case "matrix":
+                clazz = MatrixColumn.class; break;
+            case "str":
+                clazz = StrColumn.class; break;
+            case "vector":
+                clazz = VectorColumn.class; break;
+            default:
+                throw new IllegalArgumentException("Unknown type " + type);
+        }
+        return clazz.getSimpleName();
+    }
+
+    public static String toClassName(String rawName) {
+        return Pattern.compile("_").splitAsStream(rawName)
+                        .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
+                .collect(Collectors.joining(""))
+                // remove invalid characters
+                .replace("/", "_")
+                .replace("-", "_");
+    }
+
+    private SchemaGenerator() throws IOException {
+        this.cifFile = CifReader.parseText(Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("mmcif_pdbx_v50.dic"));
+        this.schema = new LinkedHashMap<>();
+        this.categories = new LinkedHashMap<>();
+        this.links = new LinkedHashMap<>();
+        this.filter = new LinkedHashMap<>();
+
+        new BufferedReader(new InputStreamReader(Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("mmcif-field-names.csv")))
+                .lines()
+                .filter(line -> !line.isEmpty())
+                .map(line -> line.split("\\."))
+                .forEach(split -> {
+                    List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
+                    cols.add(split[1]);
+                });
+    }
+
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
     private static final String RE_VECTOR_FIELD = "\\[[1-3]]";
 
@@ -28,7 +268,7 @@ public class SchemaGenerator {
             "_struct_sheet_range.beg_auth_seq_id",
             "_struct_sheet_range.end_auth_seq_id"
     ).collect(Collectors.toList());
-            
+
     private static final List<String> COMMA_SEPARATED_LIST_FIELDS = Stream.of(
             "_atom_site.pdbx_struct_group_id",
             "_chem_comp.mon_nstd_parent_comp_id",
@@ -81,23 +321,6 @@ public class SchemaGenerator {
     private final Map<String, Table> schema;
     private final Map<String, CifFrame> categories;
     private final Map<String, String> links;
-
-    private SchemaGenerator() throws IOException {
-        this.cifFile = CifReader.parseText(Thread.currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("mmcif_pdbx_v50.dic"));
-        this.schema = new LinkedHashMap<>();
-        this.categories = new LinkedHashMap<>();
-        this.links = new LinkedHashMap<>();
-    }
-
-    private void generate() {
-        getCategoryMetadata();
-
-        buildListOfLinksBetweenCategories();
-
-        getFieldData();
-    }
 
     private void getFieldData() {
         categories.forEach((fullName, saveFrame) -> {
@@ -304,10 +527,6 @@ public class SchemaGenerator {
                     schema.put(saveFrame.getHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>()));
 //                    System.out.println();
                 });
-    }
-
-    public static void main(String[] args) throws IOException {
-        new SchemaGenerator().generate();
     }
 }
 
