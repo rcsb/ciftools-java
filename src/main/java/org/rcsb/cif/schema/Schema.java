@@ -125,8 +125,10 @@ public class Schema {
         output.add("import org.rcsb.cif.model.BaseCifBlock;");
         output.add("import org.rcsb.cif.model.CifCategory;");
         output.add("");
+        output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
         output.add("");
+        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
         output.add("public class " + className + " extends " + BaseCifBlock.class.getSimpleName() + " {");
 
         // constructor
@@ -155,9 +157,11 @@ public class Schema {
         output.add("import org.rcsb.cif.model.BaseCifCategory;");
         output.add("import org.rcsb.cif.model.CifColumn;");
         output.add("");
+        output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
         output.add("");
 
+        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
         output.add("public class " + className + " extends " + BaseCifCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
@@ -214,8 +218,11 @@ public class Schema {
         output.add("");
         output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
         output.add("");
+        output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
         output.add("");
+
+        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
         output.add("public class " + className + " extends " + getBaseClass(content.getType()) + " {");
 
         output.add("    public " + className + "(String data, int startToken, int endToken, String name) {");
@@ -231,6 +238,32 @@ public class Schema {
         output.add("    public " + className + "(Map<String, Object> encodedColumn) {");
         output.add("        super(encodedColumn);");
         output.add("    }");
+
+        if (content.getType().equals("enum")) {
+            EnumCol enumCol = (EnumCol) content;
+            output.add("");
+            output.add("    public enum " + className + "Enum {");
+            String enumString = enumCol.getValues()
+                    .stream()
+                    .map(String::toUpperCase)
+                    .map(value -> "        " + value)
+                    .collect(Collectors.joining(",\n"));
+            output.add(enumString);
+            output.add("    }");
+
+            output.add("");
+
+            output.add("    public " + className + "Enum get(int row) {");
+            output.add("        return " + className + "Enum.valueOf(getString(row).toUpperCase());");
+            output.add("    }");
+
+            output.add("");
+
+            output.add("    public Stream<" + className + "Enum> values() {");
+            output.add("        return IntStream.range(0, getRowCount())");
+            output.add("                .mapToObj(this::get);");
+            output.add("    }");
+        }
 
         output.add("}");
         output.add("");
@@ -452,8 +485,8 @@ public class Schema {
 
     private List<String> getCode(BaseCifBlock saveFrame) {
         try {
-            StrColumn code = getField("item_type", "code", saveFrame);
-            return Stream.concat(Stream.of(code.get(0)), getEnums(saveFrame)).collect(Collectors.toList());
+            CifColumn code = getField("item_type", "code", saveFrame);
+            return Stream.concat(Stream.of(code.getString(0)), getEnums(saveFrame)).collect(Collectors.toList());
         } catch (NullPointerException e) {
             return Collections.emptyList();
         }
@@ -461,9 +494,9 @@ public class Schema {
 
     private Stream<String> getEnums(BaseCifBlock saveFrame) {
         try {
-            StrColumn value = getField("item_enumeration", "value", saveFrame);
+            CifColumn value = getField("item_enumeration", "value", saveFrame);
             return IntStream.range(0, value.getRowCount())
-                    .mapToObj(value::get);
+                    .mapToObj(value::getString);
         } catch (NullPointerException e) {
             return Stream.empty();
         }
@@ -471,26 +504,26 @@ public class Schema {
 
     private String getSubCategory(BaseCifBlock saveFrame) {
         try {
-            StrColumn value = getField("item_sub_category", "id", saveFrame);
-            return value.get(0);
+            CifColumn value = getField("item_sub_category", "id", saveFrame);
+            return value.getString(0);
         } catch (NullPointerException e) {
             return "";
         }
     }
 
     private String getDescription(BaseCifBlock saveFrame) {
-        StrColumn value = getField("item_description", "description", saveFrame);
-        return Pattern.compile("\n").splitAsStream(value.get(0))
+        CifColumn value = getField("item_description", "description", saveFrame);
+        return Pattern.compile("\n").splitAsStream(value.getString(0))
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
                 .replaceAll("(\\[[1-3]])+ element", "elements")
                 .replaceAll("(\\[[1-3]])+", "");
     }
 
-    private StrColumn getField(String category, String field, BaseCifBlock saveFrame) {
+    private CifColumn getField(String category, String field, BaseCifBlock saveFrame) {
         try {
             CifCategory cat = saveFrame.getCategory(category);
-            return (StrColumn) cat.getColumn(field);
+            return cat.getColumn(field);
         } catch (NullPointerException e) {
             String linkName = links.get(saveFrame.getHeader());
             return getField(category, field, categories.get(linkName));

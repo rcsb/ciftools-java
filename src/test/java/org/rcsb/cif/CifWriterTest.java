@@ -13,7 +13,6 @@ import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifWriterTest {
-
     @Test
     public void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {

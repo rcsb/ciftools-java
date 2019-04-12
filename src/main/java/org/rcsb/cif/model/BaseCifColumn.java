@@ -41,6 +41,9 @@ public class BaseCifColumn implements CifColumn {
             try {
                 Class<? extends BaseCifColumn> column = (Class<? extends BaseCifColumn>) Class.forName(Schema.BASE_PACKAGE
                         + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
+                if (column.getSuperclass().equals(ListColumn.class) || column.getSuperclass().equals(MatrixColumn.class) || column.getSuperclass().equals(VectorColumn.class)) {
+                    System.out.println(catName + " " + fieldName + " " + column.getSuperclass().getSimpleName());
+                }
                 return column.getConstructor(String.class, int[].class, int[].class, String.class)
                         .newInstance(data, startToken, endToken, fieldName);
             } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {

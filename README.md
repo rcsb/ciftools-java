@@ -35,8 +35,8 @@ class Demo {
         AtomSite _atom_site = data.getAtomSite();
         CartnX cartn_x = _atom_site.getCartnX();
 
-        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the schema
-        // for column 'cartn_x'
+        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the 
+        // schema for column 'cartn_x'
         OptionalDouble average_cartn_x = cartn_x.values().average();
         average_cartn_x.ifPresent(System.out::println);
 

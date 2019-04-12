@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.generated.atomsite;
 
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.StrColumn;
 
 import java.util.Map;
 
