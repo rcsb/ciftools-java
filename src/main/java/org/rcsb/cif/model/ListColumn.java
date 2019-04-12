@@ -16,12 +16,10 @@ public class ListColumn extends BaseCifColumn {
         super(encodedColumn);
     }
 
-    @Override
     public Object get(int row) {
         throw new UnsupportedOperationException("impl me"); // TODO
     }
 
-    @Override
     public BaseStream values() {
         throw new UnsupportedOperationException("impl me"); // TODO
     }

@@ -1,7 +1,8 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifWriter;
-import org.rcsb.cif.model.internal.*;
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.generated.CifBlock;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -23,7 +24,8 @@ public class TextCifWriter implements CifWriter {
                     .append(CifWriter.formatHeader(cifBlock.getHeader()))
                     .append("\n#\n");
 
-            for (CifCategory cifCategory : cifBlock.getCategories().values()) {
+            for (String categoryName : cifBlock.getCategoryNames()) {
+                CifCategory cifCategory = cifBlock.getCategory(categoryName);
                 int rowCount = cifCategory.getRowCount();
                 if (rowCount == 0) {
                     continue;
@@ -42,14 +44,14 @@ public class TextCifWriter implements CifWriter {
     }
 
     private void writeCifSingleRecord(StringBuilder output, CifCategory cifCategory) {
-        List<CifField> cifFields = cifCategory.getFieldNames()
+        List<CifColumn> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO filter
-                .map(cifCategory::getField)
+                .map(cifCategory::getColumn)
                 .collect(Collectors.toList());
 
         OptionalInt optionalWidth = cifFields.stream()
-                .map(CifField::getName)
+                .map(CifColumn::getName)
                 .mapToInt(String::length)
                 .max();
 
@@ -58,11 +60,11 @@ public class TextCifWriter implements CifWriter {
             return;
         }
 
-        int width = optionalWidth.getAsInt() + 6 + cifCategory.getName().length();
+        int width = optionalWidth.getAsInt() + 6 + cifCategory.getCategoryName().length();
         int[] floatPrecisions = getFloatPrecisions(cifFields);
 
-        for (CifField cifField : cifFields) {
-            writePadRight(output, "_" + cifCategory.getName() + "." + cifField.getName(), width);
+        for (CifColumn cifField : cifFields) {
+            writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getName(), width);
 
             for (int row = 0; row < cifField.getRowCount(); row++) {
                 boolean multiline = writeValue(output, cifField, row, floatPrecisions[row]);
@@ -74,18 +76,18 @@ public class TextCifWriter implements CifWriter {
         output.append("#\n");
     }
 
-    private int[] getFloatPrecisions(List<CifField> cifFields) {
+    private int[] getFloatPrecisions(List<CifColumn> cifFields) {
         return cifFields.stream()
-                .mapToInt(cifField -> cifField.getDataType() == DataType.Float ? (int) Math.pow(10, 6) : 1)
+                .mapToInt(cifField -> cifField instanceof FloatColumn ? (int) Math.pow(10, 6) : 1)
                 // TODO support custom format
                 .toArray();
     }
 
     private void writeCifLoop(StringBuilder output, CifCategory cifCategory) {
-        List<CifField> cifFields = cifCategory.getFieldNames()
+        List<CifColumn> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO filter
-                .map(cifCategory::getField)
+                .map(cifCategory::getColumn)
                 .collect(Collectors.toList());
 
         if (cifFields.size() == 0) {
@@ -95,9 +97,9 @@ public class TextCifWriter implements CifWriter {
         int[] floatPrecisions = getFloatPrecisions(cifFields);
         output.append("loop_")
                 .append("\n");
-        for (CifField cifField : cifFields) {
+        for (CifColumn cifField : cifFields) {
             output.append("_")
-                    .append(cifCategory.getName())
+                    .append(cifCategory.getCategoryName())
                     .append(".")
                     .append(cifField.getName())
                     .append("\n");
@@ -106,7 +108,7 @@ public class TextCifWriter implements CifWriter {
         for (int row = 0; row < cifFields.get(0).getRowCount(); row++) {
             boolean multiline = false;
             for (int i = 0; i < cifFields.size(); i++) {
-                CifField cifField = cifFields.get(i);
+                CifColumn cifField = cifFields.get(i);
                 multiline = writeValue(output, cifField, row, floatPrecisions[i]);
             }
             if (!multiline) {
@@ -116,7 +118,7 @@ public class TextCifWriter implements CifWriter {
         output.append("#\n");
     }
 
-    private boolean writeValue(StringBuilder output, CifField cifField, int row, int floatPrecision) {
+    private boolean writeValue(StringBuilder output, CifColumn cifField, int row, int floatPrecision) {
         ValueKind kind;
         try {
             kind = cifField.getValueKind(row);
@@ -131,8 +133,11 @@ public class TextCifWriter implements CifWriter {
                 writeUnknown(output);
             }
         } else {
-            DataType dataType = cifField.getDataType();
-            if (dataType == DataType.Str) {
+            if (cifField instanceof IntColumn) {
+                writeInteger(output, ((IntColumn) cifField).get(row));
+            } else if (cifField instanceof FloatColumn) {
+                writeFloat(output, ((FloatColumn) cifField).get(row), floatPrecision);
+            } else {
                 String val = cifField.getString(row);
                 if (isMultiline(val)) {
                     writeMultiline(output, val);
@@ -140,10 +145,6 @@ public class TextCifWriter implements CifWriter {
                 } else {
                     return writeChecked(output, val);
                 }
-            } else if (dataType == DataType.Int) {
-                writeInteger(output, cifField.getInt(row));
-            } else {
-                writeFloat(output, cifField.getFloat(row), floatPrecision);
             }
         }
 

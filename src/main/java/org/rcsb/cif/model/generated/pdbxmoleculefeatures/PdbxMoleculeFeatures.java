@@ -25,10 +25,10 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
 
     /**
      * Broadly defines the function of the molecule.
-     * @return Class
+     * @return Clazz
      */
-    public Class getClass() {
-        return (Class) (isText ? getTextColumn("class") : getBinaryColumn("class", "Class"));
+    public Clazz getClazz() {
+        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class", "Class"));
     }
 
     /**

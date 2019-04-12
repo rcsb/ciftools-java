@@ -1,10 +1,10 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.model.internal.CifBlock;
-import org.rcsb.cif.model.internal.CifCategory;
-import org.rcsb.cif.model.internal.CifField;
-import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.generated.atomsite.AtomSite;
+import org.rcsb.cif.model.generated.atomsite.LabelSeqId;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -42,15 +42,15 @@ public class CifReaderTest {
 
     private void checkParsedEntity(CifFile cifFile, List<Object> testData) throws ParsingException {
         CifBlock data = cifFile.getBlocks().get(0);
-        CifCategory _atom_site = data.getCategory("atom_site");
-        double firstCoordinate = _atom_site.getField("Cartn_x").getFloat(0);
+        AtomSite _atom_site = data.getAtomSite();
+        double firstCoordinate = _atom_site.getCartnX().get(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);
 
         // the last residue sequence id
-        CifField label_seq_id = _atom_site.getField("label_seq_id");
-        label_seq_id.ints().max().ifPresent(i -> assertEquals("sequence id parsing corrupted", (int) testData.get(1), i));
+        LabelSeqId label_seq_id = _atom_site.getLabelSeqId();
+        label_seq_id.values().max().ifPresent(i -> assertEquals("sequence id parsing corrupted", (int) testData.get(1), i));
 
-        String stringValue = data.getCategory("entry").getField("id").getString(0);
+        String stringValue = data.getEntry().getId().get(0);
         assertEquals("id parsing corrupted", testData.get(2), stringValue);
     }
 

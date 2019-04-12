@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class BaseCifBlock implements CifBlock {
+public class BaseCifBlock implements GenericCifBlock {
     protected final Map<String, CifCategory> categories;
+    private final List<BaseCifBlock> saveFrames;
     private final String header;
 
-    public BaseCifBlock(Map<String, CifCategory> categories, String header) {
+    public BaseCifBlock(Map<String, CifCategory> categories, String header, List<BaseCifBlock> saveFrames) {
         this.categories = categories;
+        this.saveFrames = saveFrames;
         this.header = header;
     }
 
@@ -26,5 +28,9 @@ public class BaseCifBlock implements CifBlock {
     @Override
     public List<String> getCategoryNames() {
         return new ArrayList<>(categories.keySet());
+    }
+
+    public List<BaseCifBlock> getSaveFrames() {
+        return saveFrames;
     }
 }

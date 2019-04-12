@@ -16,12 +16,10 @@ public class FloatColumn extends BaseCifColumn {
         super(encodedColumn);
     }
 
-    @Override
-    public Double get(int row) {
+    public double get(int row) {
         return isText ? getTextFloatData(row) : getBinaryFloatData(row);
     }
 
-    @Override
     public DoubleStream values() {
         return floatValues();
     }

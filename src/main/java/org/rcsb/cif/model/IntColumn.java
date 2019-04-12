@@ -16,12 +16,10 @@ public class IntColumn extends BaseCifColumn {
         super(encodedColumn);
     }
 
-    @Override
-    public Integer get(int row) {
+    public int get(int row) {
         return isText ? getTextIntData(row) : getBinaryIntData(row);
     }
 
-    @Override
     public IntStream values() {
         return intValues();
     }

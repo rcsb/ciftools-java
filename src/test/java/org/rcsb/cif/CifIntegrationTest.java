@@ -2,7 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.CifFile;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,6 +16,7 @@ public class CifIntegrationTest {
     @Test
     public void roundTrip() throws IOException {
         for (String id : TEST_CASES.keySet()) {
+            // TODO failing
             roundTrip(id);
         }
     }

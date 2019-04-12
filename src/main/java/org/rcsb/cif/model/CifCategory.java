@@ -3,7 +3,7 @@ package org.rcsb.cif.model;
 import java.util.List;
 
 public interface CifCategory {
-    String getName();
+    String getCategoryName();
 
     int getRowCount();
 

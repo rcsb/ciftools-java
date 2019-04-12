@@ -1,44 +1,56 @@
 package org.rcsb.cif;
 
-import org.rcsb.cif.model.internal.CifBlock;
-import org.rcsb.cif.model.internal.CifCategory;
-import org.rcsb.cif.model.internal.CifField;
-import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.generated.atomsite.AtomSite;
+import org.rcsb.cif.model.generated.atomsite.CartnX;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Optional;
+import java.util.OptionalDouble;
+import java.util.OptionalInt;
 
 public class Demo {
     public static void main(String[] args) throws IOException, ParsingException {
         String pdbId = "1acj";
         boolean parseBinary = true;
 
+        // CIF and BinaryCIF are stored in the same data structure
+        // to access the data, it does not matter where and in which format the data came from
         CifFile cifFile;
-        // parse conventional CIF
         if (parseBinary) {
             // parse binary CIF from ModelServer
-            InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId).openStream();
+            InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/"
+                    + pdbId).openStream();
             cifFile = CifReader.parseBinary(inputStream);
         } else {
             // parse CIF from PDB
-            InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId + ".cif").openStream();
+            InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId
+                    + ".cif").openStream();
             cifFile = CifReader.parseText(inputStream);
         }
 
+        // get first block of CIF
         CifBlock data = cifFile.getBlocks().get(0);
-        CifCategory _atom_site = data.getCategory("atom_site");
-        CifField cartn_x = _atom_site.getField("Cartn_x");
 
-        // print x-coordinates of the first 10 atoms
-        cartn_x.floats().limit(10).forEach(System.out::println);
+        // get category with name '_atom_site' from first block - access is type-safe, all classes are
+        // inferred from the CIF schema
+        AtomSite _atom_site = data.getAtomSite();
+        CartnX cartn_x = _atom_site.getCartnX();
 
-        // print the last residue sequence id
-        CifField label_seq_id = _atom_site.getField("label_seq_id");
-        label_seq_id.ints().max().ifPresent(System.out::println);
+        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the schema
+        // for column 'cartn_x'
+        OptionalDouble average_cartn_x = cartn_x.values().average();
+        average_cartn_x.ifPresent(System.out::println);
 
-        // print entry id
-        String stringValue = data.getCategory("entry").getField("id").getString(0);
-        System.out.println(stringValue);
+        // print the last residue sequence id - this time #values() returns an IntStream
+        OptionalInt last_label_seq_id = _atom_site.getLabelSeqId().values().max();
+        last_label_seq_id.ifPresent(System.out::println);
+
+        // print entry id - or values may be text
+        Optional<String> stringValue = data.getEntry().getId().values().findFirst();
+        stringValue.ifPresent(System.out::println);
     }
 }

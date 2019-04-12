@@ -3,15 +3,15 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.internal.BinaryCifCategory;
-import org.rcsb.cif.model.internal.CifBlock;
-import org.rcsb.cif.model.internal.CifCategory;
-import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.BaseCifCategory;
+import org.rcsb.cif.model.BinaryCifFile;
+import org.rcsb.cif.model.CifCategory;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.generated.CifBlock;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -56,6 +56,8 @@ public class BinaryCifReader implements CifReader {
                     ", required " + Codec.MIN_VERSION + ".");
         }
 
+        String encoder = (String) unpacked.get("encoder");
+
         List<CifBlock> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
                 .map(entry -> {
                     Map<String, Object> map = (Map<String, Object>) entry;
@@ -68,11 +70,11 @@ public class BinaryCifReader implements CifReader {
                         categories.put(name.substring(1), createCategory(cat));
                     }
 
-                    return new CifBlock(categories, header, new ArrayList<>());
+                    return new CifBlock(categories, header);
                 })
                 .collect(Collectors.toList());
 
-        return new CifFile(dataBlocks);
+        return new BinaryCifFile(dataBlocks, versionString, encoder);
     }
 
     private CifCategory createCategory(Map<String, Object> encodedCategory) {
@@ -80,6 +82,6 @@ public class BinaryCifReader implements CifReader {
 
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
-        return new BinaryCifCategory(name, rowCount, encodedFields);
+        return BaseCifCategory.create(name, rowCount, encodedFields);
     }
 }

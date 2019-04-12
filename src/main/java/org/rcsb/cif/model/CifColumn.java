@@ -1,13 +1,15 @@
 package org.rcsb.cif.model;
 
-import java.util.stream.BaseStream;
+import java.util.stream.Stream;
 
 public interface CifColumn {
     String getName();
 
-    Object get(int row);
+    String getString(int row);
 
-    BaseStream values();
+    Stream<String> stringValues();
 
     int getRowCount();
+
+    ValueKind getValueKind(int row);
 }

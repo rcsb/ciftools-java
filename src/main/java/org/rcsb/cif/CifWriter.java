@@ -1,7 +1,7 @@
 package org.rcsb.cif;
 
 import org.rcsb.cif.binary.BinaryCifWriter;
-import org.rcsb.cif.model.internal.CifFile;
+import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.text.TextCifWriter;
 
 import java.io.IOException;

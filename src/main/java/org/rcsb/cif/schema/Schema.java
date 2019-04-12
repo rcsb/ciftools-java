@@ -2,10 +2,7 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.internal.CifCategory;
-import org.rcsb.cif.model.internal.CifField;
-import org.rcsb.cif.model.internal.CifFile;
-import org.rcsb.cif.model.internal.CifFrame;
+import org.rcsb.cif.model.generated.CifBlock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -19,16 +16,60 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class SchemaGenerator {
+/**
+ * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
+ * bootstrap itself.
+ */
+public class Schema {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
-    private static final String BASE_PACKAGE = "org.rcsb.cif.model.generated";
+    public static final String BASE_PACKAGE = "org.rcsb.cif.model.generated";
+    /**
+     * Collection of categories and columns to include in the generated model.
+     */
+    private static final Map<String, List<String>> filter;
 
-    private static final String ROOT_NAME = "CifFile";
-    private static final String ROOT_DESCRIPTION = "Root";
-    private final Map<String, List<String>> filter;
+    static {
+        filter = new LinkedHashMap<>();
+
+        new BufferedReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("mmcif-field-names.csv"))))
+                .lines()
+                .filter(line -> !line.isEmpty())
+                .map(line -> line.split("\\."))
+                .forEach(split -> {
+                    List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
+                    cols.add(split[1]);
+                });
+    }
+
+    public static boolean filter(String category) {
+        return filter.containsKey(category);
+    }
+
+    public static boolean filter(String category, String column) {
+        return filter.containsKey(category) && filter.get(category).contains(column);
+    }
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator().generate();
+        new Schema().generate();
+    }
+
+    public static String toClassName(String rawName) {
+        String name = Pattern.compile("_").splitAsStream(rawName)
+                .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
+                .collect(Collectors.joining(""))
+                // remove invalid characters
+                .replace("/", "_")
+                .replace("-", "_");
+        if (name.equals("Class")) {
+            return "Clazz";
+        }
+        return name;
+    }
+
+    public static String toPackageName(String rawName) {
+        return toClassName(rawName).toLowerCase();
     }
 
     private void generate() throws IOException {
@@ -42,10 +83,8 @@ public class SchemaGenerator {
     }
 
     private void writeClasses() throws IOException {
-        writeBlock("CifBlock", schema, OUTPUT_PATH);
+        writeBlock(CifBlock.class.getSimpleName(), schema, OUTPUT_PATH);
     }
-
-    // TODO use fully qualified package names
 
     private void writeBlock(String className, Map<String, Table> content, Path path) throws IOException {
         System.out.println(className);
@@ -92,7 +131,7 @@ public class SchemaGenerator {
 
         // constructor
         output.add("    public " + className + "(Map<String, CifCategory> categories, String header) {");
-        output.add("        super(categories, header);");
+        output.add("        super(categories, header, new ArrayList<>());");
         output.add("    }");
         output.add("");
 
@@ -224,34 +263,13 @@ public class SchemaGenerator {
         return clazz.getSimpleName();
     }
 
-    public static String toClassName(String rawName) {
-        return Pattern.compile("_").splitAsStream(rawName)
-                        .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
-                .collect(Collectors.joining(""))
-                // remove invalid characters
-                .replace("/", "_")
-                .replace("-", "_");
-    }
-
-    private SchemaGenerator() throws IOException {
+    private Schema() throws IOException {
         this.cifFile = CifReader.parseText(Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("mmcif_pdbx_v50.dic"));
         this.schema = new LinkedHashMap<>();
         this.categories = new LinkedHashMap<>();
         this.links = new LinkedHashMap<>();
-        this.filter = new LinkedHashMap<>();
-
-        new BufferedReader(new InputStreamReader(Thread.currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("mmcif-field-names.csv")))
-                .lines()
-                .filter(line -> !line.isEmpty())
-                .map(line -> line.split("\\."))
-                .forEach(split -> {
-                    List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
-                    cols.add(split[1]);
-                });
     }
 
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
@@ -319,7 +337,7 @@ public class SchemaGenerator {
 
     private final CifFile cifFile;
     private final Map<String, Table> schema;
-    private final Map<String, CifFrame> categories;
+    private final Map<String, BaseCifBlock> categories;
     private final Map<String, String> links;
 
     private void getFieldData() {
@@ -432,47 +450,47 @@ public class SchemaGenerator {
         }
     }
 
-    private List<String> getCode(CifFrame saveFrame) {
+    private List<String> getCode(BaseCifBlock saveFrame) {
         try {
-            CifField code = getField("item_type", "code", saveFrame);
-            return Stream.concat(Stream.of(code.getString(0)), getEnums(saveFrame)).collect(Collectors.toList());
+            StrColumn code = getField("item_type", "code", saveFrame);
+            return Stream.concat(Stream.of(code.get(0)), getEnums(saveFrame)).collect(Collectors.toList());
         } catch (NullPointerException e) {
             return Collections.emptyList();
         }
     }
 
-    private Stream<String> getEnums(CifFrame saveFrame) {
+    private Stream<String> getEnums(BaseCifBlock saveFrame) {
         try {
-            CifField value = getField("item_enumeration", "value", saveFrame);
+            StrColumn value = getField("item_enumeration", "value", saveFrame);
             return IntStream.range(0, value.getRowCount())
-                    .mapToObj(value::getString);
+                    .mapToObj(value::get);
         } catch (NullPointerException e) {
             return Stream.empty();
         }
     }
 
-    private String getSubCategory(CifFrame saveFrame) {
+    private String getSubCategory(BaseCifBlock saveFrame) {
         try {
-            CifField value = getField("item_sub_category", "id", saveFrame);
-            return value.getString(0);
+            StrColumn value = getField("item_sub_category", "id", saveFrame);
+            return value.get(0);
         } catch (NullPointerException e) {
             return "";
         }
     }
 
-    private String getDescription(CifFrame saveFrame) {
-        CifField value = getField("item_description", "description", saveFrame);
-        return Pattern.compile("\n").splitAsStream(value.getString(0))
+    private String getDescription(BaseCifBlock saveFrame) {
+        StrColumn value = getField("item_description", "description", saveFrame);
+        return Pattern.compile("\n").splitAsStream(value.get(0))
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
                 .replaceAll("(\\[[1-3]])+ element", "elements")
                 .replaceAll("(\\[[1-3]])+", "");
     }
 
-    private CifField getField(String category, String field, CifFrame saveFrame) {
+    private StrColumn getField(String category, String field, BaseCifBlock saveFrame) {
         try {
             CifCategory cat = saveFrame.getCategory(category);
-            return cat.getField(field);
+            return (StrColumn) cat.getColumn(field);
         } catch (NullPointerException e) {
             String linkName = links.get(saveFrame.getHeader());
             return getField(category, field, categories.get(linkName));
@@ -482,7 +500,8 @@ public class SchemaGenerator {
     private void buildListOfLinksBetweenCategories() {
         cifFile.getBlocks()
                 .get(0)
-                .saveFrames()
+                .getSaveFrames()
+                .stream()
                 .filter(saveFrame -> saveFrame.getHeader().startsWith("_"))
                 .forEach(saveFrame -> {
                     categories.put(saveFrame.getHeader(), saveFrame);
@@ -492,8 +511,8 @@ public class SchemaGenerator {
                         return;
                     }
 
-                    CifField child_name = item_linked.getField("child_name");
-                    CifField parent_name = item_linked.getField("parent_name");
+                    CifColumn child_name = item_linked.getColumn("child_name");
+                    CifColumn parent_name = item_linked.getColumn("parent_name");
 
                     for (int i = 0; i < item_linked.getRowCount(); i++) {
                         String childName = child_name.getString(i);
@@ -506,162 +525,26 @@ public class SchemaGenerator {
     private void getCategoryMetadata() {
         cifFile.getBlocks()
                 .get(0)
-                .saveFrames()
+                .getSaveFrames()
+                .stream()
                 .filter(saveFrame -> !saveFrame.getHeader().startsWith("_"))
                 .forEach(saveFrame -> {
-                    Set<String> categoryKeyNames = saveFrame.getCategory("category_key")
-                            .getField("name")
-                            .strings()
-                            .collect(Collectors.toSet());
-//                    System.out.println(categoryKeyNames);
+                    Set<String> categoryKeyNames = new HashSet<>();
+                    CifColumn cifColumn = saveFrame.getCategory("category_key").getColumn("name");
+                    for (int i = 0; i < cifColumn.getRowCount(); i++) {
+                        categoryKeyNames.add(cifColumn.getString(i));
+                    }
 
                     String rawDescription = saveFrame.getCategory("category")
-                            .getField("description")
+                            .getColumn("description")
                             .getString(0);
                     String description = Pattern.compile("\n")
                             .splitAsStream(rawDescription)
                             .map(String::trim)
                             .collect(Collectors.joining("\n"));
-//                    System.out.println(description);
 
                     schema.put(saveFrame.getHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>()));
-//                    System.out.println();
                 });
     }
 }
 
-class Table {
-    private final String description;
-    private final Set<String> categoryKeyNames;
-    private final Map<String, Object> columns;
-
-    Table(String description, Set<String> categoryKeyNames, Map<String, Object> columns) {
-        this.description = description;
-        this.categoryKeyNames = categoryKeyNames;
-        this.columns = columns;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Set<String> getCategoryKeyNames() {
-        return categoryKeyNames;
-    }
-
-    public Map<String, Object> getColumns() {
-        return columns;
-    }
-}
-
-abstract class Col {
-    private final String type;
-    private final String description;
-
-    Col(String type, String description) {
-        this.type = type;
-        this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-}
-
-class IntCol extends Col {
-    IntCol(String description) {
-        super("int", description);
-    }
-}
-
-class StrCol extends Col {
-    StrCol(String description) {
-        super("str", description);
-    }
-}
-
-class FloatCol extends Col {
-    FloatCol(String description) {
-        super("float", description);
-    }
-}
-
-class CoordCol extends Col {
-    CoordCol(String description) {
-        super("coord", description);
-    }
-}
-
-class EnumCol extends Col {
-    private final List<String> values;
-    private final String subType;
-
-    EnumCol(List<String> values, String subType, String description) {
-        super("enum", description);
-        this.values = values;
-        this.subType = subType;
-    }
-
-    public List<String> getValues() {
-        return values;
-    }
-
-    public String getSubType() {
-        return subType;
-    }
-}
-
-class VectorCol extends Col {
-    private final int length;
-
-    VectorCol(int length, String description) {
-        super("vector", description);
-        this.length = length;
-    }
-
-    public int getLength() {
-        return length;
-    }
-}
-
-class MatrixCol extends Col {
-    private final int columns;
-    private final int rows;
-
-    MatrixCol(int columns, int rows, String description) {
-        super("matrix", description);
-        this.columns = columns;
-        this.rows = rows;
-    }
-
-    public int getColumns() {
-        return columns;
-    }
-
-    public int getRows() {
-        return rows;
-    }
-}
-
-class ListCol extends Col {
-    private final String subType;
-    private final String separator;
-
-    ListCol(String subType, String separator, String description) {
-        super("list", description);
-        this.subType = subType;
-        this.separator = separator;
-    }
-
-    public String getSubType() {
-        return subType;
-    }
-
-    public String getSeparator() {
-        return separator;
-    }
-}

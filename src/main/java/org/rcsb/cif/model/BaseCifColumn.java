@@ -1,14 +1,18 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.internal.ValueKind;
+import org.rcsb.cif.schema.Schema;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public abstract class BaseCifColumn implements CifColumn {
+import static org.rcsb.cif.schema.Schema.filter;
+import static org.rcsb.cif.schema.Schema.toPackageName;
+
+public class BaseCifColumn implements CifColumn {
     private final String name;
     private final int rowCount;
 
@@ -23,11 +27,31 @@ public abstract class BaseCifColumn implements CifColumn {
     private final boolean hasMask;
     private final int[] mask;
 
-    BaseCifColumn(String data, int startToken, int endToken, String name) {
+    public static CifColumn create(String catName, String fieldName, String data, int startToken, int endToken) {
+        return create(catName, fieldName, data, new int[] { startToken }, new int[] { endToken });
+    }
+
+    public BaseCifColumn(String data, int startToken, int endToken, String name) {
         this(data, new int[] { startToken }, new int[] { endToken }, name);
     }
 
-    BaseCifColumn(String data, int[] startToken, int[] endToken, String name) {
+    @SuppressWarnings("unchecked")
+    public static CifColumn create(String catName, String fieldName, String data, int[] startToken, int[] endToken) {
+        if (filter(catName, fieldName)) {
+            try {
+                Class<? extends BaseCifColumn> column = (Class<? extends BaseCifColumn>) Class.forName(Schema.BASE_PACKAGE
+                        + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
+                return column.getConstructor(String.class, int[].class, int[].class, String.class)
+                        .newInstance(data, startToken, endToken, fieldName);
+            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            return new BaseCifColumn(data, startToken, endToken, fieldName);
+        }
+    }
+
+    public BaseCifColumn(String data, int[] startToken, int[] endToken, String name) {
         this.name = name;
         this.rowCount = startToken.length;
 
@@ -44,7 +68,23 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     @SuppressWarnings("unchecked")
-    BaseCifColumn(Map<String, Object> encodedColumn) {
+    public static CifColumn create(String catName, String fieldName, Map<String, Object> encodedColumn) {
+        if (filter(catName, fieldName)) {
+            try {
+                Class<? extends BaseCifColumn> column = (Class<? extends BaseCifColumn>) Class.forName(Schema.BASE_PACKAGE
+                        + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
+                return column.getConstructor(Map.class)
+                        .newInstance(encodedColumn);
+            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            return new BaseCifColumn(encodedColumn);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public BaseCifColumn(Map<String, Object> encodedColumn) {
         this.name = (String) encodedColumn.get("name");
 
         this.isText = false;
@@ -83,11 +123,19 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     protected int getTextIntData(int row) {
-        return Integer.parseInt(textData.substring(startToken[row], endToken[row]));
+        try {
+            return Integer.parseInt(textData.substring(startToken[row], endToken[row]));
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     protected double getTextFloatData(int row) {
-        return Double.parseDouble(textData.substring(startToken[row], endToken[row]));
+        try {
+            return Double.parseDouble(textData.substring(startToken[row], endToken[row]));
+        } catch (NumberFormatException e) {
+            return 0;
+        }
     }
 
     protected String getBinaryStringData(int row) {
@@ -104,7 +152,11 @@ public abstract class BaseCifColumn implements CifColumn {
         } else if (binaryFloatData != null) {
             return (int) binaryFloatData[row];
         } else {
-            return Integer.parseInt(binaryStringData[row]);
+            try {
+                return Integer.parseInt(binaryStringData[row]);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
         }
     }
 
@@ -114,11 +166,15 @@ public abstract class BaseCifColumn implements CifColumn {
         } else if (binaryIntData != null) {
             return binaryIntData[row];
         } else {
-            return Double.parseDouble(binaryStringData[row]);
+            try {
+                return Double.parseDouble(binaryStringData[row]);
+            } catch (NumberFormatException e) {
+                return 0;
+            }
         }
     }
 
-    protected Stream<String> stringValues() {
+    public Stream<String> stringValues() {
         return isText ? IntStream.range(0, rowCount)
                 .mapToObj(this::getTextStringData) :
                 IntStream.range(0, rowCount)
@@ -129,7 +185,7 @@ public abstract class BaseCifColumn implements CifColumn {
         return isText ? IntStream.range(0, rowCount)
                 .map(this::getTextIntData) :
                 IntStream.range(0, rowCount)
-                        .map(this::getTextIntData);
+                        .map(this::getBinaryIntData);
     }
 
     protected DoubleStream floatValues() {
@@ -140,6 +196,11 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     @Override
+    public String getString(int row) {
+        return isText ? getTextStringData(row) : getBinaryStringData(row);
+    }
+
+    @Override
     public String getName() {
         return name;
     }
@@ -147,5 +208,32 @@ public abstract class BaseCifColumn implements CifColumn {
     @Override
     public int getRowCount() {
         return rowCount;
+    }
+
+    @Override
+    public ValueKind getValueKind(int row) {
+        if (isText) {
+            final int s = startToken[row];
+            final int l = endToken[row] - s;
+            if (l > 1) {
+                return ValueKind.PRESENT;
+            }
+            if (l == 0) {
+                return ValueKind.NOT_PRESENT;
+            }
+            final int v = textData.charAt(s);
+            if (v == '.') {
+                return ValueKind.NOT_PRESENT;
+            }
+            if (v == '?') {
+                return ValueKind.UNKNOWN;
+            }
+            return ValueKind.PRESENT;
+        }
+
+        if (!hasMask) {
+            return ValueKind.PRESENT;
+        }
+        return ValueKind.values()[mask[row]];
     }
 }

@@ -1,4 +1,4 @@
-package org.rcsb.cif.model.internal;
+package org.rcsb.cif.model;
 
 public enum ValueKind {
     PRESENT,

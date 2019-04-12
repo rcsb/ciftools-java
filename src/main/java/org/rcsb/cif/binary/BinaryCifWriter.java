@@ -6,7 +6,8 @@ import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
-import org.rcsb.cif.model.internal.*;
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.generated.CifBlock;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -30,21 +31,22 @@ public class BinaryCifWriter implements CifWriter {
         for (CifBlock cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
             block.put("header", CifWriter.formatHeader(cifBlock.getHeader()));
-            Object[] categories = new Object[cifBlock.getCategories().size()];
+            Object[] categories = new Object[cifBlock.getCategoryNames().size()];
             int categoryCount = 0;
             block.put("categories", categories);
             blocks[blockCount++] = block;
 
-            for (CifCategory cifCategory : cifBlock.getCategories().values()) {
+            for (String categoryName : cifBlock.getCategoryNames()) {
+                CifCategory cifCategory = cifBlock.getCategory(categoryName);
                 Map<String, Object> category = new LinkedHashMap<>();
-                category.put("name", "_" + cifCategory.getName());
-                Object[] fields = new Object[cifCategory.getFieldNames().size()];
+                category.put("name", "_" + cifCategory.getCategoryName());
+                Object[] fields = new Object[cifCategory.getColumnNames().size()];
                 int fieldCount = 0;
                 category.put("columns", fields);
-                category.put("rowCount", cifCategory.getField(cifCategory.getFieldNames().get(0)).getRowCount());
+                category.put("rowCount", cifCategory.getColumn(cifCategory.getColumnNames().get(0)).getRowCount());
 
-                for (String fieldName : cifCategory.getFieldNames()) {
-                    fields[fieldCount++] = classifyField(cifCategory.getField(fieldName));
+                for (String fieldName : cifCategory.getColumnNames()) {
+                    fields[fieldCount++] = classifyField(cifCategory.getColumn(fieldName));
                 }
 
                 categories[categoryCount++] = category;
@@ -55,24 +57,24 @@ public class BinaryCifWriter implements CifWriter {
         return new ByteArrayInputStream(ret);
     }
 
-    private Map<String, Object> classifyField(CifField cifField) {
-        DataType type = cifField.getDataType();
-
+    private Map<String, Object> classifyField(CifColumn cifField) {
         // TODO support for auto encoding etc
-        if (type == DataType.Str) {
-            ByteArray byteArray = EncodedDataFactory.stringArray(cifField.strings().toArray(String[]::new))
-                    .encode(new StringArrayEncoding());
-            return encodeField(cifField, "Str", byteArray);
-        } else if (type == DataType.Float) {
-            ByteArray byteArray = EncodedDataFactory.float64Array(cifField.floats().toArray())
+        if (cifField instanceof FloatColumn) {
+            FloatColumn floatCol = (FloatColumn) cifField;
+            ByteArray byteArray = EncodedDataFactory.float64Array(floatCol.values().toArray())
                     .classify();
-            return encodeField(cifField, "Float", byteArray);
+            return encodeField(cifField, byteArray);
+        } else if (cifField instanceof IntColumn) {
+            IntColumn intCol = (IntColumn) cifField;
+            ByteArray byteArray = EncodedDataFactory.int32Array(intCol.values().toArray())
+                    .classify();
+            return encodeField(cifField, byteArray);
         } else {
-            ByteArray byteArray = EncodedDataFactory.int32Array(cifField.ints().toArray())
-                    .classify();
-            return encodeField(cifField, "Int", byteArray);
+            ByteArray byteArray = EncodedDataFactory.stringArray(cifField.stringValues().toArray(String[]::new))
+                    .encode(new StringArrayEncoding());
+            return encodeField(cifField, byteArray);
         }
-            // no auto-encoding
+        // no auto-encoding
 //        } else if (type == DataType.Float) {
 //            ByteArray byteArray = EncodedDataFactory.float64Array(cifField.floats().toArray())
 //                    .encode(new ByteArrayEncoding());
@@ -84,8 +86,8 @@ public class BinaryCifWriter implements CifWriter {
 //        }
     }
 
-    private Map<String, Object> encodeField(CifField cifField, String type, ByteArray byteArray) {
-        FieldData fieldData = getFieldData(cifField, type);
+    private Map<String, Object> encodeField(CifColumn cifField, ByteArray byteArray) {
+        FieldData fieldData = getFieldData(cifField);
         Uint8Array mask = fieldData.mask;
 
         // default encoding
@@ -158,7 +160,7 @@ public class BinaryCifWriter implements CifWriter {
         return content.getClass().isArray() && !(content instanceof int[] || content instanceof double[] || content instanceof byte[]);
     }
 
-    private FieldData getFieldData(CifField cifField, String type) {
+    private FieldData getFieldData(CifColumn cifField) {
         int length = cifField.getRowCount();
         // TODO save them resources
         String[] stringArray = new String[length];
@@ -178,23 +180,23 @@ public class BinaryCifWriter implements CifWriter {
 
             if (kind != ValueKind.PRESENT) {
                 mask[row] = (byte) kind.ordinal();
-                if ("Str".equals(type)) {
+                if (cifField instanceof StrColumn) {
                     stringArray[row] = "";
                 }
                 allPresent = false;
             } else {
                 mask[row] = (byte) ValueKind.PRESENT.ordinal();
-                if ("Str".equals(type)) {
-                    stringArray[row] = cifField.getString(row);
-                } else if ("Float".equals(type)) {
-                    floatArray.getData()[row] = cifField.getFloat(row);
+                if (cifField instanceof FloatColumn) {
+                    floatArray.getData()[row] = ((FloatColumn) cifField).get(row);
+                } else if (cifField instanceof IntColumn) {
+                    intArray.getData()[row] = ((IntColumn) cifField).get(row);
                 } else {
-                    intArray.getData()[row] = cifField.getInt(row);
+                    stringArray[row] = cifField.getString(row);
                 }
             }
         }
 
-        return new FieldData("Str".equals(type) ? stringArray : "Float".equals(type) ? floatArray : intArray,
+        return new FieldData(cifField instanceof StrColumn ? stringArray : cifField instanceof FloatColumn ? floatArray : intArray,
                 allPresent,
                 maskArray);
     }

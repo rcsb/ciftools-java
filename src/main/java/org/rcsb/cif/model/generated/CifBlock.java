@@ -3,11 +3,12 @@ package org.rcsb.cif.model.generated;
 import org.rcsb.cif.model.BaseCifBlock;
 import org.rcsb.cif.model.CifCategory;
 
+import java.util.ArrayList;
 import java.util.Map;
 
 public class CifBlock extends BaseCifBlock {
     public CifBlock(Map<String, CifCategory> categories, String header) {
-        super(categories, header);
+        super(categories, header, new ArrayList<>());
     }
 
     /**

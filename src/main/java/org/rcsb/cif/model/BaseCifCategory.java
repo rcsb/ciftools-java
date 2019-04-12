@@ -1,15 +1,15 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.model.internal.UnknownFieldException;
+import org.rcsb.cif.schema.Schema;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.rcsb.cif.schema.SchemaGenerator.toClassName;
+import static org.rcsb.cif.schema.Schema.*;
 
-public abstract class BaseCifCategory implements CifCategory {
+public class BaseCifCategory implements CifCategory {
     private final String name;
     private final int rowCount;
     private final List<String> columnNames;
@@ -56,8 +56,43 @@ public abstract class BaseCifCategory implements CifCategory {
         this.textFields = null;
     }
 
+    @SuppressWarnings("unchecked")
+    public static CifCategory create(String catName, Map<String, CifColumn> fields) {
+        // well, it's come to this
+        // 1. look if category name is in list of considered fields, otherwise don't even bother
+        if (filter(catName)) {
+            try {
+                // 2. if so, try to obtain instance
+                Class<? extends BaseCifCategory> category = (Class<? extends BaseCifCategory>) Class.forName(Schema.BASE_PACKAGE
+                        + "." + toPackageName(catName) + "." + toClassName(catName));
+                return category.getConstructor(String.class, Map.class).newInstance(catName, fields);
+            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                // though recoverable, any exception points to a flaw in the data model, implementation or schema
+                throw new RuntimeException(e);
+            }
+        } else {
+            // 3. if not a known field, roll with base implementation
+            return new BaseCifCategory(catName, fields);
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public static CifCategory create(String name, int rowCount, Object[] encodedFields) {
+        if (filter(name)) {
+            try {
+                Class<? extends BaseCifCategory> category = (Class<? extends BaseCifCategory>) Class.forName(Schema.BASE_PACKAGE
+                        + "." + toPackageName(name) + "." + toClassName(name));
+                return category.getConstructor(String.class, int.class, Object[].class).newInstance(name, rowCount, encodedFields);
+            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            return new BaseCifCategory(name, rowCount, encodedFields);
+        }
+    }
+
     @Override
-    public String getName() {
+    public String getCategoryName() {
         return name;
     }
 
@@ -77,22 +112,16 @@ public abstract class BaseCifCategory implements CifCategory {
 
     protected CifColumn getBinaryColumn(String name, String className) {
         Optional<Map<String, Object>> optional = find(name);
-        try {
-            Class<?> columnClass = Class.forName(className);
-            // cache decoded fields to reuse them if applicable
-            if (!optional.isPresent()) {
-                throw new UnknownFieldException(name);
-            }
-            if (decodedColumns.containsKey(name)) {
-                return decodedColumns.get(name);
-            }
-            Class<? extends Map> mapClass = decodedColumns.getClass();
-            CifColumn decodedColumn = (CifColumn) columnClass.getConstructor(mapClass).newInstance(optional.get());
-            decodedColumns.put(name, decodedColumn);
-            return decodedColumn;
-        } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
-            throw new RuntimeException(e);
+        // cache decoded fields to reuse them if applicable
+        if (!optional.isPresent()) {
+            throw new NoSuchElementException(name);
         }
+        if (decodedColumns.containsKey(name)) {
+            return decodedColumns.get(name);
+        }
+        CifColumn decodedColumn = BaseCifColumn.create(this.name, name, optional.get());
+        decodedColumns.put(name, decodedColumn);
+        return decodedColumn;
     }
 
     @SuppressWarnings("unchecked")

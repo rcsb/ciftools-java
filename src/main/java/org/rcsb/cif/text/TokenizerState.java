@@ -1,9 +1,9 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.internal.CifField;
-import org.rcsb.cif.model.internal.TextCifCategory;
-import org.rcsb.cif.model.internal.TextCifField;
+import org.rcsb.cif.model.BaseCifCategory;
+import org.rcsb.cif.model.BaseCifColumn;
+import org.rcsb.cif.model.CifColumn;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -342,8 +342,10 @@ class TokenizerState {
         final int nsStart = tokenStart;
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
-        final Map<String, CifField> fields = new LinkedHashMap<>();
+        final Map<String, CifColumn> fields = new LinkedHashMap<>();
 
+
+        final String catName = name.substring(1);
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
             final String fieldName = getTokenString().substring(name.length() + 1);
             moveNext();
@@ -351,12 +353,12 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            fields.put(fieldName, new TextCifField(data, tokenStart, tokenEnd, fieldName));
+            CifColumn cifColumn = BaseCifColumn.create(catName, fieldName, data, tokenStart, tokenEnd);
+            fields.put(fieldName, cifColumn);
             moveNext();
         }
 
-        final String catName = name.substring(1);
-        ctx.getCategories().put(catName, new TextCifCategory(catName, fields));
+        ctx.getCategories().put(catName, BaseCifCategory.create(catName, fields));
     }
 
     /**
@@ -392,15 +394,17 @@ class TokenizerState {
             throw new Error("The number of values for loop starting at line " + loopLine + " is not a multiple of the number of columns.");
         }
 
-        Map<String, CifField> fields = new LinkedHashMap<>();
+        String catName = name.substring(1);
+        Map<String, CifColumn> fields = new LinkedHashMap<>();
         for (int i = 0; i < start.size(); i++) {
-            fields.put(fieldNames.get(i), new TextCifField(data,
+            CifColumn cifColumn = BaseCifColumn.create(catName,
+                    fieldNames.get(i),
+                    data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
-                    end.get(i).stream().mapToInt(j -> j).toArray(),
-                    fieldNames.get(i)));
+                    end.get(i).stream().mapToInt(j -> j).toArray());
+            fields.put(fieldNames.get(i), cifColumn);
         }
 
-        String catName = name.substring(1);
-        ctx.getCategories().put(catName, new TextCifCategory(catName, fields));
+        ctx.getCategories().put(catName, BaseCifCategory.create(catName, fields));
     }
 }
