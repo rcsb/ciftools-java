@@ -67,6 +67,9 @@ public class BinaryCifReader implements CifReader {
                     for (Object o : (Object[]) map.get("categories")) {
                         Map<String, Object> cat = (Map<String, Object>) o;
                         String name = (String) cat.get("name");
+                        if(name.equals("_pdbx_poly_seq_scheme")) {
+                            System.out.println();
+                        }
                         categories.put(name.substring(1), createCategory(cat));
                     }
 
@@ -79,11 +82,7 @@ public class BinaryCifReader implements CifReader {
 
     private CifCategory createCategory(Map<String, Object> encodedCategory) {
         String name = ((String) encodedCategory.get("name")).substring(1);
-        if("pdbx_poly_seq_scheme".equals(name)) {
-            // FIXME
-            System.out.println();
-        }
-
+        System.out.println(encodedCategory.get("name"));
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
         return BaseCifCategory.create(name, rowCount, encodedFields);

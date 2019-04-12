@@ -1,6 +1,9 @@
 package org.rcsb.cif.binary.codec;
 
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.io.UncheckedIOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
@@ -314,9 +317,9 @@ public class MessagePackCodec {
         for (int i = 0; i < length; i++) {
             Object k = decodeInternal(buffer);
             Object v = decodeInternal(buffer);
-            if (k != null) {
+//            if (k != null) {
                 value.put(k.toString(), v);
-            }
+//            }
         }
         return value;
     }

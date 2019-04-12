@@ -60,16 +60,22 @@ public class Schema {
                 .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
                 .collect(Collectors.joining(""))
                 // remove invalid characters
-                .replace("/", "_")
-                .replace("-", "_");
+                .replaceAll("[/\\\\\\- (){},;:'<>?+=]", "_")
+                .replaceAll("_+", "_");
         if (name.equals("Class")) {
             return "Clazz";
+        } else if (Character.isDigit(name.charAt(0))) {
+            return "_" + name;
         }
         return name;
     }
 
     public static String toPackageName(String rawName) {
         return toClassName(rawName).toLowerCase();
+    }
+
+    public static String toEnumName(String rawName) {
+        return toClassName(rawName).toUpperCase();
     }
 
     private void generate() throws IOException {
@@ -126,6 +132,7 @@ public class Schema {
         output.add("import org.rcsb.cif.model.CifCategory;");
         output.add("");
         output.add("import javax.annotation.Generated;");
+        output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
@@ -217,9 +224,12 @@ public class Schema {
         output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
         output.add("");
         output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
+        output.add("import org.rcsb.cif.schema.Schema;");
         output.add("");
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
+        output.add("import java.util.stream.IntStream;");
+        output.add("import java.util.stream.Stream;");
         output.add("");
 
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
@@ -245,7 +255,7 @@ public class Schema {
             output.add("    public enum " + className + "Enum {");
             String enumString = enumCol.getValues()
                     .stream()
-                    .map(String::toUpperCase)
+                    .map(Schema::toEnumName)
                     .map(value -> "        " + value)
                     .collect(Collectors.joining(",\n"));
             output.add(enumString);
@@ -254,7 +264,7 @@ public class Schema {
             output.add("");
 
             output.add("    public " + className + "Enum get(int row) {");
-            output.add("        return " + className + "Enum.valueOf(getString(row).toUpperCase());");
+            output.add("        return " + className + "Enum.valueOf(Schema.toEnumName(getString(row)));");
             output.add("    }");
 
             output.add("");

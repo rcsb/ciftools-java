@@ -16,6 +16,7 @@ public class CifWriterTest {
     @Test
     public void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
+            System.out.println("test cases: " + id + " - text writing");
             writeText(id);
         }
     }
@@ -24,6 +25,7 @@ public class CifWriterTest {
     public void writeBinary() throws ParsingException, IOException {
         // FIXME failing
         for (String id : TEST_CASES.keySet()) {
+            System.out.println("test cases: " + id + " - binary writing");
             writeBinary(id);
         }
     }
