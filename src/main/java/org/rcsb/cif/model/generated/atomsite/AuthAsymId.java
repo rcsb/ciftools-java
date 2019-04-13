@@ -2,18 +2,15 @@ package org.rcsb.cif.model.generated.atomsite;
 
 import org.rcsb.cif.model.StrColumn;
 
-import java.util.Map;
+import javax.annotation.Generated;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class AuthAsymId extends StrColumn {
-    public AuthAsymId(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+    public AuthAsymId(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public AuthAsymId(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public AuthAsymId(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
+    public AuthAsymId(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }

@@ -3,8 +3,10 @@ package org.rcsb.cif.model.generated.structasym;
 import org.rcsb.cif.model.BaseCifCategory;
 import org.rcsb.cif.model.CifColumn;
 
+import javax.annotation.Generated;
 import java.util.Map;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class StructAsym extends BaseCifCategory {
     public StructAsym(String name, Map<String, CifColumn> columns) {
         super(name, columns);

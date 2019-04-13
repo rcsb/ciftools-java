@@ -3,8 +3,10 @@ package org.rcsb.cif.model.generated.entry;
 import org.rcsb.cif.model.BaseCifCategory;
 import org.rcsb.cif.model.CifColumn;
 
+import javax.annotation.Generated;
 import java.util.Map;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class Entry extends BaseCifCategory {
     public Entry(String name, Map<String, CifColumn> columns) {
         super(name, columns);

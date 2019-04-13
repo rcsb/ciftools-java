@@ -1,19 +1,20 @@
 package org.rcsb.cif.model.generated.pdbxnonpolyscheme;
 
 import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.Schema;
 
+import javax.annotation.Generated;
 import java.util.Map;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class MonId extends StrColumn {
-    public MonId(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+    public MonId(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public MonId(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public MonId(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
+    public MonId(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }

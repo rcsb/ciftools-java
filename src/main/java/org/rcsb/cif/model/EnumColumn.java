@@ -1,17 +1,11 @@
 package org.rcsb.cif.model;
 
-import java.util.Map;
-
-public class EnumColumn extends BaseCifColumn {
-    public EnumColumn(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+public class EnumColumn extends StrColumn {
+    public EnumColumn(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public EnumColumn(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public EnumColumn(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
+    public EnumColumn(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }

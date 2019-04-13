@@ -235,45 +235,45 @@ public class Schema {
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
         output.add("public class " + className + " extends " + getBaseClass(content.getType()) + " {");
 
-        output.add("    public " + className + "(String data, int startToken, int endToken, String name) {");
-        output.add("        super(data, startToken, endToken, name);");
+        // constructor for text data
+        output.add("    public " + className + "(String name, int rowCount, String[] data) {");
+        output.add("        super(name, rowCount, data);");
         output.add("    }");
         output.add("");
 
-        output.add("    public " + className + "(String data, int[] startToken, int[] endToken, String name) {");
-        output.add("        super(data, startToken, endToken, name);");
-        output.add("    }");
-        output.add("");
-
-        output.add("    public " + className + "(Map<String, Object> encodedColumn) {");
-        output.add("        super(encodedColumn);");
+        // constructor for binary data
+//        String arrayType = "int".equals(content.getType()) ? "int" : ("float".equals(content.getType()) || "coord".equals(content.getType())) ? "double" : "String";
+//        output.add("    public " + className + "(String name, int rowCount, " + arrayType + "[] data, int[] mask) {");\
+        output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
+        output.add("        super(name, rowCount, data, mask);");
         output.add("    }");
 
-        if (content.getType().equals("enum")) {
-            EnumCol enumCol = (EnumCol) content;
-            output.add("");
-            output.add("    public enum " + className + "Enum {");
-            String enumString = enumCol.getValues()
-                    .stream()
-                    .map(Schema::toEnumName)
-                    .map(value -> "        " + value)
-                    .collect(Collectors.joining(",\n"));
-            output.add(enumString);
-            output.add("    }");
-
-            output.add("");
-
-            output.add("    public " + className + "Enum get(int row) {");
-            output.add("        return " + className + "Enum.valueOf(Schema.toEnumName(getString(row)));");
-            output.add("    }");
-
-            output.add("");
-
-            output.add("    public Stream<" + className + "Enum> values() {");
-            output.add("        return IntStream.range(0, getRowCount())");
-            output.add("                .mapToObj(this::get);");
-            output.add("    }");
-        }
+        // TODO enums, lists, matrix, and vector would be nice to have
+//        if (content.getType().equals("enum")) {
+//            EnumCol enumCol = (EnumCol) content;
+//            output.add("");
+//            output.add("    public enum " + className + "Enum {");
+//            String enumString = enumCol.getValues()
+//                    .stream()
+//                    .map(Schema::toEnumName)
+//                    .map(value -> "        " + value)
+//                    .collect(Collectors.joining(",\n"));
+//            output.add(enumString);
+//            output.add("    }");
+//
+//            output.add("");
+//
+//            output.add("    public " + className + "Enum get(int row) {");
+//            output.add("        return " + className + "Enum.valueOf(Schema.toEnumName(getString(row)));");
+//            output.add("    }");
+//
+//            output.add("");
+//
+//            output.add("    public Stream<" + className + "Enum> values() {");
+//            output.add("        return IntStream.range(0, getRowCount())");
+//            output.add("                .mapToObj(this::get);");
+//            output.add("    }");
+//        }
 
         output.add("}");
         output.add("");
@@ -496,7 +496,7 @@ public class Schema {
     private List<String> getCode(BaseCifBlock saveFrame) {
         try {
             CifColumn code = getField("item_type", "code", saveFrame);
-            return Stream.concat(Stream.of(code.getString(0)), getEnums(saveFrame)).collect(Collectors.toList());
+            return Stream.concat(Stream.of(code.getStringData(0)), getEnums(saveFrame)).collect(Collectors.toList());
         } catch (NullPointerException e) {
             return Collections.emptyList();
         }
@@ -506,7 +506,7 @@ public class Schema {
         try {
             CifColumn value = getField("item_enumeration", "value", saveFrame);
             return IntStream.range(0, value.getRowCount())
-                    .mapToObj(value::getString);
+                    .mapToObj(value::getStringData);
         } catch (NullPointerException e) {
             return Stream.empty();
         }
@@ -515,7 +515,7 @@ public class Schema {
     private String getSubCategory(BaseCifBlock saveFrame) {
         try {
             CifColumn value = getField("item_sub_category", "id", saveFrame);
-            return value.getString(0);
+            return value.getStringData(0);
         } catch (NullPointerException e) {
             return "";
         }
@@ -523,7 +523,7 @@ public class Schema {
 
     private String getDescription(BaseCifBlock saveFrame) {
         CifColumn value = getField("item_description", "description", saveFrame);
-        return Pattern.compile("\n").splitAsStream(value.getString(0))
+        return Pattern.compile("\n").splitAsStream(value.getStringData(0))
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
                 .replaceAll("(\\[[1-3]])+ element", "elements")
@@ -558,8 +558,8 @@ public class Schema {
                     CifColumn parent_name = item_linked.getColumn("parent_name");
 
                     for (int i = 0; i < item_linked.getRowCount(); i++) {
-                        String childName = child_name.getString(i);
-                        String parentName = parent_name.getString(i);
+                        String childName = child_name.getStringData(i);
+                        String parentName = parent_name.getStringData(i);
                         links.put(childName, parentName);
                     }
                 });
@@ -575,12 +575,12 @@ public class Schema {
                     Set<String> categoryKeyNames = new HashSet<>();
                     CifColumn cifColumn = saveFrame.getCategory("category_key").getColumn("name");
                     for (int i = 0; i < cifColumn.getRowCount(); i++) {
-                        categoryKeyNames.add(cifColumn.getString(i));
+                        categoryKeyNames.add(cifColumn.getStringData(i));
                     }
 
                     String rawDescription = saveFrame.getCategory("category")
                             .getColumn("description")
-                            .getString(0);
+                            .getStringData(0);
                     String description = Pattern.compile("\n")
                             .splitAsStream(rawDescription)
                             .map(String::trim)

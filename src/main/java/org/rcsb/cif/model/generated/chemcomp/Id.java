@@ -1,19 +1,20 @@
 package org.rcsb.cif.model.generated.chemcomp;
 
 import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.Schema;
 
+import javax.annotation.Generated;
 import java.util.Map;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class Id extends StrColumn {
-    public Id(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+    public Id(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public Id(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public Id(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
+    public Id(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }

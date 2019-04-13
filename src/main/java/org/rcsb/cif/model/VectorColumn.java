@@ -1,26 +1,11 @@
 package org.rcsb.cif.model;
 
-import java.util.Map;
-import java.util.stream.BaseStream;
-
-public class VectorColumn extends BaseCifColumn {
-    public VectorColumn(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+public class VectorColumn extends StrColumn {
+    public VectorColumn(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public VectorColumn(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public VectorColumn(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
-    }
-
-    public Object get(int row) {
-        throw new UnsupportedOperationException("impl me"); // TODO
-    }
-
-    public BaseStream values() {
-        throw new UnsupportedOperationException("impl me"); // TODO
+    public VectorColumn(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }

@@ -3,8 +3,10 @@ package org.rcsb.cif.model.generated.pdbxmoleculefeatures;
 import org.rcsb.cif.model.BaseCifCategory;
 import org.rcsb.cif.model.CifColumn;
 
+import javax.annotation.Generated;
 import java.util.Map;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class PdbxMoleculeFeatures extends BaseCifCategory {
     public PdbxMoleculeFeatures(String name, Map<String, CifColumn> columns) {
         super(name, columns);
@@ -28,7 +30,7 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return Clazz
      */
     public Clazz getClazz() {
-        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class", "Class"));
+        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class", "Clazz"));
     }
 
     /**

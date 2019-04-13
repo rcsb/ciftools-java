@@ -48,15 +48,15 @@ public class BinaryCifWriter implements CifWriter {
                 }
 
 //                if (categoryName.equals("pdbx_poly_seq_scheme")) {
-                System.out.println();
-                System.out.println(category);
-                System.out.println(Arrays.toString((Object[]) category.get("columns")));
-                byte[] encode = Codec.MESSAGE_PACK_CODEC.encode(category);
-                System.out.println(new String(Base64.getEncoder().encode(encode)));
-                Map<String, Object> decode = Codec.MESSAGE_PACK_CODEC.decode(encode);
-                System.out.println(new String(Base64.getEncoder().encode(Codec.MESSAGE_PACK_CODEC.encode(decode))));
-                System.out.println(decode);
-                System.out.println(Arrays.toString((Object[]) decode.get("columns")));
+//                System.out.println();
+//                System.out.println(category);
+//                System.out.println(Arrays.toString((Object[]) category.get("columns")));
+//                byte[] encode = Codec.MESSAGE_PACK_CODEC.encode(category);
+//                System.out.println(new String(Base64.getEncoder().encode(encode)));
+//                Map<String, Object> decode = Codec.MESSAGE_PACK_CODEC.decode(encode);
+//                System.out.println(new String(Base64.getEncoder().encode(Codec.MESSAGE_PACK_CODEC.encode(decode))));
+//                System.out.println(decode);
+//                System.out.println(Arrays.toString((Object[]) decode.get("columns")));
 //                }
 
                 categories[categoryCount++] = category;
@@ -80,7 +80,8 @@ public class BinaryCifWriter implements CifWriter {
                     .classify();
             return encodeColumn(cifColumn, byteArray);
         } else {
-            ByteArray byteArray = EncodedDataFactory.stringArray(cifColumn.stringValues().toArray(String[]::new))
+            StrColumn strCol = (StrColumn) cifColumn;
+            ByteArray byteArray = EncodedDataFactory.stringArray(strCol.values().toArray(String[]::new))
                     .encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }
@@ -202,7 +203,7 @@ public class BinaryCifWriter implements CifWriter {
                 } else if (cifField instanceof IntColumn) {
                     intArray.getData()[row] = ((IntColumn) cifField).get(row);
                 } else {
-                    stringArray[row] = cifField.getString(row);
+                    stringArray[row] = ((StrColumn) cifField).get(row);
                 }
             }
         }

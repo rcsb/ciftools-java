@@ -58,4 +58,45 @@ public class CifIntegrationTest {
 
         Assert.assertEquals(originalContent, copyContent);
     }
+
+    @Test
+    public void readCifWriteBcif() throws IOException {
+        for (String id : TEST_CASES.keySet()) {
+            System.out.println(id + " cif to bcif");
+            readCifWriteBcif(id);
+        }
+    }
+
+    private void readCifWriteBcif(String testCase) throws IOException {
+        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+        CifFile originalFile = CifReader.parseText(TestHelper.getInputStream("cif/" + testCase + ".cif"));
+
+        InputStream copyInputStream = CifWriter.writeBinary(originalFile);
+        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
+                .lines()
+                .collect(Collectors.joining("\n"));
+
+        Assert.assertEquals(originalContent, copyContent);
+    }
+
+    @Test
+    public void readBcifWriteCif() throws IOException {
+        for (String id : TEST_CASES.keySet()) {
+            System.out.println(id + " bcif to cif");
+            readBcifWriteCif(id);
+        }
+    }
+
+    private void readBcifWriteCif(String testCase) throws IOException {
+        // last category _pdbe_structure_quality_report_issues is missing in binary source
+        String originalContent = new String(TestHelper.getBytes("cif/" + testCase + "-modified.cif"));
+        CifFile originalFile = CifReader.parseBinary(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
+
+        InputStream copyInputStream = CifWriter.writeText(originalFile);
+        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
+                .lines()
+                .collect(Collectors.joining("\n"));
+
+        Assert.assertEquals(originalContent, copyContent);
+    }
 }

@@ -119,12 +119,7 @@ public class TextCifWriter implements CifWriter {
     }
 
     private boolean writeValue(StringBuilder output, CifColumn cifField, int row, int floatPrecision) {
-        ValueKind kind;
-        try {
-            kind = cifField.getValueKind(row);
-        } catch (ArrayIndexOutOfBoundsException e) {
-            kind = ValueKind.PRESENT;
-        }
+        ValueKind kind = cifField.getValueKind(row);
 
         if (kind != ValueKind.PRESENT) {
             if (kind == ValueKind.NOT_PRESENT) {
@@ -138,7 +133,7 @@ public class TextCifWriter implements CifWriter {
             } else if (cifField instanceof FloatColumn) {
                 writeFloat(output, ((FloatColumn) cifField).get(row), floatPrecision);
             } else {
-                String val = cifField.getString(row);
+                String val = cifField.getStringData(row);
                 if (isMultiline(val)) {
                     writeMultiline(output, val);
                     return true;

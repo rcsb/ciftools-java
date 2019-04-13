@@ -1,19 +1,20 @@
 package org.rcsb.cif.model.generated.pdbxentitydescriptor;
 
 import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.Schema;
 
+import javax.annotation.Generated;
 import java.util.Map;
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
+@Generated("org.rcsb.cif.schema.Schema")
 public class Program extends StrColumn {
-    public Program(String data, int startToken, int endToken, String name) {
-        super(data, startToken, endToken, name);
+    public Program(String name, int rowCount, String[] data) {
+        super(name, rowCount, data);
     }
 
-    public Program(String data, int[] startToken, int[] endToken, String name) {
-        super(data, startToken, endToken, name);
-    }
-
-    public Program(Map<String, Object> encodedColumn) {
-        super(encodedColumn);
+    public Program(String name, int rowCount, Object data, int[] mask) {
+        super(name, rowCount, data, mask);
     }
 }
