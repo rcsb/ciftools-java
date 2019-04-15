@@ -65,10 +65,7 @@ public class RunLengthCodec {
         output.setEncoding(data.getEncoding());
         int[] outputArray = output.getData();
 
-        if (input.length % 2 == 1) {
-            System.err.println("FIXME: source data has odd number of elements");
-        }
-        for (int i = 0; i < data.length() - 1 /* TODO remove -1 which should point to problems */; i += 2) {
+        for (int i = 0; i < data.length(); i += 2) {
             int value = input[i];  // value to be repeated
             int length = input[i + 1];  // number of repeats
             for (int j = 0; j < length; ++j) {

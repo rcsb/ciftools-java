@@ -94,8 +94,11 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     protected String getTextData(int row) {
-        String ret = textData[row];
-        return (".".equals(ret) || "?".equals(ret)) ? "" : ret;
+        return honorValueKind(textData[row]);
+    }
+
+    protected String honorValueKind(String value) {
+        return (".".equals(value) || "?".equals(value)) ? "" : value;
     }
 
     @Override

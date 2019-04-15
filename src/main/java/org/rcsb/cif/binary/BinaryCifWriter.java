@@ -47,18 +47,6 @@ public class BinaryCifWriter implements CifWriter {
                     fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
                 }
 
-//                if (categoryName.equals("pdbx_poly_seq_scheme")) {
-//                System.out.println();
-//                System.out.println(category);
-//                System.out.println(Arrays.toString((Object[]) category.get("columns")));
-//                byte[] encode = Codec.MESSAGE_PACK_CODEC.encode(category);
-//                System.out.println(new String(Base64.getEncoder().encode(encode)));
-//                Map<String, Object> decode = Codec.MESSAGE_PACK_CODEC.decode(encode);
-//                System.out.println(new String(Base64.getEncoder().encode(Codec.MESSAGE_PACK_CODEC.encode(decode))));
-//                System.out.println(decode);
-//                System.out.println(Arrays.toString((Object[]) decode.get("columns")));
-//                }
-
                 categories[categoryCount++] = category;
             }
         }

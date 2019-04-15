@@ -26,7 +26,7 @@ public class StrColumn extends BaseCifColumn {
     }
 
     public String get(int row) {
-        return isText ? getTextData(row) : binaryData[row];
+        return isText ? getTextData(row) : honorValueKind(binaryData[row]);
     }
 
     public Stream<String> values() {
@@ -36,6 +36,6 @@ public class StrColumn extends BaseCifColumn {
 
     @Override
     protected String getBinaryStringData(int row) {
-        return binaryData[row];
+        return honorValueKind(binaryData[row]);
     }
 }

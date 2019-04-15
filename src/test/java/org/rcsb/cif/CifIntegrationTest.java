@@ -8,16 +8,38 @@ import org.rcsb.cif.model.generated.atomsite.LabelAltId;
 import org.rcsb.cif.model.generated.cell.Cell;
 import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifIntegrationTest {
+    @Test
+    public void test_pdbx_poly_seq_scheme_auth_mon_idText() throws IOException {
+        InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
+        CifFile text = CifReader.parseText(inputStream);
+
+        String stringData = text.getBlocks().get(0)
+                .getCategory("pdbx_poly_seq_scheme")
+                .getColumn("auth_mon_id")
+                .getStringData(0);
+        System.out.println(stringData);
+    }
+
+    @Test
+    public void test_pdbx_poly_seq_scheme_auth_mon_idBinary() throws IOException {
+        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        CifFile text = CifReader.parseBinary(inputStream);
+
+        String stringData = text.getBlocks().get(0)
+                .getCategory("pdbx_poly_seq_scheme")
+                .getColumn("auth_mon_id")
+                .getStringData(0);
+        System.out.println(stringData);
+    }
+
+
     @Test
     public void testUnknownFeatureText() throws IOException {
         // read from cif
@@ -72,6 +94,7 @@ public class CifIntegrationTest {
 
     @Test
     public void roundTripViaBinary() throws IOException {
+        // TODO failing
         for (String id : TEST_CASES.keySet()) {
             System.out.println(id + " via binary");
             roundTripViaBinary(id);
@@ -83,6 +106,7 @@ public class CifIntegrationTest {
         CifFile originalFile = CifReader.parseText(TestHelper.getInputStream("cif/" + testCase + ".cif"));
 
         InputStream bcifInputStream = CifWriter.writeBinary(originalFile);
+
         CifFile bcifFile = CifReader.parseBinary(bcifInputStream);
 
         InputStream copyInputStream = CifWriter.writeText(bcifFile);

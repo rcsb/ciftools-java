@@ -9,7 +9,8 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.convertToIntArray;
 import static org.rcsb.cif.binary.codec.Codec.MESSAGE_PACK_CODEC;
 

@@ -36,7 +36,7 @@ public class MessagePackCodec {
         // string bytes
         if (input instanceof String) {
             String value = (String) input;
-            int length = value.getBytes(StandardCharsets.UTF_8).length;
+            int length = determineUTFSize(value);
             // fix str
             if (length < 0x20) {
                 stream.writeByte(length | 0xA0);
@@ -207,6 +207,30 @@ public class MessagePackCodec {
         }
     }
 
+    private int determineUTFSize(String data) {
+        int bytes = 0;
+        for (int i = 0; i < data.length(); i++) {
+            int codePoint = Character.codePointAt(data, i);
+
+            // one byte of UTF-8
+            if (codePoint < 0x80) {
+                bytes += 1;
+                // two bytes of UTF-8
+            } else if (codePoint < 0x800) {
+                bytes += 2;
+                // three bytes of UTF-8
+            } else if (codePoint < 0x10000) {
+                bytes += 3;
+                // four bytes of UTF-8
+            } else if (codePoint < 0x110000) {
+                bytes += 4;
+            } else {
+                throw new IllegalArgumentException("Bad codepoint " + codePoint);
+            }
+        }
+        return bytes;
+    }
+
     /* decoding */
 
     @SuppressWarnings("unchecked")
@@ -317,9 +341,7 @@ public class MessagePackCodec {
         for (int i = 0; i < length; i++) {
             Object k = decodeInternal(buffer);
             Object v = decodeInternal(buffer);
-//            if (k != null) {
-                value.put(k.toString(), v);
-//            }
+            value.put(k.toString(), v);
         }
         return value;
     }
