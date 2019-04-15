@@ -3,6 +3,10 @@ package org.rcsb.cif;
 import org.junit.Assert;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.ValueKind;
+import org.rcsb.cif.model.generated.atomsite.LabelAltId;
+import org.rcsb.cif.model.generated.cell.Cell;
+import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,9 +14,62 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
+import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifIntegrationTest {
+    @Test
+    public void testUnknownFeatureText() throws IOException {
+        // read from cif
+        InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
+        CifFile text = CifReader.parseText(inputStream);
+
+        Cell cell = text.getBlocks().get(0).getCell();
+
+        PdbxUniqueAxis pdbxUniqueAxis = cell.getPdbxUniqueAxis();
+
+        assertEquals(ValueKind.UNKNOWN, pdbxUniqueAxis.getValueKind(0));
+        assertEquals("", pdbxUniqueAxis.get(0));
+    }
+
+    @Test
+    public void testNotPresentFeatureText() throws IOException {
+        // read from cif
+        InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
+        CifFile text = CifReader.parseText(inputStream);
+
+        LabelAltId labelAltId = text.getBlocks().get(0).getAtomSite().getLabelAltId();
+
+        assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
+        assertEquals("", labelAltId.get(0));
+    }
+
+    @Test
+    public void testUnknownFeatureBinary() throws IOException {
+        // read from cif
+        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        CifFile text = CifReader.parseBinary(inputStream);
+
+        Cell cell = text.getBlocks().get(0).getCell();
+
+        PdbxUniqueAxis pdbxUniqueAxis = cell.getPdbxUniqueAxis();
+
+        assertEquals(ValueKind.UNKNOWN, pdbxUniqueAxis.getValueKind(0));
+        assertEquals("", pdbxUniqueAxis.get(0));
+    }
+
+    @Test
+    public void testNotPresentFeatureBinary() throws IOException {
+        // read from cif
+        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        CifFile text = CifReader.parseBinary(inputStream);
+
+        LabelAltId labelAltId = text.getBlocks().get(0).getAtomSite().getLabelAltId();
+
+        assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
+        assertEquals("", labelAltId.get(0));
+    }
+
     @Test
     public void roundTripViaBinary() throws IOException {
         for (String id : TEST_CASES.keySet()) {

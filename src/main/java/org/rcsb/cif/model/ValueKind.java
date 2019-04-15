@@ -1,7 +1,7 @@
 package org.rcsb.cif.model;
 
 public enum ValueKind {
-    PRESENT,
-    NOT_PRESENT,
-    UNKNOWN
+    PRESENT, // value
+    NOT_PRESENT, // .
+    UNKNOWN // ?
 }

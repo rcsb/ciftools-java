@@ -159,7 +159,7 @@ public abstract class BaseCifColumn implements CifColumn {
     @Override
     public ValueKind getValueKind(int row) {
         if (isText) {
-            String value = getTextData(row);
+            String value = textData[row];
             if (value.isEmpty() || ".".equals(value)) {
                 return ValueKind.NOT_PRESENT;
             } else if ("?".equals(value)) {
