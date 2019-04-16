@@ -1,13 +1,19 @@
 package org.rcsb.cif.binary.codec;
 
+import org.junit.Ignore;
 import org.junit.Test;
+import org.rcsb.cif.CifReader;
+import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.TestHelper;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
@@ -19,6 +25,26 @@ import static org.rcsb.cif.binary.codec.Codec.MESSAGE_PACK_CODEC;
  * - Always use a sorted Map implementation (e.g. LinkedHashMap) as order matters.
  */
 public class MessagePackCodecTest {
+    @Test
+    @Ignore
+    public void compareToReference() throws IOException {
+        CifFile cifFile = CifReader.parseText(TestHelper.getInputStream("cif/1acj.cif"));
+        Map<String, Object> map = CifWriter.BINARY_INSTANCE.createMap(cifFile);
+
+        byte[] implBytes = MESSAGE_PACK_CODEC.encode(map);
+        byte[] refBytes = EncodedDataFactory.uint8Array(Pattern.compile(", ").splitAsStream(new String(TestHelper.getBytes("msgpack/1acj.msgpack"))
+                .replace("[", "")
+                .replace("]", ""))
+                .mapToInt(Integer::parseInt)
+                .toArray())
+                .toByteArray();
+
+        System.out.println(Arrays.toString(EncodedDataFactory.byteArray(implBytes).toUint8Array(null).getData()));
+
+        // probably differences between reference and reduced implementation
+        assertArrayEquals(refBytes, implBytes);
+    }
+
     @Test
     public void encodeString() {
         int[] expected = convertToIntArray("82 a2 53 31 a0 a2 53 32 ab 4c 6f 72 65 6d 20 69 70 73 75 6d");
@@ -172,7 +198,7 @@ public class MessagePackCodecTest {
     @Test
     public void testBackward() throws IOException {
         // obtain example file
-        byte[] bytes = TestHelper.getBytes("bcif/1pga.bcif");
+        byte[] bytes = TestHelper.getBytes("bcif/modelserver/1pga.bcif");
 
         // decode
         Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(bytes);

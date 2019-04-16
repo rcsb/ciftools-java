@@ -48,7 +48,7 @@ public class Codec {
                 .map(Codec::wrap)
                 .collect(Collectors.toList());
         Collections.reverse(encodings);
-        logger.info("decoding chain: {}", encodings.stream()
+        logger.debug("decoding chain: {}", encodings.stream()
                 .map(Encoding::getKind)
                 .collect(Collectors.joining(" -> ")));
 

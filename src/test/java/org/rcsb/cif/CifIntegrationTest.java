@@ -1,6 +1,5 @@
 package org.rcsb.cif;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
@@ -8,30 +7,17 @@ import org.rcsb.cif.model.generated.atomsite.LabelAltId;
 import org.rcsb.cif.model.generated.cell.Cell;
 import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpaces;
 
 public class CifIntegrationTest {
-    @Test
-    public void roundTripViaBinaryReduced() throws IOException {
-        String originalContent = new String(TestHelper.getBytes("cif/4cxl.atom_site.cif"));
-        CifFile originalFile = CifReader.parseText(TestHelper.getInputStream("cif/4cxl.atom_site.cif"));
-
-        InputStream bcifInputStream = CifWriter.writeBinary(originalFile);
-
-        CifFile bcifFile = CifReader.parseBinary(bcifInputStream);
-
-        InputStream copyInputStream = CifWriter.writeText(bcifFile);
-        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
-                .lines()
-                .collect(Collectors.joining("\n"));
-
-        Assert.assertEquals(originalContent, copyContent);
-    }
-
     @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idText() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
@@ -46,7 +32,7 @@ public class CifIntegrationTest {
 
     @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idBinary() throws IOException {
-        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.parseBinary(inputStream);
 
         String stringData = text.getBlocks().get(0)
@@ -85,7 +71,7 @@ public class CifIntegrationTest {
     @Test
     public void testUnknownFeatureBinary() throws IOException {
         // read from cif
-        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.parseBinary(inputStream);
 
         Cell cell = text.getBlocks().get(0).getCell();
@@ -99,7 +85,7 @@ public class CifIntegrationTest {
     @Test
     public void testNotPresentFeatureBinary() throws IOException {
         // read from cif
-        InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.parseBinary(inputStream);
 
         LabelAltId labelAltId = text.getBlocks().get(0).getAtomSite().getLabelAltId();
@@ -130,7 +116,7 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        Assert.assertEquals(originalContent, copyContent);
+        assertEqualsIgnoringWhiteSpaces(originalContent, copyContent);
     }
 
     @Test
@@ -153,7 +139,7 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        Assert.assertEquals(originalContent, copyContent);
+        assertEquals(originalContent, copyContent);
     }
 
     @Test
@@ -173,7 +159,7 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        Assert.assertEquals(originalContent, copyContent);
+        assertEquals(originalContent, copyContent);
     }
 
     @Test
@@ -186,7 +172,7 @@ public class CifIntegrationTest {
 
     private void readBcifWriteCif(String testCase) throws IOException {
         // last category _pdbe_structure_quality_report_issues is missing in binary source
-        String originalContent = new String(TestHelper.getBytes("cif/" + testCase + "-modified.cif"));
+        String originalContent = new String(TestHelper.getBytes("cif/" + testCase + ".cif"));
         CifFile originalFile = CifReader.parseBinary(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
 
         InputStream copyInputStream = CifWriter.writeText(originalFile);
@@ -194,6 +180,6 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        Assert.assertEquals(originalContent, copyContent);
+        assertEqualsIgnoringWhiteSpaces(originalContent, copyContent);
     }
 }

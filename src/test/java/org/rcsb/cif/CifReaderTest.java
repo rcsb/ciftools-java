@@ -18,7 +18,7 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 public class CifReaderTest {
     @Test
     public void parse3j3q() throws IOException, ParsingException {
-        InputStream inputStream = TestHelper.getInputStream("bcif/3j3q.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/3j3q.bcif");
         CifReader.parseBinary(inputStream);
     }
 
@@ -71,6 +71,6 @@ public class CifReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForWrongTextContent() throws ParsingException, IOException {
-        CifReader.parseText(TestHelper.getInputStream("bcif/1acj.bcif"));
+        CifReader.parseText(TestHelper.getInputStream("bcif/modelserver/1acj.bcif"));
     }
 }

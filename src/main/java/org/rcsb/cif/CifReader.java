@@ -10,8 +10,8 @@ import java.io.InputStream;
 public interface CifReader {
     CifFile parse(InputStream inputStream) throws ParsingException, IOException;
 
-    CifReader BINARY_INSTANCE = new BinaryCifReader();
-    CifReader TEXT_INSTANCE = new TextCifReader();
+    BinaryCifReader BINARY_INSTANCE = new BinaryCifReader();
+    TextCifReader TEXT_INSTANCE = new TextCifReader();
 
     static CifFile parseBinary(InputStream inputStream) throws ParsingException, IOException {
         return BINARY_INSTANCE.parse(inputStream);

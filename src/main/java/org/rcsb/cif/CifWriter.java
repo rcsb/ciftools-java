@@ -10,16 +10,16 @@ import java.io.InputStream;
 public interface CifWriter {
     InputStream write(CifFile cifFile) throws IOException;
 
-    CifWriter BINARY_INSTANCE = new BinaryCifWriter();
-    CifWriter TEXT_INSTANCE = new TextCifWriter();
+    BinaryCifWriter BINARY_INSTANCE = new BinaryCifWriter();
+    TextCifWriter TEXT_INSTANCE = new TextCifWriter();
 
     // TODO impl filter and formatter
 
-    static InputStream writeBinary(CifFile cifFile) throws IOException {
+    static InputStream writeBinary(CifFile cifFile) {
         return BINARY_INSTANCE.write(cifFile);
     }
 
-    static InputStream writeText(CifFile cifFile) throws IOException {
+    static InputStream writeText(CifFile cifFile) {
         return TEXT_INSTANCE.write(cifFile);
     }
 

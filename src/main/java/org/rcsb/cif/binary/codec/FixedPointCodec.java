@@ -1,8 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
-import org.rcsb.cif.binary.data.FloatArray;
-import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.slf4j.Logger;
@@ -26,6 +24,9 @@ public class FixedPointCodec {
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setSrcType(srcType);
         enc.add(encoding);
+
+        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                Int32Array.class.getSimpleName(), outputArray.length);
         return EncodedDataFactory.int32Array(outputArray, enc);
     }
 
@@ -38,6 +39,10 @@ public class FixedPointCodec {
         double[] outputArray = IntStream.of(input)
                 .mapToDouble(i -> f * i)
                 .toArray();
+
+        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                srcType == 33 ? Float64Array.class.getSimpleName() : Float32Array.class.getSimpleName(),
+                outputArray.length);
 
         return srcType == 32 ? EncodedDataFactory.float32Array(outputArray, data.getEncoding()) :
                 EncodedDataFactory.float64Array(outputArray, data.getEncoding());

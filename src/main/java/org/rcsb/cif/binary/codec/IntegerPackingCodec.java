@@ -75,7 +75,7 @@ public class IntegerPackingCodec {
         enc.add(encoding);
         output.setEncoding(enc);
 
-        logger.info("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
                 output.getClass().getSimpleName(), output.length());
 
         return output;
@@ -170,7 +170,7 @@ public class IntegerPackingCodec {
             j++;
         }
 
-        logger.info("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
                 Int32Array.class.getSimpleName(), output.length);
         return EncodedDataFactory.int32Array(output, data.getEncoding());
     }

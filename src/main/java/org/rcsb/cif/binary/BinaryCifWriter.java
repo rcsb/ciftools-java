@@ -26,6 +26,13 @@ public class BinaryCifWriter implements CifWriter {
 
     @Override
     public InputStream write(CifFile cifFile) {
+        Map<String, Object> file = createMap(cifFile);
+
+        byte[] ret = Codec.MESSAGE_PACK_CODEC.encode(file);
+        return new ByteArrayInputStream(ret);
+    }
+
+    public Map<String, Object> createMap(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", Codec.CODEC_NAME);
@@ -44,24 +51,30 @@ public class BinaryCifWriter implements CifWriter {
 
             for (String categoryName : cifBlock.getCategoryNames()) {
                 CifCategory cifCategory = cifBlock.getCategory(categoryName);
+                if (cifCategory.getRowCount() == 0) {
+                    continue;
+                }
+
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getCategoryName());
                 Object[] fields = new Object[cifCategory.getColumnNames().size()];
                 int fieldCount = 0;
                 category.put("columns", fields);
-                category.put("rowCount", cifCategory.getColumn(cifCategory.getColumnNames().get(0)).getRowCount());
+                category.put("rowCount", cifCategory.getRowCount());
 
                 for (String fieldName : cifCategory.getColumnNames()) {
-                    logger.info("encoding binary column: {}.{}", categoryName, fieldName);
+                    logger.debug("encoding column: {}.{}", categoryName, fieldName);
+                    System.out.println(categoryName + "." + fieldName + " " + (cifCategory.getColumn(fieldName) instanceof StrColumn ? "str" : cifCategory.getColumn(fieldName) instanceof FloatColumn ? "float" : "int"));
                     fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
                 }
 
-                categories[categoryCount++] = category;
+                if (fieldCount > 0) {
+                    categories[categoryCount++] = category;
+                }
             }
         }
 
-        byte[] ret = Codec.MESSAGE_PACK_CODEC.encode(file);
-        return new ByteArrayInputStream(ret);
+        return file;
     }
 
     private Map<String, Object> classifyColumn(CifColumn cifColumn) {
@@ -139,7 +152,7 @@ public class BinaryCifWriter implements CifWriter {
         map.put("data", encodedMap);
         map.put("mask", maskData);
 
-        logger.info("encoding chain: {}", byteArray.getEncoding()
+        logger.debug("encoding chain: {}", byteArray.getEncoding()
                 .stream()
                 .map(Encoding::getKind)
                 .collect(Collectors.joining(" -> ")));
@@ -186,11 +199,11 @@ public class BinaryCifWriter implements CifWriter {
 
         for (int row = 0; row < length; row++) {
             ValueKind kind;
-            try {
+//            try {
                 kind = cifField.getValueKind(row);
-            } catch (ArrayIndexOutOfBoundsException e) {
-                kind = ValueKind.PRESENT;
-            }
+//            } catch (ArrayIndexOutOfBoundsException e) {
+//                kind = ValueKind.PRESENT;
+//            }
 
             if (kind != ValueKind.PRESENT) {
                 mask[row] = (byte) kind.ordinal();
@@ -210,9 +223,8 @@ public class BinaryCifWriter implements CifWriter {
             }
         }
 
-        return new FieldData(cifField instanceof StrColumn ? stringArray : cifField instanceof FloatColumn ? floatArray : intArray,
-                allPresent,
-                maskArray);
+        return new FieldData(cifField instanceof StrColumn ? stringArray : cifField instanceof FloatColumn ?
+                floatArray : intArray, allPresent, maskArray);
     }
 
     class FieldData {

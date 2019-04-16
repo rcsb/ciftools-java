@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpaces;
 
 public class CifWriterTest {
     @Test
@@ -42,7 +43,7 @@ public class CifWriterTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        assertEquals(original, copy);
+        assertEqualsIgnoringWhiteSpaces(original, copy);
     }
 
     private void writeBinary(String testCase) throws ParsingException, IOException {

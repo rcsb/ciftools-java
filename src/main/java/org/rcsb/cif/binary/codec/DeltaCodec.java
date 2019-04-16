@@ -36,6 +36,9 @@ public class DeltaCodec {
         }
         outputArray[0] = 0;
 
+        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                output.getClass().getSimpleName(), output.length());
+
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setOrigin(origin);
         encoding.setSrcType(srcType);
@@ -62,6 +65,9 @@ public class DeltaCodec {
         for (int i = 1; i < n; ++i) {
             outputArray[i] = input[i] + outputArray[i - 1];
         }
+
+        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                output.getClass().getSimpleName(), output.length());
         return output;
     }
 }

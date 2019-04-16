@@ -31,6 +31,7 @@ public class MessagePackCodec {
             encodeInternal(input, dataOutputStream);
             dataOutputStream.flush();
             dataOutputStream.close();
+            logger.debug("encoding by MessagePack - {} bytes", dataOutputStream.size());
             return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
@@ -76,7 +77,7 @@ public class MessagePackCodec {
                 stream.writeShort(length);
             // bin 32
             } else {
-                stream.writeByte(0xc6);
+                stream.writeByte(0xC6);
                 stream.writeInt(length);
             }
             stream.write(value);
@@ -146,7 +147,7 @@ public class MessagePackCodec {
         // boolean
         if (input instanceof Boolean) {
             boolean value = (boolean) input;
-            stream.writeByte(value ? 0xc3 : 0xc2);
+            stream.writeByte(value ? 0xC3 : 0xC2);
             return;
         }
 
@@ -190,22 +191,22 @@ public class MessagePackCodec {
 
             // one byte of UTF-8
             if (codePoint < 0x80) {
-                stream.writeByte(codePoint & 0x7f);
+                stream.writeByte(codePoint & 0x7F);
             // two bytes of UTF-8
             } else if (codePoint < 0x800) {
-                stream.writeByte(codePoint >>> 6 & 0x1f | 0xc0);
-                stream.writeByte(codePoint & 0x3f | 0x80);
+                stream.writeByte(codePoint >>> 6 & 0x1F | 0xC0);
+                stream.writeByte(codePoint & 0x3F | 0x80);
             // three bytes of UTF-8
             } else if (codePoint < 0x10000) {
-                stream.writeByte(codePoint >>> 12 & 0x0f | 0xe0);
-                stream.writeByte(codePoint >>> 6 & 0x3f | 0x80);
-                stream.writeByte(codePoint & 0x3f | 0x80);
+                stream.writeByte(codePoint >>> 12 & 0x0F | 0xE0);
+                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
+                stream.writeByte(codePoint & 0x3F | 0x80);
             // four bytes of UTF-8
             } else if (codePoint < 0x110000) {
-                stream.writeByte(codePoint >>> 18 & 0x07 | 0xf0);
-                stream.writeByte(codePoint >>> 12 & 0x3f | 0x80);
-                stream.writeByte(codePoint >>> 6 & 0x3f | 0x80);
-                stream.writeByte(codePoint & 0x3f | 0x80);
+                stream.writeByte(codePoint >>> 18 & 0x07 | 0xF0);
+                stream.writeByte(codePoint >>> 12 & 0x3F | 0x80);
+                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
+                stream.writeByte(codePoint & 0x3F | 0x80);
             } else {
                 throw new IllegalArgumentException("Bad codepoint " + codePoint);
             }
@@ -241,6 +242,7 @@ public class MessagePackCodec {
     @SuppressWarnings("unchecked")
     public Map<String, Object> decode(byte[] input) {
         ByteBuffer buffer = ByteBuffer.wrap(input).order(ByteOrder.BIG_ENDIAN);
+        logger.debug("decoding by MessagePack - {} bytes", input.length);
         return (Map<String, Object>) decodeInternal(buffer);
     }
 

@@ -11,16 +11,39 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Origin of files:
+ * - bcif created by Mol* encoder
+ * - cif created by Mol* encoder
+ *
+ * All tests ensure that the behavior of the reference implementation (i.e. Mol*) is recreated rather than that output
+ * is in perfect agreement with e.g. PDB files.
+ */
 public class TestHelper {
     public static final double ERROR_MARGIN = 0.001;
 
     @SuppressWarnings("unchecked")
     public static final Map<String, List<Object>> TEST_CASES = Stream.of(
-            new Object[] { "1acj", Stream.of(-12.503, 535, "1ACJ").collect(Collectors.toList()) },
-            new Object[] { "1pga", Stream.of(26.778, 56, "1PGA").collect(Collectors.toList()) }
-    ).collect(Collectors.toMap((Object[] e) -> (String) e[0], (Object[] e) -> (List<Object>) e[1]));
+            Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
+            Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
+            Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
+            Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
+    ).collect(Collectors.toMap((List l) -> (String) l.get(0), (List l) -> (List<Object>) l.subList(1, l.size())));
+
+    public static void assertEqualsIgnoringWhiteSpaces(String expected, String actual) {
+        expected = Pattern.compile("\n")
+                .splitAsStream(expected)
+                .map(String::trim)
+                .collect(Collectors.joining("\n"));
+        actual = Pattern.compile("\n")
+                .splitAsStream(actual)
+                .map(String::trim)
+                .collect(Collectors.joining("\n"));
+        assertEquals(expected.replaceAll("[ ]+", " "), actual.replaceAll("[ ]+", " "));
+    }
 
     public static InputStream getInputStream(String localPath) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(localPath);

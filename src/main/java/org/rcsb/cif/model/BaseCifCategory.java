@@ -122,7 +122,7 @@ public class BaseCifCategory implements CifCategory {
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
         }
-        logger.info("decoding binary column: {}.{}", this.name, name);
+        logger.debug("decoding binary column: {}.{}", this.name, name);
         CifColumn decodedColumn = BaseCifColumn.create(this.name, name, optional.get());
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;

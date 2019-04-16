@@ -32,6 +32,9 @@ public class RunLengthCodec {
         }
 
         int[] output = new int[fullLength];
+        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                Int32Array.class.getSimpleName(), output.length);
+
         int offset = 0;
         int runLength = 1;
         for (int i = 1; i < input.length; i++) {
@@ -52,8 +55,6 @@ public class RunLengthCodec {
         encoding.setSrcSize(input.length);
         enc.add(encoding);
 
-        logger.info("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                Int32Array.class.getSimpleName(), output.length);
         return EncodedDataFactory.int32Array(output, enc);
     }
 
@@ -69,7 +70,7 @@ public class RunLengthCodec {
         int dataOffset = 0;
         IntArray output = EncodedDataFactory.intArray(srcType, srcSize);
 
-        logger.info("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
                 output.getClass().getSimpleName(), output.length());
 
         output.setEncoding(data.getEncoding());

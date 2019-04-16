@@ -153,8 +153,8 @@ public class TextCifWriter implements CifWriter {
         }
 
         boolean escape = val.charAt(0) == '_';
-        String escapeCharStart = "\\'";
-        String escapeCharEnd = "\\' ";
+        String escapeCharStart = "'";
+        String escapeCharEnd = "' ";
         boolean hasWhitespace = false;
         boolean hasSingle = false;
         boolean hasDouble = false;
@@ -179,8 +179,8 @@ public class TextCifWriter implements CifWriter {
 
                     hasDouble = true;
                     escape = true;
-                    escapeCharStart = "\\'";
-                    escapeCharEnd = "\\' ";
+                    escapeCharStart = "'";
+                    escapeCharEnd = "' ";
                     break;
                 case '\'':
                     if (hasDouble) {

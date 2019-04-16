@@ -5,6 +5,7 @@ import org.rcsb.cif.schema.Schema;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -64,9 +65,20 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     private static boolean isIntData(String[] textData) {
+        return isNumberData(textData, BaseCifColumn::parsableAsInt);
+    }
+
+    private static boolean isNumberData(String[] textData, Predicate<String> predicate) {
+        int undefinedCount = (int) Stream.of(textData)
+                .filter(datum -> datum.isEmpty() || ".".equals(datum) || "?".equals(datum))
+                .count();
+        if (undefinedCount == textData.length) {
+            return false;
+        }
+
         return Stream.of(textData)
                 .filter(datum -> !datum.isEmpty() && !".".equals(datum) && !"?".equals(datum))
-                .allMatch(BaseCifColumn::parsableAsInt);
+                .allMatch(predicate);
     }
 
     private static boolean parsableAsInt(String datum) {
@@ -79,9 +91,7 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     private static boolean isFloatData(String[] textData) {
-        return Stream.of(textData)
-                .filter(datum -> !datum.isEmpty() && !".".equals(datum) && !"?".equals(datum))
-                .allMatch(BaseCifColumn::parsableAsFloat);
+        return isNumberData(textData, BaseCifColumn::parsableAsFloat);
     }
 
     private static boolean parsableAsFloat(String datum) {
