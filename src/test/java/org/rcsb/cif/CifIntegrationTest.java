@@ -16,6 +16,23 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifIntegrationTest {
     @Test
+    public void roundTripViaBinaryReduced() throws IOException {
+        String originalContent = new String(TestHelper.getBytes("cif/4cxl.atom_site.cif"));
+        CifFile originalFile = CifReader.parseText(TestHelper.getInputStream("cif/4cxl.atom_site.cif"));
+
+        InputStream bcifInputStream = CifWriter.writeBinary(originalFile);
+
+        CifFile bcifFile = CifReader.parseBinary(bcifInputStream);
+
+        InputStream copyInputStream = CifWriter.writeText(bcifFile);
+        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
+                .lines()
+                .collect(Collectors.joining("\n"));
+
+        Assert.assertEquals(originalContent, copyContent);
+    }
+
+    @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idText() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         CifFile text = CifReader.parseText(inputStream);
@@ -38,7 +55,6 @@ public class CifIntegrationTest {
                 .getStringData(0);
         System.out.println(stringData);
     }
-
 
     @Test
     public void testUnknownFeatureText() throws IOException {

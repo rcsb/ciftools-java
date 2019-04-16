@@ -5,12 +5,16 @@ import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 public class FixedPointCodec {
+    private static final Logger logger = LoggerFactory.getLogger(FixedPointCodec.class);
+
     public Int32Array encode(FloatArray data, FixedPointEncoding encoding) {
         int srcType = data.getType();
         int factor = encoding.getFactor();

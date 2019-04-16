@@ -5,11 +5,15 @@ import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class IntegerPackingCodec {
+    private static final Logger logger = LoggerFactory.getLogger(IntegerPackingCodec.class);
+
     public IntArray encode(Int32Array data, IntegerPackingEncoding encoding) {
         int[] input = data.getData();
 
@@ -67,9 +71,12 @@ public class IntegerPackingCodec {
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setByteCount(packing.bytesPerElement);
         encoding.setUnsigned(!packing.signed);
-        encoding.setSrcSize(packing.size);
+        encoding.setSrcSize(data.length());
         enc.add(encoding);
         output.setEncoding(enc);
+
+        logger.info("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                output.getClass().getSimpleName(), output.length());
 
         return output;
     }
@@ -163,6 +170,8 @@ public class IntegerPackingCodec {
             j++;
         }
 
+        logger.info("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                Int32Array.class.getSimpleName(), output.length);
         return EncodedDataFactory.int32Array(output, data.getEncoding());
     }
 }

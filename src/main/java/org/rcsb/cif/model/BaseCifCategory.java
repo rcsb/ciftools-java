@@ -1,6 +1,8 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.schema.Schema;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
@@ -10,6 +12,7 @@ import java.util.stream.Stream;
 import static org.rcsb.cif.schema.Schema.*;
 
 public class BaseCifCategory implements CifCategory {
+    private static final Logger logger = LoggerFactory.getLogger(BaseCifColumn.class);
     private final String name;
     private final int rowCount;
     private final List<String> columnNames;
@@ -119,6 +122,7 @@ public class BaseCifCategory implements CifCategory {
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
         }
+        logger.info("decoding binary column: {}.{}", this.name, name);
         CifColumn decodedColumn = BaseCifColumn.create(this.name, name, optional.get());
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;

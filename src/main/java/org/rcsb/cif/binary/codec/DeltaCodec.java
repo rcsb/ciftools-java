@@ -4,10 +4,14 @@ import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.SignedIntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 
 public class DeltaCodec {
+    private static final Logger logger = LoggerFactory.getLogger(DeltaCodec.class);
+
     @SuppressWarnings("unchecked")
     public <T extends SignedIntArray> T encode(T data, DeltaEncoding encoding) {
         int srcType = data.getType();

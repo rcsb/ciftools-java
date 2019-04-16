@@ -5,11 +5,15 @@ import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class IntervalQuantizationCodec {
+    private static final Logger logger = LoggerFactory.getLogger(IntervalQuantizationCodec.class);
+
     public Int32Array encode(FloatArray data, IntervalQuantizationEncoding encoding) {
         double[] input = data.getData();
 

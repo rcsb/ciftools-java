@@ -5,10 +5,14 @@ import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class StringArrayCodec {
+    private static final Logger logger = LoggerFactory.getLogger(StringArrayCodec.class);
+
     public ByteArray encode(StringArray data, StringArrayEncoding encoding) {
         String[] input = data.getData();
 

@@ -2,13 +2,18 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Codec {
+    private static final Logger logger = LoggerFactory.getLogger(Codec.class);
     public static final String CODEC_NAME = /*"ciftools-java"*/ "mol*";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
@@ -35,19 +40,26 @@ public class Codec {
         return current;
     }
 
-    @SuppressWarnings("unchecked")
     public static Object decode(Map<String, Object> encodedData) {
         EncodedData current = EncodedDataFactory.byteArray((byte[]) encodedData.get("data"));
-        Object[] encodings = (Object[]) encodedData.get("encoding");
+        Object[] encodingMaps = (Object[]) encodedData.get("encoding");
+        List<Encoding> encodings = Stream.of(encodingMaps)
+                .map(Map.class::cast)
+                .map(Codec::wrap)
+                .collect(Collectors.toList());
+        Collections.reverse(encodings);
+        logger.info("decoding chain: {}", encodings.stream()
+                .map(Encoding::getKind)
+                .collect(Collectors.joining(" -> ")));
 
-        for (int i = encodings.length - 1; i >= 0; i--) {
-            current = decodeStep(current, wrap((Map<String, Object>) encodings[i]));
+        for (Encoding encoding : encodings) {
+            current = decodeStep(current, encoding);
         }
         return current.getData();
     }
 
     @SuppressWarnings("unchecked")
-    private static Encoding wrap(Map<String, Object> encoding) {
+    private static Encoding wrap(Map encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":

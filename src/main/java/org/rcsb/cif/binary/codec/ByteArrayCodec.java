@@ -8,6 +8,8 @@ import java.nio.ByteOrder;
 import java.util.LinkedList;
 
 public class ByteArrayCodec {
+//    private static final Logger logger = LoggerFactory.getLogger(ByteArrayCodec.class);
+
     public <D> ByteArray encode(NumberArray<D> data, ByteArrayEncoding encoding) {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());

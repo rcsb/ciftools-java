@@ -5,10 +5,14 @@ import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 
 public class RunLengthCodec {
+    private static final Logger logger = LoggerFactory.getLogger(RunLengthCodec.class);
+
     public Int32Array encode(IntArray data, RunLengthEncoding encoding) {
         int[] input = data.getData();
         if (input.length == 0) {
@@ -48,6 +52,8 @@ public class RunLengthCodec {
         encoding.setSrcSize(input.length);
         enc.add(encoding);
 
+        logger.info("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                Int32Array.class.getSimpleName(), output.length);
         return EncodedDataFactory.int32Array(output, enc);
     }
 
@@ -62,6 +68,10 @@ public class RunLengthCodec {
 
         int dataOffset = 0;
         IntArray output = EncodedDataFactory.intArray(srcType, srcSize);
+
+        logger.info("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
+                output.getClass().getSimpleName(), output.length());
+
         output.setEncoding(data.getEncoding());
         int[] outputArray = output.getData();
 
