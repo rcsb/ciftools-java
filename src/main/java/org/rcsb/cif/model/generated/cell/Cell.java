@@ -21,7 +21,7 @@ public class Cell extends BaseCifCategory {
      * @return AngleAlpha
      */
     public AngleAlpha getAngleAlpha() {
-        return (AngleAlpha) (isText ? getTextColumn("angle_alpha") : getBinaryColumn("angle_alpha", "AngleAlpha"));
+        return (AngleAlpha) (isText ? getTextColumn("angle_alpha") : getBinaryColumn("angle_alpha"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class Cell extends BaseCifCategory {
      * @return AngleBeta
      */
     public AngleBeta getAngleBeta() {
-        return (AngleBeta) (isText ? getTextColumn("angle_beta") : getBinaryColumn("angle_beta", "AngleBeta"));
+        return (AngleBeta) (isText ? getTextColumn("angle_beta") : getBinaryColumn("angle_beta"));
     }
 
     /**
@@ -37,7 +37,7 @@ public class Cell extends BaseCifCategory {
      * @return AngleGamma
      */
     public AngleGamma getAngleGamma() {
-        return (AngleGamma) (isText ? getTextColumn("angle_gamma") : getBinaryColumn("angle_gamma", "AngleGamma"));
+        return (AngleGamma) (isText ? getTextColumn("angle_gamma") : getBinaryColumn("angle_gamma"));
     }
 
     /**
@@ -45,7 +45,7 @@ public class Cell extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -54,7 +54,7 @@ public class Cell extends BaseCifCategory {
      * @return LengthA
      */
     public LengthA getLengthA() {
-        return (LengthA) (isText ? getTextColumn("length_a") : getBinaryColumn("length_a", "LengthA"));
+        return (LengthA) (isText ? getTextColumn("length_a") : getBinaryColumn("length_a"));
     }
 
     /**
@@ -63,7 +63,7 @@ public class Cell extends BaseCifCategory {
      * @return LengthB
      */
     public LengthB getLengthB() {
-        return (LengthB) (isText ? getTextColumn("length_b") : getBinaryColumn("length_b", "LengthB"));
+        return (LengthB) (isText ? getTextColumn("length_b") : getBinaryColumn("length_b"));
     }
 
     /**
@@ -72,7 +72,7 @@ public class Cell extends BaseCifCategory {
      * @return LengthC
      */
     public LengthC getLengthC() {
-        return (LengthC) (isText ? getTextColumn("length_c") : getBinaryColumn("length_c", "LengthC"));
+        return (LengthC) (isText ? getTextColumn("length_c") : getBinaryColumn("length_c"));
     }
 
     /**
@@ -85,7 +85,7 @@ public class Cell extends BaseCifCategory {
      * @return ZPDB
      */
     public ZPDB getZPDB() {
-        return (ZPDB) (isText ? getTextColumn("Z_PDB") : getBinaryColumn("Z_PDB", "ZPDB"));
+        return (ZPDB) (isText ? getTextColumn("Z_PDB") : getBinaryColumn("Z_PDB"));
     }
 
     /**
@@ -94,6 +94,6 @@ public class Cell extends BaseCifCategory {
      * @return PdbxUniqueAxis
      */
     public PdbxUniqueAxis getPdbxUniqueAxis() {
-        return (PdbxUniqueAxis) (isText ? getTextColumn("pdbx_unique_axis") : getBinaryColumn("pdbx_unique_axis", "PdbxUniqueAxis"));
+        return (PdbxUniqueAxis) (isText ? getTextColumn("pdbx_unique_axis") : getBinaryColumn("pdbx_unique_axis"));
     }
 }

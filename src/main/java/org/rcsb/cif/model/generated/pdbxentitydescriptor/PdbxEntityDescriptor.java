@@ -22,7 +22,7 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id", "EntityId"));
+        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return Descriptor
      */
     public Descriptor getDescriptor() {
-        return (Descriptor) (isText ? getTextColumn("descriptor") : getBinaryColumn("descriptor", "Descriptor"));
+        return (Descriptor) (isText ? getTextColumn("descriptor") : getBinaryColumn("descriptor"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -48,7 +48,7 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return Program
      */
     public Program getProgram() {
-        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program", "Program"));
+        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program"));
     }
 
     /**
@@ -57,7 +57,7 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return ProgramVersion
      */
     public ProgramVersion getProgramVersion() {
-        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version", "ProgramVersion"));
+        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version"));
     }
 
     /**
@@ -65,6 +65,6 @@ public class PdbxEntityDescriptor extends BaseCifCategory {
      * @return Ordinal
      */
     public Ordinal getOrdinal() {
-        return (Ordinal) (isText ? getTextColumn("ordinal") : getBinaryColumn("ordinal", "Ordinal"));
+        return (Ordinal) (isText ? getTextColumn("ordinal") : getBinaryColumn("ordinal"));
     }
 }

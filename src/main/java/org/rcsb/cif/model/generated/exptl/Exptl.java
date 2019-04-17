@@ -21,7 +21,7 @@ public class Exptl extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -29,6 +29,6 @@ public class Exptl extends BaseCifCategory {
      * @return Method
      */
     public Method getMethod() {
-        return (Method) (isText ? getTextColumn("method") : getBinaryColumn("method", "Method"));
+        return (Method) (isText ? getTextColumn("method") : getBinaryColumn("method"));
     }
 }

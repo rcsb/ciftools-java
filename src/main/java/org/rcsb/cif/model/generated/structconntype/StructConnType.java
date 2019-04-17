@@ -21,7 +21,7 @@ public class StructConnType extends BaseCifCategory {
      * @return Criteria
      */
     public Criteria getCriteria() {
-        return (Criteria) (isText ? getTextColumn("criteria") : getBinaryColumn("criteria", "Criteria"));
+        return (Criteria) (isText ? getTextColumn("criteria") : getBinaryColumn("criteria"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class StructConnType extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -38,6 +38,6 @@ public class StructConnType extends BaseCifCategory {
      * @return Reference
      */
     public Reference getReference() {
-        return (Reference) (isText ? getTextColumn("reference") : getBinaryColumn("reference", "Reference"));
+        return (Reference) (isText ? getTextColumn("reference") : getBinaryColumn("reference"));
     }
 }

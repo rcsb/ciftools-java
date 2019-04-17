@@ -22,7 +22,7 @@ public class PdbxReferenceEntityList extends BaseCifCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id", "PrdId"));
+        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class PdbxReferenceEntityList extends BaseCifCategory {
      * @return RefEntityId
      */
     public RefEntityId getRefEntityId() {
-        return (RefEntityId) (isText ? getTextColumn("ref_entity_id") : getBinaryColumn("ref_entity_id", "RefEntityId"));
+        return (RefEntityId) (isText ? getTextColumn("ref_entity_id") : getBinaryColumn("ref_entity_id"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class PdbxReferenceEntityList extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -47,7 +47,7 @@ public class PdbxReferenceEntityList extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -55,6 +55,6 @@ public class PdbxReferenceEntityList extends BaseCifCategory {
      * @return ComponentId
      */
     public ComponentId getComponentId() {
-        return (ComponentId) (isText ? getTextColumn("component_id") : getBinaryColumn("component_id", "ComponentId"));
+        return (ComponentId) (isText ? getTextColumn("component_id") : getBinaryColumn("component_id"));
     }
 }

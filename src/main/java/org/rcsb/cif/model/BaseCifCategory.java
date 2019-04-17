@@ -74,7 +74,7 @@ public class BaseCifCategory implements CifCategory {
                 throw new RuntimeException(e);
             }
         } else {
-            // 3. if not a known field, roll with base implementation
+            // 3. if not a known category, roll with base implementation
             return new BaseCifCategory(catName, fields);
         }
     }
@@ -106,14 +106,14 @@ public class BaseCifCategory implements CifCategory {
 
     @Override
     public CifColumn getColumn(String name) {
-        return isText ? getTextColumn(name) : getBinaryColumn(name, toClassName(name));
+        return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
     protected CifColumn getTextColumn(String name) {
         return textFields.get(name);
     }
 
-    protected CifColumn getBinaryColumn(String name, String className) {
+    protected CifColumn getBinaryColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
         // cache decoded fields to reuse them if applicable
         if (!optional.isPresent()) {

@@ -24,6 +24,6 @@ public class Entry extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 }

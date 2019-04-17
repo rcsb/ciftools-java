@@ -21,7 +21,7 @@ public class Entity extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class Entity extends BaseCifCategory {
      * @return FormulaWeight
      */
     public FormulaWeight getFormulaWeight() {
-        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight", "FormulaWeight"));
+        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight"));
     }
 
     /**
@@ -41,7 +41,7 @@ public class Entity extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -54,7 +54,7 @@ public class Entity extends BaseCifCategory {
      * @return SrcMethod
      */
     public SrcMethod getSrcMethod() {
-        return (SrcMethod) (isText ? getTextColumn("src_method") : getBinaryColumn("src_method", "SrcMethod"));
+        return (SrcMethod) (isText ? getTextColumn("src_method") : getBinaryColumn("src_method"));
     }
 
     /**
@@ -71,7 +71,7 @@ public class Entity extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -81,7 +81,7 @@ public class Entity extends BaseCifCategory {
      * @return PdbxDescription
      */
     public PdbxDescription getPdbxDescription() {
-        return (PdbxDescription) (isText ? getTextColumn("pdbx_description") : getBinaryColumn("pdbx_description", "PdbxDescription"));
+        return (PdbxDescription) (isText ? getTextColumn("pdbx_description") : getBinaryColumn("pdbx_description"));
     }
 
     /**
@@ -90,7 +90,7 @@ public class Entity extends BaseCifCategory {
      * @return PdbxNumberOfMolecules
      */
     public PdbxNumberOfMolecules getPdbxNumberOfMolecules() {
-        return (PdbxNumberOfMolecules) (isText ? getTextColumn("pdbx_number_of_molecules") : getBinaryColumn("pdbx_number_of_molecules", "PdbxNumberOfMolecules"));
+        return (PdbxNumberOfMolecules) (isText ? getTextColumn("pdbx_number_of_molecules") : getBinaryColumn("pdbx_number_of_molecules"));
     }
 
     /**
@@ -98,7 +98,7 @@ public class Entity extends BaseCifCategory {
      * @return PdbxMutation
      */
     public PdbxMutation getPdbxMutation() {
-        return (PdbxMutation) (isText ? getTextColumn("pdbx_mutation") : getBinaryColumn("pdbx_mutation", "PdbxMutation"));
+        return (PdbxMutation) (isText ? getTextColumn("pdbx_mutation") : getBinaryColumn("pdbx_mutation"));
     }
 
     /**
@@ -106,7 +106,7 @@ public class Entity extends BaseCifCategory {
      * @return PdbxFragment
      */
     public PdbxFragment getPdbxFragment() {
-        return (PdbxFragment) (isText ? getTextColumn("pdbx_fragment") : getBinaryColumn("pdbx_fragment", "PdbxFragment"));
+        return (PdbxFragment) (isText ? getTextColumn("pdbx_fragment") : getBinaryColumn("pdbx_fragment"));
     }
 
     /**
@@ -114,6 +114,6 @@ public class Entity extends BaseCifCategory {
      * @return PdbxEc
      */
     public PdbxEc getPdbxEc() {
-        return (PdbxEc) (isText ? getTextColumn("pdbx_ec") : getBinaryColumn("pdbx_ec", "PdbxEc"));
+        return (PdbxEc) (isText ? getTextColumn("pdbx_ec") : getBinaryColumn("pdbx_ec"));
     }
 }

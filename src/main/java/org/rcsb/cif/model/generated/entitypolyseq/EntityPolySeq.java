@@ -21,7 +21,7 @@ public class EntityPolySeq extends BaseCifCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id", "EntityId"));
+        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class EntityPolySeq extends BaseCifCategory {
      * @return Hetero
      */
     public Hetero getHetero() {
-        return (Hetero) (isText ? getTextColumn("hetero") : getBinaryColumn("hetero", "Hetero"));
+        return (Hetero) (isText ? getTextColumn("hetero") : getBinaryColumn("hetero"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class EntityPolySeq extends BaseCifCategory {
      * @return MonId
      */
     public MonId getMonId() {
-        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id", "MonId"));
+        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id"));
     }
 
     /**
@@ -51,6 +51,6 @@ public class EntityPolySeq extends BaseCifCategory {
      * @return Num
      */
     public Num getNum() {
-        return (Num) (isText ? getTextColumn("num") : getBinaryColumn("num", "Num"));
+        return (Num) (isText ? getTextColumn("num") : getBinaryColumn("num"));
     }
 }

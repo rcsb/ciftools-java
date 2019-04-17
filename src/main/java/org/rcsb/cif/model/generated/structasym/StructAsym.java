@@ -22,7 +22,7 @@ public class StructAsym extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class StructAsym extends BaseCifCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id", "EntityId"));
+        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -42,7 +42,7 @@ public class StructAsym extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -50,7 +50,7 @@ public class StructAsym extends BaseCifCategory {
      * @return PdbxModified
      */
     public PdbxModified getPdbxModified() {
-        return (PdbxModified) (isText ? getTextColumn("pdbx_modified") : getBinaryColumn("pdbx_modified", "PdbxModified"));
+        return (PdbxModified) (isText ? getTextColumn("pdbx_modified") : getBinaryColumn("pdbx_modified"));
     }
 
     /**
@@ -59,6 +59,6 @@ public class StructAsym extends BaseCifCategory {
      * @return PdbxBlankPDBChainidFlag
      */
     public PdbxBlankPDBChainidFlag getPdbxBlankPDBChainidFlag() {
-        return (PdbxBlankPDBChainidFlag) (isText ? getTextColumn("pdbx_blank_PDB_chainid_flag") : getBinaryColumn("pdbx_blank_PDB_chainid_flag", "PdbxBlankPDBChainidFlag"));
+        return (PdbxBlankPDBChainidFlag) (isText ? getTextColumn("pdbx_blank_PDB_chainid_flag") : getBinaryColumn("pdbx_blank_PDB_chainid_flag"));
     }
 }

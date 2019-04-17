@@ -21,7 +21,7 @@ public class StructKeywords extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class StructKeywords extends BaseCifCategory {
      * @return Text
      */
     public Text getText() {
-        return (Text) (isText ? getTextColumn("text") : getBinaryColumn("text", "Text"));
+        return (Text) (isText ? getTextColumn("text") : getBinaryColumn("text"));
     }
 
     /**
@@ -37,6 +37,6 @@ public class StructKeywords extends BaseCifCategory {
      * @return PdbxKeywords
      */
     public PdbxKeywords getPdbxKeywords() {
-        return (PdbxKeywords) (isText ? getTextColumn("pdbx_keywords") : getBinaryColumn("pdbx_keywords", "PdbxKeywords"));
+        return (PdbxKeywords) (isText ? getTextColumn("pdbx_keywords") : getBinaryColumn("pdbx_keywords"));
     }
 }

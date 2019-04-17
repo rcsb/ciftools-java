@@ -24,7 +24,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -35,7 +35,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id", "AuthAsymId"));
+        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id", "AuthCompId"));
+        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -57,7 +57,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id", "AuthSeqId"));
+        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -68,7 +68,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return PDBInsCode
      */
     public PDBInsCode getPDBInsCode() {
-        return (PDBInsCode) (isText ? getTextColumn("PDB_ins_code") : getBinaryColumn("PDB_ins_code", "PDBInsCode"));
+        return (PDBInsCode) (isText ? getTextColumn("PDB_ins_code") : getBinaryColumn("PDB_ins_code"));
     }
 
     /**
@@ -79,7 +79,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id", "LabelAsymId"));
+        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -90,7 +90,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id", "LabelCompId"));
+        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -101,7 +101,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id", "LabelSeqId"));
+        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -109,7 +109,7 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return ParentCompId
      */
     public ParentCompId getParentCompId() {
-        return (ParentCompId) (isText ? getTextColumn("parent_comp_id") : getBinaryColumn("parent_comp_id", "ParentCompId"));
+        return (ParentCompId) (isText ? getTextColumn("parent_comp_id") : getBinaryColumn("parent_comp_id"));
     }
 
     /**
@@ -117,6 +117,6 @@ public class PdbxStructModResidue extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 }

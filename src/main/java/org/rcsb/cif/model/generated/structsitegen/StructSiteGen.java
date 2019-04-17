@@ -22,7 +22,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -34,7 +34,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -45,7 +45,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return LabelAltId
      */
     public LabelAltId getLabelAltId() {
-        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id", "LabelAltId"));
+        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id"));
     }
 
     /**
@@ -56,7 +56,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id", "LabelAsymId"));
+        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -67,7 +67,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return LabelAtomId
      */
     public LabelAtomId getLabelAtomId() {
-        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id", "LabelAtomId"));
+        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id"));
     }
 
     /**
@@ -78,7 +78,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id", "LabelCompId"));
+        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -89,7 +89,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id", "LabelSeqId"));
+        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -100,7 +100,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id", "AuthAsymId"));
+        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -111,7 +111,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id", "AuthCompId"));
+        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -122,7 +122,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id", "AuthSeqId"));
+        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -131,7 +131,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return SiteId
      */
     public SiteId getSiteId() {
-        return (SiteId) (isText ? getTextColumn("site_id") : getBinaryColumn("site_id", "SiteId"));
+        return (SiteId) (isText ? getTextColumn("site_id") : getBinaryColumn("site_id"));
     }
 
     /**
@@ -141,7 +141,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return Symmetry
      */
     public Symmetry getSymmetry() {
-        return (Symmetry) (isText ? getTextColumn("symmetry") : getBinaryColumn("symmetry", "Symmetry"));
+        return (Symmetry) (isText ? getTextColumn("symmetry") : getBinaryColumn("symmetry"));
     }
 
     /**
@@ -149,7 +149,7 @@ public class StructSiteGen extends BaseCifCategory {
      * @return PdbxAuthInsCode
      */
     public PdbxAuthInsCode getPdbxAuthInsCode() {
-        return (PdbxAuthInsCode) (isText ? getTextColumn("pdbx_auth_ins_code") : getBinaryColumn("pdbx_auth_ins_code", "PdbxAuthInsCode"));
+        return (PdbxAuthInsCode) (isText ? getTextColumn("pdbx_auth_ins_code") : getBinaryColumn("pdbx_auth_ins_code"));
     }
 
     /**
@@ -157,6 +157,6 @@ public class StructSiteGen extends BaseCifCategory {
      * @return PdbxNumRes
      */
     public PdbxNumRes getPdbxNumRes() {
-        return (PdbxNumRes) (isText ? getTextColumn("pdbx_num_res") : getBinaryColumn("pdbx_num_res", "PdbxNumRes"));
+        return (PdbxNumRes) (isText ? getTextColumn("pdbx_num_res") : getBinaryColumn("pdbx_num_res"));
     }
 }

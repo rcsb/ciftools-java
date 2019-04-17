@@ -22,7 +22,7 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name", "Name"));
+        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return SymmetryOperation
      */
     public SymmetryOperation getSymmetryOperation() {
-        return (SymmetryOperation) (isText ? getTextColumn("symmetry_operation") : getBinaryColumn("symmetry_operation", "SymmetryOperation"));
+        return (SymmetryOperation) (isText ? getTextColumn("symmetry_operation") : getBinaryColumn("symmetry_operation"));
     }
 
     /**
@@ -55,7 +55,7 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return Matrix
      */
     public Matrix getMatrix() {
-        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix", "Matrix"));
+        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix"));
     }
 
     /**
@@ -64,6 +64,6 @@ public class PdbxStructOperList extends BaseCifCategory {
      * @return Vector
      */
     public Vector getVector() {
-        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector", "Vector"));
+        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector"));
     }
 }

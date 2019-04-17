@@ -3,7 +3,7 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
-import org.rcsb.cif.model.generated.atomsite.LabelAltId;
+import org.rcsb.cif.model.generated.atomsite.*;
 import org.rcsb.cif.model.generated.cell.Cell;
 import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
 
@@ -12,10 +12,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.rcsb.cif.TestHelper.*;
+import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpacesAndNumberFormat;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -23,6 +25,48 @@ import static org.rcsb.cif.TestHelper.*;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class CifIntegrationTest {
+    @Test
+    public void testNumberFormat() {
+        String[] data = {"1.0", "2", "-1.567891234567"};
+
+        // coord columns print with 3 decimal digits
+        CartnX cartnX = new CartnX("name", data.length, data);
+        CartnY cartnY = new CartnY("name", data.length, data);
+        CartnZ cartnZ = new CartnZ("name", data.length, data);
+
+        Stream.of(cartnX, cartnY, cartnZ).forEach(coordColumn -> {
+            double x1 = coordColumn.get(0);
+            double x2 = coordColumn.get(1);
+            double x3 = coordColumn.get(2);
+
+            assertEquals("1.000", coordColumn.format(x1));
+            assertEquals("2.000", coordColumn.format(x2));
+            assertEquals("-1.568", coordColumn.format(x3));
+        });
+
+        // occupancy uses 2 decimal digits
+        Occupancy occupancy = new Occupancy("name", data.length, data);
+        double occ1 = occupancy.get(0);
+        double occ2 = occupancy.get(1);
+        double occ3 = occupancy.get(2);
+
+        assertEquals("1.00", occupancy.format(occ1));
+        assertEquals("2.00", occupancy.format(occ2));
+        assertEquals("-1.57", occupancy.format(occ3));
+
+        // all other should fallback to default behavior
+        BIsoOrEquiv bIsoOrEquiv = new BIsoOrEquiv("name", data.length, data);
+        double iso1 = bIsoOrEquiv.get(0);
+        double iso2 = bIsoOrEquiv.get(1);
+        double iso3 = bIsoOrEquiv.get(2);
+
+        // truncate float which perfectly round to integers
+        assertEquals("1", bIsoOrEquiv.format(iso1));
+        assertEquals("2", bIsoOrEquiv.format(iso2));
+        // cut long numbers after 6 decimal places
+        assertEquals("-1.567891", bIsoOrEquiv.format(iso3));
+    }
+
     @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idText() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");

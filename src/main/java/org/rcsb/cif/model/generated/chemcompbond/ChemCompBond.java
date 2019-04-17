@@ -24,7 +24,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return AtomId1
      */
     public AtomId1 getAtomId1() {
-        return (AtomId1) (isText ? getTextColumn("atom_id_1") : getBinaryColumn("atom_id_1", "AtomId1"));
+        return (AtomId1) (isText ? getTextColumn("atom_id_1") : getBinaryColumn("atom_id_1"));
     }
 
     /**
@@ -35,7 +35,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return AtomId2
      */
     public AtomId2 getAtomId2() {
-        return (AtomId2) (isText ? getTextColumn("atom_id_2") : getBinaryColumn("atom_id_2", "AtomId2"));
+        return (AtomId2) (isText ? getTextColumn("atom_id_2") : getBinaryColumn("atom_id_2"));
     }
 
     /**
@@ -44,7 +44,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return CompId
      */
     public CompId getCompId() {
-        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id", "CompId"));
+        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id"));
     }
 
     /**
@@ -54,7 +54,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return ValueOrder
      */
     public ValueOrder getValueOrder() {
-        return (ValueOrder) (isText ? getTextColumn("value_order") : getBinaryColumn("value_order", "ValueOrder"));
+        return (ValueOrder) (isText ? getTextColumn("value_order") : getBinaryColumn("value_order"));
     }
 
     /**
@@ -62,7 +62,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return PdbxOrdinal
      */
     public PdbxOrdinal getPdbxOrdinal() {
-        return (PdbxOrdinal) (isText ? getTextColumn("pdbx_ordinal") : getBinaryColumn("pdbx_ordinal", "PdbxOrdinal"));
+        return (PdbxOrdinal) (isText ? getTextColumn("pdbx_ordinal") : getBinaryColumn("pdbx_ordinal"));
     }
 
     /**
@@ -70,7 +70,7 @@ public class ChemCompBond extends BaseCifCategory {
      * @return PdbxStereoConfig
      */
     public PdbxStereoConfig getPdbxStereoConfig() {
-        return (PdbxStereoConfig) (isText ? getTextColumn("pdbx_stereo_config") : getBinaryColumn("pdbx_stereo_config", "PdbxStereoConfig"));
+        return (PdbxStereoConfig) (isText ? getTextColumn("pdbx_stereo_config") : getBinaryColumn("pdbx_stereo_config"));
     }
 
     /**
@@ -78,6 +78,6 @@ public class ChemCompBond extends BaseCifCategory {
      * @return PdbxAromaticFlag
      */
     public PdbxAromaticFlag getPdbxAromaticFlag() {
-        return (PdbxAromaticFlag) (isText ? getTextColumn("pdbx_aromatic_flag") : getBinaryColumn("pdbx_aromatic_flag", "PdbxAromaticFlag"));
+        return (PdbxAromaticFlag) (isText ? getTextColumn("pdbx_aromatic_flag") : getBinaryColumn("pdbx_aromatic_flag"));
     }
 }

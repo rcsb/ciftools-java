@@ -21,7 +21,7 @@ public class Struct extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -31,6 +31,6 @@ public class Struct extends BaseCifCategory {
      * @return Title
      */
     public Title getTitle() {
-        return (Title) (isText ? getTextColumn("title") : getBinaryColumn("title", "Title"));
+        return (Title) (isText ? getTextColumn("title") : getBinaryColumn("title"));
     }
 }

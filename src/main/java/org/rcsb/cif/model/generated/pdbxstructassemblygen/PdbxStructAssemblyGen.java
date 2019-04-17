@@ -24,7 +24,7 @@ public class PdbxStructAssemblyGen extends BaseCifCategory {
      * @return AsymIdList
      */
     public AsymIdList getAsymIdList() {
-        return (AsymIdList) (isText ? getTextColumn("asym_id_list") : getBinaryColumn("asym_id_list", "AsymIdList"));
+        return (AsymIdList) (isText ? getTextColumn("asym_id_list") : getBinaryColumn("asym_id_list"));
     }
 
     /**
@@ -33,7 +33,7 @@ public class PdbxStructAssemblyGen extends BaseCifCategory {
      * @return AssemblyId
      */
     public AssemblyId getAssemblyId() {
-        return (AssemblyId) (isText ? getTextColumn("assembly_id") : getBinaryColumn("assembly_id", "AssemblyId"));
+        return (AssemblyId) (isText ? getTextColumn("assembly_id") : getBinaryColumn("assembly_id"));
     }
 
     /**
@@ -52,6 +52,6 @@ public class PdbxStructAssemblyGen extends BaseCifCategory {
      * @return OperExpression
      */
     public OperExpression getOperExpression() {
-        return (OperExpression) (isText ? getTextColumn("oper_expression") : getBinaryColumn("oper_expression", "OperExpression"));
+        return (OperExpression) (isText ? getTextColumn("oper_expression") : getBinaryColumn("oper_expression"));
     }
 }

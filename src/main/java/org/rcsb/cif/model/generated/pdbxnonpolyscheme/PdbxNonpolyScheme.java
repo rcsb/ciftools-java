@@ -21,7 +21,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return AsymId
      */
     public AsymId getAsymId() {
-        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id", "AsymId"));
+        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id", "EntityId"));
+        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -37,7 +37,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return MonId
      */
     public MonId getMonId() {
-        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id", "MonId"));
+        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id"));
     }
 
     /**
@@ -45,7 +45,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return PdbStrandId
      */
     public PdbStrandId getPdbStrandId() {
-        return (PdbStrandId) (isText ? getTextColumn("pdb_strand_id") : getBinaryColumn("pdb_strand_id", "PdbStrandId"));
+        return (PdbStrandId) (isText ? getTextColumn("pdb_strand_id") : getBinaryColumn("pdb_strand_id"));
     }
 
     /**
@@ -53,7 +53,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return NdbSeqNum
      */
     public NdbSeqNum getNdbSeqNum() {
-        return (NdbSeqNum) (isText ? getTextColumn("ndb_seq_num") : getBinaryColumn("ndb_seq_num", "NdbSeqNum"));
+        return (NdbSeqNum) (isText ? getTextColumn("ndb_seq_num") : getBinaryColumn("ndb_seq_num"));
     }
 
     /**
@@ -61,7 +61,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return PdbSeqNum
      */
     public PdbSeqNum getPdbSeqNum() {
-        return (PdbSeqNum) (isText ? getTextColumn("pdb_seq_num") : getBinaryColumn("pdb_seq_num", "PdbSeqNum"));
+        return (PdbSeqNum) (isText ? getTextColumn("pdb_seq_num") : getBinaryColumn("pdb_seq_num"));
     }
 
     /**
@@ -70,7 +70,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return AuthSeqNum
      */
     public AuthSeqNum getAuthSeqNum() {
-        return (AuthSeqNum) (isText ? getTextColumn("auth_seq_num") : getBinaryColumn("auth_seq_num", "AuthSeqNum"));
+        return (AuthSeqNum) (isText ? getTextColumn("auth_seq_num") : getBinaryColumn("auth_seq_num"));
     }
 
     /**
@@ -78,7 +78,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return PdbMonId
      */
     public PdbMonId getPdbMonId() {
-        return (PdbMonId) (isText ? getTextColumn("pdb_mon_id") : getBinaryColumn("pdb_mon_id", "PdbMonId"));
+        return (PdbMonId) (isText ? getTextColumn("pdb_mon_id") : getBinaryColumn("pdb_mon_id"));
     }
 
     /**
@@ -87,7 +87,7 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return AuthMonId
      */
     public AuthMonId getAuthMonId() {
-        return (AuthMonId) (isText ? getTextColumn("auth_mon_id") : getBinaryColumn("auth_mon_id", "AuthMonId"));
+        return (AuthMonId) (isText ? getTextColumn("auth_mon_id") : getBinaryColumn("auth_mon_id"));
     }
 
     /**
@@ -95,6 +95,6 @@ public class PdbxNonpolyScheme extends BaseCifCategory {
      * @return PdbInsCode
      */
     public PdbInsCode getPdbInsCode() {
-        return (PdbInsCode) (isText ? getTextColumn("pdb_ins_code") : getBinaryColumn("pdb_ins_code", "PdbInsCode"));
+        return (PdbInsCode) (isText ? getTextColumn("pdb_ins_code") : getBinaryColumn("pdb_ins_code"));
     }
 }

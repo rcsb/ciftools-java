@@ -22,7 +22,7 @@ public class PdbxMolecule extends BaseCifCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id", "PrdId"));
+        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class PdbxMolecule extends BaseCifCategory {
      * @return InstanceId
      */
     public InstanceId getInstanceId() {
-        return (InstanceId) (isText ? getTextColumn("instance_id") : getBinaryColumn("instance_id", "InstanceId"));
+        return (InstanceId) (isText ? getTextColumn("instance_id") : getBinaryColumn("instance_id"));
     }
 
     /**
@@ -39,6 +39,6 @@ public class PdbxMolecule extends BaseCifCategory {
      * @return AsymId
      */
     public AsymId getAsymId() {
-        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id", "AsymId"));
+        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id"));
     }
 }

@@ -21,7 +21,7 @@ public class AtomSites extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class AtomSites extends BaseCifCategory {
      * @return FractTransfMatrix
      */
     public FractTransfMatrix getFractTransfMatrix() {
-        return (FractTransfMatrix) (isText ? getTextColumn("fract_transf_matrix") : getBinaryColumn("fract_transf_matrix", "FractTransfMatrix"));
+        return (FractTransfMatrix) (isText ? getTextColumn("fract_transf_matrix") : getBinaryColumn("fract_transf_matrix"));
     }
 
     /**
@@ -55,6 +55,6 @@ public class AtomSites extends BaseCifCategory {
      * @return FractTransfVector
      */
     public FractTransfVector getFractTransfVector() {
-        return (FractTransfVector) (isText ? getTextColumn("fract_transf_vector") : getBinaryColumn("fract_transf_vector", "FractTransfVector"));
+        return (FractTransfVector) (isText ? getTextColumn("fract_transf_vector") : getBinaryColumn("fract_transf_vector"));
     }
 }

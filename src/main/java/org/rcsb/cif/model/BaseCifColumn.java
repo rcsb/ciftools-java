@@ -1,16 +1,11 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.generated.atomsite.CartnX;
-import org.rcsb.cif.model.generated.atomsite.CartnY;
-import org.rcsb.cif.model.generated.atomsite.CartnZ;
-import org.rcsb.cif.model.generated.atomsite.Occupancy;
 import org.rcsb.cif.schema.Schema;
 
 import java.lang.reflect.InvocationTargetException;
 import java.text.DecimalFormat;
 import java.util.Map;
-import java.util.Optional;
 import java.util.function.Predicate;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -67,21 +62,6 @@ public abstract class BaseCifColumn implements CifColumn {
             } else {
                 return new StrColumn(fieldName, rowCount, textData);
             }
-        }
-    }
-
-    @Override
-    public Type inferType() {
-        if (isText) {
-            if (isIntData(textData)) {
-                return Type.INT;
-            } else if (isFloatData(textData)) {
-                return Type.FLOAT;
-            } else {
-                return Type.STRING;
-            }
-        } else {
-            throw new UnsupportedOperationException("impl me");
         }
     }
 
@@ -210,17 +190,12 @@ public abstract class BaseCifColumn implements CifColumn {
         return ValueKind.values()[mask[row]];
     }
 
-    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
-    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
+    protected static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
+    protected static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
+    protected static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
 
     @Override
-    public Optional<DecimalFormat> defaultFormat() {
-        if (this instanceof CartnX || this instanceof CartnY || this instanceof CartnZ) {
-            return Optional.of(FLOAT_3);
-        } else if (this instanceof Occupancy) {
-            return Optional.of(FLOAT_2);
-        }
-
-        return Optional.empty();
+    public String format(double val) {
+        return FLOAT_6.format(val);
     }
 }

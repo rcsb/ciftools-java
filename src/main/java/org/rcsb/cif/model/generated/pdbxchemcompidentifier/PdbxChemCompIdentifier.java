@@ -22,7 +22,7 @@ public class PdbxChemCompIdentifier extends BaseCifCategory {
      * @return CompId
      */
     public CompId getCompId() {
-        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id", "CompId"));
+        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class PdbxChemCompIdentifier extends BaseCifCategory {
      * @return Identifier
      */
     public Identifier getIdentifier() {
-        return (Identifier) (isText ? getTextColumn("identifier") : getBinaryColumn("identifier", "Identifier"));
+        return (Identifier) (isText ? getTextColumn("identifier") : getBinaryColumn("identifier"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class PdbxChemCompIdentifier extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -48,7 +48,7 @@ public class PdbxChemCompIdentifier extends BaseCifCategory {
      * @return Program
      */
     public Program getProgram() {
-        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program", "Program"));
+        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program"));
     }
 
     /**
@@ -57,6 +57,6 @@ public class PdbxChemCompIdentifier extends BaseCifCategory {
      * @return ProgramVersion
      */
     public ProgramVersion getProgramVersion() {
-        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version", "ProgramVersion"));
+        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version"));
     }
 }

@@ -13,4 +13,9 @@ public class CartnZ extends CoordColumn {
     public CartnZ(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    @Override
+    public String format(double val) {
+        return FLOAT_3.format(val);
+    }
 }

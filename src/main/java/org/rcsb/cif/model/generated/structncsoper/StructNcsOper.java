@@ -26,7 +26,7 @@ public class StructNcsOper extends BaseCifCategory {
      * @return Code
      */
     public Code getCode() {
-        return (Code) (isText ? getTextColumn("code") : getBinaryColumn("code", "Code"));
+        return (Code) (isText ? getTextColumn("code") : getBinaryColumn("code"));
     }
 
     /**
@@ -35,7 +35,7 @@ public class StructNcsOper extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -47,7 +47,7 @@ public class StructNcsOper extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -56,7 +56,7 @@ public class StructNcsOper extends BaseCifCategory {
      * @return Matrix
      */
     public Matrix getMatrix() {
-        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix", "Matrix"));
+        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix"));
     }
 
     /**
@@ -65,6 +65,6 @@ public class StructNcsOper extends BaseCifCategory {
      * @return Vector
      */
     public Vector getVector() {
-        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector", "Vector"));
+        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector"));
     }
 }

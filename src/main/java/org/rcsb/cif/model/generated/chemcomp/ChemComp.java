@@ -38,7 +38,7 @@ public class ChemComp extends BaseCifCategory {
      * @return Formula
      */
     public Formula getFormula() {
-        return (Formula) (isText ? getTextColumn("formula") : getBinaryColumn("formula", "Formula"));
+        return (Formula) (isText ? getTextColumn("formula") : getBinaryColumn("formula"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class ChemComp extends BaseCifCategory {
      * @return FormulaWeight
      */
     public FormulaWeight getFormulaWeight() {
-        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight", "FormulaWeight"));
+        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight"));
     }
 
     /**
@@ -61,7 +61,7 @@ public class ChemComp extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -73,7 +73,7 @@ public class ChemComp extends BaseCifCategory {
      * @return MonNstdFlag
      */
     public MonNstdFlag getMonNstdFlag() {
-        return (MonNstdFlag) (isText ? getTextColumn("mon_nstd_flag") : getBinaryColumn("mon_nstd_flag", "MonNstdFlag"));
+        return (MonNstdFlag) (isText ? getTextColumn("mon_nstd_flag") : getBinaryColumn("mon_nstd_flag"));
     }
 
     /**
@@ -81,7 +81,7 @@ public class ChemComp extends BaseCifCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name", "Name"));
+        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
     }
 
     /**
@@ -92,7 +92,7 @@ public class ChemComp extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -100,6 +100,6 @@ public class ChemComp extends BaseCifCategory {
      * @return PdbxSynonyms
      */
     public PdbxSynonyms getPdbxSynonyms() {
-        return (PdbxSynonyms) (isText ? getTextColumn("pdbx_synonyms") : getBinaryColumn("pdbx_synonyms", "PdbxSynonyms"));
+        return (PdbxSynonyms) (isText ? getTextColumn("pdbx_synonyms") : getBinaryColumn("pdbx_synonyms"));
     }
 }

@@ -22,7 +22,7 @@ public class PdbxStructAssembly extends BaseCifCategory {
      * @return MethodDetails
      */
     public MethodDetails getMethodDetails() {
-        return (MethodDetails) (isText ? getTextColumn("method_details") : getBinaryColumn("method_details", "MethodDetails"));
+        return (MethodDetails) (isText ? getTextColumn("method_details") : getBinaryColumn("method_details"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class PdbxStructAssembly extends BaseCifCategory {
      * @return OligomericDetails
      */
     public OligomericDetails getOligomericDetails() {
-        return (OligomericDetails) (isText ? getTextColumn("oligomeric_details") : getBinaryColumn("oligomeric_details", "OligomericDetails"));
+        return (OligomericDetails) (isText ? getTextColumn("oligomeric_details") : getBinaryColumn("oligomeric_details"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class PdbxStructAssembly extends BaseCifCategory {
      * @return OligomericCount
      */
     public OligomericCount getOligomericCount() {
-        return (OligomericCount) (isText ? getTextColumn("oligomeric_count") : getBinaryColumn("oligomeric_count", "OligomericCount"));
+        return (OligomericCount) (isText ? getTextColumn("oligomeric_count") : getBinaryColumn("oligomeric_count"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class PdbxStructAssembly extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -55,6 +55,6 @@ public class PdbxStructAssembly extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 }

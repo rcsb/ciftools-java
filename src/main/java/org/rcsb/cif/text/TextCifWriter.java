@@ -7,6 +7,7 @@ import org.rcsb.cif.model.generated.CifBlock;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -230,16 +231,8 @@ public class TextCifWriter implements CifWriter {
     }
 
     private void writeFloat(StringBuilder output, double val, /*int floatPrecision, */CifColumn cifColumn) {
-        // TODO change to DecimalFormat or something, honor dynamic precision
-        String s;
-        if (cifColumn.defaultFormat().isPresent()) {
-            s = cifColumn.defaultFormat().get().format(val);
-        } else if (val == Math.round(val)) {
-            s = String.valueOf((int) val);
-        } else {
-            s = String.valueOf(Math.round(val * 1_000_000) / (1_000_000.0));
-        }
-        output.append(s)
+        // TODO honor dynamic precision
+        output.append(cifColumn.format(val))
                 .append(" ");
     }
 

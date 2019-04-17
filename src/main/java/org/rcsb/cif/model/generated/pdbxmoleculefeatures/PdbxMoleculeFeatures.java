@@ -22,7 +22,7 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id", "PrdId"));
+        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return Clazz
      */
     public Clazz getClazz() {
-        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class", "Clazz"));
+        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name", "Name"));
+        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
     }
 
     /**
@@ -54,6 +54,6 @@ public class PdbxMoleculeFeatures extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 }

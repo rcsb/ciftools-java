@@ -21,7 +21,7 @@ public class Symmetry extends BaseCifCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id", "EntryId"));
+        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -29,7 +29,7 @@ public class Symmetry extends BaseCifCategory {
      * @return CellSetting
      */
     public CellSetting getCellSetting() {
-        return (CellSetting) (isText ? getTextColumn("cell_setting") : getBinaryColumn("cell_setting", "CellSetting"));
+        return (CellSetting) (isText ? getTextColumn("cell_setting") : getBinaryColumn("cell_setting"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class Symmetry extends BaseCifCategory {
      * @return IntTablesNumber
      */
     public IntTablesNumber getIntTablesNumber() {
-        return (IntTablesNumber) (isText ? getTextColumn("Int_Tables_number") : getBinaryColumn("Int_Tables_number", "IntTablesNumber"));
+        return (IntTablesNumber) (isText ? getTextColumn("Int_Tables_number") : getBinaryColumn("Int_Tables_number"));
     }
 
     /**
@@ -51,7 +51,7 @@ public class Symmetry extends BaseCifCategory {
      * @return SpaceGroupNameHall
      */
     public SpaceGroupNameHall getSpaceGroupNameHall() {
-        return (SpaceGroupNameHall) (isText ? getTextColumn("space_group_name_Hall") : getBinaryColumn("space_group_name_Hall", "SpaceGroupNameHall"));
+        return (SpaceGroupNameHall) (isText ? getTextColumn("space_group_name_Hall") : getBinaryColumn("space_group_name_Hall"));
     }
 
     /**
@@ -69,6 +69,6 @@ public class Symmetry extends BaseCifCategory {
      * @return SpaceGroupNameH_M
      */
     public SpaceGroupNameH_M getSpaceGroupNameH_M() {
-        return (SpaceGroupNameH_M) (isText ? getTextColumn("space_group_name_H-M") : getBinaryColumn("space_group_name_H-M", "SpaceGroupNameH_M"));
+        return (SpaceGroupNameH_M) (isText ? getTextColumn("space_group_name_H-M") : getBinaryColumn("space_group_name_H-M"));
     }
 }

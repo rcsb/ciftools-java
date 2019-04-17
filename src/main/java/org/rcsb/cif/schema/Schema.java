@@ -192,7 +192,7 @@ public class Schema {
             getters.add("     */");
             getters.add("    public " + columnClassName + " get" + columnClassName + "() {");
             getters.add("        return (" + columnClassName + ") (isText ? getTextColumn(\"" + columnName +
-                    "\") : getBinaryColumn(\"" + columnName + "\", \"" + columnClassName + "\"));");
+                    "\") : getBinaryColumn(\"" + columnName + "\"));");
             getters.add("    }");
             getters.add("");
 
@@ -224,12 +224,8 @@ public class Schema {
         output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
         output.add("");
         output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
-        output.add("import org.rcsb.cif.schema.Schema;");
         output.add("");
         output.add("import javax.annotation.Generated;");
-        output.add("import java.util.Map;");
-        output.add("import java.util.stream.IntStream;");
-        output.add("import java.util.stream.Stream;");
         output.add("");
 
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
@@ -247,6 +243,20 @@ public class Schema {
         output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
         output.add("        super(name, rowCount, data, mask);");
         output.add("    }");
+
+        if (className.equals("CartnX") || className.equals("CartnY") || className.equals("CartnZ")) {
+            output.add("");
+            output.add("    @Override");
+            output.add("    public String format(double val) {");
+            output.add("        FLOAT_3.format(val);");
+            output.add("    }");
+        } else if (className.equals("Occupancy")) {
+            output.add("");
+            output.add("    @Override");
+            output.add("    public String format(double val) {");
+            output.add("        FLOAT_2.format(val);");
+            output.add("    }");
+        }
 
         // TODO enums, lists, matrix, and vector would be nice to have
 //        if (content.getType().equals("enum")) {

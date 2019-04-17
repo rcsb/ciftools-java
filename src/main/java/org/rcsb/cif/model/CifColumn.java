@@ -1,8 +1,5 @@
 package org.rcsb.cif.model;
 
-import java.text.DecimalFormat;
-import java.util.Optional;
-
 public interface CifColumn {
     String getStringData(int row);
 
@@ -12,15 +9,17 @@ public interface CifColumn {
 
     ValueKind getValueKind(int row);
 
+    String format(double val);
+
 //    Optional<ByteArray> forceEncode();
 
-    Optional<DecimalFormat> defaultFormat();
+//    Optional<DecimalFormat> defaultFormat();
 
-    Type inferType();
-
-    enum Type {
-        STRING,
-        INT,
-        FLOAT
-    }
+//    Type inferType();
+//
+//    enum Type {
+//        STRING,
+//        INT,
+//        FLOAT
+//    }
 }

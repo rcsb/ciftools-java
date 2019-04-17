@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.generated.structconn;
 
-import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.*;
 
 import javax.annotation.Generated;
 

@@ -25,7 +25,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegLabelAsymId
      */
     public BegLabelAsymId getBegLabelAsymId() {
-        return (BegLabelAsymId) (isText ? getTextColumn("beg_label_asym_id") : getBinaryColumn("beg_label_asym_id", "BegLabelAsymId"));
+        return (BegLabelAsymId) (isText ? getTextColumn("beg_label_asym_id") : getBinaryColumn("beg_label_asym_id"));
     }
 
     /**
@@ -37,7 +37,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegLabelCompId
      */
     public BegLabelCompId getBegLabelCompId() {
-        return (BegLabelCompId) (isText ? getTextColumn("beg_label_comp_id") : getBinaryColumn("beg_label_comp_id", "BegLabelCompId"));
+        return (BegLabelCompId) (isText ? getTextColumn("beg_label_comp_id") : getBinaryColumn("beg_label_comp_id"));
     }
 
     /**
@@ -49,7 +49,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegLabelSeqId
      */
     public BegLabelSeqId getBegLabelSeqId() {
-        return (BegLabelSeqId) (isText ? getTextColumn("beg_label_seq_id") : getBinaryColumn("beg_label_seq_id", "BegLabelSeqId"));
+        return (BegLabelSeqId) (isText ? getTextColumn("beg_label_seq_id") : getBinaryColumn("beg_label_seq_id"));
     }
 
     /**
@@ -61,7 +61,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndLabelAsymId
      */
     public EndLabelAsymId getEndLabelAsymId() {
-        return (EndLabelAsymId) (isText ? getTextColumn("end_label_asym_id") : getBinaryColumn("end_label_asym_id", "EndLabelAsymId"));
+        return (EndLabelAsymId) (isText ? getTextColumn("end_label_asym_id") : getBinaryColumn("end_label_asym_id"));
     }
 
     /**
@@ -73,7 +73,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndLabelCompId
      */
     public EndLabelCompId getEndLabelCompId() {
-        return (EndLabelCompId) (isText ? getTextColumn("end_label_comp_id") : getBinaryColumn("end_label_comp_id", "EndLabelCompId"));
+        return (EndLabelCompId) (isText ? getTextColumn("end_label_comp_id") : getBinaryColumn("end_label_comp_id"));
     }
 
     /**
@@ -85,7 +85,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndLabelSeqId
      */
     public EndLabelSeqId getEndLabelSeqId() {
-        return (EndLabelSeqId) (isText ? getTextColumn("end_label_seq_id") : getBinaryColumn("end_label_seq_id", "EndLabelSeqId"));
+        return (EndLabelSeqId) (isText ? getTextColumn("end_label_seq_id") : getBinaryColumn("end_label_seq_id"));
     }
 
     /**
@@ -97,7 +97,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegAuthAsymId
      */
     public BegAuthAsymId getBegAuthAsymId() {
-        return (BegAuthAsymId) (isText ? getTextColumn("beg_auth_asym_id") : getBinaryColumn("beg_auth_asym_id", "BegAuthAsymId"));
+        return (BegAuthAsymId) (isText ? getTextColumn("beg_auth_asym_id") : getBinaryColumn("beg_auth_asym_id"));
     }
 
     /**
@@ -109,7 +109,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegAuthCompId
      */
     public BegAuthCompId getBegAuthCompId() {
-        return (BegAuthCompId) (isText ? getTextColumn("beg_auth_comp_id") : getBinaryColumn("beg_auth_comp_id", "BegAuthCompId"));
+        return (BegAuthCompId) (isText ? getTextColumn("beg_auth_comp_id") : getBinaryColumn("beg_auth_comp_id"));
     }
 
     /**
@@ -121,7 +121,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return BegAuthSeqId
      */
     public BegAuthSeqId getBegAuthSeqId() {
-        return (BegAuthSeqId) (isText ? getTextColumn("beg_auth_seq_id") : getBinaryColumn("beg_auth_seq_id", "BegAuthSeqId"));
+        return (BegAuthSeqId) (isText ? getTextColumn("beg_auth_seq_id") : getBinaryColumn("beg_auth_seq_id"));
     }
 
     /**
@@ -133,7 +133,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndAuthAsymId
      */
     public EndAuthAsymId getEndAuthAsymId() {
-        return (EndAuthAsymId) (isText ? getTextColumn("end_auth_asym_id") : getBinaryColumn("end_auth_asym_id", "EndAuthAsymId"));
+        return (EndAuthAsymId) (isText ? getTextColumn("end_auth_asym_id") : getBinaryColumn("end_auth_asym_id"));
     }
 
     /**
@@ -145,7 +145,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndAuthCompId
      */
     public EndAuthCompId getEndAuthCompId() {
-        return (EndAuthCompId) (isText ? getTextColumn("end_auth_comp_id") : getBinaryColumn("end_auth_comp_id", "EndAuthCompId"));
+        return (EndAuthCompId) (isText ? getTextColumn("end_auth_comp_id") : getBinaryColumn("end_auth_comp_id"));
     }
 
     /**
@@ -157,7 +157,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return EndAuthSeqId
      */
     public EndAuthSeqId getEndAuthSeqId() {
-        return (EndAuthSeqId) (isText ? getTextColumn("end_auth_seq_id") : getBinaryColumn("end_auth_seq_id", "EndAuthSeqId"));
+        return (EndAuthSeqId) (isText ? getTextColumn("end_auth_seq_id") : getBinaryColumn("end_auth_seq_id"));
     }
 
     /**
@@ -169,7 +169,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -178,7 +178,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return SheetId
      */
     public SheetId getSheetId() {
-        return (SheetId) (isText ? getTextColumn("sheet_id") : getBinaryColumn("sheet_id", "SheetId"));
+        return (SheetId) (isText ? getTextColumn("sheet_id") : getBinaryColumn("sheet_id"));
     }
 
     /**
@@ -187,7 +187,7 @@ public class StructSheetRange extends BaseCifCategory {
      * @return PdbxBegPDBInsCode
      */
     public PdbxBegPDBInsCode getPdbxBegPDBInsCode() {
-        return (PdbxBegPDBInsCode) (isText ? getTextColumn("pdbx_beg_PDB_ins_code") : getBinaryColumn("pdbx_beg_PDB_ins_code", "PdbxBegPDBInsCode"));
+        return (PdbxBegPDBInsCode) (isText ? getTextColumn("pdbx_beg_PDB_ins_code") : getBinaryColumn("pdbx_beg_PDB_ins_code"));
     }
 
     /**
@@ -196,6 +196,6 @@ public class StructSheetRange extends BaseCifCategory {
      * @return PdbxEndPDBInsCode
      */
     public PdbxEndPDBInsCode getPdbxEndPDBInsCode() {
-        return (PdbxEndPDBInsCode) (isText ? getTextColumn("pdbx_end_PDB_ins_code") : getBinaryColumn("pdbx_end_PDB_ins_code", "PdbxEndPDBInsCode"));
+        return (PdbxEndPDBInsCode) (isText ? getTextColumn("pdbx_end_PDB_ins_code") : getBinaryColumn("pdbx_end_PDB_ins_code"));
     }
 }

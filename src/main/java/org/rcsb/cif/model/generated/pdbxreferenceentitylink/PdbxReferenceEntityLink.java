@@ -22,7 +22,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return LinkId
      */
     public LinkId getLinkId() {
-        return (LinkId) (isText ? getTextColumn("link_id") : getBinaryColumn("link_id", "LinkId"));
+        return (LinkId) (isText ? getTextColumn("link_id") : getBinaryColumn("link_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id", "PrdId"));
+        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -40,7 +40,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details", "Details"));
+        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
     }
 
     /**
@@ -52,7 +52,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return RefEntityId1
      */
     public RefEntityId1 getRefEntityId1() {
-        return (RefEntityId1) (isText ? getTextColumn("ref_entity_id_1") : getBinaryColumn("ref_entity_id_1", "RefEntityId1"));
+        return (RefEntityId1) (isText ? getTextColumn("ref_entity_id_1") : getBinaryColumn("ref_entity_id_1"));
     }
 
     /**
@@ -64,7 +64,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return RefEntityId2
      */
     public RefEntityId2 getRefEntityId2() {
-        return (RefEntityId2) (isText ? getTextColumn("ref_entity_id_2") : getBinaryColumn("ref_entity_id_2", "RefEntityId2"));
+        return (RefEntityId2) (isText ? getTextColumn("ref_entity_id_2") : getBinaryColumn("ref_entity_id_2"));
     }
 
     /**
@@ -76,7 +76,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return EntitySeqNum1
      */
     public EntitySeqNum1 getEntitySeqNum1() {
-        return (EntitySeqNum1) (isText ? getTextColumn("entity_seq_num_1") : getBinaryColumn("entity_seq_num_1", "EntitySeqNum1"));
+        return (EntitySeqNum1) (isText ? getTextColumn("entity_seq_num_1") : getBinaryColumn("entity_seq_num_1"));
     }
 
     /**
@@ -88,7 +88,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return EntitySeqNum2
      */
     public EntitySeqNum2 getEntitySeqNum2() {
-        return (EntitySeqNum2) (isText ? getTextColumn("entity_seq_num_2") : getBinaryColumn("entity_seq_num_2", "EntitySeqNum2"));
+        return (EntitySeqNum2) (isText ? getTextColumn("entity_seq_num_2") : getBinaryColumn("entity_seq_num_2"));
     }
 
     /**
@@ -103,7 +103,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return CompId1
      */
     public CompId1 getCompId1() {
-        return (CompId1) (isText ? getTextColumn("comp_id_1") : getBinaryColumn("comp_id_1", "CompId1"));
+        return (CompId1) (isText ? getTextColumn("comp_id_1") : getBinaryColumn("comp_id_1"));
     }
 
     /**
@@ -118,7 +118,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return CompId2
      */
     public CompId2 getCompId2() {
-        return (CompId2) (isText ? getTextColumn("comp_id_2") : getBinaryColumn("comp_id_2", "CompId2"));
+        return (CompId2) (isText ? getTextColumn("comp_id_2") : getBinaryColumn("comp_id_2"));
     }
 
     /**
@@ -126,7 +126,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return AtomId1
      */
     public AtomId1 getAtomId1() {
-        return (AtomId1) (isText ? getTextColumn("atom_id_1") : getBinaryColumn("atom_id_1", "AtomId1"));
+        return (AtomId1) (isText ? getTextColumn("atom_id_1") : getBinaryColumn("atom_id_1"));
     }
 
     /**
@@ -134,7 +134,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return AtomId2
      */
     public AtomId2 getAtomId2() {
-        return (AtomId2) (isText ? getTextColumn("atom_id_2") : getBinaryColumn("atom_id_2", "AtomId2"));
+        return (AtomId2) (isText ? getTextColumn("atom_id_2") : getBinaryColumn("atom_id_2"));
     }
 
     /**
@@ -142,7 +142,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return ValueOrder
      */
     public ValueOrder getValueOrder() {
-        return (ValueOrder) (isText ? getTextColumn("value_order") : getBinaryColumn("value_order", "ValueOrder"));
+        return (ValueOrder) (isText ? getTextColumn("value_order") : getBinaryColumn("value_order"));
     }
 
     /**
@@ -150,7 +150,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return Component1
      */
     public Component1 getComponent1() {
-        return (Component1) (isText ? getTextColumn("component_1") : getBinaryColumn("component_1", "Component1"));
+        return (Component1) (isText ? getTextColumn("component_1") : getBinaryColumn("component_1"));
     }
 
     /**
@@ -158,7 +158,7 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return Component2
      */
     public Component2 getComponent2() {
-        return (Component2) (isText ? getTextColumn("component_2") : getBinaryColumn("component_2", "Component2"));
+        return (Component2) (isText ? getTextColumn("component_2") : getBinaryColumn("component_2"));
     }
 
     /**
@@ -166,6 +166,6 @@ public class PdbxReferenceEntityLink extends BaseCifCategory {
      * @return LinkClass
      */
     public LinkClass getLinkClass() {
-        return (LinkClass) (isText ? getTextColumn("link_class") : getBinaryColumn("link_class", "LinkClass"));
+        return (LinkClass) (isText ? getTextColumn("link_class") : getBinaryColumn("link_class"));
     }
 }

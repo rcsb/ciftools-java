@@ -23,7 +23,7 @@ public class AtomSite extends BaseCifCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id", "AuthAsymId"));
+        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -33,7 +33,7 @@ public class AtomSite extends BaseCifCategory {
      * @return AuthAtomId
      */
     public AuthAtomId getAuthAtomId() {
-        return (AuthAtomId) (isText ? getTextColumn("auth_atom_id") : getBinaryColumn("auth_atom_id", "AuthAtomId"));
+        return (AuthAtomId) (isText ? getTextColumn("auth_atom_id") : getBinaryColumn("auth_atom_id"));
     }
 
     /**
@@ -43,7 +43,7 @@ public class AtomSite extends BaseCifCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id", "AuthCompId"));
+        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -68,7 +68,7 @@ public class AtomSite extends BaseCifCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id", "AuthSeqId"));
+        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -96,7 +96,7 @@ public class AtomSite extends BaseCifCategory {
      * @return BIsoOrEquiv
      */
     public BIsoOrEquiv getBIsoOrEquiv() {
-        return (BIsoOrEquiv) (isText ? getTextColumn("B_iso_or_equiv") : getBinaryColumn("B_iso_or_equiv", "BIsoOrEquiv"));
+        return (BIsoOrEquiv) (isText ? getTextColumn("B_iso_or_equiv") : getBinaryColumn("B_iso_or_equiv"));
     }
 
     /**
@@ -107,7 +107,7 @@ public class AtomSite extends BaseCifCategory {
      * @return CartnX
      */
     public CartnX getCartnX() {
-        return (CartnX) (isText ? getTextColumn("Cartn_x") : getBinaryColumn("Cartn_x", "CartnX"));
+        return (CartnX) (isText ? getTextColumn("Cartn_x") : getBinaryColumn("Cartn_x"));
     }
 
     /**
@@ -118,7 +118,7 @@ public class AtomSite extends BaseCifCategory {
      * @return CartnY
      */
     public CartnY getCartnY() {
-        return (CartnY) (isText ? getTextColumn("Cartn_y") : getBinaryColumn("Cartn_y", "CartnY"));
+        return (CartnY) (isText ? getTextColumn("Cartn_y") : getBinaryColumn("Cartn_y"));
     }
 
     /**
@@ -129,7 +129,7 @@ public class AtomSite extends BaseCifCategory {
      * @return CartnZ
      */
     public CartnZ getCartnZ() {
-        return (CartnZ) (isText ? getTextColumn("Cartn_z") : getBinaryColumn("Cartn_z", "CartnZ"));
+        return (CartnZ) (isText ? getTextColumn("Cartn_z") : getBinaryColumn("Cartn_z"));
     }
 
     /**
@@ -139,7 +139,7 @@ public class AtomSite extends BaseCifCategory {
      * @return GroupPDB
      */
     public GroupPDB getGroupPDB() {
-        return (GroupPDB) (isText ? getTextColumn("group_PDB") : getBinaryColumn("group_PDB", "GroupPDB"));
+        return (GroupPDB) (isText ? getTextColumn("group_PDB") : getBinaryColumn("group_PDB"));
     }
 
     /**
@@ -163,7 +163,7 @@ public class AtomSite extends BaseCifCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id", "Id"));
+        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
     }
 
     /**
@@ -176,7 +176,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelAltId
      */
     public LabelAltId getLabelAltId() {
-        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id", "LabelAltId"));
+        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id"));
     }
 
     /**
@@ -189,7 +189,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id", "LabelAsymId"));
+        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -200,7 +200,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelAtomId
      */
     public LabelAtomId getLabelAtomId() {
-        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id", "LabelAtomId"));
+        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id"));
     }
 
     /**
@@ -211,7 +211,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id", "LabelCompId"));
+        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -219,7 +219,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelEntityId
      */
     public LabelEntityId getLabelEntityId() {
-        return (LabelEntityId) (isText ? getTextColumn("label_entity_id") : getBinaryColumn("label_entity_id", "LabelEntityId"));
+        return (LabelEntityId) (isText ? getTextColumn("label_entity_id") : getBinaryColumn("label_entity_id"));
     }
 
     /**
@@ -228,7 +228,7 @@ public class AtomSite extends BaseCifCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id", "LabelSeqId"));
+        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -238,7 +238,7 @@ public class AtomSite extends BaseCifCategory {
      * @return Occupancy
      */
     public Occupancy getOccupancy() {
-        return (Occupancy) (isText ? getTextColumn("occupancy") : getBinaryColumn("occupancy", "Occupancy"));
+        return (Occupancy) (isText ? getTextColumn("occupancy") : getBinaryColumn("occupancy"));
     }
 
     /**
@@ -247,7 +247,7 @@ public class AtomSite extends BaseCifCategory {
      * @return TypeSymbol
      */
     public TypeSymbol getTypeSymbol() {
-        return (TypeSymbol) (isText ? getTextColumn("type_symbol") : getBinaryColumn("type_symbol", "TypeSymbol"));
+        return (TypeSymbol) (isText ? getTextColumn("type_symbol") : getBinaryColumn("type_symbol"));
     }
 
     /**
@@ -255,7 +255,7 @@ public class AtomSite extends BaseCifCategory {
      * @return PdbxPDBInsCode
      */
     public PdbxPDBInsCode getPdbxPDBInsCode() {
-        return (PdbxPDBInsCode) (isText ? getTextColumn("pdbx_PDB_ins_code") : getBinaryColumn("pdbx_PDB_ins_code", "PdbxPDBInsCode"));
+        return (PdbxPDBInsCode) (isText ? getTextColumn("pdbx_PDB_ins_code") : getBinaryColumn("pdbx_PDB_ins_code"));
     }
 
     /**
@@ -263,7 +263,7 @@ public class AtomSite extends BaseCifCategory {
      * @return PdbxPDBModelNum
      */
     public PdbxPDBModelNum getPdbxPDBModelNum() {
-        return (PdbxPDBModelNum) (isText ? getTextColumn("pdbx_PDB_model_num") : getBinaryColumn("pdbx_PDB_model_num", "PdbxPDBModelNum"));
+        return (PdbxPDBModelNum) (isText ? getTextColumn("pdbx_PDB_model_num") : getBinaryColumn("pdbx_PDB_model_num"));
     }
 
     /**
@@ -272,6 +272,6 @@ public class AtomSite extends BaseCifCategory {
      * @return PdbxFormalCharge
      */
     public PdbxFormalCharge getPdbxFormalCharge() {
-        return (PdbxFormalCharge) (isText ? getTextColumn("pdbx_formal_charge") : getBinaryColumn("pdbx_formal_charge", "PdbxFormalCharge"));
+        return (PdbxFormalCharge) (isText ? getTextColumn("pdbx_formal_charge") : getBinaryColumn("pdbx_formal_charge"));
     }
 }

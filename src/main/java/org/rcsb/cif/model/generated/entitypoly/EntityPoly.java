@@ -21,7 +21,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id", "EntityId"));
+        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -31,7 +31,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return NstdLinkage
      */
     public NstdLinkage getNstdLinkage() {
-        return (NstdLinkage) (isText ? getTextColumn("nstd_linkage") : getBinaryColumn("nstd_linkage", "NstdLinkage"));
+        return (NstdLinkage) (isText ? getTextColumn("nstd_linkage") : getBinaryColumn("nstd_linkage"));
     }
 
     /**
@@ -40,7 +40,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return NstdMonomer
      */
     public NstdMonomer getNstdMonomer() {
-        return (NstdMonomer) (isText ? getTextColumn("nstd_monomer") : getBinaryColumn("nstd_monomer", "NstdMonomer"));
+        return (NstdMonomer) (isText ? getTextColumn("nstd_monomer") : getBinaryColumn("nstd_monomer"));
     }
 
     /**
@@ -48,7 +48,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type", "Type"));
+        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
     }
 
     /**
@@ -56,7 +56,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return PdbxStrandId
      */
     public PdbxStrandId getPdbxStrandId() {
-        return (PdbxStrandId) (isText ? getTextColumn("pdbx_strand_id") : getBinaryColumn("pdbx_strand_id", "PdbxStrandId"));
+        return (PdbxStrandId) (isText ? getTextColumn("pdbx_strand_id") : getBinaryColumn("pdbx_strand_id"));
     }
 
     /**
@@ -66,7 +66,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return PdbxSeqOneLetterCode
      */
     public PdbxSeqOneLetterCode getPdbxSeqOneLetterCode() {
-        return (PdbxSeqOneLetterCode) (isText ? getTextColumn("pdbx_seq_one_letter_code") : getBinaryColumn("pdbx_seq_one_letter_code", "PdbxSeqOneLetterCode"));
+        return (PdbxSeqOneLetterCode) (isText ? getTextColumn("pdbx_seq_one_letter_code") : getBinaryColumn("pdbx_seq_one_letter_code"));
     }
 
     /**
@@ -100,7 +100,7 @@ public class EntityPoly extends BaseCifCategory {
      * @return PdbxSeqOneLetterCodeCan
      */
     public PdbxSeqOneLetterCodeCan getPdbxSeqOneLetterCodeCan() {
-        return (PdbxSeqOneLetterCodeCan) (isText ? getTextColumn("pdbx_seq_one_letter_code_can") : getBinaryColumn("pdbx_seq_one_letter_code_can", "PdbxSeqOneLetterCodeCan"));
+        return (PdbxSeqOneLetterCodeCan) (isText ? getTextColumn("pdbx_seq_one_letter_code_can") : getBinaryColumn("pdbx_seq_one_letter_code_can"));
     }
 
     /**
@@ -108,6 +108,6 @@ public class EntityPoly extends BaseCifCategory {
      * @return PdbxTargetIdentifier
      */
     public PdbxTargetIdentifier getPdbxTargetIdentifier() {
-        return (PdbxTargetIdentifier) (isText ? getTextColumn("pdbx_target_identifier") : getBinaryColumn("pdbx_target_identifier", "PdbxTargetIdentifier"));
+        return (PdbxTargetIdentifier) (isText ? getTextColumn("pdbx_target_identifier") : getBinaryColumn("pdbx_target_identifier"));
     }
 }
