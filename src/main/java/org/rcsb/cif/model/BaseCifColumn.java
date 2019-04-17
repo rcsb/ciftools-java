@@ -1,10 +1,10 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.binary.data.ByteArray;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
-import org.rcsb.cif.binary.encoding.*;
-import org.rcsb.cif.model.generated.atomsite.*;
+import org.rcsb.cif.model.generated.atomsite.CartnX;
+import org.rcsb.cif.model.generated.atomsite.CartnY;
+import org.rcsb.cif.model.generated.atomsite.CartnZ;
+import org.rcsb.cif.model.generated.atomsite.Occupancy;
 import org.rcsb.cif.schema.Schema;
 
 import java.lang.reflect.InvocationTargetException;
@@ -70,6 +70,21 @@ public abstract class BaseCifColumn implements CifColumn {
         }
     }
 
+    @Override
+    public Type inferType() {
+        if (isText) {
+            if (isIntData(textData)) {
+                return Type.INT;
+            } else if (isFloatData(textData)) {
+                return Type.FLOAT;
+            } else {
+                return Type.STRING;
+            }
+        } else {
+            throw new UnsupportedOperationException("impl me");
+        }
+    }
+
     private static boolean isIntData(String[] textData) {
         return isNumberData(textData, BaseCifColumn::parsableAsInt);
     }
@@ -90,6 +105,7 @@ public abstract class BaseCifColumn implements CifColumn {
     private static boolean parsableAsInt(String datum) {
         try {
             Integer.parseInt(datum);
+//            return datum.contains(".");
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -197,50 +213,50 @@ public abstract class BaseCifColumn implements CifColumn {
     private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
     private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
 
-    private Optional<ByteArray> deltaRLE(CifColumn column) {
-        IntColumn intColumn = (IntColumn) column;
-        return Optional.of(EncodedDataFactory.int32Array(intColumn.values().toArray())
-                .encode(new DeltaEncoding())
-                .encode(new RunLengthEncoding())
-                .encode(new IntegerPackingEncoding())
-                .encode(new ByteArrayEncoding()));
-    }
+//    private Optional<ByteArray> deltaRLE(CifColumn column) {
+//        IntColumn intColumn = (IntColumn) column;
+//        return Optional.of(EncodedDataFactory.int32Array(intColumn.values().toArray())
+//                .encode(new DeltaEncoding())
+//                .encode(new RunLengthEncoding())
+//                .encode(new IntegerPackingEncoding())
+//                .encode(new ByteArrayEncoding()));
+//    }
+//
+//    private Optional<ByteArray> fixedPoint2(CifColumn column) {
+//        FloatColumn floatColumn = (FloatColumn) column;
+//        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
+//                .encode(new FixedPointEncoding(100))
+//                .encode(new DeltaEncoding())
+//                .encode(new IntegerPackingEncoding())
+//                .encode(new ByteArrayEncoding()));
+//    }
+//
+//    private Optional<ByteArray> fixedPoint3(CifColumn column) {
+//        FloatColumn floatColumn = (FloatColumn) column;
+//        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
+//                .encode(new FixedPointEncoding(1000))
+//                .encode(new DeltaEncoding())
+//                .encode(new IntegerPackingEncoding())
+//                .encode(new ByteArrayEncoding()));
+//    }
 
-    private Optional<ByteArray> fixedPoint2(CifColumn column) {
-        FloatColumn floatColumn = (FloatColumn) column;
-        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
-                .encode(new FixedPointEncoding(100))
-                .encode(new DeltaEncoding())
-                .encode(new IntegerPackingEncoding())
-                .encode(new ByteArrayEncoding()));
-    }
-
-    private Optional<ByteArray> fixedPoint3(CifColumn column) {
-        FloatColumn floatColumn = (FloatColumn) column;
-        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
-                .encode(new FixedPointEncoding(1000))
-                .encode(new DeltaEncoding())
-                .encode(new IntegerPackingEncoding())
-                .encode(new ByteArrayEncoding()));
-    }
-
-    @Override
-    public Optional<ByteArray> forceEncode() {
-        // in a perfect OO-world, these would live with there respective impls
-        if (this instanceof CartnX || this instanceof CartnY || this instanceof CartnZ) {
-            return fixedPoint3(this);
-        } else if (this instanceof Occupancy) {
-            return fixedPoint2(this);
-        } else if (this instanceof PdbxFormalCharge) {
-            return deltaRLE(this);
-        } else if (this instanceof AuthSeqId) {
-            return deltaRLE(this);
-        } else if (this instanceof PdbxPDBModelNum) {
-            return deltaRLE(this);
-        }
-
-        return Optional.empty();
-    }
+//    @Override
+//    public Optional<ByteArray> forceEncode() {
+//        // in a perfect OO-world, these would live with there respective impls
+//        if (this instanceof CartnX || this instanceof CartnY || this instanceof CartnZ) {
+//            return fixedPoint3(this);
+//        } else if (this instanceof Occupancy) {
+//            return fixedPoint2(this);
+//        } else if (this instanceof PdbxFormalCharge) {
+//            return deltaRLE(this);
+//        } else if (this instanceof AuthSeqId) {
+//            return deltaRLE(this);
+//        } else if (this instanceof PdbxPDBModelNum) {
+//            return deltaRLE(this);
+//        }
+//
+//        return Optional.empty();
+//    }
 
     @Override
     public Optional<DecimalFormat> defaultFormat() {

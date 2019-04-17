@@ -18,7 +18,6 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -65,7 +64,6 @@ public class BinaryCifWriter implements CifWriter {
 
                 for (String fieldName : cifCategory.getColumnNames()) {
                     logger.debug("encoding column: {}.{}", categoryName, fieldName);
-                    System.out.println(categoryName + "." + fieldName + " " + (cifCategory.getColumn(fieldName) instanceof StrColumn ? "str" : cifCategory.getColumn(fieldName) instanceof FloatColumn ? "float" : "int"));
                     fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
                 }
 
@@ -79,20 +77,23 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> classifyColumn(CifColumn cifColumn) {
-        // TODO support for auto encoding etc - provide option to auto classify
-        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
-        if (forceEncode.isPresent()) {
-            System.out.println("force encoding " + cifColumn.getName());
-            return encodeColumn(cifColumn, forceEncode.get());
-        } else if (cifColumn instanceof FloatColumn) { // TODO only on auto-encode
+//        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
+//        if (forceEncode.isPresent()) {
+//            System.out.println("force encoding " + cifColumn.getName());
+//            System.out.println(forceEncode.get().getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
+//            return encodeColumn(cifColumn, forceEncode.get());
+//        } else
+        if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.float64Array(floatCol.values().toArray())
                     .classify();
+//            System.out.println(byteArray.getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
             return encodeColumn(cifColumn, byteArray);
-        } else if (cifColumn instanceof IntColumn) { // TODO only on auto-encode
+        } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.int32Array(intCol.values().toArray())
                     .classify();
+//            System.out.println(byteArray.getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;

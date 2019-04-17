@@ -11,8 +11,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 
 /**
  * Origin of files:
@@ -27,10 +26,10 @@ public class TestHelper {
 
     @SuppressWarnings("unchecked")
     public static final Map<String, List<Object>> TEST_CASES = Stream.of(
-//            Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
-//            Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
-            Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList())
-//            Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
+            Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
+            Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
+            Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
+            Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
     ).collect(Collectors.toMap((List l) -> (String) l.get(0), (List l) -> (List<Object>) l.subList(1, l.size())));
 
     public static void assertEqualsIgnoringWhiteSpaces(String expected, String actual) {
@@ -43,6 +42,34 @@ public class TestHelper {
                 .map(String::trim)
                 .collect(Collectors.joining("\n"));
         assertEquals(expected.replaceAll("[ ]+", " "), actual.replaceAll("[ ]+", " "));
+    }
+
+    public static void assertEqualsIgnoringWhiteSpacesAndNumberFormat(String expected, String actual) {
+        List<String> exp = Pattern.compile("\\s+").splitAsStream(expected).collect(Collectors.toList());
+        List<String> act = Pattern.compile("\\s+").splitAsStream(actual).collect(Collectors.toList());
+
+        if (exp.size() != act.size()) {
+            assertEquals(expected, actual);
+        }
+
+        for (int i = 0; i < exp.size(); i++) {
+            String e = exp.get(i);
+            String a = act.get(i);
+
+            try {
+                int i1 = Integer.parseInt(e);
+                int i2 = Integer.parseInt(a);
+                assertEquals(i1, i2);
+            } catch (NumberFormatException exp1) {
+                try {
+                    double d1 = Double.parseDouble(e);
+                    double d2 = Double.parseDouble(a);
+                    assertEquals(d1, d2, TestHelper.ERROR_MARGIN);
+                } catch (NumberFormatException exp2) {
+                    assertEquals(e, a);
+                }
+            }
+        }
     }
 
     public static InputStream getInputStream(String localPath) {
