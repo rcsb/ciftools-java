@@ -4,6 +4,9 @@ import org.junit.Test;
 
 import java.io.IOException;
 
+/**
+ * Ensure that the provided Demo is actually running.
+ */
 public class DemoTest {
     @Test
     public void testDemo() throws IOException {

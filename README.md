@@ -35,7 +35,7 @@ class Demo {
         AtomSite _atom_site = data.getAtomSite();
         CartnX cartn_x = _atom_site.getCartnX();
 
-        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the 
+        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
         // schema for column 'cartn_x'
         OptionalDouble average_cartn_x = cartn_x.values().average();
         average_cartn_x.ifPresent(System.out::println);
@@ -44,7 +44,7 @@ class Demo {
         OptionalInt last_label_seq_id = _atom_site.getLabelSeqId().values().max();
         last_label_seq_id.ifPresent(System.out::println);
 
-        // print entry id - or values may be text
+        // print entry id - or #values() may be text
         Optional<String> stringValue = data.getEntry().getId().values().findFirst();
         stringValue.ifPresent(System.out::println);
     }

@@ -41,7 +41,7 @@ public class MessagePackCodecTest {
 
         System.out.println(Arrays.toString(EncodedDataFactory.byteArray(implBytes).toUint8Array(null).getData()));
 
-        // TODO probably differences between reference and reduced implementation
+        // probably differences between reference and reduced implementation
         assertArrayEquals(refBytes, implBytes);
     }
 

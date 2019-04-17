@@ -20,15 +20,15 @@ import static org.rcsb.cif.schema.Schema.toPackageName;
 
 public abstract class BaseCifColumn implements CifColumn {
     private final String name;
-    protected final int rowCount;
+    final int rowCount;
 
     protected final boolean isText;
-    protected final String[] textData;
+    private final String[] textData;
 
-    protected final boolean hasMask;
+    private final boolean hasMask;
     protected final int[] mask;
 
-    public BaseCifColumn(String name, int rowCount, String[] data) {
+    BaseCifColumn(String name, int rowCount, String[] data) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -125,11 +125,11 @@ public abstract class BaseCifColumn implements CifColumn {
         }
     }
 
-    protected String getTextData(int row) {
+    String getTextData(int row) {
         return honorValueKind(textData[row]);
     }
 
-    protected String honorValueKind(String value) {
+    String honorValueKind(String value) {
         return (".".equals(value) || "?".equals(value)) ? "" : value;
     }
 
@@ -140,7 +140,7 @@ public abstract class BaseCifColumn implements CifColumn {
 
     protected abstract String getBinaryStringData(int row);
 
-    public BaseCifColumn(String name, int rowCount, int[] mask) {
+    BaseCifColumn(String name, int rowCount, int[] mask) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -212,51 +212,6 @@ public abstract class BaseCifColumn implements CifColumn {
 
     private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
     private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
-
-//    private Optional<ByteArray> deltaRLE(CifColumn column) {
-//        IntColumn intColumn = (IntColumn) column;
-//        return Optional.of(EncodedDataFactory.int32Array(intColumn.values().toArray())
-//                .encode(new DeltaEncoding())
-//                .encode(new RunLengthEncoding())
-//                .encode(new IntegerPackingEncoding())
-//                .encode(new ByteArrayEncoding()));
-//    }
-//
-//    private Optional<ByteArray> fixedPoint2(CifColumn column) {
-//        FloatColumn floatColumn = (FloatColumn) column;
-//        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
-//                .encode(new FixedPointEncoding(100))
-//                .encode(new DeltaEncoding())
-//                .encode(new IntegerPackingEncoding())
-//                .encode(new ByteArrayEncoding()));
-//    }
-//
-//    private Optional<ByteArray> fixedPoint3(CifColumn column) {
-//        FloatColumn floatColumn = (FloatColumn) column;
-//        return Optional.of(EncodedDataFactory.float64Array(floatColumn.values().toArray())
-//                .encode(new FixedPointEncoding(1000))
-//                .encode(new DeltaEncoding())
-//                .encode(new IntegerPackingEncoding())
-//                .encode(new ByteArrayEncoding()));
-//    }
-
-//    @Override
-//    public Optional<ByteArray> forceEncode() {
-//        // in a perfect OO-world, these would live with there respective impls
-//        if (this instanceof CartnX || this instanceof CartnY || this instanceof CartnZ) {
-//            return fixedPoint3(this);
-//        } else if (this instanceof Occupancy) {
-//            return fixedPoint2(this);
-//        } else if (this instanceof PdbxFormalCharge) {
-//            return deltaRLE(this);
-//        } else if (this instanceof AuthSeqId) {
-//            return deltaRLE(this);
-//        } else if (this instanceof PdbxPDBModelNum) {
-//            return deltaRLE(this);
-//        }
-//
-//        return Optional.empty();
-//    }
 
     @Override
     public Optional<DecimalFormat> defaultFormat() {

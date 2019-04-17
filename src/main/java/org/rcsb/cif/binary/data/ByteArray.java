@@ -73,7 +73,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         int[] ints = new int[length()];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
         for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.get() & 0xFF;;
+            ints[i] = byteBuffer.get() & 0xFF;
         }
         return new Uint8Array(ints, encoding);
     }

@@ -57,7 +57,7 @@ public class CifWriterTest {
 
         System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
 
-        // TODO cannot match to David's bcif data as column types differ slightly
+        // cannot match to David's bcif data as column types differ slightly
 //        assertEquals(original, copy);
     }
 }

@@ -48,9 +48,9 @@ public class Classifier {
     }
 
     static class IntColumnInfo {
-        boolean signed;
-        int limit8;
-        int limit16;
+        final boolean signed;
+        final int limit8;
+        final int limit16;
 
         IntColumnInfo(boolean signed, int limit8, int limit16) {
             this.signed = signed;

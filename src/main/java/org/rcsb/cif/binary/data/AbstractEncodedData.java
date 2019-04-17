@@ -5,7 +5,7 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.util.LinkedList;
 
 public abstract class AbstractEncodedData<D> implements EncodedData<D> {
-    protected final Object data;
+    final Object data;
     private LinkedList<Encoding> encoding;
 
     AbstractEncodedData(Object data, LinkedList<Encoding> encoding) {

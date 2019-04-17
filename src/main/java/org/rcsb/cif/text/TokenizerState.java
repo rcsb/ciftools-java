@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Map;
 
 class TokenizerState {
-    private String data;
+    private final String data;
+    private final int length;
 
     private int position;
-    private int length;
     private boolean isEscaped;
 
     private int lineNumber;

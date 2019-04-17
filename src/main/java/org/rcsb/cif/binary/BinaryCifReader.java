@@ -78,15 +78,9 @@ public class BinaryCifReader implements CifReader {
     }
 
     private CifCategory createCategory(Map<String, Object> encodedCategory) {
-        try {
-            String name = ((String) encodedCategory.get("name")).substring(1);
-            // TODO map structure is compromised
-            Object[] encodedFields = (Object[]) encodedCategory.get("columns");
-            int rowCount = (int) encodedCategory.get("rowCount");
-            return BaseCifCategory.create(name, rowCount, encodedFields);
-        } catch (NullPointerException e) {
-            System.out.println(e);
-            return null;
-        }
+        String name = ((String) encodedCategory.get("name")).substring(1);
+        Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+        int rowCount = (int) encodedCategory.get("rowCount");
+        return BaseCifCategory.create(name, rowCount, encodedFields);
     }
 }

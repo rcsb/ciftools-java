@@ -49,7 +49,7 @@ public class Demo {
         OptionalInt last_label_seq_id = _atom_site.getLabelSeqId().values().max();
         last_label_seq_id.ifPresent(System.out::println);
 
-        // print entry id - or values may be text
+        // print entry id - or #values() may be text
         Optional<String> stringValue = data.getEntry().getId().values().findFirst();
         stringValue.ifPresent(System.out::println);
     }

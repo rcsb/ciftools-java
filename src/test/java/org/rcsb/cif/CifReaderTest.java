@@ -17,12 +17,6 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifReaderTest {
     @Test
-    public void parse3j3q() throws IOException, ParsingException {
-        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/3j3q.bcif");
-        CifReader.parseBinary(inputStream);
-    }
-
-    @Test
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             System.out.println("test cases: " + testCase.getKey() + " - binary parsing");

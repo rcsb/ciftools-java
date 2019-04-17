@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -31,18 +32,6 @@ public class TestHelper {
             Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
             Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
     ).collect(Collectors.toMap((List l) -> (String) l.get(0), (List l) -> (List<Object>) l.subList(1, l.size())));
-
-    public static void assertEqualsIgnoringWhiteSpaces(String expected, String actual) {
-        expected = Pattern.compile("\n")
-                .splitAsStream(expected)
-                .map(String::trim)
-                .collect(Collectors.joining("\n"));
-        actual = Pattern.compile("\n")
-                .splitAsStream(actual)
-                .map(String::trim)
-                .collect(Collectors.joining("\n"));
-        assertEquals(expected.replaceAll("[ ]+", " "), actual.replaceAll("[ ]+", " "));
-    }
 
     public static void assertEqualsIgnoringWhiteSpacesAndNumberFormat(String expected, String actual) {
         List<String> exp = Pattern.compile("\\s+").splitAsStream(expected).collect(Collectors.toList());
@@ -74,7 +63,9 @@ public class TestHelper {
 
     public static InputStream getInputStream(String localPath) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(localPath);
-        return inputStream == null ? TestHelper.class.getResourceAsStream(localPath) : inputStream;
+        InputStream re = inputStream == null ? TestHelper.class.getResourceAsStream(localPath) : inputStream;
+        Objects.requireNonNull(re);
+        return re;
     }
 
     public static byte[] getBytes(String localPath) throws IOException {
