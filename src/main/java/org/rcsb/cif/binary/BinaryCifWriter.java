@@ -18,6 +18,7 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -78,13 +79,17 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> classifyColumn(CifColumn cifColumn) {
-        // TODO support for auto encoding etc
-        if (cifColumn instanceof FloatColumn) {
+        // TODO support for auto encoding etc - provide option to auto classify
+        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
+        if (forceEncode.isPresent()) {
+            System.out.println("force encoding " + cifColumn.getName());
+            return encodeColumn(cifColumn, forceEncode.get());
+        } else if (cifColumn instanceof FloatColumn) { // TODO only on auto-encode
             FloatColumn floatCol = (FloatColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.float64Array(floatCol.values().toArray())
                     .classify();
             return encodeColumn(cifColumn, byteArray);
-        } else if (cifColumn instanceof IntColumn) {
+        } else if (cifColumn instanceof IntColumn) { // TODO only on auto-encode
             IntColumn intCol = (IntColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.int32Array(intCol.values().toArray())
                     .classify();
@@ -198,12 +203,7 @@ public class BinaryCifWriter implements CifWriter {
         boolean allPresent = true;
 
         for (int row = 0; row < length; row++) {
-            ValueKind kind;
-//            try {
-                kind = cifField.getValueKind(row);
-//            } catch (ArrayIndexOutOfBoundsException e) {
-//                kind = ValueKind.PRESENT;
-//            }
+            ValueKind kind = cifField.getValueKind(row);
 
             if (kind != ValueKind.PRESENT) {
                 mask[row] = (byte) kind.ordinal();

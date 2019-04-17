@@ -27,7 +27,7 @@ public class StringArrayCodec {
         int i = 0;
         for (String s : input) {
             // handle null strings
-            if (s == null || s.isEmpty()) {
+            if (s == null) {
                 outputArray[i++] = -1;
                 continue;
             }

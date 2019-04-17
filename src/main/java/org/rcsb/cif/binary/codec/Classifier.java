@@ -9,10 +9,12 @@ import java.util.stream.DoubleStream;
 public class Classifier {
     public static ByteArray classify(Int32Array data) {
         if (data.getData().length < 2) {
+//            System.out.println("int: byte");
             return data.encode(new ByteArrayEncoding());
         }
 
         EncodingSize size = getSize(data);
+//        System.out.println("int: " +size.kind);
 
         switch (size.kind) {
             case "pack":
@@ -102,6 +104,14 @@ public class Classifier {
             super(byteSize.length, byteSize.elem);
             this.kind = kind;
         }
+
+        @Override
+        public String toString() {
+            return "{" +
+                    "kind='" + kind + "\', " +
+                    "length=" + length +
+                    '}';
+        }
     }
 
     private static EncodingSize packingSize(int[] data, IntColumnInfo info) {
@@ -172,6 +182,7 @@ public class Classifier {
         sizes.add(deltaSize(array));
         sizes.add(deltaRleSize(array));
         int min = sizes.stream().mapToInt(encodingSize -> encodingSize.length).min().orElseThrow(NoSuchElementException::new);
+//        System.out.println(sizes);
         return sizes.stream().filter(encodingSize -> encodingSize.length == min).findFirst().orElseThrow(NoSuchElementException::new);
     }
 
@@ -199,6 +210,7 @@ public class Classifier {
 
         EncodingSize size = getSize(EncodedDataFactory.int32Array(intArray));
 
+//        System.out.println("float: " +size.kind);
         Int32Array fp = data.encode(new FixedPointEncoding(multiplier));
         switch (size.kind) {
             case "pack":

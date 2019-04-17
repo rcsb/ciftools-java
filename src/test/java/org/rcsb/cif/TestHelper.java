@@ -27,10 +27,10 @@ public class TestHelper {
 
     @SuppressWarnings("unchecked")
     public static final Map<String, List<Object>> TEST_CASES = Stream.of(
-            Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
-            Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
-            Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
-            Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
+//            Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
+//            Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
+            Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList())
+//            Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
     ).collect(Collectors.toMap((List l) -> (String) l.get(0), (List l) -> (List<Object>) l.subList(1, l.size())));
 
     public static void assertEqualsIgnoringWhiteSpaces(String expected, String actual) {

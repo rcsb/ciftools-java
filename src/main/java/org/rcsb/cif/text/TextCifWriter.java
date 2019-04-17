@@ -131,7 +131,7 @@ public class TextCifWriter implements CifWriter {
             if (cifField instanceof IntColumn) {
                 writeInteger(output, ((IntColumn) cifField).get(row));
             } else if (cifField instanceof FloatColumn) {
-                writeFloat(output, ((FloatColumn) cifField).get(row), floatPrecision);
+                writeFloat(output, ((FloatColumn) cifField).get(row), floatPrecision, cifField);
             } else {
                 String val = cifField.getStringData(row);
                 if (isMultiline(val)) {
@@ -229,12 +229,14 @@ public class TextCifWriter implements CifWriter {
         output.append(" ");
     }
 
-    private void writeFloat(StringBuilder output, double val, int floatPrecision) {
+    private void writeFloat(StringBuilder output, double val, int floatPrecision, CifColumn cifColumn) {
         // TODO change to DecimalFormat or something
         // FIXME honor dynamic precision
         // TODO dirty
         String s;
-        if (val == Math.round(val)) {
+        if (cifColumn.defaultFormat().isPresent()) {
+            s = cifColumn.defaultFormat().get().format(val);
+        } else if (val == Math.round(val)) {
             s = String.valueOf((int) val);
         } else {
             s = String.valueOf(Math.round(val * 1_000_000) / (1_000_000.0));
