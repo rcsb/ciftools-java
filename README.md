@@ -1,7 +1,9 @@
 # CIFTools
 
 CIFTools implements reading and writing of CIF files ([specification](http://www.iucr.org/resources/cif/spec/version1.1/cifsyntax))
-as well as their efficiently encoded counterpart, called BinaryCIF.
+as well as their efficiently encoded counterpart, called BinaryCIF. The idea is to have a robust, type-safe 
+implementation for the handling of CIF files which does not care about the origin of the data: both conventional text-based
+and binary files should be handled the same way.
 
 
 ## Example
