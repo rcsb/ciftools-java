@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 
 import static org.rcsb.cif.schema.Schema.*;
 
-public class BaseCifCategory implements CifCategory {
+public class BaseCifCategory implements Category {
     private static final Logger logger = LoggerFactory.getLogger(BaseCifColumn.class);
     private final String name;
     private final int rowCount;
@@ -60,7 +60,7 @@ public class BaseCifCategory implements CifCategory {
     }
 
     @SuppressWarnings("unchecked")
-    public static CifCategory create(String catName, Map<String, CifColumn> fields) {
+    public static Category create(String catName, Map<String, CifColumn> fields) {
         // well, it's come to this
         // 1. look if category name is in list of considered fields, otherwise don't even bother
         if (filter(catName)) {
@@ -80,7 +80,7 @@ public class BaseCifCategory implements CifCategory {
     }
 
     @SuppressWarnings("unchecked")
-    public static CifCategory create(String name, int rowCount, Object[] encodedFields) {
+    public static Category create(String name, int rowCount, Object[] encodedFields) {
         if (filter(name)) {
             try {
                 Class<? extends BaseCifCategory> category = (Class<? extends BaseCifCategory>) Class.forName(Schema.BASE_PACKAGE

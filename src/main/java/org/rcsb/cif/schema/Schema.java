@@ -2,7 +2,7 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.BlockImpl;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.util.stream.Stream;
  */
 public class Schema {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
-    public static final String BASE_PACKAGE = "org.rcsb.cif.model.generated";
+    public static final String BASE_PACKAGE = "org.rcsb.cif.model";
     /**
      * Collection of categories and columns to include in the generated model.
      */
@@ -89,10 +89,64 @@ public class Schema {
     }
 
     private void writeClasses() throws IOException {
-        writeBlock(CifBlock.class.getSimpleName(), schema, OUTPUT_PATH);
+        writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
+        writeBlockImpl(BlockImpl.class.getSimpleName(), schema, OUTPUT_PATH);
     }
 
-    private void writeBlock(String className, Map<String, Table> content, Path path) throws IOException {
+    private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
+        System.out.println(className);
+
+        StringJoiner output = new StringJoiner("\n");
+        output.add("package " + BASE_PACKAGE + ";");
+        output.add("");
+
+        StringJoiner getters = new StringJoiner("\n");
+
+        getters.add("    String getHeader();");
+        getters.add("");
+
+        getters.add("    " + Category.class.getSimpleName() + " getCategory(String name);");
+        getters.add("");
+
+        getters.add("    List<String> getCategoryNames();");
+        getters.add("");
+
+        for (Map.Entry<String, Table> entry : content.entrySet()) {
+            String categoryName = entry.getKey();
+            Table category = entry.getValue();
+
+            if (!filter.containsKey(categoryName)) {
+                continue;
+            }
+
+            String categoryClassName = toClassName(categoryName);
+
+            getters.add("    /**");
+            String description = Pattern.compile("\n").splitAsStream(category.getDescription())
+                    .map(s -> "     * " + s)
+                    .collect(Collectors.joining("\n"));
+            getters.add(description);
+            getters.add("     * @return " + categoryClassName);
+            getters.add("     */");
+            getters.add("    " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." + categoryClassName +
+                    " get" + categoryClassName + "();");
+            getters.add("");
+        }
+
+        output.add("import javax.annotation.Generated;");
+        output.add("import java.util.List;");
+        output.add("");
+        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
+        output.add("public interface " + className + " {");
+
+        // getters
+        output.add(getters.toString() + "}");
+        output.add("");
+
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+    }
+
+    private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
         System.out.println(className);
 
         StringJoiner output = new StringJoiner("\n");
@@ -129,17 +183,17 @@ public class Schema {
         }
 
         output.add("import org.rcsb.cif.model.BaseCifBlock;");
-        output.add("import org.rcsb.cif.model.CifCategory;");
+        output.add("import org.rcsb.cif.model.Category;");
         output.add("");
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
-        output.add("public class " + className + " extends " + BaseCifBlock.class.getSimpleName() + " {");
+        output.add("public class " + className + " implements " + BlockImpl.class.getSimpleName() + " {");
 
         // constructor
-        output.add("    public " + className + "(Map<String, CifCategory> categories, String header) {");
+        output.add("    public " + className + "(Map<String, Category> categories, String header) {");
         output.add("        super(categories, header, new ArrayList<>());");
         output.add("    }");
         output.add("");
@@ -366,7 +420,7 @@ public class Schema {
 
     private final CifFile cifFile;
     private final Map<String, Table> schema;
-    private final Map<String, BaseCifBlock> categories;
+    private final Map<String, Block> categories;
     private final Map<String, String> links;
 
     private void getFieldData() {
@@ -479,7 +533,7 @@ public class Schema {
         }
     }
 
-    private List<String> getCode(BaseCifBlock saveFrame) {
+    private List<String> getCode(Block saveFrame) {
         try {
             CifColumn code = getField("item_type", "code", saveFrame);
             return Stream.concat(Stream.of(code.getStringData(0)), getEnums(saveFrame)).collect(Collectors.toList());
@@ -488,7 +542,7 @@ public class Schema {
         }
     }
 
-    private Stream<String> getEnums(BaseCifBlock saveFrame) {
+    private Stream<String> getEnums(Block saveFrame) {
         try {
             CifColumn value = getField("item_enumeration", "value", saveFrame);
             return IntStream.range(0, value.getRowCount())
@@ -498,7 +552,7 @@ public class Schema {
         }
     }
 
-    private String getSubCategory(BaseCifBlock saveFrame) {
+    private String getSubCategory(Block saveFrame) {
         try {
             CifColumn value = getField("item_sub_category", "id", saveFrame);
             return value.getStringData(0);
@@ -507,7 +561,7 @@ public class Schema {
         }
     }
 
-    private String getDescription(BaseCifBlock saveFrame) {
+    private String getDescription(Block saveFrame) {
         CifColumn value = getField("item_description", "description", saveFrame);
         return Pattern.compile("\n").splitAsStream(value.getStringData(0))
                 .map(String::trim)
@@ -516,9 +570,9 @@ public class Schema {
                 .replaceAll("(\\[[1-3]])+", "");
     }
 
-    private CifColumn getField(String category, String field, BaseCifBlock saveFrame) {
+    private CifColumn getField(String category, String field, Block saveFrame) {
         try {
-            CifCategory cat = saveFrame.getCategory(category);
+            Category cat = saveFrame.getCategory(category);
             return cat.getColumn(field);
         } catch (NullPointerException e) {
             String linkName = links.get(saveFrame.getHeader());
@@ -534,7 +588,7 @@ public class Schema {
                 .filter(saveFrame -> saveFrame.getHeader().startsWith("_"))
                 .forEach(saveFrame -> {
                     categories.put(saveFrame.getHeader(), saveFrame);
-                    CifCategory item_linked = saveFrame.getCategory("item_linked");
+                    Category item_linked = saveFrame.getCategory("item_linked");
 
                     if (item_linked == null) {
                         return;

@@ -1,13 +1,11 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.model.generated.CifBlock;
-
 import java.util.List;
 
 public interface CifFile {
-    List<CifBlock> getBlocks();
+    List<BlockImpl> getBlocks();
 
-    default CifBlock getFirstBlock() {
+    default BlockImpl getFirstBlock() {
         return getBlocks().get(0);
     }
 }

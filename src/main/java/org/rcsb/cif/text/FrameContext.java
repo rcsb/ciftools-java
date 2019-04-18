@@ -1,18 +1,18 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.model.CifCategory;
+import org.rcsb.cif.model.Category;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 class FrameContext {
-    private final Map<String, CifCategory> categories;
+    private final Map<String, Category> categories;
 
     FrameContext() {
         this.categories = new LinkedHashMap<>();
     }
 
-    Map<String, CifCategory> getCategories() {
+    Map<String, Category> getCategories() {
         return categories;
     }
 }

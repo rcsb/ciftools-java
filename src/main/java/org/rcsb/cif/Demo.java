@@ -1,9 +1,9 @@
 package org.rcsb.cif;
 
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.generated.CifBlock;
-import org.rcsb.cif.model.generated.atomsite.AtomSite;
-import org.rcsb.cif.model.generated.atomsite.CartnX;
+import org.rcsb.cif.model.BlockImpl;
+import org.rcsb.cif.model.atomsite.AtomSite;
+import org.rcsb.cif.model.atomsite.CartnX;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,7 +33,7 @@ public class Demo {
         }
 
         // get first block of CIF
-        CifBlock data = cifFile.getFirstBlock();
+        BlockImpl data = cifFile.getFirstBlock();
 
         // get category with name '_atom_site' from first block - access is type-safe, all classes are
         // inferred from the CIF schema

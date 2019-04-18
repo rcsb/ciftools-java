@@ -2,9 +2,9 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.BaseCifBlock;
-import org.rcsb.cif.model.TextCifFile;
-import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.TextFile;
+import org.rcsb.cif.model.BlockImpl;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -15,18 +15,18 @@ import java.util.stream.Collectors;
 
 public class TextCifReader implements CifReader {
     @Override
-    public TextCifFile parse(InputStream inputStream) throws ParsingException {
+    public TextFile parse(InputStream inputStream) throws ParsingException {
         return parseText(new BufferedReader(new InputStreamReader(inputStream))
                 .lines()
                 .collect(Collectors.joining(System.lineSeparator())));
     }
 
-    public TextCifFile parseText(String data) throws ParsingException {
+    public TextFile parseText(String data) throws ParsingException {
         if (data.isEmpty()) {
             throw new ParsingException("Cannot parse empty file.");
         }
 
-        final List<CifBlock> dataBlocks = new ArrayList<>();
+        final List<BlockImpl> dataBlocks = new ArrayList<>();
         final TokenizerState tokenizer = new TokenizerState(data);
         String blockHeader = "";
 
@@ -35,9 +35,9 @@ public class TextCifReader implements CifReader {
         boolean inSaveFrame = false;
 
         // the next three initial values are never used in valid files
-        List<BaseCifBlock> saveFrames = new ArrayList<>();
+        List<Block> saveFrames = new ArrayList<>();
         FrameContext saveCtx = new FrameContext();
-        BaseCifBlock saveFrame = new CifBlock(saveCtx.getCategories(), "");
+        Block saveFrame = new BlockImpl(saveCtx.getCategories(), "");
 
         tokenizer.moveNext();
         while (tokenizer.getTokenType() != CifTokenType.END) {
@@ -49,9 +49,9 @@ public class TextCifReader implements CifReader {
                     throw new ParsingException("Unexpected data block inside a save frame.", tokenizer.getLineNumber());
                 }
                 if (blockCtx.getCategories().size() > 0) {
-                    CifBlock cifBlock = new CifBlock(blockCtx.getCategories(), blockHeader);
-                    dataBlocks.add(cifBlock);
-                    cifBlock.getSaveFrames().addAll(saveFrames);
+                    BlockImpl block = new BlockImpl(blockCtx.getCategories(), blockHeader);
+                    dataBlocks.add(block);
+                    block.getSaveFrames().addAll(saveFrames);
                 }
                 blockHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                 blockCtx = new FrameContext();
@@ -72,7 +72,7 @@ public class TextCifReader implements CifReader {
                     inSaveFrame = true;
                     final String safeHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                     saveCtx = new FrameContext();
-                    saveFrame = new CifBlock(saveCtx.getCategories(), safeHeader);
+                    saveFrame = new BlockImpl(saveCtx.getCategories(), safeHeader);
                 }
                 tokenizer.moveNext();
                 // loop
@@ -93,11 +93,11 @@ public class TextCifReader implements CifReader {
         }
 
         if (blockCtx.getCategories().size() > 0 || saveFrames.size() > 0) {
-            CifBlock cifBlock = new CifBlock(blockCtx.getCategories(), blockHeader);
-            dataBlocks.add(cifBlock);
-            cifBlock.getSaveFrames().addAll(saveFrames);
+            BlockImpl block = new BlockImpl(blockCtx.getCategories(), blockHeader);
+            dataBlocks.add(block);
+            block.getSaveFrames().addAll(saveFrames);
         }
 
-        return new TextCifFile(dataBlocks);
+        return new TextFile(dataBlocks);
     }
 }

@@ -4,10 +4,10 @@ import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.BinaryCifFile;
-import org.rcsb.cif.model.CifCategory;
+import org.rcsb.cif.model.BinaryFile;
+import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.BlockImpl;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -58,11 +58,11 @@ public class BinaryCifReader implements CifReader {
 
         String encoder = (String) unpacked.get("encoder");
 
-        List<CifBlock> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
+        List<BlockImpl> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
                 .map(entry -> {
                     Map<String, Object> map = (Map<String, Object>) entry;
                     String header = (String) map.get("header");
-                    Map<String, CifCategory> categories = new LinkedHashMap<>();
+                    Map<String, Category> categories = new LinkedHashMap<>();
 
                     for (Object o : (Object[]) map.get("categories")) {
                         Map<String, Object> cat = (Map<String, Object>) o;
@@ -70,14 +70,14 @@ public class BinaryCifReader implements CifReader {
                         categories.put(name.substring(1), createCategory(cat));
                     }
 
-                    return new CifBlock(categories, header);
+                    return new BlockImpl(categories, header);
                 })
                 .collect(Collectors.toList());
 
-        return new BinaryCifFile(dataBlocks, versionString, encoder);
+        return new BinaryFile(dataBlocks, versionString, encoder);
     }
 
-    private CifCategory createCategory(Map<String, Object> encodedCategory) {
+    private Category createCategory(Map<String, Object> encodedCategory) {
         String name = ((String) encodedCategory.get("name")).substring(1);
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");

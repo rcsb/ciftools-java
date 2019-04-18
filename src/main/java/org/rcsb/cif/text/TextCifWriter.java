@@ -2,12 +2,11 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.BlockImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
-import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,13 +19,13 @@ public class TextCifWriter implements CifWriter {
     public InputStream write(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
-        for (CifBlock cifBlock : cifFile.getBlocks()) {
+        for (BlockImpl block : cifFile.getBlocks()) {
             output.append("data_")
-                    .append(CifWriter.formatHeader(cifBlock.getHeader()))
+                    .append(CifWriter.formatHeader(block.getHeader()))
                     .append("\n#\n");
 
-            for (String categoryName : cifBlock.getCategoryNames()) {
-                CifCategory cifCategory = cifBlock.getCategory(categoryName);
+            for (String categoryName : block.getCategoryNames()) {
+                Category cifCategory = block.getCategory(categoryName);
                 int rowCount = cifCategory.getRowCount();
                 if (rowCount == 0) {
                     continue;
@@ -44,7 +43,7 @@ public class TextCifWriter implements CifWriter {
         return new ByteArrayInputStream(output.toString().getBytes(StandardCharsets.UTF_8));
     }
 
-    private void writeCifSingleRecord(StringBuilder output, CifCategory cifCategory) {
+    private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {
         List<CifColumn> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO impl filter here
@@ -84,7 +83,7 @@ public class TextCifWriter implements CifWriter {
 //                .toArray();
 //    }
 
-    private void writeCifLoop(StringBuilder output, CifCategory cifCategory) {
+    private void writeCifLoop(StringBuilder output, Category cifCategory) {
         List<CifColumn> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO impl filter here

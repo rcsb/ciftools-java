@@ -8,7 +8,7 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.generated.CifBlock;
+import org.rcsb.cif.model.BlockImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +41,7 @@ public class BinaryCifWriter implements CifWriter {
         int blockCount = 0;
         file.put("dataBlocks", blocks);
 
-        for (CifBlock cifBlock : cifFile.getBlocks()) {
+        for (BlockImpl cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
             block.put("header", CifWriter.formatHeader(cifBlock.getHeader()));
             Object[] categories = new Object[cifBlock.getCategoryNames().size()];
@@ -50,7 +50,7 @@ public class BinaryCifWriter implements CifWriter {
             blocks[blockCount++] = block;
 
             for (String categoryName : cifBlock.getCategoryNames()) {
-                CifCategory cifCategory = cifBlock.getCategory(categoryName);
+                Category cifCategory = cifBlock.getCategory(categoryName);
                 if (cifCategory.getRowCount() == 0) {
                     continue;
                 }
