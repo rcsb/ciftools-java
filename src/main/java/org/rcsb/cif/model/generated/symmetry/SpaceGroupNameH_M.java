@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class SpaceGroupNameH_M extends StrColumn {
+public class SpaceGroupNameH_M extends SingleRowStrColumn {
     public SpaceGroupNameH_M(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

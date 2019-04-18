@@ -9,7 +9,7 @@ public interface CifColumn {
 
     ValueKind getValueKind(int row);
 
-    String format(double val);
+    String format(double val); // TODO should be part of getStringData
 
 //    Optional<ByteArray> forceEncode();
 

@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class AngleGamma extends FloatColumn {
+public class AngleGamma extends SingleRowFloatColumn {
     public AngleGamma(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

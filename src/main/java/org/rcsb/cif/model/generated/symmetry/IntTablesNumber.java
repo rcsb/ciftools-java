@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class IntTablesNumber extends IntColumn {
+public class IntTablesNumber extends SingleRowIntColumn {
     public IntTablesNumber(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

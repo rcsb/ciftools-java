@@ -391,7 +391,8 @@ class TokenizerState {
         }
 
         if (start.size() % fieldNames.size() != 0) {
-            throw new Error("The number of values for loop starting at line " + loopLine + " is not a multiple of the number of columns.");
+            throw new ParsingException("The number of values for loop starting at line " + loopLine +
+                    " is not a multiple of the number of columns.");
         }
 
         String catName = name.substring(1);

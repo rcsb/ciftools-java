@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface CifFile {
     List<CifBlock> getBlocks();
+
+    default CifBlock getFirstBlock() {
+        return getBlocks().get(0);
+    }
 }

@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class Name extends StrColumn {
+public class Name extends SingleRowStrColumn {
     public Name(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class SymmetryOperation extends StrColumn {
+public class SymmetryOperation extends SingleRowStrColumn {
     public SymmetryOperation(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

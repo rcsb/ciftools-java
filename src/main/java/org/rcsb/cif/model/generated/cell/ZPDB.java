@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class ZPDB extends IntColumn {
+public class ZPDB extends SingleRowIntColumn {
     public ZPDB(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

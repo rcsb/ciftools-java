@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class LengthC extends FloatColumn {
+public class LengthC extends SingleRowFloatColumn {
     public LengthC(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

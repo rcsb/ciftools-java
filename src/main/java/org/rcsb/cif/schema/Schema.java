@@ -152,7 +152,7 @@ public class Schema {
     }
 
     private void writeCategory(String className, Table content, Path path, List<String> colFilter) throws IOException {
-        System.out.println(" -> " + className);
+        System.out.println(" -> " + className + " " + content.getRepeat());
 
         if (!Files.exists(path)) {
             Files.createDirectory(path);
@@ -196,7 +196,7 @@ public class Schema {
             getters.add("    }");
             getters.add("");
 
-            writeColumn(columnClassName, column, path);
+            writeColumn(columnClassName, column, content.getRepeat() == Repeat.SINGLE, path);
         }
 
         // constructor
@@ -217,8 +217,8 @@ public class Schema {
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeColumn(String className, Col content, Path path) throws IOException {
-        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType()));
+    private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
+        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType(), singleRow));
 
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
@@ -229,7 +229,7 @@ public class Schema {
         output.add("");
 
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
-        output.add("public class " + className + " extends " + getBaseClass(content.getType()) + " {");
+        output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
 
         // constructor for text data
         output.add("    public " + className + "(String name, int rowCount, String[] data) {");
@@ -248,42 +248,17 @@ public class Schema {
             output.add("");
             output.add("    @Override");
             output.add("    public String format(double val) {");
-            output.add("        FLOAT_3.format(val);");
+            output.add("        return FLOAT_3.format(val);");
             output.add("    }");
         } else if (className.equals("Occupancy")) {
             output.add("");
             output.add("    @Override");
             output.add("    public String format(double val) {");
-            output.add("        FLOAT_2.format(val);");
+            output.add("        return FLOAT_2.format(val);");
             output.add("    }");
         }
 
         // TODO enums, lists, matrix, and vector would be nice to have
-//        if (content.getType().equals("enum")) {
-//            EnumCol enumCol = (EnumCol) content;
-//            output.add("");
-//            output.add("    public enum " + className + "Enum {");
-//            String enumString = enumCol.getValues()
-//                    .stream()
-//                    .map(Schema::toEnumName)
-//                    .map(value -> "        " + value)
-//                    .collect(Collectors.joining(",\n"));
-//            output.add(enumString);
-//            output.add("    }");
-//
-//            output.add("");
-//
-//            output.add("    public " + className + "Enum get(int row) {");
-//            output.add("        return " + className + "Enum.valueOf(Schema.toEnumName(getString(row)));");
-//            output.add("    }");
-//
-//            output.add("");
-//
-//            output.add("    public Stream<" + className + "Enum> values() {");
-//            output.add("        return IntStream.range(0, getRowCount())");
-//            output.add("                .mapToObj(this::get);");
-//            output.add("    }");
-//        }
 
         output.add("}");
         output.add("");
@@ -291,23 +266,24 @@ public class Schema {
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private String getBaseClass(String type) {
+    private String getBaseClass(String type, boolean singleRow) {
         Class<?> clazz;
         switch (type) {
+            // TODO support remaining single row types
             case "coord":
                 clazz = CoordColumn.class; break;
             case "enum":
                 clazz = EnumColumn.class; break;
             case "float":
-                clazz = FloatColumn.class; break;
+                clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
             case "int":
-                clazz = IntColumn.class; break;
+                clazz = singleRow ? SingleRowIntColumn.class : IntColumn.class; break;
             case "list":
                 clazz = ListColumn.class; break;
             case "matrix":
                 clazz = MatrixColumn.class; break;
             case "str":
-                clazz = StrColumn.class; break;
+                clazz = singleRow ? SingleRowStrColumn.class : StrColumn.class; break;
             case "vector":
                 clazz = VectorColumn.class; break;
             default:
@@ -588,6 +564,17 @@ public class Schema {
                         categoryKeyNames.add(cifColumn.getStringData(i));
                     }
 
+                    Repeat repeat = Repeat.UNKNOWN;
+                    if (filter.containsKey(saveFrame.getHeader())) {
+                        if (saveFrame.getCategory("category_examples")
+                                    .getColumn("case")
+                                    .getStringData(0).contains("loop_")) {
+                            repeat = Repeat.LOOP;
+                        } else {
+                            repeat = Repeat.SINGLE;
+                        }
+                    }
+
                     String rawDescription = saveFrame.getCategory("category")
                             .getColumn("description")
                             .getStringData(0);
@@ -596,8 +583,14 @@ public class Schema {
                             .map(String::trim)
                             .collect(Collectors.joining("\n"));
 
-                    schema.put(saveFrame.getHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>()));
+                    schema.put(saveFrame.getHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>(), repeat));
                 });
+    }
+
+    enum Repeat {
+        SINGLE,
+        LOOP,
+        UNKNOWN
     }
 }
 

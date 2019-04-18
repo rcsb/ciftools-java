@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class PdbxUniqueAxis extends StrColumn {
+public class PdbxUniqueAxis extends SingleRowStrColumn {
     public PdbxUniqueAxis(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }
