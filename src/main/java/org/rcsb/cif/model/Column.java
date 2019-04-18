@@ -9,15 +9,5 @@ public interface Column {
 
     ValueKind getValueKind(int row);
 
-//    Optional<ByteArray> forceEncode();
-
-//    Optional<DecimalFormat> defaultFormat();
-
-//    Type inferType();
-//
-//    enum Type {
-//        STRING,
-//        INT,
-//        FLOAT
-//    }
+    boolean isDefined();
 }

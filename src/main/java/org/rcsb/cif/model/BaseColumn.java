@@ -22,6 +22,19 @@ public abstract class BaseColumn implements Column {
 
     private final boolean hasMask;
     protected final int[] mask;
+    private final boolean defined;
+
+    BaseColumn(String name) {
+        this.name = name;
+        this.rowCount = 0;
+
+        this.isText = false;
+        this.textData = new String[0];
+
+        this.hasMask = false;
+        this.mask = null;
+        this.defined = false;
+    }
 
     BaseColumn(String name, int rowCount, String[] data) {
         this.name = name;
@@ -32,6 +45,7 @@ public abstract class BaseColumn implements Column {
 
         this.hasMask = false;
         this.mask = null;
+        this.defined = true;
     }
 
     public static Column create(String catName, String fieldName, String data, int startToken, int endToken) {
@@ -143,6 +157,7 @@ public abstract class BaseColumn implements Column {
 
         this.hasMask = mask != null && mask.length > 0;
         this.mask = mask;
+        this.defined = true;
     }
 
     @SuppressWarnings("unchecked")
@@ -206,5 +221,10 @@ public abstract class BaseColumn implements Column {
 
     protected static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
     protected static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
-    protected static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
+    private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
+
+    @Override
+    public boolean isDefined() {
+        return defined;
+    }
 }

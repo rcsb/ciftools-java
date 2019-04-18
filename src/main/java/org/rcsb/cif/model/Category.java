@@ -10,4 +10,6 @@ public interface Category {
     Column getColumn(String name);
 
     List<String> getColumnNames();
+
+    boolean isDefined();
 }

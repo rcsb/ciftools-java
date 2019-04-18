@@ -22,6 +22,20 @@ public class BaseCategory implements Category {
 
     private final Object[] encodedColumns;
     private final Map<String, Column> decodedColumns;
+    private final boolean defined;
+
+    public BaseCategory(String name) {
+        this.name = name;
+        this.rowCount = 0;
+        this.columnNames = Collections.emptyList();
+
+        this.isText = false;
+        this.textFields = Collections.emptyMap();
+
+        this.encodedColumns = new Object[0];
+        this.decodedColumns = Collections.emptyMap();
+        this.defined = false;
+    }
 
     public BaseCategory(String name, Map<String, Column> textColumns) {
         this.name = name;
@@ -37,6 +51,7 @@ public class BaseCategory implements Category {
 
         this.encodedColumns = null;
         this.decodedColumns = null;
+        this.defined = true;
     }
 
     @SuppressWarnings("unchecked")
@@ -57,6 +72,7 @@ public class BaseCategory implements Category {
         }
 
         this.textFields = null;
+        this.defined = true;
     }
 
     @SuppressWarnings("unchecked")
@@ -139,5 +155,10 @@ public class BaseCategory implements Category {
     @Override
     public List<String> getColumnNames() {
         return columnNames;
+    }
+
+    @Override
+    public boolean isDefined() {
+        return defined;
     }
 }
