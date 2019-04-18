@@ -13,4 +13,8 @@ public class PdbMonId extends StrColumn {
     public PdbMonId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbMonId(String name) {
+        super(name);
+    }
 }

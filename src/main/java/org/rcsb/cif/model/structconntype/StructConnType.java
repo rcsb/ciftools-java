@@ -16,6 +16,10 @@ public class StructConnType extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructConnType(String name) {
+        super(name);
+    }
+
     /**
      * The criteria used to define the interaction.
      * @return Criteria

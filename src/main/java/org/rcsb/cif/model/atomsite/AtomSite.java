@@ -16,6 +16,10 @@ public class AtomSite extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public AtomSite(String name) {
+        super(name);
+    }
+
     /**
      * An alternative identifier for _atom_site.label_asym_id that
      * may be provided by an author in order to match the identification

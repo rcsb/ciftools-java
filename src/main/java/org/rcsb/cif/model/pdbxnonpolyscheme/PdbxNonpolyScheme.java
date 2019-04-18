@@ -16,6 +16,10 @@ public class PdbxNonpolyScheme extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxNonpolyScheme(String name) {
+        super(name);
+    }
+
     /**
      * Pointer to _atom_site.label_asym_id.
      * @return AsymId

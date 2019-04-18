@@ -16,6 +16,10 @@ public class StructConf extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructConf(String name) {
+        super(name);
+    }
+
     /**
      * A component of the identifier for the residue at which the
      * conformation segment begins.

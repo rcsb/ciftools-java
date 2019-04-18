@@ -13,4 +13,8 @@ public class PdbxSynonyms extends ListColumn {
     public PdbxSynonyms(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxSynonyms(String name) {
+        super(name);
+    }
 }

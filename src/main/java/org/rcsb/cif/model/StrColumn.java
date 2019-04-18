@@ -25,6 +25,11 @@ public class StrColumn extends BaseColumn {
         this.binaryData = tmpData;
     }
 
+    public StrColumn(String name) {
+        super(name);
+        this.binaryData = new String[0];
+    }
+
     public String get(int row) {
         return isText ? getTextData(row) : honorValueKind(binaryData[row]);
     }

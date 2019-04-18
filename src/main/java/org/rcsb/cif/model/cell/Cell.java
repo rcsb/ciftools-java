@@ -16,6 +16,10 @@ public class Cell extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public Cell(String name) {
+        super(name);
+    }
+
     /**
      * Unit-cell angle alpha of the reported structure in degrees.
      * @return AngleAlpha

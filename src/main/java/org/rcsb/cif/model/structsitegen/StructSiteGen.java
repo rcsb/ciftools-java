@@ -16,6 +16,10 @@ public class StructSiteGen extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructSiteGen(String name) {
+        super(name);
+    }
+
     /**
      * A description of special aspects of the symmetry generation of
      * this portion of the structural site.

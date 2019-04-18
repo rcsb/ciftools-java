@@ -16,6 +16,10 @@ public class PdbxStructModResidue extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxStructModResidue(String name) {
+        super(name);
+    }
+
     /**
      * The value of _pdbx_struct_mod_residue.id must uniquely identify
      * each item in the PDBX_STRUCT_MOD_RESIDUE list.

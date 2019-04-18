@@ -13,4 +13,8 @@ public class PdbxEc extends ListColumn {
     public PdbxEc(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxEc(String name) {
+        super(name);
+    }
 }

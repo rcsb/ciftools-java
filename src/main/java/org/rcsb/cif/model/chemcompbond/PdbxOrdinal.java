@@ -13,4 +13,8 @@ public class PdbxOrdinal extends IntColumn {
     public PdbxOrdinal(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxOrdinal(String name) {
+        super(name);
+    }
 }

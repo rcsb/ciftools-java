@@ -16,6 +16,10 @@ public class PdbxReferenceEntityLink extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxReferenceEntityLink(String name) {
+        super(name);
+    }
+
     /**
      * The value of _pdbx_reference_entity_link.link_id uniquely identifies
      * linkages between entities with a molecule.

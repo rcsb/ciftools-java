@@ -13,4 +13,8 @@ public class Type extends EnumColumn {
     public Type(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public Type(String name) {
+        super(name);
+    }
 }

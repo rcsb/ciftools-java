@@ -16,6 +16,10 @@ public class PdbxReferenceEntityPolyLink extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxReferenceEntityPolyLink(String name) {
+        super(name);
+    }
+
     /**
      * The value of _pdbx_reference_entity_poly_link.link_id uniquely identifies
      * a linkage within a polymer entity.

@@ -16,6 +16,10 @@ public class StructAsym extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructAsym(String name) {
+        super(name);
+    }
+
     /**
      * A description of special aspects of this portion of the contents
      * of the asymmetric unit.

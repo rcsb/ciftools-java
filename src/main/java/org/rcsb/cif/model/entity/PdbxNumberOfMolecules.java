@@ -13,4 +13,8 @@ public class PdbxNumberOfMolecules extends IntColumn {
     public PdbxNumberOfMolecules(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxNumberOfMolecules(String name) {
+        super(name);
+    }
 }

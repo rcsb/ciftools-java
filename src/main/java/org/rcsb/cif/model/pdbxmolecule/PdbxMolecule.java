@@ -16,6 +16,10 @@ public class PdbxMolecule extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxMolecule(String name) {
+        super(name);
+    }
+
     /**
      * The value of _pdbx_molecule.prd_id is the PDB accession code for this
      * reference molecule.

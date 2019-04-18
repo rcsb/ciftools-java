@@ -13,4 +13,8 @@ public class Code extends EnumColumn {
     public Code(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public Code(String name) {
+        super(name);
+    }
 }

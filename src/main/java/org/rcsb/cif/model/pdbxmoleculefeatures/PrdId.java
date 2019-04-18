@@ -13,4 +13,8 @@ public class PrdId extends StrColumn {
     public PrdId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PrdId(String name) {
+        super(name);
+    }
 }

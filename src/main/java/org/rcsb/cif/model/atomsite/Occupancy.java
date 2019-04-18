@@ -14,8 +14,12 @@ public class Occupancy extends FloatColumn {
         super(name, rowCount, data, mask);
     }
 
+    public Occupancy(String name) {
+        super(name);
+    }
+
     @Override
-    protected String format(double val) {
+    public String format(double val) {
         return FLOAT_2.format(val);
     }
 }

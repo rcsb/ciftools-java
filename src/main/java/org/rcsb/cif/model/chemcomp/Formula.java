@@ -13,4 +13,8 @@ public class Formula extends StrColumn {
     public Formula(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public Formula(String name) {
+        super(name);
+    }
 }

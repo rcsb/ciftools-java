@@ -25,6 +25,11 @@ public class FloatColumn extends BaseColumn {
         this.binaryData = tmpData;
     }
 
+    public FloatColumn(String name) {
+        super(name);
+        this.binaryData = new double[0];
+    }
+
     public double get(int row) {
         return isText ? parseFloat(getTextData(row)) : binaryData[row];
     }

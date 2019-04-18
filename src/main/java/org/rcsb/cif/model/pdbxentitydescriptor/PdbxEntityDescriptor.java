@@ -16,6 +16,10 @@ public class PdbxEntityDescriptor extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxEntityDescriptor(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entity_poly.entity_id in the ENTITY
      * category.

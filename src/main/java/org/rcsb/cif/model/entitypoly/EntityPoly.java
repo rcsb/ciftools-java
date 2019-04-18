@@ -16,6 +16,10 @@ public class EntityPoly extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public EntityPoly(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return EntityId

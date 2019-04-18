@@ -13,4 +13,8 @@ public class IntTablesNumber extends SingleRowIntColumn {
     public IntTablesNumber(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public IntTablesNumber(String name) {
+        super(name);
+    }
 }

@@ -13,4 +13,8 @@ public class GroupPDB extends EnumColumn {
     public GroupPDB(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public GroupPDB(String name) {
+        super(name);
+    }
 }

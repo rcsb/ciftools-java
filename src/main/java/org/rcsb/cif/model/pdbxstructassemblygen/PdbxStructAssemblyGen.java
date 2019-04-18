@@ -16,6 +16,10 @@ public class PdbxStructAssemblyGen extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxStructAssemblyGen(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _struct_asym.id in
      * the STRUCT_ASYM category.

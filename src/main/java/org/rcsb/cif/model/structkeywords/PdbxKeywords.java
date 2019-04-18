@@ -13,4 +13,8 @@ public class PdbxKeywords extends StrColumn {
     public PdbxKeywords(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxKeywords(String name) {
+        super(name);
+    }
 }

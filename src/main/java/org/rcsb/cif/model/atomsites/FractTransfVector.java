@@ -13,4 +13,8 @@ public class FractTransfVector extends VectorColumn {
     public FractTransfVector(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public FractTransfVector(String name) {
+        super(name);
+    }
 }

@@ -13,4 +13,8 @@ public class ProgramVersion extends StrColumn {
     public ProgramVersion(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public ProgramVersion(String name) {
+        super(name);
+    }
 }

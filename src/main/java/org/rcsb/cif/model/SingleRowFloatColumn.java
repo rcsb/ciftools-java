@@ -9,6 +9,10 @@ public class SingleRowFloatColumn extends FloatColumn implements SingleRowColumn
         super(name, rowCount, data, mask);
     }
 
+    public SingleRowFloatColumn(String name) {
+        super(name);
+    }
+
     public double get() {
         return get(0);
     }

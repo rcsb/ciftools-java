@@ -13,4 +13,8 @@ public class PdbxPtnr2LabelAltId extends StrColumn {
     public PdbxPtnr2LabelAltId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxPtnr2LabelAltId(String name) {
+        super(name);
+    }
 }

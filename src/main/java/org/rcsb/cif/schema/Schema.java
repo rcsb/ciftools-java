@@ -267,6 +267,11 @@ public class Schema {
         output.add("    }");
         output.add("");
 
+        output.add("    public " + className + "(String name) {");
+        output.add("        super(name);");
+        output.add("    }");
+        output.add("");
+
         // getters
         output.add(getters.toString() + "}");
         output.add("");
@@ -295,10 +300,14 @@ public class Schema {
         output.add("");
 
         // constructor for binary data
-//        String arrayType = "int".equals(content.getType()) ? "int" : ("float".equals(content.getType()) || "coord".equals(content.getType())) ? "double" : "String";
-//        output.add("    public " + className + "(String name, int rowCount, " + arrayType + "[] data, int[] mask) {");\
         output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
         output.add("        super(name, rowCount, data, mask);");
+        output.add("    }");
+        output.add("");
+
+        // constructor when no data
+        output.add("    public " + className + "(String name) {");
+        output.add("        super(name);");
         output.add("    }");
 
         if (className.equals("CartnX") || className.equals("CartnY") || className.equals("CartnZ")) {

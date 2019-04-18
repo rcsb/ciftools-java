@@ -16,6 +16,10 @@ public class StructKeywords extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructKeywords(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return EntryId

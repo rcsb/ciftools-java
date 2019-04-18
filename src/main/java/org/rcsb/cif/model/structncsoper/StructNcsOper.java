@@ -16,6 +16,10 @@ public class StructNcsOper extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructNcsOper(String name) {
+        super(name);
+    }
+
     /**
      * A code to indicate whether this operator describes a
      * relationship between coordinates all of which are given in the

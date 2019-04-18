@@ -16,6 +16,10 @@ public class Symmetry extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public Symmetry(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return EntryId

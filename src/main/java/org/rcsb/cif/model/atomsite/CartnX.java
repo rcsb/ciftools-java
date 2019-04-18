@@ -14,8 +14,12 @@ public class CartnX extends CoordColumn {
         super(name, rowCount, data, mask);
     }
 
+    public CartnX(String name) {
+        super(name);
+    }
+
     @Override
-    protected String format(double val) {
+    public String format(double val) {
         return FLOAT_3.format(val);
     }
 }

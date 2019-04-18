@@ -16,6 +16,10 @@ public class PdbxChemCompIdentifier extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxChemCompIdentifier(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.

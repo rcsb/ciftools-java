@@ -16,6 +16,10 @@ public class ChemCompBond extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public ChemCompBond(String name) {
+        super(name);
+    }
+
     /**
      * The ID of the first of the two atoms that define the bond.
      * 

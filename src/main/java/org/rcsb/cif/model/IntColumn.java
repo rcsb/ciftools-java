@@ -24,6 +24,11 @@ public class IntColumn extends BaseColumn {
         this.binaryData = tmpData;
     }
 
+    public IntColumn(String name) {
+        super(name);
+        this.binaryData = new int[0];
+    }
+
     public int get(int row) {
         return isText ? parseInt(getTextData(row)) : binaryData[row];
     }

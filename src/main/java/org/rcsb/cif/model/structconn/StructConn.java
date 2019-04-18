@@ -16,6 +16,10 @@ public class StructConn extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructConn(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _struct_conn_type.id in the
      * STRUCT_CONN_TYPE category.

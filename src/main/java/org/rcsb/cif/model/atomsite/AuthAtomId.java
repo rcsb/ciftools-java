@@ -13,4 +13,8 @@ public class AuthAtomId extends StrColumn {
     public AuthAtomId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public AuthAtomId(String name) {
+        super(name);
+    }
 }

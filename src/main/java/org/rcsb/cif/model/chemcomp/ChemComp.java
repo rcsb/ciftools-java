@@ -16,6 +16,10 @@ public class ChemComp extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public ChemComp(String name) {
+        super(name);
+    }
+
     /**
      * The formula for the chemical component. Formulae are written
      * according to the following rules:

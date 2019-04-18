@@ -16,6 +16,10 @@ public class PdbxReferenceEntityList extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxReferenceEntityList(String name) {
+        super(name);
+    }
+
     /**
      * The value of _pdbx_reference_entity_list.prd_id is a reference
      * _pdbx_reference_molecule.prd_id in the PDBX_REFERENCE_MOLECULE category.

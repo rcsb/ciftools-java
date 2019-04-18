@@ -13,4 +13,8 @@ public class PDBInsCode extends StrColumn {
     public PDBInsCode(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PDBInsCode(String name) {
+        super(name);
+    }
 }

@@ -9,6 +9,10 @@ public class SingleRowStrColumn extends StrColumn implements SingleRowColumn {
         super(name, rowCount, data, mask);
     }
 
+    public SingleRowStrColumn(String name) {
+        super(name);
+    }
+
     public String get() {
         return get(0);
     }

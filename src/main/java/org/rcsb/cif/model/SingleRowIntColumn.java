@@ -9,6 +9,10 @@ public class SingleRowIntColumn extends IntColumn implements SingleRowColumn {
         super(name, rowCount, data, mask);
     }
 
+    public SingleRowIntColumn(String name) {
+        super(name);
+    }
+
     public int get() {
         return get(0);
     }

@@ -14,8 +14,12 @@ public class CartnY extends CoordColumn {
         super(name, rowCount, data, mask);
     }
 
+    public CartnY(String name) {
+        super(name);
+    }
+
     @Override
-    protected String format(double val) {
+    public String format(double val) {
         return FLOAT_3.format(val);
     }
 }

@@ -13,4 +13,8 @@ public class PdbxAromaticFlag extends EnumColumn {
     public PdbxAromaticFlag(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxAromaticFlag(String name) {
+        super(name);
+    }
 }

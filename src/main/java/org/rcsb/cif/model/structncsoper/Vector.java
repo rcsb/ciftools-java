@@ -13,4 +13,8 @@ public class Vector extends VectorColumn {
     public Vector(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public Vector(String name) {
+        super(name);
+    }
 }

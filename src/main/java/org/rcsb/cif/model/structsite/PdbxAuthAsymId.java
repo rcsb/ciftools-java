@@ -13,4 +13,8 @@ public class PdbxAuthAsymId extends StrColumn {
     public PdbxAuthAsymId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxAuthAsymId(String name) {
+        super(name);
+    }
 }

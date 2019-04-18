@@ -16,6 +16,10 @@ public class EntityPolySeq extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public EntityPolySeq(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return EntityId

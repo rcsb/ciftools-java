@@ -13,4 +13,8 @@ public class SpaceGroupNameH_M extends SingleRowStrColumn {
     public SpaceGroupNameH_M(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public SpaceGroupNameH_M(String name) {
+        super(name);
+    }
 }

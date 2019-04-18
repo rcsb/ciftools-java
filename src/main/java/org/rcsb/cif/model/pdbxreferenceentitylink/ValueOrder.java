@@ -13,4 +13,8 @@ public class ValueOrder extends EnumColumn {
     public ValueOrder(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public ValueOrder(String name) {
+        super(name);
+    }
 }

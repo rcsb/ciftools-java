@@ -13,4 +13,8 @@ public class Reference extends StrColumn {
     public Reference(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public Reference(String name) {
+        super(name);
+    }
 }

@@ -16,6 +16,10 @@ public class Entry extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public Entry(String name) {
+        super(name);
+    }
+
     /**
      * The value of _entry.id identifies the data block.
      * 

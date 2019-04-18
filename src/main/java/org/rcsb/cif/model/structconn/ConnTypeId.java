@@ -13,4 +13,8 @@ public class ConnTypeId extends EnumColumn {
     public ConnTypeId(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public ConnTypeId(String name) {
+        super(name);
+    }
 }

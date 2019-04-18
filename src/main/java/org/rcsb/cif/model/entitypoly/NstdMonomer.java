@@ -13,4 +13,8 @@ public class NstdMonomer extends EnumColumn {
     public NstdMonomer(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public NstdMonomer(String name) {
+        super(name);
+    }
 }

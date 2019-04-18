@@ -16,6 +16,10 @@ public class PdbxStructOperList extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxStructOperList(String name) {
+        super(name);
+    }
+
     /**
      * This identifier code must uniquely identify a
      * record in the PDBX_STRUCT_OPER_LIST list.

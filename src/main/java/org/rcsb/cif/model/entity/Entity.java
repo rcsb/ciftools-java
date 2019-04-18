@@ -16,6 +16,10 @@ public class Entity extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public Entity(String name) {
+        super(name);
+    }
+
     /**
      * A description of special aspects of the entity.
      * @return Details

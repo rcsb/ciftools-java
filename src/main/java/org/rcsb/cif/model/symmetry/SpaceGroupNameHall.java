@@ -13,4 +13,8 @@ public class SpaceGroupNameHall extends SingleRowStrColumn {
     public SpaceGroupNameHall(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public SpaceGroupNameHall(String name) {
+        super(name);
+    }
 }

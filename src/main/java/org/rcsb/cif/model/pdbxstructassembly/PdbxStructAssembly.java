@@ -16,6 +16,10 @@ public class PdbxStructAssembly extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public PdbxStructAssembly(String name) {
+        super(name);
+    }
+
     /**
      * Provides details of the method used to determine or
      * compute the assembly.

@@ -13,4 +13,8 @@ public class PdbInsCode extends StrColumn {
     public PdbInsCode(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbInsCode(String name) {
+        super(name);
+    }
 }

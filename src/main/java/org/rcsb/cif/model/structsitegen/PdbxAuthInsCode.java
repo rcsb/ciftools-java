@@ -13,4 +13,8 @@ public class PdbxAuthInsCode extends StrColumn {
     public PdbxAuthInsCode(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
+
+    public PdbxAuthInsCode(String name) {
+        super(name);
+    }
 }

@@ -16,6 +16,10 @@ public class StructSite extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructSite(String name) {
+        super(name);
+    }
+
     /**
      * A description of special aspects of the site.
      * @return Details

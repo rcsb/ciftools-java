@@ -16,6 +16,10 @@ public class StructSheetRange extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public StructSheetRange(String name) {
+        super(name);
+    }
+
     /**
      * A component of the identifier for the residue at which the
      * beta-sheet range begins.

@@ -16,6 +16,10 @@ public class Exptl extends BaseCategory {
         super(name, rowCount, encodedColumns);
     }
 
+    public Exptl(String name) {
+        super(name);
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return EntryId
