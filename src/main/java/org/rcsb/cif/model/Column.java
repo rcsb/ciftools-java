@@ -9,8 +9,6 @@ public interface Column {
 
     ValueKind getValueKind(int row);
 
-    String format(double val); // TODO should be part of getStringData
-
 //    Optional<ByteArray> forceEncode();
 
 //    Optional<DecimalFormat> defaultFormat();

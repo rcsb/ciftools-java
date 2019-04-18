@@ -15,7 +15,7 @@ public class Occupancy extends FloatColumn {
     }
 
     @Override
-    public String format(double val) {
+    protected String format(double val) {
         return FLOAT_2.format(val);
     }
 }

@@ -130,7 +130,7 @@ public class TextCifWriter implements CifWriter {
             if (cifField instanceof IntColumn) {
                 writeInteger(output, ((IntColumn) cifField).get(row));
             } else if (cifField instanceof FloatColumn) {
-                writeFloat(output, ((FloatColumn) cifField).get(row), /*floatPrecision, */cifField);
+                writeFloat(output, cifField.getStringData(row), /*floatPrecision, */cifField);
             } else {
                 String val = cifField.getStringData(row);
                 if (isMultiline(val)) {
@@ -228,9 +228,9 @@ public class TextCifWriter implements CifWriter {
         output.append(" ");
     }
 
-    private void writeFloat(StringBuilder output, double val, /*int floatPrecision, */Column cifColumn) {
+    private void writeFloat(StringBuilder output, String val, /*int floatPrecision, */Column cifColumn) {
         // TODO honor dynamic precision
-        output.append(cifColumn.format(val))
+        output.append(val)
                 .append(" ");
     }
 

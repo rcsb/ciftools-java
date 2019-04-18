@@ -114,7 +114,22 @@ public abstract class BaseColumn implements Column {
 
     @Override
     public String getStringData(int row) {
-        return isText ? getTextData(row) : getBinaryStringData(row);
+        String val = isText ? getTextData(row) : getBinaryStringData(row);
+        try {
+            return format(Double.parseDouble(val));
+        } catch (NumberFormatException e) {
+            // no number, return plain string
+            return val;
+        }
+    }
+
+    /**
+     * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values the report.
+     * @param val the double value
+     * @return the formatted String value
+     */
+    protected String format(double val) {
+        return FLOAT_6.format(val);
     }
 
     protected abstract String getBinaryStringData(int row);
@@ -192,9 +207,4 @@ public abstract class BaseColumn implements Column {
     protected static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
     protected static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
     protected static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
-
-    @Override
-    public String format(double val) {
-        return FLOAT_6.format(val);
-    }
 }

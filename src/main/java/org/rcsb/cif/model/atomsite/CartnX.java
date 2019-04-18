@@ -15,7 +15,7 @@ public class CartnX extends CoordColumn {
     }
 
     @Override
-    public String format(double val) {
+    protected String format(double val) {
         return FLOAT_3.format(val);
     }
 }

@@ -35,36 +35,24 @@ public class CifIntegrationTest {
         CartnZ cartnZ = new CartnZ("name", data.length, data);
 
         Stream.of(cartnX, cartnY, cartnZ).forEach(coordColumn -> {
-            double x1 = coordColumn.get(0);
-            double x2 = coordColumn.get(1);
-            double x3 = coordColumn.get(2);
-
-            assertEquals("1.000", coordColumn.format(x1));
-            assertEquals("2.000", coordColumn.format(x2));
-            assertEquals("-1.568", coordColumn.format(x3));
+            assertEquals("1.000", coordColumn.getStringData(0));
+            assertEquals("2.000", coordColumn.getStringData(1));
+            assertEquals("-1.568", coordColumn.getStringData(2));
         });
 
         // occupancy uses 2 decimal digits
         Occupancy occupancy = new Occupancy("name", data.length, data);
-        double occ1 = occupancy.get(0);
-        double occ2 = occupancy.get(1);
-        double occ3 = occupancy.get(2);
-
-        assertEquals("1.00", occupancy.format(occ1));
-        assertEquals("2.00", occupancy.format(occ2));
-        assertEquals("-1.57", occupancy.format(occ3));
+        assertEquals("1.00", occupancy.getStringData(0));
+        assertEquals("2.00", occupancy.getStringData(1));
+        assertEquals("-1.57", occupancy.getStringData(2));
 
         // all other should fallback to default behavior
         BIsoOrEquiv bIsoOrEquiv = new BIsoOrEquiv("name", data.length, data);
-        double iso1 = bIsoOrEquiv.get(0);
-        double iso2 = bIsoOrEquiv.get(1);
-        double iso3 = bIsoOrEquiv.get(2);
-
         // truncate float which perfectly round to integers
-        assertEquals("1", bIsoOrEquiv.format(iso1));
-        assertEquals("2", bIsoOrEquiv.format(iso2));
+        assertEquals("1", bIsoOrEquiv.getStringData(0));
+        assertEquals("2", bIsoOrEquiv.getStringData(1));
         // cut long numbers after 6 decimal places
-        assertEquals("-1.567891", bIsoOrEquiv.format(iso3));
+        assertEquals("-1.567891", bIsoOrEquiv.getStringData(2));
     }
 
     @Test
