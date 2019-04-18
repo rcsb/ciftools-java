@@ -11,24 +11,24 @@ import java.util.stream.Stream;
 
 import static org.rcsb.cif.schema.Schema.*;
 
-public class BaseCifCategory implements Category {
-    private static final Logger logger = LoggerFactory.getLogger(BaseCifColumn.class);
+public class BaseCategory implements Category {
+    private static final Logger logger = LoggerFactory.getLogger(BaseColumn.class);
     private final String name;
     private final int rowCount;
     private final List<String> columnNames;
 
     protected final boolean isText;
-    private final Map<String, CifColumn> textFields;
+    private final Map<String, Column> textFields;
 
     private final Object[] encodedColumns;
-    private final Map<String, CifColumn> decodedColumns;
+    private final Map<String, Column> decodedColumns;
 
-    public BaseCifCategory(String name, Map<String, CifColumn> textColumns) {
+    public BaseCategory(String name, Map<String, Column> textColumns) {
         this.name = name;
         this.rowCount = textColumns.values()
                 .stream()
                 .findFirst()
-                .map(CifColumn::getRowCount)
+                .map(Column::getRowCount)
                 .orElse(0);
         this.columnNames = new ArrayList<>(textColumns.keySet());
 
@@ -40,7 +40,7 @@ public class BaseCifCategory implements Category {
     }
 
     @SuppressWarnings("unchecked")
-    public BaseCifCategory(String name, int rowCount, Object[] encodedColumns) {
+    public BaseCategory(String name, int rowCount, Object[] encodedColumns) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -60,13 +60,13 @@ public class BaseCifCategory implements Category {
     }
 
     @SuppressWarnings("unchecked")
-    public static Category create(String catName, Map<String, CifColumn> fields) {
+    public static Category create(String catName, Map<String, Column> fields) {
         // well, it's come to this
         // 1. look if category name is in list of considered fields, otherwise don't even bother
         if (filter(catName)) {
             try {
                 // 2. if so, try to obtain instance
-                Class<? extends BaseCifCategory> category = (Class<? extends BaseCifCategory>) Class.forName(Schema.BASE_PACKAGE
+                Class<? extends BaseCategory> category = (Class<? extends BaseCategory>) Class.forName(Schema.BASE_PACKAGE
                         + "." + toPackageName(catName) + "." + toClassName(catName));
                 return category.getConstructor(String.class, Map.class).newInstance(catName, fields);
             } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
@@ -75,7 +75,7 @@ public class BaseCifCategory implements Category {
             }
         } else {
             // 3. if not a known category, roll with base implementation
-            return new BaseCifCategory(catName, fields);
+            return new BaseCategory(catName, fields);
         }
     }
 
@@ -83,14 +83,14 @@ public class BaseCifCategory implements Category {
     public static Category create(String name, int rowCount, Object[] encodedFields) {
         if (filter(name)) {
             try {
-                Class<? extends BaseCifCategory> category = (Class<? extends BaseCifCategory>) Class.forName(Schema.BASE_PACKAGE
+                Class<? extends BaseCategory> category = (Class<? extends BaseCategory>) Class.forName(Schema.BASE_PACKAGE
                         + "." + toPackageName(name) + "." + toClassName(name));
                 return category.getConstructor(String.class, int.class, Object[].class).newInstance(name, rowCount, encodedFields);
             } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
         } else {
-            return new BaseCifCategory(name, rowCount, encodedFields);
+            return new BaseCategory(name, rowCount, encodedFields);
         }
     }
 
@@ -105,15 +105,15 @@ public class BaseCifCategory implements Category {
     }
 
     @Override
-    public CifColumn getColumn(String name) {
+    public Column getColumn(String name) {
         return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
-    protected CifColumn getTextColumn(String name) {
+    protected Column getTextColumn(String name) {
         return textFields.get(name);
     }
 
-    protected CifColumn getBinaryColumn(String name) {
+    protected Column getBinaryColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
         // cache decoded fields to reuse them if applicable
         if (!optional.isPresent()) {
@@ -123,7 +123,7 @@ public class BaseCifCategory implements Category {
             return decodedColumns.get(name);
         }
         logger.debug("decoding binary column: {}.{}", this.name, name);
-        CifColumn decodedColumn = BaseCifColumn.create(this.name, name, optional.get());
+        Column decodedColumn = BaseColumn.create(this.name, name, optional.get());
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;
     }

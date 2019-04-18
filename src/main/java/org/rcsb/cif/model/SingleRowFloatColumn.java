@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-public class SingleRowFloatColumn extends FloatColumn implements SingleRowCifColumn {
+public class SingleRowFloatColumn extends FloatColumn implements SingleRowColumn {
     public SingleRowFloatColumn(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }

@@ -3,11 +3,7 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.BinaryFile;
-import org.rcsb.cif.model.Category;
-import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.BlockImpl;
+import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -58,7 +54,7 @@ public class BinaryCifReader implements CifReader {
 
         String encoder = (String) unpacked.get("encoder");
 
-        List<BlockImpl> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
+        List<Block> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
                 .map(entry -> {
                     Map<String, Object> map = (Map<String, Object>) entry;
                     String header = (String) map.get("header");
@@ -70,7 +66,7 @@ public class BinaryCifReader implements CifReader {
                         categories.put(name.substring(1), createCategory(cat));
                     }
 
-                    return new BlockImpl(categories, header);
+                    return new BaseBlock(categories, header);
                 })
                 .collect(Collectors.toList());
 
@@ -81,6 +77,6 @@ public class BinaryCifReader implements CifReader {
         String name = ((String) encodedCategory.get("name")).substring(1);
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
-        return BaseCifCategory.create(name, rowCount, encodedFields);
+        return BaseCategory.create(name, rowCount, encodedFields);
     }
 }

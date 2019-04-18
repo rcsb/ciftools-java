@@ -1,8 +1,8 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.BlockImpl;
 import org.rcsb.cif.model.atomsite.AtomSite;
 import org.rcsb.cif.model.atomsite.LabelSeqId;
 
@@ -35,7 +35,7 @@ public class CifReaderTest {
     }
 
     private void checkParsedEntity(CifFile cifFile, List<Object> testData) throws ParsingException {
-        BlockImpl data = cifFile.getBlocks().get(0);
+        Block data = cifFile.getBlocks().get(0);
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);

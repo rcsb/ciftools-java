@@ -2,7 +2,7 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.BlockImpl;
+import org.rcsb.cif.model.BaseBlock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -90,7 +90,7 @@ public class Schema {
 
     private void writeClasses() throws IOException {
         writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
-        writeBlockImpl(BlockImpl.class.getSimpleName(), schema, OUTPUT_PATH);
+        writeBlockImpl(BaseBlock.class.getSimpleName(), schema, OUTPUT_PATH);
     }
 
     private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
@@ -109,6 +109,9 @@ public class Schema {
         getters.add("");
 
         getters.add("    List<String> getCategoryNames();");
+        getters.add("");
+
+        getters.add("    List<" + Block.class.getSimpleName() + "> getSaveFrames();");
         getters.add("");
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
@@ -190,7 +193,7 @@ public class Schema {
         output.add("import java.util.Map;");
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
-        output.add("public class " + className + " implements " + BlockImpl.class.getSimpleName() + " {");
+        output.add("public class " + className + " implements " + BaseBlock.class.getSimpleName() + " {");
 
         // constructor
         output.add("    public " + className + "(Map<String, Category> categories, String header) {");
@@ -215,15 +218,15 @@ public class Schema {
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + className.toLowerCase() + ";");
         output.add("");
-        output.add("import org.rcsb.cif.model.BaseCifCategory;");
-        output.add("import org.rcsb.cif.model.CifColumn;");
+        output.add("import org.rcsb.cif.model.BaseCategory;");
+        output.add("import org.rcsb.cif.model.Column;");
         output.add("");
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
         output.add("");
 
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
-        output.add("public class " + className + " extends " + BaseCifCategory.class.getSimpleName() + " {");
+        output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
 
@@ -254,7 +257,7 @@ public class Schema {
         }
 
         // constructor
-        output.add("    public " + className + "(String name, Map<String, CifColumn> columns) {");
+        output.add("    public " + className + "(String name, Map<String, Column> columns) {");
         output.add("        super(name, columns);");
         output.add("    }");
         output.add("");
@@ -535,7 +538,7 @@ public class Schema {
 
     private List<String> getCode(Block saveFrame) {
         try {
-            CifColumn code = getField("item_type", "code", saveFrame);
+            Column code = getField("item_type", "code", saveFrame);
             return Stream.concat(Stream.of(code.getStringData(0)), getEnums(saveFrame)).collect(Collectors.toList());
         } catch (NullPointerException e) {
             return Collections.emptyList();
@@ -544,7 +547,7 @@ public class Schema {
 
     private Stream<String> getEnums(Block saveFrame) {
         try {
-            CifColumn value = getField("item_enumeration", "value", saveFrame);
+            Column value = getField("item_enumeration", "value", saveFrame);
             return IntStream.range(0, value.getRowCount())
                     .mapToObj(value::getStringData);
         } catch (NullPointerException e) {
@@ -554,7 +557,7 @@ public class Schema {
 
     private String getSubCategory(Block saveFrame) {
         try {
-            CifColumn value = getField("item_sub_category", "id", saveFrame);
+            Column value = getField("item_sub_category", "id", saveFrame);
             return value.getStringData(0);
         } catch (NullPointerException e) {
             return "";
@@ -562,7 +565,7 @@ public class Schema {
     }
 
     private String getDescription(Block saveFrame) {
-        CifColumn value = getField("item_description", "description", saveFrame);
+        Column value = getField("item_description", "description", saveFrame);
         return Pattern.compile("\n").splitAsStream(value.getStringData(0))
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
@@ -570,7 +573,7 @@ public class Schema {
                 .replaceAll("(\\[[1-3]])+", "");
     }
 
-    private CifColumn getField(String category, String field, Block saveFrame) {
+    private Column getField(String category, String field, Block saveFrame) {
         try {
             Category cat = saveFrame.getCategory(category);
             return cat.getColumn(field);
@@ -594,8 +597,8 @@ public class Schema {
                         return;
                     }
 
-                    CifColumn child_name = item_linked.getColumn("child_name");
-                    CifColumn parent_name = item_linked.getColumn("parent_name");
+                    Column child_name = item_linked.getColumn("child_name");
+                    Column parent_name = item_linked.getColumn("parent_name");
 
                     for (int i = 0; i < item_linked.getRowCount(); i++) {
                         String childName = child_name.getStringData(i);
@@ -613,7 +616,7 @@ public class Schema {
                 .filter(saveFrame -> !saveFrame.getHeader().startsWith("_"))
                 .forEach(saveFrame -> {
                     Set<String> categoryKeyNames = new HashSet<>();
-                    CifColumn cifColumn = saveFrame.getCategory("category_key").getColumn("name");
+                    Column cifColumn = saveFrame.getCategory("category_key").getColumn("name");
                     for (int i = 0; i < cifColumn.getRowCount(); i++) {
                         categoryKeyNames.add(cifColumn.getStringData(i));
                     }

@@ -1,5 +1,5 @@
 package org.rcsb.cif.model;
 
-public interface SingleRowCifColumn extends CifColumn {
+public interface SingleRowColumn extends Column {
     ValueKind getValueKind();
 }

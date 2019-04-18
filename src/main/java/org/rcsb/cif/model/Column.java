@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-public interface CifColumn {
+public interface Column {
     String getStringData(int row);
 
     String getName();

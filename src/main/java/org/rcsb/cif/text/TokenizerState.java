@@ -1,9 +1,9 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.BaseCifColumn;
-import org.rcsb.cif.model.CifColumn;
+import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.BaseColumn;
+import org.rcsb.cif.model.Column;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -342,7 +342,7 @@ class TokenizerState {
         final int nsStart = tokenStart;
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
-        final Map<String, CifColumn> fields = new LinkedHashMap<>();
+        final Map<String, Column> fields = new LinkedHashMap<>();
 
 
         final String catName = name.substring(1);
@@ -353,12 +353,12 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            CifColumn cifColumn = BaseCifColumn.create(catName, fieldName, data, tokenStart, tokenEnd);
+            Column cifColumn = BaseColumn.create(catName, fieldName, data, tokenStart, tokenEnd);
             fields.put(fieldName, cifColumn);
             moveNext();
         }
 
-        ctx.getCategories().put(catName, BaseCifCategory.create(catName, fields));
+        ctx.getCategories().put(catName, BaseCategory.create(catName, fields));
     }
 
     /**
@@ -396,9 +396,9 @@ class TokenizerState {
         }
 
         String catName = name.substring(1);
-        Map<String, CifColumn> fields = new LinkedHashMap<>();
+        Map<String, Column> fields = new LinkedHashMap<>();
         for (int i = 0; i < start.size(); i++) {
-            CifColumn cifColumn = BaseCifColumn.create(catName,
+            Column cifColumn = BaseColumn.create(catName,
                     fieldNames.get(i),
                     data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
@@ -406,6 +406,6 @@ class TokenizerState {
             fields.put(fieldNames.get(i), cifColumn);
         }
 
-        ctx.getCategories().put(catName, BaseCifCategory.create(catName, fields));
+        ctx.getCategories().put(catName, BaseCategory.create(catName, fields));
     }
 }

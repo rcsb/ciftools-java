@@ -11,6 +11,8 @@ public interface Block {
 
     List<String> getCategoryNames();
 
+    List<Block> getSaveFrames();
+
     /**
      * Data items in the ATOM_SITE category record details about
      * the atom sites in a macromolecular crystal structure, such as

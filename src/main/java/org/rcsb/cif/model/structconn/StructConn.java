@@ -1,14 +1,14 @@
 package org.rcsb.cif.model.structconn;
 
-import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.CifColumn;
+import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.Column;
 
 import javax.annotation.Generated;
 import java.util.Map;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class StructConn extends BaseCifCategory {
-    public StructConn(String name, Map<String, CifColumn> columns) {
+public class StructConn extends BaseCategory {
+    public StructConn(String name, Map<String, Column> columns) {
         super(name, columns);
     }
 

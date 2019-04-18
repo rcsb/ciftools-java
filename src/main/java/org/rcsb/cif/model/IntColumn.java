@@ -4,7 +4,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public class IntColumn extends BaseCifColumn {
+public class IntColumn extends BaseColumn {
     private final int[] binaryData;
 
     public IntColumn(String name, int rowCount, String[] data) {

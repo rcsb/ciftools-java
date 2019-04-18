@@ -8,7 +8,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.BlockImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +40,7 @@ public class BinaryCifWriter implements CifWriter {
         int blockCount = 0;
         file.put("dataBlocks", blocks);
 
-        for (BlockImpl cifBlock : cifFile.getBlocks()) {
+        for (Block cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
             block.put("header", CifWriter.formatHeader(cifBlock.getHeader()));
             Object[] categories = new Object[cifBlock.getCategoryNames().size()];
@@ -76,7 +75,7 @@ public class BinaryCifWriter implements CifWriter {
         return file;
     }
 
-    private Map<String, Object> classifyColumn(CifColumn cifColumn) {
+    private Map<String, Object> classifyColumn(Column cifColumn) {
 //        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
 //        if (forceEncode.isPresent()) {
 //            System.out.println("force encoding " + cifColumn.getName());
@@ -113,7 +112,7 @@ public class BinaryCifWriter implements CifWriter {
 //        }
     }
 
-    private Map<String, Object> encodeColumn(CifColumn cifField, ByteArray byteArray) {
+    private Map<String, Object> encodeColumn(Column cifField, ByteArray byteArray) {
         String name = cifField.getName();
         FieldData fieldData = getFieldData(cifField);
         Uint8Array mask = fieldData.mask;
@@ -193,7 +192,7 @@ public class BinaryCifWriter implements CifWriter {
         return content.getClass().isArray() && !(content instanceof int[] || content instanceof double[] || content instanceof byte[]);
     }
 
-    private FieldData getFieldData(CifColumn cifField) {
+    private FieldData getFieldData(Column cifField) {
         int length = cifField.getRowCount();
         // TODO save them resources
         String[] stringArray = new String[length];

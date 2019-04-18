@@ -2,7 +2,6 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.BlockImpl;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -19,7 +18,7 @@ public class TextCifWriter implements CifWriter {
     public InputStream write(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
-        for (BlockImpl block : cifFile.getBlocks()) {
+        for (Block block : cifFile.getBlocks()) {
             output.append("data_")
                     .append(CifWriter.formatHeader(block.getHeader()))
                     .append("\n#\n");
@@ -44,14 +43,14 @@ public class TextCifWriter implements CifWriter {
     }
 
     private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {
-        List<CifColumn> cifFields = cifCategory.getColumnNames()
+        List<Column> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO impl filter here
                 .map(cifCategory::getColumn)
                 .collect(Collectors.toList());
 
         OptionalInt optionalWidth = cifFields.stream()
-                .map(CifColumn::getName)
+                .map(Column::getName)
                 .mapToInt(String::length)
                 .max();
 
@@ -63,7 +62,7 @@ public class TextCifWriter implements CifWriter {
         int width = optionalWidth.getAsInt() + 6 + cifCategory.getCategoryName().length();
 //        int[] floatPrecisions = getFloatPrecisions(cifFields);
 
-        for (CifColumn cifField : cifFields) {
+        for (Column cifField : cifFields) {
             writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getName(), width);
 
             for (int row = 0; row < cifField.getRowCount(); row++) {
@@ -77,14 +76,14 @@ public class TextCifWriter implements CifWriter {
     }
 
     // TODO support custom format or use float precision at all
-//    private int[] getFloatPrecisions(List<CifColumn> cifFields) {
+//    private int[] getFloatPrecisions(List<Column> cifFields) {
 //        return cifFields.stream()
 //                .mapToInt(cifField -> cifField instanceof FloatColumn ? (int) Math.pow(10, 6) : 1)
 //                .toArray();
 //    }
 
     private void writeCifLoop(StringBuilder output, Category cifCategory) {
-        List<CifColumn> cifFields = cifCategory.getColumnNames()
+        List<Column> cifFields = cifCategory.getColumnNames()
                 .stream()
                 // TODO impl filter here
                 .map(cifCategory::getColumn)
@@ -97,7 +96,7 @@ public class TextCifWriter implements CifWriter {
 //        int[] floatPrecisions = getFloatPrecisions(cifFields);
         output.append("loop_")
                 .append("\n");
-        for (CifColumn cifField : cifFields) {
+        for (Column cifField : cifFields) {
             output.append("_")
                     .append(cifCategory.getCategoryName())
                     .append(".")
@@ -108,7 +107,7 @@ public class TextCifWriter implements CifWriter {
         for (int row = 0; row < cifFields.get(0).getRowCount(); row++) {
             boolean multiline = false;
             for (int i = 0; i < cifFields.size(); i++) {
-                CifColumn cifField = cifFields.get(i);
+                Column cifField = cifFields.get(i);
                 multiline = writeValue(output, cifField, row/*, floatPrecisions[i]*/);
             }
             if (!multiline) {
@@ -118,7 +117,7 @@ public class TextCifWriter implements CifWriter {
         output.append("#\n");
     }
 
-    private boolean writeValue(StringBuilder output, CifColumn cifField, int row/*, int floatPrecision*/) {
+    private boolean writeValue(StringBuilder output, Column cifField, int row/*, int floatPrecision*/) {
         ValueKind kind = cifField.getValueKind(row);
 
         if (kind != ValueKind.PRESENT) {
@@ -229,7 +228,7 @@ public class TextCifWriter implements CifWriter {
         output.append(" ");
     }
 
-    private void writeFloat(StringBuilder output, double val, /*int floatPrecision, */CifColumn cifColumn) {
+    private void writeFloat(StringBuilder output, double val, /*int floatPrecision, */Column cifColumn) {
         // TODO honor dynamic precision
         output.append(cifColumn.format(val))
                 .append(" ");

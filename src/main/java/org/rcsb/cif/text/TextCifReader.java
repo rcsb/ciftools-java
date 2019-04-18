@@ -4,7 +4,7 @@ import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
-import org.rcsb.cif.model.BlockImpl;
+import org.rcsb.cif.model.BaseBlock;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -26,7 +26,7 @@ public class TextCifReader implements CifReader {
             throw new ParsingException("Cannot parse empty file.");
         }
 
-        final List<BlockImpl> dataBlocks = new ArrayList<>();
+        final List<Block> dataBlocks = new ArrayList<>();
         final TokenizerState tokenizer = new TokenizerState(data);
         String blockHeader = "";
 
@@ -37,7 +37,7 @@ public class TextCifReader implements CifReader {
         // the next three initial values are never used in valid files
         List<Block> saveFrames = new ArrayList<>();
         FrameContext saveCtx = new FrameContext();
-        Block saveFrame = new BlockImpl(saveCtx.getCategories(), "");
+        Block saveFrame = new BaseBlock(saveCtx.getCategories(), "");
 
         tokenizer.moveNext();
         while (tokenizer.getTokenType() != CifTokenType.END) {
@@ -49,7 +49,7 @@ public class TextCifReader implements CifReader {
                     throw new ParsingException("Unexpected data block inside a save frame.", tokenizer.getLineNumber());
                 }
                 if (blockCtx.getCategories().size() > 0) {
-                    BlockImpl block = new BlockImpl(blockCtx.getCategories(), blockHeader);
+                    BaseBlock block = new BaseBlock(blockCtx.getCategories(), blockHeader);
                     dataBlocks.add(block);
                     block.getSaveFrames().addAll(saveFrames);
                 }
@@ -72,7 +72,7 @@ public class TextCifReader implements CifReader {
                     inSaveFrame = true;
                     final String safeHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                     saveCtx = new FrameContext();
-                    saveFrame = new BlockImpl(saveCtx.getCategories(), safeHeader);
+                    saveFrame = new BaseBlock(saveCtx.getCategories(), safeHeader);
                 }
                 tokenizer.moveNext();
                 // loop
@@ -93,7 +93,7 @@ public class TextCifReader implements CifReader {
         }
 
         if (blockCtx.getCategories().size() > 0 || saveFrames.size() > 0) {
-            BlockImpl block = new BlockImpl(blockCtx.getCategories(), blockHeader);
+            BaseBlock block = new BaseBlock(blockCtx.getCategories(), blockHeader);
             dataBlocks.add(block);
             block.getSaveFrames().addAll(saveFrames);
         }

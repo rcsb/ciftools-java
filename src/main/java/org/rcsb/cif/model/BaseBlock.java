@@ -6,18 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class BlockImpl implements Block {
+public class BaseBlock implements Block {
     private final Map<String, Category> categories;
     private final List<Block> saveFrames;
     private final String header;
 
-    public BlockImpl(Map<String, Category> categories, String header, List<Block> saveFrames) {
+    public BaseBlock(Map<String, Category> categories, String header, List<Block> saveFrames) {
         this.categories = categories;
         this.saveFrames = saveFrames;
         this.header = header;
     }
 
-    public BlockImpl(Map<String, Category> categories, String header) {
+    public BaseBlock(Map<String, Category> categories, String header) {
         this(categories, header, new ArrayList<>());
     }
 
@@ -36,6 +36,7 @@ public class BlockImpl implements Block {
         return new ArrayList<>(categories.keySet());
     }
 
+    @Override
     public List<Block> getSaveFrames() {
         return saveFrames;
     }

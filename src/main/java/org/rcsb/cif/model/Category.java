@@ -7,7 +7,7 @@ public interface Category {
 
     int getRowCount();
 
-    CifColumn getColumn(String name);
+    Column getColumn(String name);
 
     List<String> getColumnNames();
 }

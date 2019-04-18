@@ -13,7 +13,7 @@ import java.util.stream.Stream;
 import static org.rcsb.cif.schema.Schema.filter;
 import static org.rcsb.cif.schema.Schema.toPackageName;
 
-public abstract class BaseCifColumn implements CifColumn {
+public abstract class BaseColumn implements Column {
     private final String name;
     final int rowCount;
 
@@ -23,7 +23,7 @@ public abstract class BaseCifColumn implements CifColumn {
     private final boolean hasMask;
     protected final int[] mask;
 
-    BaseCifColumn(String name, int rowCount, String[] data) {
+    BaseColumn(String name, int rowCount, String[] data) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -34,19 +34,19 @@ public abstract class BaseCifColumn implements CifColumn {
         this.mask = null;
     }
 
-    public static CifColumn create(String catName, String fieldName, String data, int startToken, int endToken) {
+    public static Column create(String catName, String fieldName, String data, int startToken, int endToken) {
         return create(catName, fieldName, data, new int[] { startToken }, new int[] { endToken });
     }
 
     @SuppressWarnings("unchecked")
-    public static CifColumn create(String catName, String fieldName, String data, int[] startToken, int[] endToken) {
+    public static Column create(String catName, String fieldName, String data, int[] startToken, int[] endToken) {
         int rowCount = startToken.length;
         String[] textData = IntStream.range(0, rowCount)
                 .mapToObj(i -> data.substring(startToken[i], endToken[i]))
                 .toArray(String[]::new);
         if (filter(catName, fieldName)) {
             try {
-                Class<? extends BaseCifColumn> column = (Class<? extends BaseCifColumn>) Class.forName(Schema.BASE_PACKAGE
+                Class<? extends BaseColumn> column = (Class<? extends BaseColumn>) Class.forName(Schema.BASE_PACKAGE
                         + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
                 return column.getConstructor(String.class, int.class, String[].class)
                         .newInstance(fieldName, rowCount, textData);
@@ -66,7 +66,7 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     private static boolean isIntData(String[] textData) {
-        return isNumberData(textData, BaseCifColumn::parsableAsInt);
+        return isNumberData(textData, BaseColumn::parsableAsInt);
     }
 
     private static boolean isNumberData(String[] textData, Predicate<String> predicate) {
@@ -85,7 +85,6 @@ public abstract class BaseCifColumn implements CifColumn {
     private static boolean parsableAsInt(String datum) {
         try {
             Integer.parseInt(datum);
-//            return datum.contains(".");
             return true;
         } catch (NumberFormatException e) {
             return false;
@@ -93,7 +92,7 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     private static boolean isFloatData(String[] textData) {
-        return isNumberData(textData, BaseCifColumn::parsableAsFloat);
+        return isNumberData(textData, BaseColumn::parsableAsFloat);
     }
 
     private static boolean parsableAsFloat(String datum) {
@@ -120,7 +119,7 @@ public abstract class BaseCifColumn implements CifColumn {
 
     protected abstract String getBinaryStringData(int row);
 
-    BaseCifColumn(String name, int rowCount, int[] mask) {
+    BaseColumn(String name, int rowCount, int[] mask) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -132,7 +131,7 @@ public abstract class BaseCifColumn implements CifColumn {
     }
 
     @SuppressWarnings("unchecked")
-    public static CifColumn create(String catName, String fieldName, Map<String, Object> encodedColumn) {
+    public static Column create(String catName, String fieldName, Map<String, Object> encodedColumn) {
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
         boolean isIntArray = binaryData instanceof int[];
         boolean isDoubleArray = binaryData instanceof double[];
@@ -143,7 +142,7 @@ public abstract class BaseCifColumn implements CifColumn {
 
         if (filter(catName, fieldName)) {
             try {
-                    Class<? extends BaseCifColumn> column = (Class<? extends BaseCifColumn>) Class.forName(Schema.BASE_PACKAGE
+                    Class<? extends BaseColumn> column = (Class<? extends BaseColumn>) Class.forName(Schema.BASE_PACKAGE
                             + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
                     return column.getConstructor(String.class, int.class, Object.class, int[].class)
                             .newInstance(fieldName, rowCount, binaryData, mask);

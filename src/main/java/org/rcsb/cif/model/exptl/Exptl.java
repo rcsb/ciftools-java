@@ -1,14 +1,14 @@
 package org.rcsb.cif.model.exptl;
 
-import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.CifColumn;
+import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.Column;
 
 import javax.annotation.Generated;
 import java.util.Map;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class Exptl extends BaseCifCategory {
-    public Exptl(String name, Map<String, CifColumn> columns) {
+public class Exptl extends BaseCategory {
+    public Exptl(String name, Map<String, Column> columns) {
         super(name, columns);
     }
 

@@ -1,14 +1,14 @@
 package org.rcsb.cif.model.entitypolyseq;
 
-import org.rcsb.cif.model.BaseCifCategory;
-import org.rcsb.cif.model.CifColumn;
+import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.Column;
 
 import javax.annotation.Generated;
 import java.util.Map;
 
 @Generated("org.rcsb.cif.schema.Schema")
-public class EntityPolySeq extends BaseCifCategory {
-    public EntityPolySeq(String name, Map<String, CifColumn> columns) {
+public class EntityPolySeq extends BaseCategory {
+    public EntityPolySeq(String name, Map<String, Column> columns) {
         super(name, columns);
     }
 

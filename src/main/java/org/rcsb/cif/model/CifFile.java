@@ -3,9 +3,9 @@ package org.rcsb.cif.model;
 import java.util.List;
 
 public interface CifFile {
-    List<BlockImpl> getBlocks();
+    List<Block> getBlocks();
 
-    default BlockImpl getFirstBlock() {
+    default Block getFirstBlock() {
         return getBlocks().get(0);
     }
 }

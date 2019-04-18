@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-public class SingleRowStrColumn extends StrColumn implements SingleRowCifColumn {
+public class SingleRowStrColumn extends StrColumn implements SingleRowColumn {
     public SingleRowStrColumn(String name, int rowCount, String[] data) {
         super(name, rowCount, data);
     }
