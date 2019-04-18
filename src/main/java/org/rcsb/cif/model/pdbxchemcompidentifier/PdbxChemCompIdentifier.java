@@ -26,7 +26,8 @@ public class PdbxChemCompIdentifier extends BaseCategory {
      * @return CompId
      */
     public CompId getCompId() {
-        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id"));
+        return (CompId) (isText ? textFields.computeIfAbsent("comp_id",
+                CompId::new) : getBinaryColumn("comp_id"));
     }
 
     /**
@@ -35,7 +36,8 @@ public class PdbxChemCompIdentifier extends BaseCategory {
      * @return Identifier
      */
     public Identifier getIdentifier() {
-        return (Identifier) (isText ? getTextColumn("identifier") : getBinaryColumn("identifier"));
+        return (Identifier) (isText ? textFields.computeIfAbsent("identifier",
+                Identifier::new) : getBinaryColumn("identifier"));
     }
 
     /**
@@ -43,7 +45,8 @@ public class PdbxChemCompIdentifier extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -52,7 +55,8 @@ public class PdbxChemCompIdentifier extends BaseCategory {
      * @return Program
      */
     public Program getProgram() {
-        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program"));
+        return (Program) (isText ? textFields.computeIfAbsent("program",
+                Program::new) : getBinaryColumn("program"));
     }
 
     /**
@@ -61,6 +65,7 @@ public class PdbxChemCompIdentifier extends BaseCategory {
      * @return ProgramVersion
      */
     public ProgramVersion getProgramVersion() {
-        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version"));
+        return (ProgramVersion) (isText ? textFields.computeIfAbsent("program_version",
+                ProgramVersion::new) : getBinaryColumn("program_version"));
     }
 }

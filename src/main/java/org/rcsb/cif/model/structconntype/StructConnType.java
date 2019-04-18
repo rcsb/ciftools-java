@@ -25,7 +25,8 @@ public class StructConnType extends BaseCategory {
      * @return Criteria
      */
     public Criteria getCriteria() {
-        return (Criteria) (isText ? getTextColumn("criteria") : getBinaryColumn("criteria"));
+        return (Criteria) (isText ? textFields.computeIfAbsent("criteria",
+                Criteria::new) : getBinaryColumn("criteria"));
     }
 
     /**
@@ -33,7 +34,8 @@ public class StructConnType extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -42,6 +44,7 @@ public class StructConnType extends BaseCategory {
      * @return Reference
      */
     public Reference getReference() {
-        return (Reference) (isText ? getTextColumn("reference") : getBinaryColumn("reference"));
+        return (Reference) (isText ? textFields.computeIfAbsent("reference",
+                Reference::new) : getBinaryColumn("reference"));
     }
 }

@@ -18,7 +18,7 @@ public class BaseCategory implements Category {
     private final List<String> columnNames;
 
     protected final boolean isText;
-    private final Map<String, Column> textFields;
+    protected final Map<String, Column> textFields;
 
     private final Object[] encodedColumns;
     private final Map<String, Column> decodedColumns;
@@ -133,7 +133,7 @@ public class BaseCategory implements Category {
         Optional<Map<String, Object>> optional = find(name);
         // cache decoded fields to reuse them if applicable
         if (!optional.isPresent()) {
-            throw new NoSuchElementException(name);
+            BaseColumn.create(this.name, name);
         }
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);

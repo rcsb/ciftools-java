@@ -25,7 +25,8 @@ public class Entity extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -33,7 +34,8 @@ public class Entity extends BaseCategory {
      * @return FormulaWeight
      */
     public FormulaWeight getFormulaWeight() {
-        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight"));
+        return (FormulaWeight) (isText ? textFields.computeIfAbsent("formula_weight",
+                FormulaWeight::new) : getBinaryColumn("formula_weight"));
     }
 
     /**
@@ -45,7 +47,8 @@ public class Entity extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -58,7 +61,8 @@ public class Entity extends BaseCategory {
      * @return SrcMethod
      */
     public SrcMethod getSrcMethod() {
-        return (SrcMethod) (isText ? getTextColumn("src_method") : getBinaryColumn("src_method"));
+        return (SrcMethod) (isText ? textFields.computeIfAbsent("src_method",
+                SrcMethod::new) : getBinaryColumn("src_method"));
     }
 
     /**
@@ -75,7 +79,8 @@ public class Entity extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -85,7 +90,8 @@ public class Entity extends BaseCategory {
      * @return PdbxDescription
      */
     public PdbxDescription getPdbxDescription() {
-        return (PdbxDescription) (isText ? getTextColumn("pdbx_description") : getBinaryColumn("pdbx_description"));
+        return (PdbxDescription) (isText ? textFields.computeIfAbsent("pdbx_description",
+                PdbxDescription::new) : getBinaryColumn("pdbx_description"));
     }
 
     /**
@@ -94,7 +100,8 @@ public class Entity extends BaseCategory {
      * @return PdbxNumberOfMolecules
      */
     public PdbxNumberOfMolecules getPdbxNumberOfMolecules() {
-        return (PdbxNumberOfMolecules) (isText ? getTextColumn("pdbx_number_of_molecules") : getBinaryColumn("pdbx_number_of_molecules"));
+        return (PdbxNumberOfMolecules) (isText ? textFields.computeIfAbsent("pdbx_number_of_molecules",
+                PdbxNumberOfMolecules::new) : getBinaryColumn("pdbx_number_of_molecules"));
     }
 
     /**
@@ -102,7 +109,8 @@ public class Entity extends BaseCategory {
      * @return PdbxMutation
      */
     public PdbxMutation getPdbxMutation() {
-        return (PdbxMutation) (isText ? getTextColumn("pdbx_mutation") : getBinaryColumn("pdbx_mutation"));
+        return (PdbxMutation) (isText ? textFields.computeIfAbsent("pdbx_mutation",
+                PdbxMutation::new) : getBinaryColumn("pdbx_mutation"));
     }
 
     /**
@@ -110,7 +118,8 @@ public class Entity extends BaseCategory {
      * @return PdbxFragment
      */
     public PdbxFragment getPdbxFragment() {
-        return (PdbxFragment) (isText ? getTextColumn("pdbx_fragment") : getBinaryColumn("pdbx_fragment"));
+        return (PdbxFragment) (isText ? textFields.computeIfAbsent("pdbx_fragment",
+                PdbxFragment::new) : getBinaryColumn("pdbx_fragment"));
     }
 
     /**
@@ -118,6 +127,7 @@ public class Entity extends BaseCategory {
      * @return PdbxEc
      */
     public PdbxEc getPdbxEc() {
-        return (PdbxEc) (isText ? getTextColumn("pdbx_ec") : getBinaryColumn("pdbx_ec"));
+        return (PdbxEc) (isText ? textFields.computeIfAbsent("pdbx_ec",
+                PdbxEc::new) : getBinaryColumn("pdbx_ec"));
     }
 }

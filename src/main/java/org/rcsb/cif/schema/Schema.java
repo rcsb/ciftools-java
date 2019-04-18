@@ -2,7 +2,6 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
-import org.rcsb.cif.model.BaseBlock;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -178,7 +177,9 @@ public class Schema {
             getters.add("    public " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." + categoryClassName +
                     " get" + categoryClassName + "() {");
             getters.add("        return (" + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." +
-                    categoryClassName + ") categories.get(\"" + categoryName + "\");");
+                    categoryClassName + ") categories.computeIfAbsent(\"" + categoryName + "\",");
+            getters.add("                " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." +
+                    categoryClassName + "::new);");
             getters.add("    }");
             getters.add("");
 
@@ -193,7 +194,7 @@ public class Schema {
         output.add("import java.util.Map;");
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
-        output.add("public class " + className + " implements " + BaseBlock.class.getSimpleName() + " {");
+        output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
 
         // constructor
         output.add("    public " + className + "(Map<String, Category> categories, String header) {");
@@ -248,8 +249,8 @@ public class Schema {
             getters.add("     * @return " + columnClassName);
             getters.add("     */");
             getters.add("    public " + columnClassName + " get" + columnClassName + "() {");
-            getters.add("        return (" + columnClassName + ") (isText ? getTextColumn(\"" + columnName +
-                    "\") : getBinaryColumn(\"" + columnName + "\"));");
+            getters.add("        return (" + columnClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName + "\",");
+            getters.add("                " + columnClassName + "::new) : getBinaryColumn(\"" + columnName + "\"));");
             getters.add("    }");
             getters.add("");
 

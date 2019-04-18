@@ -28,6 +28,7 @@ public class Entry extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 }

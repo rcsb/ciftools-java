@@ -25,7 +25,8 @@ public class EntityPoly extends BaseCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
+        return (EntityId) (isText ? textFields.computeIfAbsent("entity_id",
+                EntityId::new) : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -35,7 +36,8 @@ public class EntityPoly extends BaseCategory {
      * @return NstdLinkage
      */
     public NstdLinkage getNstdLinkage() {
-        return (NstdLinkage) (isText ? getTextColumn("nstd_linkage") : getBinaryColumn("nstd_linkage"));
+        return (NstdLinkage) (isText ? textFields.computeIfAbsent("nstd_linkage",
+                NstdLinkage::new) : getBinaryColumn("nstd_linkage"));
     }
 
     /**
@@ -44,7 +46,8 @@ public class EntityPoly extends BaseCategory {
      * @return NstdMonomer
      */
     public NstdMonomer getNstdMonomer() {
-        return (NstdMonomer) (isText ? getTextColumn("nstd_monomer") : getBinaryColumn("nstd_monomer"));
+        return (NstdMonomer) (isText ? textFields.computeIfAbsent("nstd_monomer",
+                NstdMonomer::new) : getBinaryColumn("nstd_monomer"));
     }
 
     /**
@@ -52,7 +55,8 @@ public class EntityPoly extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -60,7 +64,8 @@ public class EntityPoly extends BaseCategory {
      * @return PdbxStrandId
      */
     public PdbxStrandId getPdbxStrandId() {
-        return (PdbxStrandId) (isText ? getTextColumn("pdbx_strand_id") : getBinaryColumn("pdbx_strand_id"));
+        return (PdbxStrandId) (isText ? textFields.computeIfAbsent("pdbx_strand_id",
+                PdbxStrandId::new) : getBinaryColumn("pdbx_strand_id"));
     }
 
     /**
@@ -70,7 +75,8 @@ public class EntityPoly extends BaseCategory {
      * @return PdbxSeqOneLetterCode
      */
     public PdbxSeqOneLetterCode getPdbxSeqOneLetterCode() {
-        return (PdbxSeqOneLetterCode) (isText ? getTextColumn("pdbx_seq_one_letter_code") : getBinaryColumn("pdbx_seq_one_letter_code"));
+        return (PdbxSeqOneLetterCode) (isText ? textFields.computeIfAbsent("pdbx_seq_one_letter_code",
+                PdbxSeqOneLetterCode::new) : getBinaryColumn("pdbx_seq_one_letter_code"));
     }
 
     /**
@@ -104,7 +110,8 @@ public class EntityPoly extends BaseCategory {
      * @return PdbxSeqOneLetterCodeCan
      */
     public PdbxSeqOneLetterCodeCan getPdbxSeqOneLetterCodeCan() {
-        return (PdbxSeqOneLetterCodeCan) (isText ? getTextColumn("pdbx_seq_one_letter_code_can") : getBinaryColumn("pdbx_seq_one_letter_code_can"));
+        return (PdbxSeqOneLetterCodeCan) (isText ? textFields.computeIfAbsent("pdbx_seq_one_letter_code_can",
+                PdbxSeqOneLetterCodeCan::new) : getBinaryColumn("pdbx_seq_one_letter_code_can"));
     }
 
     /**
@@ -112,6 +119,7 @@ public class EntityPoly extends BaseCategory {
      * @return PdbxTargetIdentifier
      */
     public PdbxTargetIdentifier getPdbxTargetIdentifier() {
-        return (PdbxTargetIdentifier) (isText ? getTextColumn("pdbx_target_identifier") : getBinaryColumn("pdbx_target_identifier"));
+        return (PdbxTargetIdentifier) (isText ? textFields.computeIfAbsent("pdbx_target_identifier",
+                PdbxTargetIdentifier::new) : getBinaryColumn("pdbx_target_identifier"));
     }
 }

@@ -52,6 +52,15 @@ public abstract class BaseColumn implements Column {
         return create(catName, fieldName, data, new int[] { startToken }, new int[] { endToken });
     }
 
+    /**
+     * The creation method for a column based on binary (still encoded) data.
+     * @param catName the category to retrieve this class from
+     * @param fieldName the column name to create
+     * @param data the raw string data to parse
+     * @param startToken the collection of start indices which will be used to extract data
+     * @param endToken the collection of end indices which will be used to extract data
+     * @return the text column, ready to parse particular rows
+     */
     @SuppressWarnings("unchecked")
     public static Column create(String catName, String fieldName, String data, int[] startToken, int[] endToken) {
         int rowCount = startToken.length;
@@ -160,6 +169,35 @@ public abstract class BaseColumn implements Column {
         this.defined = true;
     }
 
+    /**
+     * The creation method for absent binary columns;
+     * @param catName the category to retrieve this class from
+     * @param fieldName the column name to create
+     * @return an empty instance of this column
+     */
+    @SuppressWarnings("unchecked")
+    public static Column create(String catName, String fieldName) {
+        if (filter(catName, fieldName)) {
+            try {
+                Class<? extends BaseColumn> column = (Class<? extends BaseColumn>) Class.forName(Schema.BASE_PACKAGE
+                        + "." + toPackageName(catName) + "." + Schema.toClassName(fieldName));
+                return column.getConstructor(String.class)
+                        .newInstance(fieldName);
+            } catch (ClassNotFoundException | NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException(e);
+            }
+        } else {
+            return new StrColumn(fieldName);
+        }
+    }
+
+    /**
+     * The creation method for a column based on binary (still encoded) data.
+     * @param catName the category to retrieve this class from
+     * @param fieldName the column name to create
+     * @param encodedColumn a map encompassing all information needed to create this column
+     * @return the decoded column
+     */
     @SuppressWarnings("unchecked")
     public static Column create(String catName, String fieldName, Map<String, Object> encodedColumn) {
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));

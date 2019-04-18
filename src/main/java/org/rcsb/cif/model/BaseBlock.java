@@ -46,14 +46,15 @@ public class BaseBlock implements Block {
      * the atom sites in a macromolecular crystal structure, such as
      * the positional coordinates, atomic displacement parameters,
      * magnetic moments and directions.
-     * 
+     *
      * The data items for describing anisotropic atomic
      * displacement factors are only used if the corresponding items
      * are not given in the ATOM_SITE_ANISOTROP category.
      * @return AtomSite
      */
     public org.rcsb.cif.model.atomsite.AtomSite getAtomSite() {
-        return (org.rcsb.cif.model.atomsite.AtomSite) categories.get("atom_site");
+        return (org.rcsb.cif.model.atomsite.AtomSite) categories.computeIfAbsent("atom_site",
+                org.rcsb.cif.model.atomsite.AtomSite::new);
     }
 
     /**
@@ -63,7 +64,8 @@ public class BaseBlock implements Block {
      * @return AtomSites
      */
     public org.rcsb.cif.model.atomsites.AtomSites getAtomSites() {
-        return (org.rcsb.cif.model.atomsites.AtomSites) categories.get("atom_sites");
+        return (org.rcsb.cif.model.atomsites.AtomSites) categories.computeIfAbsent("atom_sites",
+                org.rcsb.cif.model.atomsites.AtomSites::new);
     }
 
     /**
@@ -72,21 +74,23 @@ public class BaseBlock implements Block {
      * @return Cell
      */
     public org.rcsb.cif.model.cell.Cell getCell() {
-        return (org.rcsb.cif.model.cell.Cell) categories.get("cell");
+        return (org.rcsb.cif.model.cell.Cell) categories.computeIfAbsent("cell",
+                org.rcsb.cif.model.cell.Cell::new);
     }
 
     /**
      * Data items in the CHEM_COMP category give details about each
      * of the chemical components from which the relevant chemical
      * structures can be constructed, such as name, mass or charge.
-     * 
+     *
      * The related categories CHEM_COMP_ATOM, CHEM_COMP_BOND,
      * CHEM_COMP_ANGLE etc. describe the detailed geometry of these
      * chemical components.
      * @return ChemComp
      */
     public org.rcsb.cif.model.chemcomp.ChemComp getChemComp() {
-        return (org.rcsb.cif.model.chemcomp.ChemComp) categories.get("chem_comp");
+        return (org.rcsb.cif.model.chemcomp.ChemComp) categories.computeIfAbsent("chem_comp",
+                org.rcsb.cif.model.chemcomp.ChemComp::new);
     }
 
     /**
@@ -97,33 +101,34 @@ public class BaseBlock implements Block {
      * @return ChemCompBond
      */
     public org.rcsb.cif.model.chemcompbond.ChemCompBond getChemCompBond() {
-        return (org.rcsb.cif.model.chemcompbond.ChemCompBond) categories.get("chem_comp_bond");
+        return (org.rcsb.cif.model.chemcompbond.ChemCompBond) categories.computeIfAbsent("chem_comp_bond",
+                org.rcsb.cif.model.chemcompbond.ChemCompBond::new);
     }
 
     /**
      * Data items in the ENTITY category record details (such as
      * chemical composition, name and source) about the molecular
      * entities that are present in the crystallographic structure.
-     * 
+     *
      * Items in the various ENTITY subcategories provide a full
      * chemical description of these molecular entities.
-     * 
+     *
      * Entities are of three types:  polymer, non-polymer and water.
      * Note that the water category includes only water;  ordered
      * solvent such as sulfate ion or acetone would be described as
      * individual non-polymer entities.
-     * 
+     *
      * The ENTITY category is specific to macromolecular CIF
      * applications and replaces the function of the CHEMICAL category
      * in the CIF core.
-     * 
+     *
      * It is important to remember that the ENTITY data are not the
      * result of the crystallographic experiment;  those results are
      * represented by the ATOM_SITE data items. ENTITY data items
      * describe the chemistry of the molecules under investigation
      * and can most usefully be thought of as the ideal groups to which
      * the structure is restrained or constrained during refinement.
-     * 
+     *
      * It is also important to remember that entities do not correspond
      * directly to the enumeration of the contents of the asymmetric
      * unit. Entities are described only once, even in those structures
@@ -133,7 +138,8 @@ public class BaseBlock implements Block {
      * @return Entity
      */
     public org.rcsb.cif.model.entity.Entity getEntity() {
-        return (org.rcsb.cif.model.entity.Entity) categories.get("entity");
+        return (org.rcsb.cif.model.entity.Entity) categories.computeIfAbsent("entity",
+                org.rcsb.cif.model.entity.Entity::new);
     }
 
     /**
@@ -143,7 +149,8 @@ public class BaseBlock implements Block {
      * @return EntityPoly
      */
     public org.rcsb.cif.model.entitypoly.EntityPoly getEntityPoly() {
-        return (org.rcsb.cif.model.entitypoly.EntityPoly) categories.get("entity_poly");
+        return (org.rcsb.cif.model.entitypoly.EntityPoly) categories.computeIfAbsent("entity_poly",
+                org.rcsb.cif.model.entitypoly.EntityPoly::new);
     }
 
     /**
@@ -156,7 +163,8 @@ public class BaseBlock implements Block {
      * @return EntityPolySeq
      */
     public org.rcsb.cif.model.entitypolyseq.EntityPolySeq getEntityPolySeq() {
-        return (org.rcsb.cif.model.entitypolyseq.EntityPolySeq) categories.get("entity_poly_seq");
+        return (org.rcsb.cif.model.entitypolyseq.EntityPolySeq) categories.computeIfAbsent("entity_poly_seq",
+                org.rcsb.cif.model.entitypolyseq.EntityPolySeq::new);
     }
 
     /**
@@ -167,7 +175,8 @@ public class BaseBlock implements Block {
      * @return Entry
      */
     public org.rcsb.cif.model.entry.Entry getEntry() {
-        return (org.rcsb.cif.model.entry.Entry) categories.get("entry");
+        return (org.rcsb.cif.model.entry.Entry) categories.computeIfAbsent("entry",
+                org.rcsb.cif.model.entry.Entry::new);
     }
 
     /**
@@ -177,7 +186,8 @@ public class BaseBlock implements Block {
      * @return Exptl
      */
     public org.rcsb.cif.model.exptl.Exptl getExptl() {
-        return (org.rcsb.cif.model.exptl.Exptl) categories.get("exptl");
+        return (org.rcsb.cif.model.exptl.Exptl) categories.computeIfAbsent("exptl",
+                org.rcsb.cif.model.exptl.Exptl::new);
     }
 
     /**
@@ -186,7 +196,8 @@ public class BaseBlock implements Block {
      * @return Struct
      */
     public org.rcsb.cif.model.struct.Struct getStruct() {
-        return (org.rcsb.cif.model.struct.Struct) categories.get("struct");
+        return (org.rcsb.cif.model.struct.Struct) categories.computeIfAbsent("struct",
+                org.rcsb.cif.model.struct.Struct::new);
     }
 
     /**
@@ -195,32 +206,35 @@ public class BaseBlock implements Block {
      * @return StructAsym
      */
     public org.rcsb.cif.model.structasym.StructAsym getStructAsym() {
-        return (org.rcsb.cif.model.structasym.StructAsym) categories.get("struct_asym");
+        return (org.rcsb.cif.model.structasym.StructAsym) categories.computeIfAbsent("struct_asym",
+                org.rcsb.cif.model.structasym.StructAsym::new);
     }
 
     /**
      * Data items in the STRUCT_CONF category record details about
      * the backbone conformation of a segment of polymer.
-     * 
+     *
      * Data items in the STRUCT_CONF_TYPE category define the
      * criteria used to identify the backbone conformations.
      * @return StructConf
      */
     public org.rcsb.cif.model.structconf.StructConf getStructConf() {
-        return (org.rcsb.cif.model.structconf.StructConf) categories.get("struct_conf");
+        return (org.rcsb.cif.model.structconf.StructConf) categories.computeIfAbsent("struct_conf",
+                org.rcsb.cif.model.structconf.StructConf::new);
     }
 
     /**
      * Data items in the STRUCT_CONN category record details about
      * the connections between portions of the structure. These can be
      * hydrogen bonds, salt bridges, disulfide bridges and so on.
-     * 
+     *
      * The STRUCT_CONN_TYPE records define the criteria used to
      * identify these connections.
      * @return StructConn
      */
     public org.rcsb.cif.model.structconn.StructConn getStructConn() {
-        return (org.rcsb.cif.model.structconn.StructConn) categories.get("struct_conn");
+        return (org.rcsb.cif.model.structconn.StructConn) categories.computeIfAbsent("struct_conn",
+                org.rcsb.cif.model.structconn.StructConn::new);
     }
 
     /**
@@ -230,7 +244,8 @@ public class BaseBlock implements Block {
      * @return StructConnType
      */
     public org.rcsb.cif.model.structconntype.StructConnType getStructConnType() {
-        return (org.rcsb.cif.model.structconntype.StructConnType) categories.get("struct_conn_type");
+        return (org.rcsb.cif.model.structconntype.StructConnType) categories.computeIfAbsent("struct_conn_type",
+                org.rcsb.cif.model.structconntype.StructConnType::new);
     }
 
     /**
@@ -239,20 +254,22 @@ public class BaseBlock implements Block {
      * @return StructKeywords
      */
     public org.rcsb.cif.model.structkeywords.StructKeywords getStructKeywords() {
-        return (org.rcsb.cif.model.structkeywords.StructKeywords) categories.get("struct_keywords");
+        return (org.rcsb.cif.model.structkeywords.StructKeywords) categories.computeIfAbsent("struct_keywords",
+                org.rcsb.cif.model.structkeywords.StructKeywords::new);
     }
 
     /**
      * Data items in the STRUCT_NCS_OPER category describe the
      * noncrystallographic symmetry operations.
-     * 
+     *
      * Each operator is specified as a matrix and a subsequent
      * translation vector. Operators need not represent proper
      * rotations.
      * @return StructNcsOper
      */
     public org.rcsb.cif.model.structncsoper.StructNcsOper getStructNcsOper() {
-        return (org.rcsb.cif.model.structncsoper.StructNcsOper) categories.get("struct_ncs_oper");
+        return (org.rcsb.cif.model.structncsoper.StructNcsOper) categories.computeIfAbsent("struct_ncs_oper",
+                org.rcsb.cif.model.structncsoper.StructNcsOper::new);
     }
 
     /**
@@ -264,7 +281,8 @@ public class BaseBlock implements Block {
      * @return StructSheetRange
      */
     public org.rcsb.cif.model.structsheetrange.StructSheetRange getStructSheetRange() {
-        return (org.rcsb.cif.model.structsheetrange.StructSheetRange) categories.get("struct_sheet_range");
+        return (org.rcsb.cif.model.structsheetrange.StructSheetRange) categories.computeIfAbsent("struct_sheet_range",
+                org.rcsb.cif.model.structsheetrange.StructSheetRange::new);
     }
 
     /**
@@ -275,7 +293,8 @@ public class BaseBlock implements Block {
      * @return StructSite
      */
     public org.rcsb.cif.model.structsite.StructSite getStructSite() {
-        return (org.rcsb.cif.model.structsite.StructSite) categories.get("struct_site");
+        return (org.rcsb.cif.model.structsite.StructSite) categories.computeIfAbsent("struct_site",
+                org.rcsb.cif.model.structsite.StructSite::new);
     }
 
     /**
@@ -285,7 +304,8 @@ public class BaseBlock implements Block {
      * @return StructSiteGen
      */
     public org.rcsb.cif.model.structsitegen.StructSiteGen getStructSiteGen() {
-        return (org.rcsb.cif.model.structsitegen.StructSiteGen) categories.get("struct_site_gen");
+        return (org.rcsb.cif.model.structsitegen.StructSiteGen) categories.computeIfAbsent("struct_site_gen",
+                org.rcsb.cif.model.structsitegen.StructSiteGen::new);
     }
 
     /**
@@ -294,7 +314,8 @@ public class BaseBlock implements Block {
      * @return Symmetry
      */
     public org.rcsb.cif.model.symmetry.Symmetry getSymmetry() {
-        return (org.rcsb.cif.model.symmetry.Symmetry) categories.get("symmetry");
+        return (org.rcsb.cif.model.symmetry.Symmetry) categories.computeIfAbsent("symmetry",
+                org.rcsb.cif.model.symmetry.Symmetry::new);
     }
 
     /**
@@ -303,7 +324,8 @@ public class BaseBlock implements Block {
      * @return PdbxNonpolyScheme
      */
     public org.rcsb.cif.model.pdbxnonpolyscheme.PdbxNonpolyScheme getPdbxNonpolyScheme() {
-        return (org.rcsb.cif.model.pdbxnonpolyscheme.PdbxNonpolyScheme) categories.get("pdbx_nonpoly_scheme");
+        return (org.rcsb.cif.model.pdbxnonpolyscheme.PdbxNonpolyScheme) categories.computeIfAbsent("pdbx_nonpoly_scheme",
+                org.rcsb.cif.model.pdbxnonpolyscheme.PdbxNonpolyScheme::new);
     }
 
     /**
@@ -312,7 +334,8 @@ public class BaseBlock implements Block {
      * @return PdbxChemCompIdentifier
      */
     public org.rcsb.cif.model.pdbxchemcompidentifier.PdbxChemCompIdentifier getPdbxChemCompIdentifier() {
-        return (org.rcsb.cif.model.pdbxchemcompidentifier.PdbxChemCompIdentifier) categories.get("pdbx_chem_comp_identifier");
+        return (org.rcsb.cif.model.pdbxchemcompidentifier.PdbxChemCompIdentifier) categories.computeIfAbsent("pdbx_chem_comp_identifier",
+                org.rcsb.cif.model.pdbxchemcompidentifier.PdbxChemCompIdentifier::new);
     }
 
     /**
@@ -322,7 +345,8 @@ public class BaseBlock implements Block {
      * @return PdbxStructModResidue
      */
     public org.rcsb.cif.model.pdbxstructmodresidue.PdbxStructModResidue getPdbxStructModResidue() {
-        return (org.rcsb.cif.model.pdbxstructmodresidue.PdbxStructModResidue) categories.get("pdbx_struct_mod_residue");
+        return (org.rcsb.cif.model.pdbxstructmodresidue.PdbxStructModResidue) categories.computeIfAbsent("pdbx_struct_mod_residue",
+                org.rcsb.cif.model.pdbxstructmodresidue.PdbxStructModResidue::new);
     }
 
     /**
@@ -332,7 +356,8 @@ public class BaseBlock implements Block {
      * @return PdbxStructOperList
      */
     public org.rcsb.cif.model.pdbxstructoperlist.PdbxStructOperList getPdbxStructOperList() {
-        return (org.rcsb.cif.model.pdbxstructoperlist.PdbxStructOperList) categories.get("pdbx_struct_oper_list");
+        return (org.rcsb.cif.model.pdbxstructoperlist.PdbxStructOperList) categories.computeIfAbsent("pdbx_struct_oper_list",
+                org.rcsb.cif.model.pdbxstructoperlist.PdbxStructOperList::new);
     }
 
     /**
@@ -341,7 +366,8 @@ public class BaseBlock implements Block {
      * @return PdbxStructAssembly
      */
     public org.rcsb.cif.model.pdbxstructassembly.PdbxStructAssembly getPdbxStructAssembly() {
-        return (org.rcsb.cif.model.pdbxstructassembly.PdbxStructAssembly) categories.get("pdbx_struct_assembly");
+        return (org.rcsb.cif.model.pdbxstructassembly.PdbxStructAssembly) categories.computeIfAbsent("pdbx_struct_assembly",
+                org.rcsb.cif.model.pdbxstructassembly.PdbxStructAssembly::new);
     }
 
     /**
@@ -352,7 +378,8 @@ public class BaseBlock implements Block {
      * @return PdbxStructAssemblyGen
      */
     public org.rcsb.cif.model.pdbxstructassemblygen.PdbxStructAssemblyGen getPdbxStructAssemblyGen() {
-        return (org.rcsb.cif.model.pdbxstructassemblygen.PdbxStructAssemblyGen) categories.get("pdbx_struct_assembly_gen");
+        return (org.rcsb.cif.model.pdbxstructassemblygen.PdbxStructAssemblyGen) categories.computeIfAbsent("pdbx_struct_assembly_gen",
+                org.rcsb.cif.model.pdbxstructassemblygen.PdbxStructAssemblyGen::new);
     }
 
     /**
@@ -361,7 +388,8 @@ public class BaseBlock implements Block {
      * @return PdbxReferenceEntityList
      */
     public org.rcsb.cif.model.pdbxreferenceentitylist.PdbxReferenceEntityList getPdbxReferenceEntityList() {
-        return (org.rcsb.cif.model.pdbxreferenceentitylist.PdbxReferenceEntityList) categories.get("pdbx_reference_entity_list");
+        return (org.rcsb.cif.model.pdbxreferenceentitylist.PdbxReferenceEntityList) categories.computeIfAbsent("pdbx_reference_entity_list",
+                org.rcsb.cif.model.pdbxreferenceentitylist.PdbxReferenceEntityList::new);
     }
 
     /**
@@ -370,7 +398,8 @@ public class BaseBlock implements Block {
      * @return PdbxReferenceEntityLink
      */
     public org.rcsb.cif.model.pdbxreferenceentitylink.PdbxReferenceEntityLink getPdbxReferenceEntityLink() {
-        return (org.rcsb.cif.model.pdbxreferenceentitylink.PdbxReferenceEntityLink) categories.get("pdbx_reference_entity_link");
+        return (org.rcsb.cif.model.pdbxreferenceentitylink.PdbxReferenceEntityLink) categories.computeIfAbsent("pdbx_reference_entity_link",
+                org.rcsb.cif.model.pdbxreferenceentitylink.PdbxReferenceEntityLink::new);
     }
 
     /**
@@ -380,7 +409,8 @@ public class BaseBlock implements Block {
      * @return PdbxReferenceEntityPolyLink
      */
     public org.rcsb.cif.model.pdbxreferenceentitypolylink.PdbxReferenceEntityPolyLink getPdbxReferenceEntityPolyLink() {
-        return (org.rcsb.cif.model.pdbxreferenceentitypolylink.PdbxReferenceEntityPolyLink) categories.get("pdbx_reference_entity_poly_link");
+        return (org.rcsb.cif.model.pdbxreferenceentitypolylink.PdbxReferenceEntityPolyLink) categories.computeIfAbsent("pdbx_reference_entity_poly_link",
+                org.rcsb.cif.model.pdbxreferenceentitypolylink.PdbxReferenceEntityPolyLink::new);
     }
 
     /**
@@ -389,7 +419,8 @@ public class BaseBlock implements Block {
      * @return PdbxMolecule
      */
     public org.rcsb.cif.model.pdbxmolecule.PdbxMolecule getPdbxMolecule() {
-        return (org.rcsb.cif.model.pdbxmolecule.PdbxMolecule) categories.get("pdbx_molecule");
+        return (org.rcsb.cif.model.pdbxmolecule.PdbxMolecule) categories.computeIfAbsent("pdbx_molecule",
+                org.rcsb.cif.model.pdbxmolecule.PdbxMolecule::new);
     }
 
     /**
@@ -398,7 +429,8 @@ public class BaseBlock implements Block {
      * @return PdbxMoleculeFeatures
      */
     public org.rcsb.cif.model.pdbxmoleculefeatures.PdbxMoleculeFeatures getPdbxMoleculeFeatures() {
-        return (org.rcsb.cif.model.pdbxmoleculefeatures.PdbxMoleculeFeatures) categories.get("pdbx_molecule_features");
+        return (org.rcsb.cif.model.pdbxmoleculefeatures.PdbxMoleculeFeatures) categories.computeIfAbsent("pdbx_molecule_features",
+                org.rcsb.cif.model.pdbxmoleculefeatures.PdbxMoleculeFeatures::new);
     }
 
     /**
@@ -407,6 +439,7 @@ public class BaseBlock implements Block {
      * @return PdbxEntityDescriptor
      */
     public org.rcsb.cif.model.pdbxentitydescriptor.PdbxEntityDescriptor getPdbxEntityDescriptor() {
-        return (org.rcsb.cif.model.pdbxentitydescriptor.PdbxEntityDescriptor) categories.get("pdbx_entity_descriptor");
+        return (org.rcsb.cif.model.pdbxentitydescriptor.PdbxEntityDescriptor) categories.computeIfAbsent("pdbx_entity_descriptor",
+                org.rcsb.cif.model.pdbxentitydescriptor.PdbxEntityDescriptor::new);
     }
 }

@@ -26,7 +26,8 @@ public class PdbxReferenceEntityList extends BaseCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
+        return (PrdId) (isText ? textFields.computeIfAbsent("prd_id",
+                PrdId::new) : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -35,7 +36,8 @@ public class PdbxReferenceEntityList extends BaseCategory {
      * @return RefEntityId
      */
     public RefEntityId getRefEntityId() {
-        return (RefEntityId) (isText ? getTextColumn("ref_entity_id") : getBinaryColumn("ref_entity_id"));
+        return (RefEntityId) (isText ? textFields.computeIfAbsent("ref_entity_id",
+                RefEntityId::new) : getBinaryColumn("ref_entity_id"));
     }
 
     /**
@@ -43,7 +45,8 @@ public class PdbxReferenceEntityList extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -51,7 +54,8 @@ public class PdbxReferenceEntityList extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -59,6 +63,7 @@ public class PdbxReferenceEntityList extends BaseCategory {
      * @return ComponentId
      */
     public ComponentId getComponentId() {
-        return (ComponentId) (isText ? getTextColumn("component_id") : getBinaryColumn("component_id"));
+        return (ComponentId) (isText ? textFields.computeIfAbsent("component_id",
+                ComponentId::new) : getBinaryColumn("component_id"));
     }
 }

@@ -28,7 +28,8 @@ public class ChemCompBond extends BaseCategory {
      * @return AtomId1
      */
     public AtomId1 getAtomId1() {
-        return (AtomId1) (isText ? getTextColumn("atom_id_1") : getBinaryColumn("atom_id_1"));
+        return (AtomId1) (isText ? textFields.computeIfAbsent("atom_id_1",
+                AtomId1::new) : getBinaryColumn("atom_id_1"));
     }
 
     /**
@@ -39,7 +40,8 @@ public class ChemCompBond extends BaseCategory {
      * @return AtomId2
      */
     public AtomId2 getAtomId2() {
-        return (AtomId2) (isText ? getTextColumn("atom_id_2") : getBinaryColumn("atom_id_2"));
+        return (AtomId2) (isText ? textFields.computeIfAbsent("atom_id_2",
+                AtomId2::new) : getBinaryColumn("atom_id_2"));
     }
 
     /**
@@ -48,7 +50,8 @@ public class ChemCompBond extends BaseCategory {
      * @return CompId
      */
     public CompId getCompId() {
-        return (CompId) (isText ? getTextColumn("comp_id") : getBinaryColumn("comp_id"));
+        return (CompId) (isText ? textFields.computeIfAbsent("comp_id",
+                CompId::new) : getBinaryColumn("comp_id"));
     }
 
     /**
@@ -58,7 +61,8 @@ public class ChemCompBond extends BaseCategory {
      * @return ValueOrder
      */
     public ValueOrder getValueOrder() {
-        return (ValueOrder) (isText ? getTextColumn("value_order") : getBinaryColumn("value_order"));
+        return (ValueOrder) (isText ? textFields.computeIfAbsent("value_order",
+                ValueOrder::new) : getBinaryColumn("value_order"));
     }
 
     /**
@@ -66,7 +70,8 @@ public class ChemCompBond extends BaseCategory {
      * @return PdbxOrdinal
      */
     public PdbxOrdinal getPdbxOrdinal() {
-        return (PdbxOrdinal) (isText ? getTextColumn("pdbx_ordinal") : getBinaryColumn("pdbx_ordinal"));
+        return (PdbxOrdinal) (isText ? textFields.computeIfAbsent("pdbx_ordinal",
+                PdbxOrdinal::new) : getBinaryColumn("pdbx_ordinal"));
     }
 
     /**
@@ -74,7 +79,8 @@ public class ChemCompBond extends BaseCategory {
      * @return PdbxStereoConfig
      */
     public PdbxStereoConfig getPdbxStereoConfig() {
-        return (PdbxStereoConfig) (isText ? getTextColumn("pdbx_stereo_config") : getBinaryColumn("pdbx_stereo_config"));
+        return (PdbxStereoConfig) (isText ? textFields.computeIfAbsent("pdbx_stereo_config",
+                PdbxStereoConfig::new) : getBinaryColumn("pdbx_stereo_config"));
     }
 
     /**
@@ -82,6 +88,7 @@ public class ChemCompBond extends BaseCategory {
      * @return PdbxAromaticFlag
      */
     public PdbxAromaticFlag getPdbxAromaticFlag() {
-        return (PdbxAromaticFlag) (isText ? getTextColumn("pdbx_aromatic_flag") : getBinaryColumn("pdbx_aromatic_flag"));
+        return (PdbxAromaticFlag) (isText ? textFields.computeIfAbsent("pdbx_aromatic_flag",
+                PdbxAromaticFlag::new) : getBinaryColumn("pdbx_aromatic_flag"));
     }
 }

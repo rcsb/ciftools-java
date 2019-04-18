@@ -26,7 +26,8 @@ public class StructSiteGen extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -38,7 +39,8 @@ public class StructSiteGen extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -49,7 +51,8 @@ public class StructSiteGen extends BaseCategory {
      * @return LabelAltId
      */
     public LabelAltId getLabelAltId() {
-        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id"));
+        return (LabelAltId) (isText ? textFields.computeIfAbsent("label_alt_id",
+                LabelAltId::new) : getBinaryColumn("label_alt_id"));
     }
 
     /**
@@ -60,7 +63,8 @@ public class StructSiteGen extends BaseCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
+        return (LabelAsymId) (isText ? textFields.computeIfAbsent("label_asym_id",
+                LabelAsymId::new) : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -71,7 +75,8 @@ public class StructSiteGen extends BaseCategory {
      * @return LabelAtomId
      */
     public LabelAtomId getLabelAtomId() {
-        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id"));
+        return (LabelAtomId) (isText ? textFields.computeIfAbsent("label_atom_id",
+                LabelAtomId::new) : getBinaryColumn("label_atom_id"));
     }
 
     /**
@@ -82,7 +87,8 @@ public class StructSiteGen extends BaseCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
+        return (LabelCompId) (isText ? textFields.computeIfAbsent("label_comp_id",
+                LabelCompId::new) : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -93,7 +99,8 @@ public class StructSiteGen extends BaseCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
+        return (LabelSeqId) (isText ? textFields.computeIfAbsent("label_seq_id",
+                LabelSeqId::new) : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -104,7 +111,8 @@ public class StructSiteGen extends BaseCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
+        return (AuthAsymId) (isText ? textFields.computeIfAbsent("auth_asym_id",
+                AuthAsymId::new) : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -115,7 +123,8 @@ public class StructSiteGen extends BaseCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
+        return (AuthCompId) (isText ? textFields.computeIfAbsent("auth_comp_id",
+                AuthCompId::new) : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -126,7 +135,8 @@ public class StructSiteGen extends BaseCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
+        return (AuthSeqId) (isText ? textFields.computeIfAbsent("auth_seq_id",
+                AuthSeqId::new) : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -135,7 +145,8 @@ public class StructSiteGen extends BaseCategory {
      * @return SiteId
      */
     public SiteId getSiteId() {
-        return (SiteId) (isText ? getTextColumn("site_id") : getBinaryColumn("site_id"));
+        return (SiteId) (isText ? textFields.computeIfAbsent("site_id",
+                SiteId::new) : getBinaryColumn("site_id"));
     }
 
     /**
@@ -145,7 +156,8 @@ public class StructSiteGen extends BaseCategory {
      * @return Symmetry
      */
     public Symmetry getSymmetry() {
-        return (Symmetry) (isText ? getTextColumn("symmetry") : getBinaryColumn("symmetry"));
+        return (Symmetry) (isText ? textFields.computeIfAbsent("symmetry",
+                Symmetry::new) : getBinaryColumn("symmetry"));
     }
 
     /**
@@ -153,7 +165,8 @@ public class StructSiteGen extends BaseCategory {
      * @return PdbxAuthInsCode
      */
     public PdbxAuthInsCode getPdbxAuthInsCode() {
-        return (PdbxAuthInsCode) (isText ? getTextColumn("pdbx_auth_ins_code") : getBinaryColumn("pdbx_auth_ins_code"));
+        return (PdbxAuthInsCode) (isText ? textFields.computeIfAbsent("pdbx_auth_ins_code",
+                PdbxAuthInsCode::new) : getBinaryColumn("pdbx_auth_ins_code"));
     }
 
     /**
@@ -161,6 +174,7 @@ public class StructSiteGen extends BaseCategory {
      * @return PdbxNumRes
      */
     public PdbxNumRes getPdbxNumRes() {
-        return (PdbxNumRes) (isText ? getTextColumn("pdbx_num_res") : getBinaryColumn("pdbx_num_res"));
+        return (PdbxNumRes) (isText ? textFields.computeIfAbsent("pdbx_num_res",
+                PdbxNumRes::new) : getBinaryColumn("pdbx_num_res"));
     }
 }

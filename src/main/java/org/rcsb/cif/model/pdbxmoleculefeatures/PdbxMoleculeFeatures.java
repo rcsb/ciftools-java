@@ -26,7 +26,8 @@ public class PdbxMoleculeFeatures extends BaseCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
+        return (PrdId) (isText ? textFields.computeIfAbsent("prd_id",
+                PrdId::new) : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -34,7 +35,8 @@ public class PdbxMoleculeFeatures extends BaseCategory {
      * @return Clazz
      */
     public Clazz getClazz() {
-        return (Clazz) (isText ? getTextColumn("class") : getBinaryColumn("class"));
+        return (Clazz) (isText ? textFields.computeIfAbsent("class",
+                Clazz::new) : getBinaryColumn("class"));
     }
 
     /**
@@ -42,7 +44,8 @@ public class PdbxMoleculeFeatures extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -50,7 +53,8 @@ public class PdbxMoleculeFeatures extends BaseCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
+        return (Name) (isText ? textFields.computeIfAbsent("name",
+                Name::new) : getBinaryColumn("name"));
     }
 
     /**
@@ -58,6 +62,7 @@ public class PdbxMoleculeFeatures extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 }

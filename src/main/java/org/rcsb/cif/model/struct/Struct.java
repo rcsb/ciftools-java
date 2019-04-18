@@ -25,7 +25,8 @@ public class Struct extends BaseCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -35,6 +36,7 @@ public class Struct extends BaseCategory {
      * @return Title
      */
     public Title getTitle() {
-        return (Title) (isText ? getTextColumn("title") : getBinaryColumn("title"));
+        return (Title) (isText ? textFields.computeIfAbsent("title",
+                Title::new) : getBinaryColumn("title"));
     }
 }

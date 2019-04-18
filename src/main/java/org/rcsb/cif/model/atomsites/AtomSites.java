@@ -25,7 +25,8 @@ public class AtomSites extends BaseCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -42,7 +43,8 @@ public class AtomSites extends BaseCategory {
      * @return FractTransfMatrix
      */
     public FractTransfMatrix getFractTransfMatrix() {
-        return (FractTransfMatrix) (isText ? getTextColumn("fract_transf_matrix") : getBinaryColumn("fract_transf_matrix"));
+        return (FractTransfMatrix) (isText ? textFields.computeIfAbsent("fract_transf_matrix",
+                FractTransfMatrix::new) : getBinaryColumn("fract_transf_matrix"));
     }
 
     /**
@@ -59,6 +61,7 @@ public class AtomSites extends BaseCategory {
      * @return FractTransfVector
      */
     public FractTransfVector getFractTransfVector() {
-        return (FractTransfVector) (isText ? getTextColumn("fract_transf_vector") : getBinaryColumn("fract_transf_vector"));
+        return (FractTransfVector) (isText ? textFields.computeIfAbsent("fract_transf_vector",
+                FractTransfVector::new) : getBinaryColumn("fract_transf_vector"));
     }
 }

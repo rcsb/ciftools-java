@@ -26,7 +26,8 @@ public class PdbxMolecule extends BaseCategory {
      * @return PrdId
      */
     public PrdId getPrdId() {
-        return (PrdId) (isText ? getTextColumn("prd_id") : getBinaryColumn("prd_id"));
+        return (PrdId) (isText ? textFields.computeIfAbsent("prd_id",
+                PrdId::new) : getBinaryColumn("prd_id"));
     }
 
     /**
@@ -35,7 +36,8 @@ public class PdbxMolecule extends BaseCategory {
      * @return InstanceId
      */
     public InstanceId getInstanceId() {
-        return (InstanceId) (isText ? getTextColumn("instance_id") : getBinaryColumn("instance_id"));
+        return (InstanceId) (isText ? textFields.computeIfAbsent("instance_id",
+                InstanceId::new) : getBinaryColumn("instance_id"));
     }
 
     /**
@@ -43,6 +45,7 @@ public class PdbxMolecule extends BaseCategory {
      * @return AsymId
      */
     public AsymId getAsymId() {
-        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id"));
+        return (AsymId) (isText ? textFields.computeIfAbsent("asym_id",
+                AsymId::new) : getBinaryColumn("asym_id"));
     }
 }

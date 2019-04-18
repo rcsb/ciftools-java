@@ -26,7 +26,8 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
+        return (EntityId) (isText ? textFields.computeIfAbsent("entity_id",
+                EntityId::new) : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -35,7 +36,8 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return Descriptor
      */
     public Descriptor getDescriptor() {
-        return (Descriptor) (isText ? getTextColumn("descriptor") : getBinaryColumn("descriptor"));
+        return (Descriptor) (isText ? textFields.computeIfAbsent("descriptor",
+                Descriptor::new) : getBinaryColumn("descriptor"));
     }
 
     /**
@@ -43,7 +45,8 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -52,7 +55,8 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return Program
      */
     public Program getProgram() {
-        return (Program) (isText ? getTextColumn("program") : getBinaryColumn("program"));
+        return (Program) (isText ? textFields.computeIfAbsent("program",
+                Program::new) : getBinaryColumn("program"));
     }
 
     /**
@@ -61,7 +65,8 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return ProgramVersion
      */
     public ProgramVersion getProgramVersion() {
-        return (ProgramVersion) (isText ? getTextColumn("program_version") : getBinaryColumn("program_version"));
+        return (ProgramVersion) (isText ? textFields.computeIfAbsent("program_version",
+                ProgramVersion::new) : getBinaryColumn("program_version"));
     }
 
     /**
@@ -69,6 +74,7 @@ public class PdbxEntityDescriptor extends BaseCategory {
      * @return Ordinal
      */
     public Ordinal getOrdinal() {
-        return (Ordinal) (isText ? getTextColumn("ordinal") : getBinaryColumn("ordinal"));
+        return (Ordinal) (isText ? textFields.computeIfAbsent("ordinal",
+                Ordinal::new) : getBinaryColumn("ordinal"));
     }
 }

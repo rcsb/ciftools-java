@@ -42,7 +42,8 @@ public class ChemComp extends BaseCategory {
      * @return Formula
      */
     public Formula getFormula() {
-        return (Formula) (isText ? getTextColumn("formula") : getBinaryColumn("formula"));
+        return (Formula) (isText ? textFields.computeIfAbsent("formula",
+                Formula::new) : getBinaryColumn("formula"));
     }
 
     /**
@@ -50,7 +51,8 @@ public class ChemComp extends BaseCategory {
      * @return FormulaWeight
      */
     public FormulaWeight getFormulaWeight() {
-        return (FormulaWeight) (isText ? getTextColumn("formula_weight") : getBinaryColumn("formula_weight"));
+        return (FormulaWeight) (isText ? textFields.computeIfAbsent("formula_weight",
+                FormulaWeight::new) : getBinaryColumn("formula_weight"));
     }
 
     /**
@@ -65,7 +67,8 @@ public class ChemComp extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -77,7 +80,8 @@ public class ChemComp extends BaseCategory {
      * @return MonNstdFlag
      */
     public MonNstdFlag getMonNstdFlag() {
-        return (MonNstdFlag) (isText ? getTextColumn("mon_nstd_flag") : getBinaryColumn("mon_nstd_flag"));
+        return (MonNstdFlag) (isText ? textFields.computeIfAbsent("mon_nstd_flag",
+                MonNstdFlag::new) : getBinaryColumn("mon_nstd_flag"));
     }
 
     /**
@@ -85,7 +89,8 @@ public class ChemComp extends BaseCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
+        return (Name) (isText ? textFields.computeIfAbsent("name",
+                Name::new) : getBinaryColumn("name"));
     }
 
     /**
@@ -96,7 +101,8 @@ public class ChemComp extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -104,6 +110,7 @@ public class ChemComp extends BaseCategory {
      * @return PdbxSynonyms
      */
     public PdbxSynonyms getPdbxSynonyms() {
-        return (PdbxSynonyms) (isText ? getTextColumn("pdbx_synonyms") : getBinaryColumn("pdbx_synonyms"));
+        return (PdbxSynonyms) (isText ? textFields.computeIfAbsent("pdbx_synonyms",
+                PdbxSynonyms::new) : getBinaryColumn("pdbx_synonyms"));
     }
 }

@@ -25,7 +25,8 @@ public class Symmetry extends BaseCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -33,7 +34,8 @@ public class Symmetry extends BaseCategory {
      * @return CellSetting
      */
     public CellSetting getCellSetting() {
-        return (CellSetting) (isText ? getTextColumn("cell_setting") : getBinaryColumn("cell_setting"));
+        return (CellSetting) (isText ? textFields.computeIfAbsent("cell_setting",
+                CellSetting::new) : getBinaryColumn("cell_setting"));
     }
 
     /**
@@ -42,7 +44,8 @@ public class Symmetry extends BaseCategory {
      * @return IntTablesNumber
      */
     public IntTablesNumber getIntTablesNumber() {
-        return (IntTablesNumber) (isText ? getTextColumn("Int_Tables_number") : getBinaryColumn("Int_Tables_number"));
+        return (IntTablesNumber) (isText ? textFields.computeIfAbsent("Int_Tables_number",
+                IntTablesNumber::new) : getBinaryColumn("Int_Tables_number"));
     }
 
     /**
@@ -55,7 +58,8 @@ public class Symmetry extends BaseCategory {
      * @return SpaceGroupNameHall
      */
     public SpaceGroupNameHall getSpaceGroupNameHall() {
-        return (SpaceGroupNameHall) (isText ? getTextColumn("space_group_name_Hall") : getBinaryColumn("space_group_name_Hall"));
+        return (SpaceGroupNameHall) (isText ? textFields.computeIfAbsent("space_group_name_Hall",
+                SpaceGroupNameHall::new) : getBinaryColumn("space_group_name_Hall"));
     }
 
     /**
@@ -73,6 +77,7 @@ public class Symmetry extends BaseCategory {
      * @return SpaceGroupNameH_M
      */
     public SpaceGroupNameH_M getSpaceGroupNameH_M() {
-        return (SpaceGroupNameH_M) (isText ? getTextColumn("space_group_name_H-M") : getBinaryColumn("space_group_name_H-M"));
+        return (SpaceGroupNameH_M) (isText ? textFields.computeIfAbsent("space_group_name_H-M",
+                SpaceGroupNameH_M::new) : getBinaryColumn("space_group_name_H-M"));
     }
 }

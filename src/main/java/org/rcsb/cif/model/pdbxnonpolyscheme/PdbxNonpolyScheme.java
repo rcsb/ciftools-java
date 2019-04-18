@@ -25,7 +25,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return AsymId
      */
     public AsymId getAsymId() {
-        return (AsymId) (isText ? getTextColumn("asym_id") : getBinaryColumn("asym_id"));
+        return (AsymId) (isText ? textFields.computeIfAbsent("asym_id",
+                AsymId::new) : getBinaryColumn("asym_id"));
     }
 
     /**
@@ -33,7 +34,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
+        return (EntityId) (isText ? textFields.computeIfAbsent("entity_id",
+                EntityId::new) : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -41,7 +43,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return MonId
      */
     public MonId getMonId() {
-        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id"));
+        return (MonId) (isText ? textFields.computeIfAbsent("mon_id",
+                MonId::new) : getBinaryColumn("mon_id"));
     }
 
     /**
@@ -49,7 +52,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return PdbStrandId
      */
     public PdbStrandId getPdbStrandId() {
-        return (PdbStrandId) (isText ? getTextColumn("pdb_strand_id") : getBinaryColumn("pdb_strand_id"));
+        return (PdbStrandId) (isText ? textFields.computeIfAbsent("pdb_strand_id",
+                PdbStrandId::new) : getBinaryColumn("pdb_strand_id"));
     }
 
     /**
@@ -57,7 +61,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return NdbSeqNum
      */
     public NdbSeqNum getNdbSeqNum() {
-        return (NdbSeqNum) (isText ? getTextColumn("ndb_seq_num") : getBinaryColumn("ndb_seq_num"));
+        return (NdbSeqNum) (isText ? textFields.computeIfAbsent("ndb_seq_num",
+                NdbSeqNum::new) : getBinaryColumn("ndb_seq_num"));
     }
 
     /**
@@ -65,7 +70,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return PdbSeqNum
      */
     public PdbSeqNum getPdbSeqNum() {
-        return (PdbSeqNum) (isText ? getTextColumn("pdb_seq_num") : getBinaryColumn("pdb_seq_num"));
+        return (PdbSeqNum) (isText ? textFields.computeIfAbsent("pdb_seq_num",
+                PdbSeqNum::new) : getBinaryColumn("pdb_seq_num"));
     }
 
     /**
@@ -74,7 +80,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return AuthSeqNum
      */
     public AuthSeqNum getAuthSeqNum() {
-        return (AuthSeqNum) (isText ? getTextColumn("auth_seq_num") : getBinaryColumn("auth_seq_num"));
+        return (AuthSeqNum) (isText ? textFields.computeIfAbsent("auth_seq_num",
+                AuthSeqNum::new) : getBinaryColumn("auth_seq_num"));
     }
 
     /**
@@ -82,7 +89,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return PdbMonId
      */
     public PdbMonId getPdbMonId() {
-        return (PdbMonId) (isText ? getTextColumn("pdb_mon_id") : getBinaryColumn("pdb_mon_id"));
+        return (PdbMonId) (isText ? textFields.computeIfAbsent("pdb_mon_id",
+                PdbMonId::new) : getBinaryColumn("pdb_mon_id"));
     }
 
     /**
@@ -91,7 +99,8 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return AuthMonId
      */
     public AuthMonId getAuthMonId() {
-        return (AuthMonId) (isText ? getTextColumn("auth_mon_id") : getBinaryColumn("auth_mon_id"));
+        return (AuthMonId) (isText ? textFields.computeIfAbsent("auth_mon_id",
+                AuthMonId::new) : getBinaryColumn("auth_mon_id"));
     }
 
     /**
@@ -99,6 +108,7 @@ public class PdbxNonpolyScheme extends BaseCategory {
      * @return PdbInsCode
      */
     public PdbInsCode getPdbInsCode() {
-        return (PdbInsCode) (isText ? getTextColumn("pdb_ins_code") : getBinaryColumn("pdb_ins_code"));
+        return (PdbInsCode) (isText ? textFields.computeIfAbsent("pdb_ins_code",
+                PdbInsCode::new) : getBinaryColumn("pdb_ins_code"));
     }
 }

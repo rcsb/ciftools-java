@@ -25,7 +25,8 @@ public class EntityPolySeq extends BaseCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
+        return (EntityId) (isText ? textFields.computeIfAbsent("entity_id",
+                EntityId::new) : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -34,7 +35,8 @@ public class EntityPolySeq extends BaseCategory {
      * @return Hetero
      */
     public Hetero getHetero() {
-        return (Hetero) (isText ? getTextColumn("hetero") : getBinaryColumn("hetero"));
+        return (Hetero) (isText ? textFields.computeIfAbsent("hetero",
+                Hetero::new) : getBinaryColumn("hetero"));
     }
 
     /**
@@ -43,7 +45,8 @@ public class EntityPolySeq extends BaseCategory {
      * @return MonId
      */
     public MonId getMonId() {
-        return (MonId) (isText ? getTextColumn("mon_id") : getBinaryColumn("mon_id"));
+        return (MonId) (isText ? textFields.computeIfAbsent("mon_id",
+                MonId::new) : getBinaryColumn("mon_id"));
     }
 
     /**
@@ -55,6 +58,7 @@ public class EntityPolySeq extends BaseCategory {
      * @return Num
      */
     public Num getNum() {
-        return (Num) (isText ? getTextColumn("num") : getBinaryColumn("num"));
+        return (Num) (isText ? textFields.computeIfAbsent("num",
+                Num::new) : getBinaryColumn("num"));
     }
 }

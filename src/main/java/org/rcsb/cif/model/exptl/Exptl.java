@@ -25,7 +25,8 @@ public class Exptl extends BaseCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -33,6 +34,7 @@ public class Exptl extends BaseCategory {
      * @return Method
      */
     public Method getMethod() {
-        return (Method) (isText ? getTextColumn("method") : getBinaryColumn("method"));
+        return (Method) (isText ? textFields.computeIfAbsent("method",
+                Method::new) : getBinaryColumn("method"));
     }
 }

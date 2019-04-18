@@ -25,7 +25,8 @@ public class StructSite extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -37,7 +38,8 @@ public class StructSite extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -45,7 +47,8 @@ public class StructSite extends BaseCategory {
      * @return PdbxNumResidues
      */
     public PdbxNumResidues getPdbxNumResidues() {
-        return (PdbxNumResidues) (isText ? getTextColumn("pdbx_num_residues") : getBinaryColumn("pdbx_num_residues"));
+        return (PdbxNumResidues) (isText ? textFields.computeIfAbsent("pdbx_num_residues",
+                PdbxNumResidues::new) : getBinaryColumn("pdbx_num_residues"));
     }
 
     /**
@@ -53,7 +56,8 @@ public class StructSite extends BaseCategory {
      * @return PdbxEvidenceCode
      */
     public PdbxEvidenceCode getPdbxEvidenceCode() {
-        return (PdbxEvidenceCode) (isText ? getTextColumn("pdbx_evidence_code") : getBinaryColumn("pdbx_evidence_code"));
+        return (PdbxEvidenceCode) (isText ? textFields.computeIfAbsent("pdbx_evidence_code",
+                PdbxEvidenceCode::new) : getBinaryColumn("pdbx_evidence_code"));
     }
 
     /**
@@ -64,7 +68,8 @@ public class StructSite extends BaseCategory {
      * @return PdbxAuthAsymId
      */
     public PdbxAuthAsymId getPdbxAuthAsymId() {
-        return (PdbxAuthAsymId) (isText ? getTextColumn("pdbx_auth_asym_id") : getBinaryColumn("pdbx_auth_asym_id"));
+        return (PdbxAuthAsymId) (isText ? textFields.computeIfAbsent("pdbx_auth_asym_id",
+                PdbxAuthAsymId::new) : getBinaryColumn("pdbx_auth_asym_id"));
     }
 
     /**
@@ -75,7 +80,8 @@ public class StructSite extends BaseCategory {
      * @return PdbxAuthCompId
      */
     public PdbxAuthCompId getPdbxAuthCompId() {
-        return (PdbxAuthCompId) (isText ? getTextColumn("pdbx_auth_comp_id") : getBinaryColumn("pdbx_auth_comp_id"));
+        return (PdbxAuthCompId) (isText ? textFields.computeIfAbsent("pdbx_auth_comp_id",
+                PdbxAuthCompId::new) : getBinaryColumn("pdbx_auth_comp_id"));
     }
 
     /**
@@ -86,7 +92,8 @@ public class StructSite extends BaseCategory {
      * @return PdbxAuthSeqId
      */
     public PdbxAuthSeqId getPdbxAuthSeqId() {
-        return (PdbxAuthSeqId) (isText ? getTextColumn("pdbx_auth_seq_id") : getBinaryColumn("pdbx_auth_seq_id"));
+        return (PdbxAuthSeqId) (isText ? textFields.computeIfAbsent("pdbx_auth_seq_id",
+                PdbxAuthSeqId::new) : getBinaryColumn("pdbx_auth_seq_id"));
     }
 
     /**
@@ -94,6 +101,7 @@ public class StructSite extends BaseCategory {
      * @return PdbxAuthInsCode
      */
     public PdbxAuthInsCode getPdbxAuthInsCode() {
-        return (PdbxAuthInsCode) (isText ? getTextColumn("pdbx_auth_ins_code") : getBinaryColumn("pdbx_auth_ins_code"));
+        return (PdbxAuthInsCode) (isText ? textFields.computeIfAbsent("pdbx_auth_ins_code",
+                PdbxAuthInsCode::new) : getBinaryColumn("pdbx_auth_ins_code"));
     }
 }

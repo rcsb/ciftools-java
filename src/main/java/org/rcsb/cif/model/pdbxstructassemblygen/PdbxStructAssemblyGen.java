@@ -28,7 +28,8 @@ public class PdbxStructAssemblyGen extends BaseCategory {
      * @return AsymIdList
      */
     public AsymIdList getAsymIdList() {
-        return (AsymIdList) (isText ? getTextColumn("asym_id_list") : getBinaryColumn("asym_id_list"));
+        return (AsymIdList) (isText ? textFields.computeIfAbsent("asym_id_list",
+                AsymIdList::new) : getBinaryColumn("asym_id_list"));
     }
 
     /**
@@ -37,7 +38,8 @@ public class PdbxStructAssemblyGen extends BaseCategory {
      * @return AssemblyId
      */
     public AssemblyId getAssemblyId() {
-        return (AssemblyId) (isText ? getTextColumn("assembly_id") : getBinaryColumn("assembly_id"));
+        return (AssemblyId) (isText ? textFields.computeIfAbsent("assembly_id",
+                AssemblyId::new) : getBinaryColumn("assembly_id"));
     }
 
     /**
@@ -56,6 +58,7 @@ public class PdbxStructAssemblyGen extends BaseCategory {
      * @return OperExpression
      */
     public OperExpression getOperExpression() {
-        return (OperExpression) (isText ? getTextColumn("oper_expression") : getBinaryColumn("oper_expression"));
+        return (OperExpression) (isText ? textFields.computeIfAbsent("oper_expression",
+                OperExpression::new) : getBinaryColumn("oper_expression"));
     }
 }

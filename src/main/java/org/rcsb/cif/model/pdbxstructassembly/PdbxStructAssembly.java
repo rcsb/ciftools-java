@@ -26,7 +26,8 @@ public class PdbxStructAssembly extends BaseCategory {
      * @return MethodDetails
      */
     public MethodDetails getMethodDetails() {
-        return (MethodDetails) (isText ? getTextColumn("method_details") : getBinaryColumn("method_details"));
+        return (MethodDetails) (isText ? textFields.computeIfAbsent("method_details",
+                MethodDetails::new) : getBinaryColumn("method_details"));
     }
 
     /**
@@ -34,7 +35,8 @@ public class PdbxStructAssembly extends BaseCategory {
      * @return OligomericDetails
      */
     public OligomericDetails getOligomericDetails() {
-        return (OligomericDetails) (isText ? getTextColumn("oligomeric_details") : getBinaryColumn("oligomeric_details"));
+        return (OligomericDetails) (isText ? textFields.computeIfAbsent("oligomeric_details",
+                OligomericDetails::new) : getBinaryColumn("oligomeric_details"));
     }
 
     /**
@@ -42,7 +44,8 @@ public class PdbxStructAssembly extends BaseCategory {
      * @return OligomericCount
      */
     public OligomericCount getOligomericCount() {
-        return (OligomericCount) (isText ? getTextColumn("oligomeric_count") : getBinaryColumn("oligomeric_count"));
+        return (OligomericCount) (isText ? textFields.computeIfAbsent("oligomeric_count",
+                OligomericCount::new) : getBinaryColumn("oligomeric_count"));
     }
 
     /**
@@ -50,7 +53,8 @@ public class PdbxStructAssembly extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -59,6 +63,7 @@ public class PdbxStructAssembly extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 }

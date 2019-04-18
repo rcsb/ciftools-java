@@ -30,7 +30,8 @@ public class StructNcsOper extends BaseCategory {
      * @return Code
      */
     public Code getCode() {
-        return (Code) (isText ? getTextColumn("code") : getBinaryColumn("code"));
+        return (Code) (isText ? textFields.computeIfAbsent("code",
+                Code::new) : getBinaryColumn("code"));
     }
 
     /**
@@ -39,7 +40,8 @@ public class StructNcsOper extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -51,7 +53,8 @@ public class StructNcsOper extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -60,7 +63,8 @@ public class StructNcsOper extends BaseCategory {
      * @return Matrix
      */
     public Matrix getMatrix() {
-        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix"));
+        return (Matrix) (isText ? textFields.computeIfAbsent("matrix",
+                Matrix::new) : getBinaryColumn("matrix"));
     }
 
     /**
@@ -69,6 +73,7 @@ public class StructNcsOper extends BaseCategory {
      * @return Vector
      */
     public Vector getVector() {
-        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector"));
+        return (Vector) (isText ? textFields.computeIfAbsent("vector",
+                Vector::new) : getBinaryColumn("vector"));
     }
 }

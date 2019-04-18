@@ -25,7 +25,8 @@ public class StructKeywords extends BaseCategory {
      * @return EntryId
      */
     public EntryId getEntryId() {
-        return (EntryId) (isText ? getTextColumn("entry_id") : getBinaryColumn("entry_id"));
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**
@@ -33,7 +34,8 @@ public class StructKeywords extends BaseCategory {
      * @return Text
      */
     public Text getText() {
-        return (Text) (isText ? getTextColumn("text") : getBinaryColumn("text"));
+        return (Text) (isText ? textFields.computeIfAbsent("text",
+                Text::new) : getBinaryColumn("text"));
     }
 
     /**
@@ -41,6 +43,7 @@ public class StructKeywords extends BaseCategory {
      * @return PdbxKeywords
      */
     public PdbxKeywords getPdbxKeywords() {
-        return (PdbxKeywords) (isText ? getTextColumn("pdbx_keywords") : getBinaryColumn("pdbx_keywords"));
+        return (PdbxKeywords) (isText ? textFields.computeIfAbsent("pdbx_keywords",
+                PdbxKeywords::new) : getBinaryColumn("pdbx_keywords"));
     }
 }

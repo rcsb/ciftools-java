@@ -27,7 +27,8 @@ public class AtomSite extends BaseCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
+        return (AuthAsymId) (isText ? textFields.computeIfAbsent("auth_asym_id",
+                AuthAsymId::new) : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -37,7 +38,8 @@ public class AtomSite extends BaseCategory {
      * @return AuthAtomId
      */
     public AuthAtomId getAuthAtomId() {
-        return (AuthAtomId) (isText ? getTextColumn("auth_atom_id") : getBinaryColumn("auth_atom_id"));
+        return (AuthAtomId) (isText ? textFields.computeIfAbsent("auth_atom_id",
+                AuthAtomId::new) : getBinaryColumn("auth_atom_id"));
     }
 
     /**
@@ -47,7 +49,8 @@ public class AtomSite extends BaseCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
+        return (AuthCompId) (isText ? textFields.computeIfAbsent("auth_comp_id",
+                AuthCompId::new) : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -72,7 +75,8 @@ public class AtomSite extends BaseCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
+        return (AuthSeqId) (isText ? textFields.computeIfAbsent("auth_seq_id",
+                AuthSeqId::new) : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -100,7 +104,8 @@ public class AtomSite extends BaseCategory {
      * @return BIsoOrEquiv
      */
     public BIsoOrEquiv getBIsoOrEquiv() {
-        return (BIsoOrEquiv) (isText ? getTextColumn("B_iso_or_equiv") : getBinaryColumn("B_iso_or_equiv"));
+        return (BIsoOrEquiv) (isText ? textFields.computeIfAbsent("B_iso_or_equiv",
+                BIsoOrEquiv::new) : getBinaryColumn("B_iso_or_equiv"));
     }
 
     /**
@@ -111,7 +116,8 @@ public class AtomSite extends BaseCategory {
      * @return CartnX
      */
     public CartnX getCartnX() {
-        return (CartnX) (isText ? getTextColumn("Cartn_x") : getBinaryColumn("Cartn_x"));
+        return (CartnX) (isText ? textFields.computeIfAbsent("Cartn_x",
+                CartnX::new) : getBinaryColumn("Cartn_x"));
     }
 
     /**
@@ -122,7 +128,8 @@ public class AtomSite extends BaseCategory {
      * @return CartnY
      */
     public CartnY getCartnY() {
-        return (CartnY) (isText ? getTextColumn("Cartn_y") : getBinaryColumn("Cartn_y"));
+        return (CartnY) (isText ? textFields.computeIfAbsent("Cartn_y",
+                CartnY::new) : getBinaryColumn("Cartn_y"));
     }
 
     /**
@@ -133,7 +140,8 @@ public class AtomSite extends BaseCategory {
      * @return CartnZ
      */
     public CartnZ getCartnZ() {
-        return (CartnZ) (isText ? getTextColumn("Cartn_z") : getBinaryColumn("Cartn_z"));
+        return (CartnZ) (isText ? textFields.computeIfAbsent("Cartn_z",
+                CartnZ::new) : getBinaryColumn("Cartn_z"));
     }
 
     /**
@@ -143,7 +151,8 @@ public class AtomSite extends BaseCategory {
      * @return GroupPDB
      */
     public GroupPDB getGroupPDB() {
-        return (GroupPDB) (isText ? getTextColumn("group_PDB") : getBinaryColumn("group_PDB"));
+        return (GroupPDB) (isText ? textFields.computeIfAbsent("group_PDB",
+                GroupPDB::new) : getBinaryColumn("group_PDB"));
     }
 
     /**
@@ -167,7 +176,8 @@ public class AtomSite extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -180,7 +190,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelAltId
      */
     public LabelAltId getLabelAltId() {
-        return (LabelAltId) (isText ? getTextColumn("label_alt_id") : getBinaryColumn("label_alt_id"));
+        return (LabelAltId) (isText ? textFields.computeIfAbsent("label_alt_id",
+                LabelAltId::new) : getBinaryColumn("label_alt_id"));
     }
 
     /**
@@ -193,7 +204,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
+        return (LabelAsymId) (isText ? textFields.computeIfAbsent("label_asym_id",
+                LabelAsymId::new) : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -204,7 +216,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelAtomId
      */
     public LabelAtomId getLabelAtomId() {
-        return (LabelAtomId) (isText ? getTextColumn("label_atom_id") : getBinaryColumn("label_atom_id"));
+        return (LabelAtomId) (isText ? textFields.computeIfAbsent("label_atom_id",
+                LabelAtomId::new) : getBinaryColumn("label_atom_id"));
     }
 
     /**
@@ -215,7 +228,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
+        return (LabelCompId) (isText ? textFields.computeIfAbsent("label_comp_id",
+                LabelCompId::new) : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -223,7 +237,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelEntityId
      */
     public LabelEntityId getLabelEntityId() {
-        return (LabelEntityId) (isText ? getTextColumn("label_entity_id") : getBinaryColumn("label_entity_id"));
+        return (LabelEntityId) (isText ? textFields.computeIfAbsent("label_entity_id",
+                LabelEntityId::new) : getBinaryColumn("label_entity_id"));
     }
 
     /**
@@ -232,7 +247,8 @@ public class AtomSite extends BaseCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
+        return (LabelSeqId) (isText ? textFields.computeIfAbsent("label_seq_id",
+                LabelSeqId::new) : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -242,7 +258,8 @@ public class AtomSite extends BaseCategory {
      * @return Occupancy
      */
     public Occupancy getOccupancy() {
-        return (Occupancy) (isText ? getTextColumn("occupancy") : getBinaryColumn("occupancy"));
+        return (Occupancy) (isText ? textFields.computeIfAbsent("occupancy",
+                Occupancy::new) : getBinaryColumn("occupancy"));
     }
 
     /**
@@ -251,7 +268,8 @@ public class AtomSite extends BaseCategory {
      * @return TypeSymbol
      */
     public TypeSymbol getTypeSymbol() {
-        return (TypeSymbol) (isText ? getTextColumn("type_symbol") : getBinaryColumn("type_symbol"));
+        return (TypeSymbol) (isText ? textFields.computeIfAbsent("type_symbol",
+                TypeSymbol::new) : getBinaryColumn("type_symbol"));
     }
 
     /**
@@ -259,7 +277,8 @@ public class AtomSite extends BaseCategory {
      * @return PdbxPDBInsCode
      */
     public PdbxPDBInsCode getPdbxPDBInsCode() {
-        return (PdbxPDBInsCode) (isText ? getTextColumn("pdbx_PDB_ins_code") : getBinaryColumn("pdbx_PDB_ins_code"));
+        return (PdbxPDBInsCode) (isText ? textFields.computeIfAbsent("pdbx_PDB_ins_code",
+                PdbxPDBInsCode::new) : getBinaryColumn("pdbx_PDB_ins_code"));
     }
 
     /**
@@ -267,7 +286,8 @@ public class AtomSite extends BaseCategory {
      * @return PdbxPDBModelNum
      */
     public PdbxPDBModelNum getPdbxPDBModelNum() {
-        return (PdbxPDBModelNum) (isText ? getTextColumn("pdbx_PDB_model_num") : getBinaryColumn("pdbx_PDB_model_num"));
+        return (PdbxPDBModelNum) (isText ? textFields.computeIfAbsent("pdbx_PDB_model_num",
+                PdbxPDBModelNum::new) : getBinaryColumn("pdbx_PDB_model_num"));
     }
 
     /**
@@ -276,6 +296,7 @@ public class AtomSite extends BaseCategory {
      * @return PdbxFormalCharge
      */
     public PdbxFormalCharge getPdbxFormalCharge() {
-        return (PdbxFormalCharge) (isText ? getTextColumn("pdbx_formal_charge") : getBinaryColumn("pdbx_formal_charge"));
+        return (PdbxFormalCharge) (isText ? textFields.computeIfAbsent("pdbx_formal_charge",
+                PdbxFormalCharge::new) : getBinaryColumn("pdbx_formal_charge"));
     }
 }

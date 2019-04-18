@@ -26,7 +26,8 @@ public class PdbxStructOperList extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -34,7 +35,8 @@ public class PdbxStructOperList extends BaseCategory {
      * @return Type
      */
     public Type getType() {
-        return (Type) (isText ? getTextColumn("type") : getBinaryColumn("type"));
+        return (Type) (isText ? textFields.computeIfAbsent("type",
+                Type::new) : getBinaryColumn("type"));
     }
 
     /**
@@ -42,7 +44,8 @@ public class PdbxStructOperList extends BaseCategory {
      * @return Name
      */
     public Name getName() {
-        return (Name) (isText ? getTextColumn("name") : getBinaryColumn("name"));
+        return (Name) (isText ? textFields.computeIfAbsent("name",
+                Name::new) : getBinaryColumn("name"));
     }
 
     /**
@@ -50,7 +53,8 @@ public class PdbxStructOperList extends BaseCategory {
      * @return SymmetryOperation
      */
     public SymmetryOperation getSymmetryOperation() {
-        return (SymmetryOperation) (isText ? getTextColumn("symmetry_operation") : getBinaryColumn("symmetry_operation"));
+        return (SymmetryOperation) (isText ? textFields.computeIfAbsent("symmetry_operation",
+                SymmetryOperation::new) : getBinaryColumn("symmetry_operation"));
     }
 
     /**
@@ -59,7 +63,8 @@ public class PdbxStructOperList extends BaseCategory {
      * @return Matrix
      */
     public Matrix getMatrix() {
-        return (Matrix) (isText ? getTextColumn("matrix") : getBinaryColumn("matrix"));
+        return (Matrix) (isText ? textFields.computeIfAbsent("matrix",
+                Matrix::new) : getBinaryColumn("matrix"));
     }
 
     /**
@@ -68,6 +73,7 @@ public class PdbxStructOperList extends BaseCategory {
      * @return Vector
      */
     public Vector getVector() {
-        return (Vector) (isText ? getTextColumn("vector") : getBinaryColumn("vector"));
+        return (Vector) (isText ? textFields.computeIfAbsent("vector",
+                Vector::new) : getBinaryColumn("vector"));
     }
 }

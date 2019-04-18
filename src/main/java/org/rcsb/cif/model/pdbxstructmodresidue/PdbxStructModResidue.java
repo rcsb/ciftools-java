@@ -28,7 +28,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -39,7 +40,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return AuthAsymId
      */
     public AuthAsymId getAuthAsymId() {
-        return (AuthAsymId) (isText ? getTextColumn("auth_asym_id") : getBinaryColumn("auth_asym_id"));
+        return (AuthAsymId) (isText ? textFields.computeIfAbsent("auth_asym_id",
+                AuthAsymId::new) : getBinaryColumn("auth_asym_id"));
     }
 
     /**
@@ -50,7 +52,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return AuthCompId
      */
     public AuthCompId getAuthCompId() {
-        return (AuthCompId) (isText ? getTextColumn("auth_comp_id") : getBinaryColumn("auth_comp_id"));
+        return (AuthCompId) (isText ? textFields.computeIfAbsent("auth_comp_id",
+                AuthCompId::new) : getBinaryColumn("auth_comp_id"));
     }
 
     /**
@@ -61,7 +64,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return AuthSeqId
      */
     public AuthSeqId getAuthSeqId() {
-        return (AuthSeqId) (isText ? getTextColumn("auth_seq_id") : getBinaryColumn("auth_seq_id"));
+        return (AuthSeqId) (isText ? textFields.computeIfAbsent("auth_seq_id",
+                AuthSeqId::new) : getBinaryColumn("auth_seq_id"));
     }
 
     /**
@@ -72,7 +76,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return PDBInsCode
      */
     public PDBInsCode getPDBInsCode() {
-        return (PDBInsCode) (isText ? getTextColumn("PDB_ins_code") : getBinaryColumn("PDB_ins_code"));
+        return (PDBInsCode) (isText ? textFields.computeIfAbsent("PDB_ins_code",
+                PDBInsCode::new) : getBinaryColumn("PDB_ins_code"));
     }
 
     /**
@@ -83,7 +88,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return LabelAsymId
      */
     public LabelAsymId getLabelAsymId() {
-        return (LabelAsymId) (isText ? getTextColumn("label_asym_id") : getBinaryColumn("label_asym_id"));
+        return (LabelAsymId) (isText ? textFields.computeIfAbsent("label_asym_id",
+                LabelAsymId::new) : getBinaryColumn("label_asym_id"));
     }
 
     /**
@@ -94,7 +100,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return LabelCompId
      */
     public LabelCompId getLabelCompId() {
-        return (LabelCompId) (isText ? getTextColumn("label_comp_id") : getBinaryColumn("label_comp_id"));
+        return (LabelCompId) (isText ? textFields.computeIfAbsent("label_comp_id",
+                LabelCompId::new) : getBinaryColumn("label_comp_id"));
     }
 
     /**
@@ -105,7 +112,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return LabelSeqId
      */
     public LabelSeqId getLabelSeqId() {
-        return (LabelSeqId) (isText ? getTextColumn("label_seq_id") : getBinaryColumn("label_seq_id"));
+        return (LabelSeqId) (isText ? textFields.computeIfAbsent("label_seq_id",
+                LabelSeqId::new) : getBinaryColumn("label_seq_id"));
     }
 
     /**
@@ -113,7 +121,8 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return ParentCompId
      */
     public ParentCompId getParentCompId() {
-        return (ParentCompId) (isText ? getTextColumn("parent_comp_id") : getBinaryColumn("parent_comp_id"));
+        return (ParentCompId) (isText ? textFields.computeIfAbsent("parent_comp_id",
+                ParentCompId::new) : getBinaryColumn("parent_comp_id"));
     }
 
     /**
@@ -121,6 +130,7 @@ public class PdbxStructModResidue extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 }

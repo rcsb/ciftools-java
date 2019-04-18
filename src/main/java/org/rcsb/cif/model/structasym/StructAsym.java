@@ -26,7 +26,8 @@ public class StructAsym extends BaseCategory {
      * @return Details
      */
     public Details getDetails() {
-        return (Details) (isText ? getTextColumn("details") : getBinaryColumn("details"));
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
     }
 
     /**
@@ -34,7 +35,8 @@ public class StructAsym extends BaseCategory {
      * @return EntityId
      */
     public EntityId getEntityId() {
-        return (EntityId) (isText ? getTextColumn("entity_id") : getBinaryColumn("entity_id"));
+        return (EntityId) (isText ? textFields.computeIfAbsent("entity_id",
+                EntityId::new) : getBinaryColumn("entity_id"));
     }
 
     /**
@@ -46,7 +48,8 @@ public class StructAsym extends BaseCategory {
      * @return Id
      */
     public Id getId() {
-        return (Id) (isText ? getTextColumn("id") : getBinaryColumn("id"));
+        return (Id) (isText ? textFields.computeIfAbsent("id",
+                Id::new) : getBinaryColumn("id"));
     }
 
     /**
@@ -54,7 +57,8 @@ public class StructAsym extends BaseCategory {
      * @return PdbxModified
      */
     public PdbxModified getPdbxModified() {
-        return (PdbxModified) (isText ? getTextColumn("pdbx_modified") : getBinaryColumn("pdbx_modified"));
+        return (PdbxModified) (isText ? textFields.computeIfAbsent("pdbx_modified",
+                PdbxModified::new) : getBinaryColumn("pdbx_modified"));
     }
 
     /**
@@ -63,6 +67,7 @@ public class StructAsym extends BaseCategory {
      * @return PdbxBlankPDBChainidFlag
      */
     public PdbxBlankPDBChainidFlag getPdbxBlankPDBChainidFlag() {
-        return (PdbxBlankPDBChainidFlag) (isText ? getTextColumn("pdbx_blank_PDB_chainid_flag") : getBinaryColumn("pdbx_blank_PDB_chainid_flag"));
+        return (PdbxBlankPDBChainidFlag) (isText ? textFields.computeIfAbsent("pdbx_blank_PDB_chainid_flag",
+                PdbxBlankPDBChainidFlag::new) : getBinaryColumn("pdbx_blank_PDB_chainid_flag"));
     }
 }
