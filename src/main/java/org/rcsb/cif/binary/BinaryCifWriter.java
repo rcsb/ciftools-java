@@ -42,7 +42,7 @@ public class BinaryCifWriter implements CifWriter {
 
         for (Block cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
-            block.put("header", CifWriter.formatHeader(cifBlock.getHeader()));
+            block.put("header", CifWriter.formatHeader(cifBlock.getBlockHeader()));
             Object[] categories = new Object[cifBlock.getCategoryNames().size()];
             int categoryCount = 0;
             block.put("categories", categories);
@@ -78,7 +78,7 @@ public class BinaryCifWriter implements CifWriter {
     private Map<String, Object> classifyColumn(Column cifColumn) {
 //        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
 //        if (forceEncode.isPresent()) {
-//            System.out.println("force encoding " + cifColumn.getName());
+//            System.out.println("force encoding " + cifColumn.getColumnName());
 //            System.out.println(forceEncode.get().getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
 //            return encodeColumn(cifColumn, forceEncode.get());
 //        } else
@@ -113,7 +113,7 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> encodeColumn(Column cifField, ByteArray byteArray) {
-        String name = cifField.getName();
+        String name = cifField.getColumnName();
         FieldData fieldData = getFieldData(cifField);
         Uint8Array mask = fieldData.mask;
 

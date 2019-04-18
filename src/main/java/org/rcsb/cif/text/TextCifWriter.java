@@ -20,7 +20,7 @@ public class TextCifWriter implements CifWriter {
 
         for (Block block : cifFile.getBlocks()) {
             output.append("data_")
-                    .append(CifWriter.formatHeader(block.getHeader()))
+                    .append(CifWriter.formatHeader(block.getBlockHeader()))
                     .append("\n#\n");
 
             for (String categoryName : block.getCategoryNames()) {
@@ -50,7 +50,7 @@ public class TextCifWriter implements CifWriter {
                 .collect(Collectors.toList());
 
         OptionalInt optionalWidth = cifFields.stream()
-                .map(Column::getName)
+                .map(Column::getColumnName)
                 .mapToInt(String::length)
                 .max();
 
@@ -63,7 +63,7 @@ public class TextCifWriter implements CifWriter {
 //        int[] floatPrecisions = getFloatPrecisions(cifFields);
 
         for (Column cifField : cifFields) {
-            writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getName(), width);
+            writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getColumnName(), width);
 
             for (int row = 0; row < cifField.getRowCount(); row++) {
                 boolean multiline = writeValue(output, cifField, row/*, floatPrecisions[row]*/);
@@ -100,7 +100,7 @@ public class TextCifWriter implements CifWriter {
             output.append("_")
                     .append(cifCategory.getCategoryName())
                     .append(".")
-                    .append(cifField.getName())
+                    .append(cifField.getColumnName())
                     .append("\n");
         }
 

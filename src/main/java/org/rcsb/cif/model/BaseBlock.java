@@ -22,7 +22,7 @@ public class BaseBlock implements Block {
     }
 
     @Override
-    public String getHeader() {
+    public String getBlockHeader() {
         return header;
     }
 

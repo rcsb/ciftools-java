@@ -101,7 +101,7 @@ public class Schema {
 
         StringJoiner getters = new StringJoiner("\n");
 
-        getters.add("    String getHeader();");
+        getters.add("    String getBlockHeader();");
         getters.add("");
 
         getters.add("    " + Category.class.getSimpleName() + " getCategory(String name);");
@@ -438,7 +438,7 @@ public class Schema {
 
     private void getFieldData() {
         categories.forEach((fullName, saveFrame) -> {
-            String header = saveFrame.getHeader();
+            String header = saveFrame.getBlockHeader();
             String categoryName = header.substring(1, header.contains(".") ? header.indexOf(".") : header.length());
             String itemName = header.substring(header.contains(".") ? header.indexOf(".") + 1 : 1);
             Map<String, Object> fields = schema.get(categoryName).getColumns();
@@ -588,7 +588,7 @@ public class Schema {
             Category cat = saveFrame.getCategory(category);
             return cat.getColumn(field);
         } catch (NullPointerException e) {
-            String linkName = links.get(saveFrame.getHeader());
+            String linkName = links.get(saveFrame.getBlockHeader());
             return getField(category, field, categories.get(linkName));
         }
     }
@@ -598,9 +598,9 @@ public class Schema {
                 .get(0)
                 .getSaveFrames()
                 .stream()
-                .filter(saveFrame -> saveFrame.getHeader().startsWith("_"))
+                .filter(saveFrame -> saveFrame.getBlockHeader().startsWith("_"))
                 .forEach(saveFrame -> {
-                    categories.put(saveFrame.getHeader(), saveFrame);
+                    categories.put(saveFrame.getBlockHeader(), saveFrame);
                     Category item_linked = saveFrame.getCategory("item_linked");
 
                     if (item_linked == null) {
@@ -623,7 +623,7 @@ public class Schema {
                 .get(0)
                 .getSaveFrames()
                 .stream()
-                .filter(saveFrame -> !saveFrame.getHeader().startsWith("_"))
+                .filter(saveFrame -> !saveFrame.getBlockHeader().startsWith("_"))
                 .forEach(saveFrame -> {
                     Set<String> categoryKeyNames = new HashSet<>();
                     Column cifColumn = saveFrame.getCategory("category_key").getColumn("name");
@@ -632,7 +632,7 @@ public class Schema {
                     }
 
                     Repeat repeat = Repeat.UNKNOWN;
-                    if (filter.containsKey(saveFrame.getHeader())) {
+                    if (filter.containsKey(saveFrame.getBlockHeader())) {
                         if (saveFrame.getCategory("category_examples")
                                     .getColumn("case")
                                     .getStringData(0).contains("loop_")) {
@@ -650,7 +650,7 @@ public class Schema {
                             .map(String::trim)
                             .collect(Collectors.joining("\n"));
 
-                    schema.put(saveFrame.getHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>(), repeat));
+                    schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>(), repeat));
                 });
     }
 

@@ -89,7 +89,7 @@ public class TextCifReader implements CifReader {
 
         // check if the latest save frame was terminated
         if (inSaveFrame) {
-            throw new ParsingException("Unfinished save frame (" + saveFrame.getHeader() + ").", tokenizer.getLineNumber());
+            throw new ParsingException("Unfinished save frame (" + saveFrame.getBlockHeader() + ").", tokenizer.getLineNumber());
         }
 
         if (blockCtx.getCategories().size() > 0 || saveFrames.size() > 0) {

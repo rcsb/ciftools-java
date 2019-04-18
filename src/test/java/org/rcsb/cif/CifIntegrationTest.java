@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.atomsite.*;
@@ -14,8 +15,7 @@ import java.io.InputStreamReader;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpacesAndNumberFormat;
 
@@ -25,6 +25,40 @@ import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpacesAndNumberFo
  * content. For Bcif decoding and encoding should do the same.
  */
 public class CifIntegrationTest {
+    @Test
+    public void testUndefinedColumnBehavior() throws IOException {
+        CifFile textCifFile = CifReader.parseText(TestHelper.getInputStream("cif/0red.cif"));
+        testUndefinedColumnBehavior(textCifFile);
+
+        CifFile binaryCifFile = CifReader.parseBinary(TestHelper.getInputStream("bcif/0red.bcif"));
+        testUndefinedColumnBehavior(binaryCifFile);
+    }
+
+    private void testUndefinedColumnBehavior(CifFile cifFile) {
+        Block block = cifFile.getFirstBlock();
+        assertNotNull("header is corrupted", block.getBlockHeader());
+
+        assertTrue(block.getEntry().isDefined());
+
+        String entryId = block.getEntry().getId().get();
+        assertEquals("0RED", entryId);
+
+        // atom site should be obtainable
+        AtomSite atomSite = block.getAtomSite();
+        // and return its name
+        assertEquals("atom_site", atomSite.getCategoryName());
+        // though not be present
+        assertFalse(atomSite.isDefined());
+        // report 0 rows
+        assertEquals(0, atomSite.getRowCount());
+
+        // columns still should be accessible
+        CartnX cartnX = atomSite.getCartnX();
+        assertEquals("Cartn_x", cartnX.getColumnName());
+        assertEquals(0, cartnX.getRowCount());
+        assertFalse(cartnX.isDefined());
+    }
+
     @Test
     public void testNumberFormat() {
         String[] data = {"1.0", "2", "-1.567891234567"};

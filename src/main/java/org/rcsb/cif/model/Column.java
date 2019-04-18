@@ -3,7 +3,7 @@ package org.rcsb.cif.model;
 public interface Column {
     String getStringData(int row);
 
-    String getName();
+    String getColumnName();
 
     int getRowCount();
 

@@ -229,7 +229,7 @@ public abstract class BaseColumn implements Column {
     }
 
     @Override
-    public String getName() {
+    public String getColumnName() {
         return name;
     }
 

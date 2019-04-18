@@ -5,7 +5,7 @@ import java.util.List;
 
 @Generated("org.rcsb.cif.schema.Schema")
 public interface Block {
-    String getHeader();
+    String getBlockHeader();
 
     Category getCategory(String name);
 

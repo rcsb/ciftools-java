@@ -28,25 +28,29 @@ class Demo {
         }
 
         // get first block of CIF
-        CifBlock data = cifFile.getBlocks().get(0);
+        Block data = cifFile.getFirstBlock();
 
         // get category with name '_atom_site' from first block - access is type-safe, all classes are
         // inferred from the CIF schema
-        AtomSite _atom_site = data.getAtomSite();
-        CartnX cartn_x = _atom_site.getCartnX();
+        AtomSite atomSite = data.getAtomSite();
+        CartnX cartnX = atomSite.getCartnX();
+
+        // by definition, some categories can only contain a single row of data
+        String entryId = data.getEntry().getId().get();
+        System.out.println(entryId);
 
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
         // schema for column 'cartn_x'
-        OptionalDouble average_cartn_x = cartn_x.values().average();
-        average_cartn_x.ifPresent(System.out::println);
+        OptionalDouble averageCartnX = cartnX.values().average();
+        averageCartnX.ifPresent(System.out::println);
 
         // print the last residue sequence id - this time #values() returns an IntStream
-        OptionalInt last_label_seq_id = _atom_site.getLabelSeqId().values().max();
-        last_label_seq_id.ifPresent(System.out::println);
+        OptionalInt lastLabelSeqId = atomSite.getLabelSeqId().values().max();
+        lastLabelSeqId.ifPresent(System.out::println);
 
-        // print entry id - or #values() may be text
-        Optional<String> stringValue = data.getEntry().getId().values().findFirst();
-        stringValue.ifPresent(System.out::println);
+        // print record type - or #values() may be text
+        Optional<String> groupPdb = data.getAtomSite().getGroupPDB().values().findFirst();
+        groupPdb.ifPresent(System.out::println);
     }
 }
 ```

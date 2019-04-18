@@ -110,6 +110,11 @@ public class BaseCategory implements Category {
         }
     }
 
+    /**
+     * This methods must be named getCategoryName() to avoid collision with categories actually containing columns named
+     * 'name'.
+     * @return the name of this category
+     */
     @Override
     public String getCategoryName() {
         return name;
@@ -133,7 +138,7 @@ public class BaseCategory implements Category {
         Optional<Map<String, Object>> optional = find(name);
         // cache decoded fields to reuse them if applicable
         if (!optional.isPresent()) {
-            BaseColumn.create(this.name, name);
+            return BaseColumn.create(this.name, name);
         }
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
