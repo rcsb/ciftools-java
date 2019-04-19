@@ -1,10 +1,12 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -12,7 +14,8 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 /**
  * Origin of files:
@@ -28,6 +31,7 @@ public class TestHelper {
     @SuppressWarnings("unchecked")
     public static final Map<String, List<Object>> TEST_CASES = Stream.of(
             Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
+            Stream.of("1j59", -5.513, 207, "1J59").collect(Collectors.toList()),
             Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
             Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
             Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
@@ -64,7 +68,7 @@ public class TestHelper {
     public static InputStream getInputStream(String localPath) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(localPath);
         InputStream re = inputStream == null ? TestHelper.class.getResourceAsStream(localPath) : inputStream;
-        Objects.requireNonNull(re);
+        Objects.requireNonNull(re, "Could not load test resource " + localPath);
         return re;
     }
 
@@ -102,5 +106,11 @@ public class TestHelper {
     @Test
     public void shouldAcquireInputStream() {
         assertNotNull("Could not acquire inputstream of local resource", getInputStream("cif/1pga.cif"));
+    }
+
+    @Test
+    public void messagePackToUint8Array() throws IOException {
+        String id = "1j59.bcif";
+        System.out.println(Arrays.toString(EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/" + id)).toUint8Array(null).getData()));
     }
 }

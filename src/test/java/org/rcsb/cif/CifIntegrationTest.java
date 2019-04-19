@@ -241,6 +241,7 @@ public class CifIntegrationTest {
     @Test
     public void readBcifWriteCif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
+            if (!id.equals("1j59")) continue;
             System.out.println(id + " bcif to cif");
             readBcifWriteCif(id);
         }

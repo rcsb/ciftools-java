@@ -130,8 +130,8 @@ public class BaseCategory implements Category {
         return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
-    protected Column getTextColumn(String name) {
-        return textFields.get(name);
+    private Column getTextColumn(String name) {
+        return textFields.computeIfAbsent(name, n -> BaseColumn.create(this.name, n));
     }
 
     protected Column getBinaryColumn(String name) {

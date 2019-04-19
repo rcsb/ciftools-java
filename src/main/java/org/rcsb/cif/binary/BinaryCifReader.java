@@ -74,9 +74,13 @@ public class BinaryCifReader implements CifReader {
     }
 
     private Category createCategory(Map<String, Object> encodedCategory) {
-        String name = ((String) encodedCategory.get("name")).substring(1);
-        Object[] encodedFields = (Object[]) encodedCategory.get("columns");
-        int rowCount = (int) encodedCategory.get("rowCount");
-        return BaseCategory.create(name, rowCount, encodedFields);
+        try {
+            String name = ((String) encodedCategory.get("name")).substring(1);
+            Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+            int rowCount = (int) encodedCategory.get("rowCount");
+            return BaseCategory.create(name, rowCount, encodedFields);
+        } catch (Exception e) {
+            throw new RuntimeException();
+        }
     }
 }

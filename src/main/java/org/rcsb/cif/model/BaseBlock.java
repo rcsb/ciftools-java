@@ -28,7 +28,8 @@ public class BaseBlock implements Block {
 
     @Override
     public Category getCategory(String name) {
-        return categories.get(name);
+        // try to return category, if unknown and not present, return empty category
+        return categories.computeIfAbsent(name, BaseCategory::new);
     }
 
     @Override

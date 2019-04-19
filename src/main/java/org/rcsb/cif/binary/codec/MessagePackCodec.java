@@ -346,9 +346,13 @@ public class MessagePackCodec {
     private Map<String, Object> map(ByteBuffer buffer, int length) {
         Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
-            Object k = decodeInternal(buffer);
             Object v = decodeInternal(buffer);
-            value.put(k.toString(), v);
+            System.out.println("value " +v);
+            Object o = decodeInternal(buffer);
+            System.out.println("raw " + o);
+            String k = (String) o;
+            System.out.println("key " +k);
+            value.put(k, v);
         }
         return value;
     }
