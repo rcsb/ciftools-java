@@ -17,7 +17,7 @@ import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhiteSpacesAndNumberFormat;
+import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -186,7 +186,7 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        assertEqualsIgnoringWhiteSpacesAndNumberFormat(originalContent, copyContent);
+        assertEqualsLoosely(originalContent, copyContent);
     }
 
     @Test
@@ -257,6 +257,6 @@ public class CifIntegrationTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        assertEqualsIgnoringWhiteSpacesAndNumberFormat(originalContent, copyContent);
+        assertEqualsLoosely(originalContent, copyContent);
     }
 }

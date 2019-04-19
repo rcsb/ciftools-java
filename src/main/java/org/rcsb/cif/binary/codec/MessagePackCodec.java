@@ -247,7 +247,8 @@ public class MessagePackCodec {
     }
 
     private Object decodeInternal(ByteBuffer buffer) {
-        final int type = buffer.get() & 0xFF;
+        final int int8 = buffer.get();
+        final int type = int8 & 0xFF;
 
         // positive FixInt
         if ((type & 0x80) == 0x00) {
@@ -271,7 +272,7 @@ public class MessagePackCodec {
 
         // negative FixInt
         if ((type & 0xE0) == 0xE0) {
-            return buffer.getInt();
+            return int8;
         }
 
         switch (type) {
@@ -346,12 +347,8 @@ public class MessagePackCodec {
     private Map<String, Object> map(ByteBuffer buffer, int length) {
         Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
+            String k = (String) decodeInternal(buffer);
             Object v = decodeInternal(buffer);
-            System.out.println("value " +v);
-            Object o = decodeInternal(buffer);
-            System.out.println("raw " + o);
-            String k = (String) o;
-            System.out.println("key " +k);
             value.put(k, v);
         }
         return value;

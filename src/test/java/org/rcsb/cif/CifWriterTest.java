@@ -40,7 +40,7 @@ public class CifWriterTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        assertEqualsIgnoringWhiteSpacesAndNumberFormat(original, copy);
+        assertEqualsLoosely(original, copy);
     }
 
     private void writeBinary(String testCase) throws ParsingException, IOException {

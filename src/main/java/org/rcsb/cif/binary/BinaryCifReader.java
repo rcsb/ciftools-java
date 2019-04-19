@@ -74,13 +74,10 @@ public class BinaryCifReader implements CifReader {
     }
 
     private Category createCategory(Map<String, Object> encodedCategory) {
-        try {
-            String name = ((String) encodedCategory.get("name")).substring(1);
-            Object[] encodedFields = (Object[]) encodedCategory.get("columns");
-            int rowCount = (int) encodedCategory.get("rowCount");
-            return BaseCategory.create(name, rowCount, encodedFields);
-        } catch (Exception e) {
-            throw new RuntimeException();
-        }
+        // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
+        String name = ((String) encodedCategory.get("name")).substring(1);
+        Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+        int rowCount = (int) encodedCategory.get("rowCount");
+        return BaseCategory.create(name, rowCount, encodedFields);
     }
 }
