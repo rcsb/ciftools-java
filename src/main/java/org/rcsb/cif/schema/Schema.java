@@ -444,7 +444,6 @@ public class Schema {
             Map<String, Object> fields = schema.get(categoryName).getColumns();
 
             String description = getDescription(saveFrame);
-//            System.out.println(description);
 
             // need to use regex to check for matrix or vector items
             // as sub_category assignment is missing for some entries

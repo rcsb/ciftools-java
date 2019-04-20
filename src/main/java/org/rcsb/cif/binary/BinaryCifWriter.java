@@ -76,23 +76,15 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private Map<String, Object> classifyColumn(Column cifColumn) {
-//        Optional<ByteArray> forceEncode = cifColumn.forceEncode();
-//        if (forceEncode.isPresent()) {
-//            System.out.println("force encoding " + cifColumn.getColumnName());
-//            System.out.println(forceEncode.get().getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
-//            return encodeColumn(cifColumn, forceEncode.get());
-//        } else
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.float64Array(floatCol.values().toArray())
                     .classify();
-//            System.out.println(byteArray.getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
             return encodeColumn(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
             ByteArray byteArray = EncodedDataFactory.int32Array(intCol.values().toArray())
                     .classify();
-//            System.out.println(byteArray.getEncoding().stream().map(Encoding::getKind).collect(Collectors.joining(" -> ")));
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;
@@ -100,16 +92,6 @@ public class BinaryCifWriter implements CifWriter {
                     .encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }
-        // no auto-encoding
-//        } else if (type == DataType.Float) {
-//            ByteArray byteArray = EncodedDataFactory.float64Array(cifColumn.floats().toArray())
-//                    .encode(new ByteArrayEncoding());
-//            return encodeColumn(cifColumn, "Float", byteArray);
-//        } else {
-//            ByteArray byteArray = EncodedDataFactory.int32Array(cifColumn.ints().toArray())
-//                    .encode(new ByteArrayEncoding());
-//            return encodeColumn(cifColumn, "Int", byteArray);
-//        }
     }
 
     private Map<String, Object> encodeColumn(Column cifField, ByteArray byteArray) {
@@ -194,10 +176,18 @@ public class BinaryCifWriter implements CifWriter {
 
     private FieldData getFieldData(Column cifField) {
         int length = cifField.getRowCount();
-        // TODO save them resources
-        String[] stringArray = new String[length];
-        Float64Array floatArray = EncodedDataFactory.float64Array(new double[length]);
-        Int32Array intArray = EncodedDataFactory.int32Array(new int[length]);
+
+        String[] stringArray = null;
+        Float64Array floatArray = null;
+        Int32Array intArray = null;
+        if (cifField instanceof FloatColumn) {
+            floatArray = EncodedDataFactory.float64Array(new double[length]);
+        } else if (cifField instanceof IntColumn) {
+            intArray = EncodedDataFactory.int32Array(new int[length]);
+        } else {
+            stringArray = new String[length];
+        }
+
         int[] mask = new int[length];
         Uint8Array maskArray = EncodedDataFactory.uint8Array(mask);
         boolean allPresent = true;

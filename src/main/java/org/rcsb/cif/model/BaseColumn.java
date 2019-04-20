@@ -207,7 +207,6 @@ public abstract class BaseColumn implements Column {
         boolean hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null && !((Map) encodedColumn.get("mask")).isEmpty();
         int[] mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
 
-
         if (filter(catName, fieldName)) {
             try {
                     Class<? extends BaseColumn> column = (Class<? extends BaseColumn>) Class.forName(Schema.BASE_PACKAGE

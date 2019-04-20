@@ -5,9 +5,7 @@ import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.*;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -27,6 +25,7 @@ public class BinaryCifReader implements CifReader {
         buffer.flush();
         byte[] byteArray = buffer.toByteArray();
         buffer.close();
+        inputStream.close();
 
         return parseBinary(byteArray);
     }

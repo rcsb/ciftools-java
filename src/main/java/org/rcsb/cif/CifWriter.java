@@ -9,10 +9,8 @@ import java.io.InputStream;
 public interface CifWriter {
     InputStream write(CifFile cifFile);
 
-    BinaryCifWriter BINARY_INSTANCE = new BinaryCifWriter();
-    TextCifWriter TEXT_INSTANCE = new TextCifWriter();
-
-    // TODO filter and formatter are missing in this impl
+    CifWriter BINARY_INSTANCE = new BinaryCifWriter();
+    CifWriter TEXT_INSTANCE = new TextCifWriter();
 
     static InputStream writeBinary(CifFile cifFile) {
         return BINARY_INSTANCE.write(cifFile);

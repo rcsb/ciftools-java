@@ -7,6 +7,7 @@ import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.BaseBlock;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -15,10 +16,12 @@ import java.util.stream.Collectors;
 
 public class TextCifReader implements CifReader {
     @Override
-    public TextFile parse(InputStream inputStream) throws ParsingException {
-        return parseText(new BufferedReader(new InputStreamReader(inputStream))
-                .lines()
-                .collect(Collectors.joining(System.lineSeparator())));
+    public TextFile parse(InputStream inputStream) throws ParsingException, IOException {
+        try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream)) {
+            try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
+                return parseText(bufferedReader.lines().collect(Collectors.joining("\n")));
+            }
+        }
     }
 
     public TextFile parseText(String data) throws ParsingException {
