@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.*;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -70,6 +71,26 @@ public class BaseCategory implements Category {
         } catch(Exception e) {
             throw new RuntimeException(e);
         }
+
+        this.textFields = null;
+        this.defined = true;
+    }
+
+    public BaseCategory(String name, int rowCount, Map<String, Object> columns) {
+        this.name = name;
+        this.rowCount = rowCount;
+
+        this.isText = false;
+        this.encodedColumns = null;
+        this.decodedColumns = columns.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Map.Entry::getKey,
+                        BaseColumn::create,
+                        (u, v) -> {
+                            throw new IllegalStateException("Duplicate key " + u);
+                        },
+                        LinkedHashMap::new));
+        this.columnNames = new ArrayList<>(columns.keySet());
 
         this.textFields = null;
         this.defined = true;
