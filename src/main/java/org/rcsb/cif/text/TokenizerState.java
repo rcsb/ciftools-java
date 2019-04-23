@@ -368,42 +368,64 @@ class TokenizerState {
 
         moveNext();
         final String name = getNamespace(getNamespaceEnd());
-        final List<String> fieldNames = new ArrayList<>();
-        final List<List<Integer>> start = new ArrayList<>();
-        final List<List<Integer>> end = new ArrayList<>();
+        // performance 1.2: resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
+        int columnCountEstimate = 32;
+        int rowCountEstimate = "_atom_site".equals(name) ? data.length() / 100 : 32;
+        final List<String> columnNames = new ArrayList<>(columnCountEstimate);
+        final List<List<Integer>> start = new ArrayList<>(columnCountEstimate);
+        final List<List<Integer>> end = new ArrayList<>(columnCountEstimate);
         int tokenCount = 0;
 
         while (tokenType == CifTokenType.COLUMN_NAME) {
-            fieldNames.add(getTokenString().substring(name.length() + 1));
+            columnNames.add(getTokenString().substring(name.length() + 1));
             moveNext();
-            start.add(new ArrayList<>());
-            end.add(new ArrayList<>());
+            start.add(new ArrayList<>(rowCountEstimate));
+            end.add(new ArrayList<>(rowCountEstimate));
         }
 
         while (tokenType == CifTokenType.VALUE) {
-            int i = tokenCount % fieldNames.size();
+            int i = tokenCount % columnNames.size();
             start.get(i).add(tokenStart);
             end.get(i).add(tokenEnd);
             moveNext();
             tokenCount++;
         }
 
-        if (start.size() % fieldNames.size() != 0) {
+        if (start.size() % columnNames.size() != 0) {
             throw new ParsingException("The number of values for loop starting at line " + loopLine +
                     " is not a multiple of the number of columns.");
         }
 
         String catName = name.substring(1);
-        Map<String, Column> fields = new LinkedHashMap<>();
+
+        Map<String, Column> columns = new LinkedHashMap<>();
         for (int i = 0; i < start.size(); i++) {
             Column cifColumn = ModelFactory.createColumnText(catName,
-                    fieldNames.get(i),
+                    columnNames.get(i),
                     data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
                     end.get(i).stream().mapToInt(j -> j).toArray());
-            fields.put(fieldNames.get(i), cifColumn);
+            columns.put(columnNames.get(i), cifColumn);
         }
+//        Map<String, Column> columns = IntStream.range(0, start.size())
+//                .parallel()
+//                .mapToObj(i -> create(catName, columnNames.get(i), data, start.get(i), end.get(i)))
+//                .collect(Collectors.toMap(
+//                        Column::getColumnName,
+//                        Function.identity(),
+//                        (u, v) -> {
+//                            throw new IllegalStateException("Duplicate key " + u);
+//                        },
+//                        LinkedHashMap::new));
 
-        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, fields));
+        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, columns));
+    }
+
+    private Column create(String categoryName, String fieldName, String data, List<Integer> startToken, List<Integer> endToken) {
+        return ModelFactory.createColumnText(categoryName,
+                fieldName,
+                data,
+                startToken.stream().mapToInt(i -> i).toArray(),
+                endToken.stream().mapToInt(i -> i).toArray());
     }
 }

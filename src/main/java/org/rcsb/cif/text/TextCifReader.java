@@ -2,26 +2,37 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
-import org.rcsb.cif.model.BaseBlock;
 
-import java.io.BufferedReader;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class TextCifReader implements CifReader {
     @Override
     public TextFile parse(InputStream inputStream) throws ParsingException, IOException {
-        try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream)) {
-            try (BufferedReader bufferedReader = new BufferedReader(inputStreamReader)) {
-                return parseText(bufferedReader.lines().collect(Collectors.joining("\n")));
-            }
+        // performance 1.1: explicitly buffer stream, increases performance drastically 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
+        if (!(inputStream instanceof BufferedInputStream)) {
+            inputStream = new BufferedInputStream(inputStream);
         }
+
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[1024];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
+
+        buffer.flush();
+        buffer.close();
+        inputStream.close();
+
+        return parseText(buffer.toString("UTF-8"));
     }
 
     public TextFile parseText(String data) throws ParsingException {

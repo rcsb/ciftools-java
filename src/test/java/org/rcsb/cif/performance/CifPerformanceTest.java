@@ -23,14 +23,20 @@ import java.util.zip.GZIPInputStream;
  *
  * 1. Text
  *
- * - 1.0 base: 52 s total, @ 52 ms per structure
+ * - 1.0 base: 107 s total, @ 21407 µs per structure
+ * - actual IO is the most time demanding task
+ * - 1.1 explicitly buffer InputStream (TextCifReader line 18): 98 s total, @ 19695 µs per structure
+ * - 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing: 85 s total, @ 17177 µs per structure
+ *
+ *  As of ??????? (04.23.19):
+ *  - read 151079 structures (mmCIF) in  s, parallel @ 12 cores
  *
  *
  * 2. Binary
  *
  * - 2.0 base: 18 s total, @ 3 ms per structure
  * - 2.1 explicitly buffer InputStream (BinaryCifReader line 18): 13 s total, @ 2646 µs per structure
- * - P1: stream-based traversal of directory is really taxing, 50% of runtime
+ * - P1: stream-based traversal of directory seems taxing, 50% of runtime
  * - P2: MessagePack accounts for 50% of time in BinaryCifReader.parse
  * - 2.2 omitted logging: 11 s, @ 2395 µs per structure
  * - addressing P1: acquiring InputStream is the expensive part, File.listFiles is even slower
@@ -57,7 +63,7 @@ public class CifPerformanceTest {
 
     public static void main(String[] args) throws IOException {
 //        readTextSequential();
-//        readTextParallel();
+        readTextParallel();
 //
 //        readBinarySequential();
 //        readBinaryParallel();
@@ -66,15 +72,15 @@ public class CifPerformanceTest {
 //        writeTextParallel();
 
 //        writeBinarySequential();
-        writeBinaryParallel();
+//        writeBinaryParallel();
     }
 
     private static void writeTextSequential() throws IOException {
-        performance(PDB_DIRECTORY, false, false, BINARY_WRITE);
+        performance(PDB_DIRECTORY, false, false, TEXT_WRITE);
     }
 
     private static void writeTextParallel() throws IOException {
-        performance(PDB_DIRECTORY, false, true, BINARY_WRITE);
+        performance(PDB_DIRECTORY, false, true, TEXT_WRITE);
     }
 
     private static void writeBinarySequential() throws IOException {
@@ -135,7 +141,7 @@ public class CifPerformanceTest {
                     if (count % CHUNK_SIZE == 0) {
                         long end_chunk = System.nanoTime();
                         System.out.println("[" + count + " / " + target + "] @ " + (((end_chunk - start) /
-                                1_000 / count) + "µs per structure"));
+                                1_000 / count) + " µs per structure"));
                     }
 
                     try {
