@@ -5,20 +5,50 @@ import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.LinkedList;
 
+/**
+ * Data is always bundled with encoding information to handle de- and encoding.
+ * @param <D> the array type this class wraps
+ */
 public interface EncodedData<D> {
+    /**
+     * Access to the underlying array of information.
+     * @return an int[], double[], byte[], or String[]
+     */
     D getData();
 
+    /**
+     * The number of elements in the wrapped array.
+     * @return results of array.length
+     */
     int length();
 
+    /**
+     * All encodings registered for this piece of EncodedData. May be empty. May contain only partial data: e.g. adding
+     * a ByteArrayEncoding to the list will request encoding by ByteArrayCodec, this method call will subsequently fill
+     * all fields of the requested Encoding to allow for decoding.
+     * @return all associated Encoding instances
+     */
     LinkedList<Encoding> getEncoding();
 
+    /**
+     * Request decoding of this EncodedData instance. Will automatically resolve its decoding chain, starting from a
+     * ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved which is
+     * then ready to use.
+     * @return the decoded data
+     */
     default EncodedData decode() {
         return Codec.decode(this);
     }
 
+    /**
+     * Replace this encoding chain with a different one.
+     * @param encoding the new encoding chain for this instance
+     */
     void setEncoding(LinkedList<Encoding> encoding);
 
+    /**
+     * Convenience method to state whether the List returned by {@link #getEncoding()} is not empty.
+     * @return true if encoding steps are registered and need to be resolved to access decoded data
+     */
     boolean hasNextDecodingStep();
-
-
 }

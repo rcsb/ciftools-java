@@ -7,9 +7,11 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.nio.ByteOrder;
 import java.util.LinkedList;
 
+/**
+ * Encodes NumberArray instances in an efficient byte encoding. E.g. values in the range from 0...255 (i.e. an
+ * Uint8Array) can be efficiently represented by single byte rather than int values which would require four bytes.
+ */
 public class ByteArrayCodec {
-//    private static final Logger logger = LoggerFactory.getLogger(ByteArrayCodec.class);
-
     public <D> ByteArray encode(NumberArray<D> data, ByteArrayEncoding encoding) {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());

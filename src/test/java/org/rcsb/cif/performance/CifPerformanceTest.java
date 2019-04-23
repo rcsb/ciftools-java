@@ -29,7 +29,7 @@ import java.util.zip.GZIPInputStream;
  * - 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing: 85 s total, @ 17177 µs per structure
  *
  *  As of ??????? (04.23.19):
- *  - read 151079 structures (mmCIF) in  s, parallel @ 12 cores
+ *  - read 151079 structures (mmCIF) in 1386 s, parallel @ 12 cores
  *
  *
  * 2. Binary
