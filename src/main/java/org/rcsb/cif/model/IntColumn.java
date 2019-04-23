@@ -50,9 +50,11 @@ public class IntColumn extends BaseColumn {
         return String.valueOf(binaryData[row]);
     }
 
-
-    @Override
-    public Object getData(int row) {
-        return get(row);
+    /**
+     * For internal use. Returns the decoded binary data which this column wraps. Returns null for text columns.
+     * @return the int[] data
+     */
+    public int[] getBinaryData() {
+        return binaryData;
     }
 }

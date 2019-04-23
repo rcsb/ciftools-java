@@ -29,7 +29,7 @@ public class MessagePackCodecTest {
     @Ignore
     public void compareToReference() throws IOException {
         CifFile cifFile = CifReader.parseText(TestHelper.getInputStream("cif/1acj.cif"));
-        Map<String, Object> map = new BinaryCifWriter().createMap(cifFile);
+        Map<String, Object> map = new BinaryCifWriter().encodeFile(cifFile);
 
         byte[] implBytes = MESSAGE_PACK_CODEC.encode(map);
         byte[] refBytes = EncodedDataFactory.uint8Array(Pattern.compile(", ").splitAsStream(new String(TestHelper.getBytes("msgpack/1acj.msgpack"))

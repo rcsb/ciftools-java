@@ -21,9 +21,4 @@ public class SingleRowFloatColumn extends FloatColumn implements SingleRowColumn
     public ValueKind getValueKind() {
         return getValueKind(0);
     }
-
-    @Override
-    public Object getData() {
-        return get();
-    }
 }

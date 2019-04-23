@@ -44,8 +44,11 @@ public class StrColumn extends BaseColumn {
         return honorValueKind(binaryData[row]);
     }
 
-    @Override
-    public Object getData(int row) {
-        return get(row);
+    /**
+     * For internal use. Returns the decoded binary data which this column wraps. Returns null for text columns.
+     * @return the String[] data
+     */
+    public String[] getBinaryData() {
+        return binaryData;
     }
 }

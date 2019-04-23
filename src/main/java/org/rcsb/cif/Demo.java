@@ -13,9 +13,6 @@ import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
 public class Demo {
-    // TODO performance
-    // TODO parameters
-    // TODO filtering
     public static void main(String[] args) throws IOException, ParsingException {
         String pdbId = "1acj";
         boolean parseBinary = true;

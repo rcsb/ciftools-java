@@ -3,18 +3,18 @@ package org.rcsb.cif.binary.codec;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.*;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.DoubleStream;
 
 public class Classifier {
     public static ByteArray classify(Int32Array data) {
         if (data.getData().length < 2) {
-//            System.out.println("int: byte");
             return data.encode(new ByteArrayEncoding());
         }
 
         EncodingSize size = getSize(data);
-//        System.out.println("int: " +size.kind);
 
         switch (size.kind) {
             case "pack":
@@ -40,23 +40,6 @@ public class Classifier {
 
     private static int packSize(int value, int upperLimit) {
         return (int) Math.ceil((value + 1) / (double) (value >= 0 ? upperLimit : -upperLimit - 1));
-    }
-
-    private static IntColumnInfo getInfo(IntArray data) {
-        boolean signed = data.isSigned();
-        return signed ? new IntColumnInfo(true, 0x7F, 0x7FFF) : new IntColumnInfo(false, 0xFF, 0xFFFF);
-    }
-
-    static class IntColumnInfo {
-        final boolean signed;
-        final int limit8;
-        final int limit16;
-
-        IntColumnInfo(boolean signed, int limit8, int limit16) {
-            this.signed = signed;
-            this.limit8 = limit8;
-            this.limit16 = limit16;
-        }
     }
 
     static class SizeInfo {
@@ -173,17 +156,38 @@ public class Classifier {
         return new EncodingSize(byteSize(size), "delta-rle");
     }
 
+    private static IntColumnInfo getInfo(IntArray data) {
+        boolean signed = data.isSigned();
+        return signed ? IntColumnInfo.SIGNED_INFO : IntColumnInfo.UNSIGNED_INFO;
+    }
+
+    static class IntColumnInfo {
+        final static IntColumnInfo SIGNED_INFO = new IntColumnInfo(true, 0x7F, 0x7FFF);
+        final static IntColumnInfo UNSIGNED_INFO = new IntColumnInfo(false, 0xFF, 0xFFFF);
+
+        final boolean signed;
+        final int limit8;
+        final int limit16;
+
+        IntColumnInfo(boolean signed, int limit8, int limit16) {
+            this.signed = signed;
+            this.limit8 = limit8;
+            this.limit16 = limit16;
+        }
+    }
+
     private static EncodingSize getSize(IntArray data) {
-        IntColumnInfo info = getInfo(data);
-        int[] array = data.getData();
+        return getSize(data.getData(), getInfo(data));
+    }
+
+    private static EncodingSize getSize(int[] array, IntColumnInfo info) {
         List<EncodingSize> sizes = new ArrayList<>();
         sizes.add(packingSize(array, info));
         sizes.add(rleSize(array, info));
         sizes.add(deltaSize(array));
         sizes.add(deltaRleSize(array));
-        int min = sizes.stream().mapToInt(encodingSize -> encodingSize.length).min().orElseThrow(NoSuchElementException::new);
-//        System.out.println(sizes);
-        return sizes.stream().filter(encodingSize -> encodingSize.length == min).findFirst().orElseThrow(NoSuchElementException::new);
+        sizes.sort(Comparator.comparingInt(encodingSize -> encodingSize.length));
+        return sizes.get(0);
     }
 
     private static final double DELTA = 1e-6;
@@ -208,24 +212,23 @@ public class Classifier {
                 .mapToInt(d -> (int) Math.round(multiplier * d))
                 .toArray();
 
-        EncodingSize size = getSize(EncodedDataFactory.int32Array(intArray));
+        EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
 
-//        System.out.println("float: " +size.kind);
-        Int32Array fp = data.encode(new FixedPointEncoding(multiplier));
+        Int32Array fixedPoint = data.encode(new FixedPointEncoding(multiplier));
         switch (size.kind) {
             case "pack":
-                return fp.encode(new IntegerPackingEncoding())
+                return fixedPoint.encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
             case "rle":
-                return fp.encode(new RunLengthEncoding())
+                return fixedPoint.encode(new RunLengthEncoding())
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
             case "delta":
-                return fp.encode(new DeltaEncoding())
+                return fixedPoint.encode(new DeltaEncoding())
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
             case "delta-rle":
-                return fp.encode(new DeltaEncoding())
+                return fixedPoint.encode(new DeltaEncoding())
                         .encode(new RunLengthEncoding())
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
@@ -233,7 +236,6 @@ public class Classifier {
                 throw new IllegalArgumentException("Determined encoding type is unknown. " + size.kind);
         }
     }
-
 
     private static int getMultiplier(int mantissaDigits) {
         int m = 1;

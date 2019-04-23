@@ -22,13 +22,13 @@ public class BinaryCifWriter implements CifWriter {
 
     @Override
     public InputStream write(CifFile cifFile) {
-        Map<String, Object> file = createMap(cifFile);
+        Map<String, Object> file = encodeFile(cifFile);
 
         byte[] ret = Codec.MESSAGE_PACK_CODEC.encode(file);
         return new ByteArrayInputStream(ret);
     }
 
-    public Map<String, Object> createMap(CifFile cifFile) {
+    public Map<String, Object> encodeFile(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", Codec.CODEC_NAME);
@@ -57,18 +57,19 @@ public class BinaryCifWriter implements CifWriter {
 
                 // single row
                 if (SINGLE_ROW_PACKING && rowCount == 1) {
-                    category.put("columns", handleSingleRowCategory(cifCategory));
+                    category.put("columns", encodeSingleRowCategory(cifCategory));
                 } else {
                     Object[] fields = new Object[cifCategory.getColumnNames().size()];
                     int fieldCount = 0;
                     category.put("columns", fields);
                     for (String fieldName : cifCategory.getColumnNames()) {
-                        fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
+                        fields[fieldCount++] = encodeColumn(cifCategory.getColumn(fieldName));
                     }
                 }
                 category.put("rowCount", rowCount);
 
                 // TODO support filtering
+                // TODO parameters
 //                if (fieldCount > 0) {
                     categories[categoryCount++] = category;
 //                }
@@ -78,7 +79,7 @@ public class BinaryCifWriter implements CifWriter {
         return file;
     }
 
-    private byte[] handleSingleRowCategory(Category category) {
+    private byte[] encodeSingleRowCategory(Category category) {
         Map<String, Object> map = category.getColumnNames()
                 .stream()
                 .map(category::getColumn)
@@ -102,29 +103,43 @@ public class BinaryCifWriter implements CifWriter {
         }
     }
 
-    private Map<String, Object> classifyColumn(Column cifColumn) {
+    private Map<String, Object> encodeColumn(Column cifColumn) {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
-            ByteArray byteArray = EncodedDataFactory.float64Array(floatCol.values().toArray())
-                    .classify();
+            double[] array = floatCol.getBinaryData() != null ? floatCol.getBinaryData() : floatCol.values().toArray();
+            ByteArray byteArray = EncodedDataFactory.float64Array(array).classify();
             return encodeColumn(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
-            ByteArray byteArray = EncodedDataFactory.int32Array(intCol.values().toArray())
-                    .classify();
+            int[] array = intCol.getBinaryData() != null ? intCol.getBinaryData() : intCol.values().toArray();
+            ByteArray byteArray = EncodedDataFactory.int32Array(array).classify();
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;
-            ByteArray byteArray = EncodedDataFactory.stringArray(strCol.values().toArray(String[]::new))
-                    .encode(new StringArrayEncoding());
+            String[] array = strCol.getBinaryData() != null ? strCol.getBinaryData() : strCol.values().toArray(String[]::new);
+            ByteArray byteArray = EncodedDataFactory.stringArray(array).encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }
     }
 
     private Map<String, Object> encodeColumn(Column cifField, ByteArray byteArray) {
         String name = cifField.getColumnName();
-        FieldData fieldData = getFieldData(cifField);
-        Uint8Array mask = fieldData.mask;
+
+        // handle ValueKind and if needed create mask
+        int[] maskArray = new int[cifField.getRowCount()];
+        Uint8Array mask = EncodedDataFactory.uint8Array(maskArray);
+        boolean allPresent = true;
+
+        for (int row = 0; row < maskArray.length; row++) {
+            ValueKind kind = cifField.getValueKind(row);
+
+            if (kind != ValueKind.PRESENT) {
+                maskArray[row] = (byte) kind.ordinal();
+                allPresent = false;
+            } else {
+                maskArray[row] = (byte) ValueKind.PRESENT.ordinal();
+            }
+        }
 
         // default encoding
         Map<String, Object> encodedMap = new LinkedHashMap<>();
@@ -133,7 +148,7 @@ public class BinaryCifWriter implements CifWriter {
 
         // encode mask
         Map<String, Object> maskData = new LinkedHashMap<>();
-        if (!fieldData.allPresent) {
+        if (!allPresent) {
             ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode(new ByteArrayEncoding());
 
             if (maskRLE.getData().length < mask.getData().length) {
@@ -180,9 +195,13 @@ public class BinaryCifWriter implements CifWriter {
                 if (content instanceof Map) {
                     content = wrap(content);
                 } else if (content instanceof List) {
-                    content = ((List<?>) content).stream().map(this::wrap).toArray(Object[]::new);
+                    content = ((List<?>) content).stream()
+                            .map(this::wrap)
+                            .toArray(Object[]::new);
                 } else if (isObjectArray(content)) {
-                    content = Stream.of((Object[]) content).map(this::wrap).toArray(Object[]::new);
+                    content = Stream.of((Object[]) content)
+                            .map(this::wrap)
+                            .toArray(Object[]::new);
                 }
                 out.put(field.getName(), content);
             }
@@ -199,61 +218,6 @@ public class BinaryCifWriter implements CifWriter {
             return false;
         } else {
             return !(content instanceof int[] || content instanceof double[] || content instanceof byte[] || content instanceof char[]);
-        }
-    }
-
-    private FieldData getFieldData(Column cifField) {
-        int length = cifField.getRowCount();
-
-        String[] stringArray = null;
-        Float64Array floatArray = null;
-        Int32Array intArray = null;
-        if (cifField instanceof FloatColumn) {
-            floatArray = EncodedDataFactory.float64Array(new double[length]);
-        } else if (cifField instanceof IntColumn) {
-            intArray = EncodedDataFactory.int32Array(new int[length]);
-        } else {
-            stringArray = new String[length];
-        }
-
-        int[] mask = new int[length];
-        Uint8Array maskArray = EncodedDataFactory.uint8Array(mask);
-        boolean allPresent = true;
-
-        for (int row = 0; row < length; row++) {
-            ValueKind kind = cifField.getValueKind(row);
-
-            if (kind != ValueKind.PRESENT) {
-                mask[row] = (byte) kind.ordinal();
-                if (cifField instanceof StrColumn) {
-                    stringArray[row] = "";
-                }
-                allPresent = false;
-            } else {
-                mask[row] = (byte) ValueKind.PRESENT.ordinal();
-                if (cifField instanceof FloatColumn) {
-                    floatArray.getData()[row] = ((FloatColumn) cifField).get(row);
-                } else if (cifField instanceof IntColumn) {
-                    intArray.getData()[row] = ((IntColumn) cifField).get(row);
-                } else {
-                    stringArray[row] = ((StrColumn) cifField).get(row);
-                }
-            }
-        }
-
-        return new FieldData(cifField instanceof StrColumn ? stringArray : cifField instanceof FloatColumn ?
-                floatArray : intArray, allPresent, maskArray);
-    }
-
-    class FieldData {
-        final Object data;
-        final boolean allPresent;
-        final Uint8Array mask;
-
-        FieldData(Object data, boolean allPresent, Uint8Array mask) {
-            this.data = data;
-            this.allPresent = allPresent;
-            this.mask = mask;
         }
     }
 }

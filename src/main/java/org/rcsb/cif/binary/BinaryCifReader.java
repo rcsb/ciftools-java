@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 public class BinaryCifReader implements CifReader {
     @Override
     public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
-        // performance 2.1: explicitly buffer stream
+        // performance 2.1: explicitly buffer stream, increases performance drastically
         if (!(inputStream instanceof BufferedInputStream)) {
             inputStream = new BufferedInputStream(inputStream);
         }
