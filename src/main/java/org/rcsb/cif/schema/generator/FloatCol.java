@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema;
+package org.rcsb.cif.schema.generator;
 
 class FloatCol extends Col {
     FloatCol(String description) {

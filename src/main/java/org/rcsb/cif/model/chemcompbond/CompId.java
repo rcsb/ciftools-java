@@ -6,8 +6,8 @@ import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
 public class CompId extends StrColumn {
-    public CompId(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public CompId(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
     }
 
     public CompId(String name, int rowCount, Object data, int[] mask) {

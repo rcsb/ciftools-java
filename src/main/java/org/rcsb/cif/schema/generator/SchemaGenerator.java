@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema;
+package org.rcsb.cif.schema.generator;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
@@ -6,6 +6,7 @@ import org.rcsb.cif.model.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -15,46 +16,46 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static org.rcsb.cif.model.ModelFactory.*;
+
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
  */
-public class Schema {
+class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
-    public static final String BASE_PACKAGE = "org.rcsb.cif.model";
+
+    public static void main(String[] args) throws IOException {
+        new SchemaGenerator().generate();
+    }
+
     /**
-     * Collection of categories and columns to include in the generated model.
+     * Collection of categories and columns to include in the generated model - used by SchemaGenerator.
      */
     private static final Map<String, List<String>> filter;
 
     static {
-        filter = new LinkedHashMap<>();
+        try {
+            // create schema filter
+            filter = new LinkedHashMap<>();
+            BufferedReader filterBr = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread()
+                    .getContextClassLoader()
+                    .getResourceAsStream("mmcif-field-names.csv"))));
 
-        new BufferedReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("mmcif-field-names.csv"))))
-                .lines()
-                .filter(line -> !line.isEmpty())
-                .map(line -> line.split("\\."))
-                .forEach(split -> {
-                    List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
-                    cols.add(split[1]);
-                });
+            filterBr.lines()
+                    .filter(line -> !line.isEmpty())
+                    .map(line -> line.split("\\."))
+                    .forEach(split -> {
+                        List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
+                        cols.add(split[1]);
+                    });
+            filterBr.close();
+        } catch (IOException e) {
+            throw new UncheckedIOException("could not load local resource for column filtering", e);
+        }
     }
 
-    public static boolean filter(String category) {
-        return filter.containsKey(category);
-    }
-
-    public static boolean filter(String category, String column) {
-        return filter.containsKey(category) && filter.get(category).contains(column);
-    }
-
-    public static void main(String[] args) throws IOException {
-        new Schema().generate();
-    }
-
-    public static String toClassName(String rawName) {
+    private static String toClassName(String rawName) {
         String name = Pattern.compile("_").splitAsStream(rawName)
                 .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
                 .collect(Collectors.joining(""))
@@ -67,14 +68,6 @@ public class Schema {
             return "_" + name;
         }
         return name;
-    }
-
-    public static String toPackageName(String rawName) {
-        return toClassName(rawName).toLowerCase();
-    }
-
-    public static String toEnumName(String rawName) {
-        return toClassName(rawName).toUpperCase();
     }
 
     private void generate() throws IOException {
@@ -138,7 +131,7 @@ public class Schema {
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.List;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public interface " + className + " {");
 
         // getters
@@ -183,7 +176,7 @@ public class Schema {
             getters.add("    }");
             getters.add("");
 
-            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), filter.get(categoryName));
+            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName);
         }
 
         output.add("import org.rcsb.cif.model.BaseCifBlock;");
@@ -193,7 +186,7 @@ public class Schema {
         output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
 
         // constructor
@@ -209,7 +202,7 @@ public class Schema {
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String className, Table content, Path path, List<String> colFilter) throws IOException {
+    private void writeCategory(String className, Table content, Path path, String categoryName) throws IOException {
         System.out.println(" -> " + className + " " + content.getRepeat());
 
         if (!Files.exists(path)) {
@@ -226,7 +219,7 @@ public class Schema {
         output.add("import java.util.Map;");
         output.add("");
 
-        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
@@ -235,7 +228,7 @@ public class Schema {
             String columnName = entry.getKey();
             Col column = (Col) entry.getValue();
 
-            if (!colFilter.contains(columnName)) {
+            if (!filter.get(categoryName).contains(columnName)) {
                 continue;
             }
 
@@ -291,12 +284,12 @@ public class Schema {
         output.add("import javax.annotation.Generated;");
         output.add("");
 
-        output.add("@Generated(\"org.rcsb.cif.schema.Schema\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
 
         // constructor for text data
-        output.add("    public " + className + "(String name, int rowCount, String[] data) {");
-        output.add("        super(name, rowCount, data);");
+        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, int[] endToken) {");
+        output.add("        super(name, rowCount, data, startToken, endToken);");
         output.add("    }");
         output.add("");
 
@@ -359,7 +352,7 @@ public class Schema {
         return clazz.getSimpleName();
     }
 
-    private Schema() throws IOException {
+    private SchemaGenerator() throws IOException {
         this.cifFile = CifReader.parseText(Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("mmcif_pdbx_v50.dic"));
@@ -546,29 +539,29 @@ public class Schema {
     }
 
     private List<String> getCode(Block saveFrame) {
-        try {
-            Column code = getField("item_type", "code", saveFrame);
+        Column code = getField("item_type", "code", saveFrame);
+        if (code.isDefined() && code.getRowCount() > 0) {
             return Stream.concat(Stream.of(code.getStringData(0)), getEnums(saveFrame)).collect(Collectors.toList());
-        } catch (NullPointerException e) {
+        } else {
             return Collections.emptyList();
         }
     }
 
     private Stream<String> getEnums(Block saveFrame) {
-        try {
-            Column value = getField("item_enumeration", "value", saveFrame);
+        Column value = getField("item_enumeration", "value", saveFrame);
+        if (value.isDefined() && value.getRowCount() > 0) {
             return IntStream.range(0, value.getRowCount())
                     .mapToObj(value::getStringData);
-        } catch (NullPointerException e) {
+        } else {
             return Stream.empty();
         }
     }
 
     private String getSubCategory(Block saveFrame) {
-        try {
-            Column value = getField("item_sub_category", "id", saveFrame);
+        Column value = getField("item_sub_category", "id", saveFrame);
+        if (value.isDefined() && value.getRowCount() > 0) {
             return value.getStringData(0);
-        } catch (NullPointerException e) {
+        } else {
             return "";
         }
     }

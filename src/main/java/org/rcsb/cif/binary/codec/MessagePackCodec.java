@@ -1,8 +1,5 @@
 package org.rcsb.cif.binary.codec;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -20,8 +17,6 @@ import java.util.Map;
  * considered.
  */
 public class MessagePackCodec {
-    private static final Logger logger = LoggerFactory.getLogger(MessagePackCodec.class);
-
     /* encoding */
 
     public byte[] encode(Map<String, Object> input) {
@@ -31,7 +26,7 @@ public class MessagePackCodec {
             encodeInternal(input, dataOutputStream);
             dataOutputStream.flush();
             dataOutputStream.close();
-            logger.debug("encoding by MessagePack - {} bytes", dataOutputStream.size());
+
             return byteArrayOutputStream.toByteArray();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
@@ -242,7 +237,6 @@ public class MessagePackCodec {
     @SuppressWarnings("unchecked")
     public Map<String, Object> decode(byte[] input) {
         ByteBuffer buffer = ByteBuffer.wrap(input).order(ByteOrder.BIG_ENDIAN);
-        logger.debug("decoding by MessagePack - {} bytes", input.length);
         return (Map<String, Object>) decodeInternal(buffer);
     }
 
@@ -355,17 +349,13 @@ public class MessagePackCodec {
     }
 
     private byte[] bin(ByteBuffer buffer, int length) {
-        byte[] b = new byte[length];
-        buffer.get(b, 0, length);
-        return b;
+        byte[] tmp = new byte[length];
+        buffer.get(tmp, 0, length);
+        return tmp;
     }
 
     private String str(ByteBuffer buffer, int length) {
-        byte[] tmp = new byte[length];
-        for (int i = 0; i < length; i++) {
-            tmp[i] = buffer.get();
-        }
-        return new String(tmp, StandardCharsets.UTF_8);
+        return new String(bin(buffer, length), StandardCharsets.UTF_8);
     }
 
     private Object[] array(ByteBuffer buffer, int length) {

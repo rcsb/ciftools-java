@@ -1,9 +1,8 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.BaseCategory;
-import org.rcsb.cif.model.BaseColumn;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.ModelFactory;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -353,12 +352,12 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            Column cifColumn = BaseColumn.create(catName, fieldName, data, tokenStart, tokenEnd);
+            Column cifColumn = ModelFactory.createColumnText(catName, fieldName, data, tokenStart, tokenEnd);
             fields.put(fieldName, cifColumn);
             moveNext();
         }
 
-        ctx.getCategories().put(catName, BaseCategory.create(catName, fields));
+        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, fields));
     }
 
     /**
@@ -398,7 +397,7 @@ class TokenizerState {
         String catName = name.substring(1);
         Map<String, Column> fields = new LinkedHashMap<>();
         for (int i = 0; i < start.size(); i++) {
-            Column cifColumn = BaseColumn.create(catName,
+            Column cifColumn = ModelFactory.createColumnText(catName,
                     fieldNames.get(i),
                     data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
@@ -406,6 +405,6 @@ class TokenizerState {
             fields.put(fieldNames.get(i), cifColumn);
         }
 
-        ctx.getCategories().put(catName, BaseCategory.create(catName, fields));
+        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, fields));
     }
 }

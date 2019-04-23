@@ -3,15 +3,11 @@ package org.rcsb.cif.binary.codec;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class IntervalQuantizationCodec {
-    private static final Logger logger = LoggerFactory.getLogger(IntervalQuantizationCodec.class);
-
     public Int32Array encode(FloatArray data, IntervalQuantizationEncoding encoding) {
         double[] input = data.getData();
 
@@ -47,8 +43,6 @@ public class IntervalQuantizationCodec {
             }
         }
 
-        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                Int32Array.class.getSimpleName(), output.length);
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setSrcType(srcType);
         enc.add(encoding);
@@ -67,9 +61,6 @@ public class IntervalQuantizationCodec {
         double[] output = IntStream.of(data.getData())
                 .mapToDouble(i -> min + delta * 1)
                 .toArray();
-
-        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                srcType == 32 ? Float32Array.class.getSimpleName() : Float64Array.class.getSimpleName(), output.length);
 
         return srcType == 32 ? EncodedDataFactory.float32Array(output, data.getEncoding()) :
                 EncodedDataFactory.float64Array(output, data.getEncoding());

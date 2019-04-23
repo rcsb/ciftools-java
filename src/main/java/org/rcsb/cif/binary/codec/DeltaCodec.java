@@ -4,13 +4,10 @@ import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.SignedIntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.LinkedList;
 
 public class DeltaCodec {
-    private static final Logger logger = LoggerFactory.getLogger(DeltaCodec.class);
 
     @SuppressWarnings("unchecked")
     public <T extends SignedIntArray> T encode(T data, DeltaEncoding encoding) {
@@ -35,9 +32,6 @@ public class DeltaCodec {
             outputArray[i] = inputArray[i] - inputArray[i - 1];
         }
         outputArray[0] = 0;
-
-        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                output.getClass().getSimpleName(), output.length());
 
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setOrigin(origin);
@@ -66,8 +60,6 @@ public class DeltaCodec {
             outputArray[i] = input[i] + outputArray[i - 1];
         }
 
-        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                output.getClass().getSimpleName(), output.length());
         return output;
     }
 }

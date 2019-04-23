@@ -7,8 +7,8 @@ import java.util.stream.Stream;
 public class StrColumn extends BaseColumn {
     private final String[] binaryData;
 
-    public StrColumn(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public StrColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
         this.binaryData = null;
     }
 

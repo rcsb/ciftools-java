@@ -61,12 +61,15 @@ public class CifIntegrationTest {
 
     @Test
     public void testNumberFormat() {
-        String[] data = {"1.0", "2", "-1.567891234567"};
+        String[] text = {"1.0", "2", "-1.567891234567"};
+        String data = String.join("", text);
+        int[] start = new int[] { 0, 3, 4 };
+        int[] end = new int[] { 3, 4, data.length() };
 
         // coord columns print with 3 decimal digits
-        CartnX cartnX = new CartnX("name", data.length, data);
-        CartnY cartnY = new CartnY("name", data.length, data);
-        CartnZ cartnZ = new CartnZ("name", data.length, data);
+        CartnX cartnX = new CartnX("name", text.length, data, start, end);
+        CartnY cartnY = new CartnY("name", text.length, data, start, end);
+        CartnZ cartnZ = new CartnZ("name", text.length, data, start, end);
 
         Stream.of(cartnX, cartnY, cartnZ).forEach(coordColumn -> {
             assertEquals("1.000", coordColumn.getStringData(0));
@@ -75,13 +78,13 @@ public class CifIntegrationTest {
         });
 
         // occupancy uses 2 decimal digits
-        Occupancy occupancy = new Occupancy("name", data.length, data);
+        Occupancy occupancy = new Occupancy("name", text.length, data, start, end);
         assertEquals("1.00", occupancy.getStringData(0));
         assertEquals("2.00", occupancy.getStringData(1));
         assertEquals("-1.57", occupancy.getStringData(2));
 
         // all other should fallback to default behavior
-        BIsoOrEquiv bIsoOrEquiv = new BIsoOrEquiv("name", data.length, data);
+        BIsoOrEquiv bIsoOrEquiv = new BIsoOrEquiv("name", text.length, data, start, end);
         // truncate float which perfectly round to integers
         assertEquals("1", bIsoOrEquiv.getStringData(0));
         assertEquals("2", bIsoOrEquiv.getStringData(1));

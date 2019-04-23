@@ -3,7 +3,7 @@ package org.rcsb.cif.model;
 import javax.annotation.Generated;
 import java.util.List;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public interface Block {
     String getBlockHeader();
 

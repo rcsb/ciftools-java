@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import javax.annotation.Generated;
 import java.util.Map;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class EntityPolySeq extends BaseCategory {
     public EntityPolySeq(String name, Map<String, Column> columns) {
         super(name, columns);

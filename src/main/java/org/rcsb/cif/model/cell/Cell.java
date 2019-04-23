@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import javax.annotation.Generated;
 import java.util.Map;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Cell extends BaseCategory {
     public Cell(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -45,15 +45,6 @@ public class Cell extends BaseCategory {
     public AngleGamma getAngleGamma() {
         return (AngleGamma) (isText ? textFields.computeIfAbsent("angle_gamma",
                 AngleGamma::new) : getBinaryColumn("angle_gamma"));
-    }
-
-    /**
-     * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return EntryId
-     */
-    public EntryId getEntryId() {
-        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
-                EntryId::new) : getBinaryColumn("entry_id"));
     }
 
     /**

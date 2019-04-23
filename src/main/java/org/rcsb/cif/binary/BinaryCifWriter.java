@@ -4,12 +4,9 @@ import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
-import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -17,12 +14,9 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifWriter implements CifWriter {
-    private static final Logger logger = LoggerFactory.getLogger(BinaryCifWriter.class);
-
     @Override
     public InputStream write(CifFile cifFile) {
         Map<String, Object> file = createMap(cifFile);
@@ -62,7 +56,6 @@ public class BinaryCifWriter implements CifWriter {
                 category.put("rowCount", cifCategory.getRowCount());
 
                 for (String fieldName : cifCategory.getColumnNames()) {
-                    logger.debug("encoding column: {}.{}", categoryName, fieldName);
                     fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
                 }
 
@@ -138,11 +131,6 @@ public class BinaryCifWriter implements CifWriter {
         map.put("name", name);
         map.put("data", encodedMap);
         map.put("mask", maskData);
-
-        logger.debug("encoding chain: {}", byteArray.getEncoding()
-                .stream()
-                .map(Encoding::getKind)
-                .collect(Collectors.joining(" -> ")));
 
         return map;
     }

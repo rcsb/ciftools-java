@@ -1,8 +1,8 @@
 package org.rcsb.cif.model;
 
 public class SingleRowFloatColumn extends FloatColumn implements SingleRowColumn {
-    public SingleRowFloatColumn(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public SingleRowFloatColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
     }
 
     public SingleRowFloatColumn(String name, int rowCount, Object data, int[] mask) {

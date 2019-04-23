@@ -2,18 +2,13 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
-import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.*;
 
 public class StringArrayCodec {
-    private static final Logger logger = LoggerFactory.getLogger(StringArrayCodec.class);
-
     public ByteArray encode(StringArray data, StringArrayEncoding encoding) {
         String[] input = data.getData();
 
@@ -60,8 +55,6 @@ public class StringArrayCodec {
         encoding.setDataEncoding(output.getEncoding());
         enc.add(encoding);
 
-        logger.debug("encoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                Int32Array.class.getSimpleName(), outputArray.length);
         return EncodedDataFactory.byteArray(output.getData(), enc);
     }
 
@@ -84,9 +77,6 @@ public class StringArrayCodec {
         for (int index : indices) {
             result[offset++] = strings[index + 1];
         }
-
-        logger.debug("decoding by {}: {}[{}] to {}[{}]", encoding, data.getClass().getSimpleName(), data.length(),
-                StringArray.class.getSimpleName(), result.length);
 
         return EncodedDataFactory.stringArray(result, data.getEncoding());
     }

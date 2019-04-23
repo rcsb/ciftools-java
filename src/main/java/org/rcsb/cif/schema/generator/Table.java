@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema;
+package org.rcsb.cif.schema.generator;
 
 import java.util.Map;
 import java.util.Set;
@@ -7,9 +7,9 @@ class Table {
     private final String description;
     private final Set<String> categoryKeyNames;
     private final Map<String, Object> columns;
-    private final Schema.Repeat repeat;
+    private final SchemaGenerator.Repeat repeat;
 
-    Table(String description, Set<String> categoryKeyNames, Map<String, Object> columns, Schema.Repeat repeat) {
+    Table(String description, Set<String> categoryKeyNames, Map<String, Object> columns, SchemaGenerator.Repeat repeat) {
         this.description = description;
         this.categoryKeyNames = categoryKeyNames;
         this.columns = columns;
@@ -28,7 +28,7 @@ class Table {
         return columns;
     }
 
-    public Schema.Repeat getRepeat() {
+    public SchemaGenerator.Repeat getRepeat() {
         return repeat;
     }
 }

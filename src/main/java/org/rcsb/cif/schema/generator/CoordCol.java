@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema;
+package org.rcsb.cif.schema.generator;
 
 class CoordCol extends Col {
     CoordCol(String description) {

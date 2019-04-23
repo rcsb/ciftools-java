@@ -4,10 +4,10 @@ import org.rcsb.cif.model.*;
 
 import javax.annotation.Generated;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Descriptor extends StrColumn {
-    public Descriptor(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public Descriptor(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
     }
 
     public Descriptor(String name, int rowCount, Object data, int[] mask) {

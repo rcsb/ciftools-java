@@ -15,6 +15,11 @@ import java.util.stream.Stream;
 public class BinaryCifReader implements CifReader {
     @Override
     public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
+        // performance 2.1: explicitly buffer stream
+        if (!(inputStream instanceof BufferedInputStream)) {
+            inputStream = new BufferedInputStream(inputStream);
+        }
+
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
         byte[] data = new byte[1024];
@@ -62,7 +67,7 @@ public class BinaryCifReader implements CifReader {
                     for (Object o : (Object[]) map.get("categories")) {
                         Map<String, Object> cat = (Map<String, Object>) o;
                         String name = (String) cat.get("name");
-                        categories.put(name.substring(1), createCategory(cat));
+                        categories.put(name.substring(1), createBinaryCategory(cat));
                     }
 
                     return new BaseBlock(categories, header);
@@ -72,11 +77,11 @@ public class BinaryCifReader implements CifReader {
         return new BinaryFile(dataBlocks, versionString, encoder);
     }
 
-    private Category createCategory(Map<String, Object> encodedCategory) {
+    private Category createBinaryCategory(Map<String, Object> encodedCategory) {
         // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
         String name = ((String) encodedCategory.get("name")).substring(1);
         Object[] encodedFields = (Object[]) encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
-        return BaseCategory.create(name, rowCount, encodedFields);
+        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
     }
 }

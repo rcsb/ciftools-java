@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import javax.annotation.Generated;
 import java.util.Map;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PdbxEntityDescriptor extends BaseCategory {
     public PdbxEntityDescriptor(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -2,9 +2,6 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
@@ -13,7 +10,6 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Codec {
-    private static final Logger logger = LoggerFactory.getLogger(Codec.class);
     public static final String CODEC_NAME = /*"ciftools-java"*/ "mol*";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
@@ -48,9 +44,6 @@ public class Codec {
                 .map(Codec::wrap)
                 .collect(Collectors.toList());
         Collections.reverse(encodings);
-        logger.debug("decoding chain: {}", encodings.stream()
-                .map(Encoding::getKind)
-                .collect(Collectors.joining(" -> ")));
 
         for (Encoding encoding : encodings) {
             current = decodeStep(current, encoding);

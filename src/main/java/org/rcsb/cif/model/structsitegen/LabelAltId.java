@@ -6,8 +6,8 @@ import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.schema.Schema")
 public class LabelAltId extends StrColumn {
-    public LabelAltId(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public LabelAltId(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
     }
 
     public LabelAltId(String name, int rowCount, Object data, int[] mask) {

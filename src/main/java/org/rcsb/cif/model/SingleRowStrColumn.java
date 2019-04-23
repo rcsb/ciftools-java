@@ -1,8 +1,8 @@
 package org.rcsb.cif.model;
 
 public class SingleRowStrColumn extends StrColumn implements SingleRowColumn {
-    public SingleRowStrColumn(String name, int rowCount, String[] data) {
-        super(name, rowCount, data);
+    public SingleRowStrColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+        super(name, rowCount, data, startToken, endToken);
     }
 
     public SingleRowStrColumn(String name, int rowCount, Object data, int[] mask) {
