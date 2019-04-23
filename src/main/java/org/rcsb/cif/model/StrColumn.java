@@ -43,4 +43,9 @@ public class StrColumn extends BaseColumn {
     protected String getBinaryStringData(int row) {
         return honorValueKind(binaryData[row]);
     }
+
+    @Override
+    public Object getData(int row) {
+        return get(row);
+    }
 }

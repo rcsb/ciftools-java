@@ -342,9 +342,8 @@ class TokenizerState {
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
         final Map<String, Column> fields = new LinkedHashMap<>();
-
-
         final String catName = name.substring(1);
+
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
             final String fieldName = getTokenString().substring(name.length() + 1);
             moveNext();

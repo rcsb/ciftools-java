@@ -50,4 +50,9 @@ public class FloatColumn extends BaseColumn {
     protected String getBinaryStringData(int row) {
         return String.valueOf(binaryData[row]);
     }
+
+    @Override
+    public Object getData(int row) {
+        return get(row);
+    }
 }

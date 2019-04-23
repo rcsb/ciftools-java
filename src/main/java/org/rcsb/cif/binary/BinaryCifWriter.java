@@ -14,9 +14,12 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifWriter implements CifWriter {
+    public static boolean SINGLE_ROW_PACKING = true;
+
     @Override
     public InputStream write(CifFile cifFile) {
         Map<String, Object> file = createMap(cifFile);
@@ -44,28 +47,59 @@ public class BinaryCifWriter implements CifWriter {
 
             for (String categoryName : cifBlock.getCategoryNames()) {
                 Category cifCategory = cifBlock.getCategory(categoryName);
-                if (cifCategory.getRowCount() == 0) {
+                int rowCount = cifCategory.getRowCount();
+                if (rowCount == 0) {
                     continue;
                 }
 
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getCategoryName());
-                Object[] fields = new Object[cifCategory.getColumnNames().size()];
-                int fieldCount = 0;
-                category.put("columns", fields);
-                category.put("rowCount", cifCategory.getRowCount());
 
-                for (String fieldName : cifCategory.getColumnNames()) {
-                    fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
+                // single row
+                if (SINGLE_ROW_PACKING && rowCount == 1) {
+                    category.put("columns", handleSingleRowCategory(cifCategory));
+                } else {
+                    Object[] fields = new Object[cifCategory.getColumnNames().size()];
+                    int fieldCount = 0;
+                    category.put("columns", fields);
+                    for (String fieldName : cifCategory.getColumnNames()) {
+                        fields[fieldCount++] = classifyColumn(cifCategory.getColumn(fieldName));
+                    }
                 }
+                category.put("rowCount", rowCount);
 
-                if (fieldCount > 0) {
+                // TODO support filtering
+//                if (fieldCount > 0) {
                     categories[categoryCount++] = category;
-                }
+//                }
             }
         }
 
         return file;
+    }
+
+    private byte[] handleSingleRowCategory(Category category) {
+        Map<String, Object> map = category.getColumnNames()
+                .stream()
+                .map(category::getColumn)
+                .collect(Collectors.toMap(Column::getColumnName,
+                        this::extractStringData,
+                        (u, v) -> {
+                            throw new IllegalStateException("Duplicate key " + u);
+                        },
+                        LinkedHashMap::new));
+        return Codec.MESSAGE_PACK_CODEC.encode(map);
+    }
+
+    private String extractStringData(Column column) {
+        ValueKind valueKind = column.getValueKind(0);
+        if (valueKind == ValueKind.NOT_PRESENT) {
+            return ".";
+        } else if (valueKind == ValueKind.UNKNOWN) {
+            return "?";
+        } else {
+            return column.getStringData(0);
+        }
     }
 
     private Map<String, Object> classifyColumn(Column cifColumn) {
@@ -159,7 +193,13 @@ public class BinaryCifWriter implements CifWriter {
     }
 
     private boolean isObjectArray(Object content) {
-        return content.getClass().isArray() && !(content instanceof int[] || content instanceof double[] || content instanceof byte[]);
+        if (content == null) {
+            return false;
+        } else if (!content.getClass().isArray()) {
+            return false;
+        } else {
+            return !(content instanceof int[] || content instanceof double[] || content instanceof byte[] || content instanceof char[]);
+        }
     }
 
     private FieldData getFieldData(Column cifField) {

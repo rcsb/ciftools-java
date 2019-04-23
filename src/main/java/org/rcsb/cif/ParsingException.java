@@ -1,5 +1,8 @@
 package org.rcsb.cif;
 
+/**
+ * Indicates that Cif parsing failed.
+ */
 public class ParsingException extends RuntimeException {
     public ParsingException(String message) {
         super(message);

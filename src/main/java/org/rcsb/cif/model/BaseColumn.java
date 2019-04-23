@@ -55,6 +55,7 @@ public abstract class BaseColumn implements Column {
     public String getStringData(int row) {
         String val = isText ? getTextData(row) : getBinaryStringData(row);
         try {
+            // TODO performance
             return format(Double.parseDouble(val));
         } catch (NumberFormatException e) {
             // no number, return plain string

@@ -1,18 +1,21 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.binary.BinaryCifWriter;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.atomsite.*;
 import org.rcsb.cif.model.cell.Cell;
 import org.rcsb.cif.model.cell.PdbxUniqueAxis;
+import org.rcsb.cif.model.entry.Entry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
@@ -25,6 +28,30 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class CifIntegrationTest {
+    @Test
+    public void testSingleRowStraightMessagePack() throws IOException {
+        String expected = "0RED";
+
+        // from conventional Cif: should report 1 row with value 0RED
+        CifFile textCifFile = CifReader.parseText(TestHelper.getInputStream("cif/0red.cif"));
+        Entry textEntry = textCifFile.getFirstBlock().getEntry();
+        assertEquals("id", textEntry.getId().getColumnName());
+        assertEquals(1, textEntry.getRowCount());
+        assertEquals(expected, textEntry.getId().get());
+
+        // convert to binary representation
+        BinaryCifWriter.SINGLE_ROW_PACKING = true;
+        InputStream binary = CifWriter.writeBinary(textCifFile);
+
+        // decode binary
+        CifFile binaryCifFile = CifReader.parseBinary(binary);
+        Entry binaryEntry = textCifFile.getFirstBlock().getEntry();
+        assertEquals("id", binaryEntry.getId().getColumnName());
+        assertEquals(1, binaryEntry.getRowCount());
+        assertEquals(expected, binaryEntry.getId().get());
+
+    }
+
     @Test
     public void testUndefinedColumnBehavior() throws IOException {
         CifFile textCifFile = CifReader.parseText(TestHelper.getInputStream("cif/0red.cif"));
@@ -244,7 +271,6 @@ public class CifIntegrationTest {
     @Test
     public void readBcifWriteCif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-            if (!id.equals("1j59")) continue;
             System.out.println(id + " bcif to cif");
             readBcifWriteCif(id);
         }

@@ -17,7 +17,13 @@ public class SingleRowIntColumn extends IntColumn implements SingleRowColumn {
         return get(0);
     }
 
+    @Override
     public ValueKind getValueKind() {
         return getValueKind(0);
+    }
+
+    @Override
+    public Object getData() {
+        return get();
     }
 }

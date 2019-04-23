@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -80,8 +81,27 @@ public class BinaryCifReader implements CifReader {
     private Category createBinaryCategory(Map<String, Object> encodedCategory) {
         // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
         String name = ((String) encodedCategory.get("name")).substring(1);
-        Object[] encodedFields = (Object[]) encodedCategory.get("columns");
+        Object rawColumns = encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
-        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+
+        if (rawColumns instanceof Object[]) {
+            Object[] encodedFields = (Object[]) rawColumns;
+            return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+        } else {
+            Map<String, Column> columns = Codec.MESSAGE_PACK_CODEC.decode((byte[]) rawColumns)
+                    .entrySet()
+                    .stream()
+                    .map(entry -> {
+                        String value = (String) entry.getValue();
+                        return ModelFactory.createColumnText(name, entry.getKey(), value, 0, value.length());
+                    })
+                    .collect(Collectors.toMap(Column::getColumnName,
+                            Function.identity(),
+                            (u, v) -> {
+                                throw new IllegalStateException("Duplicate key " + u);
+                            },
+                            LinkedHashMap::new));
+            return ModelFactory.createCategoryText(name, columns);
+        }
     }
 }
