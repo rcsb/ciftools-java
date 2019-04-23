@@ -42,7 +42,7 @@ import java.util.zip.GZIPInputStream;
  * - 2.3 writing: 120 s, @ 23861 µs per structure - classify, toArray calls, and Double.parseDouble take most time
  * - omitted some redundant looping and provided direct access to binary data arrays: 102 s, @ 20586 µs per structure
  *
- * As of ??????? (04.23.19):
+ * As of 967535d (04.23.19):
  * - read, decode, encode, and 'write' (without actual IO) 151079 structures (binary) in 595 s, parallel @ 12 cores
  *
  */

@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.stream.Collectors;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
@@ -45,11 +44,10 @@ public class CifIntegrationTest {
 
         // decode binary
         CifFile binaryCifFile = CifReader.parseBinary(binary);
-        Entry binaryEntry = textCifFile.getFirstBlock().getEntry();
+        Entry binaryEntry = binaryCifFile.getFirstBlock().getEntry();
         assertEquals("id", binaryEntry.getId().getColumnName());
         assertEquals(1, binaryEntry.getRowCount());
         assertEquals(expected, binaryEntry.getId().get());
-
     }
 
     @Test
