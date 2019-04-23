@@ -29,7 +29,7 @@ public class BaseBlock implements Block {
     @Override
     public Category getCategory(String name) {
         // try to return category, if unknown and not present, return empty category
-        return categories.computeIfAbsent(name, BaseCategory::new);
+        return categories.computeIfAbsent(name, ModelFactory::createEmptyCategory);
     }
 
     @Override

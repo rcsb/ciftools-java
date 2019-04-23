@@ -18,7 +18,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifWriter implements CifWriter {
-    public static boolean SINGLE_ROW_PACKING = true;
+    private static final BinaryCifWriterOptions DEFAULT_OPTIONS = BinaryCifWriterOptions.create().build();
+    private final BinaryCifWriterOptions options;
+
+    public BinaryCifWriter() {
+        this(DEFAULT_OPTIONS);
+    }
+
+    public BinaryCifWriter(BinaryCifWriterOptions options) {
+        this.options = options;
+    }
 
     @Override
     public InputStream write(CifFile cifFile) {
@@ -31,7 +40,7 @@ public class BinaryCifWriter implements CifWriter {
     public Map<String, Object> encodeFile(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
-        file.put("encoder", Codec.CODEC_NAME);
+        file.put("encoder", options.getEncoder());
         file.put("version", Codec.VERSION);
         Object[] blocks = new Object[cifFile.getBlocks().size()];
         int blockCount = 0;
@@ -56,7 +65,7 @@ public class BinaryCifWriter implements CifWriter {
                 category.put("name", "_" + cifCategory.getCategoryName());
 
                 // single row
-                if (SINGLE_ROW_PACKING && rowCount == 1) {
+                if (options.isSingleRowMessagePack() && rowCount == 1) {
                     category.put("columns", encodeSingleRowCategory(cifCategory));
                 } else {
                     Object[] fields = new Object[cifCategory.getColumnNames().size()];
@@ -67,12 +76,7 @@ public class BinaryCifWriter implements CifWriter {
                     }
                 }
                 category.put("rowCount", rowCount);
-
-                // TODO support filtering
-                // TODO parameters
-//                if (fieldCount > 0) {
-                    categories[categoryCount++] = category;
-//                }
+                categories[categoryCount++] = category;
             }
         }
 

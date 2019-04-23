@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.binary.BinaryCifWriter;
+import org.rcsb.cif.binary.BinaryCifWriterOptions;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
@@ -39,8 +40,8 @@ public class CifIntegrationTest {
         assertEquals(expected, textEntry.getId().get());
 
         // convert to binary representation
-        BinaryCifWriter.SINGLE_ROW_PACKING = true;
-        InputStream binary = CifWriter.writeBinary(textCifFile);
+        BinaryCifWriterOptions options = BinaryCifWriterOptions.create().setSingleRowByMessagePack(true).build();
+        InputStream binary = new BinaryCifWriter().write(textCifFile);
 
         // decode binary
         CifFile binaryCifFile = CifReader.parseBinary(binary);

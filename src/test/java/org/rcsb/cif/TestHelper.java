@@ -87,19 +87,19 @@ public class TestHelper {
     }
 
     public static byte[] getBytes(String localPath) throws IOException {
+        return getBytes(getInputStream(localPath));
+    }
+
+    public static byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
-        byte[] data = new byte[1024];
-        try (InputStream inputStream = getInputStream(localPath)) {
-            while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-                buffer.write(data, 0, nRead);
-            }
+        byte[] data = new byte[2048];
+        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
         }
 
-        buffer.flush();
-        byte[] byteArray = buffer.toByteArray();
         buffer.close();
-        return byteArray;
+        return buffer.toByteArray();
     }
 
     public static int[] convertToIntArray(byte[] bytes) {

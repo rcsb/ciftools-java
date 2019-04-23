@@ -117,15 +117,12 @@ public class ModelFactory {
         return new BaseCategory(name);
     }
 
-    // TODO single row create
-    // TODO arbitrary data create - to let users create CifFile instances
-
     /**
      * Create a single row column based on text data.
      * @see ModelFactory#createColumnText(String, String, String, int[], int[])
      */
-    public static Column createColumnText(String catName, String fieldName, String data, int startToken, int endToken) {
-        return createColumnText(catName, fieldName, data, new int[] { startToken }, new int[] { endToken });
+    public static Column createColumnText(String categoryName, String fieldName, String data, int startToken, int endToken) {
+        return createColumnText(categoryName, fieldName, data, new int[] { startToken }, new int[] { endToken });
     }
 
     /**
@@ -210,5 +207,11 @@ public class ModelFactory {
         } else {
             return new StrColumn(columnName);
         }
+    }
+
+    // TODO d3-like builder for files
+
+    static class CifFileBuilder {
+
     }
 }

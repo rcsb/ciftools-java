@@ -85,9 +85,11 @@ public class BinaryCifReader implements CifReader {
         int rowCount = (int) encodedCategory.get("rowCount");
 
         if (rawColumns instanceof Object[]) {
+            // it is a conventional category with multiple rows
             Object[] encodedFields = (Object[]) rawColumns;
             return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
         } else {
+            // it is a single row category and is packed by MessagePack
             Map<String, Column> columns = Codec.MESSAGE_PACK_CODEC.decode((byte[]) rawColumns)
                     .entrySet()
                     .stream()
@@ -101,6 +103,7 @@ public class BinaryCifReader implements CifReader {
                                 throw new IllegalStateException("Duplicate key " + u);
                             },
                             LinkedHashMap::new));
+            // somewhat hacky, single row categories originating from MessagePack are represented like text columns
             return ModelFactory.createCategoryText(name, columns);
         }
     }

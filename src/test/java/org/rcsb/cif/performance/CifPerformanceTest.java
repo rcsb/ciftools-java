@@ -33,7 +33,7 @@ import java.util.zip.GZIPInputStream;
  *  - read 151079 structures (mmCIF) in 1386 s, parallel @ 12 cores
  *
  * As of e2b9727 (04.23.19):
- * - read, decode, encode, and 'write' (without actual IO) 151079 structures (mmCIF) in  s, parallel @ 12 cores
+ * - read, decode, encode, and 'write' (without actual IO) 151079 structures (mmCIF) in ~3600 s, parallel @ 12 cores
  *
  * 2. Binary
  *

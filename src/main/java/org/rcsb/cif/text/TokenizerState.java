@@ -407,16 +407,6 @@ class TokenizerState {
                     end.get(i).stream().mapToInt(j -> j).toArray());
             columns.put(columnNames.get(i), cifColumn);
         }
-//        Map<String, Column> columns = IntStream.range(0, start.size())
-//                .parallel()
-//                .mapToObj(i -> create(catName, columnNames.get(i), data, start.get(i), end.get(i)))
-//                .collect(Collectors.toMap(
-//                        Column::getColumnName,
-//                        Function.identity(),
-//                        (u, v) -> {
-//                            throw new IllegalStateException("Duplicate key " + u);
-//                        },
-//                        LinkedHashMap::new));
 
         ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, columns));
     }
