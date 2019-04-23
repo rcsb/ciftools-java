@@ -8,6 +8,22 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
 import java.util.LinkedList;
 
+/**
+ * Represents each integer value in the input as a pair of (value, number of repeats) and stores the result sequentially
+ * as an array of 32-bit integers. Additionally, stores the size of the original array to make decoding easier.
+ *
+ * <pre>
+ * RunLength {
+ *     kind = "RunLength"
+ *     srcType: int[]
+ *     srcSize: number
+ * }
+ * Example
+ * [1, 1, 1, 2, 3, 3]
+ * ---RunLength--->
+ * { srcSize = 6 } [1, 3, 2, 1, 3, 2]
+ * </pre>
+ */
 public class RunLengthCodec {
     public Int32Array encode(IntArray data, RunLengthEncoding encoding) {
         int[] input = data.getData();

@@ -1,6 +1,12 @@
 package org.rcsb.cif.binary.encoding;
 
-public class IntegerPackingEncoding extends Encoding {
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.IntArray;
+
+import java.util.Map;
+
+public class IntegerPackingEncoding implements Encoding<IntArray> {
     private static final String kind = "IntegerPacking";
     private int byteCount;
     private boolean isUnsigned;
@@ -13,6 +19,10 @@ public class IntegerPackingEncoding extends Encoding {
         this.byteCount = byteCount;
         this.isUnsigned = isUnsigned;
         this.srcSize = srcSize;
+    }
+
+    public IntegerPackingEncoding(Map encoding) {
+        this((int) encoding.get("byteCount"), (boolean) encoding.get("isUnsigned"), (int) encoding.get("srcSize"));
     }
 
     public int getByteCount() {
@@ -42,6 +52,11 @@ public class IntegerPackingEncoding extends Encoding {
     @Override
     public String getKind() {
         return kind;
+    }
+
+    @Override
+    public Int32Array decode(IntArray current) {
+        return Codec.INTEGER_PACKING_CODEC.decode(current, this);
     }
 
     @Override

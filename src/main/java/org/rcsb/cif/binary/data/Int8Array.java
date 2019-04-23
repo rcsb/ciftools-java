@@ -11,7 +11,7 @@ import java.util.stream.IntStream;
 
 public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
-    public static final int TYPE = 1;
+    static final int TYPE = 1;
 
     Int8Array(int[] data) {
         this(data, new LinkedList<>());

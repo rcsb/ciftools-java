@@ -67,11 +67,6 @@ public class BaseCategory implements Category {
         this.defined = true;
     }
 
-    /**
-     * This methods must be named getCategoryName() to avoid collision with categories actually containing columns named
-     * 'name'.
-     * @return the name of this category
-     */
     @Override
     public String getCategoryName() {
         return name;

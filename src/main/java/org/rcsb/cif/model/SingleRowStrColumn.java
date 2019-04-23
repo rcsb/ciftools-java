@@ -13,6 +13,10 @@ public class SingleRowStrColumn extends StrColumn implements SingleRowColumn {
         super(name);
     }
 
+    /**
+     * The sole value of this StrColumn.
+     * @return a String
+     */
     public String get() {
         return get(0);
     }

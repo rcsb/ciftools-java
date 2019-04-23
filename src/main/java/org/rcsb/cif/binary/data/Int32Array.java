@@ -12,7 +12,7 @@ import java.util.stream.IntStream;
 
 public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
-    public static final int TYPE = 3;
+    static final int TYPE = 3;
 
     Int32Array(int[] data) {
         this(data, new LinkedList<>());

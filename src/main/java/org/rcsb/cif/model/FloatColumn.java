@@ -4,6 +4,9 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * Type-safe column which contains float values as entries.
+ */
 public class FloatColumn extends BaseColumn {
     private final double[] binaryData;
 
@@ -30,6 +33,11 @@ public class FloatColumn extends BaseColumn {
         this.binaryData = new double[0];
     }
 
+    /**
+     * Retrieve the double value at the given row index.
+     * @param row the index to retrieve
+     * @return the value - 0 if not present according to {@link #getValueKind(int)}
+     */
     public double get(int row) {
         return isText ? parseFloat(getTextData(row)) : binaryData[row];
     }
@@ -41,6 +49,10 @@ public class FloatColumn extends BaseColumn {
         return Double.parseDouble(text);
     }
 
+    /**
+     * Type-safe Stream of all elements.
+     * @return a DoubleStream of values
+     */
     public DoubleStream values() {
         return IntStream.range(0, rowCount)
                 .mapToDouble(this::get);

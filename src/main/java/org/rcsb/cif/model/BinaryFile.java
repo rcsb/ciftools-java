@@ -18,10 +18,18 @@ public class BinaryFile implements CifFile {
         return blocks;
     }
 
+    /**
+     * Reports the version of this CifFile.
+     * @return the version String
+     */
     public String getVersion() {
         return version;
     }
 
+    /**
+     * Reports the encoder which created this CifFile.
+     * @return the encoder String
+     */
     public String getEncoder() {
         return encoder;
     }

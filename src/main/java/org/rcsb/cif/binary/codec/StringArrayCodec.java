@@ -8,6 +8,24 @@ import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
 import java.util.*;
 
+/**
+ * Stores an array of strings as a concatenation of all unique strings, an array of offsets describing substrings, and
+ * indices into the offset array. Indices to corresponding substrings.
+ *
+ * <pre>
+ * StringArray {
+ *     kind = "StringArray"
+ *     dataEncoding: Encoding[]
+ *     stringData: string
+ *     offsetEncoding: Encoding[]
+ *     offsets: Uint8Array
+ * }
+ * Example
+ * ['a','AB','a']
+ * ---StringArray--->
+ * { stringData = 'aAB', offsets = [0, 1, 3] } [0, 1, 0]
+ * </pre>
+ */
 public class StringArrayCodec {
     public ByteArray encode(StringArray data, StringArrayEncoding encoding) {
         String[] input = data.getData();

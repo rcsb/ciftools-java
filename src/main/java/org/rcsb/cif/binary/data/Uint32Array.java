@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class Uint32Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
-    public static final int TYPE = 6;
+    static final int TYPE = 6;
 
     Uint32Array(int[] data) {
         this(data, new LinkedList<>());

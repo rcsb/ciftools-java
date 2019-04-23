@@ -163,7 +163,6 @@ public class ModelFactory {
      */
     @SuppressWarnings("unchecked")
     public static Column createColumnBinary(String categoryName, String columnName, Map<String, Object> encodedColumn) {
-        // TODO performance: dont care about infering type, leave data encoded
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
         boolean isIntArray = binaryData instanceof int[];
         boolean isDoubleArray = binaryData instanceof double[];

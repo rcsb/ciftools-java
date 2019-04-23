@@ -8,6 +8,21 @@ import java.util.LinkedList;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
+/**
+ * Converts an array of floating point numbers to an array of 32-bit integers multiplied by a given factor.
+ *
+ * <pre>
+ * FixedPoint {
+ *     kind = "FixedPoint"
+ *     factor: number
+ *     srcType: Float32 | Float64
+ * }
+ * Example
+ * [1.2, 1.23, 0.123]
+ * ---FixedPoint--->
+ * { factor = 100 } [120, 123, 12]
+ * </pre>
+ */
 public class FixedPointCodec {
     public Int32Array encode(FloatArray data, FixedPointEncoding encoding) {
         int srcType = data.getType();

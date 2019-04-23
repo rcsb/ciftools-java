@@ -11,7 +11,7 @@ import java.util.stream.DoubleStream;
 
 public class Float64Array extends AbstractEncodedData<double[]> implements FloatArray {
     private static final int NUMBER_OF_BYTES = 8;
-    public static final int TYPE = 33;
+    private static final int TYPE = 33;
 
     Float64Array(double[] data) {
         this(data, new LinkedList<>());

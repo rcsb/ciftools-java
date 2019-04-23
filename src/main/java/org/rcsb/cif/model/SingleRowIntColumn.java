@@ -13,6 +13,10 @@ public class SingleRowIntColumn extends IntColumn implements SingleRowColumn {
         super(name);
     }
 
+    /**
+     * The sole value of this IntColumn.
+     * @return an int
+     */
     public int get() {
         return get(0);
     }

@@ -1,11 +1,14 @@
 package org.rcsb.cif.binary.encoding;
 
+import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.StringArray;
 
 import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.Map;
 
-public class StringArrayEncoding extends Encoding {
+public class StringArrayEncoding implements Encoding<ByteArray> {
     private static final String kind = "StringArray";
     private LinkedList<Encoding> dataEncoding;
     private String stringData;
@@ -13,13 +16,18 @@ public class StringArrayEncoding extends Encoding {
     private byte[] offsets;
 
     public StringArrayEncoding() {
+
     }
 
-    public StringArrayEncoding(ByteArray output, ByteArray offsets, String stringData) {
-        this.dataEncoding = output.getEncoding();
+    public StringArrayEncoding(String stringData, byte[] offsets, LinkedList<Encoding> outputEncoding, LinkedList<Encoding> offsetEncoding) {
+        this.dataEncoding = outputEncoding;
         this.stringData = stringData;
-        this.offsetEncoding = offsets.getEncoding();
-        this.offsets = offsets.getData();
+        this.offsetEncoding = offsetEncoding;
+        this.offsets = offsets;
+    }
+
+    public StringArrayEncoding(Map encoding, LinkedList<Encoding> outputEncoding, LinkedList<Encoding> offsetEncoding) {
+        this((String) encoding.get("stringData"), (byte[]) encoding.get("offsets"), outputEncoding, offsetEncoding);
     }
 
     public LinkedList<Encoding> getDataEncoding() {
@@ -57,6 +65,11 @@ public class StringArrayEncoding extends Encoding {
     @Override
     public String getKind() {
         return kind;
+    }
+
+    @Override
+    public StringArray decode(ByteArray current) {
+        return Codec.STRING_ARRAY_CODEC.decode(current, this);
     }
 
     @Override

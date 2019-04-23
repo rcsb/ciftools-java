@@ -1,6 +1,12 @@
 package org.rcsb.cif.binary.encoding;
 
-public class IntervalQuantizationEncoding extends Encoding {
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
+
+import java.util.Map;
+
+public class IntervalQuantizationEncoding implements Encoding<Int32Array> {
     private static final String kind = "IntervalQuantization";
     private final int min;
     private final int max;
@@ -16,6 +22,11 @@ public class IntervalQuantizationEncoding extends Encoding {
         this.max = max;
         this.numSteps = numSteps;
         this.srcType = srcType;
+    }
+
+    public IntervalQuantizationEncoding(Map encoding) {
+        this((int) encoding.get("min"), (int) encoding.get("max"), (int) encoding.get("numSteps"),
+                (int) encoding.get("srcType"));
     }
 
     public int getMin() {
@@ -41,6 +52,11 @@ public class IntervalQuantizationEncoding extends Encoding {
     @Override
     public String getKind() {
         return kind;
+    }
+
+    @Override
+    public FloatArray decode(Int32Array current) {
+        return Codec.INTERVAL_QUANTIZATION_CODEC.decode(current, this);
     }
 
     @Override

@@ -8,8 +8,15 @@ import java.nio.ByteOrder;
 import java.util.LinkedList;
 
 /**
- * Encodes NumberArray instances in an efficient byte encoding. E.g. values in the range from 0...255 (i.e. an
+ * Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
  * Uint8Array) can be efficiently represented by single byte rather than int values which would require four bytes.
+ *
+ * <pre>
+ * ByteArray {
+ *     kind = "ByteArray"
+ *     type: Int8Array | Int16Array | Int32Array | Uint8Array | Uint16Array | Uint32Array | Float32Array | Float64Array
+ * }
+ * </pre>
  */
 public class ByteArrayCodec {
     public <D> ByteArray encode(NumberArray<D> data, ByteArrayEncoding encoding) {

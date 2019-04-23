@@ -1,16 +1,21 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedData;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.encoding.*;
+
 import java.util.Collections;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * A library of codec implementations and provider to codec-specific constants such as encoder name, version, and
+ * minimal version of the data to decode.
+ */
 public class Codec {
-    public static final String CODEC_NAME = /*"ciftools-java"*/ "mol*";
+    public static final String CODEC_NAME = "ciftools-java";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
 
@@ -24,92 +29,77 @@ public class Codec {
 
     public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
+    /**
+     * Decode an instance of EncodedData by traversing its encoding chain until the original data is restored.
+     * @param encodedData the data to decode
+     * @return the decoded data
+     */
+    @SuppressWarnings("unchecked")
     public static EncodedData decode(EncodedData encodedData) {
         EncodedData current = encodedData;
 
         while (current.hasNextDecodingStep()) {
             // pop the last element of this encoding chain, do so until chain is completely resolved
             Encoding encoding = (Encoding) current.getEncoding().removeLast();
-            current = decodeStep(current, encoding);
+            current = encoding.decode(current);
         }
 
         return current;
     }
 
+    /**
+     * Decode an instance of EncodedData by traversing its encoding chain until the original data is restored.
+     * @param encodedData the map of data to decode
+     * @return the decoded data
+     */
+    @SuppressWarnings("unchecked")
     public static Object decode(Map<String, Object> encodedData) {
         EncodedData current = EncodedDataFactory.byteArray((byte[]) encodedData.get("data"));
         Object[] encodingMaps = (Object[]) encodedData.get("encoding");
-        List<Encoding> encodings = Stream.of(encodingMaps)
+        LinkedList<Encoding> encodings = Stream.of(encodingMaps)
                 .map(Map.class::cast)
                 .map(Codec::wrap)
-                .collect(Collectors.toList());
+                .collect(Collectors.toCollection(LinkedList::new));
         Collections.reverse(encodings);
 
         for (Encoding encoding : encodings) {
-            current = decodeStep(current, encoding);
+            current = encoding.decode(current);
         }
+
         return current.getData();
     }
 
+    /**
+     * Convert a map representation of an encoding to a Java object.
+     * @param encoding map representation of encoding
+     * @return the concrete Encoding instance
+     */
     @SuppressWarnings("unchecked")
     private static Encoding wrap(Map encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":
-                return new ByteArrayEncoding((int) encoding.get("type"));
+                return new ByteArrayEncoding(encoding);
             case "FixedPoint":
-                return new FixedPointEncoding((int) encoding.get("factor"),
-                        (int) encoding.get("srcType"));
+                return new FixedPointEncoding(encoding);
             case "IntervalQuantization":
-                return new IntervalQuantizationEncoding((int) encoding.get("min"),
-                        (int) encoding.get("max"),
-                        (int) encoding.get("numSteps"),
-                        (int) encoding.get("srcType"));
+                return new IntervalQuantizationEncoding(encoding);
             case "RunLength":
-                return new RunLengthEncoding((int) encoding.get("srcType"),
-                        (int) encoding.get("srcSize"));
+                return new RunLengthEncoding(encoding);
             case "Delta":
-                return new DeltaEncoding((int) encoding.get("origin"),
-                        (int) encoding.get("srcType"));
+                return new DeltaEncoding(encoding);
             case "IntegerPacking":
-                return new IntegerPackingEncoding((int) encoding.get("byteCount"),
-                        (boolean) encoding.get("isUnsigned"),
-                        (int) encoding.get("srcSize"));
+                return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                ByteArray output = EncodedDataFactory.byteArray((byte[]) encoding.get("data"),
-                        (LinkedList<Encoding>) Stream.of((Object[]) encoding.get("dataEncoding"))
+                LinkedList<Encoding> outputEncoding = Stream.of((Object[]) encoding.get("dataEncoding"))
+                        .map(map -> wrap((Map<String, Object>) map))
+                        .collect(Collectors.toCollection(LinkedList::new));
+                LinkedList<Encoding> offsetEncoding = Stream.of((Object[]) encoding.get("offsetEncoding"))
                                 .map(map -> wrap((Map<String, Object>) map))
-                                .collect(Collectors.toCollection(LinkedList::new)));
-                ByteArray offsets = EncodedDataFactory.byteArray((byte[]) encoding.get("offsets"),
-                        (LinkedList<Encoding>) Stream.of((Object[]) encoding.get("offsetEncoding"))
-                                .map(map -> wrap((Map<String, Object>) map))
-                                .collect(Collectors.toCollection(LinkedList::new)));
-                return new StringArrayEncoding(output,
-                        offsets,
-                        (String) encoding.get("stringData"));
+                                .collect(Collectors.toCollection(LinkedList::new));
+                return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
-        }
-    }
-
-    private static EncodedData decodeStep(EncodedData current, Encoding encoding) {
-        // not an elegant approach, maybe impl OO-solution
-        if (encoding instanceof ByteArrayEncoding) {
-            return BYTE_ARRAY_CODEC.decode((ByteArray) current, (ByteArrayEncoding) encoding);
-        } else if (encoding instanceof FixedPointEncoding) {
-            return FIXED_POINT_CODEC.decode((Int32Array) current, (FixedPointEncoding) encoding);
-        } else if (encoding instanceof IntervalQuantizationEncoding) {
-            return INTERVAL_QUANTIZATION_CODEC.decode((Int32Array) current, (IntervalQuantizationEncoding) encoding);
-        } else if (encoding instanceof RunLengthEncoding) {
-            return RUN_LENGTH_CODEC.decode((Int32Array) current, (RunLengthEncoding) encoding);
-        } else if (encoding instanceof DeltaEncoding) {
-            return DELTA_CODEC.decode((SignedIntArray) current, (DeltaEncoding) encoding);
-        } else if (encoding instanceof IntegerPackingEncoding) {
-            return INTEGER_PACKING_CODEC.decode((IntArray) current, (IntegerPackingEncoding) encoding);
-        } else if (encoding instanceof StringArrayEncoding){
-            return STRING_ARRAY_CODEC.decode((ByteArray) current, (StringArrayEncoding) encoding);
-        } else {
-            throw new IllegalArgumentException("Unsupported Encoding kind: " + encoding.getClass().getSimpleName());
         }
     }
 }

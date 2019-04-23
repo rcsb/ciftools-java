@@ -2,16 +2,61 @@ package org.rcsb.cif.model;
 
 import javax.annotation.Generated;
 import java.util.List;
+import java.util.stream.Stream;
 
+/**
+ * Represents a Block in a CifFile.
+ */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public interface Block {
+    /**
+     * The header of this block.
+     * @return String of the header
+     */
     String getBlockHeader();
 
+    /**
+     * Retrieve a particular category by name.
+     * @param name the category name
+     * @return the corresponding category, if none exists a instance of BaseCategory is returned as proxy
+     */
     Category getCategory(String name);
 
+    /**
+     * The names of all categories which will not return an empty category when queried.
+     * @return collection of all category names
+     */
     List<String> getCategoryNames();
 
+    /**
+     * Convenience method to access all present category names.
+     * @return a stream of all registered categories
+     */
+    default Stream<String> categoryNames() {
+        return getCategoryNames().stream();
+    }
+
+    /**
+     * Traverses all present categories.
+     * @return a Stream of all categories
+     */
+    default Stream<Category> categories() {
+        return categoryNames().map(this::getCategory);
+    }
+
+    /**
+     * All save frames associated to this block.
+     * @return collection of save frames
+     */
     List<Block> getSaveFrames();
+
+    /**
+     * Convenience method to traverse all save frames.
+     * @return a Stream of all save frames.
+     */
+    default Stream<Block> saveFrames() {
+        return getSaveFrames().stream();
+    }
 
     /**
      * Data items in the ATOM_SITE category record details about

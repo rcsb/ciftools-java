@@ -7,8 +7,18 @@ import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.LinkedList;
 
+/**
+ * Stores the input integer array as an array of consecutive differences.
+ *
+ * <pre>
+ * Delta {
+ *     kind = "Delta"
+ *     origin: number
+ *     srcType: int[]
+ * }
+ * </pre>
+ */
 public class DeltaCodec {
-
     @SuppressWarnings("unchecked")
     public <T extends SignedIntArray> T encode(T data, DeltaEncoding encoding) {
         int srcType = data.getType();

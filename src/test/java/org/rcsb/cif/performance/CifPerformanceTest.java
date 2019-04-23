@@ -28,9 +28,12 @@ import java.util.zip.GZIPInputStream;
  * - 1.1 explicitly buffer InputStream (TextCifReader line 18): 98 s total, @ 19695 µs per structure
  * - 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing: 85 s total, @ 17177 µs per structure
  *
- *  As of ??????? (04.23.19):
+ *  As of e2b9727 (04.23.19):
+ *  - read 151079 structures (mmCIF) in 2620 s, sequential
  *  - read 151079 structures (mmCIF) in 1386 s, parallel @ 12 cores
  *
+ * As of e2b9727 (04.23.19):
+ * - read, decode, encode, and 'write' (without actual IO) 151079 structures (mmCIF) in  s, parallel @ 12 cores
  *
  * 2. Binary
  *
@@ -63,13 +66,13 @@ public class CifPerformanceTest {
 
     public static void main(String[] args) throws IOException {
 //        readTextSequential();
-        readTextParallel();
+//        readTextParallel();
 //
 //        readBinarySequential();
 //        readBinaryParallel();
 
 //        writeTextSequential();
-//        writeTextParallel();
+        writeTextParallel();
 
 //        writeBinarySequential();
 //        writeBinaryParallel();

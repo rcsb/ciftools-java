@@ -1,6 +1,12 @@
 package org.rcsb.cif.binary.encoding;
 
-public class RunLengthEncoding extends Encoding {
+import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.IntArray;
+
+import java.util.Map;
+
+public class RunLengthEncoding implements Encoding<Int32Array> {
     private static final String kind = "RunLength";
     private int srcType;
     private int srcSize;
@@ -11,6 +17,10 @@ public class RunLengthEncoding extends Encoding {
     public RunLengthEncoding(int srcType, int srcSize) {
         this.srcType = srcType;
         this.srcSize = srcSize;
+    }
+
+    public RunLengthEncoding(Map encoding) {
+        this((int) encoding.get("srcType"), (int) encoding.get("srcSize"));
     }
 
     public int getSrcType() {
@@ -32,6 +42,11 @@ public class RunLengthEncoding extends Encoding {
     @Override
     public String getKind() {
         return kind;
+    }
+
+    @Override
+    public IntArray decode(Int32Array current) {
+        return Codec.RUN_LENGTH_CODEC.decode(current, this);
     }
 
     @Override

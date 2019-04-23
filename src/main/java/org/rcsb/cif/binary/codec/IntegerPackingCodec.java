@@ -9,6 +9,23 @@ import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
+/**
+ * Stores a 32-bit integer array using 8- or 16-bit values. Includes the size of the input array for easier decoding.
+ * The encoding is more effective when only unsigned values are provided.
+ *
+ * <pre>
+ * IntegerPacking {
+ *     kind = "IntegerPacking"
+ *     byteCount: number
+ *     srcSize: number
+ *     isUnsigned: boolean
+ * }
+ * Example
+ * [1, 2, -3, 128]
+ * ---IntegerPacking--->
+ * { byteCount = 1, srcSize = 4, isUnsigned = false } [1, 2, -3, 127, 1]
+ * </pre>
+ */
 public class IntegerPackingCodec {
     public IntArray encode(Int32Array data, IntegerPackingEncoding encoding) {
         int[] input = data.getData();

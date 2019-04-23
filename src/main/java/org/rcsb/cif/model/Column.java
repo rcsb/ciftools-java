@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
@@ -26,6 +27,15 @@ public interface Column {
      * @return the String representation of the corresponding row
      */
     String getStringData(int row);
+
+    /**
+     * Access to all entries of this column as String values.
+     * @return a Stream of all String values
+     */
+    default Stream<String> getStringData() {
+        return IntStream.range(0, getRowCount())
+                .mapToObj(this::getStringData);
+    }
 
     /**
      * States the ValueKind for a particular row. Elements may either be 'present', 'not_specified' (.) or 'unknown'

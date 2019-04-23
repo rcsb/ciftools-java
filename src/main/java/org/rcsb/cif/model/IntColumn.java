@@ -4,6 +4,9 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+/**
+ * Type-safe column which contains int values as entries.
+ */
 public class IntColumn extends BaseColumn {
     private final int[] binaryData;
 
@@ -29,6 +32,11 @@ public class IntColumn extends BaseColumn {
         this.binaryData = new int[0];
     }
 
+    /**
+     * Retrieve the int value at the given row index.
+     * @param row the index to retrieve
+     * @return the value - 0 if not present according to {@link #getValueKind(int)}
+     */
     public int get(int row) {
         return isText ? parseInt(getTextData(row)) : binaryData[row];
     }
@@ -40,6 +48,10 @@ public class IntColumn extends BaseColumn {
         return Integer.parseInt(text);
     }
 
+    /**
+     * Type-safe Stream of all elements.
+     * @return a IntStream of values
+     */
     public IntStream values() {
         return IntStream.range(0, rowCount)
                 .map(this::get);

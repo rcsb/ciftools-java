@@ -7,6 +7,25 @@ import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 import java.util.LinkedList;
 import java.util.stream.IntStream;
 
+/**
+ * Converts an array of floating point numbers to an array of 32-bit integers where the values are quantized within a
+ * given interval into specified number of discrete steps. Values lower than the minimum value or greater than the
+ * maximum are represented by the respective boundary values.
+ *
+ * <pre>
+ * FixedPoint {
+ *     kind = "IntervalQuantization"
+ *     min: number,
+ *     max: number,
+ *     numSteps: number,
+ *     srcType: Float32 | Float64
+ * }
+ * Example
+ * [0.5, 1, 1.5, 2, 3, 1.345 ]
+ * ---IntervalQuantization--->
+ * { min = 1, max = 2, numSteps = 3 } [0, 0, 1, 2, 2, 1]
+ * </pre>
+ */
 public class IntervalQuantizationCodec {
     public Int32Array encode(FloatArray data, IntervalQuantizationEncoding encoding) {
         double[] input = data.getData();

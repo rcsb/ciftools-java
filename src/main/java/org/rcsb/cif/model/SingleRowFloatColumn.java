@@ -13,6 +13,10 @@ public class SingleRowFloatColumn extends FloatColumn implements SingleRowColumn
         super(name);
     }
 
+    /**
+     * The sole value of this FloatColumn.
+     * @return a double
+     */
     public double get() {
         return get(0);
     }
