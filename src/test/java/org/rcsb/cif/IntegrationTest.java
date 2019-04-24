@@ -3,8 +3,10 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.atomsite.*;
+import org.rcsb.cif.model.atomsites.AtomSites;
 import org.rcsb.cif.model.cell.Cell;
 import org.rcsb.cif.model.cell.PdbxUniqueAxis;
 import org.rcsb.cif.model.entry.Entry;
@@ -26,6 +28,51 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class IntegrationTest {
+    @Test
+    public void testVectorAndMatrixBehavior() throws IOException {
+        CifFile textCifFile = CifReader.parseText(TestHelper.getInputStream("cif/1acj.cif"));
+        testVectorAndMatrixBehavior(textCifFile);
+
+        CifFile binaryCifFile = CifReader.parseBinary(TestHelper.getInputStream("bcif/1acj.bcif"));
+        testVectorAndMatrixBehavior(binaryCifFile);
+    }
+
+    private void testVectorAndMatrixBehavior(CifFile cifFile) {
+        AtomSites atomSites = cifFile.getBlocks().get(0).getAtomSites();
+
+        assertDefined(atomSites.getFractTransfMatrix11());
+        assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix12());
+        assertEquals(0.005078, atomSites.getFractTransfMatrix12().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix13());
+        assertEquals(0.0, atomSites.getFractTransfMatrix13().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix21());
+        assertEquals(0.0, atomSites.getFractTransfMatrix21().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix22());
+        assertEquals(0.010156, atomSites.getFractTransfMatrix22().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix23());
+        assertEquals(0.0, atomSites.getFractTransfMatrix23().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix31());
+        assertEquals(0.0, atomSites.getFractTransfMatrix31().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix32());
+        assertEquals(0.0, atomSites.getFractTransfMatrix32().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix33());
+        assertEquals(0.007241, atomSites.getFractTransfMatrix33().get(), TestHelper.ERROR_MARGIN);
+
+        assertDefined(atomSites.getFractTransfVector1());
+        assertEquals(0.0, atomSites.getFractTransfVector1().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfVector2());
+        assertEquals(0.0, atomSites.getFractTransfVector2().get(), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfVector3());
+        assertEquals(0.0, atomSites.getFractTransfVector3().get(), TestHelper.ERROR_MARGIN);
+    }
+
+    private void assertDefined(Column column) {
+        assertNotNull(column);
+        assertTrue(column.isDefined());
+        assertTrue(column.getRowCount() > 0);
+    }
+
     @Test
     public void testSingleRowStraightMessagePack() throws IOException {
         String expected = "0RED";

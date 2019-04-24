@@ -21,6 +21,40 @@ public class ChemCompBond extends BaseCategory {
     }
 
     /**
+     * The ID of the first of the two atoms that define the bond.
+     * 
+     * This data item is a pointer to _chem_comp_atom.atom_id in the
+     * CHEM_COMP_ATOM category.
+     * @return AtomId1
+     */
+    public AtomId1 getAtomId1() {
+        return (AtomId1) (isText ? textFields.computeIfAbsent("atom_id_1",
+                AtomId1::new) : getBinaryColumn("atom_id_1"));
+    }
+
+    /**
+     * The ID of the second of the two atoms that define the bond.
+     * 
+     * This data item is a pointer to _chem_comp_atom.atom_id in the
+     * CHEM_COMP_ATOM category.
+     * @return AtomId2
+     */
+    public AtomId2 getAtomId2() {
+        return (AtomId2) (isText ? textFields.computeIfAbsent("atom_id_2",
+                AtomId2::new) : getBinaryColumn("atom_id_2"));
+    }
+
+    /**
+     * This data item is a pointer to _chem_comp.id in the CHEM_COMP
+     * category.
+     * @return CompId
+     */
+    public CompId getCompId() {
+        return (CompId) (isText ? textFields.computeIfAbsent("comp_id",
+                CompId::new) : getBinaryColumn("comp_id"));
+    }
+
+    /**
      * The value that should be taken as the target for the chemical
      * bond associated with the specified atoms, expressed as a bond
      * order.

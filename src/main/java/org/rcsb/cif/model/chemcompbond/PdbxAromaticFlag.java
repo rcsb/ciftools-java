@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
-public class PdbxAromaticFlag extends EnumColumn {
+public class PdbxAromaticFlag extends StrColumn {
     public PdbxAromaticFlag(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);
     }

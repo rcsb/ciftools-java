@@ -21,6 +21,15 @@ public class AtomSites extends BaseCategory {
     }
 
     /**
+     * This data item is a pointer to _entry.id in the ENTRY category.
+     * @return EntryId
+     */
+    public EntryId getEntryId() {
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
+    }
+
+    /**
      * The elements of the 3x3 matrix used to transform Cartesian
      * coordinates in the ATOM_SITE category to fractional coordinates
      * in the same category. The axial alignments of this
@@ -31,11 +40,155 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return FractTransfMatrix
+     * @return FractTransfMatrix11
      */
-    public FractTransfMatrix getFractTransfMatrix() {
-        return (FractTransfMatrix) (isText ? textFields.computeIfAbsent("fract_transf_matrix",
-                FractTransfMatrix::new) : getBinaryColumn("fract_transf_matrix"));
+    public FractTransfMatrix11 getFractTransfMatrix11() {
+        return (FractTransfMatrix11) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][1]",
+                FractTransfMatrix11::new) : getBinaryColumn("fract_transf_matrix[1][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix12
+     */
+    public FractTransfMatrix12 getFractTransfMatrix12() {
+        return (FractTransfMatrix12) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][2]",
+                FractTransfMatrix12::new) : getBinaryColumn("fract_transf_matrix[1][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix13
+     */
+    public FractTransfMatrix13 getFractTransfMatrix13() {
+        return (FractTransfMatrix13) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][3]",
+                FractTransfMatrix13::new) : getBinaryColumn("fract_transf_matrix[1][3]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix21
+     */
+    public FractTransfMatrix21 getFractTransfMatrix21() {
+        return (FractTransfMatrix21) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][1]",
+                FractTransfMatrix21::new) : getBinaryColumn("fract_transf_matrix[2][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix22
+     */
+    public FractTransfMatrix22 getFractTransfMatrix22() {
+        return (FractTransfMatrix22) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][2]",
+                FractTransfMatrix22::new) : getBinaryColumn("fract_transf_matrix[2][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix23
+     */
+    public FractTransfMatrix23 getFractTransfMatrix23() {
+        return (FractTransfMatrix23) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][3]",
+                FractTransfMatrix23::new) : getBinaryColumn("fract_transf_matrix[2][3]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix31
+     */
+    public FractTransfMatrix31 getFractTransfMatrix31() {
+        return (FractTransfMatrix31) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][1]",
+                FractTransfMatrix31::new) : getBinaryColumn("fract_transf_matrix[3][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix32
+     */
+    public FractTransfMatrix32 getFractTransfMatrix32() {
+        return (FractTransfMatrix32) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][2]",
+                FractTransfMatrix32::new) : getBinaryColumn("fract_transf_matrix[3][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform Cartesian
+     * coordinates in the ATOM_SITE category to fractional coordinates
+     * in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.fract_transf_vector[].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfMatrix33
+     */
+    public FractTransfMatrix33 getFractTransfMatrix33() {
+        return (FractTransfMatrix33) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][3]",
+                FractTransfMatrix33::new) : getBinaryColumn("fract_transf_matrix[3][3]"));
     }
 
     /**
@@ -49,10 +202,46 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return FractTransfVector
+     * @return FractTransfVector1
      */
-    public FractTransfVector getFractTransfVector() {
-        return (FractTransfVector) (isText ? textFields.computeIfAbsent("fract_transf_vector",
-                FractTransfVector::new) : getBinaryColumn("fract_transf_vector"));
+    public FractTransfVector1 getFractTransfVector1() {
+        return (FractTransfVector1) (isText ? textFields.computeIfAbsent("fract_transf_vector[1]",
+                FractTransfVector1::new) : getBinaryColumn("fract_transf_vector[1]"));
+    }
+
+    /**
+     * The elements of the three-element vector used to transform
+     * Cartesian coordinates in the ATOM_SITE category to fractional
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x3 rotation is defined in
+     * _atom_sites.fract_transf_matrix[][].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfVector2
+     */
+    public FractTransfVector2 getFractTransfVector2() {
+        return (FractTransfVector2) (isText ? textFields.computeIfAbsent("fract_transf_vector[2]",
+                FractTransfVector2::new) : getBinaryColumn("fract_transf_vector[2]"));
+    }
+
+    /**
+     * The elements of the three-element vector used to transform
+     * Cartesian coordinates in the ATOM_SITE category to fractional
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x3 rotation is defined in
+     * _atom_sites.fract_transf_matrix[][].
+     * 
+     * |x'|               |11 12 13| |x|              |1|
+     * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
+     * |z'|               |31 32 33| |z|              |3|
+     * @return FractTransfVector3
+     */
+    public FractTransfVector3 getFractTransfVector3() {
+        return (FractTransfVector3) (isText ? textFields.computeIfAbsent("fract_transf_vector[3]",
+                FractTransfVector3::new) : getBinaryColumn("fract_transf_vector[3]"));
     }
 }

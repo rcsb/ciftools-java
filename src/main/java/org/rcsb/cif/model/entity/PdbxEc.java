@@ -5,7 +5,7 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
-public class PdbxEc extends ListColumn {
+public class PdbxEc extends StrColumn {
     public PdbxEc(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);
     }

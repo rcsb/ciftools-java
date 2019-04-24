@@ -21,6 +21,15 @@ public class StructKeywords extends BaseCategory {
     }
 
     /**
+     * This data item is a pointer to _entry.id in the ENTRY category.
+     * @return EntryId
+     */
+    public EntryId getEntryId() {
+        return (EntryId) (isText ? textFields.computeIfAbsent("entry_id",
+                EntryId::new) : getBinaryColumn("entry_id"));
+    }
+
+    /**
      * Keywords describing this structure.
      * @return Text
      */

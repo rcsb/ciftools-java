@@ -35,7 +35,7 @@ public class BinaryCifWriterOptions {
 
     public static class Builder {
         String encoder = Codec.CODEC_NAME;
-        boolean singleRowByMessagePack = true;
+        boolean singleRowByMessagePack = false;
         boolean gzip = false;
 
         /**
@@ -51,8 +51,8 @@ public class BinaryCifWriterOptions {
 
         /**
          * Specify whether categories with a single row should be encoded by native MessagePack (as opposed to wrapping
-         * them in columns and classifying them). Should avoid overhead and result in a smaller packing size. default:
-         * true
+         * them in columns and classifying them). Should avoid overhead and result in a smaller packing size.
+         * Experimental feature not supported by other decoder/encoder libraries. default: false
          * @param singleRowByMessagePack feed single row categories directly by MessagePack
          * @return the builder
          */

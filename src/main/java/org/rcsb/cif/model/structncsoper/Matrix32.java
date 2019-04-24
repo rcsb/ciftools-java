@@ -5,16 +5,16 @@ import org.rcsb.cif.model.*;
 import javax.annotation.Generated;
 
 @Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
-public class Vector extends VectorColumn {
-    public Vector(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+public class Matrix32 extends SingleRowFloatColumn {
+    public Matrix32(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);
     }
 
-    public Vector(String name, int rowCount, Object data, int[] mask) {
+    public Matrix32(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, data, mask);
     }
 
-    public Vector(String name) {
+    public Matrix32(String name) {
         super(name);
     }
 }
