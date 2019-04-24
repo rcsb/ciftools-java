@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * Represents a Block in a CifFile.
  */
-@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
 public interface Block {
     /**
      * The header of this block.

@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.generator;
+package org.rcsb.cif.internal.generator;
 
 class IntCol extends Col {
     IntCol(String description) {

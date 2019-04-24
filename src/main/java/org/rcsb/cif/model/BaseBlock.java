@@ -1,11 +1,13 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.internal.ModelFactory;
+
 import javax.annotation.Generated;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.internal.Schema")
 public class BaseBlock implements Block {
     private final Map<String, Category> categories;
     private final List<Block> saveFrames;

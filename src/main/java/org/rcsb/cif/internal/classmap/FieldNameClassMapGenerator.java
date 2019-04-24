@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.classmap;
+package org.rcsb.cif.internal.classmap;
 
 import java.io.BufferedReader;
 import java.io.InputStream;

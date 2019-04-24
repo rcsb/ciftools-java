@@ -4,7 +4,7 @@ import org.rcsb.cif.model.*;
 
 import javax.annotation.Generated;
 
-@Generated("org.rcsb.cif.schema.Schema")
+@Generated("org.rcsb.cif.internal.Schema")
 public class Ptnr1LabelAtomId extends StrColumn {
     public Ptnr1LabelAtomId(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);

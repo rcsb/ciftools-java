@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.generator;
+package org.rcsb.cif.internal.generator;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.rcsb.cif.model.ModelFactory.*;
+import static org.rcsb.cif.internal.ModelFactory.*;
 
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
@@ -36,7 +36,7 @@ class SchemaGenerator {
 
     static {
         try {
-            // create schema filter
+            // create internal filter
             filter = new LinkedHashMap<>();
             BufferedReader filterBr = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread()
                     .getContextClassLoader()
@@ -131,7 +131,7 @@ class SchemaGenerator {
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.List;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
         output.add("public interface " + className + " {");
 
         // getters
@@ -186,7 +186,7 @@ class SchemaGenerator {
         output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
         output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
 
         // constructor
@@ -219,7 +219,7 @@ class SchemaGenerator {
         output.add("import java.util.Map;");
         output.add("");
 
-        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
@@ -284,7 +284,7 @@ class SchemaGenerator {
         output.add("import javax.annotation.Generated;");
         output.add("");
 
-        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
 
         // constructor for text data

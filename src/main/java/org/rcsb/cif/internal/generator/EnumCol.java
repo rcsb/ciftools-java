@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.generator;
+package org.rcsb.cif.internal.generator;
 
 import java.util.List;
 

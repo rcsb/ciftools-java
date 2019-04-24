@@ -5,12 +5,15 @@ as well as their efficiently encoded counterpart, called BinaryCIF. The idea is 
 implementation for the handling of CIF files which does not care about the origin of the data: both conventional text-based
 and binary files should be handled the same way.
 
+## Performance
 
-## Example
+## Getting Started
+
+## File Parsing Example
 
 ```Java
 class Demo {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String pdbId = "1acj";
         boolean parseBinary = true;
 
@@ -53,6 +56,43 @@ class Demo {
         // print record type - or #values() may be text
         Optional<String> groupPdb = data.getAtomSite().getGroupPDB().values().findFirst();
         groupPdb.ifPresent(System.out::println);
+    }
+}
+```
+
+Just as in Mol* implementation, all parsing and decoding is done as lazily as possible.
+
+## Model Creation Example
+```Java
+class Demo {
+    public static void main(String[] args) {
+        CifFile cifFile = CifFile.build()
+                // create a block
+                .enterBlock("1EXP")
+                // create a category with name 'entry'
+                .enterCategory("entry")
+                // set value of column 'id'
+                .enterColumn("id")
+                // to '1EXP'
+                .stringValues("1EXP")
+                // leave current column and category
+                .leaveColumn()
+                .leaveCategory()
+
+                // create atom site category
+                .enterCategory("atom_site")
+                // and specify some x-coordinates
+                .enterColumn("Cartn_x")
+                .floatValues(1.0, -2.4, 4.5)
+                // values can be unknown or not specified
+                .markNextUnknown()
+                .floatValues(-3.14, 5.0)
+
+                // leaving the builder will release the CifFile instance
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
     }
 }
 ```

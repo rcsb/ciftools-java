@@ -4,7 +4,7 @@ import org.rcsb.cif.model.*;
 
 import javax.annotation.Generated;
 
-@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
 public class Ptnr1AuthSeqId extends IntColumn {
     public Ptnr1AuthSeqId(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);

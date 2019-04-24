@@ -30,7 +30,7 @@ public interface CifWriter {
     }
 
     /**
-     * Internal helper function to
+     * Internal helper function to format headers.
      * @param header the raw header string
      * @return upper-case representation without any whitespaces
      */

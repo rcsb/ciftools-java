@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import javax.annotation.Generated;
 import java.util.Map;
 
-@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
 public class PdbxChemCompIdentifier extends BaseCategory {
     public PdbxChemCompIdentifier(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -1,13 +1,16 @@
-package org.rcsb.cif.model;
+package org.rcsb.cif.internal;
 
 import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.model.*;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
-import java.util.Objects;
+import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * The factory for model instances for cases when they are somewhat difficult or ambiguously to obtain.
+ */
 public class ModelFactory {
     public static final String BASE_PACKAGE = "org.rcsb.cif.model";
 
@@ -63,7 +66,7 @@ public class ModelFactory {
 
     /**
      * Create a Category from text data. Tries to find a strict (i.e. concrete implementation by reflection using the
-     * schema) instance of the requested category.
+     * internal) instance of the requested category.
      * @param categoryName the category name
      * @param textColumns the text data to provide within this category
      * @return the created instance
@@ -85,7 +88,7 @@ public class ModelFactory {
 
     /**
      * Create a Category from binary data. Tries to find a strict (i.e. concrete implementation by reflection using the
-     * schema) instance of the requested category.
+     * internal) instance of the requested category.
      * @param categoryName the category name
      * @param rowCount the row count
      * @param encodedColumns the data, still encoded, to be decoded once requested
@@ -145,7 +148,7 @@ public class ModelFactory {
                 throw new RuntimeException(e);
             }
         } else {
-            // cannot rely on schema, we could parse/digest data until we can make an elaborate guess about the type -
+            // cannot rely on internal, we could parse/digest data until we can make an elaborate guess about the type -
             // however this would be really slow
             return new StrColumn(columnName, rowCount, data, startToken, endToken);
         }
@@ -207,11 +210,5 @@ public class ModelFactory {
         } else {
             return new StrColumn(columnName);
         }
-    }
-
-    // TODO d3-like builder for files
-
-    static class CifFileBuilder {
-
     }
 }

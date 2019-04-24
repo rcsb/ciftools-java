@@ -4,7 +4,7 @@ import org.rcsb.cif.model.*;
 
 import javax.annotation.Generated;
 
-@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
 public class Ptnr1Symmetry extends StrColumn {
     public Ptnr1Symmetry(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);

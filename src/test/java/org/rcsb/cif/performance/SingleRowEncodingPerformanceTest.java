@@ -15,6 +15,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+/**
+ * Test case: 5000 structures from Bcif, read, decode, encode (with or without single row strategy), write, read again.
+ *
+ * naive approach:
+ * 128 s, 443407 bytes on average
+ *
+ * single row approach:
+ * 107 s, 359368 bytes on average
+ */
 public class SingleRowEncodingPerformanceTest {
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");
     private static final int TOTAL_SIZE =
@@ -72,6 +81,6 @@ public class SingleRowEncodingPerformanceTest {
         long end = System.nanoTime();
         System.out.println((end - start) / 1_000_000_000 + " s");
         System.out.println("failed for " + failed.intValue() + " structures");
-        System.out.println("average size: " + sizes.stream().mapToInt(i -> i).average().orElse(Integer.MAX_VALUE));
+        System.out.println("average size in bytes: " + sizes.stream().mapToInt(i -> i).average().orElse(Integer.MAX_VALUE));
     }
 }

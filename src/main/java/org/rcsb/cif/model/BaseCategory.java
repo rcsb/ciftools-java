@@ -1,5 +1,7 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.internal.ModelFactory;
+
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
