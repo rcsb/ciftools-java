@@ -86,7 +86,7 @@ class SchemaGenerator {
     }
 
     private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
-        System.out.println(className);
+//        System.out.println(className);
 
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + ";");
@@ -142,7 +142,7 @@ class SchemaGenerator {
     }
 
     private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
-        System.out.println(className);
+//        System.out.println(className);
 
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + ";");
@@ -203,7 +203,7 @@ class SchemaGenerator {
     }
 
     private void writeCategory(String className, Table content, Path path, String categoryName) throws IOException {
-        System.out.println(" -> " + className + " " + content.getRepeat());
+//        System.out.println(" -> " + className + " " + content.getRepeat());
 
         if (!Files.exists(path)) {
             Files.createDirectory(path);
@@ -228,8 +228,13 @@ class SchemaGenerator {
             String columnName = entry.getKey();
             Col column = (Col) entry.getValue();
 
-            if (!filter.get(categoryName).contains(columnName)) {
+            List<String> categoryFilter = filter.get(categoryName);
+            if (!categoryFilter.contains(columnName) &&
+                    !categoryFilter.contains(columnName.substring(0, columnName.length() - 1)) && // handle vectors
+                    !categoryFilter.contains(columnName.substring(0, columnName.length() - 2))) { // handle matrices
                 continue;
+            } else {
+//                System.out.println(categoryName + "." + columnName);
             }
 
             String columnClassName = toClassName(columnName);
@@ -274,7 +279,7 @@ class SchemaGenerator {
     }
 
     private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
-        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType(), singleRow));
+//        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType(), singleRow));
 
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
@@ -318,8 +323,6 @@ class SchemaGenerator {
             output.add("    }");
         }
 
-        // TODO enums, lists, matrix, and vector would be nice to have
-
         output.add("}");
         output.add("");
 
@@ -328,6 +331,7 @@ class SchemaGenerator {
 
     private String getBaseClass(String type, boolean singleRow) {
         Class<?> clazz;
+        // TODO enums, lists, matrix, and vector would be nice to have
         switch (type) {
             case "coord":
                 clazz = singleRow ? SingleRowCoordColumn.class : CoordColumn.class; break;
@@ -472,10 +476,16 @@ class SchemaGenerator {
                             }
                         }
                         fields.put(itemName, fieldType);
+                    } else {
+                        System.out.println(header);
                     }
                 }
             }
         });
+    }
+
+    private String handleVectorMatrixItemNames(String raw) {
+        return raw.replace("[", "").replace("]", "");
     }
 
     private Col getFieldType(String type, String description, List<String> values) {
@@ -548,7 +558,7 @@ class SchemaGenerator {
 
     private Stream<String> getEnums(Block saveFrame) {
         Column value = getField("item_enumeration", "value", saveFrame);
-        if (value.isDefined() && value.getRowCount() > 0) {
+        if (value != null) {
             return IntStream.range(0, value.getRowCount())
                     .mapToObj(value::getStringData);
         } else {
@@ -557,10 +567,10 @@ class SchemaGenerator {
     }
 
     private String getSubCategory(Block saveFrame) {
-        Column value = getField("item_sub_category", "id", saveFrame);
-        if (value.isDefined() && value.getRowCount() > 0) {
+        try {
+            Column value = getField("item_sub_category", "id", saveFrame);
             return value.getStringData(0);
-        } else {
+        } catch (NullPointerException e) {
             return "";
         }
     }
@@ -575,12 +585,17 @@ class SchemaGenerator {
     }
 
     private Column getField(String category, String field, Block saveFrame) {
-        try {
-            Category cat = saveFrame.getCategory(category);
+        Category cat = saveFrame.getCategory(category);
+        if (cat.isDefined()) {
             return cat.getColumn(field);
-        } catch (NullPointerException e) {
+        } else {
             String linkName = links.get(saveFrame.getBlockHeader());
-            return getField(category, field, categories.get(linkName));
+            Block block = categories.get(linkName);
+            if (block != null) {
+                return getField(category, field, block);
+            } else {
+                return null;
+            }
         }
     }
 

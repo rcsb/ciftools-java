@@ -342,21 +342,21 @@ class TokenizerState {
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
         final Map<String, Column> fields = new LinkedHashMap<>();
-        final String catName = name.substring(1);
+        final String categoryName = name.substring(1);
 
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
-            final String fieldName = getTokenString().substring(name.length() + 1);
+            String columnName = getTokenString().substring(name.length() + 1);
             moveNext();
             if (tokenType != CifTokenType.VALUE) {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            Column cifColumn = ModelFactory.createColumnText(catName, fieldName, data, tokenStart, tokenEnd);
-            fields.put(fieldName, cifColumn);
+            Column cifColumn = ModelFactory.createColumnText(categoryName, columnName, data, tokenStart, tokenEnd);
+            fields.put(columnName, cifColumn);
             moveNext();
         }
 
-        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, fields));
+        ctx.getCategories().put(categoryName, ModelFactory.createCategoryText(categoryName, fields));
     }
 
     /**
@@ -396,11 +396,11 @@ class TokenizerState {
                     " is not a multiple of the number of columns.");
         }
 
-        String catName = name.substring(1);
+        String categoryName = name.substring(1);
 
         Map<String, Column> columns = new LinkedHashMap<>();
         for (int i = 0; i < start.size(); i++) {
-            Column cifColumn = ModelFactory.createColumnText(catName,
+            Column cifColumn = ModelFactory.createColumnText(categoryName,
                     columnNames.get(i),
                     data,
                     start.get(i).stream().mapToInt(j -> j).toArray(),
@@ -408,14 +408,6 @@ class TokenizerState {
             columns.put(columnNames.get(i), cifColumn);
         }
 
-        ctx.getCategories().put(catName, ModelFactory.createCategoryText(catName, columns));
-    }
-
-    private Column create(String categoryName, String fieldName, String data, List<Integer> startToken, List<Integer> endToken) {
-        return ModelFactory.createColumnText(categoryName,
-                fieldName,
-                data,
-                startToken.stream().mapToInt(i -> i).toArray(),
-                endToken.stream().mapToInt(i -> i).toArray());
+        ctx.getCategories().put(categoryName, ModelFactory.createCategoryText(categoryName, columns));
     }
 }
