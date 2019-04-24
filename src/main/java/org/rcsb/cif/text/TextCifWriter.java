@@ -1,6 +1,5 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
@@ -13,14 +12,13 @@ import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class TextCifWriter implements CifWriter {
-    @Override
-    public InputStream write(CifFile cifFile) {
+public class TextCifWriter {
+    public String compose(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
         for (Block block : cifFile.getBlocks()) {
             output.append("data_")
-                    .append(CifWriter.formatHeader(block.getBlockHeader()))
+                    .append(block.getBlockHeader().replaceAll("[ \n\t]", "").toUpperCase())
                     .append("\n#\n");
 
             for (String categoryName : block.getCategoryNames()) {
@@ -39,7 +37,11 @@ public class TextCifWriter implements CifWriter {
         }
         output.append("\n");
 
-        return new ByteArrayInputStream(output.toString().getBytes(StandardCharsets.UTF_8));
+        return output.toString();
+    }
+
+    public InputStream write(CifFile cifFile) {
+        return new ByteArrayInputStream(compose(cifFile).getBytes(StandardCharsets.UTF_8));
     }
 
     private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {

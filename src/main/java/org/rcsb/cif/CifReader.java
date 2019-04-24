@@ -8,26 +8,28 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Specifies how to read Cif files.
+ * Class for the reading of CifFile instances.
  */
-public interface CifReader {
+public class CifReader {
+    /**
+     * Parses Cif files represented by an InputStream and creates an instance of a CifFile to make all data accessible.
+     * @param inputStream the raw data to parse
+     * @return the model representation of all file contents
+     * @throws ParsingException thrown for malformed files
+     * @throws IOException thrown when reading fails
+     */
+    public static CifFile parseBinary(InputStream inputStream) throws ParsingException, IOException {
+        return new BinaryCifReader().parse(inputStream);
+    }
+
     /**
      * Parses Cif files represented by an InputStream and creates an instance of a CifFile to make all data accessible.
      * @param inputStream the raw data to parse
      * @return the model representation of all non-comment file contents
-     * @throws ParsingException thrown when parsing goes offtrack
-     * @throws IOException propagated
+     * @throws ParsingException thrown for malformed files
+     * @throws IOException thrown when reading fails
      */
-    CifFile parse(InputStream inputStream) throws ParsingException, IOException;
-
-    CifReader BINARY_INSTANCE = new BinaryCifReader();
-    CifReader TEXT_INSTANCE = new TextCifReader();
-
-    static CifFile parseBinary(InputStream inputStream) throws ParsingException, IOException {
-        return BINARY_INSTANCE.parse(inputStream);
-    }
-
-    static CifFile parseText(InputStream inputStream) throws ParsingException, IOException {
-        return TEXT_INSTANCE.parse(inputStream);
+    public static CifFile parseText(InputStream inputStream) throws ParsingException, IOException {
+        return new TextCifReader().parse(inputStream);
     }
 }

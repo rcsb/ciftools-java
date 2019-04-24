@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 import static org.rcsb.cif.TestHelper.*;
 
-public class CifWriterTest {
+public class WriterTest {
     @Test
     public void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {

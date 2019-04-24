@@ -1,8 +1,6 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.BinaryCifWriter;
-import org.rcsb.cif.binary.BinaryCifWriterOptions;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ValueKind;
@@ -27,12 +25,12 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * fidelity of the implementation. For a Cif file encoding and subsequent decoding should arrive at the original file
  * content. For Bcif decoding and encoding should do the same.
  */
-public class CifIntegrationTest {
+public class IntegrationTest {
     @Test
     public void testSingleRowStraightMessagePack() throws IOException {
         String expected = "0RED";
 
-        // from conventional Cif: should report 1 row with value 0RED
+        // from conventional WriterTest: should report 1 row with value 0RED
         CifFile textCifFile = CifReader.parseText(TestHelper.getInputStream("cif/0red.cif"));
         Entry textEntry = textCifFile.getFirstBlock().getEntry();
         assertEquals("id", textEntry.getId().getColumnName());
@@ -41,7 +39,7 @@ public class CifIntegrationTest {
 
         // convert to binary representation
         BinaryCifWriterOptions options = BinaryCifWriterOptions.create().setSingleRowByMessagePack(true).build();
-        InputStream binary = new BinaryCifWriter().write(textCifFile);
+        InputStream binary = CifWriter.writeBinary(textCifFile);
 
         // decode binary
         CifFile binaryCifFile = CifReader.parseBinary(binary);

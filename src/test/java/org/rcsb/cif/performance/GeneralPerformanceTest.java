@@ -55,7 +55,7 @@ import java.util.zip.GZIPInputStream;
  * - read, decode, encode, and 'write' (without actual IO) 151079 structures (binary) in 595 s, parallel @ 12 cores
  *
  */
-public class CifPerformanceTest {
+public class GeneralPerformanceTest {
     private static final Path PDB_DIRECTORY = Paths.get("/var/pdb/");
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");
     private static final int TOTAL_SIZE =

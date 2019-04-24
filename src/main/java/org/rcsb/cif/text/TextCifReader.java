@@ -1,6 +1,5 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
@@ -13,8 +12,8 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TextCifReader implements CifReader {
-    @Override
+public class TextCifReader {
+    @SuppressWarnings("Duplicates")
     public TextFile parse(InputStream inputStream) throws ParsingException, IOException {
         // performance 1.1: explicitly buffer stream, increases performance drastically 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
         if (!(inputStream instanceof BufferedInputStream)) {

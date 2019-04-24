@@ -1,14 +1,16 @@
-package org.rcsb.cif.binary;
+package org.rcsb.cif;
 
 import org.rcsb.cif.binary.codec.Codec;
 
 public class BinaryCifWriterOptions {
     private final String encoder;
     private final boolean singleRowMessagePack;
+    private final boolean gzip;
 
-    BinaryCifWriterOptions(Builder builder) {
+    private BinaryCifWriterOptions(Builder builder) {
         this.encoder = builder.encoder;
         this.singleRowMessagePack = builder.singleRowByMessagePack;
+        this.gzip = builder.gzip;
     }
 
     public String getEncoder() {
@@ -17,6 +19,10 @@ public class BinaryCifWriterOptions {
 
     public boolean isSingleRowMessagePack() {
         return singleRowMessagePack;
+    }
+
+    public boolean isGzip() {
+        return gzip;
     }
 
     /**
@@ -30,6 +36,7 @@ public class BinaryCifWriterOptions {
     public static class Builder {
         String encoder = Codec.CODEC_NAME;
         boolean singleRowByMessagePack = true;
+        boolean gzip = false;
 
         /**
          * Specify the encoder name to write to files. Comes in handy when checking for agreement with other files.
@@ -44,13 +51,23 @@ public class BinaryCifWriterOptions {
 
         /**
          * Specify whether categories with a single row should be encoded by native MessagePack (as opposed to wrapping
-         * them in columns and classifying them). Should avoid overhead and result in a smaller packing size.
-         * default: true
+         * them in columns and classifying them). Should avoid overhead and result in a smaller packing size. default:
+         * true
          * @param singleRowByMessagePack feed single row categories directly by MessagePack
          * @return the builder
          */
         public Builder setSingleRowByMessagePack(boolean singleRowByMessagePack) {
             this.singleRowByMessagePack = singleRowByMessagePack;
+            return this;
+        }
+
+        /**
+         * Specify whether the file should be gzipped downstream. default: false
+         * @param gzip whether to gzip the MessagePacked data
+         * @return the builder
+         */
+        public Builder setGzip(boolean gzip) {
+            this.gzip = gzip;
             return this;
         }
 

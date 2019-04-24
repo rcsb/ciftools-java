@@ -329,23 +329,22 @@ class SchemaGenerator {
     private String getBaseClass(String type, boolean singleRow) {
         Class<?> clazz;
         switch (type) {
-            // TODO support remaining single row types
             case "coord":
-                clazz = CoordColumn.class; break;
+                clazz = singleRow ? SingleRowCoordColumn.class : CoordColumn.class; break;
             case "enum":
-                clazz = EnumColumn.class; break;
+                clazz = singleRow ? SingleRowEnumColumn.class : EnumColumn.class; break;
             case "float":
                 clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
             case "int":
                 clazz = singleRow ? SingleRowIntColumn.class : IntColumn.class; break;
             case "list":
-                clazz = ListColumn.class; break;
+                clazz = singleRow ? SingleRowListColumn.class : ListColumn.class; break;
             case "matrix":
-                clazz = MatrixColumn.class; break;
+                clazz = singleRow ? SingleRowMatrixColumn.class : MatrixColumn.class; break;
             case "str":
                 clazz = singleRow ? SingleRowStrColumn.class : StrColumn.class; break;
             case "vector":
-                clazz = VectorColumn.class; break;
+                clazz = singleRow ? SingleRowVectorColumn.class : VectorColumn.class; break;
             default:
                 throw new IllegalArgumentException("Unknown type " + type);
         }

@@ -3,7 +3,7 @@ package org.rcsb.cif.performance;
 import org.rcsb.cif.TestHelper;
 import org.rcsb.cif.binary.BinaryCifReader;
 import org.rcsb.cif.binary.BinaryCifWriter;
-import org.rcsb.cif.binary.BinaryCifWriterOptions;
+import org.rcsb.cif.BinaryCifWriterOptions;
 import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;

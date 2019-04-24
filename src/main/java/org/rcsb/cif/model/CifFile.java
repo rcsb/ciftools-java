@@ -50,9 +50,15 @@ public interface CifFile {
         return getBlocks().stream();
     }
 
+    /**
+     * Acquire a builder to create new CifFile instances.
+     * @return a step-wise builder
+     */
     static CifFileBuilder build() {
         return new CifFileBuilder();
     }
+
+    // TODO add generated schema to builder
 
     class CifFileBuilder {
         private final CifFile cifFile;
@@ -133,7 +139,7 @@ public interface CifFile {
             return this;
         }
 
-        private Column createColumnText(String categoryName, String columnName, List<? extends Object> values, List<ValueKind> mask) {
+        private Column createColumnText(String categoryName, String columnName, List<?> values, List<ValueKind> mask) {
             int length = values.size();
             int[] startToken = new int[length];
             int[] endToken = new int[length];

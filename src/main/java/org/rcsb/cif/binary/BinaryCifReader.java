@@ -1,12 +1,14 @@
 package org.rcsb.cif.binary;
 
-import org.rcsb.cif.CifReader;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.*;
 import org.rcsb.cif.internal.ModelFactory;
+import org.rcsb.cif.model.*;
 
-import java.io.*;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,8 +16,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BinaryCifReader implements CifReader {
-    @Override
+public class BinaryCifReader {
+    @SuppressWarnings("Duplicates")
     public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
         // performance 2.1: explicitly buffer stream, increases performance drastically
         if (!(inputStream instanceof BufferedInputStream)) {

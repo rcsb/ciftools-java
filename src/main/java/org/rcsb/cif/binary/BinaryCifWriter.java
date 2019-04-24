@@ -1,14 +1,17 @@
 package org.rcsb.cif.binary;
 
-import org.rcsb.cif.CifWriter;
+import org.rcsb.cif.BinaryCifWriterOptions;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -16,25 +19,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.zip.GZIPInputStream;
 
-public class BinaryCifWriter implements CifWriter {
-    private static final BinaryCifWriterOptions DEFAULT_OPTIONS = BinaryCifWriterOptions.create().build();
+public class BinaryCifWriter {
     private final BinaryCifWriterOptions options;
-
-    public BinaryCifWriter() {
-        this(DEFAULT_OPTIONS);
-    }
 
     public BinaryCifWriter(BinaryCifWriterOptions options) {
         this.options = options;
     }
 
-    @Override
-    public InputStream write(CifFile cifFile) {
+    public InputStream write(CifFile cifFile) throws IOException {
         Map<String, Object> file = encodeFile(cifFile);
 
         byte[] ret = Codec.MESSAGE_PACK_CODEC.encode(file);
-        return new ByteArrayInputStream(ret);
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(ret);
+
+        return options.isGzip() ? new GZIPInputStream(byteArrayInputStream) : byteArrayInputStream;
     }
 
     public Map<String, Object> encodeFile(CifFile cifFile) {
@@ -48,7 +48,7 @@ public class BinaryCifWriter implements CifWriter {
 
         for (Block cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
-            block.put("header", CifWriter.formatHeader(cifBlock.getBlockHeader()));
+            block.put("header", cifBlock.getBlockHeader().replaceAll("[ \n\t]", "").toUpperCase());
             Object[] categories = new Object[cifBlock.getCategoryNames().size()];
             int categoryCount = 0;
             block.put("categories", categories);

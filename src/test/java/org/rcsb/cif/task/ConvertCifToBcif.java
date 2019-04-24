@@ -1,7 +1,5 @@
 package org.rcsb.cif.task;
 
-import org.junit.Ignore;
-import org.junit.Test;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.CifWriter;
 import org.rcsb.cif.model.CifFile;
@@ -22,9 +20,7 @@ public class ConvertCifToBcif {
     private static final int CHUNK_SIZE = 100;
     private static final boolean PARALLEL = true;
 
-    @Test
-    @Ignore
-    public void convert() throws IOException {
+    public static void main(String[] args) throws IOException {
         AtomicInteger counter = new AtomicInteger(0);
         final int target = (int) pathStream(PDB_DIRECTORY).count();
         AtomicInteger failed = new AtomicInteger(0);
@@ -71,7 +67,7 @@ public class ConvertCifToBcif {
         System.out.println("failed for " + failed.intValue() + " structures");
     }
 
-    private Stream<Path> pathStream(Path base) throws IOException {
+    private static Stream<Path> pathStream(Path base) throws IOException {
         return Files.walk(PDB_DIRECTORY)
                 .filter(path -> !Files.isDirectory(path));
     }
