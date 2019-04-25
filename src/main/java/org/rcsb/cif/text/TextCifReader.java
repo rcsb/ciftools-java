@@ -28,10 +28,11 @@ public class TextCifReader {
         }
 
         buffer.flush();
+        String string = buffer.toString("UTF-8");
         buffer.close();
         inputStream.close();
 
-        return parseText(buffer.toString("UTF-8"));
+        return parseText(string);
     }
 
     public TextFile parseText(String data) throws ParsingException {

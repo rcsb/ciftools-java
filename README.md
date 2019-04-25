@@ -66,13 +66,13 @@ Just as in Mol* implementation, all parsing and decoding is done as lazily as po
 ```Java
 class Demo {
     public static void main(String[] args) {
-        CifFile cifFile = CifFile.build()
+        CifFile cifFile = CifFile.enterFile()
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
                 .enterCategory("entry")
                 // set value of column 'id'
-                .enterColumn("id")
+                .enterStrColumn("id")
                 // to '1EXP'
                 .stringValues("1EXP")
                 // leave current column and category
@@ -82,7 +82,7 @@ class Demo {
                 // create atom site category
                 .enterCategory("atom_site")
                 // and specify some x-coordinates
-                .enterColumn("Cartn_x")
+                .enterFloatColumn("Cartn_x")
                 .floatValues(1.0, -2.4, 4.5)
                 // values can be unknown or not specified
                 .markNextUnknown()

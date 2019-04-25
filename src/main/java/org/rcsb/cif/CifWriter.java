@@ -11,7 +11,7 @@ import java.io.InputStream;
  * Class for the writing of CifFile instances. Converts a CifFile to its InputStream representation ready to be e.g.
  * written to a file. It is up to the user to adequately handle the InputStream and close it.
  */
-public class CifWriter {
+public abstract class CifWriter {
     private static final BinaryCifWriterOptions DEFAULT_OPTIONS = BinaryCifWriterOptions.create().build();
 
     /**

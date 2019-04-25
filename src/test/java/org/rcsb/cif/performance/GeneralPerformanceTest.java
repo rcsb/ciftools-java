@@ -69,10 +69,10 @@ public class GeneralPerformanceTest {
 //        readTextParallel();
 //
 //        readBinarySequential();
-//        readBinaryParallel();
+        readBinaryParallel();
 
 //        writeTextSequential();
-        writeTextParallel();
+//        writeTextParallel();
 
 //        writeBinarySequential();
 //        writeBinaryParallel();
@@ -161,6 +161,7 @@ public class GeneralPerformanceTest {
                             downstreamOperation.accept(cifFile);
                         }
                     } catch (Exception e) {
+                        System.err.println("failed for " + path.toFile().getAbsolutePath());
                         e.printStackTrace();
                         failed.incrementAndGet();
                     }

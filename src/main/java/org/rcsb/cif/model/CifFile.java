@@ -1,10 +1,9 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.internal.ModelFactory;
-
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -50,15 +49,15 @@ public interface CifFile {
         return getBlocks().stream();
     }
 
+    // TODO add generated schema to builder
+
     /**
      * Acquire a builder to create new CifFile instances.
      * @return a step-wise builder
      */
-    static CifFileBuilder build() {
+    static CifFileBuilder enterFile() {
         return new CifFileBuilder();
     }
-
-    // TODO add generated schema to builder
 
     class CifFileBuilder {
         private final CifFile cifFile;
@@ -69,237 +68,24 @@ public interface CifFile {
             this.cifFile = new TextFile(blocks);
         }
 
-        public BlockBuilder enterBlock(String blockName) {
+        public Block.BlockBuilder enterBlock(String blockName) {
             Map<String, Category> categories = new LinkedHashMap<>();
             Block block = new BaseBlock(categories, blockName);
             blocks.add(block);
-            return new BlockBuilder(categories, this);
+            return Block.enterBlock(categories, this);
         }
 
         public CifFile leaveFile() {
+            return build();
+        }
+
+        public CifFile build() {
             return cifFile;
         }
-    }
 
-    class BlockBuilder {
-        private final Map<String, Category> categories;
-        private final CifFileBuilder parent;
-
-        BlockBuilder(Map<String, Category> categories, CifFileBuilder parent) {
-            this.categories = categories;
-            this.parent = parent;
-        }
-
-        public CategoryBuilder enterCategory(String categoryName) {
-            Map<String, Column> columns = new LinkedHashMap<>();
-            return new CategoryBuilder(categoryName, columns, this);
-        }
-
-        BlockBuilder digest(CategoryBuilder categoryBuilder) {
-            Category category = ModelFactory.createCategoryText(categoryBuilder.categoryName, categoryBuilder.columns);
-            categories.put(categoryBuilder.categoryName, category);
+        public CifFileBuilder addBlock(Block block) {
+            blocks.add(block);
             return this;
-        }
-
-        public CifFileBuilder leaveBlock() {
-            return parent;
-        }
-    }
-
-    class CategoryBuilder {
-        private final String categoryName;
-        private final Map<String, Column> columns;
-        private final BlockBuilder parent;
-
-        CategoryBuilder(String categoryName, Map<String, Column> columns, BlockBuilder parent) {
-            this.categoryName = categoryName;
-            this.columns = columns;
-            this.parent = parent;
-        }
-
-        public GenericColumnBuilder enterColumn(String columnName) {
-            return new GenericColumnBuilder(columnName, this);
-        }
-
-        CategoryBuilder digest(IntColumnBuilder intColumnBuilder) {
-            columns.put(intColumnBuilder.columnName, createColumnText(categoryName, intColumnBuilder.columnName,
-                    intColumnBuilder.valueList, intColumnBuilder.mask));
-            return this;
-        }
-
-        CategoryBuilder digest(FloatColumnBuilder floatColumnBuilder) {
-            columns.put(floatColumnBuilder.columnName, createColumnText(categoryName, floatColumnBuilder.columnName,
-                    floatColumnBuilder.valueList, floatColumnBuilder.mask));
-            return this;
-        }
-
-        CategoryBuilder digest(StrColumnBuilder strColumnBuilder) {
-            columns.put(strColumnBuilder.columnName, createColumnText(categoryName, strColumnBuilder.columnName,
-                    strColumnBuilder.valueList, strColumnBuilder.mask));
-            return this;
-        }
-
-        private Column createColumnText(String categoryName, String columnName, List<?> values, List<ValueKind> mask) {
-            int length = values.size();
-            int[] startToken = new int[length];
-            int[] endToken = new int[length];
-            StringBuilder builder = new StringBuilder();
-
-            for (int i = 0; i < length; i++) {
-                startToken[i] = builder.length();
-                String value = String.valueOf(values.get(i));
-                if (mask.get(i) == ValueKind.NOT_PRESENT) {
-                    value = ".";
-                } else if (mask.get(i) == ValueKind.UNKNOWN) {
-                    value = "?";
-                }
-                builder.append(value);
-                endToken[i] = builder.length();
-            }
-
-            return ModelFactory.createColumnText(categoryName, columnName, builder.toString(), startToken, endToken);
-        }
-
-        public BlockBuilder leaveCategory() {
-            return parent.digest(this);
-        }
-    }
-
-    class GenericColumnBuilder {
-        final String columnName;
-        final CategoryBuilder parent;
-
-        GenericColumnBuilder(String columnName, CategoryBuilder parent) {
-            this.columnName = columnName;
-            this.parent = parent;
-        }
-
-        public IntColumnBuilder intValues(int... values) {
-            return new IntColumnBuilder(this, values);
-        }
-
-        public FloatColumnBuilder floatValues(double... values) {
-            return new FloatColumnBuilder(this, values);
-        }
-
-        public StrColumnBuilder stringValues(String... values) {
-            return new StrColumnBuilder(this, values);
-        }
-    }
-
-    class IntColumnBuilder extends GenericColumnBuilder {
-        private final List<Integer> valueList;
-        private final List<ValueKind> mask;
-
-        IntColumnBuilder(GenericColumnBuilder parent, int... values) {
-            super(parent.columnName, parent.parent);
-            this.valueList = Arrays.stream(values).boxed().collect(Collectors.toList());
-            this.mask = IntStream.range(0, valueList.size())
-                    .mapToObj(i -> ValueKind.PRESENT)
-                    .collect(Collectors.toList());
-        }
-
-        public IntColumnBuilder intValues(int... values) {
-            for (int i : values) {
-                valueList.add(i);
-                mask.add(ValueKind.PRESENT);
-            }
-            return this;
-        }
-
-        public IntColumnBuilder markNextNotPresent() {
-            valueList.add(0);
-            mask.add(ValueKind.NOT_PRESENT);
-            return this;
-        }
-
-        public IntColumnBuilder markNextUnknown() {
-            valueList.add(0);
-            mask.add(ValueKind.UNKNOWN);
-            return this;
-        }
-
-        public CategoryBuilder leaveColumn() {
-            return parent.digest(this);
-        }
-    }
-
-    class FloatColumnBuilder extends GenericColumnBuilder {
-        private final List<Double> valueList;
-        private final List<ValueKind> mask;
-
-        FloatColumnBuilder(GenericColumnBuilder parent, double... values) {
-            super(parent.columnName, parent.parent);
-            this.mask = IntStream.range(0, values.length)
-                    .mapToObj(i -> ValueKind.PRESENT)
-                    .collect(Collectors.toList());
-            this.valueList = Arrays.stream(values).boxed().collect(Collectors.toList());
-        }
-
-        public FloatColumnBuilder floatValues(double... values) {
-            for (double i : values) {
-                valueList.add(i);
-                mask.add(ValueKind.PRESENT);
-            }
-            return this;
-        }
-
-        public FloatColumnBuilder markNextNotPresent() {
-            valueList.add(0.0);
-            mask.add(ValueKind.NOT_PRESENT);
-            return this;
-        }
-
-        public FloatColumnBuilder markNextUnknown() {
-            valueList.add(0.0);
-            mask.add(ValueKind.UNKNOWN);
-            return this;
-        }
-
-        public CategoryBuilder leaveColumn() {
-            return parent.digest(this);
-        }
-    }
-
-    class StrColumnBuilder extends GenericColumnBuilder {
-        private final List<String> valueList;
-        private final List<ValueKind> mask;
-
-        StrColumnBuilder(GenericColumnBuilder parent, String... values) {
-            super(parent.columnName, parent.parent);
-            this.valueList = new ArrayList<>();
-            this.mask = new ArrayList<>();
-            stringValues(values);
-        }
-
-        public StrColumnBuilder stringValues(String... values) {
-            for (String s : values) {
-                if (".".equals(s)) {
-                    markNextNotPresent();
-                } else if ("?".equals(s)) {
-                    markNextUnknown();
-                } else {
-                    valueList.add(s);
-                    mask.add(ValueKind.PRESENT);
-                }
-            }
-            return this;
-        }
-
-        public StrColumnBuilder markNextNotPresent() {
-            valueList.add(".");
-            mask.add(ValueKind.NOT_PRESENT);
-            return this;
-        }
-
-        public StrColumnBuilder markNextUnknown() {
-            valueList.add("?");
-            mask.add(ValueKind.UNKNOWN);
-            return this;
-        }
-
-        public CategoryBuilder leaveColumn() {
-            return parent.digest(this);
         }
     }
 }

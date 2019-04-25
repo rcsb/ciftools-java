@@ -1,7 +1,11 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.internal.ModelFactory;
+
 import javax.annotation.Generated;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -56,6 +60,51 @@ public interface Block {
      */
     default Stream<Block> saveFrames() {
         return getSaveFrames().stream();
+    }
+
+    static BlockBuilder enterBlock(Map<String, Category> categories, CifFile.CifFileBuilder parent) {
+        return new BlockBuilder(categories, parent);
+    }
+
+    static BlockBuilder enterBlock() {
+        return new BlockBuilder(new LinkedHashMap<>(), null);
+    }
+
+    static class BlockBuilder {
+        private final Map<String, Category> categories;
+        private final CifFile.CifFileBuilder parent;
+
+        BlockBuilder(Map<String, Category> categories, CifFile.CifFileBuilder parent) {
+            this.categories = categories;
+            this.parent = parent;
+        }
+
+        public Category.CategoryBuilder enterCategory(String categoryName) {
+            Map<String, Column> columns = new LinkedHashMap<>();
+            return Category.enterCategory(categoryName, columns, this);
+        }
+
+        BlockBuilder digest(Category.CategoryBuilder categoryBuilder) {
+            Category category = ModelFactory.createCategoryText(categoryBuilder.getCategoryName(), categoryBuilder.getColumns());
+            categories.put(categoryBuilder.getCategoryName(), category);
+            return this;
+        }
+
+        public CifFile.CifFileBuilder leaveBlock() {
+            if (parent == null) {
+                throw new IllegalStateException("cannot leave block with undefined parent file");
+            }
+            return parent;
+        }
+
+        public Block build() {
+            return new BaseBlock(categories, "unknown");
+        }
+
+        public BlockBuilder addCategory(Category category) {
+            categories.put(category.getCategoryName(), category);
+            return this;
+        }
     }
 
     /**

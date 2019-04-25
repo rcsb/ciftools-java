@@ -10,7 +10,7 @@ import java.io.InputStream;
 /**
  * Class for the reading of CifFile instances.
  */
-public class CifReader {
+public abstract class CifReader {
     /**
      * Parses Cif files represented by an InputStream and creates an instance of a CifFile to make all data accessible.
      * @param inputStream the raw data to parse

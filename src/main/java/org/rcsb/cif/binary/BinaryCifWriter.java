@@ -48,7 +48,9 @@ public class BinaryCifWriter {
 
         for (Block cifBlock : cifFile.getBlocks()) {
             Map<String, Object> block = new LinkedHashMap<>();
-            block.put("header", cifBlock.getBlockHeader().replaceAll("[ \n\t]", "").toUpperCase());
+            String blockHeader = cifBlock.getBlockHeader();
+            String header = blockHeader != null ? blockHeader.replaceAll("[ \n\t]", "").toUpperCase() : "UNKNOWN";
+            block.put("header", header);
             Object[] categories = new Object[cifBlock.getCategoryNames().size()];
             int categoryCount = 0;
             block.put("categories", categories);

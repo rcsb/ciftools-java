@@ -17,8 +17,10 @@ public class TextCifWriter {
         StringBuilder output = new StringBuilder();
 
         for (Block block : cifFile.getBlocks()) {
+            String blockHeader = block.getBlockHeader();
+            String header = blockHeader != null ? blockHeader.replaceAll("[ \n\t]", "").toUpperCase() : "UNKNOWN";
             output.append("data_")
-                    .append(block.getBlockHeader().replaceAll("[ \n\t]", "").toUpperCase())
+                    .append(header)
                     .append("\n#\n");
 
             for (String categoryName : block.getCategoryNames()) {
