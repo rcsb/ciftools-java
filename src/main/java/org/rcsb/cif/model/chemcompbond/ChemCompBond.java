@@ -66,6 +66,27 @@ public class ChemCompBond extends BaseCategory {
     }
 
     /**
+     * The value that should be taken as the target for the chemical
+     * bond associated with the specified atoms, expressed as a
+     * distance.
+     * @return ValueDist
+     */
+    public ValueDist getValueDist() {
+        return (ValueDist) (isText ? textFields.computeIfAbsent("value_dist",
+                ValueDist::new) : getBinaryColumn("value_dist"));
+    }
+
+    /**
+     * The standard uncertainty (estimated standard deviation)
+     * of _chem_comp_bond.value_dist.
+     * @return ValueDistEsd
+     */
+    public ValueDistEsd getValueDistEsd() {
+        return (ValueDistEsd) (isText ? textFields.computeIfAbsent("value_dist_esd",
+                ValueDistEsd::new) : getBinaryColumn("value_dist_esd"));
+    }
+
+    /**
      * Ordinal index for the component bond list.
      * @return PdbxOrdinal
      */

@@ -31,4 +31,14 @@ public class Entry extends BaseCategory {
         return (Id) (isText ? textFields.computeIfAbsent("id",
                 Id::new) : getBinaryColumn("id"));
     }
+
+    /**
+     * Document Object Identifier (DOI) for this entry registered
+     * with http://crossref.org.
+     * @return PdbxDOI
+     */
+    public PdbxDOI getPdbxDOI() {
+        return (PdbxDOI) (isText ? textFields.computeIfAbsent("pdbx_DOI",
+                PdbxDOI::new) : getBinaryColumn("pdbx_DOI"));
+    }
 }

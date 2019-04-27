@@ -56,6 +56,19 @@ public class StructConn extends BaseCategory {
      * A component of the identifier for partner 1 of the structure
      * connection.
      * 
+     * This data item is a pointer to _atom_sites_alt.id in the
+     * ATOM_SITES_ALT category.
+     * @return Ptnr1LabelAltId
+     */
+    public Ptnr1LabelAltId getPtnr1LabelAltId() {
+        return (Ptnr1LabelAltId) (isText ? textFields.computeIfAbsent("ptnr1_label_alt_id",
+                Ptnr1LabelAltId::new) : getBinaryColumn("ptnr1_label_alt_id"));
+    }
+
+    /**
+     * A component of the identifier for partner 1 of the structure
+     * connection.
+     * 
      * This data item is a pointer to _atom_site.label_asym_id in the
      * ATOM_SITE category.
      * @return Ptnr1LabelAsymId
@@ -121,6 +134,19 @@ public class StructConn extends BaseCategory {
      * A component of the identifier for partner 1 of the structure
      * connection.
      * 
+     * This data item is a pointer to _atom_site.auth_atom_id in the
+     * ATOM_SITE category.
+     * @return Ptnr1AuthAtomId
+     */
+    public Ptnr1AuthAtomId getPtnr1AuthAtomId() {
+        return (Ptnr1AuthAtomId) (isText ? textFields.computeIfAbsent("ptnr1_auth_atom_id",
+                Ptnr1AuthAtomId::new) : getBinaryColumn("ptnr1_auth_atom_id"));
+    }
+
+    /**
+     * A component of the identifier for partner 1 of the structure
+     * connection.
+     * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
      * @return Ptnr1AuthCompId
@@ -144,6 +170,16 @@ public class StructConn extends BaseCategory {
     }
 
     /**
+     * The chemical or structural role of the first partner in
+     * the structure connection.
+     * @return Ptnr1Role
+     */
+    public Ptnr1Role getPtnr1Role() {
+        return (Ptnr1Role) (isText ? textFields.computeIfAbsent("ptnr1_role",
+                Ptnr1Role::new) : getBinaryColumn("ptnr1_role"));
+    }
+
+    /**
      * Describes the symmetry operation that should be applied to the
      * atom set specified by _struct_conn.ptnr1_label* to generate the
      * first partner in the structure connection.
@@ -152,6 +188,19 @@ public class StructConn extends BaseCategory {
     public Ptnr1Symmetry getPtnr1Symmetry() {
         return (Ptnr1Symmetry) (isText ? textFields.computeIfAbsent("ptnr1_symmetry",
                 Ptnr1Symmetry::new) : getBinaryColumn("ptnr1_symmetry"));
+    }
+
+    /**
+     * A component of the identifier for partner 2 of the structure
+     * connection.
+     * 
+     * This data item is a pointer to _atom_sites_alt.id in the
+     * ATOM_SITES_ALT category.
+     * @return Ptnr2LabelAltId
+     */
+    public Ptnr2LabelAltId getPtnr2LabelAltId() {
+        return (Ptnr2LabelAltId) (isText ? textFields.computeIfAbsent("ptnr2_label_alt_id",
+                Ptnr2LabelAltId::new) : getBinaryColumn("ptnr2_label_alt_id"));
     }
 
     /**
@@ -223,6 +272,19 @@ public class StructConn extends BaseCategory {
      * A component of the identifier for partner 2 of the structure
      * connection.
      * 
+     * This data item is a pointer to _atom_site.auth_atom_id in the
+     * ATOM_SITE category.
+     * @return Ptnr2AuthAtomId
+     */
+    public Ptnr2AuthAtomId getPtnr2AuthAtomId() {
+        return (Ptnr2AuthAtomId) (isText ? textFields.computeIfAbsent("ptnr2_auth_atom_id",
+                Ptnr2AuthAtomId::new) : getBinaryColumn("ptnr2_auth_atom_id"));
+    }
+
+    /**
+     * A component of the identifier for partner 2 of the structure
+     * connection.
+     * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
      * @return Ptnr2AuthCompId
@@ -243,6 +305,16 @@ public class StructConn extends BaseCategory {
     public Ptnr2AuthSeqId getPtnr2AuthSeqId() {
         return (Ptnr2AuthSeqId) (isText ? textFields.computeIfAbsent("ptnr2_auth_seq_id",
                 Ptnr2AuthSeqId::new) : getBinaryColumn("ptnr2_auth_seq_id"));
+    }
+
+    /**
+     * The chemical or structural role of the second partner in
+     * the structure connection.
+     * @return Ptnr2Role
+     */
+    public Ptnr2Role getPtnr2Role() {
+        return (Ptnr2Role) (isText ? textFields.computeIfAbsent("ptnr2_role",
+                Ptnr2Role::new) : getBinaryColumn("ptnr2_role"));
     }
 
     /**
@@ -267,6 +339,18 @@ public class StructConn extends BaseCategory {
     public PdbxPtnr1PDBInsCode getPdbxPtnr1PDBInsCode() {
         return (PdbxPtnr1PDBInsCode) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_PDB_ins_code",
                 PdbxPtnr1PDBInsCode::new) : getBinaryColumn("pdbx_ptnr1_PDB_ins_code"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 1 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
+     * @return PdbxPtnr1AuthAltId
+     */
+    public PdbxPtnr1AuthAltId getPdbxPtnr1AuthAltId() {
+        return (PdbxPtnr1AuthAltId) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_auth_alt_id",
+                PdbxPtnr1AuthAltId::new) : getBinaryColumn("pdbx_ptnr1_auth_alt_id"));
     }
 
     /**
@@ -309,6 +393,18 @@ public class StructConn extends BaseCategory {
      * 
      * A component of the identifier for partner 2 of the
      * structure connection. This data item is a pointer to
+     * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
+     * @return PdbxPtnr2AuthAltId
+     */
+    public PdbxPtnr2AuthAltId getPdbxPtnr2AuthAltId() {
+        return (PdbxPtnr2AuthAltId) (isText ? textFields.computeIfAbsent("pdbx_ptnr2_auth_alt_id",
+                PdbxPtnr2AuthAltId::new) : getBinaryColumn("pdbx_ptnr2_auth_alt_id"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 2 of the
+     * structure connection. This data item is a pointer to
      * _atom_site.label_alt_id in the ATOM_SITE category.
      * @return PdbxPtnr2LabelAltId
      */
@@ -321,12 +417,72 @@ public class StructConn extends BaseCategory {
      * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
+     * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthAltId
+     */
+    public PdbxPtnr3AuthAltId getPdbxPtnr3AuthAltId() {
+        return (PdbxPtnr3AuthAltId) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_alt_id",
+                PdbxPtnr3AuthAltId::new) : getBinaryColumn("pdbx_ptnr3_auth_alt_id"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 3 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.auth_asym_id in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthAsymId
+     */
+    public PdbxPtnr3AuthAsymId getPdbxPtnr3AuthAsymId() {
+        return (PdbxPtnr3AuthAsymId) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_asym_id",
+                PdbxPtnr3AuthAsymId::new) : getBinaryColumn("pdbx_ptnr3_auth_asym_id"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 3 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.auth_atom_id in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthAtomId
+     */
+    public PdbxPtnr3AuthAtomId getPdbxPtnr3AuthAtomId() {
+        return (PdbxPtnr3AuthAtomId) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_atom_id",
+                PdbxPtnr3AuthAtomId::new) : getBinaryColumn("pdbx_ptnr3_auth_atom_id"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 3 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.auth_comp_id in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthCompId
+     */
+    public PdbxPtnr3AuthCompId getPdbxPtnr3AuthCompId() {
+        return (PdbxPtnr3AuthCompId) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_comp_id",
+                PdbxPtnr3AuthCompId::new) : getBinaryColumn("pdbx_ptnr3_auth_comp_id"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 3 of the
+     * structure connection. This data item is a pointer to
      * _atom_site.pdbx_PDB_ins_code in the ATOM_SITE category.
      * @return PdbxPtnr3PDBInsCode
      */
     public PdbxPtnr3PDBInsCode getPdbxPtnr3PDBInsCode() {
         return (PdbxPtnr3PDBInsCode) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_PDB_ins_code",
                 PdbxPtnr3PDBInsCode::new) : getBinaryColumn("pdbx_ptnr3_PDB_ins_code"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 1 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.auth_seq_id in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthSeqId
+     */
+    public PdbxPtnr3AuthSeqId getPdbxPtnr3AuthSeqId() {
+        return (PdbxPtnr3AuthSeqId) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_seq_id",
+                PdbxPtnr3AuthSeqId::new) : getBinaryColumn("pdbx_ptnr3_auth_seq_id"));
     }
 
     /**
@@ -418,5 +574,57 @@ public class StructConn extends BaseCategory {
     public PdbxValueOrder getPdbxValueOrder() {
         return (PdbxValueOrder) (isText ? textFields.computeIfAbsent("pdbx_value_order",
                 PdbxValueOrder::new) : getBinaryColumn("pdbx_value_order"));
+    }
+
+    /**
+     * This data item identifies if the linkage has displaced leaving atoms
+     * on both, one or none of the connected atoms forming the linkage.
+     * Leaving atoms are defined within their chemical defintions of each
+     * connected component.
+     * @return PdbxLeavingAtomFlag
+     */
+    public PdbxLeavingAtomFlag getPdbxLeavingAtomFlag() {
+        return (PdbxLeavingAtomFlag) (isText ? textFields.computeIfAbsent("pdbx_leaving_atom_flag",
+                PdbxLeavingAtomFlag::new) : getBinaryColumn("pdbx_leaving_atom_flag"));
+    }
+
+    /**
+     * The abbreviation of the modifier group.
+     * @return PdbxPtnr1ModName
+     */
+    public PdbxPtnr1ModName getPdbxPtnr1ModName() {
+        return (PdbxPtnr1ModName) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_mod_name",
+                PdbxPtnr1ModName::new) : getBinaryColumn("pdbx_ptnr1_mod_name"));
+    }
+
+    /**
+     * The abbreviation of the sugar modifier in the case it is a
+     * conformer of deoxyribose or ribose.
+     * @return PdbxPtnr1SugarName
+     */
+    public PdbxPtnr1SugarName getPdbxPtnr1SugarName() {
+        return (PdbxPtnr1SugarName) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_sugar_name",
+                PdbxPtnr1SugarName::new) : getBinaryColumn("pdbx_ptnr1_sugar_name"));
+    }
+
+    /**
+     * The name of the atom which got replaced by the modifier.
+     * @return PdbxPtnr1ReplacedAtom
+     */
+    public PdbxPtnr1ReplacedAtom getPdbxPtnr1ReplacedAtom() {
+        return (PdbxPtnr1ReplacedAtom) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_replaced_atom",
+                PdbxPtnr1ReplacedAtom::new) : getBinaryColumn("pdbx_ptnr1_replaced_atom"));
+    }
+
+    /**
+     * 
+     * A component of the identifier for partner 3 of the
+     * structure connection. This data item is a pointer to
+     * _atom_site.pdbx_PDB_ins_code in the ATOM_SITE category.
+     * @return PdbxPtnr3AuthInsCode
+     */
+    public PdbxPtnr3AuthInsCode getPdbxPtnr3AuthInsCode() {
+        return (PdbxPtnr3AuthInsCode) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_ins_code",
+                PdbxPtnr3AuthInsCode::new) : getBinaryColumn("pdbx_ptnr3_auth_ins_code"));
     }
 }

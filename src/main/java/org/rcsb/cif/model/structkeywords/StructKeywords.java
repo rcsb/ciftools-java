@@ -46,4 +46,14 @@ public class StructKeywords extends BaseCategory {
         return (PdbxKeywords) (isText ? textFields.computeIfAbsent("pdbx_keywords",
                 PdbxKeywords::new) : getBinaryColumn("pdbx_keywords"));
     }
+
+    /**
+     * Keywords describing this structure.  This is constructed by the
+     * PROGRAM for the PDB KEYWRD record.
+     * @return PdbxDetails
+     */
+    public PdbxDetails getPdbxDetails() {
+        return (PdbxDetails) (isText ? textFields.computeIfAbsent("pdbx_details",
+                PdbxDetails::new) : getBinaryColumn("pdbx_details"));
+    }
 }

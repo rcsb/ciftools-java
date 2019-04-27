@@ -21,6 +21,18 @@ public class PdbxStructAssemblyGen extends BaseCategory {
     }
 
     /**
+     * This data item is a pointer to _pdbx_struct_entity_inst.id in
+     * the PDBX_STRUCT_ENTITY_INST category.
+     * 
+     * This item may be expressed as a comma separated list of instance identifiers.
+     * @return EntityInstId
+     */
+    public EntityInstId getEntityInstId() {
+        return (EntityInstId) (isText ? textFields.computeIfAbsent("entity_inst_id",
+                EntityInstId::new) : getBinaryColumn("entity_inst_id"));
+    }
+
+    /**
      * This data item is a pointer to _struct_asym.id in
      * the STRUCT_ASYM category.
      * 
@@ -30,6 +42,18 @@ public class PdbxStructAssemblyGen extends BaseCategory {
     public AsymIdList getAsymIdList() {
         return (AsymIdList) (isText ? textFields.computeIfAbsent("asym_id_list",
                 AsymIdList::new) : getBinaryColumn("asym_id_list"));
+    }
+
+    /**
+     * This data item is a pointer to _atom_site.auth_asym_id in
+     * the ATOM_SITE category.
+     * 
+     * This item may be expressed as a comma separated list of identifiers.
+     * @return AuthAsymIdList
+     */
+    public AuthAsymIdList getAuthAsymIdList() {
+        return (AuthAsymIdList) (isText ? textFields.computeIfAbsent("auth_asym_id_list",
+                AuthAsymIdList::new) : getBinaryColumn("auth_asym_id_list"));
     }
 
     /**

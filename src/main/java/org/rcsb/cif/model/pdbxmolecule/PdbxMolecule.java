@@ -48,4 +48,13 @@ public class PdbxMolecule extends BaseCategory {
         return (AsymId) (isText ? textFields.computeIfAbsent("asym_id",
                 AsymId::new) : getBinaryColumn("asym_id"));
     }
+
+    /**
+     * A reference to _pdbx_linked_entity.linked_entity_id in the PDBX_LINKED_ENTITY  category.
+     * @return LinkedEntityId
+     */
+    public LinkedEntityId getLinkedEntityId() {
+        return (LinkedEntityId) (isText ? textFields.computeIfAbsent("linked_entity_id",
+                LinkedEntityId::new) : getBinaryColumn("linked_entity_id"));
+    }
 }

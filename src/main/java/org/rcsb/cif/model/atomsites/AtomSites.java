@@ -30,6 +30,233 @@ public class AtomSites extends BaseCategory {
     }
 
     /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix11
+     */
+    public CartnTransfMatrix11 getCartnTransfMatrix11() {
+        return (CartnTransfMatrix11) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][1]",
+                CartnTransfMatrix11::new) : getBinaryColumn("Cartn_transf_matrix[1][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix12
+     */
+    public CartnTransfMatrix12 getCartnTransfMatrix12() {
+        return (CartnTransfMatrix12) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][2]",
+                CartnTransfMatrix12::new) : getBinaryColumn("Cartn_transf_matrix[1][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix13
+     */
+    public CartnTransfMatrix13 getCartnTransfMatrix13() {
+        return (CartnTransfMatrix13) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][3]",
+                CartnTransfMatrix13::new) : getBinaryColumn("Cartn_transf_matrix[1][3]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix21
+     */
+    public CartnTransfMatrix21 getCartnTransfMatrix21() {
+        return (CartnTransfMatrix21) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][1]",
+                CartnTransfMatrix21::new) : getBinaryColumn("Cartn_transf_matrix[2][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix22
+     */
+    public CartnTransfMatrix22 getCartnTransfMatrix22() {
+        return (CartnTransfMatrix22) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][2]",
+                CartnTransfMatrix22::new) : getBinaryColumn("Cartn_transf_matrix[2][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix23
+     */
+    public CartnTransfMatrix23 getCartnTransfMatrix23() {
+        return (CartnTransfMatrix23) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][3]",
+                CartnTransfMatrix23::new) : getBinaryColumn("Cartn_transf_matrix[2][3]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix31
+     */
+    public CartnTransfMatrix31 getCartnTransfMatrix31() {
+        return (CartnTransfMatrix31) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][1]",
+                CartnTransfMatrix31::new) : getBinaryColumn("Cartn_transf_matrix[3][1]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix32
+     */
+    public CartnTransfMatrix32 getCartnTransfMatrix32() {
+        return (CartnTransfMatrix32) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][2]",
+                CartnTransfMatrix32::new) : getBinaryColumn("Cartn_transf_matrix[3][2]"));
+    }
+
+    /**
+     * The elements of the 3x3 matrix used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The 3x1 translation is defined in
+     * _atom_sites.Cartn_transf_vector[].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfMatrix33
+     */
+    public CartnTransfMatrix33 getCartnTransfMatrix33() {
+        return (CartnTransfMatrix33) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][3]",
+                CartnTransfMatrix33::new) : getBinaryColumn("Cartn_transf_matrix[3][3]"));
+    }
+
+    /**
+     * The elements of the three-element vector used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The rotation matrix is defined in
+     * _atom_sites.Cartn_transf_matrix[][].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfVector1
+     */
+    public CartnTransfVector1 getCartnTransfVector1() {
+        return (CartnTransfVector1) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[1]",
+                CartnTransfVector1::new) : getBinaryColumn("Cartn_transf_vector[1]"));
+    }
+
+    /**
+     * The elements of the three-element vector used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The rotation matrix is defined in
+     * _atom_sites.Cartn_transf_matrix[][].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfVector2
+     */
+    public CartnTransfVector2 getCartnTransfVector2() {
+        return (CartnTransfVector2) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[2]",
+                CartnTransfVector2::new) : getBinaryColumn("Cartn_transf_vector[2]"));
+    }
+
+    /**
+     * The elements of the three-element vector used to transform
+     * fractional coordinates in the ATOM_SITE category to Cartesian
+     * coordinates in the same category. The axial alignments of this
+     * transformation are described in _atom_sites.Cartn_transform_axes.
+     * The rotation matrix is defined in
+     * _atom_sites.Cartn_transf_matrix[][].
+     * 
+     * |x'|              |11 12 13| |x|               |1|
+     * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
+     * |z'|              |31 32 33| |z|               |3|
+     * @return CartnTransfVector3
+     */
+    public CartnTransfVector3 getCartnTransfVector3() {
+        return (CartnTransfVector3) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[3]",
+                CartnTransfVector3::new) : getBinaryColumn("Cartn_transf_vector[3]"));
+    }
+
+    /**
+     * A description of the relative alignment of the crystal cell
+     * axes to the Cartesian orthogonal axes as applied in the
+     * transformation matrix _atom_sites.Cartn_transf_matrix[][].
+     * @return CartnTransformAxes
+     */
+    public CartnTransformAxes getCartnTransformAxes() {
+        return (CartnTransformAxes) (isText ? textFields.computeIfAbsent("Cartn_transform_axes",
+                CartnTransformAxes::new) : getBinaryColumn("Cartn_transform_axes"));
+    }
+
+    /**
      * The elements of the 3x3 matrix used to transform Cartesian
      * coordinates in the ATOM_SITE category to fractional coordinates
      * in the same category. The axial alignments of this
@@ -243,5 +470,55 @@ public class AtomSites extends BaseCategory {
     public FractTransfVector3 getFractTransfVector3() {
         return (FractTransfVector3) (isText ? textFields.computeIfAbsent("fract_transf_vector[3]",
                 FractTransfVector3::new) : getBinaryColumn("fract_transf_vector[3]"));
+    }
+
+    /**
+     * This code identifies the method used to locate the initial
+     * atom sites.
+     * 
+     * *** This data item would not in general be used in a
+     * macromolecular data block. ***
+     * @return SolutionPrimary
+     */
+    public SolutionPrimary getSolutionPrimary() {
+        return (SolutionPrimary) (isText ? textFields.computeIfAbsent("solution_primary",
+                SolutionPrimary::new) : getBinaryColumn("solution_primary"));
+    }
+
+    /**
+     * This code identifies the method used to locate the
+     * non-hydrogen-atom sites not found by
+     * _atom_sites.solution_primary.
+     * 
+     * *** This data item would not in general be used in a
+     * macromolecular data block. ***
+     * @return SolutionSecondary
+     */
+    public SolutionSecondary getSolutionSecondary() {
+        return (SolutionSecondary) (isText ? textFields.computeIfAbsent("solution_secondary",
+                SolutionSecondary::new) : getBinaryColumn("solution_secondary"));
+    }
+
+    /**
+     * This code identifies the method used to locate the
+     * hydrogen atoms.
+     * 
+     * *** This data item would not in general be used in a
+     * macromolecular data block. ***
+     * @return SolutionHydrogens
+     */
+    public SolutionHydrogens getSolutionHydrogens() {
+        return (SolutionHydrogens) (isText ? textFields.computeIfAbsent("solution_hydrogens",
+                SolutionHydrogens::new) : getBinaryColumn("solution_hydrogens"));
+    }
+
+    /**
+     * Additional information about the atomic coordinates not coded
+     * elsewhere in the CIF.
+     * @return SpecialDetails
+     */
+    public SpecialDetails getSpecialDetails() {
+        return (SpecialDetails) (isText ? textFields.computeIfAbsent("special_details",
+                SpecialDetails::new) : getBinaryColumn("special_details"));
     }
 }

@@ -180,6 +180,24 @@ public class PdbxReferenceEntityLink extends BaseCategory {
     }
 
     /**
+     * The residue number for the first of two entities containing the linkage.
+     * @return NonpolyResNum1
+     */
+    public NonpolyResNum1 getNonpolyResNum1() {
+        return (NonpolyResNum1) (isText ? textFields.computeIfAbsent("nonpoly_res_num_1",
+                NonpolyResNum1::new) : getBinaryColumn("nonpoly_res_num_1"));
+    }
+
+    /**
+     * The residue number for the second of two entities containing the linkage.
+     * @return NonpolyResNum2
+     */
+    public NonpolyResNum2 getNonpolyResNum2() {
+        return (NonpolyResNum2) (isText ? textFields.computeIfAbsent("nonpoly_res_num_2",
+                NonpolyResNum2::new) : getBinaryColumn("nonpoly_res_num_2"));
+    }
+
+    /**
      * A code indicating the entity types involved in the linkage.
      * @return LinkClass
      */

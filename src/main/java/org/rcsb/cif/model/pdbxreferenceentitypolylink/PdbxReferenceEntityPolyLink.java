@@ -41,6 +41,15 @@ public class PdbxReferenceEntityPolyLink extends BaseCategory {
     }
 
     /**
+     * A description of special aspects of this linkage.
+     * @return Details
+     */
+    public Details getDetails() {
+        return (Details) (isText ? textFields.computeIfAbsent("details",
+                Details::new) : getBinaryColumn("details"));
+    }
+
+    /**
      * The reference entity id of the polymer entity containing the linkage.
      * 
      * This data item is a pointer to _pdbx_reference_entity_poly.ref_entity_id
@@ -131,6 +140,26 @@ public class PdbxReferenceEntityPolyLink extends BaseCategory {
     public AtomId2 getAtomId2() {
         return (AtomId2) (isText ? textFields.computeIfAbsent("atom_id_2",
                 AtomId2::new) : getBinaryColumn("atom_id_2"));
+    }
+
+    /**
+     * The residue insertion code for the first of the two components making
+     * the non-standard linkage.
+     * @return InsertCode1
+     */
+    public InsertCode1 getInsertCode1() {
+        return (InsertCode1) (isText ? textFields.computeIfAbsent("insert_code_1",
+                InsertCode1::new) : getBinaryColumn("insert_code_1"));
+    }
+
+    /**
+     * The residue insertion code for the second of the two components making
+     * the non-standard linkage.
+     * @return InsertCode2
+     */
+    public InsertCode2 getInsertCode2() {
+        return (InsertCode2) (isText ? textFields.computeIfAbsent("insert_code_2",
+                InsertCode2::new) : getBinaryColumn("insert_code_2"));
     }
 
     /**

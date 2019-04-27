@@ -39,4 +39,83 @@ public class Struct extends BaseCategory {
         return (Title) (isText ? textFields.computeIfAbsent("title",
                 Title::new) : getBinaryColumn("title"));
     }
+
+    /**
+     * An automatically generated descriptor for an NDB structure or
+     * the unstructured content of the PDB COMPND record.
+     * @return PdbxDescriptor
+     */
+    public PdbxDescriptor getPdbxDescriptor() {
+        return (PdbxDescriptor) (isText ? textFields.computeIfAbsent("pdbx_descriptor",
+                PdbxDescriptor::new) : getBinaryColumn("pdbx_descriptor"));
+    }
+
+    /**
+     * Text description of the methodology which produced this
+     * model structure.
+     * @return PdbxModelDetails
+     */
+    public PdbxModelDetails getPdbxModelDetails() {
+        return (PdbxModelDetails) (isText ? textFields.computeIfAbsent("pdbx_model_details",
+                PdbxModelDetails::new) : getBinaryColumn("pdbx_model_details"));
+    }
+
+    /**
+     * Estimated formula mass in daltons of the
+     * deposited structure assembly.
+     * @return PdbxFormulaWeight
+     */
+    public PdbxFormulaWeight getPdbxFormulaWeight() {
+        return (PdbxFormulaWeight) (isText ? textFields.computeIfAbsent("pdbx_formula_weight",
+                PdbxFormulaWeight::new) : getBinaryColumn("pdbx_formula_weight"));
+    }
+
+    /**
+     * Method used to determine _struct.pdbx_formula_weight.
+     * @return PdbxFormulaWeightMethod
+     */
+    public PdbxFormulaWeightMethod getPdbxFormulaWeightMethod() {
+        return (PdbxFormulaWeightMethod) (isText ? textFields.computeIfAbsent("pdbx_formula_weight_method",
+                PdbxFormulaWeightMethod::new) : getBinaryColumn("pdbx_formula_weight_method"));
+    }
+
+    /**
+     * A description of the type of structure model.
+     * @return PdbxModelTypeDetails
+     */
+    public PdbxModelTypeDetails getPdbxModelTypeDetails() {
+        return (PdbxModelTypeDetails) (isText ? textFields.computeIfAbsent("pdbx_model_type_details",
+                PdbxModelTypeDetails::new) : getBinaryColumn("pdbx_model_type_details"));
+    }
+
+    /**
+     * The item indicates whether the entry is a CASP target, a CASD-NMR target,
+     * or similar target participating in methods development experiments.
+     * @return PdbxCASPFlag
+     */
+    public PdbxCASPFlag getPdbxCASPFlag() {
+        return (PdbxCASPFlag) (isText ? textFields.computeIfAbsent("pdbx_CASP_flag",
+                PdbxCASPFlag::new) : getBinaryColumn("pdbx_CASP_flag"));
+    }
+
+    /**
+     * 
+     * Additional remarks related to this structure deposition that have not
+     * been included in details data items elsewhere.
+     * @return PdbxDetails
+     */
+    public PdbxDetails getPdbxDetails() {
+        return (PdbxDetails) (isText ? textFields.computeIfAbsent("pdbx_details",
+                PdbxDetails::new) : getBinaryColumn("pdbx_details"));
+    }
+
+    /**
+     * A title for the experiment or analysis that is represented in
+     * the entry.  The default value is the primary citation of the entry.
+     * @return PdbxTitleText
+     */
+    public PdbxTitleText getPdbxTitleText() {
+        return (PdbxTitleText) (isText ? textFields.computeIfAbsent("pdbx_title_text",
+                PdbxTitleText::new) : getBinaryColumn("pdbx_title_text"));
+    }
 }

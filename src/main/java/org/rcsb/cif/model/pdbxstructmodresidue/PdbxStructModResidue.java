@@ -35,6 +35,18 @@ public class PdbxStructModResidue extends BaseCategory {
     /**
      * Part of the identifier for the modified polymer component.
      * 
+     * This data item is a pointer to _atom_site.pdbx_PDB_model_num in the
+     * ATOM_SITE category.
+     * @return PDBModelNum
+     */
+    public PDBModelNum getPDBModelNum() {
+        return (PDBModelNum) (isText ? textFields.computeIfAbsent("PDB_model_num",
+                PDBModelNum::new) : getBinaryColumn("PDB_model_num"));
+    }
+
+    /**
+     * Part of the identifier for the modified polymer component.
+     * 
      * This data item is a pointer to _atom_site.auth_asym_id in the
      * ATOM_SITE category.
      * @return AuthAsymId

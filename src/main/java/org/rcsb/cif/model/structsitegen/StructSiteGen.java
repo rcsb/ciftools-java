@@ -118,6 +118,18 @@ public class StructSiteGen extends BaseCategory {
     /**
      * A component of the identifier for participants in the site.
      * 
+     * This data item is a pointer to _atom_site.auth_atom_id in the
+     * ATOM_SITE category.
+     * @return AuthAtomId
+     */
+    public AuthAtomId getAuthAtomId() {
+        return (AuthAtomId) (isText ? textFields.computeIfAbsent("auth_atom_id",
+                AuthAtomId::new) : getBinaryColumn("auth_atom_id"));
+    }
+
+    /**
+     * A component of the identifier for participants in the site.
+     * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
      * @return AuthCompId

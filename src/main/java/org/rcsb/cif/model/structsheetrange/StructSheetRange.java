@@ -200,6 +200,17 @@ public class StructSheetRange extends BaseCategory {
     }
 
     /**
+     * Describes the symmetry operation that should be applied to the
+     * residues delimited by the start and end designators in
+     * order to generate the appropriate strand in this sheet.
+     * @return Symmetry
+     */
+    public Symmetry getSymmetry() {
+        return (Symmetry) (isText ? textFields.computeIfAbsent("symmetry",
+                Symmetry::new) : getBinaryColumn("symmetry"));
+    }
+
+    /**
      * A component of the identifier for the residue at which the
      * beta sheet range begins.  Insertion code.
      * @return PdbxBegPDBInsCode

@@ -68,4 +68,13 @@ public class PdbxChemCompIdentifier extends BaseCategory {
         return (ProgramVersion) (isText ? textFields.computeIfAbsent("program_version",
                 ProgramVersion::new) : getBinaryColumn("program_version"));
     }
+
+    /**
+     * Ordinal index for this category.
+     * @return Ordinal
+     */
+    public Ordinal getOrdinal() {
+        return (Ordinal) (isText ? textFields.computeIfAbsent("ordinal",
+                Ordinal::new) : getBinaryColumn("ordinal"));
+    }
 }

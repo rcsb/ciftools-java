@@ -3,10 +3,7 @@ package org.rcsb.cif.internal.generator;
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,52 +13,32 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.rcsb.cif.internal.ModelFactory.*;
+import static org.rcsb.cif.internal.ModelFactory.BASE_PACKAGE;
 
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
  */
 class SchemaGenerator {
+    // TODO make builder type-safe
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
 
     public static void main(String[] args) throws IOException {
         new SchemaGenerator().generate();
     }
 
-    /**
-     * Collection of categories and columns to include in the generated model - used by SchemaGenerator.
-     */
-    private static final Map<String, List<String>> filter;
-
-    static {
-        try {
-            // create internal filter
-            filter = new LinkedHashMap<>();
-            BufferedReader filterBr = new BufferedReader(new InputStreamReader(Objects.requireNonNull(Thread.currentThread()
-                    .getContextClassLoader()
-                    .getResourceAsStream("mmcif-field-names.csv"))));
-
-            filterBr.lines()
-                    .filter(line -> !line.isEmpty())
-                    .map(line -> line.split("\\."))
-                    .forEach(split -> {
-                        List<String> cols = filter.computeIfAbsent(split[0], s -> new ArrayList<>());
-                        cols.add(split[1]);
-                    });
-            filterBr.close();
-        } catch (IOException e) {
-            throw new UncheckedIOException("could not load local resource for column filtering", e);
-        }
-    }
-
-    private static String toClassName(String rawName) {
+    static String toClassName(String rawName) {
         String name = Pattern.compile("_").splitAsStream(rawName)
                 .map(s -> s.substring(0, 1).toUpperCase() + s.substring(1))
                 .collect(Collectors.joining(""))
                 // remove invalid characters
-                .replaceAll("[/\\\\\\- (){},;:'<>?+=]", "_")
-                .replaceAll("_+", "_");
+                .replaceAll("[/\\\\\\- \t`~!@#$%^&*()=+{}|;:'\",<.>?]", "_")
+                .replaceAll("_+", "_")
+                .replace("[", "")
+                .replace("]", "");
+        if (name.endsWith("_")) {
+            name = name.substring(0, name.length() - 1);
+        }
         if (name.equals("Class")) {
             return "Clazz";
         } else if (Character.isDigit(name.charAt(0))) {
@@ -86,8 +63,6 @@ class SchemaGenerator {
     }
 
     private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
-        System.out.println(className);
-
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + ";");
         output.add("");
@@ -109,10 +84,6 @@ class SchemaGenerator {
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
             Table category = entry.getValue();
-
-            if (!filter.containsKey(categoryName)) {
-                continue;
-            }
 
             String categoryClassName = toClassName(categoryName);
 
@@ -142,8 +113,6 @@ class SchemaGenerator {
     }
 
     private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
-        System.out.println(className);
-
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + ";");
         output.add("");
@@ -153,10 +122,6 @@ class SchemaGenerator {
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
             Table category = entry.getValue();
-
-            if (!filter.containsKey(categoryName)) {
-                continue;
-            }
 
             String categoryClassName = toClassName(categoryName);
 
@@ -203,8 +168,7 @@ class SchemaGenerator {
     }
 
     private void writeCategory(String className, Table content, Path path, String categoryName) throws IOException {
-        System.out.println(" -> " + className + " " + content.getRepeat());
-
+        System.out.println(categoryName);
         if (!Files.exists(path)) {
             Files.createDirectory(path);
         }
@@ -228,28 +192,21 @@ class SchemaGenerator {
             String columnName = entry.getKey();
             Col column = (Col) entry.getValue();
 
-            List<String> categoryFilter = filter.get(categoryName);
-            if (!categoryFilter.contains(columnName) &&
-                    !categoryFilter.contains(columnName.substring(0, columnName.length() - 1)) && // handle vectors
-                    !categoryFilter.contains(columnName.substring(0, columnName.length() - 2))) { // handle matrices
-                continue;
-            }
-
             String columnClassName = toClassName(columnName);
+            System.out.println(categoryName + "." + columnName);
 
-            String tmp = "";
-            // handle special case for vector and matrix columns: matrix11 -> matrix[1][1]
-            if (column instanceof VectorCol) {
-                tmp = columnName.substring(0, columnName.length() - 1) +
-                        "[" + columnName.substring(columnName.length() - 1) + "]";
-                columnName = tmp;
-            } else if (column instanceof MatrixCol) {
-                tmp = columnName.substring(0, columnName.length() - 2) +
-                        "[" + columnName.substring(columnName.length() - 2, columnName.length() - 1) + "]" +
-                        "[" + columnName.substring(columnName.length() - 1) + "]";
-                columnName = tmp;
-            }
-            System.out.println(columnName);
+//            String tmp;
+//            // handle special case for vector and matrix columns: matrix11 -> matrix[1][1]
+//            if (column instanceof VectorCol) {
+//                tmp = columnName.substring(0, columnName.length() - 1) +
+//                        "[" + columnName.substring(columnName.length() - 1) + "]";
+//                columnName = tmp;
+//            } else if (column instanceof MatrixCol) {
+//                tmp = columnName.substring(0, columnName.length() - 2) +
+//                        "[" + columnName.substring(columnName.length() - 2, columnName.length() - 1) + "]" +
+//                        "[" + columnName.substring(columnName.length() - 1) + "]";
+//                columnName = tmp;
+//            }
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
                     .map(s -> "     * " + s)
@@ -290,8 +247,6 @@ class SchemaGenerator {
     }
 
     private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
-        System.out.println(" -> -> " + className + " " + getBaseClass(content.getType(), singleRow));
-
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
         output.add("");
@@ -390,54 +345,6 @@ class SchemaGenerator {
             "_struct_sheet_range.end_auth_seq_id"
     ).collect(Collectors.toList());
 
-//    private static final List<String> COMMA_SEPARATED_LIST_FIELDS = Stream.of(
-//            "_atom_site.pdbx_struct_group_id",
-//            "_chem_comp.mon_nstd_parent_comp_id",
-//            "_diffrn_radiation.pdbx_wavelength_list",
-//            "_diffrn_source.pdbx_wavelength_list",
-//            "_em_diffraction.tilt_angle_list", // 20,40,50,55
-//            "_em_entity_assembly.entity_id_list",
-//            "_entity.pdbx_description", // Endolysin,Beta-2 adrenergic receptor
-//            "_entity.pdbx_ec",
-//            "_entity_poly.pdbx_strand_id", // A,B
-//            "_pdbx_depui_entry_details.experimental_methods",
-//            "_pdbx_depui_entry_details.requested_accession_types",
-//            "_pdbx_soln_scatter_model.software_list", // INSIGHT II, HOMOLOGY, DISCOVERY, BIOPOLYMER, DELPHI
-//            "_pdbx_soln_scatter_model.software_author_list", // MSI
-//            "_pdbx_soln_scatter_model.entry_fitting_list", // Odd example: "PDB CODE 1HFI, 1HCC, 1HFH, 1VCC"
-//            "_pdbx_struct_assembly_gen.entity_inst_id",
-//            "_pdbx_struct_assembly_gen.asym_id_list",
-//            "_pdbx_struct_assembly_gen.auth_asym_id_list",
-//            "_pdbx_struct_assembly_gen_depositor_info.asym_id_list",
-//            "_pdbx_struct_assembly_gen_depositor_info.chain_id_list",
-//            "_pdbx_struct_group_list.group_enumeration_type",
-//            "_reflns.pdbx_diffrn_id",
-//            "_refine.pdbx_diffrn_id",
-//            "_reflns_shell.pdbx_diffrn_id",
-//            "_struct_keywords.text"
-//    ).collect(Collectors.toList());
-//
-//    private static final List<String> SPACE_SEPARATED_LIST_FIELDS = Stream.of(
-//            "_chem_comp.pdbx_subcomponent_list", // TSM DPH HIS CHF EMR
-//            "_pdbx_soln_scatter.data_reduction_software_list", // OTOKO
-//            "_pdbx_soln_scatter.data_analysis_software_list" // SCTPL5 GNOM
-//    ).collect(Collectors.toList());
-//
-//    private static final List<String> SEMICOLON_SEPARATED_LIST_FIELDS = Collections.singletonList(
-//            "_chem_comp.pdbx_synonyms" // GLYCERIN; PROPANE-1,2,3-TRIOL
-//    );
-//
-//    /**
-//     * Useful when a dictionary extension will add enum values to an existing dictionary.
-//     * By adding them here, the dictionary extension can be tested before the added enum
-//     * values are available in the existing dictionary.
-//     */
-//    private static final Map<String, List<String>> EXTRA_ENUM_VALUES = new LinkedHashMap<String, List<String>>() {{
-//        put("_pdbx_chem_comp_identifier.type", Arrays.asList("CONDENSED IUPAC CARB SYMBOL",
-//                "IUPAC CARB SYMBOL",
-//                "SNFG CARB SYMBOL"));
-//    }};
-
     private final CifFile cifFile;
     private final Map<String, Table> schema;
     private final Map<String, Block> categories;
@@ -460,39 +367,19 @@ class SchemaGenerator {
             } else if (FORCE_INT_FIELDS.contains(header)) {
                 fields.put(itemName, new IntCol(description));
             } else if ("matrix".equals(subCategory)) {
-                fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(3, 3, description));
-//                fields.put(itemName.replaceAll(RE_MATRIX_FIELD, ""), new MatrixCol(3, 3, description));
+                fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(description));
             } else if ("vector".equals(subCategory)) {
-                fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(3, description));
-//                fields.put(itemName.replaceAll(RE_VECTOR_FIELD, ""), new VectorCol(3, description));
+                fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(description));
             } else {
                 if (itemName.matches(RE_MATRIX_FIELD)) {
-                    fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(3, 3, description));
-//                    fields.put(itemName.replaceAll(RE_MATRIX_FIELD, ""), new MatrixCol(3, 3, description));
+                    fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(description));
                 } else if (itemName.matches(RE_VECTOR_FIELD)) {
-                    fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(3, description));
-//                    fields.put(itemName.replaceAll(RE_VECTOR_FIELD, ""), new VectorCol(3, description));
+                    fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(description));
                 } else {
                     List<String> code = getCode(saveFrame);
                     if (code.size() > 0) {
                         Col fieldType = getFieldType(code.get(0), description, code.subList(1, code.size()));
-//                        if (fieldType instanceof StrCol) {
-//                            if (COMMA_SEPARATED_LIST_FIELDS.contains(header)) {
-//                                fieldType = new ListCol("str", ",", description);
-//                            } else if (SPACE_SEPARATED_LIST_FIELDS.contains(header)) {
-//                                fieldType = new ListCol("str", " ", description);
-//                            } else if (SEMICOLON_SEPARATED_LIST_FIELDS.contains(header)) {
-//                                fieldType = new ListCol("str", ";", description);
-//                            }
-//                        }
-//                        if (EXTRA_ENUM_VALUES.containsKey(header)) {
-//                            if (fieldType instanceof EnumCol) {
-//                                ((EnumCol) fieldType).getValues().addAll(EXTRA_ENUM_VALUES.get(header));
-//                            }
-//                        }
                         fields.put(itemName, fieldType);
-                    } else {
-                        System.out.println(header);
                     }
                 }
             }
@@ -500,7 +387,8 @@ class SchemaGenerator {
     }
 
     private String handleVectorMatrixItemNames(String raw) {
-        return raw.replace("[", "").replace("]", "");
+//        return raw.replace("[", "").replace("]", "");
+        return raw;
     }
 
     private Col getFieldType(String type, String description, List<String> values) {
@@ -596,7 +484,8 @@ class SchemaGenerator {
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
                 .replaceAll("(\\[[1-3]])+ element", "elements")
-                .replaceAll("(\\[[1-3]])+", "");
+                .replaceAll("(\\[[1-3]])+", "")
+                ;
     }
 
     private Column getField(String category, String field, Block saveFrame) {
@@ -652,15 +541,13 @@ class SchemaGenerator {
                         categoryKeyNames.add(cifColumn.getStringData(i));
                     }
 
-                    Repeat repeat = Repeat.UNKNOWN;
-                    if (filter.containsKey(saveFrame.getBlockHeader())) {
-                        if (saveFrame.getCategory("category_examples")
-                                    .getColumn("case")
-                                    .getStringData(0).contains("loop_")) {
-                            repeat = Repeat.LOOP;
-                        } else {
-                            repeat = Repeat.SINGLE;
-                        }
+                    Repeat repeat;
+                    Column column = saveFrame.getCategory("category_examples")
+                            .getColumn("case");
+                    if (!column.isDefined() || column.getStringData(0).contains("loop_")) {
+                        repeat = Repeat.LOOP;
+                    } else {
+                        repeat = Repeat.SINGLE;
                     }
 
                     String rawDescription = saveFrame.getCategory("category")

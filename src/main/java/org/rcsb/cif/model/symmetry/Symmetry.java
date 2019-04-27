@@ -80,4 +80,20 @@ public class Symmetry extends BaseCategory {
         return (SpaceGroupNameH_M) (isText ? textFields.computeIfAbsent("space_group_name_H-M",
                 SpaceGroupNameH_M::new) : getBinaryColumn("space_group_name_H-M"));
     }
+
+    /**
+     * Used for PDB space group:
+     * 
+     * Example: 'C 1 2 1'  (instead of C 2)
+     * 'P 1 2 1'  (instead of P 2)
+     * 'P 1 21 1' (instead of P 21)
+     * 'P 1 1 21' (instead of P 21 -unique C axis)
+     * 'H 3'      (instead of R 3   -hexagonal)
+     * 'H 3 2'    (instead of R 3 2 -hexagonal)
+     * @return PdbxFullSpaceGroupNameH_M
+     */
+    public PdbxFullSpaceGroupNameH_M getPdbxFullSpaceGroupNameH_M() {
+        return (PdbxFullSpaceGroupNameH_M) (isText ? textFields.computeIfAbsent("pdbx_full_space_group_name_H-M",
+                PdbxFullSpaceGroupNameH_M::new) : getBinaryColumn("pdbx_full_space_group_name_H-M"));
+    }
 }

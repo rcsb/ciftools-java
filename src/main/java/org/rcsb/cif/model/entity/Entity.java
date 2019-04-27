@@ -105,6 +105,19 @@ public class Entity extends BaseCategory {
     }
 
     /**
+     * An identifier for the parent entity if this entity
+     * is part of a complex entity.  For instance a chimeric
+     * entity may be decomposed into several independent
+     * chemical entities where each component entity was
+     * obtained from a different source.
+     * @return PdbxParentEntityId
+     */
+    public PdbxParentEntityId getPdbxParentEntityId() {
+        return (PdbxParentEntityId) (isText ? textFields.computeIfAbsent("pdbx_parent_entity_id",
+                PdbxParentEntityId::new) : getBinaryColumn("pdbx_parent_entity_id"));
+    }
+
+    /**
      * Details about any entity mutation(s).
      * @return PdbxMutation
      */
@@ -129,5 +142,51 @@ public class Entity extends BaseCategory {
     public PdbxEc getPdbxEc() {
         return (PdbxEc) (isText ? textFields.computeIfAbsent("pdbx_ec",
                 PdbxEc::new) : getBinaryColumn("pdbx_ec"));
+    }
+
+    /**
+     * Description(s) of any chemical or post-translational modifications
+     * @return PdbxModification
+     */
+    public PdbxModification getPdbxModification() {
+        return (PdbxModification) (isText ? textFields.computeIfAbsent("pdbx_modification",
+                PdbxModification::new) : getBinaryColumn("pdbx_modification"));
+    }
+
+    /**
+     * Experimentally determined formula mass in daltons of the entity
+     * @return PdbxFormulaWeightExptl
+     */
+    public PdbxFormulaWeightExptl getPdbxFormulaWeightExptl() {
+        return (PdbxFormulaWeightExptl) (isText ? textFields.computeIfAbsent("pdbx_formula_weight_exptl",
+                PdbxFormulaWeightExptl::new) : getBinaryColumn("pdbx_formula_weight_exptl"));
+    }
+
+    /**
+     * Method used to determine _entity.pdbx_formula_weight_exptl.
+     * @return PdbxFormulaWeightExptlMethod
+     */
+    public PdbxFormulaWeightExptlMethod getPdbxFormulaWeightExptlMethod() {
+        return (PdbxFormulaWeightExptlMethod) (isText ? textFields.computeIfAbsent("pdbx_formula_weight_exptl_method",
+                PdbxFormulaWeightExptlMethod::new) : getBinaryColumn("pdbx_formula_weight_exptl_method"));
+    }
+
+    /**
+     * The value of _entity.target_id points to a TARGETDB target idenitifier
+     * from which this entity was generated.
+     * @return PdbxTargetId
+     */
+    public PdbxTargetId getPdbxTargetId() {
+        return (PdbxTargetId) (isText ? textFields.computeIfAbsent("pdbx_target_id",
+                PdbxTargetId::new) : getBinaryColumn("pdbx_target_id"));
+    }
+
+    /**
+     * Number of entity molecules in the biological assembly.
+     * @return PdbxEntitiesPerBiologicalUnit
+     */
+    public PdbxEntitiesPerBiologicalUnit getPdbxEntitiesPerBiologicalUnit() {
+        return (PdbxEntitiesPerBiologicalUnit) (isText ? textFields.computeIfAbsent("pdbx_entities_per_biological_unit",
+                PdbxEntitiesPerBiologicalUnit::new) : getBinaryColumn("pdbx_entities_per_biological_unit"));
     }
 }
