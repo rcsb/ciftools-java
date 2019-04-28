@@ -1,9 +1,6 @@
 package org.rcsb.cif.model;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -47,45 +44,5 @@ public interface CifFile {
      */
     default Stream<Block> blocks() {
         return getBlocks().stream();
-    }
-
-    // TODO add generated schema to builder
-
-    /**
-     * Acquire a builder to create new CifFile instances.
-     * @return a step-wise builder
-     */
-    static CifFileBuilder enterFile() {
-        return new CifFileBuilder();
-    }
-
-    class CifFileBuilder {
-        private final CifFile cifFile;
-        private final List<Block> blocks;
-
-        CifFileBuilder() {
-            this.blocks = new ArrayList<>();
-            this.cifFile = new TextFile(blocks);
-        }
-
-        public Block.BlockBuilder enterBlock(String blockName) {
-            Map<String, Category> categories = new LinkedHashMap<>();
-            Block block = new BaseBlock(categories, blockName);
-            blocks.add(block);
-            return Block.enterBlock(categories, this);
-        }
-
-        public CifFile leaveFile() {
-            return build();
-        }
-
-        public CifFile build() {
-            return cifFile;
-        }
-
-        public CifFileBuilder addBlock(Block block) {
-            blocks.add(block);
-            return this;
-        }
     }
 }

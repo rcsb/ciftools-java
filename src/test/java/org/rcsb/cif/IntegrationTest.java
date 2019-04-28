@@ -5,11 +5,11 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
-import org.rcsb.cif.model.atomsite.*;
-import org.rcsb.cif.model.atomsites.AtomSites;
-import org.rcsb.cif.model.cell.Cell;
-import org.rcsb.cif.model.cell.PdbxUniqueAxis;
-import org.rcsb.cif.model.entry.Entry;
+import org.rcsb.cif.model.generated.atomsite.*;
+import org.rcsb.cif.model.generated.atomsites.AtomSites;
+import org.rcsb.cif.model.generated.cell.Cell;
+import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
+import org.rcsb.cif.model.generated.entry.Entry;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -2,8 +2,9 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.atomsite.AtomSite;
-import org.rcsb.cif.model.atomsite.CartnX;
+import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.generated.atomsite.AtomSite;
+import org.rcsb.cif.model.generated.atomsite.CartnX;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -66,7 +67,7 @@ public class Demo {
     }
 
     private static void buildModel() throws IOException {
-        CifFile cifFile = CifFile.enterFile()
+        CifFile cifFile = new CifBuilder()
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
@@ -74,7 +75,7 @@ public class Demo {
                 // set value of column 'id'
                 .enterStrColumn("id")
                 // to '1EXP'
-                .stringValues("1EXP")
+                .add("1EXP")
                 // leave current column and category
                 .leaveColumn()
                 .leaveCategory()
@@ -83,10 +84,10 @@ public class Demo {
                 .enterCategory("atom_site")
                 // and specify some x-coordinates
                 .enterFloatColumn("Cartn_x")
-                .floatValues(1.0, -2.4, 4.5)
+                .add(1.0, -2.4, 4.5)
                 // values can be unknown or not specified
                 .markNextUnknown()
-                .floatValues(-3.14, 5.0)
+                .add(-3.14, 5.0)
 
                 // leaving the builder will release the CifFile instance
                 .leaveColumn()
@@ -104,10 +105,11 @@ public class Demo {
                 .forEach(System.out::println);
     }
 
+    @SuppressWarnings("Duplicates")
     private static void println(InputStream inputStream) throws IOException {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         int nRead;
-        byte[] data = new byte[2048];
+        byte[] data = new byte[1024];
         while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
             buffer.write(data, 0, nRead);
         }

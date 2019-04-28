@@ -4,9 +4,9 @@ import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.atomsite.AtomSite;
-import org.rcsb.cif.model.atomsite.BIsoOrEquiv;
-import org.rcsb.cif.model.atomsite.CartnX;
+import org.rcsb.cif.model.generated.atomsite.AtomSite;
+import org.rcsb.cif.model.generated.atomsite.BIsoOrEquiv;
+import org.rcsb.cif.model.generated.atomsite.CartnX;
 import org.rcsb.cif.text.TextCifWriter;
 
 import java.io.BufferedReader;

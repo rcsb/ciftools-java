@@ -3,8 +3,8 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.atomsite.AtomSite;
-import org.rcsb.cif.model.atomsite.LabelSeqId;
+import org.rcsb.cif.model.generated.atomsite.AtomSite;
+import org.rcsb.cif.model.generated.atomsite.LabelSeqId;
 
 import java.io.IOException;
 import java.io.InputStream;
