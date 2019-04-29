@@ -72,21 +72,21 @@ public abstract class AbstractCategoryBuilder implements CategoryBuilder {
     @Override
     public CategoryBuilder digest(IntColumnBuilder intColumnBuilder) {
         columns.put(intColumnBuilder.getColumnName(), createColumnText(categoryName, intColumnBuilder.getColumnName(),
-                intColumnBuilder.getValueList(), intColumnBuilder.getMask()));
+                intColumnBuilder.getValues(), intColumnBuilder.getMask()));
         return this;
     }
 
     @Override
     public CategoryBuilder digest(FloatColumnBuilder floatColumnBuilder) {
         columns.put(floatColumnBuilder.getColumnName(), createColumnText(categoryName, floatColumnBuilder.getColumnName(),
-                floatColumnBuilder.getValueList(), floatColumnBuilder.getMask()));
+                floatColumnBuilder.getValues(), floatColumnBuilder.getMask()));
         return this;
     }
 
     @Override
     public CategoryBuilder digest(StrColumnBuilder strColumnBuilder) {
         columns.put(strColumnBuilder.getColumnName(), createColumnText(categoryName, strColumnBuilder.getColumnName(),
-                strColumnBuilder.getValueList(), strColumnBuilder.getMask()));
+                strColumnBuilder.getValues(), strColumnBuilder.getMask()));
         return this;
     }
 }

@@ -1,5 +1,6 @@
 package org.rcsb.cif;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
@@ -19,6 +20,7 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class ReaderTest {
     @Test
+    @Ignore
     public void parseLocalBcifFile() throws IOException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             String id = testCase.getKey();

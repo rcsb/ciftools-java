@@ -11,7 +11,7 @@ import static org.rcsb.cif.internal.generator.SchemaGenerator.toClassName;
  * by creating a lookup table once, which ties raw Cif category and column names to the proper Java classes.
  */
 public class FieldNameClassMapGenerator {
-    private static final String BASE_PACKAGE = "org.rcsb.cif.model";
+    private static final String BASE_PACKAGE = "org.rcsb.cif.model.generated";
 
     public static void main(String[] args) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream("mmcif-field-names.csv");

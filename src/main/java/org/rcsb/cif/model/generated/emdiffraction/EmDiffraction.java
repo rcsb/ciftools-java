@@ -21,7 +21,6 @@ public class EmDiffraction extends BaseCategory {
     }
 
     /**
-     * TODO
      * @return CameraLength
      */
     public CameraLength getCameraLength() {

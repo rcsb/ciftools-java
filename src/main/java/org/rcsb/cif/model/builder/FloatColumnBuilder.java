@@ -6,11 +6,12 @@ import org.rcsb.cif.model.ValueKind;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.DoubleStream;
+import java.util.stream.IntStream;
 
-public class FloatColumnBuilder extends AbstractColumnBuilder {
+public class FloatColumnBuilder<P extends CategoryBuilder> extends AbstractColumnBuilder {
     private final List<Double> values;
 
-    public FloatColumnBuilder(String categoryName, String columnName, CategoryBuilder parent) {
+    public FloatColumnBuilder(String categoryName, String columnName, P parent) {
         super(categoryName, columnName, parent);
         this.values = new ArrayList<>();
     }
@@ -40,15 +41,17 @@ public class FloatColumnBuilder extends AbstractColumnBuilder {
     }
 
     @Override
-    public CategoryBuilder leaveColumn() {
+    @SuppressWarnings("unchecked")
+    public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return parent.digest(this);
+        return (P) parent.digest(this);
     }
 
     public FloatColumnBuilder add(double... value) {
         DoubleStream.of(value).forEach(values::add);
+        IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
         return this;
     }
 }

@@ -20,7 +20,6 @@ import static org.rcsb.cif.internal.ModelFactory.BASE_PACKAGE;
  * bootstrap itself.
  */
 class SchemaGenerator {
-    // TODO make builder type-safe
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
 
     public static void main(String[] args) throws IOException {

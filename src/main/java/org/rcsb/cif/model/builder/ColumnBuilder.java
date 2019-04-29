@@ -5,7 +5,7 @@ import org.rcsb.cif.model.ValueKind;
 
 import java.util.List;
 
-public interface ColumnBuilder {
+public interface ColumnBuilder<P extends CategoryBuilder> {
     ColumnBuilder markNextNotPresent();
 
     ColumnBuilder markNextUnknown();
@@ -18,5 +18,5 @@ public interface ColumnBuilder {
 
     Column build();
 
-    CategoryBuilder leaveColumn();
+    P leaveColumn();
 }

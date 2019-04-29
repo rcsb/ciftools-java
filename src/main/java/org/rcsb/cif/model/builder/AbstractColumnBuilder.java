@@ -5,13 +5,13 @@ import org.rcsb.cif.model.ValueKind;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractColumnBuilder implements ColumnBuilder {
+public abstract class AbstractColumnBuilder<P extends CategoryBuilder> implements ColumnBuilder {
     private final String categoryName;
     private final String columnName;
     final List<ValueKind> mask;
-    final CategoryBuilder parent;
+    final P parent;
 
-    AbstractColumnBuilder(String categoryName, String columnName, CategoryBuilder parent) {
+    AbstractColumnBuilder(String categoryName, String columnName, P parent) {
         this.categoryName = categoryName;
         this.columnName = columnName;
         this.mask = new ArrayList<>();
