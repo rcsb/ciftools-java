@@ -83,8 +83,8 @@ public class WriterTest {
     public void testClassInferenceOfBuiltCifFile() {
         CifFile cifFile = new CifBuilder()
                 .enterBlock("test")
-                .enterCategory("atom_site")
-                .enterFloatColumn("B_iso_or_equiv")
+                .enterAtomSite()
+                .enterBIsoOrEquiv()
                 .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
                 .leaveColumn()
                 .leaveCategory()

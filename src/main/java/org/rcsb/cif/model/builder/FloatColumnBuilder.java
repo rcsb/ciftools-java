@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-public class FloatColumnBuilder<P extends CategoryBuilder> extends AbstractColumnBuilder {
+public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<Double> values;
 
     public FloatColumnBuilder(String categoryName, String columnName, P parent) {
@@ -37,16 +37,15 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends AbstractColum
 
     @Override
     public Column build() {
-        return AbstractCategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        return parent.digest(this);
     }
 
     public FloatColumnBuilder add(double... value) {

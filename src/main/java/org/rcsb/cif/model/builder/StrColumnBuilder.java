@@ -6,10 +6,10 @@ import org.rcsb.cif.model.ValueKind;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StrColumnBuilder<P extends CategoryBuilder> extends AbstractColumnBuilder {
+public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<String> values;
 
-    public StrColumnBuilder(String categoryName, String columnName, CategoryBuilder parent) {
+    public StrColumnBuilder(String categoryName, String columnName, P parent) {
         super(categoryName, columnName, parent);
         this.values = new ArrayList<>();
     }
@@ -35,11 +35,10 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends AbstractColumnB
 
     @Override
     public Column build() {
-        return AbstractCategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");

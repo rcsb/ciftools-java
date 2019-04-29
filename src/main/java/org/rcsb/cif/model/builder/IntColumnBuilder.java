@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-public class IntColumnBuilder<P extends CategoryBuilder> extends AbstractColumnBuilder {
+public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<Integer> values;
 
-    public IntColumnBuilder(String categoryName, String columnName, CategoryBuilder parent) {
+    public IntColumnBuilder(String categoryName, String columnName, P parent) {
         super(categoryName, columnName, parent);
         this.values = new ArrayList<>();
     }
@@ -36,16 +36,15 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends AbstractColumnB
 
     @Override
     public Column build() {
-        return AbstractCategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        return parent.digest(this);
     }
 
     public IntColumnBuilder add(int... value) {

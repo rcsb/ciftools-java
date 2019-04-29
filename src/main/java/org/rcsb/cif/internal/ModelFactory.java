@@ -148,7 +148,7 @@ public class ModelFactory {
                 throw new RuntimeException(e);
             }
         } else {
-            // cannot rely on internal, we could parse/digest data until we can make an elaborate guess about the type -
+            // cannot rely on schema, we could parse/digest data until we can make an elaborate guess about the type -
             // however this would be really slow
             return new StrColumn(columnName, rowCount, data, startToken, endToken);
         }

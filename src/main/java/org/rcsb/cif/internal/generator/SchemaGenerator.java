@@ -19,6 +19,7 @@ import static org.rcsb.cif.internal.ModelFactory.BASE_PACKAGE;
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
  */
+@SuppressWarnings("ALL")
 class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
 
@@ -108,7 +109,7 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
@@ -117,6 +118,7 @@ class SchemaGenerator {
         output.add("");
 
         StringJoiner getters = new StringJoiner("\n");
+        StringJoiner builder = new StringJoiner("\n");
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
@@ -140,7 +142,13 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName);
+            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName, categoryClassName);
+
+            // builder
+            builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName + "() {");
+            builder.add("        return new GenericCategoryBuilder." + categoryClassName + "Builder(this);");
+            builder.add("    }");
+            builder.add("");
         }
 
         output.add("import org.rcsb.cif.model.BaseCifBlock;");
@@ -163,16 +171,18 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+//        System.out.println(builder.toString());
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String className, Table content, Path path, String categoryName) throws IOException {
-        System.out.println(categoryName);
+    private void writeCategory(String className, Table content, Path path, String categoryName, String categoryClassName) throws IOException {
+//        System.out.println(categoryName);
         if (!Files.exists(path)) {
-            Files.createDirectory(path);
+//            Files.createDirectory(path);
         }
 
         StringJoiner output = new StringJoiner("\n");
+        StringJoiner builder = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + className.toLowerCase() + ";");
         output.add("");
         output.add("import org.rcsb.cif.model.BaseCategory;");
@@ -187,25 +197,20 @@ class SchemaGenerator {
 
         StringJoiner getters = new StringJoiner("\n");
 
+        builder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
+        builder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
+        builder.add("");
+        builder.add("        " + categoryClassName + "Builder(BlockBuilder parent) {");
+        builder.add("            super(CATEGORY_NAME, parent);");
+        builder.add("        }");
+
         for (Map.Entry<String, Object> entry : content.getColumns().entrySet()) {
             String columnName = entry.getKey();
             Col column = (Col) entry.getValue();
 
             String columnClassName = toClassName(columnName);
-            System.out.println(categoryName + "." + columnName);
+//            System.out.println(categoryName + "." + columnName);
 
-//            String tmp;
-//            // handle special case for vector and matrix columns: matrix11 -> matrix[1][1]
-//            if (column instanceof VectorCol) {
-//                tmp = columnName.substring(0, columnName.length() - 1) +
-//                        "[" + columnName.substring(columnName.length() - 1) + "]";
-//                columnName = tmp;
-//            } else if (column instanceof MatrixCol) {
-//                tmp = columnName.substring(0, columnName.length() - 2) +
-//                        "[" + columnName.substring(columnName.length() - 2, columnName.length() - 1) + "]" +
-//                        "[" + columnName.substring(columnName.length() - 1) + "]";
-//                columnName = tmp;
-//            }
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
                     .map(s -> "     * " + s)
@@ -220,6 +225,11 @@ class SchemaGenerator {
             getters.add("");
 
             writeColumn(columnClassName, column, content.getRepeat() == Repeat.SINGLE, path);
+
+            builder.add("");
+            builder.add("        public " + getBaseClass(column.getType(), false) + "Builder enter" + columnClassName + "() {");
+            builder.add("            return new " + getBaseClass(column.getType(), false) + "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
+            builder.add("        }");
         }
 
         // constructor
@@ -242,7 +252,9 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        builder.add("    }");
+        System.out.println(builder.toString());
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
@@ -291,7 +303,7 @@ class SchemaGenerator {
         output.add("}");
         output.add("");
 
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private String getBaseClass(String type, boolean singleRow) {
@@ -366,14 +378,14 @@ class SchemaGenerator {
             } else if (FORCE_INT_FIELDS.contains(header)) {
                 fields.put(itemName, new IntCol(description));
             } else if ("matrix".equals(subCategory)) {
-                fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(description));
+                fields.put(itemName, new MatrixCol(description));
             } else if ("vector".equals(subCategory)) {
-                fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(description));
+                fields.put(itemName, new VectorCol(description));
             } else {
                 if (itemName.matches(RE_MATRIX_FIELD)) {
-                    fields.put(handleVectorMatrixItemNames(itemName), new MatrixCol(description));
+                    fields.put(itemName, new MatrixCol(description));
                 } else if (itemName.matches(RE_VECTOR_FIELD)) {
-                    fields.put(handleVectorMatrixItemNames(itemName), new VectorCol(description));
+                    fields.put(itemName, new VectorCol(description));
                 } else {
                     List<String> code = getCode(saveFrame);
                     if (code.size() > 0) {
@@ -383,11 +395,6 @@ class SchemaGenerator {
                 }
             }
         });
-    }
-
-    private String handleVectorMatrixItemNames(String raw) {
-//        return raw.replace("[", "").replace("]", "");
-        return raw;
     }
 
     private Col getFieldType(String type, String description, List<String> values) {

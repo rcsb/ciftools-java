@@ -71,9 +71,9 @@ public class Demo {
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
-                .enterCategory("entry")
+                .enterEntry()
                 // set value of column 'id'
-                .enterStrColumn("id")
+                .enterId()
                 // to '1EXP'
                 .add("1EXP")
                 // leave current column and category
@@ -81,9 +81,9 @@ public class Demo {
                 .leaveCategory()
 
                 // create atom site category
-                .enterCategory("atom_site")
+                .enterAtomSite()
                 // and specify some x-coordinates
-                .enterFloatColumn("Cartn_x")
+                .enterCartnX()
                 .add(1.0, -2.4, 4.5)
                 // values can be unknown or not specified
                 .markNextUnknown()

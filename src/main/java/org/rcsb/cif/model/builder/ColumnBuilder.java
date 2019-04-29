@@ -3,20 +3,39 @@ package org.rcsb.cif.model.builder;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public interface ColumnBuilder<P extends CategoryBuilder> {
-    ColumnBuilder markNextNotPresent();
+public abstract class ColumnBuilder<P extends CategoryBuilder> {
+    private final String categoryName;
+    private final String columnName;
+    final List<ValueKind> mask;
+    final P parent;
 
-    ColumnBuilder markNextUnknown();
+    ColumnBuilder(String categoryName, String columnName, P parent) {
+        this.categoryName = categoryName;
+        this.columnName = columnName;
+        this.mask = new ArrayList<>();
+        this.parent = parent;
+    }
 
-    String getCategoryName();
+    public String getCategoryName() {
+        return categoryName;
+    }
 
-    String getColumnName();
+    public String getColumnName() {
+        return columnName;
+    }
 
-    List<ValueKind> getMask();
+    public List<ValueKind> getMask() {
+        return mask;
+    }
 
-    Column build();
+    abstract ColumnBuilder markNextNotPresent();
 
-    P leaveColumn();
+    abstract ColumnBuilder markNextUnknown();
+
+    abstract Column build();
+
+    abstract P leaveColumn();
 }

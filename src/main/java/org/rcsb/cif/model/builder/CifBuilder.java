@@ -16,6 +16,10 @@ public class CifBuilder {
         this.cifFile = new TextFile(blocks);
     }
 
+    public static CifBuilder enterFile() {
+        return new CifBuilder();
+    }
+
     public BlockBuilder enterBlock(String blockName) {
         Map<String, Category> categories = new LinkedHashMap<>();
         Block block = new BaseBlock(categories, blockName);
