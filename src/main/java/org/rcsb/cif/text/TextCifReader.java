@@ -14,9 +14,10 @@ import java.util.List;
 
 public class TextCifReader {
     @SuppressWarnings("Duplicates")
-    public TextFile parse(InputStream inputStream) throws ParsingException, IOException {
+    public TextFile read(InputStream inputStream) throws ParsingException, IOException {
         // TODO support GZIPInputStream
-        // performance 1.1: explicitly buffer stream, increases performance drastically 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
+        // performance 1.1: explicitly buffer stream, increases performance drastically
+        // 1.2 resizing of token lists is an issue - provide initial guess to avoid excessive resizing
         if (!(inputStream instanceof BufferedInputStream)) {
             inputStream = new BufferedInputStream(inputStream);
         }
@@ -33,10 +34,10 @@ public class TextCifReader {
         buffer.close();
         inputStream.close();
 
-        return parseText(string);
+        return readText(string);
     }
 
-    public TextFile parseText(String data) throws ParsingException {
+    public TextFile readText(String data) throws ParsingException {
         if (data.isEmpty()) {
             throw new ParsingException("Cannot parse empty file.");
         }

@@ -101,7 +101,7 @@ public class CategoryBuilder {
     public static class AtomSiteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_site";
 
-        AtomSiteBuilder(BlockBuilder parent) {
+        public AtomSiteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -497,7 +497,7 @@ public class CategoryBuilder {
     public static class AtomSiteAnisotropBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_site_anisotrop";
 
-        AtomSiteAnisotropBuilder(BlockBuilder parent) {
+        public AtomSiteAnisotropBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -689,7 +689,7 @@ public class CategoryBuilder {
     public static class AtomSitesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_sites";
 
-        AtomSitesBuilder(BlockBuilder parent) {
+        public AtomSitesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -817,7 +817,7 @@ public class CategoryBuilder {
     public static class AtomSitesAltBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_sites_alt";
 
-        AtomSitesAltBuilder(BlockBuilder parent) {
+        public AtomSitesAltBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -833,7 +833,7 @@ public class CategoryBuilder {
     public static class AtomSitesAltEnsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_sites_alt_ens";
 
-        AtomSitesAltEnsBuilder(BlockBuilder parent) {
+        public AtomSitesAltEnsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -849,7 +849,7 @@ public class CategoryBuilder {
     public static class AtomSitesAltGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_sites_alt_gen";
 
-        AtomSitesAltGenBuilder(BlockBuilder parent) {
+        public AtomSitesAltGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -865,7 +865,7 @@ public class CategoryBuilder {
     public static class AtomSitesFootnoteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_sites_footnote";
 
-        AtomSitesFootnoteBuilder(BlockBuilder parent) {
+        public AtomSitesFootnoteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -881,7 +881,7 @@ public class CategoryBuilder {
     public static class AtomTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "atom_type";
 
-        AtomTypeBuilder(BlockBuilder parent) {
+        public AtomTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -985,7 +985,7 @@ public class CategoryBuilder {
     public static class AuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "audit";
 
-        AuditBuilder(BlockBuilder parent) {
+        public AuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1009,7 +1009,7 @@ public class CategoryBuilder {
     public static class AuditAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "audit_author";
 
-        AuditAuthorBuilder(BlockBuilder parent) {
+        public AuditAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1033,7 +1033,7 @@ public class CategoryBuilder {
     public static class AuditConformBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "audit_conform";
 
-        AuditConformBuilder(BlockBuilder parent) {
+        public AuditConformBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1053,7 +1053,7 @@ public class CategoryBuilder {
     public static class AuditContactAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "audit_contact_author";
 
-        AuditContactAuthorBuilder(BlockBuilder parent) {
+        public AuditContactAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1081,7 +1081,7 @@ public class CategoryBuilder {
     public static class CellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "cell";
 
-        CellBuilder(BlockBuilder parent) {
+        public CellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1213,7 +1213,7 @@ public class CategoryBuilder {
     public static class CellMeasurementBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "cell_measurement";
 
-        CellMeasurementBuilder(BlockBuilder parent) {
+        public CellMeasurementBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1261,7 +1261,7 @@ public class CategoryBuilder {
     public static class CellMeasurementReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "cell_measurement_refln";
 
-        CellMeasurementReflnBuilder(BlockBuilder parent) {
+        public CellMeasurementReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1285,7 +1285,7 @@ public class CategoryBuilder {
     public static class ChemCompBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp";
 
-        ChemCompBuilder(BlockBuilder parent) {
+        public ChemCompBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1473,7 +1473,7 @@ public class CategoryBuilder {
     public static class ChemCompAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_angle";
 
-        ChemCompAngleBuilder(BlockBuilder parent) {
+        public ChemCompAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1513,7 +1513,7 @@ public class CategoryBuilder {
     public static class ChemCompAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_atom";
 
-        ChemCompAtomBuilder(BlockBuilder parent) {
+        public ChemCompAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1641,7 +1641,7 @@ public class CategoryBuilder {
     public static class ChemCompBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_bond";
 
-        ChemCompBondBuilder(BlockBuilder parent) {
+        public ChemCompBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1685,7 +1685,7 @@ public class CategoryBuilder {
     public static class ChemCompChirBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_chir";
 
-        ChemCompChirBuilder(BlockBuilder parent) {
+        public ChemCompChirBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1729,7 +1729,7 @@ public class CategoryBuilder {
     public static class ChemCompChirAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_chir_atom";
 
-        ChemCompChirAtomBuilder(BlockBuilder parent) {
+        public ChemCompChirAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1753,7 +1753,7 @@ public class CategoryBuilder {
     public static class ChemCompLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_link";
 
-        ChemCompLinkBuilder(BlockBuilder parent) {
+        public ChemCompLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1777,7 +1777,7 @@ public class CategoryBuilder {
     public static class ChemCompPlaneBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_plane";
 
-        ChemCompPlaneBuilder(BlockBuilder parent) {
+        public ChemCompPlaneBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1801,7 +1801,7 @@ public class CategoryBuilder {
     public static class ChemCompPlaneAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_plane_atom";
 
-        ChemCompPlaneAtomBuilder(BlockBuilder parent) {
+        public ChemCompPlaneAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1825,7 +1825,7 @@ public class CategoryBuilder {
     public static class ChemCompTorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_tor";
 
-        ChemCompTorBuilder(BlockBuilder parent) {
+        public ChemCompTorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1857,7 +1857,7 @@ public class CategoryBuilder {
     public static class ChemCompTorValueBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_comp_tor_value";
 
-        ChemCompTorValueBuilder(BlockBuilder parent) {
+        public ChemCompTorValueBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1889,7 +1889,7 @@ public class CategoryBuilder {
     public static class ChemLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link";
 
-        ChemLinkBuilder(BlockBuilder parent) {
+        public ChemLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1905,7 +1905,7 @@ public class CategoryBuilder {
     public static class ChemLinkAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_angle";
 
-        ChemLinkAngleBuilder(BlockBuilder parent) {
+        public ChemLinkAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1957,7 +1957,7 @@ public class CategoryBuilder {
     public static class ChemLinkBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_bond";
 
-        ChemLinkBondBuilder(BlockBuilder parent) {
+        public ChemLinkBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -1997,7 +1997,7 @@ public class CategoryBuilder {
     public static class ChemLinkChirBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_chir";
 
-        ChemLinkChirBuilder(BlockBuilder parent) {
+        public ChemLinkChirBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2045,7 +2045,7 @@ public class CategoryBuilder {
     public static class ChemLinkChirAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_chir_atom";
 
-        ChemLinkChirAtomBuilder(BlockBuilder parent) {
+        public ChemLinkChirAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2069,7 +2069,7 @@ public class CategoryBuilder {
     public static class ChemLinkPlaneBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_plane";
 
-        ChemLinkPlaneBuilder(BlockBuilder parent) {
+        public ChemLinkPlaneBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2093,7 +2093,7 @@ public class CategoryBuilder {
     public static class ChemLinkPlaneAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_plane_atom";
 
-        ChemLinkPlaneAtomBuilder(BlockBuilder parent) {
+        public ChemLinkPlaneAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2113,7 +2113,7 @@ public class CategoryBuilder {
     public static class ChemLinkTorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_tor";
 
-        ChemLinkTorBuilder(BlockBuilder parent) {
+        public ChemLinkTorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2161,7 +2161,7 @@ public class CategoryBuilder {
     public static class ChemLinkTorValueBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chem_link_tor_value";
 
-        ChemLinkTorValueBuilder(BlockBuilder parent) {
+        public ChemLinkTorValueBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2189,7 +2189,7 @@ public class CategoryBuilder {
     public static class ChemicalBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chemical";
 
-        ChemicalBuilder(BlockBuilder parent) {
+        public ChemicalBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2281,7 +2281,7 @@ public class CategoryBuilder {
     public static class ChemicalConnAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chemical_conn_atom";
 
-        ChemicalConnAtomBuilder(BlockBuilder parent) {
+        public ChemicalConnAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2317,7 +2317,7 @@ public class CategoryBuilder {
     public static class ChemicalConnBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chemical_conn_bond";
 
-        ChemicalConnBondBuilder(BlockBuilder parent) {
+        public ChemicalConnBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2337,7 +2337,7 @@ public class CategoryBuilder {
     public static class ChemicalFormulaBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "chemical_formula";
 
-        ChemicalFormulaBuilder(BlockBuilder parent) {
+        public ChemicalFormulaBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2377,7 +2377,7 @@ public class CategoryBuilder {
     public static class CitationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "citation";
 
-        CitationBuilder(BlockBuilder parent) {
+        public CitationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2493,7 +2493,7 @@ public class CategoryBuilder {
     public static class CitationAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "citation_author";
 
-        CitationAuthorBuilder(BlockBuilder parent) {
+        public CitationAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2517,7 +2517,7 @@ public class CategoryBuilder {
     public static class CitationEditorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "citation_editor";
 
-        CitationEditorBuilder(BlockBuilder parent) {
+        public CitationEditorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2537,7 +2537,7 @@ public class CategoryBuilder {
     public static class ComputingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "computing";
 
-        ComputingBuilder(BlockBuilder parent) {
+        public ComputingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2589,7 +2589,7 @@ public class CategoryBuilder {
     public static class DatabaseBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database";
 
-        DatabaseBuilder(BlockBuilder parent) {
+        public DatabaseBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2665,7 +2665,7 @@ public class CategoryBuilder {
     public static class Database2Builder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_2";
 
-        Database2Builder(BlockBuilder parent) {
+        public Database2Builder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2681,7 +2681,7 @@ public class CategoryBuilder {
     public static class DatabasePDBCaveatBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_caveat";
 
-        DatabasePDBCaveatBuilder(BlockBuilder parent) {
+        public DatabasePDBCaveatBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2697,7 +2697,7 @@ public class CategoryBuilder {
     public static class DatabasePDBMatrixBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_matrix";
 
-        DatabasePDBMatrixBuilder(BlockBuilder parent) {
+        public DatabasePDBMatrixBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2805,7 +2805,7 @@ public class CategoryBuilder {
     public static class DatabasePDBRemarkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_remark";
 
-        DatabasePDBRemarkBuilder(BlockBuilder parent) {
+        public DatabasePDBRemarkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2821,7 +2821,7 @@ public class CategoryBuilder {
     public static class DatabasePDBRevBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_rev";
 
-        DatabasePDBRevBuilder(BlockBuilder parent) {
+        public DatabasePDBRevBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2877,7 +2877,7 @@ public class CategoryBuilder {
     public static class DatabasePDBRevRecordBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_rev_record";
 
-        DatabasePDBRevRecordBuilder(BlockBuilder parent) {
+        public DatabasePDBRevRecordBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2897,7 +2897,7 @@ public class CategoryBuilder {
     public static class DatabasePDBTvectBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "database_PDB_tvect";
 
-        DatabasePDBTvectBuilder(BlockBuilder parent) {
+        public DatabasePDBTvectBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2925,7 +2925,7 @@ public class CategoryBuilder {
     public static class DiffrnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn";
 
-        DiffrnBuilder(BlockBuilder parent) {
+        public DiffrnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -2997,7 +2997,7 @@ public class CategoryBuilder {
     public static class DiffrnAttenuatorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_attenuator";
 
-        DiffrnAttenuatorBuilder(BlockBuilder parent) {
+        public DiffrnAttenuatorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3017,7 +3017,7 @@ public class CategoryBuilder {
     public static class DiffrnDetectorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_detector";
 
-        DiffrnDetectorBuilder(BlockBuilder parent) {
+        public DiffrnDetectorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3065,7 +3065,7 @@ public class CategoryBuilder {
     public static class DiffrnMeasurementBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_measurement";
 
-        DiffrnMeasurementBuilder(BlockBuilder parent) {
+        public DiffrnMeasurementBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3105,7 +3105,7 @@ public class CategoryBuilder {
     public static class DiffrnOrientMatrixBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_orient_matrix";
 
-        DiffrnOrientMatrixBuilder(BlockBuilder parent) {
+        public DiffrnOrientMatrixBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3157,7 +3157,7 @@ public class CategoryBuilder {
     public static class DiffrnOrientReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_orient_refln";
 
-        DiffrnOrientReflnBuilder(BlockBuilder parent) {
+        public DiffrnOrientReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3205,7 +3205,7 @@ public class CategoryBuilder {
     public static class DiffrnRadiationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_radiation";
 
-        DiffrnRadiationBuilder(BlockBuilder parent) {
+        public DiffrnRadiationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3281,7 +3281,7 @@ public class CategoryBuilder {
     public static class DiffrnRadiationWavelengthBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_radiation_wavelength";
 
-        DiffrnRadiationWavelengthBuilder(BlockBuilder parent) {
+        public DiffrnRadiationWavelengthBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3301,7 +3301,7 @@ public class CategoryBuilder {
     public static class DiffrnReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_refln";
 
-        DiffrnReflnBuilder(BlockBuilder parent) {
+        public DiffrnReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3445,7 +3445,7 @@ public class CategoryBuilder {
     public static class DiffrnReflnsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_reflns";
 
-        DiffrnReflnsBuilder(BlockBuilder parent) {
+        public DiffrnReflnsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3585,7 +3585,7 @@ public class CategoryBuilder {
     public static class DiffrnScaleGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_scale_group";
 
-        DiffrnScaleGroupBuilder(BlockBuilder parent) {
+        public DiffrnScaleGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3601,7 +3601,7 @@ public class CategoryBuilder {
     public static class DiffrnSourceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_source";
 
-        DiffrnSourceBuilder(BlockBuilder parent) {
+        public DiffrnSourceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3673,7 +3673,7 @@ public class CategoryBuilder {
     public static class DiffrnStandardReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_standard_refln";
 
-        DiffrnStandardReflnBuilder(BlockBuilder parent) {
+        public DiffrnStandardReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3701,7 +3701,7 @@ public class CategoryBuilder {
     public static class DiffrnStandardsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_standards";
 
-        DiffrnStandardsBuilder(BlockBuilder parent) {
+        public DiffrnStandardsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3737,7 +3737,7 @@ public class CategoryBuilder {
     public static class EntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity";
 
-        EntityBuilder(BlockBuilder parent) {
+        public EntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3809,7 +3809,7 @@ public class CategoryBuilder {
     public static class EntityKeywordsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_keywords";
 
-        EntityKeywordsBuilder(BlockBuilder parent) {
+        public EntityKeywordsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3841,7 +3841,7 @@ public class CategoryBuilder {
     public static class EntityLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_link";
 
-        EntityLinkBuilder(BlockBuilder parent) {
+        public EntityLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3873,7 +3873,7 @@ public class CategoryBuilder {
     public static class EntityNameComBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_name_com";
 
-        EntityNameComBuilder(BlockBuilder parent) {
+        public EntityNameComBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3889,7 +3889,7 @@ public class CategoryBuilder {
     public static class EntityNameSysBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_name_sys";
 
-        EntityNameSysBuilder(BlockBuilder parent) {
+        public EntityNameSysBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -3909,7 +3909,7 @@ public class CategoryBuilder {
     public static class EntityPolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_poly";
 
-        EntityPolyBuilder(BlockBuilder parent) {
+        public EntityPolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4005,7 +4005,7 @@ public class CategoryBuilder {
     public static class EntityPolySeqBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_poly_seq";
 
-        EntityPolySeqBuilder(BlockBuilder parent) {
+        public EntityPolySeqBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4029,7 +4029,7 @@ public class CategoryBuilder {
     public static class EntryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entry";
 
-        EntryBuilder(BlockBuilder parent) {
+        public EntryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4045,7 +4045,7 @@ public class CategoryBuilder {
     public static class EntryLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entry_link";
 
-        EntryLinkBuilder(BlockBuilder parent) {
+        public EntryLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4065,7 +4065,7 @@ public class CategoryBuilder {
     public static class ExptlBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "exptl";
 
-        ExptlBuilder(BlockBuilder parent) {
+        public ExptlBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4113,7 +4113,7 @@ public class CategoryBuilder {
     public static class ExptlCrystalBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "exptl_crystal";
 
-        ExptlCrystalBuilder(BlockBuilder parent) {
+        public ExptlCrystalBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4265,7 +4265,7 @@ public class CategoryBuilder {
     public static class ExptlCrystalFaceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "exptl_crystal_face";
 
-        ExptlCrystalFaceBuilder(BlockBuilder parent) {
+        public ExptlCrystalFaceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4309,7 +4309,7 @@ public class CategoryBuilder {
     public static class ExptlCrystalGrowBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "exptl_crystal_grow";
 
-        ExptlCrystalGrowBuilder(BlockBuilder parent) {
+        public ExptlCrystalGrowBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4385,7 +4385,7 @@ public class CategoryBuilder {
     public static class ExptlCrystalGrowCompBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "exptl_crystal_grow_comp";
 
-        ExptlCrystalGrowCompBuilder(BlockBuilder parent) {
+        public ExptlCrystalGrowCompBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4445,7 +4445,7 @@ public class CategoryBuilder {
     public static class GeomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom";
 
-        GeomBuilder(BlockBuilder parent) {
+        public GeomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4461,7 +4461,7 @@ public class CategoryBuilder {
     public static class GeomAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom_angle";
 
-        GeomAngleBuilder(BlockBuilder parent) {
+        public GeomAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4629,7 +4629,7 @@ public class CategoryBuilder {
     public static class GeomBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom_bond";
 
-        GeomBondBuilder(BlockBuilder parent) {
+        public GeomBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4753,7 +4753,7 @@ public class CategoryBuilder {
     public static class GeomContactBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom_contact";
 
-        GeomContactBuilder(BlockBuilder parent) {
+        public GeomContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -4873,7 +4873,7 @@ public class CategoryBuilder {
     public static class GeomHbondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom_hbond";
 
-        GeomHbondBuilder(BlockBuilder parent) {
+        public GeomHbondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5049,7 +5049,7 @@ public class CategoryBuilder {
     public static class GeomTorsionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "geom_torsion";
 
-        GeomTorsionBuilder(BlockBuilder parent) {
+        public GeomTorsionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5265,7 +5265,7 @@ public class CategoryBuilder {
     public static class JournalBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "journal";
 
-        JournalBuilder(BlockBuilder parent) {
+        public JournalBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5425,7 +5425,7 @@ public class CategoryBuilder {
     public static class JournalIndexBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "journal_index";
 
-        JournalIndexBuilder(BlockBuilder parent) {
+        public JournalIndexBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5445,7 +5445,7 @@ public class CategoryBuilder {
     public static class PhasingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing";
 
-        PhasingBuilder(BlockBuilder parent) {
+        public PhasingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5457,7 +5457,7 @@ public class CategoryBuilder {
     public static class PhasingAveragingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_averaging";
 
-        PhasingAveragingBuilder(BlockBuilder parent) {
+        public PhasingAveragingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5477,7 +5477,7 @@ public class CategoryBuilder {
     public static class PhasingIsomorphousBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_isomorphous";
 
-        PhasingIsomorphousBuilder(BlockBuilder parent) {
+        public PhasingIsomorphousBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5501,7 +5501,7 @@ public class CategoryBuilder {
     public static class PhasingMADBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MAD";
 
-        PhasingMADBuilder(BlockBuilder parent) {
+        public PhasingMADBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5609,7 +5609,7 @@ public class CategoryBuilder {
     public static class PhasingMADClustBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MAD_clust";
 
-        PhasingMADClustBuilder(BlockBuilder parent) {
+        public PhasingMADClustBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5629,7 +5629,7 @@ public class CategoryBuilder {
     public static class PhasingMADExptBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MAD_expt";
 
-        PhasingMADExptBuilder(BlockBuilder parent) {
+        public PhasingMADExptBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5669,7 +5669,7 @@ public class CategoryBuilder {
     public static class PhasingMADRatioBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MAD_ratio";
 
-        PhasingMADRatioBuilder(BlockBuilder parent) {
+        public PhasingMADRatioBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5713,7 +5713,7 @@ public class CategoryBuilder {
     public static class PhasingMADSetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MAD_set";
 
-        PhasingMADSetBuilder(BlockBuilder parent) {
+        public PhasingMADSetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5769,7 +5769,7 @@ public class CategoryBuilder {
     public static class PhasingMIRBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR";
 
-        PhasingMIRBuilder(BlockBuilder parent) {
+        public PhasingMIRBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5829,7 +5829,7 @@ public class CategoryBuilder {
     public static class PhasingMIRDerBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR_der";
 
-        PhasingMIRDerBuilder(BlockBuilder parent) {
+        public PhasingMIRDerBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -5949,7 +5949,7 @@ public class CategoryBuilder {
     public static class PhasingMIRDerReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR_der_refln";
 
-        PhasingMIRDerReflnBuilder(BlockBuilder parent) {
+        public PhasingMIRDerReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6021,7 +6021,7 @@ public class CategoryBuilder {
     public static class PhasingMIRDerShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR_der_shell";
 
-        PhasingMIRDerShellBuilder(BlockBuilder parent) {
+        public PhasingMIRDerShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6121,7 +6121,7 @@ public class CategoryBuilder {
     public static class PhasingMIRDerSiteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR_der_site";
 
-        PhasingMIRDerSiteBuilder(BlockBuilder parent) {
+        public PhasingMIRDerSiteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6221,7 +6221,7 @@ public class CategoryBuilder {
     public static class PhasingMIRShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_MIR_shell";
 
-        PhasingMIRShellBuilder(BlockBuilder parent) {
+        public PhasingMIRShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6317,7 +6317,7 @@ public class CategoryBuilder {
     public static class PhasingSetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_set";
 
-        PhasingSetBuilder(BlockBuilder parent) {
+        public PhasingSetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6385,7 +6385,7 @@ public class CategoryBuilder {
     public static class PhasingSetReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "phasing_set_refln";
 
-        PhasingSetReflnBuilder(BlockBuilder parent) {
+        public PhasingSetReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6425,7 +6425,7 @@ public class CategoryBuilder {
     public static class PublBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "publ";
 
-        PublBuilder(BlockBuilder parent) {
+        public PublBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6549,7 +6549,7 @@ public class CategoryBuilder {
     public static class PublAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "publ_author";
 
-        PublAuthorBuilder(BlockBuilder parent) {
+        public PublAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6577,7 +6577,7 @@ public class CategoryBuilder {
     public static class PublBodyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "publ_body";
 
-        PublBodyBuilder(BlockBuilder parent) {
+        public PublBodyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6605,7 +6605,7 @@ public class CategoryBuilder {
     public static class PublManuscriptInclBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "publ_manuscript_incl";
 
-        PublManuscriptInclBuilder(BlockBuilder parent) {
+        public PublManuscriptInclBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -6629,7 +6629,7 @@ public class CategoryBuilder {
     public static class RefineBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine";
 
-        RefineBuilder(BlockBuilder parent) {
+        public RefineBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7133,7 +7133,7 @@ public class CategoryBuilder {
     public static class RefineAnalyzeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_analyze";
 
-        RefineAnalyzeBuilder(BlockBuilder parent) {
+        public RefineAnalyzeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7217,7 +7217,7 @@ public class CategoryBuilder {
     public static class RefineBIsoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_B_iso";
 
-        RefineBIsoBuilder(BlockBuilder parent) {
+        public RefineBIsoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7257,7 +7257,7 @@ public class CategoryBuilder {
     public static class RefineFunctMinimizedBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_funct_minimized";
 
-        RefineFunctMinimizedBuilder(BlockBuilder parent) {
+        public RefineFunctMinimizedBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7285,7 +7285,7 @@ public class CategoryBuilder {
     public static class RefineHistBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_hist";
 
-        RefineHistBuilder(BlockBuilder parent) {
+        public RefineHistBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7397,7 +7397,7 @@ public class CategoryBuilder {
     public static class RefineLsRestrBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_ls_restr";
 
-        RefineLsRestrBuilder(BlockBuilder parent) {
+        public RefineLsRestrBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7441,7 +7441,7 @@ public class CategoryBuilder {
     public static class RefineLsRestrNcsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_ls_restr_ncs";
 
-        RefineLsRestrNcsBuilder(BlockBuilder parent) {
+        public RefineLsRestrNcsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7509,7 +7509,7 @@ public class CategoryBuilder {
     public static class RefineLsRestrTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_ls_restr_type";
 
-        RefineLsRestrTypeBuilder(BlockBuilder parent) {
+        public RefineLsRestrTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7529,7 +7529,7 @@ public class CategoryBuilder {
     public static class RefineLsShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_ls_shell";
 
-        RefineLsShellBuilder(BlockBuilder parent) {
+        public RefineLsShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7633,7 +7633,7 @@ public class CategoryBuilder {
     public static class RefineOccupancyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_occupancy";
 
-        RefineOccupancyBuilder(BlockBuilder parent) {
+        public RefineOccupancyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7661,7 +7661,7 @@ public class CategoryBuilder {
     public static class ReflnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refln";
 
-        ReflnBuilder(BlockBuilder parent) {
+        public ReflnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7953,7 +7953,7 @@ public class CategoryBuilder {
     public static class ReflnSysAbsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refln_sys_abs";
 
-        ReflnSysAbsBuilder(BlockBuilder parent) {
+        public ReflnSysAbsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -7985,7 +7985,7 @@ public class CategoryBuilder {
     public static class ReflnsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "reflns";
 
-        ReflnsBuilder(BlockBuilder parent) {
+        public ReflnsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8217,7 +8217,7 @@ public class CategoryBuilder {
     public static class ReflnsScaleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "reflns_scale";
 
-        ReflnsScaleBuilder(BlockBuilder parent) {
+        public ReflnsScaleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8241,7 +8241,7 @@ public class CategoryBuilder {
     public static class ReflnsShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "reflns_shell";
 
-        ReflnsShellBuilder(BlockBuilder parent) {
+        public ReflnsShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8409,7 +8409,7 @@ public class CategoryBuilder {
     public static class SoftwareBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "software";
 
-        SoftwareBuilder(BlockBuilder parent) {
+        public SoftwareBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8493,7 +8493,7 @@ public class CategoryBuilder {
     public static class StructBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct";
 
-        StructBuilder(BlockBuilder parent) {
+        public StructBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8541,7 +8541,7 @@ public class CategoryBuilder {
     public static class StructAsymBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_asym";
 
-        StructAsymBuilder(BlockBuilder parent) {
+        public StructAsymBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8601,7 +8601,7 @@ public class CategoryBuilder {
     public static class StructBiolBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_biol";
 
-        StructBiolBuilder(BlockBuilder parent) {
+        public StructBiolBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8637,7 +8637,7 @@ public class CategoryBuilder {
     public static class StructBiolGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_biol_gen";
 
-        StructBiolGenBuilder(BlockBuilder parent) {
+        public StructBiolGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8705,7 +8705,7 @@ public class CategoryBuilder {
     public static class StructBiolKeywordsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_biol_keywords";
 
-        StructBiolKeywordsBuilder(BlockBuilder parent) {
+        public StructBiolKeywordsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8721,7 +8721,7 @@ public class CategoryBuilder {
     public static class StructBiolViewBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_biol_view";
 
-        StructBiolViewBuilder(BlockBuilder parent) {
+        public StructBiolViewBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8789,7 +8789,7 @@ public class CategoryBuilder {
     public static class StructConfBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_conf";
 
-        StructConfBuilder(BlockBuilder parent) {
+        public StructConfBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8877,7 +8877,7 @@ public class CategoryBuilder {
     public static class StructConfTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_conf_type";
 
-        StructConfTypeBuilder(BlockBuilder parent) {
+        public StructConfTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -8897,7 +8897,7 @@ public class CategoryBuilder {
     public static class StructConnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_conn";
 
-        StructConnBuilder(BlockBuilder parent) {
+        public StructConnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9109,7 +9109,7 @@ public class CategoryBuilder {
     public static class StructConnTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_conn_type";
 
-        StructConnTypeBuilder(BlockBuilder parent) {
+        public StructConnTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9129,7 +9129,7 @@ public class CategoryBuilder {
     public static class StructKeywordsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_keywords";
 
-        StructKeywordsBuilder(BlockBuilder parent) {
+        public StructKeywordsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9153,7 +9153,7 @@ public class CategoryBuilder {
     public static class StructMonDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_mon_details";
 
-        StructMonDetailsBuilder(BlockBuilder parent) {
+        public StructMonDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9177,7 +9177,7 @@ public class CategoryBuilder {
     public static class StructMonNuclBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_mon_nucl";
 
-        StructMonNuclBuilder(BlockBuilder parent) {
+        public StructMonNuclBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9345,7 +9345,7 @@ public class CategoryBuilder {
     public static class StructMonProtBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_mon_prot";
 
-        StructMonProtBuilder(BlockBuilder parent) {
+        public StructMonProtBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9453,7 +9453,7 @@ public class CategoryBuilder {
     public static class StructMonProtCisBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_mon_prot_cis";
 
-        StructMonProtCisBuilder(BlockBuilder parent) {
+        public StructMonProtCisBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9541,7 +9541,7 @@ public class CategoryBuilder {
     public static class StructNcsDomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ncs_dom";
 
-        StructNcsDomBuilder(BlockBuilder parent) {
+        public StructNcsDomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9561,7 +9561,7 @@ public class CategoryBuilder {
     public static class StructNcsDomLimBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ncs_dom_lim";
 
-        StructNcsDomLimBuilder(BlockBuilder parent) {
+        public StructNcsDomLimBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9645,7 +9645,7 @@ public class CategoryBuilder {
     public static class StructNcsEnsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ncs_ens";
 
-        StructNcsEnsBuilder(BlockBuilder parent) {
+        public StructNcsEnsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9665,7 +9665,7 @@ public class CategoryBuilder {
     public static class StructNcsEnsGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ncs_ens_gen";
 
-        StructNcsEnsGenBuilder(BlockBuilder parent) {
+        public StructNcsEnsGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9689,7 +9689,7 @@ public class CategoryBuilder {
     public static class StructNcsOperBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ncs_oper";
 
-        StructNcsOperBuilder(BlockBuilder parent) {
+        public StructNcsOperBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9757,7 +9757,7 @@ public class CategoryBuilder {
     public static class StructRefBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ref";
 
-        StructRefBuilder(BlockBuilder parent) {
+        public StructRefBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9817,7 +9817,7 @@ public class CategoryBuilder {
     public static class StructRefSeqBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ref_seq";
 
-        StructRefSeqBuilder(BlockBuilder parent) {
+        public StructRefSeqBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9889,7 +9889,7 @@ public class CategoryBuilder {
     public static class StructRefSeqDifBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_ref_seq_dif";
 
-        StructRefSeqDifBuilder(BlockBuilder parent) {
+        public StructRefSeqDifBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9949,7 +9949,7 @@ public class CategoryBuilder {
     public static class StructSheetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_sheet";
 
-        StructSheetBuilder(BlockBuilder parent) {
+        public StructSheetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -9973,7 +9973,7 @@ public class CategoryBuilder {
     public static class StructSheetHbondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_sheet_hbond";
 
-        StructSheetHbondBuilder(BlockBuilder parent) {
+        public StructSheetHbondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10121,7 +10121,7 @@ public class CategoryBuilder {
     public static class StructSheetOrderBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_sheet_order";
 
-        StructSheetOrderBuilder(BlockBuilder parent) {
+        public StructSheetOrderBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10149,7 +10149,7 @@ public class CategoryBuilder {
     public static class StructSheetRangeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_sheet_range";
 
-        StructSheetRangeBuilder(BlockBuilder parent) {
+        public StructSheetRangeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10225,7 +10225,7 @@ public class CategoryBuilder {
     public static class StructSheetTopologyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_sheet_topology";
 
-        StructSheetTopologyBuilder(BlockBuilder parent) {
+        public StructSheetTopologyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10253,7 +10253,7 @@ public class CategoryBuilder {
     public static class StructSiteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_site";
 
-        StructSiteBuilder(BlockBuilder parent) {
+        public StructSiteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10293,7 +10293,7 @@ public class CategoryBuilder {
     public static class StructSiteGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_site_gen";
 
-        StructSiteGenBuilder(BlockBuilder parent) {
+        public StructSiteGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10361,7 +10361,7 @@ public class CategoryBuilder {
     public static class StructSiteKeywordsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_site_keywords";
 
-        StructSiteKeywordsBuilder(BlockBuilder parent) {
+        public StructSiteKeywordsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10377,7 +10377,7 @@ public class CategoryBuilder {
     public static class StructSiteViewBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "struct_site_view";
 
-        StructSiteViewBuilder(BlockBuilder parent) {
+        public StructSiteViewBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10433,7 +10433,7 @@ public class CategoryBuilder {
     public static class SymmetryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "symmetry";
 
-        SymmetryBuilder(BlockBuilder parent) {
+        public SymmetryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10465,7 +10465,7 @@ public class CategoryBuilder {
     public static class SymmetryEquivBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "symmetry_equiv";
 
-        SymmetryEquivBuilder(BlockBuilder parent) {
+        public SymmetryEquivBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10481,7 +10481,7 @@ public class CategoryBuilder {
     public static class AuditLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "audit_link";
 
-        AuditLinkBuilder(BlockBuilder parent) {
+        public AuditLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10497,7 +10497,7 @@ public class CategoryBuilder {
     public static class DiffrnReflnsClassBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "diffrn_reflns_class";
 
-        DiffrnReflnsClassBuilder(BlockBuilder parent) {
+        public DiffrnReflnsClassBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10537,7 +10537,7 @@ public class CategoryBuilder {
     public static class RefineLsClassBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "refine_ls_class";
 
-        RefineLsClassBuilder(BlockBuilder parent) {
+        public RefineLsClassBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10577,7 +10577,7 @@ public class CategoryBuilder {
     public static class ReflnsClassBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "reflns_class";
 
-        ReflnsClassBuilder(BlockBuilder parent) {
+        public ReflnsClassBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10629,7 +10629,7 @@ public class CategoryBuilder {
     public static class SpaceGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "space_group";
 
-        SpaceGroupBuilder(BlockBuilder parent) {
+        public SpaceGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10657,7 +10657,7 @@ public class CategoryBuilder {
     public static class SpaceGroupSymopBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "space_group_symop";
 
-        SpaceGroupSymopBuilder(BlockBuilder parent) {
+        public SpaceGroupSymopBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10677,7 +10677,7 @@ public class CategoryBuilder {
     public static class ValenceParamBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "valence_param";
 
-        ValenceParamBuilder(BlockBuilder parent) {
+        public ValenceParamBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10721,7 +10721,7 @@ public class CategoryBuilder {
     public static class ValenceRefBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "valence_ref";
 
-        ValenceRefBuilder(BlockBuilder parent) {
+        public ValenceRefBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10737,7 +10737,7 @@ public class CategoryBuilder {
     public static class PdbxAuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit";
 
-        PdbxAuditBuilder(BlockBuilder parent) {
+        public PdbxAuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10753,7 +10753,7 @@ public class CategoryBuilder {
     public static class PdbxVersionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_version";
 
-        PdbxVersionBuilder(BlockBuilder parent) {
+        public PdbxVersionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10785,7 +10785,7 @@ public class CategoryBuilder {
     public static class PdbxAuditAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_author";
 
-        PdbxAuditAuthorBuilder(BlockBuilder parent) {
+        public PdbxAuditAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10805,7 +10805,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseMessageBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_message";
 
-        PdbxDatabaseMessageBuilder(BlockBuilder parent) {
+        public PdbxDatabaseMessageBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10877,7 +10877,7 @@ public class CategoryBuilder {
     public static class PdbxDatabasePDBObsSprBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_PDB_obs_spr";
 
-        PdbxDatabasePDBObsSprBuilder(BlockBuilder parent) {
+        public PdbxDatabasePDBObsSprBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10905,7 +10905,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseProcBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_proc";
 
-        PdbxDatabaseProcBuilder(BlockBuilder parent) {
+        public PdbxDatabaseProcBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10933,7 +10933,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseRemarkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_remark";
 
-        PdbxDatabaseRemarkBuilder(BlockBuilder parent) {
+        public PdbxDatabaseRemarkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -10949,7 +10949,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseStatusBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_status";
 
-        PdbxDatabaseStatusBuilder(BlockBuilder parent) {
+        public PdbxDatabaseStatusBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11213,7 +11213,7 @@ public class CategoryBuilder {
     public static class PdbxEntityNameBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_name";
 
-        PdbxEntityNameBuilder(BlockBuilder parent) {
+        public PdbxEntityNameBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11233,7 +11233,7 @@ public class CategoryBuilder {
     public static class PdbxPrereleaseSeqBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_prerelease_seq";
 
-        PdbxPrereleaseSeqBuilder(BlockBuilder parent) {
+        public PdbxPrereleaseSeqBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11249,7 +11249,7 @@ public class CategoryBuilder {
     public static class PdbxPolySeqSchemeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_poly_seq_scheme";
 
-        PdbxPolySeqSchemeBuilder(BlockBuilder parent) {
+        public PdbxPolySeqSchemeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11305,7 +11305,7 @@ public class CategoryBuilder {
     public static class PdbxNonpolySchemeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nonpoly_scheme";
 
-        PdbxNonpolySchemeBuilder(BlockBuilder parent) {
+        public PdbxNonpolySchemeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11353,7 +11353,7 @@ public class CategoryBuilder {
     public static class PdbxRefineBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine";
 
-        PdbxRefineBuilder(BlockBuilder parent) {
+        public PdbxRefineBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11429,7 +11429,7 @@ public class CategoryBuilder {
     public static class PdbxStructSheetHbondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_sheet_hbond";
 
-        PdbxStructSheetHbondBuilder(BlockBuilder parent) {
+        public PdbxStructSheetHbondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11521,7 +11521,7 @@ public class CategoryBuilder {
     public static class PdbxXplorFileBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_xplor_file";
 
-        PdbxXplorFileBuilder(BlockBuilder parent) {
+        public PdbxXplorFileBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11545,7 +11545,7 @@ public class CategoryBuilder {
     public static class PdbxRefineAuxFileBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine_aux_file";
 
-        PdbxRefineAuxFileBuilder(BlockBuilder parent) {
+        public PdbxRefineAuxFileBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11569,7 +11569,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseRelatedBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_related";
 
-        PdbxDatabaseRelatedBuilder(BlockBuilder parent) {
+        public PdbxDatabaseRelatedBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11593,7 +11593,7 @@ public class CategoryBuilder {
     public static class PdbxEntityAssemblyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_assembly";
 
-        PdbxEntityAssemblyBuilder(BlockBuilder parent) {
+        public PdbxEntityAssemblyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11617,7 +11617,7 @@ public class CategoryBuilder {
     public static class PdbxExptlCrystalGrowCompBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_exptl_crystal_grow_comp";
 
-        PdbxExptlCrystalGrowCompBuilder(BlockBuilder parent) {
+        public PdbxExptlCrystalGrowCompBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11653,7 +11653,7 @@ public class CategoryBuilder {
     public static class PdbxExptlCrystalGrowSolBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_exptl_crystal_grow_sol";
 
-        PdbxExptlCrystalGrowSolBuilder(BlockBuilder parent) {
+        public PdbxExptlCrystalGrowSolBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11681,7 +11681,7 @@ public class CategoryBuilder {
     public static class PdbxExptlCrystalCryoTreatmentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_exptl_crystal_cryo_treatment";
 
-        PdbxExptlCrystalCryoTreatmentBuilder(BlockBuilder parent) {
+        public PdbxExptlCrystalCryoTreatmentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11709,7 +11709,7 @@ public class CategoryBuilder {
     public static class PdbxRefineTlsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine_tls";
 
-        PdbxRefineTlsBuilder(BlockBuilder parent) {
+        public PdbxRefineTlsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11913,7 +11913,7 @@ public class CategoryBuilder {
     public static class PdbxRefineTlsGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine_tls_group";
 
-        PdbxRefineTlsGroupBuilder(BlockBuilder parent) {
+        public PdbxRefineTlsGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -11973,7 +11973,7 @@ public class CategoryBuilder {
     public static class PdbxContactAuthorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_contact_author";
 
-        PdbxContactAuthorBuilder(BlockBuilder parent) {
+        public PdbxContactAuthorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12061,7 +12061,7 @@ public class CategoryBuilder {
     public static class PdbxSGProjectBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_SG_project";
 
-        PdbxSGProjectBuilder(BlockBuilder parent) {
+        public PdbxSGProjectBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12085,7 +12085,7 @@ public class CategoryBuilder {
     public static class PdbxAtomSiteAnisoTlsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_atom_site_aniso_tls";
 
-        PdbxAtomSiteAnisoTlsBuilder(BlockBuilder parent) {
+        public PdbxAtomSiteAnisoTlsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12169,7 +12169,7 @@ public class CategoryBuilder {
     public static class PdbxNmrDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_details";
 
-        PdbxNmrDetailsBuilder(BlockBuilder parent) {
+        public PdbxNmrDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12185,7 +12185,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSampleDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_sample_details";
 
-        PdbxNmrSampleDetailsBuilder(BlockBuilder parent) {
+        public PdbxNmrSampleDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12217,7 +12217,7 @@ public class CategoryBuilder {
     public static class PdbxNmrExptlSampleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_exptl_sample";
 
-        PdbxNmrExptlSampleBuilder(BlockBuilder parent) {
+        public PdbxNmrExptlSampleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12253,7 +12253,7 @@ public class CategoryBuilder {
     public static class PdbxNmrExptlSampleConditionsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_exptl_sample_conditions";
 
-        PdbxNmrExptlSampleConditionsBuilder(BlockBuilder parent) {
+        public PdbxNmrExptlSampleConditionsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12321,7 +12321,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSpectrometerBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_spectrometer";
 
-        PdbxNmrSpectrometerBuilder(BlockBuilder parent) {
+        public PdbxNmrSpectrometerBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12357,7 +12357,7 @@ public class CategoryBuilder {
     public static class PdbxNmrExptlBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_exptl";
 
-        PdbxNmrExptlBuilder(BlockBuilder parent) {
+        public PdbxNmrExptlBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12389,7 +12389,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSoftwareBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_software";
 
-        PdbxNmrSoftwareBuilder(BlockBuilder parent) {
+        public PdbxNmrSoftwareBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12421,7 +12421,7 @@ public class CategoryBuilder {
     public static class PdbxNmrConstraintsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_constraints";
 
-        PdbxNmrConstraintsBuilder(BlockBuilder parent) {
+        public PdbxNmrConstraintsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12525,7 +12525,7 @@ public class CategoryBuilder {
     public static class PdbxNmrEnsembleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_ensemble";
 
-        PdbxNmrEnsembleBuilder(BlockBuilder parent) {
+        public PdbxNmrEnsembleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12593,7 +12593,7 @@ public class CategoryBuilder {
     public static class PdbxNmrEnsembleRmsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_ensemble_rms";
 
-        PdbxNmrEnsembleRmsBuilder(BlockBuilder parent) {
+        public PdbxNmrEnsembleRmsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12677,7 +12677,7 @@ public class CategoryBuilder {
     public static class PdbxNmrRepresentativeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_representative";
 
-        PdbxNmrRepresentativeBuilder(BlockBuilder parent) {
+        public PdbxNmrRepresentativeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12697,7 +12697,7 @@ public class CategoryBuilder {
     public static class PdbxNmrRefineBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_refine";
 
-        PdbxNmrRefineBuilder(BlockBuilder parent) {
+        public PdbxNmrRefineBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12721,7 +12721,7 @@ public class CategoryBuilder {
     public static class PdbxNmrForceConstantsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_force_constants";
 
-        PdbxNmrForceConstantsBuilder(BlockBuilder parent) {
+        public PdbxNmrForceConstantsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12837,7 +12837,7 @@ public class CategoryBuilder {
     public static class NdbStructConfNaBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "ndb_struct_conf_na";
 
-        NdbStructConfNaBuilder(BlockBuilder parent) {
+        public NdbStructConfNaBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12857,7 +12857,7 @@ public class CategoryBuilder {
     public static class NdbStructFeatureNaBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "ndb_struct_feature_na";
 
-        NdbStructFeatureNaBuilder(BlockBuilder parent) {
+        public NdbStructFeatureNaBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12877,7 +12877,7 @@ public class CategoryBuilder {
     public static class NdbStructNaBasePairBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "ndb_struct_na_base_pair";
 
-        NdbStructNaBasePairBuilder(BlockBuilder parent) {
+        public NdbStructNaBasePairBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -12985,7 +12985,7 @@ public class CategoryBuilder {
     public static class NdbStructNaBasePairStepBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "ndb_struct_na_base_pair_step";
 
-        NdbStructNaBasePairStepBuilder(BlockBuilder parent) {
+        public NdbStructNaBasePairStepBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13165,7 +13165,7 @@ public class CategoryBuilder {
     public static class NdbOriginalNdbCoordinatesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "ndb_original_ndb_coordinates";
 
-        NdbOriginalNdbCoordinatesBuilder(BlockBuilder parent) {
+        public NdbOriginalNdbCoordinatesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13177,7 +13177,7 @@ public class CategoryBuilder {
     public static class PdbxEntityNonpolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_nonpoly";
 
-        PdbxEntityNonpolyBuilder(BlockBuilder parent) {
+        public PdbxEntityNonpolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13197,7 +13197,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingDmBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_dm";
 
-        PdbxPhasingDmBuilder(BlockBuilder parent) {
+        public PdbxPhasingDmBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13249,7 +13249,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingDmShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_dm_shell";
 
-        PdbxPhasingDmShellBuilder(BlockBuilder parent) {
+        public PdbxPhasingDmShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13297,7 +13297,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingMADShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_MAD_shell";
 
-        PdbxPhasingMADShellBuilder(BlockBuilder parent) {
+        public PdbxPhasingMADShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13385,7 +13385,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingMADSetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_MAD_set";
 
-        PdbxPhasingMADSetBuilder(BlockBuilder parent) {
+        public PdbxPhasingMADSetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13481,7 +13481,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingMADSetShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_MAD_set_shell";
 
-        PdbxPhasingMADSetShellBuilder(BlockBuilder parent) {
+        public PdbxPhasingMADSetShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13573,7 +13573,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingMADSetSiteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_MAD_set_site";
 
-        PdbxPhasingMADSetSiteBuilder(BlockBuilder parent) {
+        public PdbxPhasingMADSetSiteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13661,7 +13661,7 @@ public class CategoryBuilder {
     public static class PdbxPhasingMRBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_phasing_MR";
 
-        PdbxPhasingMRBuilder(BlockBuilder parent) {
+        public PdbxPhasingMRBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13773,7 +13773,7 @@ public class CategoryBuilder {
     public static class PdbxRefineComponentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine_component";
 
-        PdbxRefineComponentBuilder(BlockBuilder parent) {
+        public PdbxRefineComponentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13889,7 +13889,7 @@ public class CategoryBuilder {
     public static class PdbxEntityProdProtocolBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_prod_protocol";
 
-        PdbxEntityProdProtocolBuilder(BlockBuilder parent) {
+        public PdbxEntityProdProtocolBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13913,7 +13913,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenProdOtherBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_prod_other";
 
-        PdbxEntitySrcGenProdOtherBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenProdOtherBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13957,7 +13957,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenProdOtherParameterBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_prod_other_parameter";
 
-        PdbxEntitySrcGenProdOtherParameterBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenProdOtherParameterBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -13989,7 +13989,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenProdPcrBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_prod_pcr";
 
-        PdbxEntitySrcGenProdPcrBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenProdPcrBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14045,7 +14045,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenProdDigestBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_prod_digest";
 
-        PdbxEntitySrcGenProdDigestBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenProdDigestBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14097,7 +14097,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenCloneBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_clone";
 
-        PdbxEntitySrcGenCloneBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenCloneBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14165,7 +14165,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenCloneLigationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_clone_ligation";
 
-        PdbxEntitySrcGenCloneLigationBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenCloneLigationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14205,7 +14205,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenCloneRecombinationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_clone_recombination";
 
-        PdbxEntitySrcGenCloneRecombinationBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenCloneRecombinationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14237,7 +14237,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenExpressBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_express";
 
-        PdbxEntitySrcGenExpressBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenExpressBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14385,7 +14385,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenExpressTimepointBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_express_timepoint";
 
-        PdbxEntitySrcGenExpressTimepointBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenExpressTimepointBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14417,7 +14417,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenLysisBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_lysis";
 
-        PdbxEntitySrcGenLysisBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenLysisBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14477,7 +14477,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenRefoldBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_refold";
 
-        PdbxEntitySrcGenRefoldBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenRefoldBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14537,7 +14537,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenProteolysisBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_proteolysis";
 
-        PdbxEntitySrcGenProteolysisBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenProteolysisBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14597,7 +14597,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenChromBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_chrom";
 
-        PdbxEntitySrcGenChromBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenChromBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14693,7 +14693,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenFractBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_fract";
 
-        PdbxEntitySrcGenFractBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenFractBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14757,7 +14757,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenPureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_pure";
 
-        PdbxEntitySrcGenPureBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenPureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14825,7 +14825,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenCharacterBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_character";
 
-        PdbxEntitySrcGenCharacterBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenCharacterBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14865,7 +14865,7 @@ public class CategoryBuilder {
     public static class PdbxConstructBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_construct";
 
-        PdbxConstructBuilder(BlockBuilder parent) {
+        public PdbxConstructBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14917,7 +14917,7 @@ public class CategoryBuilder {
     public static class PdbxConstructFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_construct_feature";
 
-        PdbxConstructFeatureBuilder(BlockBuilder parent) {
+        public PdbxConstructFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14953,7 +14953,7 @@ public class CategoryBuilder {
     public static class PdbxRobotSystemBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_robot_system";
 
-        PdbxRobotSystemBuilder(BlockBuilder parent) {
+        public PdbxRobotSystemBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14977,7 +14977,7 @@ public class CategoryBuilder {
     public static class PdbxBufferBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_buffer";
 
-        PdbxBufferBuilder(BlockBuilder parent) {
+        public PdbxBufferBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -14997,7 +14997,7 @@ public class CategoryBuilder {
     public static class PdbxBufferComponentsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_buffer_components";
 
-        PdbxBufferComponentsBuilder(BlockBuilder parent) {
+        public PdbxBufferComponentsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15037,7 +15037,7 @@ public class CategoryBuilder {
     public static class PdbxDomainBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_domain";
 
-        PdbxDomainBuilder(BlockBuilder parent) {
+        public PdbxDomainBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15053,7 +15053,7 @@ public class CategoryBuilder {
     public static class PdbxDomainRangeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_domain_range";
 
-        PdbxDomainRangeBuilder(BlockBuilder parent) {
+        public PdbxDomainRangeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15121,7 +15121,7 @@ public class CategoryBuilder {
     public static class PdbxSequenceRangeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_sequence_range";
 
-        PdbxSequenceRangeBuilder(BlockBuilder parent) {
+        public PdbxSequenceRangeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15189,7 +15189,7 @@ public class CategoryBuilder {
     public static class PdbxFeatureEntryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_feature_entry";
 
-        PdbxFeatureEntryBuilder(BlockBuilder parent) {
+        public PdbxFeatureEntryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15229,7 +15229,7 @@ public class CategoryBuilder {
     public static class PdbxFeatureDomainBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_feature_domain";
 
-        PdbxFeatureDomainBuilder(BlockBuilder parent) {
+        public PdbxFeatureDomainBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15273,7 +15273,7 @@ public class CategoryBuilder {
     public static class PdbxFeatureSequenceRangeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_feature_sequence_range";
 
-        PdbxFeatureSequenceRangeBuilder(BlockBuilder parent) {
+        public PdbxFeatureSequenceRangeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15317,7 +15317,7 @@ public class CategoryBuilder {
     public static class PdbxFeatureAssemblyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_feature_assembly";
 
-        PdbxFeatureAssemblyBuilder(BlockBuilder parent) {
+        public PdbxFeatureAssemblyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15361,7 +15361,7 @@ public class CategoryBuilder {
     public static class PdbxFeatureMonomerBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_feature_monomer";
 
-        PdbxFeatureMonomerBuilder(BlockBuilder parent) {
+        public PdbxFeatureMonomerBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15429,7 +15429,7 @@ public class CategoryBuilder {
     public static class PdbxExptlPdBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_exptl_pd";
 
-        PdbxExptlPdBuilder(BlockBuilder parent) {
+        public PdbxExptlPdBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15453,7 +15453,7 @@ public class CategoryBuilder {
     public static class PdbxReflnsTwinBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reflns_twin";
 
-        PdbxReflnsTwinBuilder(BlockBuilder parent) {
+        public PdbxReflnsTwinBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15493,7 +15493,7 @@ public class CategoryBuilder {
     public static class PdbxStructInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_info";
 
-        PdbxStructInfoBuilder(BlockBuilder parent) {
+        public PdbxStructInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15513,7 +15513,7 @@ public class CategoryBuilder {
     public static class PdbxReRefinementBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_re_refinement";
 
-        PdbxReRefinementBuilder(BlockBuilder parent) {
+        public PdbxReRefinementBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15533,7 +15533,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyPropBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_prop";
 
-        PdbxStructAssemblyPropBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyPropBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15557,7 +15557,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_feature";
 
-        PdbxStructRefSeqFeatureBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15621,7 +15621,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqFeaturePropBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_feature_prop";
 
-        PdbxStructRefSeqFeaturePropBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqFeaturePropBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15665,7 +15665,7 @@ public class CategoryBuilder {
     public static class PdbxStructChemCompDiagnosticsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_chem_comp_diagnostics";
 
-        PdbxStructChemCompDiagnosticsBuilder(BlockBuilder parent) {
+        public PdbxStructChemCompDiagnosticsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15709,7 +15709,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_feature";
 
-        PdbxChemCompFeatureBuilder(BlockBuilder parent) {
+        public PdbxChemCompFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15737,7 +15737,7 @@ public class CategoryBuilder {
     public static class PdbxCoordinateModelBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_coordinate_model";
 
-        PdbxCoordinateModelBuilder(BlockBuilder parent) {
+        public PdbxCoordinateModelBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15753,7 +15753,7 @@ public class CategoryBuilder {
     public static class PdbxStructChemCompFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_chem_comp_feature";
 
-        PdbxStructChemCompFeatureBuilder(BlockBuilder parent) {
+        public PdbxStructChemCompFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15797,7 +15797,7 @@ public class CategoryBuilder {
     public static class PdbxDiffrnReflnsShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_diffrn_reflns_shell";
 
-        PdbxDiffrnReflnsShellBuilder(BlockBuilder parent) {
+        public PdbxDiffrnReflnsShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15845,7 +15845,7 @@ public class CategoryBuilder {
     public static class PdbxBondDistanceLimitsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_bond_distance_limits";
 
-        PdbxBondDistanceLimitsBuilder(BlockBuilder parent) {
+        public PdbxBondDistanceLimitsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15869,7 +15869,7 @@ public class CategoryBuilder {
     public static class PdbxSolnScatterBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_soln_scatter";
 
-        PdbxSolnScatterBuilder(BlockBuilder parent) {
+        public PdbxSolnScatterBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -15969,7 +15969,7 @@ public class CategoryBuilder {
     public static class PdbxSolnScatterModelBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_soln_scatter_model";
 
-        PdbxSolnScatterModelBuilder(BlockBuilder parent) {
+        public PdbxSolnScatterModelBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16021,7 +16021,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompDescriptorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_descriptor";
 
-        PdbxChemCompDescriptorBuilder(BlockBuilder parent) {
+        public PdbxChemCompDescriptorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16053,7 +16053,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompIdentifierBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_identifier";
 
-        PdbxChemCompIdentifierBuilder(BlockBuilder parent) {
+        public PdbxChemCompIdentifierBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16085,7 +16085,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompImportBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_import";
 
-        PdbxChemCompImportBuilder(BlockBuilder parent) {
+        public PdbxChemCompImportBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16097,7 +16097,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompAtomEditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_atom_edit";
 
-        PdbxChemCompAtomEditBuilder(BlockBuilder parent) {
+        public PdbxChemCompAtomEditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16129,7 +16129,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompBondEditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_bond_edit";
 
-        PdbxChemCompBondEditBuilder(BlockBuilder parent) {
+        public PdbxChemCompBondEditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16161,7 +16161,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompAuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_audit";
 
-        PdbxChemCompAuditBuilder(BlockBuilder parent) {
+        public PdbxChemCompAuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16193,7 +16193,7 @@ public class CategoryBuilder {
     public static class PdbxValidateCloseContactBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_close_contact";
 
-        PdbxValidateCloseContactBuilder(BlockBuilder parent) {
+        public PdbxValidateCloseContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16269,7 +16269,7 @@ public class CategoryBuilder {
     public static class PdbxValidateSymmContactBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_symm_contact";
 
-        PdbxValidateSymmContactBuilder(BlockBuilder parent) {
+        public PdbxValidateSymmContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16345,7 +16345,7 @@ public class CategoryBuilder {
     public static class PdbxValidateRmsdBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_rmsd_bond";
 
-        PdbxValidateRmsdBondBuilder(BlockBuilder parent) {
+        public PdbxValidateRmsdBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16429,7 +16429,7 @@ public class CategoryBuilder {
     public static class PdbxValidateRmsdAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_rmsd_angle";
 
-        PdbxValidateRmsdAngleBuilder(BlockBuilder parent) {
+        public PdbxValidateRmsdAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16537,7 +16537,7 @@ public class CategoryBuilder {
     public static class PdbxValidateTorsionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_torsion";
 
-        PdbxValidateTorsionBuilder(BlockBuilder parent) {
+        public PdbxValidateTorsionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16581,7 +16581,7 @@ public class CategoryBuilder {
     public static class PdbxValidatePeptideOmegaBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_peptide_omega";
 
-        PdbxValidatePeptideOmegaBuilder(BlockBuilder parent) {
+        public PdbxValidatePeptideOmegaBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16641,7 +16641,7 @@ public class CategoryBuilder {
     public static class PdbxValidateChiralBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_chiral";
 
-        PdbxValidateChiralBuilder(BlockBuilder parent) {
+        public PdbxValidateChiralBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16689,7 +16689,7 @@ public class CategoryBuilder {
     public static class PdbxValidatePlanesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_planes";
 
-        PdbxValidatePlanesBuilder(BlockBuilder parent) {
+        public PdbxValidatePlanesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16733,7 +16733,7 @@ public class CategoryBuilder {
     public static class PdbxValidatePlanesAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_planes_atom";
 
-        PdbxValidatePlanesAtomBuilder(BlockBuilder parent) {
+        public PdbxValidatePlanesAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16777,7 +16777,7 @@ public class CategoryBuilder {
     public static class PdbxValidateMainChainPlaneBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_main_chain_plane";
 
-        PdbxValidateMainChainPlaneBuilder(BlockBuilder parent) {
+        public PdbxValidateMainChainPlaneBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16817,7 +16817,7 @@ public class CategoryBuilder {
     public static class PdbxStructConnAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_conn_angle";
 
-        PdbxStructConnAngleBuilder(BlockBuilder parent) {
+        public PdbxStructConnAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -16981,7 +16981,7 @@ public class CategoryBuilder {
     public static class PdbxUnobsOrZeroOccResiduesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_unobs_or_zero_occ_residues";
 
-        PdbxUnobsOrZeroOccResiduesBuilder(BlockBuilder parent) {
+        public PdbxUnobsOrZeroOccResiduesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17033,7 +17033,7 @@ public class CategoryBuilder {
     public static class PdbxUnobsOrZeroOccAtomsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_unobs_or_zero_occ_atoms";
 
-        PdbxUnobsOrZeroOccAtomsBuilder(BlockBuilder parent) {
+        public PdbxUnobsOrZeroOccAtomsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17097,7 +17097,7 @@ public class CategoryBuilder {
     public static class PdbxEntryDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entry_details";
 
-        PdbxEntryDetailsBuilder(BlockBuilder parent) {
+        public PdbxEntryDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17125,7 +17125,7 @@ public class CategoryBuilder {
     public static class PdbxStructModResidueBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_mod_residue";
 
-        PdbxStructModResidueBuilder(BlockBuilder parent) {
+        public PdbxStructModResidueBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17177,7 +17177,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqInsertionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_insertion";
 
-        PdbxStructRefSeqInsertionBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqInsertionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17225,7 +17225,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqDeletionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_deletion";
 
-        PdbxStructRefSeqDeletionBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqDeletionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17261,7 +17261,7 @@ public class CategoryBuilder {
     public static class PdbxRemediationAtomSiteMappingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_remediation_atom_site_mapping";
 
-        PdbxRemediationAtomSiteMappingBuilder(BlockBuilder parent) {
+        public PdbxRemediationAtomSiteMappingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17365,7 +17365,7 @@ public class CategoryBuilder {
     public static class PdbxValidatePolymerLinkageBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_validate_polymer_linkage";
 
-        PdbxValidatePolymerLinkageBuilder(BlockBuilder parent) {
+        public PdbxValidatePolymerLinkageBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17433,7 +17433,7 @@ public class CategoryBuilder {
     public static class PdbxHelicalSymmetryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_helical_symmetry";
 
-        PdbxHelicalSymmetryBuilder(BlockBuilder parent) {
+        public PdbxHelicalSymmetryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17469,7 +17469,7 @@ public class CategoryBuilder {
     public static class PdbxPointSymmetryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_point_symmetry";
 
-        PdbxPointSymmetryBuilder(BlockBuilder parent) {
+        public PdbxPointSymmetryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17493,7 +17493,7 @@ public class CategoryBuilder {
     public static class PdbxStructEntityInstBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_entity_inst";
 
-        PdbxStructEntityInstBuilder(BlockBuilder parent) {
+        public PdbxStructEntityInstBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17513,7 +17513,7 @@ public class CategoryBuilder {
     public static class PdbxStructOperListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_oper_list";
 
-        PdbxStructOperListBuilder(BlockBuilder parent) {
+        public PdbxStructOperListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17585,7 +17585,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly";
 
-        PdbxStructAssemblyBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17613,7 +17613,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_gen";
 
-        PdbxStructAssemblyGenBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17641,7 +17641,7 @@ public class CategoryBuilder {
     public static class PdbxStructAsymGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_asym_gen";
 
-        PdbxStructAsymGenBuilder(BlockBuilder parent) {
+        public PdbxStructAsymGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17661,7 +17661,7 @@ public class CategoryBuilder {
     public static class PdbxStructMsymGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_msym_gen";
 
-        PdbxStructMsymGenBuilder(BlockBuilder parent) {
+        public PdbxStructMsymGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17681,7 +17681,7 @@ public class CategoryBuilder {
     public static class PdbxStructLegacyOperListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_legacy_oper_list";
 
-        PdbxStructLegacyOperListBuilder(BlockBuilder parent) {
+        public PdbxStructLegacyOperListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17745,7 +17745,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompAtomFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_atom_feature";
 
-        PdbxChemCompAtomFeatureBuilder(BlockBuilder parent) {
+        public PdbxChemCompAtomFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17765,7 +17765,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeFamilyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_family";
 
-        PdbxReferenceMoleculeFamilyBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeFamilyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17793,7 +17793,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_list";
 
-        PdbxReferenceMoleculeListBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17809,7 +17809,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule";
 
-        PdbxReferenceMoleculeBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17881,7 +17881,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_list";
 
-        PdbxReferenceEntityListBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17909,7 +17909,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityNonpolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_nonpoly";
 
-        PdbxReferenceEntityNonpolyBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityNonpolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -17937,7 +17937,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_link";
 
-        PdbxReferenceEntityLinkBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18013,7 +18013,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityPolyLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_poly_link";
 
-        PdbxReferenceEntityPolyLinkBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityPolyLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18077,7 +18077,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityPolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_poly";
 
-        PdbxReferenceEntityPolyBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityPolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18105,7 +18105,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntityPolySeqBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_poly_seq";
 
-        PdbxReferenceEntityPolySeqBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntityPolySeqBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18141,7 +18141,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntitySequenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_sequence";
 
-        PdbxReferenceEntitySequenceBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntitySequenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18169,7 +18169,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntitySrcNatBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_src_nat";
 
-        PdbxReferenceEntitySrcNatBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntitySrcNatBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18221,7 +18221,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_details";
 
-        PdbxReferenceMoleculeDetailsBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18253,7 +18253,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeSynonymsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_synonyms";
 
-        PdbxReferenceMoleculeSynonymsBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeSynonymsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18285,7 +18285,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceEntitySubcomponentsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_entity_subcomponents";
 
-        PdbxReferenceEntitySubcomponentsBuilder(BlockBuilder parent) {
+        public PdbxReferenceEntitySubcomponentsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18305,7 +18305,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeAnnotationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_annotation";
 
-        PdbxReferenceMoleculeAnnotationBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeAnnotationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18345,7 +18345,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeFeaturesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_features";
 
-        PdbxReferenceMoleculeFeaturesBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeFeaturesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18385,7 +18385,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceMoleculeRelatedStructuresBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_molecule_related_structures";
 
-        PdbxReferenceMoleculeRelatedStructuresBuilder(BlockBuilder parent) {
+        public PdbxReferenceMoleculeRelatedStructuresBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18425,7 +18425,7 @@ public class CategoryBuilder {
     public static class PdbxStructGroupListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_group_list";
 
-        PdbxStructGroupListBuilder(BlockBuilder parent) {
+        public PdbxStructGroupListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18461,7 +18461,7 @@ public class CategoryBuilder {
     public static class PdbxStructGroupComponentsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_group_components";
 
-        PdbxStructGroupComponentsBuilder(BlockBuilder parent) {
+        public PdbxStructGroupComponentsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18513,7 +18513,7 @@ public class CategoryBuilder {
     public static class PdbxStructGroupComponentRangeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_group_component_range";
 
-        PdbxStructGroupComponentRangeBuilder(BlockBuilder parent) {
+        public PdbxStructGroupComponentRangeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18597,7 +18597,7 @@ public class CategoryBuilder {
     public static class PdbxPrdAuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_prd_audit";
 
-        PdbxPrdAuditBuilder(BlockBuilder parent) {
+        public PdbxPrdAuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18629,7 +18629,7 @@ public class CategoryBuilder {
     public static class PdbxFamilyPrdAuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_family_prd_audit";
 
-        PdbxFamilyPrdAuditBuilder(BlockBuilder parent) {
+        public PdbxFamilyPrdAuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18661,7 +18661,7 @@ public class CategoryBuilder {
     public static class PdbxMoleculeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_molecule";
 
-        PdbxMoleculeBuilder(BlockBuilder parent) {
+        public PdbxMoleculeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18685,7 +18685,7 @@ public class CategoryBuilder {
     public static class PdbxMoleculeFeaturesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_molecule_features";
 
-        PdbxMoleculeFeaturesBuilder(BlockBuilder parent) {
+        public PdbxMoleculeFeaturesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18713,7 +18713,7 @@ public class CategoryBuilder {
     public static class PdbxFamilyGroupIndexBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_family_group_index";
 
-        PdbxFamilyGroupIndexBuilder(BlockBuilder parent) {
+        public PdbxFamilyGroupIndexBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18729,7 +18729,7 @@ public class CategoryBuilder {
     public static class PdbxDistantSolventAtomsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_distant_solvent_atoms";
 
-        PdbxDistantSolventAtomsBuilder(BlockBuilder parent) {
+        public PdbxDistantSolventAtomsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18793,7 +18793,7 @@ public class CategoryBuilder {
     public static class PdbxStructSpecialSymmetryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_special_symmetry";
 
-        PdbxStructSpecialSymmetryBuilder(BlockBuilder parent) {
+        public PdbxStructSpecialSymmetryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18841,7 +18841,7 @@ public class CategoryBuilder {
     public static class PdbxReferencePublicationListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_publication_list";
 
-        PdbxReferencePublicationListBuilder(BlockBuilder parent) {
+        public PdbxReferencePublicationListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18881,7 +18881,7 @@ public class CategoryBuilder {
     public static class PdbxNmrAssignedChemShiftListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_assigned_chem_shift_list";
 
-        PdbxNmrAssignedChemShiftListBuilder(BlockBuilder parent) {
+        public PdbxNmrAssignedChemShiftListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18949,7 +18949,7 @@ public class CategoryBuilder {
     public static class PdbxNmrChemShiftExperimentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_chem_shift_experiment";
 
-        PdbxNmrChemShiftExperimentBuilder(BlockBuilder parent) {
+        public PdbxNmrChemShiftExperimentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -18981,7 +18981,7 @@ public class CategoryBuilder {
     public static class PdbxNmrChemShiftRefBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_chem_shift_ref";
 
-        PdbxNmrChemShiftRefBuilder(BlockBuilder parent) {
+        public PdbxNmrChemShiftRefBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19061,7 +19061,7 @@ public class CategoryBuilder {
     public static class PdbxNmrChemShiftReferenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_chem_shift_reference";
 
-        PdbxNmrChemShiftReferenceBuilder(BlockBuilder parent) {
+        public PdbxNmrChemShiftReferenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19105,7 +19105,7 @@ public class CategoryBuilder {
     public static class PdbxNmrChemShiftSoftwareBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_chem_shift_software";
 
-        PdbxNmrChemShiftSoftwareBuilder(BlockBuilder parent) {
+        public PdbxNmrChemShiftSoftwareBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19129,7 +19129,7 @@ public class CategoryBuilder {
     public static class PdbxNmrConstraintFileBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_constraint_file";
 
-        PdbxNmrConstraintFileBuilder(BlockBuilder parent) {
+        public PdbxNmrConstraintFileBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19169,7 +19169,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSoftwareTaskBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_software_task";
 
-        PdbxNmrSoftwareTaskBuilder(BlockBuilder parent) {
+        public PdbxNmrSoftwareTaskBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19189,7 +19189,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSpectralDimBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_spectral_dim";
 
-        PdbxNmrSpectralDimBuilder(BlockBuilder parent) {
+        public PdbxNmrSpectralDimBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19249,7 +19249,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSpectralPeakListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_spectral_peak_list";
 
-        PdbxNmrSpectralPeakListBuilder(BlockBuilder parent) {
+        public PdbxNmrSpectralPeakListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19301,7 +19301,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSpectralPeakSoftwareBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_spectral_peak_software";
 
-        PdbxNmrSpectralPeakSoftwareBuilder(BlockBuilder parent) {
+        public PdbxNmrSpectralPeakSoftwareBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19321,7 +19321,7 @@ public class CategoryBuilder {
     public static class PdbxNmrSystematicChemShiftOffsetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_systematic_chem_shift_offset";
 
-        PdbxNmrSystematicChemShiftOffsetBuilder(BlockBuilder parent) {
+        public PdbxNmrSystematicChemShiftOffsetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19361,7 +19361,7 @@ public class CategoryBuilder {
     public static class PdbxNmrUploadBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_upload";
 
-        PdbxNmrUploadBuilder(BlockBuilder parent) {
+        public PdbxNmrUploadBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19389,7 +19389,7 @@ public class CategoryBuilder {
     public static class PdbxAuditSupportBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_support";
 
-        PdbxAuditSupportBuilder(BlockBuilder parent) {
+        public PdbxAuditSupportBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19417,7 +19417,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompSubcomponentStructConnBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_subcomponent_struct_conn";
 
-        PdbxChemCompSubcomponentStructConnBuilder(BlockBuilder parent) {
+        public PdbxChemCompSubcomponentStructConnBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19465,7 +19465,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompSubcomponentEntityListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_subcomponent_entity_list";
 
-        PdbxChemCompSubcomponentEntityListBuilder(BlockBuilder parent) {
+        public PdbxChemCompSubcomponentEntityListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19489,7 +19489,7 @@ public class CategoryBuilder {
     public static class EntitySrcNatBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_src_nat";
 
-        EntitySrcNatBuilder(BlockBuilder parent) {
+        public EntitySrcNatBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19601,7 +19601,7 @@ public class CategoryBuilder {
     public static class EntitySrcGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "entity_src_gen";
 
-        EntitySrcGenBuilder(BlockBuilder parent) {
+        public EntitySrcGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19825,7 +19825,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcSynBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_syn";
 
-        PdbxEntitySrcSynBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcSynBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19873,7 +19873,7 @@ public class CategoryBuilder {
     public static class PdbxEntityPolyCompLinkListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_poly_comp_link_list";
 
-        PdbxEntityPolyCompLinkListBuilder(BlockBuilder parent) {
+        public PdbxEntityPolyCompLinkListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19937,7 +19937,7 @@ public class CategoryBuilder {
     public static class PdbxLinkedEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_linked_entity";
 
-        PdbxLinkedEntityBuilder(BlockBuilder parent) {
+        public PdbxLinkedEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19969,7 +19969,7 @@ public class CategoryBuilder {
     public static class PdbxLinkedEntityInstanceListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_linked_entity_instance_list";
 
-        PdbxLinkedEntityInstanceListBuilder(BlockBuilder parent) {
+        public PdbxLinkedEntityInstanceListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -19989,7 +19989,7 @@ public class CategoryBuilder {
     public static class PdbxLinkedEntityListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_linked_entity_list";
 
-        PdbxLinkedEntityListBuilder(BlockBuilder parent) {
+        public PdbxLinkedEntityListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20013,7 +20013,7 @@ public class CategoryBuilder {
     public static class PdbxLinkedEntityLinkListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_linked_entity_link_list";
 
-        PdbxLinkedEntityLinkListBuilder(BlockBuilder parent) {
+        public PdbxLinkedEntityLinkListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20081,7 +20081,7 @@ public class CategoryBuilder {
     public static class PdbxEntityDescriptorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_descriptor";
 
-        PdbxEntityDescriptorBuilder(BlockBuilder parent) {
+        public PdbxEntityDescriptorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20113,7 +20113,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceLinkedEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_linked_entity";
 
-        PdbxReferenceLinkedEntityBuilder(BlockBuilder parent) {
+        public PdbxReferenceLinkedEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20153,7 +20153,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceLinkedEntityCompListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_linked_entity_comp_list";
 
-        PdbxReferenceLinkedEntityCompListBuilder(BlockBuilder parent) {
+        public PdbxReferenceLinkedEntityCompListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20177,7 +20177,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceLinkedEntityCompLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_linked_entity_comp_link";
 
-        PdbxReferenceLinkedEntityCompLinkBuilder(BlockBuilder parent) {
+        public PdbxReferenceLinkedEntityCompLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20241,7 +20241,7 @@ public class CategoryBuilder {
     public static class PdbxReferenceLinkedEntityLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_reference_linked_entity_link";
 
-        PdbxReferenceLinkedEntityLinkBuilder(BlockBuilder parent) {
+        public PdbxReferenceLinkedEntityLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20293,7 +20293,7 @@ public class CategoryBuilder {
     public static class PdbxRelatedExpDataSetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_related_exp_data_set";
 
-        PdbxRelatedExpDataSetBuilder(BlockBuilder parent) {
+        public PdbxRelatedExpDataSetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20321,7 +20321,7 @@ public class CategoryBuilder {
     public static class PdbxDatabaseStatusHistoryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_status_history";
 
-        PdbxDatabaseStatusHistoryBuilder(BlockBuilder parent) {
+        public PdbxDatabaseStatusHistoryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20353,7 +20353,7 @@ public class CategoryBuilder {
     public static class EmAssemblyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_assembly";
 
-        EmAssemblyBuilder(BlockBuilder parent) {
+        public EmAssemblyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20401,7 +20401,7 @@ public class CategoryBuilder {
     public static class EmEntityAssemblyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_entity_assembly";
 
-        EmEntityAssemblyBuilder(BlockBuilder parent) {
+        public EmEntityAssemblyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20505,7 +20505,7 @@ public class CategoryBuilder {
     public static class EmVirusEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_virus_entity";
 
-        EmVirusEntityBuilder(BlockBuilder parent) {
+        public EmVirusEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20557,7 +20557,7 @@ public class CategoryBuilder {
     public static class EmSamplePreparationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_sample_preparation";
 
-        EmSamplePreparationBuilder(BlockBuilder parent) {
+        public EmSamplePreparationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20601,7 +20601,7 @@ public class CategoryBuilder {
     public static class EmSampleSupportBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_sample_support";
 
-        EmSampleSupportBuilder(BlockBuilder parent) {
+        public EmSampleSupportBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20649,7 +20649,7 @@ public class CategoryBuilder {
     public static class EmBufferBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_buffer";
 
-        EmBufferBuilder(BlockBuilder parent) {
+        public EmBufferBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20677,7 +20677,7 @@ public class CategoryBuilder {
     public static class EmVitrificationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_vitrification";
 
-        EmVitrificationBuilder(BlockBuilder parent) {
+        public EmVitrificationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20737,7 +20737,7 @@ public class CategoryBuilder {
     public static class EmImagingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_imaging";
 
-        EmImagingBuilder(BlockBuilder parent) {
+        public EmImagingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20901,7 +20901,7 @@ public class CategoryBuilder {
     public static class EmDetectorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_detector";
 
-        EmDetectorBuilder(BlockBuilder parent) {
+        public EmDetectorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20933,7 +20933,7 @@ public class CategoryBuilder {
     public static class EmImageScansBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_image_scans";
 
-        EmImageScansBuilder(BlockBuilder parent) {
+        public EmImageScansBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -20997,7 +20997,7 @@ public class CategoryBuilder {
     public static class Em2dProjectionSelectionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_2d_projection_selection";
 
-        Em2dProjectionSelectionBuilder(BlockBuilder parent) {
+        public Em2dProjectionSelectionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21033,7 +21033,7 @@ public class CategoryBuilder {
     public static class Em3dReconstructionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_3d_reconstruction";
 
-        Em3dReconstructionBuilder(BlockBuilder parent) {
+        public Em3dReconstructionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21121,7 +21121,7 @@ public class CategoryBuilder {
     public static class Em3dFittingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_3d_fitting";
 
-        Em3dFittingBuilder(BlockBuilder parent) {
+        public Em3dFittingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21165,7 +21165,7 @@ public class CategoryBuilder {
     public static class Em3dFittingListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_3d_fitting_list";
 
-        Em3dFittingListBuilder(BlockBuilder parent) {
+        public Em3dFittingListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21197,7 +21197,7 @@ public class CategoryBuilder {
     public static class EmHelicalEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_helical_entity";
 
-        EmHelicalEntityBuilder(BlockBuilder parent) {
+        public EmHelicalEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21241,7 +21241,7 @@ public class CategoryBuilder {
     public static class EmExperimentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_experiment";
 
-        EmExperimentBuilder(BlockBuilder parent) {
+        public EmExperimentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21273,7 +21273,7 @@ public class CategoryBuilder {
     public static class EmSingleParticleEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_single_particle_entity";
 
-        EmSingleParticleEntityBuilder(BlockBuilder parent) {
+        public EmSingleParticleEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21301,7 +21301,7 @@ public class CategoryBuilder {
     public static class EmAdminBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_admin";
 
-        EmAdminBuilder(BlockBuilder parent) {
+        public EmAdminBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21357,7 +21357,7 @@ public class CategoryBuilder {
     public static class EmAuthorListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_author_list";
 
-        EmAuthorListBuilder(BlockBuilder parent) {
+        public EmAuthorListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21373,7 +21373,7 @@ public class CategoryBuilder {
     public static class EmDbReferenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_db_reference";
 
-        EmDbReferenceBuilder(BlockBuilder parent) {
+        public EmDbReferenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21401,7 +21401,7 @@ public class CategoryBuilder {
     public static class EmDbReferenceAuxiliaryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_db_reference_auxiliary";
 
-        EmDbReferenceAuxiliaryBuilder(BlockBuilder parent) {
+        public EmDbReferenceAuxiliaryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21421,7 +21421,7 @@ public class CategoryBuilder {
     public static class EmDepuiBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_depui";
 
-        EmDepuiBuilder(BlockBuilder parent) {
+        public EmDepuiBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21453,7 +21453,7 @@ public class CategoryBuilder {
     public static class EmObsoleteBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_obsolete";
 
-        EmObsoleteBuilder(BlockBuilder parent) {
+        public EmObsoleteBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21477,7 +21477,7 @@ public class CategoryBuilder {
     public static class EmSupersedeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_supersede";
 
-        EmSupersedeBuilder(BlockBuilder parent) {
+        public EmSupersedeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21501,7 +21501,7 @@ public class CategoryBuilder {
     public static class EmEntityAssemblyMolwtBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_entity_assembly_molwt";
 
-        EmEntityAssemblyMolwtBuilder(BlockBuilder parent) {
+        public EmEntityAssemblyMolwtBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21533,7 +21533,7 @@ public class CategoryBuilder {
     public static class EmEntityAssemblyNaturalsourceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_entity_assembly_naturalsource";
 
-        EmEntityAssemblyNaturalsourceBuilder(BlockBuilder parent) {
+        public EmEntityAssemblyNaturalsourceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21581,7 +21581,7 @@ public class CategoryBuilder {
     public static class EmEntityAssemblyRecombinantBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_entity_assembly_recombinant";
 
-        EmEntityAssemblyRecombinantBuilder(BlockBuilder parent) {
+        public EmEntityAssemblyRecombinantBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21617,7 +21617,7 @@ public class CategoryBuilder {
     public static class EmVirusNaturalHostBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_virus_natural_host";
 
-        EmVirusNaturalHostBuilder(BlockBuilder parent) {
+        public EmVirusNaturalHostBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21645,7 +21645,7 @@ public class CategoryBuilder {
     public static class EmVirusShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_virus_shell";
 
-        EmVirusShellBuilder(BlockBuilder parent) {
+        public EmVirusShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21673,7 +21673,7 @@ public class CategoryBuilder {
     public static class EmSpecimenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_specimen";
 
-        EmSpecimenBuilder(BlockBuilder parent) {
+        public EmSpecimenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21713,7 +21713,7 @@ public class CategoryBuilder {
     public static class EmEmbeddingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_embedding";
 
-        EmEmbeddingBuilder(BlockBuilder parent) {
+        public EmEmbeddingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21737,7 +21737,7 @@ public class CategoryBuilder {
     public static class EmFiducialMarkersBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_fiducial_markers";
 
-        EmFiducialMarkersBuilder(BlockBuilder parent) {
+        public EmFiducialMarkersBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21761,7 +21761,7 @@ public class CategoryBuilder {
     public static class EmFocusedIonBeamBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_focused_ion_beam";
 
-        EmFocusedIonBeamBuilder(BlockBuilder parent) {
+        public EmFocusedIonBeamBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21817,7 +21817,7 @@ public class CategoryBuilder {
     public static class EmGridPretreatmentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_grid_pretreatment";
 
-        EmGridPretreatmentBuilder(BlockBuilder parent) {
+        public EmGridPretreatmentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21849,7 +21849,7 @@ public class CategoryBuilder {
     public static class EmUltramicrotomyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_ultramicrotomy";
 
-        EmUltramicrotomyBuilder(BlockBuilder parent) {
+        public EmUltramicrotomyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21881,7 +21881,7 @@ public class CategoryBuilder {
     public static class EmHighPressureFreezingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_high_pressure_freezing";
 
-        EmHighPressureFreezingBuilder(BlockBuilder parent) {
+        public EmHighPressureFreezingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21905,7 +21905,7 @@ public class CategoryBuilder {
     public static class EmShadowingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_shadowing";
 
-        EmShadowingBuilder(BlockBuilder parent) {
+        public EmShadowingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21937,7 +21937,7 @@ public class CategoryBuilder {
     public static class EmTomographySpecimenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_tomography_specimen";
 
-        EmTomographySpecimenBuilder(BlockBuilder parent) {
+        public EmTomographySpecimenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -21973,7 +21973,7 @@ public class CategoryBuilder {
     public static class EmCrystalFormationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_crystal_formation";
 
-        EmCrystalFormationBuilder(BlockBuilder parent) {
+        public EmCrystalFormationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22021,7 +22021,7 @@ public class CategoryBuilder {
     public static class EmStainingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_staining";
 
-        EmStainingBuilder(BlockBuilder parent) {
+        public EmStainingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22049,7 +22049,7 @@ public class CategoryBuilder {
     public static class EmSupportFilmBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_support_film";
 
-        EmSupportFilmBuilder(BlockBuilder parent) {
+        public EmSupportFilmBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22077,7 +22077,7 @@ public class CategoryBuilder {
     public static class EmBufferComponentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_buffer_component";
 
-        EmBufferComponentBuilder(BlockBuilder parent) {
+        public EmBufferComponentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22109,7 +22109,7 @@ public class CategoryBuilder {
     public static class EmDiffractionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_diffraction";
 
-        EmDiffractionBuilder(BlockBuilder parent) {
+        public EmDiffractionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22133,7 +22133,7 @@ public class CategoryBuilder {
     public static class EmDiffractionShellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_diffraction_shell";
 
-        EmDiffractionShellBuilder(BlockBuilder parent) {
+        public EmDiffractionShellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22173,7 +22173,7 @@ public class CategoryBuilder {
     public static class EmDiffractionStatsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_diffraction_stats";
 
-        EmDiffractionStatsBuilder(BlockBuilder parent) {
+        public EmDiffractionStatsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22229,7 +22229,7 @@ public class CategoryBuilder {
     public static class EmTomographyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_tomography";
 
-        EmTomographyBuilder(BlockBuilder parent) {
+        public EmTomographyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22273,7 +22273,7 @@ public class CategoryBuilder {
     public static class EmImageRecordingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_image_recording";
 
-        EmImageRecordingBuilder(BlockBuilder parent) {
+        public EmImageRecordingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22321,7 +22321,7 @@ public class CategoryBuilder {
     public static class EmImagingOpticsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_imaging_optics";
 
-        EmImagingOpticsBuilder(BlockBuilder parent) {
+        public EmImagingOpticsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22365,7 +22365,7 @@ public class CategoryBuilder {
     public static class EmFinalClassificationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_final_classification";
 
-        EmFinalClassificationBuilder(BlockBuilder parent) {
+        public EmFinalClassificationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22397,7 +22397,7 @@ public class CategoryBuilder {
     public static class EmStartModelBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_start_model";
 
-        EmStartModelBuilder(BlockBuilder parent) {
+        public EmStartModelBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22457,7 +22457,7 @@ public class CategoryBuilder {
     public static class EmSoftwareBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_software";
 
-        EmSoftwareBuilder(BlockBuilder parent) {
+        public EmSoftwareBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22497,7 +22497,7 @@ public class CategoryBuilder {
     public static class EmEulerAngleAssignmentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_euler_angle_assignment";
 
-        EmEulerAngleAssignmentBuilder(BlockBuilder parent) {
+        public EmEulerAngleAssignmentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22537,7 +22537,7 @@ public class CategoryBuilder {
     public static class EmCtfCorrectionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_ctf_correction";
 
-        EmCtfCorrectionBuilder(BlockBuilder parent) {
+        public EmCtfCorrectionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22589,7 +22589,7 @@ public class CategoryBuilder {
     public static class EmVolumeSelectionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_volume_selection";
 
-        EmVolumeSelectionBuilder(BlockBuilder parent) {
+        public EmVolumeSelectionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22625,7 +22625,7 @@ public class CategoryBuilder {
     public static class Em3dCrystalEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_3d_crystal_entity";
 
-        Em3dCrystalEntityBuilder(BlockBuilder parent) {
+        public Em3dCrystalEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22673,7 +22673,7 @@ public class CategoryBuilder {
     public static class Em2dCrystalEntityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_2d_crystal_entity";
 
-        Em2dCrystalEntityBuilder(BlockBuilder parent) {
+        public Em2dCrystalEntityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22717,7 +22717,7 @@ public class CategoryBuilder {
     public static class EmImageProcessingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_image_processing";
 
-        EmImageProcessingBuilder(BlockBuilder parent) {
+        public EmImageProcessingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22737,7 +22737,7 @@ public class CategoryBuilder {
     public static class EmParticleSelectionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_particle_selection";
 
-        EmParticleSelectionBuilder(BlockBuilder parent) {
+        public EmParticleSelectionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22769,7 +22769,7 @@ public class CategoryBuilder {
     public static class EmMapBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_map";
 
-        EmMapBuilder(BlockBuilder parent) {
+        public EmMapBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22945,7 +22945,7 @@ public class CategoryBuilder {
     public static class EmFscCurveBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_fsc_curve";
 
-        EmFscCurveBuilder(BlockBuilder parent) {
+        public EmFscCurveBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22965,7 +22965,7 @@ public class CategoryBuilder {
     public static class EmInterpretFigureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_interpret_figure";
 
-        EmInterpretFigureBuilder(BlockBuilder parent) {
+        public EmInterpretFigureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -22985,7 +22985,7 @@ public class CategoryBuilder {
     public static class EmLayerLinesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_layer_lines";
 
-        EmLayerLinesBuilder(BlockBuilder parent) {
+        public EmLayerLinesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23009,7 +23009,7 @@ public class CategoryBuilder {
     public static class EmStructureFactorsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_structure_factors";
 
-        EmStructureFactorsBuilder(BlockBuilder parent) {
+        public EmStructureFactorsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23033,7 +23033,7 @@ public class CategoryBuilder {
     public static class EmDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_depositor_info";
 
-        EmDepositorInfoBuilder(BlockBuilder parent) {
+        public EmDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23053,7 +23053,7 @@ public class CategoryBuilder {
     public static class EmMapDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_map_depositor_info";
 
-        EmMapDepositorInfoBuilder(BlockBuilder parent) {
+        public EmMapDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23105,7 +23105,7 @@ public class CategoryBuilder {
     public static class EmMaskDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_mask_depositor_info";
 
-        EmMaskDepositorInfoBuilder(BlockBuilder parent) {
+        public EmMaskDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23145,7 +23145,7 @@ public class CategoryBuilder {
     public static class EmFigureDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_figure_depositor_info";
 
-        EmFigureDepositorInfoBuilder(BlockBuilder parent) {
+        public EmFigureDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23169,7 +23169,7 @@ public class CategoryBuilder {
     public static class EmLayerLinesDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_layer_lines_depositor_info";
 
-        EmLayerLinesDepositorInfoBuilder(BlockBuilder parent) {
+        public EmLayerLinesDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23193,7 +23193,7 @@ public class CategoryBuilder {
     public static class EmStructureFactorsDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "em_structure_factors_depositor_info";
 
-        EmStructureFactorsDepositorInfoBuilder(BlockBuilder parent) {
+        public EmStructureFactorsDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23217,7 +23217,7 @@ public class CategoryBuilder {
     public static class PdbxSeqMapDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_seq_map_depositor_info";
 
-        PdbxSeqMapDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxSeqMapDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23241,7 +23241,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_depositor_info";
 
-        PdbxChemCompDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxChemCompDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23289,7 +23289,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_depositor_info";
 
-        PdbxStructRefSeqDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23341,7 +23341,7 @@ public class CategoryBuilder {
     public static class PdbxStructRefSeqDifDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ref_seq_dif_depositor_info";
 
-        PdbxStructRefSeqDifDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructRefSeqDifDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23397,7 +23397,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyPropDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_prop_depositor_info";
 
-        PdbxStructAssemblyPropDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyPropDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23421,7 +23421,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_depositor_info";
 
-        PdbxStructAssemblyDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23457,7 +23457,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyGenDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_gen_depositor_info";
 
-        PdbxStructAssemblyGenDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyGenDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23509,7 +23509,7 @@ public class CategoryBuilder {
     public static class PdbxStructOperListDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_oper_list_depositor_info";
 
-        PdbxStructOperListDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructOperListDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23581,7 +23581,7 @@ public class CategoryBuilder {
     public static class PdbxPointSymmetryDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_point_symmetry_depositor_info";
 
-        PdbxPointSymmetryDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxPointSymmetryDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23609,7 +23609,7 @@ public class CategoryBuilder {
     public static class PdbxHelicalSymmetryDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_helical_symmetry_depositor_info";
 
-        PdbxHelicalSymmetryDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxHelicalSymmetryDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23649,7 +23649,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyAuthEvidenceDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_auth_evidence_depositor_info";
 
-        PdbxStructAssemblyAuthEvidenceDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyAuthEvidenceDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23673,7 +23673,7 @@ public class CategoryBuilder {
     public static class PdbxSolventAtomSiteMappingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_solvent_atom_site_mapping";
 
-        PdbxSolventAtomSiteMappingBuilder(BlockBuilder parent) {
+        public PdbxSolventAtomSiteMappingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23789,7 +23789,7 @@ public class CategoryBuilder {
     public static class PdbxMoleculeFeaturesDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_molecule_features_depositor_info";
 
-        PdbxMoleculeFeaturesDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxMoleculeFeaturesDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23817,7 +23817,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompInstanceDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_instance_depositor_info";
 
-        PdbxChemCompInstanceDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxChemCompInstanceDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23861,7 +23861,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiStatusFlagsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_status_flags";
 
-        PdbxDepuiStatusFlagsBuilder(BlockBuilder parent) {
+        public PdbxDepuiStatusFlagsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23957,7 +23957,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiUploadBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_upload";
 
-        PdbxDepuiUploadBuilder(BlockBuilder parent) {
+        public PdbxDepuiUploadBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -23997,7 +23997,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiValidationStatusFlagsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_validation_status_flags";
 
-        PdbxDepuiValidationStatusFlagsBuilder(BlockBuilder parent) {
+        public PdbxDepuiValidationStatusFlagsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24037,7 +24037,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompUploadDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_upload_depositor_info";
 
-        PdbxChemCompUploadDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxChemCompUploadDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24061,7 +24061,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiEntityStatusFlagsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_entity_status_flags";
 
-        PdbxDepuiEntityStatusFlagsBuilder(BlockBuilder parent) {
+        public PdbxDepuiEntityStatusFlagsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24085,7 +24085,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiEntityFeaturesBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_entity_features";
 
-        PdbxDepuiEntityFeaturesBuilder(BlockBuilder parent) {
+        public PdbxDepuiEntityFeaturesBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24105,7 +24105,7 @@ public class CategoryBuilder {
     public static class PdbxDepositionMessageInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_deposition_message_info";
 
-        PdbxDepositionMessageInfoBuilder(BlockBuilder parent) {
+        public PdbxDepositionMessageInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24161,7 +24161,7 @@ public class CategoryBuilder {
     public static class PdbxDepositionMessageFileReferenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_deposition_message_file_reference";
 
-        PdbxDepositionMessageFileReferenceBuilder(BlockBuilder parent) {
+        public PdbxDepositionMessageFileReferenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24201,7 +24201,7 @@ public class CategoryBuilder {
     public static class PdbxDepuiEntryDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_depui_entry_details";
 
-        PdbxDepuiEntryDetailsBuilder(BlockBuilder parent) {
+        public PdbxDepuiEntryDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24249,7 +24249,7 @@ public class CategoryBuilder {
     public static class PdbxDataProcessingStatusBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_data_processing_status";
 
-        PdbxDataProcessingStatusBuilder(BlockBuilder parent) {
+        public PdbxDataProcessingStatusBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24265,7 +24265,7 @@ public class CategoryBuilder {
     public static class PdbxEntityInstanceFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_instance_feature";
 
-        PdbxEntityInstanceFeatureBuilder(BlockBuilder parent) {
+        public PdbxEntityInstanceFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24309,7 +24309,7 @@ public class CategoryBuilder {
     public static class PdbxEntitySrcGenDepositorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_src_gen_depositor_info";
 
-        PdbxEntitySrcGenDepositorInfoBuilder(BlockBuilder parent) {
+        public PdbxEntitySrcGenDepositorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24373,7 +24373,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model";
 
-        PdbxChemCompModelBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24389,7 +24389,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_atom";
 
-        PdbxChemCompModelAtomBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24429,7 +24429,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_bond";
 
-        PdbxChemCompModelBondBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24457,7 +24457,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelFeatureBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_feature";
 
-        PdbxChemCompModelFeatureBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelFeatureBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24477,7 +24477,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelDescriptorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_descriptor";
 
-        PdbxChemCompModelDescriptorBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelDescriptorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24497,7 +24497,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelAuditBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_audit";
 
-        PdbxChemCompModelAuditBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelAuditBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24529,7 +24529,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompModelReferenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_model_reference";
 
-        PdbxChemCompModelReferenceBuilder(BlockBuilder parent) {
+        public PdbxChemCompModelReferenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24549,7 +24549,7 @@ public class CategoryBuilder {
     public static class PdbxViewCategoryGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_view_category_group";
 
-        PdbxViewCategoryGroupBuilder(BlockBuilder parent) {
+        public PdbxViewCategoryGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24565,7 +24565,7 @@ public class CategoryBuilder {
     public static class PdbxViewCategoryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_view_category";
 
-        PdbxViewCategoryBuilder(BlockBuilder parent) {
+        public PdbxViewCategoryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24585,7 +24585,7 @@ public class CategoryBuilder {
     public static class PdbxViewItemBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_view_item";
 
-        PdbxViewItemBuilder(BlockBuilder parent) {
+        public PdbxViewItemBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24613,7 +24613,7 @@ public class CategoryBuilder {
     public static class PdbxCoordBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_coord";
 
-        PdbxCoordBuilder(BlockBuilder parent) {
+        public PdbxCoordBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24641,7 +24641,7 @@ public class CategoryBuilder {
     public static class PdbxConnectBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_connect";
 
-        PdbxConnectBuilder(BlockBuilder parent) {
+        public PdbxConnectBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24697,7 +24697,7 @@ public class CategoryBuilder {
     public static class PdbxConnectTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_connect_type";
 
-        PdbxConnectTypeBuilder(BlockBuilder parent) {
+        public PdbxConnectTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24717,7 +24717,7 @@ public class CategoryBuilder {
     public static class PdbxConnectModificationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_connect_modification";
 
-        PdbxConnectModificationBuilder(BlockBuilder parent) {
+        public PdbxConnectModificationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24733,7 +24733,7 @@ public class CategoryBuilder {
     public static class PdbxConnectAtomBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_connect_atom";
 
-        PdbxConnectAtomBuilder(BlockBuilder parent) {
+        public PdbxConnectAtomBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24769,7 +24769,7 @@ public class CategoryBuilder {
     public static class PdbxDatabasePDBMasterBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_PDB_master";
 
-        PdbxDatabasePDBMasterBuilder(BlockBuilder parent) {
+        public PdbxDatabasePDBMasterBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24829,7 +24829,7 @@ public class CategoryBuilder {
     public static class PdbxDatabasePdbOmitBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_database_pdb_omit";
 
-        PdbxDatabasePdbOmitBuilder(BlockBuilder parent) {
+        public PdbxDatabasePdbOmitBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24845,7 +24845,7 @@ public class CategoryBuilder {
     public static class PdbxDbrefBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dbref";
 
-        PdbxDbrefBuilder(BlockBuilder parent) {
+        public PdbxDbrefBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24905,7 +24905,7 @@ public class CategoryBuilder {
     public static class PdbxDrugInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_drug_info";
 
-        PdbxDrugInfoBuilder(BlockBuilder parent) {
+        public PdbxDrugInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24933,7 +24933,7 @@ public class CategoryBuilder {
     public static class PdbxInhibitorInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_inhibitor_info";
 
-        PdbxInhibitorInfoBuilder(BlockBuilder parent) {
+        public PdbxInhibitorInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24953,7 +24953,7 @@ public class CategoryBuilder {
     public static class PdbxIonInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_ion_info";
 
-        PdbxIonInfoBuilder(BlockBuilder parent) {
+        public PdbxIonInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24973,7 +24973,7 @@ public class CategoryBuilder {
     public static class PdbxHybridBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_hybrid";
 
-        PdbxHybridBuilder(BlockBuilder parent) {
+        public PdbxHybridBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -24997,7 +24997,7 @@ public class CategoryBuilder {
     public static class PdbxNaStrandInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_na_strand_info";
 
-        PdbxNaStrandInfoBuilder(BlockBuilder parent) {
+        public PdbxNaStrandInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25021,7 +25021,7 @@ public class CategoryBuilder {
     public static class PdbxNonstandardListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nonstandard_list";
 
-        PdbxNonstandardListBuilder(BlockBuilder parent) {
+        public PdbxNonstandardListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25061,7 +25061,7 @@ public class CategoryBuilder {
     public static class PdbxPdbCompndBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_pdb_compnd";
 
-        PdbxPdbCompndBuilder(BlockBuilder parent) {
+        public PdbxPdbCompndBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25077,7 +25077,7 @@ public class CategoryBuilder {
     public static class PdbxPdbSourceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_pdb_source";
 
-        PdbxPdbSourceBuilder(BlockBuilder parent) {
+        public PdbxPdbSourceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25093,7 +25093,7 @@ public class CategoryBuilder {
     public static class PdbxProteinInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_protein_info";
 
-        PdbxProteinInfoBuilder(BlockBuilder parent) {
+        public PdbxProteinInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25113,7 +25113,7 @@ public class CategoryBuilder {
     public static class PdbxSolventInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_solvent_info";
 
-        PdbxSolventInfoBuilder(BlockBuilder parent) {
+        public PdbxSolventInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25133,7 +25133,7 @@ public class CategoryBuilder {
     public static class PdbxSourceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_source";
 
-        PdbxSourceBuilder(BlockBuilder parent) {
+        public PdbxSourceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25145,7 +25145,7 @@ public class CategoryBuilder {
     public static class PdbxStructBiolFuncBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_biol_func";
 
-        PdbxStructBiolFuncBuilder(BlockBuilder parent) {
+        public PdbxStructBiolFuncBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25165,7 +25165,7 @@ public class CategoryBuilder {
     public static class PdbxStructPackGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_pack_gen";
 
-        PdbxStructPackGenBuilder(BlockBuilder parent) {
+        public PdbxStructPackGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25205,7 +25205,7 @@ public class CategoryBuilder {
     public static class PdbxTrnaInfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_trna_info";
 
-        PdbxTrnaInfoBuilder(BlockBuilder parent) {
+        public PdbxTrnaInfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25225,7 +25225,7 @@ public class CategoryBuilder {
     public static class PdbxUnpairBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_unpair";
 
-        PdbxUnpairBuilder(BlockBuilder parent) {
+        public PdbxUnpairBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25245,7 +25245,7 @@ public class CategoryBuilder {
     public static class PdbxRefineLsRestrNcsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_refine_ls_restr_ncs";
 
-        PdbxRefineLsRestrNcsBuilder(BlockBuilder parent) {
+        public PdbxRefineLsRestrNcsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25273,7 +25273,7 @@ public class CategoryBuilder {
     public static class PdbxStructNcsVirusGenBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_ncs_virus_gen";
 
-        PdbxStructNcsVirusGenBuilder(BlockBuilder parent) {
+        public PdbxStructNcsVirusGenBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25297,7 +25297,7 @@ public class CategoryBuilder {
     public static class PdbxSequenceAnnotationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_sequence_annotation";
 
-        PdbxSequenceAnnotationBuilder(BlockBuilder parent) {
+        public PdbxSequenceAnnotationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25313,7 +25313,7 @@ public class CategoryBuilder {
     public static class PdbxPostProcessDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_post_process_details";
 
-        PdbxPostProcessDetailsBuilder(BlockBuilder parent) {
+        public PdbxPostProcessDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25333,7 +25333,7 @@ public class CategoryBuilder {
     public static class PdbxPostProcessStatusBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_post_process_status";
 
-        PdbxPostProcessStatusBuilder(BlockBuilder parent) {
+        public PdbxPostProcessStatusBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25365,7 +25365,7 @@ public class CategoryBuilder {
     public static class PdbxStructLinkBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_link";
 
-        PdbxStructLinkBuilder(BlockBuilder parent) {
+        public PdbxStructLinkBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25445,7 +25445,7 @@ public class CategoryBuilder {
     public static class PdbxMissingResidueListBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_missing_residue_list";
 
-        PdbxMissingResidueListBuilder(BlockBuilder parent) {
+        public PdbxMissingResidueListBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25477,7 +25477,7 @@ public class CategoryBuilder {
     public static class PdbxDataProcessingCellBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_data_processing_cell";
 
-        PdbxDataProcessingCellBuilder(BlockBuilder parent) {
+        public PdbxDataProcessingCellBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25553,7 +25553,7 @@ public class CategoryBuilder {
     public static class PdbxDataProcessingReflnsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_data_processing_reflns";
 
-        PdbxDataProcessingReflnsBuilder(BlockBuilder parent) {
+        public PdbxDataProcessingReflnsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25585,7 +25585,7 @@ public class CategoryBuilder {
     public static class PdbxDataProcessingDetectorBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_data_processing_detector";
 
-        PdbxDataProcessingDetectorBuilder(BlockBuilder parent) {
+        public PdbxDataProcessingDetectorBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25669,7 +25669,7 @@ public class CategoryBuilder {
     public static class PdbxChemCompNonstandardBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_nonstandard";
 
-        PdbxChemCompNonstandardBuilder(BlockBuilder parent) {
+        public PdbxChemCompNonstandardBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25685,7 +25685,7 @@ public class CategoryBuilder {
     public static class PdbxEntityPolyProteinClassBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_poly_protein_class";
 
-        PdbxEntityPolyProteinClassBuilder(BlockBuilder parent) {
+        public PdbxEntityPolyProteinClassBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25701,7 +25701,7 @@ public class CategoryBuilder {
     public static class PdbxEntityNameTaxonomyTreeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_name_taxonomy_tree";
 
-        PdbxEntityNameTaxonomyTreeBuilder(BlockBuilder parent) {
+        public PdbxEntityNameTaxonomyTreeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25717,7 +25717,7 @@ public class CategoryBuilder {
     public static class PdbxEntityNameTaxonomyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_name_taxonomy";
 
-        PdbxEntityNameTaxonomyBuilder(BlockBuilder parent) {
+        public PdbxEntityNameTaxonomyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25737,7 +25737,7 @@ public class CategoryBuilder {
     public static class PdbxEntityNameInstanceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_name_instance";
 
-        PdbxEntityNameInstanceBuilder(BlockBuilder parent) {
+        public PdbxEntityNameInstanceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25769,7 +25769,7 @@ public class CategoryBuilder {
     public static class PdbxTableinfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_tableinfo";
 
-        PdbxTableinfoBuilder(BlockBuilder parent) {
+        public PdbxTableinfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25805,7 +25805,7 @@ public class CategoryBuilder {
     public static class PdbxColumninfoBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_columninfo";
 
-        PdbxColumninfoBuilder(BlockBuilder parent) {
+        public PdbxColumninfoBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25849,7 +25849,7 @@ public class CategoryBuilder {
     public static class PdbxValAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_val_angle";
 
-        PdbxValAngleBuilder(BlockBuilder parent) {
+        public PdbxValAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -25993,7 +25993,7 @@ public class CategoryBuilder {
     public static class PdbxValBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_val_bond";
 
-        PdbxValBondBuilder(BlockBuilder parent) {
+        public PdbxValBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26097,7 +26097,7 @@ public class CategoryBuilder {
     public static class PdbxValContactBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_val_contact";
 
-        PdbxValContactBuilder(BlockBuilder parent) {
+        public PdbxValContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26197,7 +26197,7 @@ public class CategoryBuilder {
     public static class PdbxValSymContactBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_val_sym_contact";
 
-        PdbxValSymContactBuilder(BlockBuilder parent) {
+        public PdbxValSymContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26305,7 +26305,7 @@ public class CategoryBuilder {
     public static class PdbxRmchOutlierBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_rmch_outlier";
 
-        PdbxRmchOutlierBuilder(BlockBuilder parent) {
+        public PdbxRmchOutlierBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26357,7 +26357,7 @@ public class CategoryBuilder {
     public static class PdbxMissingAtomPolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_missing_atom_poly";
 
-        PdbxMissingAtomPolyBuilder(BlockBuilder parent) {
+        public PdbxMissingAtomPolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26405,7 +26405,7 @@ public class CategoryBuilder {
     public static class PdbxMissingAtomNonpolyBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_missing_atom_nonpoly";
 
-        PdbxMissingAtomNonpolyBuilder(BlockBuilder parent) {
+        public PdbxMissingAtomNonpolyBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26449,7 +26449,7 @@ public class CategoryBuilder {
     public static class PdbxValChiralBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_val_chiral";
 
-        PdbxValChiralBuilder(BlockBuilder parent) {
+        public PdbxValChiralBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26509,7 +26509,7 @@ public class CategoryBuilder {
     public static class PdbxAtlasBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_atlas";
 
-        PdbxAtlasBuilder(BlockBuilder parent) {
+        public PdbxAtlasBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26529,7 +26529,7 @@ public class CategoryBuilder {
     public static class PdbxSummaryFlagsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_summary_flags";
 
-        PdbxSummaryFlagsBuilder(BlockBuilder parent) {
+        public PdbxSummaryFlagsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26549,7 +26549,7 @@ public class CategoryBuilder {
     public static class PdbxEntityFuncBindModeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_func_bind_mode";
 
-        PdbxEntityFuncBindModeBuilder(BlockBuilder parent) {
+        public PdbxEntityFuncBindModeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26577,7 +26577,7 @@ public class CategoryBuilder {
     public static class PdbxEntityFuncEnzymeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_func_enzyme";
 
-        PdbxEntityFuncEnzymeBuilder(BlockBuilder parent) {
+        public PdbxEntityFuncEnzymeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26593,7 +26593,7 @@ public class CategoryBuilder {
     public static class PdbxEntityFuncRegulatoryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_func_regulatory";
 
-        PdbxEntityFuncRegulatoryBuilder(BlockBuilder parent) {
+        public PdbxEntityFuncRegulatoryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26609,7 +26609,7 @@ public class CategoryBuilder {
     public static class PdbxEntityFuncStructuralBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_func_structural";
 
-        PdbxEntityFuncStructuralBuilder(BlockBuilder parent) {
+        public PdbxEntityFuncStructuralBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26625,7 +26625,7 @@ public class CategoryBuilder {
     public static class PdbxEntityFuncOtherBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_func_other";
 
-        PdbxEntityFuncOtherBuilder(BlockBuilder parent) {
+        public PdbxEntityFuncOtherBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26641,7 +26641,7 @@ public class CategoryBuilder {
     public static class PdbxEntityPolyDomainBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_poly_domain";
 
-        PdbxEntityPolyDomainBuilder(BlockBuilder parent) {
+        public PdbxEntityPolyDomainBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26673,7 +26673,7 @@ public class CategoryBuilder {
     public static class PdbxNaStructKeywdsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_na_struct_keywds";
 
-        PdbxNaStructKeywdsBuilder(BlockBuilder parent) {
+        public PdbxNaStructKeywdsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26697,7 +26697,7 @@ public class CategoryBuilder {
     public static class PdbxEntityPolyNaTypeBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_poly_na_type";
 
-        PdbxEntityPolyNaTypeBuilder(BlockBuilder parent) {
+        public PdbxEntityPolyNaTypeBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26713,7 +26713,7 @@ public class CategoryBuilder {
     public static class PdbxEntityPolyNaNonstandardBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_poly_na_nonstandard";
 
-        PdbxEntityPolyNaNonstandardBuilder(BlockBuilder parent) {
+        public PdbxEntityPolyNaNonstandardBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26729,7 +26729,7 @@ public class CategoryBuilder {
     public static class PdbxVirtualAngleBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_virtual_angle";
 
-        PdbxVirtualAngleBuilder(BlockBuilder parent) {
+        public PdbxVirtualAngleBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26881,7 +26881,7 @@ public class CategoryBuilder {
     public static class PdbxVirtualBondBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_virtual_bond";
 
-        PdbxVirtualBondBuilder(BlockBuilder parent) {
+        public PdbxVirtualBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -26989,7 +26989,7 @@ public class CategoryBuilder {
     public static class PdbxVirtualTorsionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_virtual_torsion";
 
-        PdbxVirtualTorsionBuilder(BlockBuilder parent) {
+        public PdbxVirtualTorsionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27185,7 +27185,7 @@ public class CategoryBuilder {
     public static class PdbxSequencePatternBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_sequence_pattern";
 
-        PdbxSequencePatternBuilder(BlockBuilder parent) {
+        public PdbxSequencePatternBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27209,7 +27209,7 @@ public class CategoryBuilder {
     public static class PdbxStereochemistryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_stereochemistry";
 
-        PdbxStereochemistryBuilder(BlockBuilder parent) {
+        public PdbxStereochemistryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27285,7 +27285,7 @@ public class CategoryBuilder {
     public static class PdbxRmsDevsCovalentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_rms_devs_covalent";
 
-        PdbxRmsDevsCovalentBuilder(BlockBuilder parent) {
+        public PdbxRmsDevsCovalentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27361,7 +27361,7 @@ public class CategoryBuilder {
     public static class PdbxRmsDevsCovByMonomerBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_rms_devs_cov_by_monomer";
 
-        PdbxRmsDevsCovByMonomerBuilder(BlockBuilder parent) {
+        public PdbxRmsDevsCovByMonomerBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27413,7 +27413,7 @@ public class CategoryBuilder {
     public static class PdbxSugarPhosphateGeometryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_sugar_phosphate_geometry";
 
-        PdbxSugarPhosphateGeometryBuilder(BlockBuilder parent) {
+        public PdbxSugarPhosphateGeometryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27717,7 +27717,7 @@ public class CategoryBuilder {
     public static class PdbxNmrComputingBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_nmr_computing";
 
-        PdbxNmrComputingBuilder(BlockBuilder parent) {
+        public PdbxNmrComputingBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27777,7 +27777,7 @@ public class CategoryBuilder {
     public static class PdbxAuditConformExtensionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_conform_extension";
 
-        PdbxAuditConformExtensionBuilder(BlockBuilder parent) {
+        public PdbxAuditConformExtensionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27797,7 +27797,7 @@ public class CategoryBuilder {
     public static class PdbxDccMapmanBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_mapman";
 
-        PdbxDccMapmanBuilder(BlockBuilder parent) {
+        public PdbxDccMapmanBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27813,7 +27813,7 @@ public class CategoryBuilder {
     public static class PdbxDccRsccMapmanBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_rscc_mapman";
 
-        PdbxDccRsccMapmanBuilder(BlockBuilder parent) {
+        public PdbxDccRsccMapmanBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27881,7 +27881,7 @@ public class CategoryBuilder {
     public static class PdbxDccRsccMapmanOverallBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_rscc_mapman_overall";
 
-        PdbxDccRsccMapmanOverallBuilder(BlockBuilder parent) {
+        public PdbxDccRsccMapmanOverallBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -27909,7 +27909,7 @@ public class CategoryBuilder {
     public static class PdbxDccDensityBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_density";
 
-        PdbxDccDensityBuilder(BlockBuilder parent) {
+        public PdbxDccDensityBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28197,7 +28197,7 @@ public class CategoryBuilder {
     public static class PdbxDccGeometryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_geometry";
 
-        PdbxDccGeometryBuilder(BlockBuilder parent) {
+        public PdbxDccGeometryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28313,7 +28313,7 @@ public class CategoryBuilder {
     public static class PdbxDccDensityCorrBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_density_corr";
 
-        PdbxDccDensityCorrBuilder(BlockBuilder parent) {
+        public PdbxDccDensityCorrBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28377,7 +28377,7 @@ public class CategoryBuilder {
     public static class PdbxDccMapBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_dcc_map";
 
-        PdbxDccMapBuilder(BlockBuilder parent) {
+        public PdbxDccMapBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28597,7 +28597,7 @@ public class CategoryBuilder {
     public static class PdbxDepositGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_deposit_group";
 
-        PdbxDepositGroupBuilder(BlockBuilder parent) {
+        public PdbxDepositGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28621,7 +28621,7 @@ public class CategoryBuilder {
     public static class PdbxDepositGroupIndexBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_deposit_group_index";
 
-        PdbxDepositGroupIndexBuilder(BlockBuilder parent) {
+        public PdbxDepositGroupIndexBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28673,7 +28673,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyAuthEvidenceBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_auth_evidence";
 
-        PdbxStructAssemblyAuthEvidenceBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyAuthEvidenceBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28697,7 +28697,7 @@ public class CategoryBuilder {
     public static class PdbxStructAssemblyAuthClassificationBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_struct_assembly_auth_classification";
 
-        PdbxStructAssemblyAuthClassificationBuilder(BlockBuilder parent) {
+        public PdbxStructAssemblyAuthClassificationBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28713,7 +28713,7 @@ public class CategoryBuilder {
     public static class PdbxCrystalAlignmentBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_crystal_alignment";
 
-        PdbxCrystalAlignmentBuilder(BlockBuilder parent) {
+        public PdbxCrystalAlignmentBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28809,7 +28809,7 @@ public class CategoryBuilder {
     public static class PdbxAuditRevisionHistoryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_revision_history";
 
-        PdbxAuditRevisionHistoryBuilder(BlockBuilder parent) {
+        public PdbxAuditRevisionHistoryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28845,7 +28845,7 @@ public class CategoryBuilder {
     public static class PdbxAuditRevisionGroupBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_revision_group";
 
-        PdbxAuditRevisionGroupBuilder(BlockBuilder parent) {
+        public PdbxAuditRevisionGroupBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28869,7 +28869,7 @@ public class CategoryBuilder {
     public static class PdbxAuditRevisionCategoryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_revision_category";
 
-        PdbxAuditRevisionCategoryBuilder(BlockBuilder parent) {
+        public PdbxAuditRevisionCategoryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28893,7 +28893,7 @@ public class CategoryBuilder {
     public static class PdbxAuditRevisionDetailsBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_revision_details";
 
-        PdbxAuditRevisionDetailsBuilder(BlockBuilder parent) {
+        public PdbxAuditRevisionDetailsBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28925,7 +28925,7 @@ public class CategoryBuilder {
     public static class PdbxAuditRevisionItemBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_audit_revision_item";
 
-        PdbxAuditRevisionItemBuilder(BlockBuilder parent) {
+        public PdbxAuditRevisionItemBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28949,7 +28949,7 @@ public class CategoryBuilder {
     public static class PdbxSupportingExpDataSetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_supporting_exp_data_set";
 
-        PdbxSupportingExpDataSetBuilder(BlockBuilder parent) {
+        public PdbxSupportingExpDataSetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -28977,7 +28977,7 @@ public class CategoryBuilder {
     public static class PdbxSerialCrystallographyMeasurementBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_serial_crystallography_measurement";
 
-        PdbxSerialCrystallographyMeasurementBuilder(BlockBuilder parent) {
+        public PdbxSerialCrystallographyMeasurementBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -29029,7 +29029,7 @@ public class CategoryBuilder {
     public static class PdbxSerialCrystallographySampleDeliveryBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_serial_crystallography_sample_delivery";
 
-        PdbxSerialCrystallographySampleDeliveryBuilder(BlockBuilder parent) {
+        public PdbxSerialCrystallographySampleDeliveryBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -29049,7 +29049,7 @@ public class CategoryBuilder {
     public static class PdbxSerialCrystallographySampleDeliveryInjectionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_serial_crystallography_sample_delivery_injection";
 
-        PdbxSerialCrystallographySampleDeliveryInjectionBuilder(BlockBuilder parent) {
+        public PdbxSerialCrystallographySampleDeliveryInjectionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -29109,7 +29109,7 @@ public class CategoryBuilder {
     public static class PdbxSerialCrystallographySampleDeliveryFixedTargetBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_serial_crystallography_sample_delivery_fixed_target";
 
-        PdbxSerialCrystallographySampleDeliveryFixedTargetBuilder(BlockBuilder parent) {
+        public PdbxSerialCrystallographySampleDeliveryFixedTargetBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 
@@ -29165,7 +29165,7 @@ public class CategoryBuilder {
     public static class PdbxSerialCrystallographyDataReductionBuilder extends CategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_serial_crystallography_data_reduction";
 
-        PdbxSerialCrystallographyDataReductionBuilder(BlockBuilder parent) {
+        public PdbxSerialCrystallographyDataReductionBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
         }
 

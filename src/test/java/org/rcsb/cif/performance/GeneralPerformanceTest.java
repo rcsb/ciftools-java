@@ -151,10 +151,10 @@ public class GeneralPerformanceTest {
                         CifFile cifFile;
                         if (binary) {
                             InputStream inputStream = Files.newInputStream(path);
-                            cifFile = CifReader.parseBinary(inputStream);
+                            cifFile = CifReader.readBinary(inputStream);
                         } else {
                             InputStream inputStream = new GZIPInputStream(Files.newInputStream(path));
-                            cifFile = CifReader.parseText(inputStream);
+                            cifFile = CifReader.readText(inputStream);
                         }
 
                         if (downstreamOperation != null) {

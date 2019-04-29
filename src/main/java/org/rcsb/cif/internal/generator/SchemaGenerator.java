@@ -205,7 +205,7 @@ class SchemaGenerator {
         categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
         categoryBuilder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
         categoryBuilder.add("");
-        categoryBuilder.add("        " + categoryClassName + "Builder(BlockBuilder parent) {");
+        categoryBuilder.add("        public " + categoryClassName + "Builder(BlockBuilder parent) {");
         categoryBuilder.add("            super(CATEGORY_NAME, parent);");
         categoryBuilder.add("        }");
 
@@ -342,7 +342,7 @@ class SchemaGenerator {
     }
 
     private SchemaGenerator() throws IOException {
-        this.cifFile = CifReader.parseText(Thread.currentThread()
+        this.cifFile = CifReader.readText(Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("mmcif_pdbx_v50.dic"));
         this.schema = new LinkedHashMap<>();

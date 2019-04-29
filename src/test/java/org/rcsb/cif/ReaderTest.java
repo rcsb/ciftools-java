@@ -26,7 +26,7 @@ public class ReaderTest {
             String id = testCase.getKey();
             String middle = id.substring(1, 3);
             InputStream inputStream = Files.newInputStream(Paths.get("/var/bcif/").resolve(middle).resolve(id + ".bcif"));
-            CifFile cifFile = CifReader.parseBinary(inputStream);
+            CifFile cifFile = CifReader.readBinary(inputStream);
             checkParsedEntity(cifFile, testCase.getValue());
         }
     }
@@ -36,7 +36,7 @@ public class ReaderTest {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             System.out.println("test cases: " + testCase.getKey() + " - binary parsing");
             InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
-            checkParsedEntity(CifReader.parseBinary(inputStream), testCase.getValue());
+            checkParsedEntity(CifReader.readBinary(inputStream), testCase.getValue());
         }
     }
 
@@ -45,7 +45,7 @@ public class ReaderTest {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             System.out.println("test cases: " + testCase.getKey() + " - text parsing");
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
-            checkParsedEntity(CifReader.parseText(inputStream), testCase.getValue());
+            checkParsedEntity(CifReader.readText(inputStream), testCase.getValue());
         }
     }
 
@@ -65,21 +65,21 @@ public class ReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
-        CifReader.parseBinary(TestHelper.getInputStream("bcif/0emp.bcif"));
+        CifReader.readBinary(TestHelper.getInputStream("bcif/0emp.bcif"));
     }
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForWrongBinaryContent() throws ParsingException, IOException {
-        CifReader.parseBinary(TestHelper.getInputStream("cif/1acj.cif"));
+        CifReader.readBinary(TestHelper.getInputStream("cif/1acj.cif"));
     }
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyTextFile() throws ParsingException, IOException {
-        CifReader.parseText(TestHelper.getInputStream("cif/0emp.cif"));
+        CifReader.readText(TestHelper.getInputStream("cif/0emp.cif"));
     }
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForWrongTextContent() throws ParsingException, IOException {
-        CifReader.parseText(TestHelper.getInputStream("bcif/modelserver/1acj.bcif"));
+        CifReader.readText(TestHelper.getInputStream("bcif/modelserver/1acj.bcif"));
     }
 }

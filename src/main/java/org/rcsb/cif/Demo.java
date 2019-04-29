@@ -32,12 +32,12 @@ public class Demo {
             // parse binary CIF from ModelServer
             InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/"
                     + pdbId).openStream();
-            cifFile = CifReader.parseBinary(inputStream);
+            cifFile = CifReader.readBinary(inputStream);
         } else {
             // parse CIF from PDB
             InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId
                     + ".cif").openStream();
-            cifFile = CifReader.parseText(inputStream);
+            cifFile = CifReader.readText(inputStream);
         }
 
         // get first block of CIF

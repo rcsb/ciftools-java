@@ -64,7 +64,7 @@ public class SingleRowEncodingPerformanceTest {
 
                     try {
                         // read source file
-                        CifFile cifFile = new BinaryCifReader().parse(Files.newInputStream(path));
+                        CifFile cifFile = new BinaryCifReader().read(Files.newInputStream(path));
                         InputStream inputStream = new BinaryCifWriter(options).write(cifFile);
 
                         // get size of encoded file
@@ -72,7 +72,7 @@ public class SingleRowEncodingPerformanceTest {
                         sizes.add(bytes.length);
 
                         // read once more
-                        new BinaryCifReader().parseBinary(bytes);
+                        new BinaryCifReader().readBinary(bytes);
                     } catch (Exception e) {
                         e.printStackTrace();
                         failed.incrementAndGet();

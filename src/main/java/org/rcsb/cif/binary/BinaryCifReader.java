@@ -18,7 +18,7 @@ import java.util.stream.Stream;
 
 public class BinaryCifReader {
     @SuppressWarnings("Duplicates")
-    public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
+    public CifFile read(InputStream inputStream) throws ParsingException, IOException {
         // TODO support GZIPInputStream
         // performance 2.1: explicitly buffer stream, increases performance drastically
         if (!(inputStream instanceof BufferedInputStream)) {
@@ -37,11 +37,11 @@ public class BinaryCifReader {
         buffer.close();
         inputStream.close();
 
-        return parseBinary(byteArray);
+        return readBinary(byteArray);
     }
 
     @SuppressWarnings("unchecked")
-    public CifFile parseBinary(byte[] data) throws ParsingException {
+    public CifFile readBinary(byte[] data) throws ParsingException {
         if (data.length == 0) {
             throw new ParsingException("Cannot parse empty file.");
         }

@@ -27,7 +27,7 @@ public class WriterTest {
     public void testNumberFormat() throws IOException {
         // read and write cif file
         InputStream inputStream = getInputStream("cif/1a2c.cif");
-        CifFile cifFile = CifReader.parseText(inputStream);
+        CifFile cifFile = CifReader.readText(inputStream);
         String output = CifWriter.composeText(cifFile);
 
         Pattern.compile("\n")
@@ -124,7 +124,7 @@ public class WriterTest {
 
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/" + testCase + ".cif");
-        CifFile text = CifReader.parseText(inputStream);
+        CifFile text = CifReader.readText(inputStream);
 
         // convert to cif
         String copy = new BufferedReader(new InputStreamReader(CifWriter.writeText(text)))
@@ -139,7 +139,7 @@ public class WriterTest {
 
         // read from bcif
         InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase + ".bcif");
-        CifFile binary = CifReader.parseBinary(inputStream);
+        CifFile binary = CifReader.readBinary(inputStream);
 
         // convert to bcif
         String copy = new BufferedReader(new InputStreamReader(CifWriter.writeBinary(binary)))

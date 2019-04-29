@@ -50,7 +50,7 @@ public class ConvertCifToBcif {
                 Path outputPath = subDir.resolve(filename);
 
                 InputStream inputStream = new GZIPInputStream(Files.newInputStream(path));
-                CifFile cifFile = CifReader.parseText(inputStream);
+                CifFile cifFile = CifReader.readText(inputStream);
                 InputStream outputStream = CifWriter.writeBinary(cifFile);
 
                 Files.copy(outputStream, outputPath, StandardCopyOption.REPLACE_EXISTING);
