@@ -143,10 +143,12 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName, categoryClassName, categoryBuilder);
+            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()),
+                    categoryName, categoryClassName, categoryBuilder);
 
             // builder
-            builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName + "() {");
+            builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
+                    + "() {");
             builder.add("        return new GenericCategoryBuilder." + categoryClassName + "Builder(this);");
             builder.add("    }");
             builder.add("");
@@ -177,7 +179,8 @@ class SchemaGenerator {
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String className, Table content, Path path, String categoryName, String categoryClassName, StringJoiner categoryBuilder) throws IOException {
+    private void writeCategory(String className, Table content, Path path, String categoryName,
+                               String categoryClassName, StringJoiner categoryBuilder) throws IOException {
 //        System.out.println(categoryName);
         if (!Files.exists(path)) {
             Files.createDirectory(path);
@@ -221,7 +224,8 @@ class SchemaGenerator {
             getters.add("     * @return " + columnClassName);
             getters.add("     */");
             getters.add("    public " + columnClassName + " get" + columnClassName + "() {");
-            getters.add("        return (" + columnClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName + "\",");
+            getters.add("        return (" + columnClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName
+                    + "\",");
             getters.add("                " + columnClassName + "::new) : getBinaryColumn(\"" + columnName + "\"));");
             getters.add("    }");
             getters.add("");
@@ -229,8 +233,10 @@ class SchemaGenerator {
             writeColumn(columnClassName, column, content.getRepeat() == Repeat.SINGLE, path);
 
             categoryBuilder.add("");
-            categoryBuilder.add("        public " + getBaseClass(column.getType(), false) + "Builder<" + categoryClassName + "Builder> enter" + columnClassName + "() {");
-            categoryBuilder.add("            return new " + getBaseClass(column.getType(), false) + "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
+            categoryBuilder.add("        public " + getBaseClass(column.getType(), false) + "Builder<" +
+                    categoryClassName + "Builder> enter" + columnClassName + "() {");
+            categoryBuilder.add("            return new " + getBaseClass(column.getType(), false) +
+                    "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
             categoryBuilder.add("        }");
         }
 
@@ -272,7 +278,8 @@ class SchemaGenerator {
         output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
 
         // constructor for text data
-        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, int[] endToken) {");
+        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, " +
+                "int[] endToken) {");
         output.add("        super(name, rowCount, data, startToken, endToken);");
         output.add("    }");
         output.add("");
@@ -566,7 +573,8 @@ class SchemaGenerator {
                             .map(String::trim)
                             .collect(Collectors.joining("\n"));
 
-                    schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames, new LinkedHashMap<>(), repeat));
+                    schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames,
+                            new LinkedHashMap<>(), repeat));
                 });
     }
 

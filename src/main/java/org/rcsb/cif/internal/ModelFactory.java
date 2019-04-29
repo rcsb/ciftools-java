@@ -78,7 +78,8 @@ public class ModelFactory {
             try {
                 return categoryClass.getConstructor(String.class, Map.class)
                         .newInstance(categoryName, textColumns);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
                 throw new RuntimeException("could not instantiate category class", e);
             }
         } else {
@@ -101,7 +102,8 @@ public class ModelFactory {
             try {
                 return categoryClass.getConstructor(String.class, int.class, Object[].class)
                         .newInstance(categoryName, rowCount, encodedColumns);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
                 throw new RuntimeException("could not instantiate category class", e);
             }
         } else {
@@ -124,7 +126,11 @@ public class ModelFactory {
      * Create a single row column based on text data.
      * @see ModelFactory#createColumnText(String, String, String, int[], int[])
      */
-    public static Column createColumnText(String categoryName, String fieldName, String data, int startToken, int endToken) {
+    public static Column createColumnText(String categoryName,
+                                          String fieldName,
+                                          String data,
+                                          int startToken,
+                                          int endToken) {
         return createColumnText(categoryName, fieldName, data, new int[] { startToken }, new int[] { endToken });
     }
 
@@ -137,14 +143,19 @@ public class ModelFactory {
      * @param endToken the collection of end indices which will be used to extract data
      * @return the text column, ready to parse particular rows
      */
-    public static Column createColumnText(String categoryName, String columnName, String data, int[] startToken, int[] endToken) {
+    public static Column createColumnText(String categoryName,
+                                          String columnName,
+                                          String data,
+                                          int[] startToken,
+                                          int[] endToken) {
         int rowCount = startToken.length;
         Class<? extends BaseColumn> columnClass = columnMap.get(categoryName + "." + columnName);
         if (columnClass != null) {
             try {
                 return columnClass.getConstructor(String.class, int.class, String.class, int[].class, int[].class)
                         .newInstance(columnName, rowCount, data, startToken, endToken);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
         } else {
@@ -177,7 +188,8 @@ public class ModelFactory {
             try {
                 return columnClass.getConstructor(String.class, int.class, Object.class, int[].class)
                         .newInstance(columnName, rowCount, binaryData, mask);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
                 throw new RuntimeException("could not instantiate column class", e);
             }
         } else {
@@ -204,7 +216,8 @@ public class ModelFactory {
             try {
                 return columnClass.getConstructor(String.class)
                         .newInstance(columnName);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException | InvocationTargetException e) {
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
                 throw new RuntimeException(e);
             }
         } else {
