@@ -88,9 +88,16 @@ public class Demo {
                 // values can be unknown or not specified
                 .markNextUnknown()
                 .add(-3.14, 5.0)
+                .leaveColumn()
+
+                // after leaving, the builder is in AtomSite again and provides columns
+                .enterCartnY()
+                .add(0.0, -1.0, 2.72)
+                .markNextNotPresent()
+                .add(42, 100)
+                .leaveColumn()
 
                 // leaving the builder will release the CifFile instance
-                .leaveColumn()
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();

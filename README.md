@@ -2,10 +2,14 @@
 
 CIFTools implements reading and writing of CIF files ([specification](http://www.iucr.org/resources/cif/spec/version1.1/cifsyntax))
 as well as their efficiently encoded counterpart, called BinaryCIF. The idea is to have a robust, type-safe 
-implementation for the handling of CIF files which does not care about the origin of the data: both conventional text-based
-and binary files should be handled the same way.
+implementation for the handling of CIF files which does not care about the origin of the data: both conventional 
+text-based and binary files should be handled the same way.
 
 ## Performance
+The implementation can read the entire PDB archive in 102 s. This is achieved by lazy decoding and parsing - all columns
+are decoded the first time when they are actually requested. Thus, the parsing overhead is kept minimal.
+
+Plots and details coming soon.
 
 ## Getting Started
 
@@ -66,30 +70,37 @@ Just as in Mol* implementation, all parsing and decoding is done as lazily as po
 ```Java
 class Demo {
     public static void main(String[] args) {
-        CifFile cifFile = CifFile.enterFile()
+        CifFile cifFile = new CifBuilder()
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
-                .enterCategory("entry")
+                .enterEntry()
                 // set value of column 'id'
-                .enterStrColumn("id")
+                .enterId()
                 // to '1EXP'
-                .stringValues("1EXP")
+                .add("1EXP")
                 // leave current column and category
                 .leaveColumn()
                 .leaveCategory()
 
                 // create atom site category
-                .enterCategory("atom_site")
+                .enterAtomSite()
                 // and specify some x-coordinates
-                .enterFloatColumn("Cartn_x")
-                .floatValues(1.0, -2.4, 4.5)
+                .enterCartnX()
+                .add(1.0, -2.4, 4.5)
                 // values can be unknown or not specified
                 .markNextUnknown()
-                .floatValues(-3.14, 5.0)
+                .add(-3.14, 5.0)
+                .leaveColumn()
+
+                // after leaving, the builder is in AtomSite again and provides columns
+                .enterCartnY()
+                .add(0.0, -1.0, 2.72)
+                .markNextNotPresent()
+                .add(42, 100)
+                .leaveColumn()
 
                 // leaving the builder will release the CifFile instance
-                .leaveColumn()
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
@@ -102,4 +113,4 @@ class Demo {
 This implementation is based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
 - [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
-- [MMTF](https://mmtf.rcsb.org/)
+- [MMTF](https://mmtf.rcsb.org/) by RCSB

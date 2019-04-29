@@ -22,14 +22,14 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
 
 
     @Override
-    public FloatColumnBuilder markNextNotPresent() {
+    public FloatColumnBuilder<P> markNextNotPresent() {
         values.add(0.0);
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public FloatColumnBuilder markNextUnknown() {
+    public FloatColumnBuilder<P> markNextUnknown() {
         values.add(0.0);
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -48,7 +48,7 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
         return parent.digest(this);
     }
 
-    public FloatColumnBuilder add(double... value) {
+    public FloatColumnBuilder<P> add(double... value) {
         DoubleStream.of(value).forEach(values::add);
         IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
         return this;

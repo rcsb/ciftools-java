@@ -20,14 +20,14 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
 
 
     @Override
-    public StrColumnBuilder markNextNotPresent() {
+    public StrColumnBuilder<P> markNextNotPresent() {
         values.add(".");
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public StrColumnBuilder markNextUnknown() {
+    public StrColumnBuilder<P> markNextUnknown() {
         values.add("?");
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -46,7 +46,7 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         return (P) parent.digest(this);
     }
 
-    public StrColumnBuilder add(String... value) {
+    public StrColumnBuilder<P> add(String... value) {
         for (String s : value) {
             if (".".equals(s)) {
                 markNextNotPresent();
