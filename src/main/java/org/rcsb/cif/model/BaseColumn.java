@@ -83,6 +83,13 @@ public abstract class BaseColumn implements Column {
      * @return the formatted String value
      */
     protected String format(double val) {
+        String columnName = getColumnName();
+        if ("Cartn_x".equals(columnName) || "Cartn_y".equals(columnName) || "Cartn_z".equals(columnName)) {
+            return FLOAT_3.format(val);
+        } else if ("occupancy".equals(columnName)) {
+            return FLOAT_2.format(val);
+        }
+
         return FLOAT_6.format(val);
     }
 
@@ -123,8 +130,8 @@ public abstract class BaseColumn implements Column {
                 .mapToObj(this::getValueKind);
     }
 
-    protected static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
-    protected static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
+    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
+    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
     private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
 
     @Override

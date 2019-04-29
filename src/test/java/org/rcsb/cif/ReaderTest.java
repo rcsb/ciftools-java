@@ -4,8 +4,8 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.generated.atomsite.AtomSite;
-import org.rcsb.cif.model.generated.atomsite.LabelSeqId;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,13 +50,13 @@ public class ReaderTest {
     }
 
     private void checkParsedEntity(CifFile cifFile, List<Object> testData) throws ParsingException {
-        Block data = cifFile.getBlocks().get(0);
+        Block data = cifFile.getFirstBlock();
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);
 
         // the last residue sequence id
-        LabelSeqId label_seq_id = _atom_site.getLabelSeqId();
+        IntColumn label_seq_id = _atom_site.getLabelSeqId();
         label_seq_id.values().max().ifPresent(i -> assertEquals("sequence id parsing corrupted", (int) testData.get(1), i));
 
         String stringValue = data.getEntry().getId().get(0);

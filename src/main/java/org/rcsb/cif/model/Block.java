@@ -67,7 +67,7 @@ public interface Block {
      * are not given in the ATOM_SITE_ANISOTROP category.
      * @return AtomSite
      */
-    org.rcsb.cif.model.generated.atomsite.AtomSite getAtomSite();
+    org.rcsb.cif.model.generated.AtomSite getAtomSite();
 
     /**
      * Data items in the ATOM_SITE_ANISOTROP category record details
@@ -76,7 +76,7 @@ public interface Block {
      * data, the corresponding ATOM_SITE data items are not used.
      * @return AtomSiteAnisotrop
      */
-    org.rcsb.cif.model.generated.atomsiteanisotrop.AtomSiteAnisotrop getAtomSiteAnisotrop();
+    org.rcsb.cif.model.generated.AtomSiteAnisotrop getAtomSiteAnisotrop();
 
     /**
      * Data items in the ATOM_SITES category record details about
@@ -84,7 +84,7 @@ public interface Block {
      * common to all atom sites.
      * @return AtomSites
      */
-    org.rcsb.cif.model.generated.atomsites.AtomSites getAtomSites();
+    org.rcsb.cif.model.generated.AtomSites getAtomSites();
 
     /**
      * Data items in the ATOM_SITES_ALT category record details
@@ -93,7 +93,7 @@ public interface Block {
      * alternative conformations in this data block.
      * @return AtomSitesAlt
      */
-    org.rcsb.cif.model.generated.atomsitesalt.AtomSitesAlt getAtomSitesAlt();
+    org.rcsb.cif.model.generated.AtomSitesAlt getAtomSitesAlt();
 
     /**
      * Data items in the ATOM_SITES_ALT_ENS category record details
@@ -101,7 +101,7 @@ public interface Block {
      * alternative conformation IDs.
      * @return AtomSitesAltEns
      */
-    org.rcsb.cif.model.generated.atomsitesaltens.AtomSitesAltEns getAtomSitesAltEns();
+    org.rcsb.cif.model.generated.AtomSitesAltEns getAtomSitesAltEns();
 
     /**
      * Data items in the ATOM_SITES_ALT_GEN category record details
@@ -109,14 +109,14 @@ public interface Block {
      * structure.
      * @return AtomSitesAltGen
      */
-    org.rcsb.cif.model.generated.atomsitesaltgen.AtomSitesAltGen getAtomSitesAltGen();
+    org.rcsb.cif.model.generated.AtomSitesAltGen getAtomSitesAltGen();
 
     /**
      * Data items in the ATOM_SITES_FOOTNOTE category record detailed
      * comments about an atom site or a group of atom sites.
      * @return AtomSitesFootnote
      */
-    org.rcsb.cif.model.generated.atomsitesfootnote.AtomSitesFootnote getAtomSitesFootnote();
+    org.rcsb.cif.model.generated.AtomSitesFootnote getAtomSitesFootnote();
 
     /**
      * Data items in the ATOM_TYPE category record details about the
@@ -124,7 +124,7 @@ public interface Block {
      * atomic scattering factors.
      * @return AtomType
      */
-    org.rcsb.cif.model.generated.atomtype.AtomType getAtomType();
+    org.rcsb.cif.model.generated.AtomType getAtomType();
 
     /**
      * Data items in the AUDIT category record details about the
@@ -136,14 +136,14 @@ public interface Block {
      * publication of the material in the data block.
      * @return Audit
      */
-    org.rcsb.cif.model.generated.audit.Audit getAudit();
+    org.rcsb.cif.model.generated.Audit getAudit();
 
     /**
      * Data items in the AUDIT_AUTHOR category record details about
      * the author(s) of the data block.
      * @return AuditAuthor
      */
-    org.rcsb.cif.model.generated.auditauthor.AuditAuthor getAuditAuthor();
+    org.rcsb.cif.model.generated.AuditAuthor getAuditAuthor();
 
     /**
      * Data items in the AUDIT_CONFORM category describe the
@@ -151,7 +151,7 @@ public interface Block {
      * the current data block are conformant.
      * @return AuditConform
      */
-    org.rcsb.cif.model.generated.auditconform.AuditConform getAuditConform();
+    org.rcsb.cif.model.generated.AuditConform getAuditConform();
 
     /**
      * Data items in the AUDIT_CONTACT_AUTHOR category record details
@@ -159,21 +159,21 @@ public interface Block {
      * concerning the content of this data block.
      * @return AuditContactAuthor
      */
-    org.rcsb.cif.model.generated.auditcontactauthor.AuditContactAuthor getAuditContactAuthor();
+    org.rcsb.cif.model.generated.AuditContactAuthor getAuditContactAuthor();
 
     /**
      * Data items in the CELL category record details about the
      * crystallographic cell parameters.
      * @return Cell
      */
-    org.rcsb.cif.model.generated.cell.Cell getCell();
+    org.rcsb.cif.model.generated.Cell getCell();
 
     /**
      * Data items in the CELL_MEASUREMENT category record details
      * about the measurement of the crystallographic cell parameters.
      * @return CellMeasurement
      */
-    org.rcsb.cif.model.generated.cellmeasurement.CellMeasurement getCellMeasurement();
+    org.rcsb.cif.model.generated.CellMeasurement getCellMeasurement();
 
     /**
      * Data items in the CELL_MEASUREMENT_REFLN category record
@@ -184,7 +184,7 @@ public interface Block {
      * only for diffractometer data.
      * @return CellMeasurementRefln
      */
-    org.rcsb.cif.model.generated.cellmeasurementrefln.CellMeasurementRefln getCellMeasurementRefln();
+    org.rcsb.cif.model.generated.CellMeasurementRefln getCellMeasurementRefln();
 
     /**
      * Data items in the CHEM_COMP category give details about each
@@ -196,7 +196,7 @@ public interface Block {
      * chemical components.
      * @return ChemComp
      */
-    org.rcsb.cif.model.generated.chemcomp.ChemComp getChemComp();
+    org.rcsb.cif.model.generated.ChemComp getChemComp();
 
     /**
      * Data items in the CHEM_COMP_ANGLE category record details about
@@ -206,7 +206,7 @@ public interface Block {
      * distance between the first and third atoms, or both.
      * @return ChemCompAngle
      */
-    org.rcsb.cif.model.generated.chemcompangle.ChemCompAngle getChemCompAngle();
+    org.rcsb.cif.model.generated.ChemCompAngle getChemCompAngle();
 
     /**
      * Data items in the CHEM_COMP_ATOM category record details about
@@ -217,7 +217,7 @@ public interface Block {
      * CHEM_COMP subcategories.
      * @return ChemCompAtom
      */
-    org.rcsb.cif.model.generated.chemcompatom.ChemCompAtom getChemCompAtom();
+    org.rcsb.cif.model.generated.ChemCompAtom getChemCompAtom();
 
     /**
      * Data items in the CHEM_COMP_BOND category record details about
@@ -226,7 +226,7 @@ public interface Block {
      * atoms, or both.
      * @return ChemCompBond
      */
-    org.rcsb.cif.model.generated.chemcompbond.ChemCompBond getChemCompBond();
+    org.rcsb.cif.model.generated.ChemCompBond getChemCompBond();
 
     /**
      * Data items in the CHEM_COMP_CHIR category provide details about
@@ -235,21 +235,21 @@ public interface Block {
      * category.
      * @return ChemCompChir
      */
-    org.rcsb.cif.model.generated.chemcompchir.ChemCompChir getChemCompChir();
+    org.rcsb.cif.model.generated.ChemCompChir getChemCompChir();
 
     /**
      * Data items in the CHEM_COMP_CHIR_ATOM category enumerate the
      * atoms bonded to a chiral atom within a chemical component.
      * @return ChemCompChirAtom
      */
-    org.rcsb.cif.model.generated.chemcompchiratom.ChemCompChirAtom getChemCompChirAtom();
+    org.rcsb.cif.model.generated.ChemCompChirAtom getChemCompChirAtom();
 
     /**
      * Data items in the CHEM_COMP_LINK category give details about
      * the links between chemical components.
      * @return ChemCompLink
      */
-    org.rcsb.cif.model.generated.chemcomplink.ChemCompLink getChemCompLink();
+    org.rcsb.cif.model.generated.ChemCompLink getChemCompLink();
 
     /**
      * Data items in the CHEM_COMP_PLANE category provide identifiers
@@ -257,14 +257,14 @@ public interface Block {
      * are specified in the CHEM_COMP_PLANE_ATOM category.
      * @return ChemCompPlane
      */
-    org.rcsb.cif.model.generated.chemcompplane.ChemCompPlane getChemCompPlane();
+    org.rcsb.cif.model.generated.ChemCompPlane getChemCompPlane();
 
     /**
      * Data items in the CHEM_COMP_PLANE_ATOM category enumerate the
      * atoms in a plane within a chemical component.
      * @return ChemCompPlaneAtom
      */
-    org.rcsb.cif.model.generated.chemcompplaneatom.ChemCompPlaneAtom getChemCompPlaneAtom();
+    org.rcsb.cif.model.generated.ChemCompPlaneAtom getChemCompPlaneAtom();
 
     /**
      * Data items in the CHEM_COMP_TOR category record details about
@@ -273,7 +273,7 @@ public interface Block {
      * specified in the CHEM_COMP_TOR_VALUE category.
      * @return ChemCompTor
      */
-    org.rcsb.cif.model.generated.chemcomptor.ChemCompTor getChemCompTor();
+    org.rcsb.cif.model.generated.ChemCompTor getChemCompTor();
 
     /**
      * Data items in the CHEM_COMP_TOR_VALUE category record details
@@ -283,28 +283,28 @@ public interface Block {
      * both.
      * @return ChemCompTorValue
      */
-    org.rcsb.cif.model.generated.chemcomptorvalue.ChemCompTorValue getChemCompTorValue();
+    org.rcsb.cif.model.generated.ChemCompTorValue getChemCompTorValue();
 
     /**
      * Data items in the CHEM_LINK category give details about
      * the links between chemical components.
      * @return ChemLink
      */
-    org.rcsb.cif.model.generated.chemlink.ChemLink getChemLink();
+    org.rcsb.cif.model.generated.ChemLink getChemLink();
 
     /**
      * Data items in the CHEM_LINK_ANGLE category record details
      * about angles in a link between chemical components.
      * @return ChemLinkAngle
      */
-    org.rcsb.cif.model.generated.chemlinkangle.ChemLinkAngle getChemLinkAngle();
+    org.rcsb.cif.model.generated.ChemLinkAngle getChemLinkAngle();
 
     /**
      * Data items in the CHEM_LINK_BOND category record details about
      * bonds in a link between components in the chemical structure.
      * @return ChemLinkBond
      */
-    org.rcsb.cif.model.generated.chemlinkbond.ChemLinkBond getChemLinkBond();
+    org.rcsb.cif.model.generated.ChemLinkBond getChemLinkBond();
 
     /**
      * Data items in the CHEM_LINK_CHIR category provide details about
@@ -313,7 +313,7 @@ public interface Block {
      * CHEM_LINK_CHIR_ATOM category.
      * @return ChemLinkChir
      */
-    org.rcsb.cif.model.generated.chemlinkchir.ChemLinkChir getChemLinkChir();
+    org.rcsb.cif.model.generated.ChemLinkChir getChemLinkChir();
 
     /**
      * Data items in the CHEM_LINK_CHIR_ATOM category enumerate the
@@ -321,7 +321,7 @@ public interface Block {
      * chemical components.
      * @return ChemLinkChirAtom
      */
-    org.rcsb.cif.model.generated.chemlinkchiratom.ChemLinkChirAtom getChemLinkChirAtom();
+    org.rcsb.cif.model.generated.ChemLinkChirAtom getChemLinkChirAtom();
 
     /**
      * Data items in the CHEM_LINK_PLANE category provide identifiers
@@ -330,14 +330,14 @@ public interface Block {
      * category.
      * @return ChemLinkPlane
      */
-    org.rcsb.cif.model.generated.chemlinkplane.ChemLinkPlane getChemLinkPlane();
+    org.rcsb.cif.model.generated.ChemLinkPlane getChemLinkPlane();
 
     /**
      * Data items in the CHEM_LINK_PLANE_ATOM category enumerate the
      * atoms in a plane in a link between two chemical components.
      * @return ChemLinkPlaneAtom
      */
-    org.rcsb.cif.model.generated.chemlinkplaneatom.ChemLinkPlaneAtom getChemLinkPlaneAtom();
+    org.rcsb.cif.model.generated.ChemLinkPlaneAtom getChemLinkPlaneAtom();
 
     /**
      * Data items in the CHEM_LINK_TOR category record details about
@@ -346,7 +346,7 @@ public interface Block {
      * target values are specified in the CHEM_LINK_TOR_VALUE category.
      * @return ChemLinkTor
      */
-    org.rcsb.cif.model.generated.chemlinktor.ChemLinkTor getChemLinkTor();
+    org.rcsb.cif.model.generated.ChemLinkTor getChemLinkTor();
 
     /**
      * Data items in the CHEM_LINK_TOR_VALUE category record details
@@ -356,7 +356,7 @@ public interface Block {
      * both.
      * @return ChemLinkTorValue
      */
-    org.rcsb.cif.model.generated.chemlinktorvalue.ChemLinkTorValue getChemLinkTorValue();
+    org.rcsb.cif.model.generated.ChemLinkTorValue getChemLinkTorValue();
 
     /**
      * Data items in the CHEMICAL category would not in general be
@@ -369,7 +369,7 @@ public interface Block {
      * density, unit-cell and Z values.
      * @return Chemical
      */
-    org.rcsb.cif.model.generated.chemical.Chemical getChemical();
+    org.rcsb.cif.model.generated.Chemical getChemical();
 
     /**
      * Data items in the CHEMICAL_CONN_ATOM category would not, in
@@ -391,7 +391,7 @@ public interface Block {
      * describe a complete chemical entity.
      * @return ChemicalConnAtom
      */
-    org.rcsb.cif.model.generated.chemicalconnatom.ChemicalConnAtom getChemicalConnAtom();
+    org.rcsb.cif.model.generated.ChemicalConnAtom getChemicalConnAtom();
 
     /**
      * Data items in the CHEMICAL_CONN_BOND category would not, in
@@ -410,7 +410,7 @@ public interface Block {
      * of the chemical bond between these atoms.
      * @return ChemicalConnBond
      */
-    org.rcsb.cif.model.generated.chemicalconnbond.ChemicalConnBond getChemicalConnBond();
+    org.rcsb.cif.model.generated.ChemicalConnBond getChemicalConnBond();
 
     /**
      * Data items in the CHEMICAL_FORMULA category would not, in
@@ -455,7 +455,7 @@ public interface Block {
      * used in _chemical_formula.moiety and _chemical_formula.sum.
      * @return ChemicalFormula
      */
-    org.rcsb.cif.model.generated.chemicalformula.ChemicalFormula getChemicalFormula();
+    org.rcsb.cif.model.generated.ChemicalFormula getChemicalFormula();
 
     /**
      * Data items in the CITATION category record details about the
@@ -463,7 +463,7 @@ public interface Block {
      * block.
      * @return Citation
      */
-    org.rcsb.cif.model.generated.citation.Citation getCitation();
+    org.rcsb.cif.model.generated.Citation getCitation();
 
     /**
      * Data items in the CITATION_AUTHOR category record details
@@ -471,7 +471,7 @@ public interface Block {
      * CITATION list.
      * @return CitationAuthor
      */
-    org.rcsb.cif.model.generated.citationauthor.CitationAuthor getCitationAuthor();
+    org.rcsb.cif.model.generated.CitationAuthor getCitationAuthor();
 
     /**
      * Data items in the CITATION_EDITOR category record details
@@ -479,7 +479,7 @@ public interface Block {
      * cited in the CITATION list.
      * @return CitationEditor
      */
-    org.rcsb.cif.model.generated.citationeditor.CitationEditor getCitationEditor();
+    org.rcsb.cif.model.generated.CitationEditor getCitationEditor();
 
     /**
      * Data items in the COMPUTING category record details about the
@@ -491,7 +491,7 @@ public interface Block {
      * their attributes to be given, would be used instead.
      * @return Computing
      */
-    org.rcsb.cif.model.generated.computing.Computing getComputing();
+    org.rcsb.cif.model.generated.Computing getComputing();
 
     /**
      * Data items in the DATABASE category have been superseded by
@@ -499,7 +499,7 @@ public interface Block {
      * here only for compliance with older CIFs.
      * @return Database
      */
-    org.rcsb.cif.model.generated.database.Database getDatabase();
+    org.rcsb.cif.model.generated.Database getDatabase();
 
     /**
      * Data items in the DATABASE_2 category record details about the
@@ -516,7 +516,7 @@ public interface Block {
      * had to be created.
      * @return Database2
      */
-    org.rcsb.cif.model.generated.database2.Database2 getDatabase2();
+    org.rcsb.cif.model.generated.Database2 getDatabase2();
 
     /**
      * Data items in the DATABASE_PDB_CAVEAT category record details
@@ -528,7 +528,7 @@ public interface Block {
      * data block was created by reformatting a PDB format file.
      * @return DatabasePDBCaveat
      */
-    org.rcsb.cif.model.generated.databasepdbcaveat.DatabasePDBCaveat getDatabasePDBCaveat();
+    org.rcsb.cif.model.generated.DatabasePDBCaveat getDatabasePDBCaveat();
 
     /**
      * The DATABASE_PDB_MATRIX category provides placeholders for
@@ -540,7 +540,7 @@ public interface Block {
      * that data block was created by reformatting a PDB format file.
      * @return DatabasePDBMatrix
      */
-    org.rcsb.cif.model.generated.databasepdbmatrix.DatabasePDBMatrix getDatabasePDBMatrix();
+    org.rcsb.cif.model.generated.DatabasePDBMatrix getDatabasePDBMatrix();
 
     /**
      * Data items in the DATABASE_PDB_REMARK category record details
@@ -559,7 +559,7 @@ public interface Block {
      * nomenclature or labeling used in the entry.
      * @return DatabasePDBRemark
      */
-    org.rcsb.cif.model.generated.databasepdbremark.DatabasePDBRemark getDatabasePDBRemark();
+    org.rcsb.cif.model.generated.DatabasePDBRemark getDatabasePDBRemark();
 
     /**
      * Data items in the DATABASE_PDB_REV category record details
@@ -571,7 +571,7 @@ public interface Block {
      * source.
      * @return DatabasePDBRev
      */
-    org.rcsb.cif.model.generated.databasepdbrev.DatabasePDBRev getDatabasePDBRev();
+    org.rcsb.cif.model.generated.DatabasePDBRev getDatabasePDBRev();
 
     /**
      * Data items in the DATABASE_PDB_REV_RECORD category record
@@ -583,7 +583,7 @@ public interface Block {
      * source.
      * @return DatabasePDBRevRecord
      */
-    org.rcsb.cif.model.generated.databasepdbrevrecord.DatabasePDBRevRecord getDatabasePDBRevRecord();
+    org.rcsb.cif.model.generated.DatabasePDBRevRecord getDatabasePDBRevRecord();
 
     /**
      * The DATABASE_PDB_TVECT category provides placeholders for
@@ -595,21 +595,21 @@ public interface Block {
      * the data block was created by reformatting a PDB format file.
      * @return DatabasePDBTvect
      */
-    org.rcsb.cif.model.generated.databasepdbtvect.DatabasePDBTvect getDatabasePDBTvect();
+    org.rcsb.cif.model.generated.DatabasePDBTvect getDatabasePDBTvect();
 
     /**
      * Data items in the DIFFRN category record details about the
      * diffraction data and their measurement.
      * @return Diffrn
      */
-    org.rcsb.cif.model.generated.diffrn.Diffrn getDiffrn();
+    org.rcsb.cif.model.generated.Diffrn getDiffrn();
 
     /**
      * Data items in the DIFFRN_ATTENUATOR category record details
      * about the diffraction attenuator scales employed.
      * @return DiffrnAttenuator
      */
-    org.rcsb.cif.model.generated.diffrnattenuator.DiffrnAttenuator getDiffrnAttenuator();
+    org.rcsb.cif.model.generated.DiffrnAttenuator getDiffrnAttenuator();
 
     /**
      * Data items in the DIFFRN_DETECTOR category describe the
@@ -617,7 +617,7 @@ public interface Block {
      * any analyser and post-sample collimation.
      * @return DiffrnDetector
      */
-    org.rcsb.cif.model.generated.diffrndetector.DiffrnDetector getDiffrnDetector();
+    org.rcsb.cif.model.generated.DiffrnDetector getDiffrnDetector();
 
     /**
      * Data items in the DIFFRN_MEASUREMENT category record details
@@ -626,7 +626,7 @@ public interface Block {
      * data were measured.
      * @return DiffrnMeasurement
      */
-    org.rcsb.cif.model.generated.diffrnmeasurement.DiffrnMeasurement getDiffrnMeasurement();
+    org.rcsb.cif.model.generated.DiffrnMeasurement getDiffrnMeasurement();
 
     /**
      * Data items in the DIFFRN_ORIENT_MATRIX category record details
@@ -634,7 +634,7 @@ public interface Block {
      * diffraction data.
      * @return DiffrnOrientMatrix
      */
-    org.rcsb.cif.model.generated.diffrnorientmatrix.DiffrnOrientMatrix getDiffrnOrientMatrix();
+    org.rcsb.cif.model.generated.DiffrnOrientMatrix getDiffrnOrientMatrix();
 
     /**
      * Data items in the DIFFRN_ORIENT_REFLN category record details
@@ -642,7 +642,7 @@ public interface Block {
      * the measurement of the diffraction intensities.
      * @return DiffrnOrientRefln
      */
-    org.rcsb.cif.model.generated.diffrnorientrefln.DiffrnOrientRefln getDiffrnOrientRefln();
+    org.rcsb.cif.model.generated.DiffrnOrientRefln getDiffrnOrientRefln();
 
     /**
      * Data items in the DIFFRN_RADIATION category describe
@@ -653,7 +653,7 @@ public interface Block {
      * items in the DIFFRN_DETECTOR category.
      * @return DiffrnRadiation
      */
-    org.rcsb.cif.model.generated.diffrnradiation.DiffrnRadiation getDiffrnRadiation();
+    org.rcsb.cif.model.generated.DiffrnRadiation getDiffrnRadiation();
 
     /**
      * Data items in the DIFFRN_RADIATION_WAVELENGTH category
@@ -663,7 +663,7 @@ public interface Block {
      * polychromatic beam.
      * @return DiffrnRadiationWavelength
      */
-    org.rcsb.cif.model.generated.diffrnradiationwavelength.DiffrnRadiationWavelength getDiffrnRadiationWavelength();
+    org.rcsb.cif.model.generated.DiffrnRadiationWavelength getDiffrnRadiationWavelength();
 
     /**
      * Data items in the DIFFRN_REFLN category record details about
@@ -678,7 +678,7 @@ public interface Block {
      * data set identified by _diffrn_reflns.diffrn_id.
      * @return DiffrnRefln
      */
-    org.rcsb.cif.model.generated.diffrnrefln.DiffrnRefln getDiffrnRefln();
+    org.rcsb.cif.model.generated.DiffrnRefln getDiffrnRefln();
 
     /**
      * Data items in the DIFFRN_REFLNS category record details about
@@ -691,7 +691,7 @@ public interface Block {
      * to all intensity measurements in a diffraction data set.
      * @return DiffrnReflns
      */
-    org.rcsb.cif.model.generated.diffrnreflns.DiffrnReflns getDiffrnReflns();
+    org.rcsb.cif.model.generated.DiffrnReflns getDiffrnReflns();
 
     /**
      * Data items in the DIFFRN_SCALE_GROUP category record details
@@ -701,14 +701,14 @@ public interface Block {
      * multi-film data set or each crystal in a multi-crystal data set.
      * @return DiffrnScaleGroup
      */
-    org.rcsb.cif.model.generated.diffrnscalegroup.DiffrnScaleGroup getDiffrnScaleGroup();
+    org.rcsb.cif.model.generated.DiffrnScaleGroup getDiffrnScaleGroup();
 
     /**
      * Data items in the DIFFRN_SOURCE category record details of
      * the source of radiation used in the diffraction experiment.
      * @return DiffrnSource
      */
-    org.rcsb.cif.model.generated.diffrnsource.DiffrnSource getDiffrnSource();
+    org.rcsb.cif.model.generated.DiffrnSource getDiffrnSource();
 
     /**
      * Data items in the DIFFRN_STANDARD_REFLN category record details
@@ -719,7 +719,7 @@ public interface Block {
      * results of the analysis of the standard reflections.
      * @return DiffrnStandardRefln
      */
-    org.rcsb.cif.model.generated.diffrnstandardrefln.DiffrnStandardRefln getDiffrnStandardRefln();
+    org.rcsb.cif.model.generated.DiffrnStandardRefln getDiffrnStandardRefln();
 
     /**
      * Data items in the DIFFRN_STANDARDS category record details
@@ -730,7 +730,7 @@ public interface Block {
      * standard reflections, not the standard reflections themselves.
      * @return DiffrnStandards
      */
-    org.rcsb.cif.model.generated.diffrnstandards.DiffrnStandards getDiffrnStandards();
+    org.rcsb.cif.model.generated.DiffrnStandards getDiffrnStandards();
 
     /**
      * Data items in the ENTITY category record details (such as
@@ -764,7 +764,7 @@ public interface Block {
      * describe and label the contents of the asymmetric unit.
      * @return Entity
      */
-    org.rcsb.cif.model.generated.entity.Entity getEntity();
+    org.rcsb.cif.model.generated.Entity getEntity();
 
     /**
      * Data items in the ENTITY_KEYWORDS category specify keywords
@@ -778,14 +778,14 @@ public interface Block {
      * RNA.
      * @return EntityKeywords
      */
-    org.rcsb.cif.model.generated.entitykeywords.EntityKeywords getEntityKeywords();
+    org.rcsb.cif.model.generated.EntityKeywords getEntityKeywords();
 
     /**
      * Data items in the ENTITY_LINK category give details about
      * the links between entities.
      * @return EntityLink
      */
-    org.rcsb.cif.model.generated.entitylink.EntityLink getEntityLink();
+    org.rcsb.cif.model.generated.EntityLink getEntityLink();
 
     /**
      * Data items in the ENTITY_NAME_COM category record the common name
@@ -795,7 +795,7 @@ public interface Block {
      * name, not haemoglobin.
      * @return EntityNameCom
      */
-    org.rcsb.cif.model.generated.entitynamecom.EntityNameCom getEntityNameCom();
+    org.rcsb.cif.model.generated.EntityNameCom getEntityNameCom();
 
     /**
      * Data items in the ENTITY_NAME_SYS category record the systematic
@@ -805,7 +805,7 @@ public interface Block {
      * structure.
      * @return EntityNameSys
      */
-    org.rcsb.cif.model.generated.entitynamesys.EntityNameSys getEntityNameSys();
+    org.rcsb.cif.model.generated.EntityNameSys getEntityNameSys();
 
     /**
      * Data items in the ENTITY_POLY category record details about the
@@ -813,7 +813,7 @@ public interface Block {
      * monomers and whether it has nonstandard features.
      * @return EntityPoly
      */
-    org.rcsb.cif.model.generated.entitypoly.EntityPoly getEntityPoly();
+    org.rcsb.cif.model.generated.EntityPoly getEntityPoly();
 
     /**
      * Data items in the ENTITY_POLY_SEQ category specify the sequence
@@ -824,7 +824,7 @@ public interface Block {
      * heterogeneity.
      * @return EntityPolySeq
      */
-    org.rcsb.cif.model.generated.entitypolyseq.EntityPolySeq getEntityPolySeq();
+    org.rcsb.cif.model.generated.EntityPolySeq getEntityPolySeq();
 
     /**
      * There is only one item in the ENTRY category, _entry.id. This
@@ -833,7 +833,7 @@ public interface Block {
      * information pertinent to the entire data block.
      * @return Entry
      */
-    org.rcsb.cif.model.generated.entry.Entry getEntry();
+    org.rcsb.cif.model.generated.Entry getEntry();
 
     /**
      * Data items in the ENTRY_LINK category record the
@@ -843,7 +843,7 @@ public interface Block {
      * in the current data block.
      * @return EntryLink
      */
-    org.rcsb.cif.model.generated.entrylink.EntryLink getEntryLink();
+    org.rcsb.cif.model.generated.EntryLink getEntryLink();
 
     /**
      * Data items in the EXPTL category record details about the
@@ -851,7 +851,7 @@ public interface Block {
      * details about the absorption-correction technique employed.
      * @return Exptl
      */
-    org.rcsb.cif.model.generated.exptl.Exptl getExptl();
+    org.rcsb.cif.model.generated.Exptl getExptl();
 
     /**
      * Data items in the EXPTL_CRYSTAL category record the results of
@@ -859,21 +859,21 @@ public interface Block {
      * such as shape, size or density.
      * @return ExptlCrystal
      */
-    org.rcsb.cif.model.generated.exptlcrystal.ExptlCrystal getExptlCrystal();
+    org.rcsb.cif.model.generated.ExptlCrystal getExptlCrystal();
 
     /**
      * Data items in the EXPTL_CRYSTAL_FACE category record details
      * of the crystal faces.
      * @return ExptlCrystalFace
      */
-    org.rcsb.cif.model.generated.exptlcrystalface.ExptlCrystalFace getExptlCrystalFace();
+    org.rcsb.cif.model.generated.ExptlCrystalFace getExptlCrystalFace();
 
     /**
      * Data items in the EXPTL_CRYSTAL_GROW category record details
      * about the conditions and methods used to grow the crystal.
      * @return ExptlCrystalGrow
      */
-    org.rcsb.cif.model.generated.exptlcrystalgrow.ExptlCrystalGrow getExptlCrystalGrow();
+    org.rcsb.cif.model.generated.ExptlCrystalGrow getExptlCrystalGrow();
 
     /**
      * Data items in the EXPTL_CRYSTAL_GROW_COMP category record
@@ -891,7 +891,7 @@ public interface Block {
      * described in EXPTL_CRYSTAL_GROW_COMP.
      * @return ExptlCrystalGrowComp
      */
-    org.rcsb.cif.model.generated.exptlcrystalgrowcomp.ExptlCrystalGrowComp getExptlCrystalGrowComp();
+    org.rcsb.cif.model.generated.ExptlCrystalGrowComp getExptlCrystalGrowComp();
 
     /**
      * Data items in the GEOM and related (GEOM_ANGLE,
@@ -908,7 +908,7 @@ public interface Block {
      * publication flag.
      * @return Geom
      */
-    org.rcsb.cif.model.generated.geom.Geom getGeom();
+    org.rcsb.cif.model.generated.Geom getGeom();
 
     /**
      * Data items in the GEOM_ANGLE category record details about the
@@ -916,7 +916,7 @@ public interface Block {
      * of the ATOM, CELL and SYMMETRY data.
      * @return GeomAngle
      */
-    org.rcsb.cif.model.generated.geomangle.GeomAngle getGeomAngle();
+    org.rcsb.cif.model.generated.GeomAngle getGeomAngle();
 
     /**
      * Data items in the GEOM_BOND category record details about
@@ -924,7 +924,7 @@ public interface Block {
      * of the ATOM, CELL and SYMMETRY data.
      * @return GeomBond
      */
-    org.rcsb.cif.model.generated.geombond.GeomBond getGeomBond();
+    org.rcsb.cif.model.generated.GeomBond getGeomBond();
 
     /**
      * Data items in the GEOM_CONTACT category record details about
@@ -932,7 +932,7 @@ public interface Block {
      * of the ATOM, CELL and SYMMETRY data.
      * @return GeomContact
      */
-    org.rcsb.cif.model.generated.geomcontact.GeomContact getGeomContact();
+    org.rcsb.cif.model.generated.GeomContact getGeomContact();
 
     /**
      * Data items in the GEOM_HBOND category record details about
@@ -940,7 +940,7 @@ public interface Block {
      * CELL and SYMMETRY data.
      * @return GeomHbond
      */
-    org.rcsb.cif.model.generated.geomhbond.GeomHbond getGeomHbond();
+    org.rcsb.cif.model.generated.GeomHbond getGeomHbond();
 
     /**
      * Data items in the GEOM_TORSION category record details about
@@ -957,7 +957,7 @@ public interface Block {
      * Ref: Klyne, W. & Prelog, V. (1960). Experientia, 16, 521-523.
      * @return GeomTorsion
      */
-    org.rcsb.cif.model.generated.geomtorsion.GeomTorsion getGeomTorsion();
+    org.rcsb.cif.model.generated.GeomTorsion getGeomTorsion();
 
     /**
      * Data items in the JOURNAL category record details about the
@@ -969,7 +969,7 @@ public interface Block {
      * for journal use only.
      * @return Journal
      */
-    org.rcsb.cif.model.generated.journal.Journal getJournal();
+    org.rcsb.cif.model.generated.Journal getJournal();
 
     /**
      * Data items in the JOURNAL_INDEX category are used to list terms
@@ -979,7 +979,7 @@ public interface Block {
      * items.
      * @return JournalIndex
      */
-    org.rcsb.cif.model.generated.journalindex.JournalIndex getJournalIndex();
+    org.rcsb.cif.model.generated.JournalIndex getJournalIndex();
 
     /**
      * Data items in the PHASING category record details about the
@@ -988,7 +988,7 @@ public interface Block {
      * method are listed in the appropriate subcategories.
      * @return Phasing
      */
-    org.rcsb.cif.model.generated.phasing.Phasing getPhasing();
+    org.rcsb.cif.model.generated.Phasing getPhasing();
 
     /**
      * Data items in the PHASING_AVERAGING category record details
@@ -997,7 +997,7 @@ public interface Block {
      * asymmetric unit are involved.
      * @return PhasingAveraging
      */
-    org.rcsb.cif.model.generated.phasingaveraging.PhasingAveraging getPhasingAveraging();
+    org.rcsb.cif.model.generated.PhasingAveraging getPhasingAveraging();
 
     /**
      * Data items in the PHASING_ISOMORPHOUS category record details
@@ -1006,7 +1006,7 @@ public interface Block {
      * phases.
      * @return PhasingIsomorphous
      */
-    org.rcsb.cif.model.generated.phasingisomorphous.PhasingIsomorphous getPhasingIsomorphous();
+    org.rcsb.cif.model.generated.PhasingIsomorphous getPhasingIsomorphous();
 
     /**
      * Data items in the PHASING_MAD category record details about
@@ -1014,7 +1014,7 @@ public interface Block {
      * multiple-wavelength anomalous-dispersion techniques are involved.
      * @return PhasingMAD
      */
-    org.rcsb.cif.model.generated.phasingmad.PhasingMAD getPhasingMAD();
+    org.rcsb.cif.model.generated.PhasingMAD getPhasingMAD();
 
     /**
      * Data items in the PHASING_MAD_CLUST category record details
@@ -1022,7 +1022,7 @@ public interface Block {
      * generation of a set of phases.
      * @return PhasingMADClust
      */
-    org.rcsb.cif.model.generated.phasingmadclust.PhasingMADClust getPhasingMADClust();
+    org.rcsb.cif.model.generated.PhasingMADClust getPhasingMADClust();
 
     /**
      * Data items in the PHASING_MAD_EXPT category record details about
@@ -1031,7 +1031,7 @@ public interface Block {
      * statistics for those phases.
      * @return PhasingMADExpt
      */
-    org.rcsb.cif.model.generated.phasingmadexpt.PhasingMADExpt getPhasingMADExpt();
+    org.rcsb.cif.model.generated.PhasingMADExpt getPhasingMADExpt();
 
     /**
      * Data items in the PHASING_MAD_RATIO category record
@@ -1039,7 +1039,7 @@ public interface Block {
      * in a MAD phasing experiment, in given shells of resolution.
      * @return PhasingMADRatio
      */
-    org.rcsb.cif.model.generated.phasingmadratio.PhasingMADRatio getPhasingMADRatio();
+    org.rcsb.cif.model.generated.PhasingMADRatio getPhasingMADRatio();
 
     /**
      * Data items in the PHASING_MAD_SET category record
@@ -1047,7 +1047,7 @@ public interface Block {
      * experiment.
      * @return PhasingMADSet
      */
-    org.rcsb.cif.model.generated.phasingmadset.PhasingMADSet getPhasingMADSet();
+    org.rcsb.cif.model.generated.PhasingMADSet getPhasingMADSet();
 
     /**
      * Data items in the PHASING_MIR category record details about
@@ -1060,7 +1060,7 @@ public interface Block {
      * isomorphous replacement plus anomalous scattering (SIRAS, MIRAS).
      * @return PhasingMIR
      */
-    org.rcsb.cif.model.generated.phasingmir.PhasingMIR getPhasingMIR();
+    org.rcsb.cif.model.generated.PhasingMIR getPhasingMIR();
 
     /**
      * Data items in the PHASING_MIR_DER category record details
@@ -1078,7 +1078,7 @@ public interface Block {
      * _phasing_MIR_der.native_set_id.
      * @return PhasingMIRDer
      */
-    org.rcsb.cif.model.generated.phasingmirder.PhasingMIRDer getPhasingMIRDer();
+    org.rcsb.cif.model.generated.PhasingMIRDer getPhasingMIRDer();
 
     /**
      * Data items in the PHASING_MIR_DER_REFLN category record details
@@ -1098,7 +1098,7 @@ public interface Block {
      * items can also be listed here for completeness.
      * @return PhasingMIRDerRefln
      */
-    org.rcsb.cif.model.generated.phasingmirderrefln.PhasingMIRDerRefln getPhasingMIRDerRefln();
+    org.rcsb.cif.model.generated.PhasingMIRDerRefln getPhasingMIRDerRefln();
 
     /**
      * Data items in the PHASING_MIR_DER_SHELL category record
@@ -1113,7 +1113,7 @@ public interface Block {
      * discussion of the meaning of derivative.)
      * @return PhasingMIRDerShell
      */
-    org.rcsb.cif.model.generated.phasingmirdershell.PhasingMIRDerShell getPhasingMIRDerShell();
+    org.rcsb.cif.model.generated.PhasingMIRDerShell getPhasingMIRDerShell();
 
     /**
      * Data items in the PHASING_MIR_DER_SITE category record details
@@ -1127,7 +1127,7 @@ public interface Block {
      * discussion of the meaning of derivative.)
      * @return PhasingMIRDerSite
      */
-    org.rcsb.cif.model.generated.phasingmirdersite.PhasingMIRDerSite getPhasingMIRDerSite();
+    org.rcsb.cif.model.generated.PhasingMIRDerSite getPhasingMIRDerSite();
 
     /**
      * Data items in the PHASING_MIR_SHELL category record statistics
@@ -1135,7 +1135,7 @@ public interface Block {
      * down into shells of resolution.
      * @return PhasingMIRShell
      */
-    org.rcsb.cif.model.generated.phasingmirshell.PhasingMIRShell getPhasingMIRShell();
+    org.rcsb.cif.model.generated.PhasingMIRShell getPhasingMIRShell();
 
     /**
      * Data items in the PHASING_SET category record details about
@@ -1158,7 +1158,7 @@ public interface Block {
      * data block.
      * @return PhasingSet
      */
-    org.rcsb.cif.model.generated.phasingset.PhasingSet getPhasingSet();
+    org.rcsb.cif.model.generated.PhasingSet getPhasingSet();
 
     /**
      * Data items in the PHASING_SET_REFLN category record the values
@@ -1168,21 +1168,21 @@ public interface Block {
      * to which a given record corresponds.
      * @return PhasingSetRefln
      */
-    org.rcsb.cif.model.generated.phasingsetrefln.PhasingSetRefln getPhasingSetRefln();
+    org.rcsb.cif.model.generated.PhasingSetRefln getPhasingSetRefln();
 
     /**
      * Data items in the PUBL category are used when submitting a
      * manuscript for publication.
      * @return Publ
      */
-    org.rcsb.cif.model.generated.publ.Publ getPubl();
+    org.rcsb.cif.model.generated.Publ getPubl();
 
     /**
      * Data items in the PUBL_AUTHOR category record details of
      * the authors of a manuscript submitted for publication.
      * @return PublAuthor
      */
-    org.rcsb.cif.model.generated.publauthor.PublAuthor getPublAuthor();
+    org.rcsb.cif.model.generated.PublAuthor getPublAuthor();
 
     /**
      * Data items in the PUBL_BODY category permit the labelling of
@@ -1194,7 +1194,7 @@ public interface Block {
      * requires in its Notes for Authors.
      * @return PublBody
      */
-    org.rcsb.cif.model.generated.publbody.PublBody getPublBody();
+    org.rcsb.cif.model.generated.PublBody getPublBody();
 
     /**
      * Data items in the PUBL_MANUSCRIPT_INCL category allow
@@ -1203,14 +1203,14 @@ public interface Block {
      * used by the journal printing software.
      * @return PublManuscriptIncl
      */
-    org.rcsb.cif.model.generated.publmanuscriptincl.PublManuscriptIncl getPublManuscriptIncl();
+    org.rcsb.cif.model.generated.PublManuscriptIncl getPublManuscriptIncl();
 
     /**
      * Data items in the REFINE category record details about the
      * structure-refinement parameters.
      * @return Refine
      */
-    org.rcsb.cif.model.generated.refine.Refine getRefine();
+    org.rcsb.cif.model.generated.Refine getRefine();
 
     /**
      * Data items in the REFINE_ANALYZE category record details
@@ -1220,7 +1220,7 @@ public interface Block {
      * names.
      * @return RefineAnalyze
      */
-    org.rcsb.cif.model.generated.refineanalyze.RefineAnalyze getRefineAnalyze();
+    org.rcsb.cif.model.generated.RefineAnalyze getRefineAnalyze();
 
     /**
      * Data items in the REFINE_B_ISO category record details about
@@ -1228,7 +1228,7 @@ public interface Block {
      * during refinement.
      * @return RefineBIso
      */
-    org.rcsb.cif.model.generated.refinebiso.RefineBIso getRefineBIso();
+    org.rcsb.cif.model.generated.RefineBIso getRefineBIso();
 
     /**
      * Data items in the REFINE_FUNCT_MINIMIZED category record
@@ -1236,7 +1236,7 @@ public interface Block {
      * during refinement.
      * @return RefineFunctMinimized
      */
-    org.rcsb.cif.model.generated.refinefunctminimized.RefineFunctMinimized getRefineFunctMinimized();
+    org.rcsb.cif.model.generated.RefineFunctMinimized getRefineFunctMinimized();
 
     /**
      * Data items in the REFINE_HIST category record details about the
@@ -1248,7 +1248,7 @@ public interface Block {
      * small set of representative statistics.
      * @return RefineHist
      */
-    org.rcsb.cif.model.generated.refinehist.RefineHist getRefineHist();
+    org.rcsb.cif.model.generated.RefineHist getRefineHist();
 
     /**
      * Data items in the REFINE_LS_RESTR category record details about
@@ -1256,7 +1256,7 @@ public interface Block {
      * the least-squares refinement.
      * @return RefineLsRestr
      */
-    org.rcsb.cif.model.generated.refinelsrestr.RefineLsRestr getRefineLsRestr();
+    org.rcsb.cif.model.generated.RefineLsRestr getRefineLsRestr();
 
     /**
      * Data items in the REFINE_LS_RESTR_NCS category record details
@@ -1268,14 +1268,14 @@ public interface Block {
      * set of restrained domains.
      * @return RefineLsRestrNcs
      */
-    org.rcsb.cif.model.generated.refinelsrestrncs.RefineLsRestrNcs getRefineLsRestrNcs();
+    org.rcsb.cif.model.generated.RefineLsRestrNcs getRefineLsRestrNcs();
 
     /**
      * Data items in the REFINE_LS_RESTR_TYPE category record details
      * about the restraint types used in the least-squares refinement.
      * @return RefineLsRestrType
      */
-    org.rcsb.cif.model.generated.refinelsrestrtype.RefineLsRestrType getRefineLsRestrType();
+    org.rcsb.cif.model.generated.RefineLsRestrType getRefineLsRestrType();
 
     /**
      * Data items in the REFINE_LS_SHELL category record details about
@@ -1283,14 +1283,14 @@ public interface Block {
      * shells of resolution.
      * @return RefineLsShell
      */
-    org.rcsb.cif.model.generated.refinelsshell.RefineLsShell getRefineLsShell();
+    org.rcsb.cif.model.generated.RefineLsShell getRefineLsShell();
 
     /**
      * Data items in the REFINE_OCCUPANCY category record details
      * about the treatment of atom occupancies during refinement.
      * @return RefineOccupancy
      */
-    org.rcsb.cif.model.generated.refineoccupancy.RefineOccupancy getRefineOccupancy();
+    org.rcsb.cif.model.generated.RefineOccupancy getRefineOccupancy();
 
     /**
      * Data items in the REFLN category record details about the
@@ -1303,7 +1303,7 @@ public interface Block {
      * reflections. The REFLNS data items are not looped.
      * @return Refln
      */
-    org.rcsb.cif.model.generated.refln.Refln getRefln();
+    org.rcsb.cif.model.generated.Refln getRefln();
 
     /**
      * Data items in the REFLN_SYS_ABS category record details about
@@ -1311,7 +1311,7 @@ public interface Block {
      * given the designated space group.
      * @return ReflnSysAbs
      */
-    org.rcsb.cif.model.generated.reflnsysabs.ReflnSysAbs getReflnSysAbs();
+    org.rcsb.cif.model.generated.ReflnSysAbs getReflnSysAbs();
 
     /**
      * Data items in the REFLNS category record details about the
@@ -1324,7 +1324,7 @@ public interface Block {
      * reflections. The REFLNS data items are not looped.
      * @return Reflns
      */
-    org.rcsb.cif.model.generated.reflns.Reflns getReflns();
+    org.rcsb.cif.model.generated.Reflns getReflns();
 
     /**
      * Data items in the REFLNS_SCALE category record details about
@@ -1332,7 +1332,7 @@ public interface Block {
      * the REFLN list through _refln.scale_group_code.
      * @return ReflnsScale
      */
-    org.rcsb.cif.model.generated.reflnsscale.ReflnsScale getReflnsScale();
+    org.rcsb.cif.model.generated.ReflnsScale getReflnsScale();
 
     /**
      * Data items in the REFLNS_SHELL category record details about
@@ -1340,7 +1340,7 @@ public interface Block {
      * broken down into shells of resolution.
      * @return ReflnsShell
      */
-    org.rcsb.cif.model.generated.reflnsshell.ReflnsShell getReflnsShell();
+    org.rcsb.cif.model.generated.ReflnsShell getReflnsShell();
 
     /**
      * Data items in the SOFTWARE category record details about
@@ -1353,21 +1353,21 @@ public interface Block {
      * in more detail than data items in the COMPUTING category do.
      * @return Software
      */
-    org.rcsb.cif.model.generated.software.Software getSoftware();
+    org.rcsb.cif.model.generated.Software getSoftware();
 
     /**
      * Data items in the STRUCT category record details about the
      * description of the crystallographic structure.
      * @return Struct
      */
-    org.rcsb.cif.model.generated.struct.Struct getStruct();
+    org.rcsb.cif.model.generated.Struct getStruct();
 
     /**
      * Data items in the STRUCT_ASYM category record details about the
      * structural elements in the asymmetric unit.
      * @return StructAsym
      */
-    org.rcsb.cif.model.generated.structasym.StructAsym getStructAsym();
+    org.rcsb.cif.model.generated.StructAsym getStructAsym();
 
     /**
      * Data items in the STRUCT_BIOL category record details about
@@ -1385,7 +1385,7 @@ public interface Block {
      * could constitute a second biological unit.
      * @return StructBiol
      */
-    org.rcsb.cif.model.generated.structbiol.StructBiol getStructBiol();
+    org.rcsb.cif.model.generated.StructBiol getStructBiol();
 
     /**
      * Data items in the STRUCT_BIOL_GEN category record details about
@@ -1395,14 +1395,14 @@ public interface Block {
      * elements.
      * @return StructBiolGen
      */
-    org.rcsb.cif.model.generated.structbiolgen.StructBiolGen getStructBiolGen();
+    org.rcsb.cif.model.generated.StructBiolGen getStructBiolGen();
 
     /**
      * Data items in the STRUCT_BIOL_KEYWORDS category record
      * keywords that describe each biological unit.
      * @return StructBiolKeywords
      */
-    org.rcsb.cif.model.generated.structbiolkeywords.StructBiolKeywords getStructBiolKeywords();
+    org.rcsb.cif.model.generated.StructBiolKeywords getStructBiolKeywords();
 
     /**
      * Data items in the STRUCT_BIOL_VIEW category record details
@@ -1410,7 +1410,7 @@ public interface Block {
      * biological structure.
      * @return StructBiolView
      */
-    org.rcsb.cif.model.generated.structbiolview.StructBiolView getStructBiolView();
+    org.rcsb.cif.model.generated.StructBiolView getStructBiolView();
 
     /**
      * Data items in the STRUCT_CONF category record details about
@@ -1420,7 +1420,7 @@ public interface Block {
      * criteria used to identify the backbone conformations.
      * @return StructConf
      */
-    org.rcsb.cif.model.generated.structconf.StructConf getStructConf();
+    org.rcsb.cif.model.generated.StructConf getStructConf();
 
     /**
      * Data items in the STRUCT_CONF_TYPE category record details
@@ -1428,7 +1428,7 @@ public interface Block {
      * segment of polymer.
      * @return StructConfType
      */
-    org.rcsb.cif.model.generated.structconftype.StructConfType getStructConfType();
+    org.rcsb.cif.model.generated.StructConfType getStructConfType();
 
     /**
      * Data items in the STRUCT_CONN category record details about
@@ -1439,7 +1439,7 @@ public interface Block {
      * identify these connections.
      * @return StructConn
      */
-    org.rcsb.cif.model.generated.structconn.StructConn getStructConn();
+    org.rcsb.cif.model.generated.StructConn getStructConn();
 
     /**
      * Data items in the STRUCT_CONN_TYPE category record details
@@ -1447,14 +1447,14 @@ public interface Block {
      * portions of the structure.
      * @return StructConnType
      */
-    org.rcsb.cif.model.generated.structconntype.StructConnType getStructConnType();
+    org.rcsb.cif.model.generated.StructConnType getStructConnType();
 
     /**
      * Data items in the STRUCT_KEYWORDS category specify keywords
      * that describe the chemical structure in this entry.
      * @return StructKeywords
      */
-    org.rcsb.cif.model.generated.structkeywords.StructKeywords getStructKeywords();
+    org.rcsb.cif.model.generated.StructKeywords getStructKeywords();
 
     /**
      * Data items in the STRUCT_MON_DETAILS category record details
@@ -1464,7 +1464,7 @@ public interface Block {
      * the radii used for including points in a calculation and so on.
      * @return StructMonDetails
      */
-    org.rcsb.cif.model.generated.structmondetails.StructMonDetails getStructMonDetails();
+    org.rcsb.cif.model.generated.StructMonDetails getStructMonDetails();
 
     /**
      * Data items in the STRUCT_MON_NUCL category record details about
@@ -1476,7 +1476,7 @@ public interface Block {
      * in the STRUCT_MON_DETAILS category.
      * @return StructMonNucl
      */
-    org.rcsb.cif.model.generated.structmonnucl.StructMonNucl getStructMonNucl();
+    org.rcsb.cif.model.generated.StructMonNucl getStructMonNucl();
 
     /**
      * Data items in the STRUCT_MON_PROT category record details about
@@ -1488,7 +1488,7 @@ public interface Block {
      * in the STRUCT_MON_DETAILS category.
      * @return StructMonProt
      */
-    org.rcsb.cif.model.generated.structmonprot.StructMonProt getStructMonProt();
+    org.rcsb.cif.model.generated.StructMonProt getStructMonProt();
 
     /**
      * Data items in the STRUCT_MON_PROT_CIS category identify
@@ -1498,7 +1498,7 @@ public interface Block {
      * _struct_mon_details.prot_cis.
      * @return StructMonProtCis
      */
-    org.rcsb.cif.model.generated.structmonprotcis.StructMonProtCis getStructMonProtCis();
+    org.rcsb.cif.model.generated.StructMonProtCis getStructMonProtCis();
 
     /**
      * Data items in the STRUCT_NCS_DOM category record information
@@ -1510,7 +1510,7 @@ public interface Block {
      * or by segments from more than one chain.
      * @return StructNcsDom
      */
-    org.rcsb.cif.model.generated.structncsdom.StructNcsDom getStructNcsDom();
+    org.rcsb.cif.model.generated.StructNcsDom getStructNcsDom();
 
     /**
      * Data items in the STRUCT_NCS_DOM_LIM category identify the
@@ -1519,7 +1519,7 @@ public interface Block {
      * related by noncrystallographic symmetry.
      * @return StructNcsDomLim
      */
-    org.rcsb.cif.model.generated.structncsdomlim.StructNcsDomLim getStructNcsDomLim();
+    org.rcsb.cif.model.generated.StructNcsDomLim getStructNcsDomLim();
 
     /**
      * Data items in the STRUCT_NCS_ENS category record information
@@ -1529,7 +1529,7 @@ public interface Block {
      * ensemble that require description.
      * @return StructNcsEns
      */
-    org.rcsb.cif.model.generated.structncsens.StructNcsEns getStructNcsEns();
+    org.rcsb.cif.model.generated.StructNcsEns getStructNcsEns();
 
     /**
      * Data items in the STRUCT_NCS_ENS_GEN category list domains
@@ -1537,7 +1537,7 @@ public interface Block {
      * identify the operator.
      * @return StructNcsEnsGen
      */
-    org.rcsb.cif.model.generated.structncsensgen.StructNcsEnsGen getStructNcsEnsGen();
+    org.rcsb.cif.model.generated.StructNcsEnsGen getStructNcsEnsGen();
 
     /**
      * Data items in the STRUCT_NCS_OPER category describe the
@@ -1548,7 +1548,7 @@ public interface Block {
      * rotations.
      * @return StructNcsOper
      */
-    org.rcsb.cif.model.generated.structncsoper.StructNcsOper getStructNcsOper();
+    org.rcsb.cif.model.generated.StructNcsOper getStructNcsOper();
 
     /**
      * Data items in the STRUCT_REF category allow the author of a
@@ -1571,7 +1571,7 @@ public interface Block {
      * using data items in the STRUCT_REF_SEQ_DIF category.
      * @return StructRef
      */
-    org.rcsb.cif.model.generated.structref.StructRef getStructRef();
+    org.rcsb.cif.model.generated.StructRef getStructRef();
 
     /**
      * Data items in the STRUCT_REF_SEQ category provide a mechanism
@@ -1581,7 +1581,7 @@ public interface Block {
      * entry.
      * @return StructRefSeq
      */
-    org.rcsb.cif.model.generated.structrefseq.StructRefSeq getStructRefSeq();
+    org.rcsb.cif.model.generated.StructRefSeq getStructRefSeq();
 
     /**
      * Data items in the STRUCT_REF_SEQ_DIF category provide a
@@ -1591,14 +1591,14 @@ public interface Block {
      * entry.
      * @return StructRefSeqDif
      */
-    org.rcsb.cif.model.generated.structrefseqdif.StructRefSeqDif getStructRefSeqDif();
+    org.rcsb.cif.model.generated.StructRefSeqDif getStructRefSeqDif();
 
     /**
      * Data items in the STRUCT_SHEET category record details about
      * the beta-sheets.
      * @return StructSheet
      */
-    org.rcsb.cif.model.generated.structsheet.StructSheet getStructSheet();
+    org.rcsb.cif.model.generated.StructSheet getStructSheet();
 
     /**
      * Data items in the STRUCT_SHEET_HBOND category record details
@@ -1609,7 +1609,7 @@ public interface Block {
      * with the one preceding it and the one following it in the sheet.
      * @return StructSheetHbond
      */
-    org.rcsb.cif.model.generated.structsheethbond.StructSheetHbond getStructSheetHbond();
+    org.rcsb.cif.model.generated.StructSheetHbond getStructSheetHbond();
 
     /**
      * Data items in the STRUCT_SHEET_ORDER category record details
@@ -1620,7 +1620,7 @@ public interface Block {
      * items and they allow all manner of sheets to be described.
      * @return StructSheetOrder
      */
-    org.rcsb.cif.model.generated.structsheetorder.StructSheetOrder getStructSheetOrder();
+    org.rcsb.cif.model.generated.StructSheetOrder getStructSheetOrder();
 
     /**
      * Data items in the STRUCT_SHEET_RANGE category record details
@@ -1630,7 +1630,7 @@ public interface Block {
      * at least two residues in the range.
      * @return StructSheetRange
      */
-    org.rcsb.cif.model.generated.structsheetrange.StructSheetRange getStructSheetRange();
+    org.rcsb.cif.model.generated.StructSheetRange getStructSheetRange();
 
     /**
      * Data items in the STRUCT_SHEET_TOPOLOGY category record details
@@ -1644,7 +1644,7 @@ public interface Block {
      * single- and multiple-chain-containing sheets.
      * @return StructSheetTopology
      */
-    org.rcsb.cif.model.generated.structsheettopology.StructSheetTopology getStructSheetTopology();
+    org.rcsb.cif.model.generated.StructSheetTopology getStructSheetTopology();
 
     /**
      * Data items in the STRUCT_SITE category record details about
@@ -1653,7 +1653,7 @@ public interface Block {
      * metal-coordination sites).
      * @return StructSite
      */
-    org.rcsb.cif.model.generated.structsite.StructSite getStructSite();
+    org.rcsb.cif.model.generated.StructSite getStructSite();
 
     /**
      * Data items in the STRUCT_SITE_GEN category record details about
@@ -1661,14 +1661,14 @@ public interface Block {
      * structurally relevant sites.
      * @return StructSiteGen
      */
-    org.rcsb.cif.model.generated.structsitegen.StructSiteGen getStructSiteGen();
+    org.rcsb.cif.model.generated.StructSiteGen getStructSiteGen();
 
     /**
      * Data items in the STRUCT_SITE_KEYWORDS category record
      * keywords describing the site.
      * @return StructSiteKeywords
      */
-    org.rcsb.cif.model.generated.structsitekeywords.StructSiteKeywords getStructSiteKeywords();
+    org.rcsb.cif.model.generated.StructSiteKeywords getStructSiteKeywords();
 
     /**
      * Data items in the STRUCT_SITE_VIEW category record details
@@ -1676,28 +1676,28 @@ public interface Block {
      * site.
      * @return StructSiteView
      */
-    org.rcsb.cif.model.generated.structsiteview.StructSiteView getStructSiteView();
+    org.rcsb.cif.model.generated.StructSiteView getStructSiteView();
 
     /**
      * Data items in the SYMMETRY category record details about the
      * space-group symmetry.
      * @return Symmetry
      */
-    org.rcsb.cif.model.generated.symmetry.Symmetry getSymmetry();
+    org.rcsb.cif.model.generated.Symmetry getSymmetry();
 
     /**
      * Data items in the SYMMETRY_EQUIV category list the
      * symmetry-equivalent positions for the space group.
      * @return SymmetryEquiv
      */
-    org.rcsb.cif.model.generated.symmetryequiv.SymmetryEquiv getSymmetryEquiv();
+    org.rcsb.cif.model.generated.SymmetryEquiv getSymmetryEquiv();
 
     /**
      * Data items in the AUDIT_LINK category record details about the
      * relationships between data blocks in the current CIF.
      * @return AuditLink
      */
-    org.rcsb.cif.model.generated.auditlink.AuditLink getAuditLink();
+    org.rcsb.cif.model.generated.AuditLink getAuditLink();
 
     /**
      * Data items in the DIFFRN_REFLNS_CLASS category record details
@@ -1705,7 +1705,7 @@ public interface Block {
      * experiment.
      * @return DiffrnReflnsClass
      */
-    org.rcsb.cif.model.generated.diffrnreflnsclass.DiffrnReflnsClass getDiffrnReflnsClass();
+    org.rcsb.cif.model.generated.DiffrnReflnsClass getDiffrnReflnsClass();
 
     /**
      * Data items in the REFINE_LS_CLASS category record details
@@ -1713,7 +1713,7 @@ public interface Block {
      * for each reflection class separately.
      * @return RefineLsClass
      */
-    org.rcsb.cif.model.generated.refinelsclass.RefineLsClass getRefineLsClass();
+    org.rcsb.cif.model.generated.RefineLsClass getRefineLsClass();
 
     /**
      * Data items in the REFLNS_CLASS category record details
@@ -1721,7 +1721,7 @@ public interface Block {
      * parameters for each reflection class.
      * @return ReflnsClass
      */
-    org.rcsb.cif.model.generated.reflnsclass.ReflnsClass getReflnsClass();
+    org.rcsb.cif.model.generated.ReflnsClass getReflnsClass();
 
     /**
      * Contains all the data items that refer to the space group as a
@@ -1745,14 +1745,14 @@ public interface Block {
      * Hermann-Mauguin symbol are found in the symmetry CIF dictionary.
      * @return SpaceGroup
      */
-    org.rcsb.cif.model.generated.spacegroup.SpaceGroup getSpaceGroup();
+    org.rcsb.cif.model.generated.SpaceGroup getSpaceGroup();
 
     /**
      * Contains information about the symmetry operations of the
      * space group.
      * @return SpaceGroupSymop
      */
-    org.rcsb.cif.model.generated.spacegroupsymop.SpaceGroupSymop getSpaceGroupSymop();
+    org.rcsb.cif.model.generated.SpaceGroupSymop getSpaceGroupSymop();
 
     /**
      * Data items in the VALENCE_PARAM category define the
@@ -1762,54 +1762,54 @@ public interface Block {
      * the bond-valence parameters were taken.
      * @return ValenceParam
      */
-    org.rcsb.cif.model.generated.valenceparam.ValenceParam getValenceParam();
+    org.rcsb.cif.model.generated.ValenceParam getValenceParam();
 
     /**
      * Data items in the VALENCE_REF category list the references
      * from which the bond-valence parameters have been taken.
      * @return ValenceRef
      */
-    org.rcsb.cif.model.generated.valenceref.ValenceRef getValenceRef();
+    org.rcsb.cif.model.generated.ValenceRef getValenceRef();
 
     /**
      * The PDBX_AUDIT holds current version information.
      * @return PdbxAudit
      */
-    org.rcsb.cif.model.generated.pdbxaudit.PdbxAudit getPdbxAudit();
+    org.rcsb.cif.model.generated.PdbxAudit getPdbxAudit();
 
     /**
      * Data items in the PDBX_VERSION category record details about the
      * version of this entry.
      * @return PdbxVersion
      */
-    org.rcsb.cif.model.generated.pdbxversion.PdbxVersion getPdbxVersion();
+    org.rcsb.cif.model.generated.PdbxVersion getPdbxVersion();
 
     /**
      * Data items in the PDBX_AUDIT_AUTHOR category record details about
      * the author(s) of the data block.
      * @return PdbxAuditAuthor
      */
-    org.rcsb.cif.model.generated.pdbxauditauthor.PdbxAuditAuthor getPdbxAuditAuthor();
+    org.rcsb.cif.model.generated.PdbxAuditAuthor getPdbxAuditAuthor();
 
     /**
      * The PDBX_DATABASE_MESSAGE category provides information about
      * correspondance related to a structure deposition.
      * @return PdbxDatabaseMessage
      */
-    org.rcsb.cif.model.generated.pdbxdatabasemessage.PdbxDatabaseMessage getPdbxDatabaseMessage();
+    org.rcsb.cif.model.generated.PdbxDatabaseMessage getPdbxDatabaseMessage();
 
     /**
      * The PDBX_DATABASE_PDB_OBS_SPR category provides placeholders
      * for information on obsolete/superseded PDB entries
      * @return PdbxDatabasePDBObsSpr
      */
-    org.rcsb.cif.model.generated.pdbxdatabasepdbobsspr.PdbxDatabasePDBObsSpr getPdbxDatabasePDBObsSpr();
+    org.rcsb.cif.model.generated.PdbxDatabasePDBObsSpr getPdbxDatabasePDBObsSpr();
 
     /**
      * Internal records to track the data processing cycle.
      * @return PdbxDatabaseProc
      */
-    org.rcsb.cif.model.generated.pdbxdatabaseproc.PdbxDatabaseProc getPdbxDatabaseProc();
+    org.rcsb.cif.model.generated.PdbxDatabaseProc getPdbxDatabaseProc();
 
     /**
      *
@@ -1818,21 +1818,21 @@ public interface Block {
      * 'non-standard' PDB REMARK annotations (6-99).
      * @return PdbxDatabaseRemark
      */
-    org.rcsb.cif.model.generated.pdbxdatabaseremark.PdbxDatabaseRemark getPdbxDatabaseRemark();
+    org.rcsb.cif.model.generated.PdbxDatabaseRemark getPdbxDatabaseRemark();
 
     /**
      * These are internal RCSB records to keep track of data processing
      * and status of the entry.
      * @return PdbxDatabaseStatus
      */
-    org.rcsb.cif.model.generated.pdbxdatabasestatus.PdbxDatabaseStatus getPdbxDatabaseStatus();
+    org.rcsb.cif.model.generated.PdbxDatabaseStatus getPdbxDatabaseStatus();
 
     /**
      * The PDBX_ENTITY_NAME records additional name information for
      * each entity.
      * @return PdbxEntityName
      */
-    org.rcsb.cif.model.generated.pdbxentityname.PdbxEntityName getPdbxEntityName();
+    org.rcsb.cif.model.generated.PdbxEntityName getPdbxEntityName();
 
     /**
      * This category provides a placeholder for pre-release
@@ -1840,21 +1840,21 @@ public interface Block {
      * should be discarded.
      * @return PdbxPrereleaseSeq
      */
-    org.rcsb.cif.model.generated.pdbxprereleaseseq.PdbxPrereleaseSeq getPdbxPrereleaseSeq();
+    org.rcsb.cif.model.generated.PdbxPrereleaseSeq getPdbxPrereleaseSeq();
 
     /**
      * The PDBX_POLY_SEQ_SCHEME category provides residue level nomenclature
      * mapping for polymer entities.
      * @return PdbxPolySeqScheme
      */
-    org.rcsb.cif.model.generated.pdbxpolyseqscheme.PdbxPolySeqScheme getPdbxPolySeqScheme();
+    org.rcsb.cif.model.generated.PdbxPolySeqScheme getPdbxPolySeqScheme();
 
     /**
      * The PDBX_NONPOLY_SCHEME category provides residue level nomenclature
      * mapping for non-polymer entities.
      * @return PdbxNonpolyScheme
      */
-    org.rcsb.cif.model.generated.pdbxnonpolyscheme.PdbxNonpolyScheme getPdbxNonpolyScheme();
+    org.rcsb.cif.model.generated.PdbxNonpolyScheme getPdbxNonpolyScheme();
 
     /**
      * Data items in the PDBX_REFINE category record details about
@@ -1863,7 +1863,7 @@ public interface Block {
      * format files.
      * @return PdbxRefine
      */
-    org.rcsb.cif.model.generated.pdbxrefine.PdbxRefine getPdbxRefine();
+    org.rcsb.cif.model.generated.PdbxRefine getPdbxRefine();
 
     /**
      * Data items in the PDBX_STRUCT_SHEET_HBOND category record details
@@ -1874,28 +1874,28 @@ public interface Block {
      * hydrogen bonds for strand pair are known.
      * @return PdbxStructSheetHbond
      */
-    org.rcsb.cif.model.generated.pdbxstructsheethbond.PdbxStructSheetHbond getPdbxStructSheetHbond();
+    org.rcsb.cif.model.generated.PdbxStructSheetHbond getPdbxStructSheetHbond();
 
     /**
      *
      * Parameter and topology files used in X-PLOR/CNS refinement.
      * @return PdbxXplorFile
      */
-    org.rcsb.cif.model.generated.pdbxxplorfile.PdbxXplorFile getPdbxXplorFile();
+    org.rcsb.cif.model.generated.PdbxXplorFile getPdbxXplorFile();
 
     /**
      *
      * Auxilary parameter and topology files used in refinement.
      * @return PdbxRefineAuxFile
      */
-    org.rcsb.cif.model.generated.pdbxrefineauxfile.PdbxRefineAuxFile getPdbxRefineAuxFile();
+    org.rcsb.cif.model.generated.PdbxRefineAuxFile getPdbxRefineAuxFile();
 
     /**
      * Data items in PDBX_DATABASE_RELATED contain references to entries
      * that are related to the this entry.
      * @return PdbxDatabaseRelated
      */
-    org.rcsb.cif.model.generated.pdbxdatabaserelated.PdbxDatabaseRelated getPdbxDatabaseRelated();
+    org.rcsb.cif.model.generated.PdbxDatabaseRelated getPdbxDatabaseRelated();
 
     /**
      * The PDBX_ENTITY_ASSEMBLY category provides a chemical description
@@ -1903,7 +1903,7 @@ public interface Block {
      * entities.
      * @return PdbxEntityAssembly
      */
-    org.rcsb.cif.model.generated.pdbxentityassembly.PdbxEntityAssembly getPdbxEntityAssembly();
+    org.rcsb.cif.model.generated.PdbxEntityAssembly getPdbxEntityAssembly();
 
     /**
      * Data items in the PDBX_EXPTL_CRYSTAL_GROW_COMP category record
@@ -1911,7 +1911,7 @@ public interface Block {
      * to produce the crystal.
      * @return PdbxExptlCrystalGrowComp
      */
-    org.rcsb.cif.model.generated.pdbxexptlcrystalgrowcomp.PdbxExptlCrystalGrowComp getPdbxExptlCrystalGrowComp();
+    org.rcsb.cif.model.generated.PdbxExptlCrystalGrowComp getPdbxExptlCrystalGrowComp();
 
     /**
      * Data items in the PDBX_EXPTL_CRYSTAL_GROW_SOL category record
@@ -1919,14 +1919,14 @@ public interface Block {
      * to produce the crystal.
      * @return PdbxExptlCrystalGrowSol
      */
-    org.rcsb.cif.model.generated.pdbxexptlcrystalgrowsol.PdbxExptlCrystalGrowSol getPdbxExptlCrystalGrowSol();
+    org.rcsb.cif.model.generated.PdbxExptlCrystalGrowSol getPdbxExptlCrystalGrowSol();
 
     /**
      * Data items in the PDBX_EXPTL_CRYSTAL_CRYO_TREATMENT category
      * record details cryogenic treatments applied to this crystal.
      * @return PdbxExptlCrystalCryoTreatment
      */
-    org.rcsb.cif.model.generated.pdbxexptlcrystalcryotreatment.PdbxExptlCrystalCryoTreatment getPdbxExptlCrystalCryoTreatment();
+    org.rcsb.cif.model.generated.PdbxExptlCrystalCryoTreatment getPdbxExptlCrystalCryoTreatment();
 
     /**
      * Data items in the REFINE_TLS category record details about
@@ -1936,7 +1936,7 @@ public interface Block {
      * may be covered, see item _pdbx_refine_tls.method
      * @return PdbxRefineTls
      */
-    org.rcsb.cif.model.generated.pdbxrefinetls.PdbxRefineTls getPdbxRefineTls();
+    org.rcsb.cif.model.generated.PdbxRefineTls getPdbxRefineTls();
 
     /**
      * Data items in the PDBX_REFINE_TLS_GROUP category record details about
@@ -1945,7 +1945,7 @@ public interface Block {
      * Properties of the TLS group are recorded in PDBX_REFINE_TLS
      * @return PdbxRefineTlsGroup
      */
-    org.rcsb.cif.model.generated.pdbxrefinetlsgroup.PdbxRefineTlsGroup getPdbxRefineTlsGroup();
+    org.rcsb.cif.model.generated.PdbxRefineTlsGroup getPdbxRefineTlsGroup();
 
     /**
      * Data items in the PDBX_CONTACT_AUTHOR category record details
@@ -1955,7 +1955,7 @@ public interface Block {
      * category.
      * @return PdbxContactAuthor
      */
-    org.rcsb.cif.model.generated.pdbxcontactauthor.PdbxContactAuthor getPdbxContactAuthor();
+    org.rcsb.cif.model.generated.PdbxContactAuthor getPdbxContactAuthor();
 
     /**
      * Data items in the PDBX_CONTACT_AUTHOR category record details
@@ -1963,14 +1963,14 @@ public interface Block {
      * for each Center.
      * @return PdbxSGProject
      */
-    org.rcsb.cif.model.generated.pdbxsgproject.PdbxSGProject getPdbxSGProject();
+    org.rcsb.cif.model.generated.PdbxSGProject getPdbxSGProject();
 
     /**
      * Data items in the PDBX_ATOM_SITE_ANISO_TLS category record details
      * about the TLS contribution to anisotropic displacement parameters.
      * @return PdbxAtomSiteAnisoTls
      */
-    org.rcsb.cif.model.generated.pdbxatomsiteanisotls.PdbxAtomSiteAnisoTls getPdbxAtomSiteAnisoTls();
+    org.rcsb.cif.model.generated.PdbxAtomSiteAnisoTls getPdbxAtomSiteAnisoTls();
 
     /**
      *
@@ -1978,7 +1978,7 @@ public interface Block {
      * described elsewhere in this deposition.
      * @return PdbxNmrDetails
      */
-    org.rcsb.cif.model.generated.pdbxnmrdetails.PdbxNmrDetails getPdbxNmrDetails();
+    org.rcsb.cif.model.generated.PdbxNmrDetails getPdbxNmrDetails();
 
     /**
      *
@@ -1986,7 +1986,7 @@ public interface Block {
      * system used.
      * @return PdbxNmrSampleDetails
      */
-    org.rcsb.cif.model.generated.pdbxnmrsampledetails.PdbxNmrSampleDetails getPdbxNmrSampleDetails();
+    org.rcsb.cif.model.generated.PdbxNmrSampleDetails getPdbxNmrSampleDetails();
 
     /**
      * The chemical constituents of
@@ -1994,7 +1994,7 @@ public interface Block {
      * each component in the sample is identified by name.
      * @return PdbxNmrExptlSample
      */
-    org.rcsb.cif.model.generated.pdbxnmrexptlsample.PdbxNmrExptlSample getPdbxNmrExptlSample();
+    org.rcsb.cif.model.generated.PdbxNmrExptlSample getPdbxNmrExptlSample();
 
     /**
      *
@@ -2002,7 +2002,7 @@ public interface Block {
      * is identified by a numerical code.
      * @return PdbxNmrExptlSampleConditions
      */
-    org.rcsb.cif.model.generated.pdbxnmrexptlsampleconditions.PdbxNmrExptlSampleConditions getPdbxNmrExptlSampleConditions();
+    org.rcsb.cif.model.generated.PdbxNmrExptlSampleConditions getPdbxNmrExptlSampleConditions();
 
     /**
      *
@@ -2010,7 +2010,7 @@ public interface Block {
      * deposition.
      * @return PdbxNmrSpectrometer
      */
-    org.rcsb.cif.model.generated.pdbxnmrspectrometer.PdbxNmrSpectrometer getPdbxNmrSpectrometer();
+    org.rcsb.cif.model.generated.PdbxNmrSpectrometer getPdbxNmrSpectrometer();
 
     /**
      *
@@ -2019,7 +2019,7 @@ public interface Block {
      * which sample and which sample conditions were used for the experiment.
      * @return PdbxNmrExptl
      */
-    org.rcsb.cif.model.generated.pdbxnmrexptl.PdbxNmrExptl getPdbxNmrExptl();
+    org.rcsb.cif.model.generated.PdbxNmrExptl getPdbxNmrExptl();
 
     /**
      *
@@ -2028,13 +2028,13 @@ public interface Block {
      * include the name of the software, the author of the software and the version used.
      * @return PdbxNmrSoftware
      */
-    org.rcsb.cif.model.generated.pdbxnmrsoftware.PdbxNmrSoftware getPdbxNmrSoftware();
+    org.rcsb.cif.model.generated.PdbxNmrSoftware getPdbxNmrSoftware();
 
     /**
      * This section provides a tabulation of constraint data.
      * @return PdbxNmrConstraints
      */
-    org.rcsb.cif.model.generated.pdbxnmrconstraints.PdbxNmrConstraints getPdbxNmrConstraints();
+    org.rcsb.cif.model.generated.PdbxNmrConstraints getPdbxNmrConstraints();
 
     /**
      * This category contains the information that describes the
@@ -2042,14 +2042,14 @@ public interface Block {
      * has been deposited skip this section.
      * @return PdbxNmrEnsemble
      */
-    org.rcsb.cif.model.generated.pdbxnmrensemble.PdbxNmrEnsemble getPdbxNmrEnsemble();
+    org.rcsb.cif.model.generated.PdbxNmrEnsemble getPdbxNmrEnsemble();
 
     /**
      * Structural statistics are derived from molecular dynamics and simulated annealing
      * programs.
      * @return PdbxNmrEnsembleRms
      */
-    org.rcsb.cif.model.generated.pdbxnmrensemblerms.PdbxNmrEnsembleRms getPdbxNmrEnsembleRms();
+    org.rcsb.cif.model.generated.PdbxNmrEnsembleRms getPdbxNmrEnsembleRms();
 
     /**
      * An average structure is often calculated in addition to the ensemble, or one
@@ -2057,14 +2057,14 @@ public interface Block {
      * describes selection of the representative structure.
      * @return PdbxNmrRepresentative
      */
-    org.rcsb.cif.model.generated.pdbxnmrrepresentative.PdbxNmrRepresentative getPdbxNmrRepresentative();
+    org.rcsb.cif.model.generated.PdbxNmrRepresentative getPdbxNmrRepresentative();
 
     /**
      *
      * Describe the method and details of the refinement of the deposited structure.
      * @return PdbxNmrRefine
      */
-    org.rcsb.cif.model.generated.pdbxnmrrefine.PdbxNmrRefine getPdbxNmrRefine();
+    org.rcsb.cif.model.generated.PdbxNmrRefine getPdbxNmrRefine();
 
     /**
      *
@@ -2073,14 +2073,14 @@ public interface Block {
      * interaction terms in the target function used for simulated annealing.
      * @return PdbxNmrForceConstants
      */
-    org.rcsb.cif.model.generated.pdbxnmrforceconstants.PdbxNmrForceConstants getPdbxNmrForceConstants();
+    org.rcsb.cif.model.generated.PdbxNmrForceConstants getPdbxNmrForceConstants();
 
     /**
      * Data items in the NDB_STRUCT_CONF_NA category
      * describes secondary structure features in this entry.
      * @return NdbStructConfNa
      */
-    org.rcsb.cif.model.generated.ndbstructconfna.NdbStructConfNa getNdbStructConfNa();
+    org.rcsb.cif.model.generated.NdbStructConfNa getNdbStructConfNa();
 
     /**
      * Data items in the NDB_STRUCT_FEATURE_NA category
@@ -2088,47 +2088,47 @@ public interface Block {
      * features in this entry.
      * @return NdbStructFeatureNa
      */
-    org.rcsb.cif.model.generated.ndbstructfeaturena.NdbStructFeatureNa getNdbStructFeatureNa();
+    org.rcsb.cif.model.generated.NdbStructFeatureNa getNdbStructFeatureNa();
 
     /**
      * Data items in the NDB_STRUCT_NA_BASE_PAIR category record details
      * of base pairing interactions.
      * @return NdbStructNaBasePair
      */
-    org.rcsb.cif.model.generated.ndbstructnabasepair.NdbStructNaBasePair getNdbStructNaBasePair();
+    org.rcsb.cif.model.generated.NdbStructNaBasePair getNdbStructNaBasePair();
 
     /**
      * Data items in the NDB_STRUCT_NA_BASE_PAIR_STEP category record details
      * of base pair step interactions.
      * @return NdbStructNaBasePairStep
      */
-    org.rcsb.cif.model.generated.ndbstructnabasepairstep.NdbStructNaBasePairStep getNdbStructNaBasePairStep();
+    org.rcsb.cif.model.generated.NdbStructNaBasePairStep getNdbStructNaBasePairStep();
 
     /**
      * Placeholder category for PDB coordinate data.
      * @return NdbOriginalNdbCoordinates
      */
-    org.rcsb.cif.model.generated.ndboriginalndbcoordinates.NdbOriginalNdbCoordinates getNdbOriginalNdbCoordinates();
+    org.rcsb.cif.model.generated.NdbOriginalNdbCoordinates getNdbOriginalNdbCoordinates();
 
     /**
 
      * @return PdbxEntityNonpoly
      */
-    org.rcsb.cif.model.generated.pdbxentitynonpoly.PdbxEntityNonpoly getPdbxEntityNonpoly();
+    org.rcsb.cif.model.generated.PdbxEntityNonpoly getPdbxEntityNonpoly();
 
     /**
      * Data items in the PDBX_PHASING_DM category record details about
      * density modification
      * @return PdbxPhasingDm
      */
-    org.rcsb.cif.model.generated.pdbxphasingdm.PdbxPhasingDm getPdbxPhasingDm();
+    org.rcsb.cif.model.generated.PdbxPhasingDm getPdbxPhasingDm();
 
     /**
      * Data items in the PDBX_PHASING_DM_SHELL category record details about
      * density modification in resolution shell.
      * @return PdbxPhasingDmShell
      */
-    org.rcsb.cif.model.generated.pdbxphasingdmshell.PdbxPhasingDmShell getPdbxPhasingDmShell();
+    org.rcsb.cif.model.generated.PdbxPhasingDmShell getPdbxPhasingDmShell();
 
     /**
      * Data items in the PDBX_PHASING_MAD_SHELL category record details about
@@ -2137,7 +2137,7 @@ public interface Block {
      * values are overall, but broken down into shells of resolution)
      * @return PdbxPhasingMADShell
      */
-    org.rcsb.cif.model.generated.pdbxphasingmadshell.PdbxPhasingMADShell getPdbxPhasingMADShell();
+    org.rcsb.cif.model.generated.PdbxPhasingMADShell getPdbxPhasingMADShell();
 
     /**
      * Record details about each phasing set: (Note: the phasing
@@ -2150,41 +2150,41 @@ public interface Block {
      * five set used for phasing.
      * @return PdbxPhasingMADSet
      */
-    org.rcsb.cif.model.generated.pdbxphasingmadset.PdbxPhasingMADSet getPdbxPhasingMADSet();
+    org.rcsb.cif.model.generated.PdbxPhasingMADSet getPdbxPhasingMADSet();
 
     /**
      * The same as category pdbx_phasing_MAD_set, but
      * broken into shells.
      * @return PdbxPhasingMADSetShell
      */
-    org.rcsb.cif.model.generated.pdbxphasingmadsetshell.PdbxPhasingMADSetShell getPdbxPhasingMADSetShell();
+    org.rcsb.cif.model.generated.PdbxPhasingMADSetShell getPdbxPhasingMADSetShell();
 
     /**
      * record the details (coordinates etc.) of anomalous scatters.
      * @return PdbxPhasingMADSetSite
      */
-    org.rcsb.cif.model.generated.pdbxphasingmadsetsite.PdbxPhasingMADSetSite getPdbxPhasingMADSetSite();
+    org.rcsb.cif.model.generated.PdbxPhasingMADSetSite getPdbxPhasingMADSetSite();
 
     /**
      * Data items in the PDBX_PHASING_MR category record details about
      * molecular replacement.
      * @return PdbxPhasingMR
      */
-    org.rcsb.cif.model.generated.pdbxphasingmr.PdbxPhasingMR getPdbxPhasingMR();
+    org.rcsb.cif.model.generated.PdbxPhasingMR getPdbxPhasingMR();
 
     /**
      * Data items in the PDBX_REFINE_COMPONENT category record
      * statistics of the final model relative to the density map.
      * @return PdbxRefineComponent
      */
-    org.rcsb.cif.model.generated.pdbxrefinecomponent.PdbxRefineComponent getPdbxRefineComponent();
+    org.rcsb.cif.model.generated.PdbxRefineComponent getPdbxRefineComponent();
 
     /**
      * This category contains descriptive protocols for the production
      * of this entity.
      * @return PdbxEntityProdProtocol
      */
-    org.rcsb.cif.model.generated.pdbxentityprodprotocol.PdbxEntityProdProtocol getPdbxEntityProdProtocol();
+    org.rcsb.cif.model.generated.PdbxEntityProdProtocol getPdbxEntityProdProtocol();
 
     /**
      * This category contains details for process steps that are
@@ -2195,14 +2195,14 @@ public interface Block {
      * not be represented using this category.
      * @return PdbxEntitySrcGenProdOther
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenprodother.PdbxEntitySrcGenProdOther getPdbxEntitySrcGenProdOther();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenProdOther getPdbxEntitySrcGenProdOther();
 
     /**
      * This category contains parameters and values required to capture
      * information about a particular process step
      * @return PdbxEntitySrcGenProdOtherParameter
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenprodotherparameter.PdbxEntitySrcGenProdOtherParameter getPdbxEntitySrcGenProdOtherParameter();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenProdOtherParameter getPdbxEntitySrcGenProdOtherParameter();
 
     /**
      * This category contains details for the PCR steps used in
@@ -2211,7 +2211,7 @@ public interface Block {
      * gene source if this is the first production step.
      * @return PdbxEntitySrcGenProdPcr
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenprodpcr.PdbxEntitySrcGenProdPcr getPdbxEntitySrcGenProdPcr();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenProdPcr getPdbxEntitySrcGenProdPcr();
 
     /**
      * This category contains details for the DIGEST steps used in
@@ -2220,7 +2220,7 @@ public interface Block {
      * gene source if this is the first production step.
      * @return PdbxEntitySrcGenProdDigest
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenproddigest.PdbxEntitySrcGenProdDigest getPdbxEntitySrcGenProdDigest();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenProdDigest getPdbxEntitySrcGenProdDigest();
 
     /**
      * This category contains details for the cloning steps used in
@@ -2230,7 +2230,7 @@ public interface Block {
      * provided data in the later two categories may be omitted.
      * @return PdbxEntitySrcGenClone
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenclone.PdbxEntitySrcGenClone getPdbxEntitySrcGenClone();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenClone getPdbxEntitySrcGenClone();
 
     /**
      * This category contains details for the ligation-based cloning steps used in
@@ -2241,7 +2241,7 @@ public interface Block {
      * to cover ligation dependent cloning steps.
      * @return PdbxEntitySrcGenCloneLigation
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgencloneligation.PdbxEntitySrcGenCloneLigation getPdbxEntitySrcGenCloneLigation();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenCloneLigation getPdbxEntitySrcGenCloneLigation();
 
     /**
      * This category contains details for the recombination-based cloning steps
@@ -2253,7 +2253,7 @@ public interface Block {
      * to cover recombination dependent cloning steps.
      * @return PdbxEntitySrcGenCloneRecombination
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenclonerecombination.PdbxEntitySrcGenCloneRecombination getPdbxEntitySrcGenCloneRecombination();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenCloneRecombination getPdbxEntitySrcGenCloneRecombination();
 
     /**
      * This category contains details for the EXPRESSION steps used in
@@ -2262,42 +2262,42 @@ public interface Block {
      * induction/transformation/transfection.
      * @return PdbxEntitySrcGenExpress
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenexpress.PdbxEntitySrcGenExpress getPdbxEntitySrcGenExpress();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenExpress getPdbxEntitySrcGenExpress();
 
     /**
      * This category contains details for OD time series used to monitor a
      * given EXPRESSION step used in the overall protein production process.
      * @return PdbxEntitySrcGenExpressTimepoint
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenexpresstimepoint.PdbxEntitySrcGenExpressTimepoint getPdbxEntitySrcGenExpressTimepoint();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenExpressTimepoint getPdbxEntitySrcGenExpressTimepoint();
 
     /**
      * This category contains details for the cell lysis steps used in
      * the overall protein production process.
      * @return PdbxEntitySrcGenLysis
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenlysis.PdbxEntitySrcGenLysis getPdbxEntitySrcGenLysis();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenLysis getPdbxEntitySrcGenLysis();
 
     /**
      * This category contains details for the refolding steps used in
      * the overall protein production process.
      * @return PdbxEntitySrcGenRefold
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenrefold.PdbxEntitySrcGenRefold getPdbxEntitySrcGenRefold();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenRefold getPdbxEntitySrcGenRefold();
 
     /**
      * This category contains details for the protein purification
      * tag removal steps used in the overall protein production process
      * @return PdbxEntitySrcGenProteolysis
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenproteolysis.PdbxEntitySrcGenProteolysis getPdbxEntitySrcGenProteolysis();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenProteolysis getPdbxEntitySrcGenProteolysis();
 
     /**
      * This category contains details for the chromatographic steps used in the
      * purification of the protein.
      * @return PdbxEntitySrcGenChrom
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenchrom.PdbxEntitySrcGenChrom getPdbxEntitySrcGenChrom();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenChrom getPdbxEntitySrcGenChrom();
 
     /**
      * This category contains details for the fraction steps used in
@@ -2305,7 +2305,7 @@ public interface Block {
      * steps are centrifugation and magnetic bead pull-down purification.
      * @return PdbxEntitySrcGenFract
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenfract.PdbxEntitySrcGenFract getPdbxEntitySrcGenFract();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenFract getPdbxEntitySrcGenFract();
 
     /**
      * This category contains details for the final purified protein product. Note
@@ -2316,7 +2316,7 @@ public interface Block {
      * no step_id for this category.
      * @return PdbxEntitySrcGenPure
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgenpure.PdbxEntitySrcGenPure getPdbxEntitySrcGenPure();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenPure getPdbxEntitySrcGenPure();
 
     /**
      * This category contains details of protein characterisation. It
@@ -2324,7 +2324,7 @@ public interface Block {
      * step.
      * @return PdbxEntitySrcGenCharacter
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgencharacter.PdbxEntitySrcGenCharacter getPdbxEntitySrcGenCharacter();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenCharacter getPdbxEntitySrcGenCharacter();
 
     /**
      * Data items in the PDBX_CONSTRUCT category specify a sequence of
@@ -2346,7 +2346,7 @@ public interface Block {
      * (which only becomes a  meaningful concept during deposition).
      * @return PdbxConstruct
      */
-    org.rcsb.cif.model.generated.pdbxconstruct.PdbxConstruct getPdbxConstruct();
+    org.rcsb.cif.model.generated.PdbxConstruct getPdbxConstruct();
 
     /**
      * Data items in the PDBX_CONSTRUCT_FEATURE category may be used to
@@ -2354,27 +2354,27 @@ public interface Block {
      * protein production.
      * @return PdbxConstructFeature
      */
-    org.rcsb.cif.model.generated.pdbxconstructfeature.PdbxConstructFeature getPdbxConstructFeature();
+    org.rcsb.cif.model.generated.PdbxConstructFeature getPdbxConstructFeature();
 
     /**
      * The details about each robotic system used to collect data for this
      * project.
      * @return PdbxRobotSystem
      */
-    org.rcsb.cif.model.generated.pdbxrobotsystem.PdbxRobotSystem getPdbxRobotSystem();
+    org.rcsb.cif.model.generated.PdbxRobotSystem getPdbxRobotSystem();
 
     /**
      * Data items in the PDBX_BUFFER category
      * record details of the sample buffer.
      * @return PdbxBuffer
      */
-    org.rcsb.cif.model.generated.pdbxbuffer.PdbxBuffer getPdbxBuffer();
+    org.rcsb.cif.model.generated.PdbxBuffer getPdbxBuffer();
 
     /**
      * Constituents of buffer in sample
      * @return PdbxBufferComponents
      */
-    org.rcsb.cif.model.generated.pdbxbuffercomponents.PdbxBufferComponents getPdbxBufferComponents();
+    org.rcsb.cif.model.generated.PdbxBufferComponents getPdbxBufferComponents();
 
     /**
      * Data items in the PDBX_DOMAIN category record information
@@ -2385,7 +2385,7 @@ public interface Block {
      * or by segments from more than one chain.
      * @return PdbxDomain
      */
-    org.rcsb.cif.model.generated.pdbxdomain.PdbxDomain getPdbxDomain();
+    org.rcsb.cif.model.generated.PdbxDomain getPdbxDomain();
 
     /**
      * Data items in the PDBX_DOMAIN_RANGE category identify the
@@ -2393,14 +2393,14 @@ public interface Block {
      * that form all or part of a domain.
      * @return PdbxDomainRange
      */
-    org.rcsb.cif.model.generated.pdbxdomainrange.PdbxDomainRange getPdbxDomainRange();
+    org.rcsb.cif.model.generated.PdbxDomainRange getPdbxDomainRange();
 
     /**
      * Data items in the PDBX_SEQUENCE_RANGE category identify the
      * beginning and ending points of polypeptide sequence segments.
      * @return PdbxSequenceRange
      */
-    org.rcsb.cif.model.generated.pdbxsequencerange.PdbxSequenceRange getPdbxSequenceRange();
+    org.rcsb.cif.model.generated.PdbxSequenceRange getPdbxSequenceRange();
 
     /**
      * Data items in the PDBX_FEATURE_ENTRY category records
@@ -2408,7 +2408,7 @@ public interface Block {
      * structure entry.
      * @return PdbxFeatureEntry
      */
-    org.rcsb.cif.model.generated.pdbxfeatureentry.PdbxFeatureEntry getPdbxFeatureEntry();
+    org.rcsb.cif.model.generated.PdbxFeatureEntry getPdbxFeatureEntry();
 
     /**
      * Data items in the PDBX_FEATURE_DOMAIN category records
@@ -2416,7 +2416,7 @@ public interface Block {
      * domain.
      * @return PdbxFeatureDomain
      */
-    org.rcsb.cif.model.generated.pdbxfeaturedomain.PdbxFeatureDomain getPdbxFeatureDomain();
+    org.rcsb.cif.model.generated.PdbxFeatureDomain getPdbxFeatureDomain();
 
     /**
      * Data items in the PDBX_FEATURE_SEQUENCE_RANGE category
@@ -2424,7 +2424,7 @@ public interface Block {
      * this structure sequence_range.
      * @return PdbxFeatureSequenceRange
      */
-    org.rcsb.cif.model.generated.pdbxfeaturesequencerange.PdbxFeatureSequenceRange getPdbxFeatureSequenceRange();
+    org.rcsb.cif.model.generated.PdbxFeatureSequenceRange getPdbxFeatureSequenceRange();
 
     /**
      * Data items in the PDBX_FEATURE_ASSEMBLY category records
@@ -2432,7 +2432,7 @@ public interface Block {
      * structural assembly.
      * @return PdbxFeatureAssembly
      */
-    org.rcsb.cif.model.generated.pdbxfeatureassembly.PdbxFeatureAssembly getPdbxFeatureAssembly();
+    org.rcsb.cif.model.generated.PdbxFeatureAssembly getPdbxFeatureAssembly();
 
     /**
      * Data items in the PDBX_FEATURE_MONOMER category records
@@ -2440,46 +2440,46 @@ public interface Block {
      * monomers in this structure.
      * @return PdbxFeatureMonomer
      */
-    org.rcsb.cif.model.generated.pdbxfeaturemonomer.PdbxFeatureMonomer getPdbxFeatureMonomer();
+    org.rcsb.cif.model.generated.PdbxFeatureMonomer getPdbxFeatureMonomer();
 
     /**
      * Data items in the pdbx_exptl_pd record information about
      * powder sample preparations.
      * @return PdbxExptlPd
      */
-    org.rcsb.cif.model.generated.pdbxexptlpd.PdbxExptlPd getPdbxExptlPd();
+    org.rcsb.cif.model.generated.PdbxExptlPd getPdbxExptlPd();
 
     /**
      * Details decribing crystallographic twinning.
      * @return PdbxReflnsTwin
      */
-    org.rcsb.cif.model.generated.pdbxreflnstwin.PdbxReflnsTwin getPdbxReflnsTwin();
+    org.rcsb.cif.model.generated.PdbxReflnsTwin getPdbxReflnsTwin();
 
     /**
      * Special features of this structural entry.
      * @return PdbxStructInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructinfo.PdbxStructInfo getPdbxStructInfo();
+    org.rcsb.cif.model.generated.PdbxStructInfo getPdbxStructInfo();
 
     /**
      * Describes the origin of the experimental data used in this
      * entry.
      * @return PdbxReRefinement
      */
-    org.rcsb.cif.model.generated.pdbxrerefinement.PdbxReRefinement getPdbxReRefinement();
+    org.rcsb.cif.model.generated.PdbxReRefinement getPdbxReRefinement();
 
     /**
      * Properties and features of structural assemblies.
      * @return PdbxStructAssemblyProp
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblyprop.PdbxStructAssemblyProp getPdbxStructAssemblyProp();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyProp getPdbxStructAssemblyProp();
 
     /**
      * Data items in the PDBX_STRUCT_REF_SEQ_FEATURE category provide a
      * mechanism for identifying and annotating sequence features.
      * @return PdbxStructRefSeqFeature
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqfeature.PdbxStructRefSeqFeature getPdbxStructRefSeqFeature();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqFeature getPdbxStructRefSeqFeature();
 
     /**
      *
@@ -2487,40 +2487,40 @@ public interface Block {
      * mechanism for identifying and annotating properties of sequence features.
      * @return PdbxStructRefSeqFeatureProp
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqfeatureprop.PdbxStructRefSeqFeatureProp getPdbxStructRefSeqFeatureProp();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqFeatureProp getPdbxStructRefSeqFeatureProp();
 
     /**
      * Data items in the PDBX_STRUCT_CHEM_COMP_DIAGNOSTICS category provides
      * structural diagnostics in chemical components instances.
      * @return PdbxStructChemCompDiagnostics
      */
-    org.rcsb.cif.model.generated.pdbxstructchemcompdiagnostics.PdbxStructChemCompDiagnostics getPdbxStructChemCompDiagnostics();
+    org.rcsb.cif.model.generated.PdbxStructChemCompDiagnostics getPdbxStructChemCompDiagnostics();
 
     /**
      * Additional features associated with the chemical component.
      * @return PdbxChemCompFeature
      */
-    org.rcsb.cif.model.generated.pdbxchemcompfeature.PdbxChemCompFeature getPdbxChemCompFeature();
+    org.rcsb.cif.model.generated.PdbxChemCompFeature getPdbxChemCompFeature();
 
     /**
      * The details of the composition of the coordinate model.
      * @return PdbxCoordinateModel
      */
-    org.rcsb.cif.model.generated.pdbxcoordinatemodel.PdbxCoordinateModel getPdbxCoordinateModel();
+    org.rcsb.cif.model.generated.PdbxCoordinateModel getPdbxCoordinateModel();
 
     /**
      * Data items in the PDBX_STRUCT_CHEM_COMP_FEATURE category provides
      * structural annotations in chemical components instances.
      * @return PdbxStructChemCompFeature
      */
-    org.rcsb.cif.model.generated.pdbxstructchemcompfeature.PdbxStructChemCompFeature getPdbxStructChemCompFeature();
+    org.rcsb.cif.model.generated.PdbxStructChemCompFeature getPdbxStructChemCompFeature();
 
     /**
      * Data items in the DIFFRN_REFLNS_SHELL category record details about
      * the reflection data set within shells of resolution.
      * @return PdbxDiffrnReflnsShell
      */
-    org.rcsb.cif.model.generated.pdbxdiffrnreflnsshell.PdbxDiffrnReflnsShell getPdbxDiffrnReflnsShell();
+    org.rcsb.cif.model.generated.PdbxDiffrnReflnsShell getPdbxDiffrnReflnsShell();
 
     /**
      * This category provides a table of upper and lower distance
@@ -2528,35 +2528,35 @@ public interface Block {
      * The table is organized by atom type pairs.
      * @return PdbxBondDistanceLimits
      */
-    org.rcsb.cif.model.generated.pdbxbonddistancelimits.PdbxBondDistanceLimits getPdbxBondDistanceLimits();
+    org.rcsb.cif.model.generated.PdbxBondDistanceLimits getPdbxBondDistanceLimits();
 
     /**
      * Data items in the PDBX_SOLN_SCATTER category record details about a
      * solution scattering experiment
      * @return PdbxSolnScatter
      */
-    org.rcsb.cif.model.generated.pdbxsolnscatter.PdbxSolnScatter getPdbxSolnScatter();
+    org.rcsb.cif.model.generated.PdbxSolnScatter getPdbxSolnScatter();
 
     /**
      * Data items in the PDBX_SOLN_SCATTER_MODEL category record details about the
      * homology model fitting to the solution scatter data.
      * @return PdbxSolnScatterModel
      */
-    org.rcsb.cif.model.generated.pdbxsolnscattermodel.PdbxSolnScatterModel getPdbxSolnScatterModel();
+    org.rcsb.cif.model.generated.PdbxSolnScatterModel getPdbxSolnScatterModel();
 
     /**
      * Data items in the CHEM_COMP_DESCRIPTOR category provide
      * string descriptors of component chemical structure.
      * @return PdbxChemCompDescriptor
      */
-    org.rcsb.cif.model.generated.pdbxchemcompdescriptor.PdbxChemCompDescriptor getPdbxChemCompDescriptor();
+    org.rcsb.cif.model.generated.PdbxChemCompDescriptor getPdbxChemCompDescriptor();
 
     /**
      * Data items in the CHEM_COMP_IDENTIFIER category provide
      * identifiers for chemical components.
      * @return PdbxChemCompIdentifier
      */
-    org.rcsb.cif.model.generated.pdbxchemcompidentifier.PdbxChemCompIdentifier getPdbxChemCompIdentifier();
+    org.rcsb.cif.model.generated.PdbxChemCompIdentifier getPdbxChemCompIdentifier();
 
     /**
      * Data items in the PDBX_CHEM_COMP_IMPORT category identify
@@ -2566,7 +2566,7 @@ public interface Block {
      * pdbx_chem_comp_atom_edit and pdbx_chem_comp_bond_edit.
      * @return PdbxChemCompImport
      */
-    org.rcsb.cif.model.generated.pdbxchemcompimport.PdbxChemCompImport getPdbxChemCompImport();
+    org.rcsb.cif.model.generated.PdbxChemCompImport getPdbxChemCompImport();
 
     /**
      * Data items in the PDBX_CHEM_COMP_ATOM_EDIT category provide
@@ -2574,7 +2574,7 @@ public interface Block {
      * chemical components.
      * @return PdbxChemCompAtomEdit
      */
-    org.rcsb.cif.model.generated.pdbxchemcompatomedit.PdbxChemCompAtomEdit getPdbxChemCompAtomEdit();
+    org.rcsb.cif.model.generated.PdbxChemCompAtomEdit getPdbxChemCompAtomEdit();
 
     /**
      * Data items in the PDBX_CHEM_COMP_BOND_EDIT category provide
@@ -2582,14 +2582,14 @@ public interface Block {
      * chemical components.
      * @return PdbxChemCompBondEdit
      */
-    org.rcsb.cif.model.generated.pdbxchemcompbondedit.PdbxChemCompBondEdit getPdbxChemCompBondEdit();
+    org.rcsb.cif.model.generated.PdbxChemCompBondEdit getPdbxChemCompBondEdit();
 
     /**
      * Data items in the PDBX_CHEM_COMP_AUDIT category records
      * the status and tracking information for this component.
      * @return PdbxChemCompAudit
      */
-    org.rcsb.cif.model.generated.pdbxchemcompaudit.PdbxChemCompAudit getPdbxChemCompAudit();
+    org.rcsb.cif.model.generated.PdbxChemCompAudit getPdbxChemCompAudit();
 
     /**
      * Data items in the PDBX_VALIDATE_CLOSE_CONTACT category list the
@@ -2603,7 +2603,7 @@ public interface Block {
      * a cutoff of 1.6 Angstroms is used.
      * @return PdbxValidateCloseContact
      */
-    org.rcsb.cif.model.generated.pdbxvalidateclosecontact.PdbxValidateCloseContact getPdbxValidateCloseContact();
+    org.rcsb.cif.model.generated.PdbxValidateCloseContact getPdbxValidateCloseContact();
 
     /**
      * Data items in the PDBX_VALIDATE_SYMM_CONTACT category list the
@@ -2616,7 +2616,7 @@ public interface Block {
      * a cutoff of 1.6Angstrom is used.
      * @return PdbxValidateSymmContact
      */
-    org.rcsb.cif.model.generated.pdbxvalidatesymmcontact.PdbxValidateSymmContact getPdbxValidateSymmContact();
+    org.rcsb.cif.model.generated.PdbxValidateSymmContact getPdbxValidateSymmContact();
 
     /**
      * Data items in the PDBX_VALIDATE_RMSD_BOND category list the
@@ -2624,7 +2624,7 @@ public interface Block {
      * values by more than 6*rmsd.
      * @return PdbxValidateRmsdBond
      */
-    org.rcsb.cif.model.generated.pdbxvalidatermsdbond.PdbxValidateRmsdBond getPdbxValidateRmsdBond();
+    org.rcsb.cif.model.generated.PdbxValidateRmsdBond getPdbxValidateRmsdBond();
 
     /**
      * Data items in the PDBX_VALIDATE_RMSD_ANGLE category list the
@@ -2634,14 +2634,14 @@ public interface Block {
      * value
      * @return PdbxValidateRmsdAngle
      */
-    org.rcsb.cif.model.generated.pdbxvalidatermsdangle.PdbxValidateRmsdAngle getPdbxValidateRmsdAngle();
+    org.rcsb.cif.model.generated.PdbxValidateRmsdAngle getPdbxValidateRmsdAngle();
 
     /**
      * Data items in the PDBX_VALIDATE_TORSION category list the
      * residues with torsion angles outside the expected ramachandran regions
      * @return PdbxValidateTorsion
      */
-    org.rcsb.cif.model.generated.pdbxvalidatetorsion.PdbxValidateTorsion getPdbxValidateTorsion();
+    org.rcsb.cif.model.generated.PdbxValidateTorsion getPdbxValidateTorsion();
 
     /**
      * Data items in the PDBX_VALIDATE_PEPTIDE_OMEGA category list the
@@ -2652,7 +2652,7 @@ public interface Block {
      * cis is defined as 0 +/- 30 degrees.
      * @return PdbxValidatePeptideOmega
      */
-    org.rcsb.cif.model.generated.pdbxvalidatepeptideomega.PdbxValidatePeptideOmega getPdbxValidatePeptideOmega();
+    org.rcsb.cif.model.generated.PdbxValidatePeptideOmega getPdbxValidatePeptideOmega();
 
     /**
      * Data items in the PDBX_VALIDATE_CHIRAL category list the
@@ -2670,7 +2670,7 @@ public interface Block {
      * D-amino acid is +120.0
      * @return PdbxValidateChiral
      */
-    org.rcsb.cif.model.generated.pdbxvalidatechiral.PdbxValidateChiral getPdbxValidateChiral();
+    org.rcsb.cif.model.generated.PdbxValidateChiral getPdbxValidateChiral();
 
     /**
      * Data items in the PDBX_VALIDATE_PLANES category list the
@@ -2678,7 +2678,7 @@ public interface Block {
      * centers.
      * @return PdbxValidatePlanes
      */
-    org.rcsb.cif.model.generated.pdbxvalidateplanes.PdbxValidatePlanes getPdbxValidatePlanes();
+    org.rcsb.cif.model.generated.PdbxValidatePlanes getPdbxValidatePlanes();
 
     /**
      * Data items in the PDBX_VALIDATE_PLANES_ATOM category list the
@@ -2686,7 +2686,7 @@ public interface Block {
      * centers.
      * @return PdbxValidatePlanesAtom
      */
-    org.rcsb.cif.model.generated.pdbxvalidateplanesatom.PdbxValidatePlanesAtom getPdbxValidatePlanesAtom();
+    org.rcsb.cif.model.generated.PdbxValidatePlanesAtom getPdbxValidatePlanesAtom();
 
     /**
      * Data items in the PDBX_VALIDATE_MAIN_CHAIN_PLANE category list the
@@ -2698,35 +2698,35 @@ public interface Block {
      * as a pseudo torsion
      * @return PdbxValidateMainChainPlane
      */
-    org.rcsb.cif.model.generated.pdbxvalidatemainchainplane.PdbxValidateMainChainPlane getPdbxValidateMainChainPlane();
+    org.rcsb.cif.model.generated.PdbxValidateMainChainPlane getPdbxValidateMainChainPlane();
 
     /**
      * Data items in the PDBX_STRUCT_CONN_ANGLE category record the angles
      * in connections between portions of the structure.
      * @return PdbxStructConnAngle
      */
-    org.rcsb.cif.model.generated.pdbxstructconnangle.PdbxStructConnAngle getPdbxStructConnAngle();
+    org.rcsb.cif.model.generated.PdbxStructConnAngle getPdbxStructConnAngle();
 
     /**
      * Data items in the PDBX_UNOBS_OR_ZERO_OCC_RESIDUES category list the
      * residues within the entry that are not observed or have zero occupancy.
      * @return PdbxUnobsOrZeroOccResidues
      */
-    org.rcsb.cif.model.generated.pdbxunobsorzerooccresidues.PdbxUnobsOrZeroOccResidues getPdbxUnobsOrZeroOccResidues();
+    org.rcsb.cif.model.generated.PdbxUnobsOrZeroOccResidues getPdbxUnobsOrZeroOccResidues();
 
     /**
      * Data items in the PDBX_UNOBS_OR_ZERO_OCC_ATOMS category list the
      * atoms within the entry that are either unobserved or have zero occupancy/
      * @return PdbxUnobsOrZeroOccAtoms
      */
-    org.rcsb.cif.model.generated.pdbxunobsorzerooccatoms.PdbxUnobsOrZeroOccAtoms getPdbxUnobsOrZeroOccAtoms();
+    org.rcsb.cif.model.generated.PdbxUnobsOrZeroOccAtoms getPdbxUnobsOrZeroOccAtoms();
 
     /**
      * Data items in the PDBX_ENTRY_DETAILS category provide additional
      * details about this entry.
      * @return PdbxEntryDetails
      */
-    org.rcsb.cif.model.generated.pdbxentrydetails.PdbxEntryDetails getPdbxEntryDetails();
+    org.rcsb.cif.model.generated.PdbxEntryDetails getPdbxEntryDetails();
 
     /**
      * Data items in the PDBX_STRUCT_MOD_RESIDUE category list the
@@ -2734,7 +2734,7 @@ public interface Block {
      * details describing the nature of the modification.
      * @return PdbxStructModResidue
      */
-    org.rcsb.cif.model.generated.pdbxstructmodresidue.PdbxStructModResidue getPdbxStructModResidue();
+    org.rcsb.cif.model.generated.PdbxStructModResidue getPdbxStructModResidue();
 
     /**
      * Data items in the PDBX_STRUCT_REF_SEQ_INSERTION category
@@ -2742,7 +2742,7 @@ public interface Block {
      * in the referenced database entry.
      * @return PdbxStructRefSeqInsertion
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqinsertion.PdbxStructRefSeqInsertion getPdbxStructRefSeqInsertion();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqInsertion getPdbxStructRefSeqInsertion();
 
     /**
      * Data items in the PDBX_STRUCT_REF_SEQ_INSERTION category
@@ -2750,7 +2750,7 @@ public interface Block {
      * in the referenced database entry.
      * @return PdbxStructRefSeqDeletion
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqdeletion.PdbxStructRefSeqDeletion getPdbxStructRefSeqDeletion();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqDeletion getPdbxStructRefSeqDeletion();
 
     /**
      * Data items in the PDBX_REMEDIATION_ATOM_SITE_MAPPING category records
@@ -2759,7 +2759,7 @@ public interface Block {
      * tabulated in this category.
      * @return PdbxRemediationAtomSiteMapping
      */
-    org.rcsb.cif.model.generated.pdbxremediationatomsitemapping.PdbxRemediationAtomSiteMapping getPdbxRemediationAtomSiteMapping();
+    org.rcsb.cif.model.generated.PdbxRemediationAtomSiteMapping getPdbxRemediationAtomSiteMapping();
 
     /**
      * Data items in the PDBX_VALIDATE_POLYMER_LINKAGE category list the
@@ -2767,21 +2767,21 @@ public interface Block {
      * covalent distances.
      * @return PdbxValidatePolymerLinkage
      */
-    org.rcsb.cif.model.generated.pdbxvalidatepolymerlinkage.PdbxValidatePolymerLinkage getPdbxValidatePolymerLinkage();
+    org.rcsb.cif.model.generated.PdbxValidatePolymerLinkage getPdbxValidatePolymerLinkage();
 
     /**
      * Data items in the PDBX_HELICAL_SYMMETRY category record details about the
      * helical symmetry group associated with this entry.
      * @return PdbxHelicalSymmetry
      */
-    org.rcsb.cif.model.generated.pdbxhelicalsymmetry.PdbxHelicalSymmetry getPdbxHelicalSymmetry();
+    org.rcsb.cif.model.generated.PdbxHelicalSymmetry getPdbxHelicalSymmetry();
 
     /**
      * Data items in the PDBX_POINT_SYMMETRY category record details about the
      * point symmetry group associated with this entry.
      * @return PdbxPointSymmetry
      */
-    org.rcsb.cif.model.generated.pdbxpointsymmetry.PdbxPointSymmetry getPdbxPointSymmetry();
+    org.rcsb.cif.model.generated.PdbxPointSymmetry getPdbxPointSymmetry();
 
     /**
      * Data items in the PDBX_STRUCT_ENTITY_INST category record details about the
@@ -2790,7 +2790,7 @@ public interface Block {
      * set.
      * @return PdbxStructEntityInst
      */
-    org.rcsb.cif.model.generated.pdbxstructentityinst.PdbxStructEntityInst getPdbxStructEntityInst();
+    org.rcsb.cif.model.generated.PdbxStructEntityInst getPdbxStructEntityInst();
 
     /**
      * Data items in the PDBX_STRUCT_OPER_LIST category describe
@@ -2798,14 +2798,14 @@ public interface Block {
      * generate or transform the coordinates deposited with this entry.
      * @return PdbxStructOperList
      */
-    org.rcsb.cif.model.generated.pdbxstructoperlist.PdbxStructOperList getPdbxStructOperList();
+    org.rcsb.cif.model.generated.PdbxStructOperList getPdbxStructOperList();
 
     /**
      * Data items in the PDBX_STRUCT_ASSEMBLY category record details about
      * the structural elements that form macromolecular assemblies.
      * @return PdbxStructAssembly
      */
-    org.rcsb.cif.model.generated.pdbxstructassembly.PdbxStructAssembly getPdbxStructAssembly();
+    org.rcsb.cif.model.generated.PdbxStructAssembly getPdbxStructAssembly();
 
     /**
      * Data items in the PDBX_STRUCT_ASSEMBLY_GEN category record details about
@@ -2814,7 +2814,7 @@ public interface Block {
      * constitute that assembly in terms of cartesian transformations.
      * @return PdbxStructAssemblyGen
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblygen.PdbxStructAssemblyGen getPdbxStructAssemblyGen();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyGen getPdbxStructAssemblyGen();
 
     /**
      * Data items in the PDBX_STRUCT_ASYM_GEN category record details about
@@ -2824,7 +2824,7 @@ public interface Block {
      * transformations of deposited coordinates.
      * @return PdbxStructAsymGen
      */
-    org.rcsb.cif.model.generated.pdbxstructasymgen.PdbxStructAsymGen getPdbxStructAsymGen();
+    org.rcsb.cif.model.generated.PdbxStructAsymGen getPdbxStructAsymGen();
 
     /**
      * Data items in the PDBX_STRUCT_MSYM_GEN category record details about
@@ -2835,7 +2835,7 @@ public interface Block {
      * in terms of cartesian transformations of deposited coordinates.
      * @return PdbxStructMsymGen
      */
-    org.rcsb.cif.model.generated.pdbxstructmsymgen.PdbxStructMsymGen getPdbxStructMsymGen();
+    org.rcsb.cif.model.generated.PdbxStructMsymGen getPdbxStructMsymGen();
 
     /**
      * Data items in the PDBX_STRUCT_LEGACY_OPER_LIST category describe
@@ -2846,56 +2846,56 @@ public interface Block {
      * icosahedral assemblies in legacy entries.
      * @return PdbxStructLegacyOperList
      */
-    org.rcsb.cif.model.generated.pdbxstructlegacyoperlist.PdbxStructLegacyOperList getPdbxStructLegacyOperList();
+    org.rcsb.cif.model.generated.PdbxStructLegacyOperList getPdbxStructLegacyOperList();
 
     /**
      * Data items in the PDBX_CHEM_COMP_ATOM_FEATURE category provide
      * a selected list of atom level features for the chemical component.
      * @return PdbxChemCompAtomFeature
      */
-    org.rcsb.cif.model.generated.pdbxchemcompatomfeature.PdbxChemCompAtomFeature getPdbxChemCompAtomFeature();
+    org.rcsb.cif.model.generated.PdbxChemCompAtomFeature getPdbxChemCompAtomFeature();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_FAMILY category identify
      * entity families.
      * @return PdbxReferenceMoleculeFamily
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculefamily.PdbxReferenceMoleculeFamily getPdbxReferenceMoleculeFamily();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeFamily getPdbxReferenceMoleculeFamily();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_LIST category record
      * reference information about small polymer molecules.
      * @return PdbxReferenceMoleculeList
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculelist.PdbxReferenceMoleculeList getPdbxReferenceMoleculeList();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeList getPdbxReferenceMoleculeList();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE category record
      * reference information about small polymer molecules.
      * @return PdbxReferenceMolecule
      */
-    org.rcsb.cif.model.generated.pdbxreferencemolecule.PdbxReferenceMolecule getPdbxReferenceMolecule();
+    org.rcsb.cif.model.generated.PdbxReferenceMolecule getPdbxReferenceMolecule();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_LIST category record
      * the list of entities within each reference molecule.
      * @return PdbxReferenceEntityList
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitylist.PdbxReferenceEntityList getPdbxReferenceEntityList();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityList getPdbxReferenceEntityList();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_NONPOLY category record
      * the list of entities within each reference molecule.
      * @return PdbxReferenceEntityNonpoly
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitynonpoly.PdbxReferenceEntityNonpoly getPdbxReferenceEntityNonpoly();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityNonpoly getPdbxReferenceEntityNonpoly();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_LINK category give details about
      * the linkages between entities within reference molecules.
      * @return PdbxReferenceEntityLink
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitylink.PdbxReferenceEntityLink getPdbxReferenceEntityLink();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityLink getPdbxReferenceEntityLink();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_POLY_LINK category give details about
@@ -2903,7 +2903,7 @@ public interface Block {
      * polymer componnents.
      * @return PdbxReferenceEntityPolyLink
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitypolylink.PdbxReferenceEntityPolyLink getPdbxReferenceEntityPolyLink();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityPolyLink getPdbxReferenceEntityPolyLink();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_POLY category record details about
@@ -2911,75 +2911,75 @@ public interface Block {
      * monomers and whether it has nonstandard features.
      * @return PdbxReferenceEntityPoly
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitypoly.PdbxReferenceEntityPoly getPdbxReferenceEntityPoly();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityPoly getPdbxReferenceEntityPoly();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_POLY_SEQ category specify the sequence
      * of monomers in a polymer.
      * @return PdbxReferenceEntityPolySeq
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitypolyseq.PdbxReferenceEntityPolySeq getPdbxReferenceEntityPolySeq();
+    org.rcsb.cif.model.generated.PdbxReferenceEntityPolySeq getPdbxReferenceEntityPolySeq();
 
     /**
      * Additional features associated with the reference entity.
      * @return PdbxReferenceEntitySequence
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitysequence.PdbxReferenceEntitySequence getPdbxReferenceEntitySequence();
+    org.rcsb.cif.model.generated.PdbxReferenceEntitySequence getPdbxReferenceEntitySequence();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_SRC_NAT category record
      * details of the source from which the entity was obtained.
      * @return PdbxReferenceEntitySrcNat
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitysrcnat.PdbxReferenceEntitySrcNat getPdbxReferenceEntitySrcNat();
+    org.rcsb.cif.model.generated.PdbxReferenceEntitySrcNat getPdbxReferenceEntitySrcNat();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_DETAILS category records
      * textual details about small polymer molecules.
      * @return PdbxReferenceMoleculeDetails
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculedetails.PdbxReferenceMoleculeDetails getPdbxReferenceMoleculeDetails();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeDetails getPdbxReferenceMoleculeDetails();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_SYNONYMS category records
      * synonym names for reference entities.
      * @return PdbxReferenceMoleculeSynonyms
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculesynonyms.PdbxReferenceMoleculeSynonyms getPdbxReferenceMoleculeSynonyms();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeSynonyms getPdbxReferenceMoleculeSynonyms();
 
     /**
      * Data items in the PDBX_REFERENCE_ENTITY_SUBCOMPONENTS category records
      * subcomponent sequence from which this entity could be built.
      * @return PdbxReferenceEntitySubcomponents
      */
-    org.rcsb.cif.model.generated.pdbxreferenceentitysubcomponents.PdbxReferenceEntitySubcomponents getPdbxReferenceEntitySubcomponents();
+    org.rcsb.cif.model.generated.PdbxReferenceEntitySubcomponents getPdbxReferenceEntitySubcomponents();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_ANNOTATION category specify
      * additional annotation relevant to the molecular entities.
      * @return PdbxReferenceMoleculeAnnotation
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculeannotation.PdbxReferenceMoleculeAnnotation getPdbxReferenceMoleculeAnnotation();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeAnnotation getPdbxReferenceMoleculeAnnotation();
 
     /**
      * Additional features associated with the reference entity.
      * @return PdbxReferenceMoleculeFeatures
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculefeatures.PdbxReferenceMoleculeFeatures getPdbxReferenceMoleculeFeatures();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeFeatures getPdbxReferenceMoleculeFeatures();
 
     /**
      * Data items in the PDBX_REFERENCE_MOLECULE_RELATED_STRUCTURES category record
      * details of the structural examples in related databases for this entity.
      * @return PdbxReferenceMoleculeRelatedStructures
      */
-    org.rcsb.cif.model.generated.pdbxreferencemoleculerelatedstructures.PdbxReferenceMoleculeRelatedStructures getPdbxReferenceMoleculeRelatedStructures();
+    org.rcsb.cif.model.generated.PdbxReferenceMoleculeRelatedStructures getPdbxReferenceMoleculeRelatedStructures();
 
     /**
      * Data items in the PDBX_STRUCT_GROUP_LIST define groups of related components
      * or atoms.
      * @return PdbxStructGroupList
      */
-    org.rcsb.cif.model.generated.pdbxstructgrouplist.PdbxStructGroupList getPdbxStructGroupList();
+    org.rcsb.cif.model.generated.PdbxStructGroupList getPdbxStructGroupList();
 
     /**
      * Data items in the PDBX_STRUCT_GROUP_COMPONENTS category list component-level
@@ -2987,105 +2987,105 @@ public interface Block {
      * PDBX_STRUCT_GROUP_LIST.
      * @return PdbxStructGroupComponents
      */
-    org.rcsb.cif.model.generated.pdbxstructgroupcomponents.PdbxStructGroupComponents getPdbxStructGroupComponents();
+    org.rcsb.cif.model.generated.PdbxStructGroupComponents getPdbxStructGroupComponents();
 
     /**
      * Data items in the PDBX_STRUCT_GROUP_COMPONENT_RANGE category define a structural
      * group as a continuous span chemical components.
      * @return PdbxStructGroupComponentRange
      */
-    org.rcsb.cif.model.generated.pdbxstructgroupcomponentrange.PdbxStructGroupComponentRange getPdbxStructGroupComponentRange();
+    org.rcsb.cif.model.generated.PdbxStructGroupComponentRange getPdbxStructGroupComponentRange();
 
     /**
      * Data items in the PDBX_PRD_AUDIT category records
      * the status and tracking information for this molecule.
      * @return PdbxPrdAudit
      */
-    org.rcsb.cif.model.generated.pdbxprdaudit.PdbxPrdAudit getPdbxPrdAudit();
+    org.rcsb.cif.model.generated.PdbxPrdAudit getPdbxPrdAudit();
 
     /**
      * Data items in the PDBX_FAMILY_PRD_AUDIT category records
      * the status and tracking information for this family.
      * @return PdbxFamilyPrdAudit
      */
-    org.rcsb.cif.model.generated.pdbxfamilyprdaudit.PdbxFamilyPrdAudit getPdbxFamilyPrdAudit();
+    org.rcsb.cif.model.generated.PdbxFamilyPrdAudit getPdbxFamilyPrdAudit();
 
     /**
      * Data items in the PDBX_MOLECULE category identify reference molecules
      * within a PDB entry.
      * @return PdbxMolecule
      */
-    org.rcsb.cif.model.generated.pdbxmolecule.PdbxMolecule getPdbxMolecule();
+    org.rcsb.cif.model.generated.PdbxMolecule getPdbxMolecule();
 
     /**
      * Data items in the PDBX_MOLECULE_FEATURES category record features of molecules
      * within a PDB entry.
      * @return PdbxMoleculeFeatures
      */
-    org.rcsb.cif.model.generated.pdbxmoleculefeatures.PdbxMoleculeFeatures getPdbxMoleculeFeatures();
+    org.rcsb.cif.model.generated.PdbxMoleculeFeatures getPdbxMoleculeFeatures();
 
     /**
      * Data items in the PDBX_FAMILY_GROUP_INDEX category record
      * the family membership in family groups.
      * @return PdbxFamilyGroupIndex
      */
-    org.rcsb.cif.model.generated.pdbxfamilygroupindex.PdbxFamilyGroupIndex getPdbxFamilyGroupIndex();
+    org.rcsb.cif.model.generated.PdbxFamilyGroupIndex getPdbxFamilyGroupIndex();
 
     /**
      * Data items in the PDBX_DISTANT_SOLVENT_ATOMS category list the
      * solvent atoms remote from any macromolecule.
      * @return PdbxDistantSolventAtoms
      */
-    org.rcsb.cif.model.generated.pdbxdistantsolventatoms.PdbxDistantSolventAtoms getPdbxDistantSolventAtoms();
+    org.rcsb.cif.model.generated.PdbxDistantSolventAtoms getPdbxDistantSolventAtoms();
 
     /**
      * Data items in the PDBX_STRUCT_SPECIAL_SYMMETRY category list the
      * molecular components that lie on special symmetry positions.
      * @return PdbxStructSpecialSymmetry
      */
-    org.rcsb.cif.model.generated.pdbxstructspecialsymmetry.PdbxStructSpecialSymmetry getPdbxStructSpecialSymmetry();
+    org.rcsb.cif.model.generated.PdbxStructSpecialSymmetry getPdbxStructSpecialSymmetry();
 
     /**
      * Data items in the PDBX_REFERENCE_PUBLICATION_LIST hold reference information
      * related to PDB citation data.
      * @return PdbxReferencePublicationList
      */
-    org.rcsb.cif.model.generated.pdbxreferencepublicationlist.PdbxReferencePublicationList getPdbxReferencePublicationList();
+    org.rcsb.cif.model.generated.PdbxReferencePublicationList getPdbxReferencePublicationList();
 
     /**
      *
      * Items in the assigned_chem_shift_list category provide information about a list of reported assigned chemical shift values.
      * @return PdbxNmrAssignedChemShiftList
      */
-    org.rcsb.cif.model.generated.pdbxnmrassignedchemshiftlist.PdbxNmrAssignedChemShiftList getPdbxNmrAssignedChemShiftList();
+    org.rcsb.cif.model.generated.PdbxNmrAssignedChemShiftList getPdbxNmrAssignedChemShiftList();
 
     /**
      *
      * Items in the chem_shift_experiment category provide pointers to the NMR experiments and samples used to collect the data for a set of reported assigned chemical shifts.
      * @return PdbxNmrChemShiftExperiment
      */
-    org.rcsb.cif.model.generated.pdbxnmrchemshiftexperiment.PdbxNmrChemShiftExperiment getPdbxNmrChemShiftExperiment();
+    org.rcsb.cif.model.generated.PdbxNmrChemShiftExperiment getPdbxNmrChemShiftExperiment();
 
     /**
      *
      * Items in the pdbx_nmr_chem_shift_ref category provide the chemical shift referencing values used in assigning the chemical shift positions for peaks in spectral peak lists and assigned atom chemical shifts.
      * @return PdbxNmrChemShiftRef
      */
-    org.rcsb.cif.model.generated.pdbxnmrchemshiftref.PdbxNmrChemShiftRef getPdbxNmrChemShiftRef();
+    org.rcsb.cif.model.generated.PdbxNmrChemShiftRef getPdbxNmrChemShiftRef();
 
     /**
      *
      * Items in the chem_shift_reference category define a set of chemical shift referencing parameters.
      * @return PdbxNmrChemShiftReference
      */
-    org.rcsb.cif.model.generated.pdbxnmrchemshiftreference.PdbxNmrChemShiftReference getPdbxNmrChemShiftReference();
+    org.rcsb.cif.model.generated.PdbxNmrChemShiftReference getPdbxNmrChemShiftReference();
 
     /**
      *
      * Items in the chem_shift_software category provide pointers to the software category and methods category.
      * @return PdbxNmrChemShiftSoftware
      */
-    org.rcsb.cif.model.generated.pdbxnmrchemshiftsoftware.PdbxNmrChemShiftSoftware getPdbxNmrChemShiftSoftware();
+    org.rcsb.cif.model.generated.PdbxNmrChemShiftSoftware getPdbxNmrChemShiftSoftware();
 
     /**
      *
@@ -3093,28 +3093,28 @@ public interface Block {
      * to calculate conformers with the constraint file, and the characteristics of the constraints in the constraint file.
      * @return PdbxNmrConstraintFile
      */
-    org.rcsb.cif.model.generated.pdbxnmrconstraintfile.PdbxNmrConstraintFile getPdbxNmrConstraintFile();
+    org.rcsb.cif.model.generated.PdbxNmrConstraintFile getPdbxNmrConstraintFile();
 
     /**
      *
      * Items in the pdbx_nmr_software_task category provide information about software workflow in the NMR experiment.
      * @return PdbxNmrSoftwareTask
      */
-    org.rcsb.cif.model.generated.pdbxnmrsoftwaretask.PdbxNmrSoftwareTask getPdbxNmrSoftwareTask();
+    org.rcsb.cif.model.generated.PdbxNmrSoftwareTask getPdbxNmrSoftwareTask();
 
     /**
      *
      * Items in the spectral_dim category describe the parameters of each dimension in the NMR experiment used to generate the spectral peak list.
      * @return PdbxNmrSpectralDim
      */
-    org.rcsb.cif.model.generated.pdbxnmrspectraldim.PdbxNmrSpectralDim getPdbxNmrSpectralDim();
+    org.rcsb.cif.model.generated.PdbxNmrSpectralDim getPdbxNmrSpectralDim();
 
     /**
      *
      * Items in the pdbx_nmr_spectral_peak_list category provide information about a list of reported spectral peak characteristic values.
      * @return PdbxNmrSpectralPeakList
      */
-    org.rcsb.cif.model.generated.pdbxnmrspectralpeaklist.PdbxNmrSpectralPeakList getPdbxNmrSpectralPeakList();
+    org.rcsb.cif.model.generated.PdbxNmrSpectralPeakList getPdbxNmrSpectralPeakList();
 
     /**
      *
@@ -3122,28 +3122,28 @@ public interface Block {
      * and methods category where descriptions of software applications and methods can be found.
      * @return PdbxNmrSpectralPeakSoftware
      */
-    org.rcsb.cif.model.generated.pdbxnmrspectralpeaksoftware.PdbxNmrSpectralPeakSoftware getPdbxNmrSpectralPeakSoftware();
+    org.rcsb.cif.model.generated.PdbxNmrSpectralPeakSoftware getPdbxNmrSpectralPeakSoftware();
 
     /**
      *
      * Items in the pdbx_nmr_systematic_chem_shift_offset category define chemical shift offsets that systematically affect all chemical shifts in a set of assigned chemical shifts for a specific nuclei.
      * @return PdbxNmrSystematicChemShiftOffset
      */
-    org.rcsb.cif.model.generated.pdbxnmrsystematicchemshiftoffset.PdbxNmrSystematicChemShiftOffset getPdbxNmrSystematicChemShiftOffset();
+    org.rcsb.cif.model.generated.PdbxNmrSystematicChemShiftOffset getPdbxNmrSystematicChemShiftOffset();
 
     /**
      *
      * Items in the pdbx_nmr_upload category provide information about the data files uploaded by a depositor using the deposition system.
      * @return PdbxNmrUpload
      */
-    org.rcsb.cif.model.generated.pdbxnmrupload.PdbxNmrUpload getPdbxNmrUpload();
+    org.rcsb.cif.model.generated.PdbxNmrUpload getPdbxNmrUpload();
 
     /**
      * Data items in the PDBX_AUDIT_SUPPORT category record details about
      * funding support for the entry.
      * @return PdbxAuditSupport
      */
-    org.rcsb.cif.model.generated.pdbxauditsupport.PdbxAuditSupport getPdbxAuditSupport();
+    org.rcsb.cif.model.generated.PdbxAuditSupport getPdbxAuditSupport();
 
     /**
      * Data items in the pdbx_chem_comp_subcomponent_struct_conn
@@ -3151,14 +3151,14 @@ public interface Block {
      * the chemical component.
      * @return PdbxChemCompSubcomponentStructConn
      */
-    org.rcsb.cif.model.generated.pdbxchemcompsubcomponentstructconn.PdbxChemCompSubcomponentStructConn getPdbxChemCompSubcomponentStructConn();
+    org.rcsb.cif.model.generated.PdbxChemCompSubcomponentStructConn getPdbxChemCompSubcomponentStructConn();
 
     /**
      * Data items in the pdbx_chem_comp_subcomponent_entity_list category
      * list the constituent chemical entities and entity features in this chemical component.
      * @return PdbxChemCompSubcomponentEntityList
      */
-    org.rcsb.cif.model.generated.pdbxchemcompsubcomponententitylist.PdbxChemCompSubcomponentEntityList getPdbxChemCompSubcomponentEntityList();
+    org.rcsb.cif.model.generated.PdbxChemCompSubcomponentEntityList getPdbxChemCompSubcomponentEntityList();
 
     /**
      * Data items in the ENTITY_SRC_NAT category record details of
@@ -3166,7 +3166,7 @@ public interface Block {
      * where the entity was isolated directly from a natural tissue.
      * @return EntitySrcNat
      */
-    org.rcsb.cif.model.generated.entitysrcnat.EntitySrcNat getEntitySrcNat();
+    org.rcsb.cif.model.generated.EntitySrcNat getEntitySrcNat();
 
     /**
      * Data items in the ENTITY_SRC_GEN category record details of
@@ -3178,63 +3178,63 @@ public interface Block {
      * producing organism (plasmid).
      * @return EntitySrcGen
      */
-    org.rcsb.cif.model.generated.entitysrcgen.EntitySrcGen getEntitySrcGen();
+    org.rcsb.cif.model.generated.EntitySrcGen getEntitySrcGen();
 
     /**
      * The data items in category PDBX_ENTITY_SRC_SYN record the source details
      * about chemically synthesized molecules.
      * @return PdbxEntitySrcSyn
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcsyn.PdbxEntitySrcSyn getPdbxEntitySrcSyn();
+    org.rcsb.cif.model.generated.PdbxEntitySrcSyn getPdbxEntitySrcSyn();
 
     /**
      * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate the
      * the linkages between components within the polymer entity.
      * @return PdbxEntityPolyCompLinkList
      */
-    org.rcsb.cif.model.generated.pdbxentitypolycomplinklist.PdbxEntityPolyCompLinkList getPdbxEntityPolyCompLinkList();
+    org.rcsb.cif.model.generated.PdbxEntityPolyCompLinkList getPdbxEntityPolyCompLinkList();
 
     /**
      * Data items in the PDBX_LINKED_ENTITY category record
      * information about molecules composed of linked entities.
      * @return PdbxLinkedEntity
      */
-    org.rcsb.cif.model.generated.pdbxlinkedentity.PdbxLinkedEntity getPdbxLinkedEntity();
+    org.rcsb.cif.model.generated.PdbxLinkedEntity getPdbxLinkedEntity();
 
     /**
      * Data items in the PDBX_LINKED_ENTITY_INSTANCE_LIST category identify instance
      * molecules represented as linked entities within an entry.
      * @return PdbxLinkedEntityInstanceList
      */
-    org.rcsb.cif.model.generated.pdbxlinkedentityinstancelist.PdbxLinkedEntityInstanceList getPdbxLinkedEntityInstanceList();
+    org.rcsb.cif.model.generated.PdbxLinkedEntityInstanceList getPdbxLinkedEntityInstanceList();
 
     /**
      * Data items in the PDBX_LINKED_ENTITY_LIST category record
      * the list of entity constituents for this molecule.
      * @return PdbxLinkedEntityList
      */
-    org.rcsb.cif.model.generated.pdbxlinkedentitylist.PdbxLinkedEntityList getPdbxLinkedEntityList();
+    org.rcsb.cif.model.generated.PdbxLinkedEntityList getPdbxLinkedEntityList();
 
     /**
      * Data items in the PDBX_LINKED_ENTITY_LINK_LIST category give details about
      * the linkages with molecules represented as linked entities.
      * @return PdbxLinkedEntityLinkList
      */
-    org.rcsb.cif.model.generated.pdbxlinkedentitylinklist.PdbxLinkedEntityLinkList getPdbxLinkedEntityLinkList();
+    org.rcsb.cif.model.generated.PdbxLinkedEntityLinkList getPdbxLinkedEntityLinkList();
 
     /**
      * Data items in the PDBX_ENTITY_DESCRIPTOR category provide
      * string descriptors of entity chemical structure.
      * @return PdbxEntityDescriptor
      */
-    org.rcsb.cif.model.generated.pdbxentitydescriptor.PdbxEntityDescriptor getPdbxEntityDescriptor();
+    org.rcsb.cif.model.generated.PdbxEntityDescriptor getPdbxEntityDescriptor();
 
     /**
      * Data items in the pdbx_reference_linked_entity category describe
      * common observed interaction patterns within linked entities.
      * @return PdbxReferenceLinkedEntity
      */
-    org.rcsb.cif.model.generated.pdbxreferencelinkedentity.PdbxReferenceLinkedEntity getPdbxReferenceLinkedEntity();
+    org.rcsb.cif.model.generated.PdbxReferenceLinkedEntity getPdbxReferenceLinkedEntity();
 
     /**
      * Data items in the pdbx_reference_linked_entity_comp_list category lists
@@ -3242,7 +3242,7 @@ public interface Block {
      * described in the pdbx_reference_linked_entity category.
      * @return PdbxReferenceLinkedEntityCompList
      */
-    org.rcsb.cif.model.generated.pdbxreferencelinkedentitycomplist.PdbxReferenceLinkedEntityCompList getPdbxReferenceLinkedEntityCompList();
+    org.rcsb.cif.model.generated.PdbxReferenceLinkedEntityCompList getPdbxReferenceLinkedEntityCompList();
 
     /**
      * Data items in the pdbx_reference_linked_entity_comp_link category enumerate
@@ -3250,7 +3250,7 @@ public interface Block {
      * described in the pdbx_reference_linked_entity category.
      * @return PdbxReferenceLinkedEntityCompLink
      */
-    org.rcsb.cif.model.generated.pdbxreferencelinkedentitycomplink.PdbxReferenceLinkedEntityCompLink getPdbxReferenceLinkedEntityCompLink();
+    org.rcsb.cif.model.generated.PdbxReferenceLinkedEntityCompLink getPdbxReferenceLinkedEntityCompLink();
 
     /**
      * Data items in the pdbx_reference_linked_entity_link category enumerate
@@ -3258,28 +3258,28 @@ public interface Block {
      * described in the pdbx_reference_linked_entity category.
      * @return PdbxReferenceLinkedEntityLink
      */
-    org.rcsb.cif.model.generated.pdbxreferencelinkedentitylink.PdbxReferenceLinkedEntityLink getPdbxReferenceLinkedEntityLink();
+    org.rcsb.cif.model.generated.PdbxReferenceLinkedEntityLink getPdbxReferenceLinkedEntityLink();
 
     /**
      * Data items in the PDBX_RELATED_DATA_SET category record references
      * to experimental data sets related to the entry.
      * @return PdbxRelatedExpDataSet
      */
-    org.rcsb.cif.model.generated.pdbxrelatedexpdataset.PdbxRelatedExpDataSet getPdbxRelatedExpDataSet();
+    org.rcsb.cif.model.generated.PdbxRelatedExpDataSet getPdbxRelatedExpDataSet();
 
     /**
      * The pdbx_database_status_history category records the time evolution of entry
      * processing status.
      * @return PdbxDatabaseStatusHistory
      */
-    org.rcsb.cif.model.generated.pdbxdatabasestatushistory.PdbxDatabaseStatusHistory getPdbxDatabaseStatusHistory();
+    org.rcsb.cif.model.generated.PdbxDatabaseStatusHistory getPdbxDatabaseStatusHistory();
 
     /**
      * Data items in the EM_ASSEMBLY category record details
      * about the imaged EM sample.
      * @return EmAssembly
      */
-    org.rcsb.cif.model.generated.emassembly.EmAssembly getEmAssembly();
+    org.rcsb.cif.model.generated.EmAssembly getEmAssembly();
 
     /**
      * Data items in the EM_ENTITY_ASSEMBLY category
@@ -3287,14 +3287,14 @@ public interface Block {
      * the complex.
      * @return EmEntityAssembly
      */
-    org.rcsb.cif.model.generated.ementityassembly.EmEntityAssembly getEmEntityAssembly();
+    org.rcsb.cif.model.generated.EmEntityAssembly getEmEntityAssembly();
 
     /**
      * Data items in the EM_VIRUS_ENTITY category record details
      * of the icosahedral virus.
      * @return EmVirusEntity
      */
-    org.rcsb.cif.model.generated.emvirusentity.EmVirusEntity getEmVirusEntity();
+    org.rcsb.cif.model.generated.EmVirusEntity getEmVirusEntity();
 
     /**
      * Data items in the EM_SAMPLE_PREPARATION category
@@ -3302,7 +3302,7 @@ public interface Block {
      * onto grid support.
      * @return EmSamplePreparation
      */
-    org.rcsb.cif.model.generated.emsamplepreparation.EmSamplePreparation getEmSamplePreparation();
+    org.rcsb.cif.model.generated.EmSamplePreparation getEmSamplePreparation();
 
     /**
      * Data items in the EM_SAMPLE_SUPPORT category record details
@@ -3310,14 +3310,14 @@ public interface Block {
      * of whole before sample is applied
      * @return EmSampleSupport
      */
-    org.rcsb.cif.model.generated.emsamplesupport.EmSampleSupport getEmSampleSupport();
+    org.rcsb.cif.model.generated.EmSampleSupport getEmSampleSupport();
 
     /**
      * Data items in the BUFFER category
      * record details of the sample buffer.
      * @return EmBuffer
      */
-    org.rcsb.cif.model.generated.embuffer.EmBuffer getEmBuffer();
+    org.rcsb.cif.model.generated.EmBuffer getEmBuffer();
 
     /**
      * Data items in the EM_VITRIFICATION category
@@ -3326,21 +3326,21 @@ public interface Block {
      * insertion in the electron microscope
      * @return EmVitrification
      */
-    org.rcsb.cif.model.generated.emvitrification.EmVitrification getEmVitrification();
+    org.rcsb.cif.model.generated.EmVitrification getEmVitrification();
 
     /**
      * Data items in the EM_IMAGING category record details about
      * the parameters used in imaging the sample in the electron microscope.
      * @return EmImaging
      */
-    org.rcsb.cif.model.generated.emimaging.EmImaging getEmImaging();
+    org.rcsb.cif.model.generated.EmImaging getEmImaging();
 
     /**
      * Data items in the EM_DETECTOR category record details
      * of the image detector type.
      * @return EmDetector
      */
-    org.rcsb.cif.model.generated.emdetector.EmDetector getEmDetector();
+    org.rcsb.cif.model.generated.EmDetector getEmDetector();
 
     /**
      * Data items in the EM_IMAGE_SCANS category record details
@@ -3348,7 +3348,7 @@ public interface Block {
      * and parameters for digitization of the image.
      * @return EmImageScans
      */
-    org.rcsb.cif.model.generated.emimagescans.EmImageScans getEmImageScans();
+    org.rcsb.cif.model.generated.EmImageScans getEmImageScans();
 
     /**
      * Data items in the EM_2D_PROJECTION_SELECTION category
@@ -3356,14 +3356,14 @@ public interface Block {
      * number of particles selected from a scanned set of micrographs.
      * @return Em2dProjectionSelection
      */
-    org.rcsb.cif.model.generated.em2dprojectionselection.Em2dProjectionSelection getEm2dProjectionSelection();
+    org.rcsb.cif.model.generated.Em2dProjectionSelection getEm2dProjectionSelection();
 
     /**
      * Data items in the EM_3D_RECONSTRUCTION category
      * record details of the 3D reconstruction procedure from 2D projections.
      * @return Em3dReconstruction
      */
-    org.rcsb.cif.model.generated.em3dreconstruction.Em3dReconstruction getEm3dReconstruction();
+    org.rcsb.cif.model.generated.Em3dReconstruction getEm3dReconstruction();
 
     /**
      * Data items in the 3D_FITTING category
@@ -3372,7 +3372,7 @@ public interface Block {
      * volume map file
      * @return Em3dFitting
      */
-    org.rcsb.cif.model.generated.em3dfitting.Em3dFitting getEm3dFitting();
+    org.rcsb.cif.model.generated.Em3dFitting getEm3dFitting();
 
     /**
      * Data items in the 3D_FITTING_LIST category
@@ -3380,210 +3380,210 @@ public interface Block {
      * into a 3d-em volume map file
      * @return Em3dFittingList
      */
-    org.rcsb.cif.model.generated.em3dfittinglist.Em3dFittingList getEm3dFittingList();
+    org.rcsb.cif.model.generated.Em3dFittingList getEm3dFittingList();
 
     /**
      * Data items in the EM_HELICAL_ENTITY category record details
      * for a helical or filament type of assembly component.
      * @return EmHelicalEntity
      */
-    org.rcsb.cif.model.generated.emhelicalentity.EmHelicalEntity getEmHelicalEntity();
+    org.rcsb.cif.model.generated.EmHelicalEntity getEmHelicalEntity();
 
     /**
      * Data items in the EM_EXPERIMENT category provide
      * high-level classification of the EM experiment.
      * @return EmExperiment
      */
-    org.rcsb.cif.model.generated.emexperiment.EmExperiment getEmExperiment();
+    org.rcsb.cif.model.generated.EmExperiment getEmExperiment();
 
     /**
      * Data items in the EM_SINGLE_PARTICLE_ENTITY category provide
      * the details of the symmetry for a single particle entity type.
      * @return EmSingleParticleEntity
      */
-    org.rcsb.cif.model.generated.emsingleparticleentity.EmSingleParticleEntity getEmSingleParticleEntity();
+    org.rcsb.cif.model.generated.EmSingleParticleEntity getEmSingleParticleEntity();
 
     /**
      * Administration-related data items
      * @return EmAdmin
      */
-    org.rcsb.cif.model.generated.emadmin.EmAdmin getEmAdmin();
+    org.rcsb.cif.model.generated.EmAdmin getEmAdmin();
 
     /**
      * Category to collect the authors of this entry
      * @return EmAuthorList
      */
-    org.rcsb.cif.model.generated.emauthorlist.EmAuthorList getEmAuthorList();
+    org.rcsb.cif.model.generated.EmAuthorList getEmAuthorList();
 
     /**
      * Category holds links to raw data sources for the entry, e.g.,
      * held by a remote server.
      * @return EmDbReference
      */
-    org.rcsb.cif.model.generated.emdbreference.EmDbReference getEmDbReference();
+    org.rcsb.cif.model.generated.EmDbReference getEmDbReference();
 
     /**
      * Category holds links to raw data sources for the entry, e.g.,
      * held by a remote server.
      * @return EmDbReferenceAuxiliary
      */
-    org.rcsb.cif.model.generated.emdbreferenceauxiliary.EmDbReferenceAuxiliary getEmDbReferenceAuxiliary();
+    org.rcsb.cif.model.generated.EmDbReferenceAuxiliary getEmDbReferenceAuxiliary();
 
     /**
      * Some internal items to power the deposition interface
      * @return EmDepui
      */
-    org.rcsb.cif.model.generated.emdepui.EmDepui getEmDepui();
+    org.rcsb.cif.model.generated.EmDepui getEmDepui();
 
     /**
      * List of EMD entries made obsolete by this entry.
      * @return EmObsolete
      */
-    org.rcsb.cif.model.generated.emobsolete.EmObsolete getEmObsolete();
+    org.rcsb.cif.model.generated.EmObsolete getEmObsolete();
 
     /**
      * List of newer entries that replace this entry.
      * @return EmSupersede
      */
-    org.rcsb.cif.model.generated.emsupersede.EmSupersede getEmSupersede();
+    org.rcsb.cif.model.generated.EmSupersede getEmSupersede();
 
     /**
      * Data items in this category record details about the molecular weight of
      * an assembly component of the sample.
      * @return EmEntityAssemblyMolwt
      */
-    org.rcsb.cif.model.generated.ementityassemblymolwt.EmEntityAssemblyMolwt getEmEntityAssemblyMolwt();
+    org.rcsb.cif.model.generated.EmEntityAssemblyMolwt getEmEntityAssemblyMolwt();
 
     /**
      * Data items in this category record taxonomic details about the natural source for EM
      * assemblies and assembly components.
      * @return EmEntityAssemblyNaturalsource
      */
-    org.rcsb.cif.model.generated.ementityassemblynaturalsource.EmEntityAssemblyNaturalsource getEmEntityAssemblyNaturalsource();
+    org.rcsb.cif.model.generated.EmEntityAssemblyNaturalsource getEmEntityAssemblyNaturalsource();
 
     /**
      * Data items in this category record details
      * about recombinant expression of the assembly or assembly component.
      * @return EmEntityAssemblyRecombinant
      */
-    org.rcsb.cif.model.generated.ementityassemblyrecombinant.EmEntityAssemblyRecombinant getEmEntityAssemblyRecombinant();
+    org.rcsb.cif.model.generated.EmEntityAssemblyRecombinant getEmEntityAssemblyRecombinant();
 
     /**
      * Data items in this category record details of a virus entity.
      * @return EmVirusNaturalHost
      */
-    org.rcsb.cif.model.generated.emvirusnaturalhost.EmVirusNaturalHost getEmVirusNaturalHost();
+    org.rcsb.cif.model.generated.EmVirusNaturalHost getEmVirusNaturalHost();
 
     /**
      * Data items in the EMD_VIRUS_SHELL category record details
      * of the viral shell number, shell diameter, and icosahedral triangulation number.
      * @return EmVirusShell
      */
-    org.rcsb.cif.model.generated.emvirusshell.EmVirusShell getEmVirusShell();
+    org.rcsb.cif.model.generated.EmVirusShell getEmVirusShell();
 
     /**
      * Data items in the EMD_SPECIMEN category record details
      * about specimens prepared for imaging by electron microscopy.
      * @return EmSpecimen
      */
-    org.rcsb.cif.model.generated.emspecimen.EmSpecimen getEmSpecimen();
+    org.rcsb.cif.model.generated.EmSpecimen getEmSpecimen();
 
     /**
      * Sugar embedding category
      * @return EmEmbedding
      */
-    org.rcsb.cif.model.generated.emembedding.EmEmbedding getEmEmbedding();
+    org.rcsb.cif.model.generated.EmEmbedding getEmEmbedding();
 
     /**
      * Description of fiducial markers.
      * @return EmFiducialMarkers
      */
-    org.rcsb.cif.model.generated.emfiducialmarkers.EmFiducialMarkers getEmFiducialMarkers();
+    org.rcsb.cif.model.generated.EmFiducialMarkers getEmFiducialMarkers();
 
     /**
      * Description of sectioning by focused_ion_beam
      * @return EmFocusedIonBeam
      */
-    org.rcsb.cif.model.generated.emfocusedionbeam.EmFocusedIonBeam getEmFocusedIonBeam();
+    org.rcsb.cif.model.generated.EmFocusedIonBeam getEmFocusedIonBeam();
 
     /**
      * Data items describing glow discharge pretreatment for an EM grid
      * @return EmGridPretreatment
      */
-    org.rcsb.cif.model.generated.emgridpretreatment.EmGridPretreatment getEmGridPretreatment();
+    org.rcsb.cif.model.generated.EmGridPretreatment getEmGridPretreatment();
 
     /**
      * Description of sectioning by ultramicrotomy
      * @return EmUltramicrotomy
      */
-    org.rcsb.cif.model.generated.emultramicrotomy.EmUltramicrotomy getEmUltramicrotomy();
+    org.rcsb.cif.model.generated.EmUltramicrotomy getEmUltramicrotomy();
 
     /**
      * Description of high pressure freezing
      * @return EmHighPressureFreezing
      */
-    org.rcsb.cif.model.generated.emhighpressurefreezing.EmHighPressureFreezing getEmHighPressureFreezing();
+    org.rcsb.cif.model.generated.EmHighPressureFreezing getEmHighPressureFreezing();
 
     /**
      * Data items related to shadowing of an EM specimen
      * @return EmShadowing
      */
-    org.rcsb.cif.model.generated.emshadowing.EmShadowing getEmShadowing();
+    org.rcsb.cif.model.generated.EmShadowing getEmShadowing();
 
     /**
      * Description specimen preparation for imaging using tomography.
      * @return EmTomographySpecimen
      */
-    org.rcsb.cif.model.generated.emtomographyspecimen.EmTomographySpecimen getEmTomographySpecimen();
+    org.rcsb.cif.model.generated.EmTomographySpecimen getEmTomographySpecimen();
 
     /**
      * Description of growth of a 2D, 3D, or helical crystal array.
      * @return EmCrystalFormation
      */
-    org.rcsb.cif.model.generated.emcrystalformation.EmCrystalFormation getEmCrystalFormation();
+    org.rcsb.cif.model.generated.EmCrystalFormation getEmCrystalFormation();
 
     /**
      * Staining category
      * @return EmStaining
      */
-    org.rcsb.cif.model.generated.emstaining.EmStaining getEmStaining();
+    org.rcsb.cif.model.generated.EmStaining getEmStaining();
 
     /**
      * Data items to describe films supporting the specimen
      * @return EmSupportFilm
      */
-    org.rcsb.cif.model.generated.emsupportfilm.EmSupportFilm getEmSupportFilm();
+    org.rcsb.cif.model.generated.EmSupportFilm getEmSupportFilm();
 
     /**
      * Buffer category
      * @return EmBufferComponent
      */
-    org.rcsb.cif.model.generated.embuffercomponent.EmBufferComponent getEmBufferComponent();
+    org.rcsb.cif.model.generated.EmBufferComponent getEmBufferComponent();
 
     /**
      * Microscopy parameters relevant only for crystallography
      * @return EmDiffraction
      */
-    org.rcsb.cif.model.generated.emdiffraction.EmDiffraction getEmDiffraction();
+    org.rcsb.cif.model.generated.EmDiffraction getEmDiffraction();
 
     /**
      * Statistical parameters for electron diffraction measurements
      * within a resolution shell
      * @return EmDiffractionShell
      */
-    org.rcsb.cif.model.generated.emdiffractionshell.EmDiffractionShell getEmDiffractionShell();
+    org.rcsb.cif.model.generated.EmDiffractionShell getEmDiffractionShell();
 
     /**
      * Statistical parameters for electron diffraction measurements
      * @return EmDiffractionStats
      */
-    org.rcsb.cif.model.generated.emdiffractionstats.EmDiffractionStats getEmDiffractionStats();
+    org.rcsb.cif.model.generated.EmDiffractionStats getEmDiffractionStats();
 
     /**
      * Microscopy parameters only relevant for tomography
      * @return EmTomography
      */
-    org.rcsb.cif.model.generated.emtomography.EmTomography getEmTomography();
+    org.rcsb.cif.model.generated.EmTomography getEmTomography();
 
     /**
      * Data items in the EM_IMAGE_RECORDING category record details
@@ -3591,26 +3591,26 @@ public interface Block {
      * and parameters for image digitization.
      * @return EmImageRecording
      */
-    org.rcsb.cif.model.generated.emimagerecording.EmImageRecording getEmImageRecording();
+    org.rcsb.cif.model.generated.EmImageRecording getEmImageRecording();
 
     /**
      * Description of a few specialist optics apparatus
      * @return EmImagingOptics
      */
-    org.rcsb.cif.model.generated.emimagingoptics.EmImagingOptics getEmImagingOptics();
+    org.rcsb.cif.model.generated.EmImagingOptics getEmImagingOptics();
 
     /**
      * Information about the final image classification
      * @return EmFinalClassification
      */
-    org.rcsb.cif.model.generated.emfinalclassification.EmFinalClassification getEmFinalClassification();
+    org.rcsb.cif.model.generated.EmFinalClassification getEmFinalClassification();
 
     /**
      * The startup model employed to begin refinement of the parameters for
      * a 3DEM reconstruction
      * @return EmStartModel
      */
-    org.rcsb.cif.model.generated.emstartmodel.EmStartModel getEmStartModel();
+    org.rcsb.cif.model.generated.EmStartModel getEmStartModel();
 
     /**
      *
@@ -3619,46 +3619,46 @@ public interface Block {
      * include the name of the software, the author of the software and the version used.
      * @return EmSoftware
      */
-    org.rcsb.cif.model.generated.emsoftware.EmSoftware getEmSoftware();
+    org.rcsb.cif.model.generated.EmSoftware getEmSoftware();
 
     /**
      * Category to describe the euler angle assignement
      * @return EmEulerAngleAssignment
      */
-    org.rcsb.cif.model.generated.emeulerangleassignment.EmEulerAngleAssignment getEmEulerAngleAssignment();
+    org.rcsb.cif.model.generated.EmEulerAngleAssignment getEmEulerAngleAssignment();
 
     /**
      * Description of the Contrast Transfer Function (CTF) correction
      * @return EmCtfCorrection
      */
-    org.rcsb.cif.model.generated.emctfcorrection.EmCtfCorrection getEmCtfCorrection();
+    org.rcsb.cif.model.generated.EmCtfCorrection getEmCtfCorrection();
 
     /**
      * Volume selection in image processing
      * @return EmVolumeSelection
      */
-    org.rcsb.cif.model.generated.emvolumeselection.EmVolumeSelection getEmVolumeSelection();
+    org.rcsb.cif.model.generated.EmVolumeSelection getEmVolumeSelection();
 
     /**
      * Data items in the EM_SYMMETRY_3DX category record
      * 3D crystal symmetry parameters utilized in 3DEM reconstruction averaging.
      * @return Em3dCrystalEntity
      */
-    org.rcsb.cif.model.generated.em3dcrystalentity.Em3dCrystalEntity getEm3dCrystalEntity();
+    org.rcsb.cif.model.generated.Em3dCrystalEntity getEm3dCrystalEntity();
 
     /**
      * Data items in the EM_SYMMETRY_2DX category record
      * 2D crystal symmetry parameters utilized in a 3DEM reconstruction.
      * @return Em2dCrystalEntity
      */
-    org.rcsb.cif.model.generated.em2dcrystalentity.Em2dCrystalEntity getEm2dCrystalEntity();
+    org.rcsb.cif.model.generated.Em2dCrystalEntity getEm2dCrystalEntity();
 
     /**
      * Data items in the EM_IMAGE_PROCESSING category
      * record details of the EM image processing procedure.
      * @return EmImageProcessing
      */
-    org.rcsb.cif.model.generated.emimageprocessing.EmImageProcessing getEmImageProcessing();
+    org.rcsb.cif.model.generated.EmImageProcessing getEmImageProcessing();
 
     /**
      * Data items in this category
@@ -3666,7 +3666,7 @@ public interface Block {
      * number of particles selected from a scanned set of micrographs.
      * @return EmParticleSelection
      */
-    org.rcsb.cif.model.generated.emparticleselection.EmParticleSelection getEmParticleSelection();
+    org.rcsb.cif.model.generated.EmParticleSelection getEmParticleSelection();
 
     /**
      * Data items in the EMD_MAP category record parameters of the CCP4 binary-format map file header
@@ -3678,85 +3678,85 @@ public interface Block {
      * Columns are the fastest changing, followed by rows and sections.
      * @return EmMap
      */
-    org.rcsb.cif.model.generated.emmap.EmMap getEmMap();
+    org.rcsb.cif.model.generated.EmMap getEmMap();
 
     /**
      * Data items in the EMD_VALIDATION_FSC_CURVE category
      * record details of the Fourier Shell Correlation (FSC) curve file.
      * @return EmFscCurve
      */
-    org.rcsb.cif.model.generated.emfsccurve.EmFscCurve getEmFscCurve();
+    org.rcsb.cif.model.generated.EmFscCurve getEmFscCurve();
 
     /**
      * Listing of all layer line files associated with the EM entry
      * @return EmInterpretFigure
      */
-    org.rcsb.cif.model.generated.eminterpretfigure.EmInterpretFigure getEmInterpretFigure();
+    org.rcsb.cif.model.generated.EmInterpretFigure getEmInterpretFigure();
 
     /**
      * Listing of all layer line files associated with the EM entry
      * @return EmLayerLines
      */
-    org.rcsb.cif.model.generated.emlayerlines.EmLayerLines getEmLayerLines();
+    org.rcsb.cif.model.generated.EmLayerLines getEmLayerLines();
 
     /**
      * Listing of all structure factor files associated with the EM entry
      * @return EmStructureFactors
      */
-    org.rcsb.cif.model.generated.emstructurefactors.EmStructureFactors getEmStructureFactors();
+    org.rcsb.cif.model.generated.EmStructureFactors getEmStructureFactors();
 
     /**
      * Data items in the EM_DEPOSITOR INFO category record parameters for EM depositions
      * that are provided by the depositor
      * @return EmDepositorInfo
      */
-    org.rcsb.cif.model.generated.emdepositorinfo.EmDepositorInfo getEmDepositorInfo();
+    org.rcsb.cif.model.generated.EmDepositorInfo getEmDepositorInfo();
 
     /**
      * Data items in the EM_MAP_DEPOSITOR INFO category record map parameters
      * that are provided by the depositor
      * @return EmMapDepositorInfo
      */
-    org.rcsb.cif.model.generated.emmapdepositorinfo.EmMapDepositorInfo getEmMapDepositorInfo();
+    org.rcsb.cif.model.generated.EmMapDepositorInfo getEmMapDepositorInfo();
 
     /**
      * Data items in the EM_MASK_DEPOSITOR_INFO category record mask parameters
      * that are provided by the depositor
      * @return EmMaskDepositorInfo
      */
-    org.rcsb.cif.model.generated.emmaskdepositorinfo.EmMaskDepositorInfo getEmMaskDepositorInfo();
+    org.rcsb.cif.model.generated.EmMaskDepositorInfo getEmMaskDepositorInfo();
 
     /**
      * Listing of image files (figures) associated with an EMDB entry
      * @return EmFigureDepositorInfo
      */
-    org.rcsb.cif.model.generated.emfiguredepositorinfo.EmFigureDepositorInfo getEmFigureDepositorInfo();
+    org.rcsb.cif.model.generated.EmFigureDepositorInfo getEmFigureDepositorInfo();
 
     /**
      * Listing of layer line files associated with the EM entry
      * @return EmLayerLinesDepositorInfo
      */
-    org.rcsb.cif.model.generated.emlayerlinesdepositorinfo.EmLayerLinesDepositorInfo getEmLayerLinesDepositorInfo();
+    org.rcsb.cif.model.generated.EmLayerLinesDepositorInfo getEmLayerLinesDepositorInfo();
 
     /**
      * Structure factor files associated with the EM entry
      * @return EmStructureFactorsDepositorInfo
      */
-    org.rcsb.cif.model.generated.emstructurefactorsdepositorinfo.EmStructureFactorsDepositorInfo getEmStructureFactorsDepositorInfo();
+    org.rcsb.cif.model.generated.EmStructureFactorsDepositorInfo getEmStructureFactorsDepositorInfo();
 
     /**
      * Data items in the PDBX_SEQ_MAP_DEPOSITOR_INFO record the
      * details about the mapping sample and coordinate sequences.
      * @return PdbxSeqMapDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxseqmapdepositorinfo.PdbxSeqMapDepositorInfo getPdbxSeqMapDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxSeqMapDepositorInfo getPdbxSeqMapDepositorInfo();
 
     /**
      * Data items in the PDBX_CHEM_COMP_DEPOSITOR_INFO category record additional
      * details provided by depositors about deposited chemical components.
      * @return PdbxChemCompDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxchemcompdepositorinfo.PdbxChemCompDepositorInfo getPdbxChemCompDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxChemCompDepositorInfo getPdbxChemCompDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_REF_SEQ_DEPOSITOR_INFO category capture
@@ -3764,7 +3764,7 @@ public interface Block {
      * STRUCT_REF_SEQ.
      * @return PdbxStructRefSeqDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqdepositorinfo.PdbxStructRefSeqDepositorInfo getPdbxStructRefSeqDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqDepositorInfo getPdbxStructRefSeqDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_REF_SEQ_DIF_DEPOSITOR_INFO category capture
@@ -3772,7 +3772,7 @@ public interface Block {
      * STRUCT_REF_SEQ_DIF.
      * @return PdbxStructRefSeqDifDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructrefseqdifdepositorinfo.PdbxStructRefSeqDifDepositorInfo getPdbxStructRefSeqDifDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructRefSeqDifDepositorInfo getPdbxStructRefSeqDifDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_ASSEMBLY_PROP_DEPOSITOR_INFO category capture
@@ -3780,7 +3780,7 @@ public interface Block {
      * PDBX_STRUCT_ASSEMBLY_PROP.
      * @return PdbxStructAssemblyPropDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblypropdepositorinfo.PdbxStructAssemblyPropDepositorInfo getPdbxStructAssemblyPropDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyPropDepositorInfo getPdbxStructAssemblyPropDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_ASSEMBLY_DEPOSITOR_INFO category capture
@@ -3788,7 +3788,7 @@ public interface Block {
      * PDBX_STRUCT_ASSEMBLY.
      * @return PdbxStructAssemblyDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblydepositorinfo.PdbxStructAssemblyDepositorInfo getPdbxStructAssemblyDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyDepositorInfo getPdbxStructAssemblyDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_ASSEMBLY_GEN_DEPOSITOR_INFO category capture
@@ -3796,7 +3796,7 @@ public interface Block {
      * PDBX_STRUCT_ASSEMBLY_GEN.
      * @return PdbxStructAssemblyGenDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblygendepositorinfo.PdbxStructAssemblyGenDepositorInfo getPdbxStructAssemblyGenDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyGenDepositorInfo getPdbxStructAssemblyGenDepositorInfo();
 
     /**
      * Data items in the PDBX_STRUCT_OPER_LIST_DEPOSITOR_INFO category capture
@@ -3804,7 +3804,7 @@ public interface Block {
      * PDBX_STRUCT_OPER_LIST.
      * @return PdbxStructOperListDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructoperlistdepositorinfo.PdbxStructOperListDepositorInfo getPdbxStructOperListDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructOperListDepositorInfo getPdbxStructOperListDepositorInfo();
 
     /**
      * Data items in the PDBX_POINT_SYMMETRY_DEPOSITOR_INFO category capture
@@ -3812,7 +3812,7 @@ public interface Block {
      * PDBX_POINT_SYMMETRY.
      * @return PdbxPointSymmetryDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxpointsymmetrydepositorinfo.PdbxPointSymmetryDepositorInfo getPdbxPointSymmetryDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxPointSymmetryDepositorInfo getPdbxPointSymmetryDepositorInfo();
 
     /**
      * Data items in the PDBX_HELICAL_SYMMETRY_DEPOSITOR_INFO category capture
@@ -3820,14 +3820,14 @@ public interface Block {
      * PDBX_HELICAL_SYMMETRY.
      * @return PdbxHelicalSymmetryDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxhelicalsymmetrydepositorinfo.PdbxHelicalSymmetryDepositorInfo getPdbxHelicalSymmetryDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxHelicalSymmetryDepositorInfo getPdbxHelicalSymmetryDepositorInfo();
 
     /**
      * Provides author supplied evidentiary support for assemblies
      * in pdbx_struct_assembly.
      * @return PdbxStructAssemblyAuthEvidenceDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblyauthevidencedepositorinfo.PdbxStructAssemblyAuthEvidenceDepositorInfo getPdbxStructAssemblyAuthEvidenceDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyAuthEvidenceDepositorInfo getPdbxStructAssemblyAuthEvidenceDepositorInfo();
 
     /**
      * Data items in the PDBX_SOLVENT_ATOM_SITE_MAPPING category records
@@ -3835,7 +3835,7 @@ public interface Block {
      * repositioning.
      * @return PdbxSolventAtomSiteMapping
      */
-    org.rcsb.cif.model.generated.pdbxsolventatomsitemapping.PdbxSolventAtomSiteMapping getPdbxSolventAtomSiteMapping();
+    org.rcsb.cif.model.generated.PdbxSolventAtomSiteMapping getPdbxSolventAtomSiteMapping();
 
     /**
      * Data items in the PDBX_MOLECULE_FEATURES_DEPOSITOR_INFO  category capture
@@ -3843,63 +3843,63 @@ public interface Block {
      * PDBX_MOLECULE_FEATURES.
      * @return PdbxMoleculeFeaturesDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxmoleculefeaturesdepositorinfo.PdbxMoleculeFeaturesDepositorInfo getPdbxMoleculeFeaturesDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxMoleculeFeaturesDepositorInfo getPdbxMoleculeFeaturesDepositorInfo();
 
     /**
      * Data items in the PDBX_CHEM_COMP_INSTANCE_DEPOSITOR_INFO category records
      * depositor provided information about the chemical context of component instances.
      * @return PdbxChemCompInstanceDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxchemcompinstancedepositorinfo.PdbxChemCompInstanceDepositorInfo getPdbxChemCompInstanceDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxChemCompInstanceDepositorInfo getPdbxChemCompInstanceDepositorInfo();
 
     /**
      * Data items in the PDBX_DEPUI_STATUS_FLAGS category record status
      * details used to maintain state within the wwPDB deposition system.
      * @return PdbxDepuiStatusFlags
      */
-    org.rcsb.cif.model.generated.pdbxdepuistatusflags.PdbxDepuiStatusFlags getPdbxDepuiStatusFlags();
+    org.rcsb.cif.model.generated.PdbxDepuiStatusFlags getPdbxDepuiStatusFlags();
 
     /**
      * Data items in the PDBX_DEPUI_UPLOAD category record the
      * details of uploaded data files.
      * @return PdbxDepuiUpload
      */
-    org.rcsb.cif.model.generated.pdbxdepuiupload.PdbxDepuiUpload getPdbxDepuiUpload();
+    org.rcsb.cif.model.generated.PdbxDepuiUpload getPdbxDepuiUpload();
 
     /**
      * Data items in the PDBX_DEPUI_VALIDATION_STATUS_FLAGS category record status
      * details that assess the status of selected validation diagnostics.
      * @return PdbxDepuiValidationStatusFlags
      */
-    org.rcsb.cif.model.generated.pdbxdepuivalidationstatusflags.PdbxDepuiValidationStatusFlags getPdbxDepuiValidationStatusFlags();
+    org.rcsb.cif.model.generated.PdbxDepuiValidationStatusFlags getPdbxDepuiValidationStatusFlags();
 
     /**
      * Data items in the PDBX_CHEM_COMP_UPLOAD_DEPOSITOR_INFO category record
      * details of the uploaded files related to depositor provided chemical assignments.
      * @return PdbxChemCompUploadDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxchemcompuploaddepositorinfo.PdbxChemCompUploadDepositorInfo getPdbxChemCompUploadDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxChemCompUploadDepositorInfo getPdbxChemCompUploadDepositorInfo();
 
     /**
      * Data items in the PDBX_DEPUI_ENTITY_STATUS_FLAGS category record status
      * details related to individual entities.
      * @return PdbxDepuiEntityStatusFlags
      */
-    org.rcsb.cif.model.generated.pdbxdepuientitystatusflags.PdbxDepuiEntityStatusFlags getPdbxDepuiEntityStatusFlags();
+    org.rcsb.cif.model.generated.PdbxDepuiEntityStatusFlags getPdbxDepuiEntityStatusFlags();
 
     /**
      * Data items in the PDBX_DEPUI_ENTITY_FEATURES category record status
      * details related to the features of individual entities.
      * @return PdbxDepuiEntityFeatures
      */
-    org.rcsb.cif.model.generated.pdbxdepuientityfeatures.PdbxDepuiEntityFeatures getPdbxDepuiEntityFeatures();
+    org.rcsb.cif.model.generated.PdbxDepuiEntityFeatures getPdbxDepuiEntityFeatures();
 
     /**
      * Data items in the PDBX_DEPOSITION_MESSAGE_INFO category record internal messages
      * within the depositon and annotation system.
      * @return PdbxDepositionMessageInfo
      */
-    org.rcsb.cif.model.generated.pdbxdepositionmessageinfo.PdbxDepositionMessageInfo getPdbxDepositionMessageInfo();
+    org.rcsb.cif.model.generated.PdbxDepositionMessageInfo getPdbxDepositionMessageInfo();
 
     /**
      * Data items in the PDBX_DEPOSITION_MESSAGE_FILE_REFERENCE category record details of
@@ -3907,7 +3907,7 @@ public interface Block {
      * data category.
      * @return PdbxDepositionMessageFileReference
      */
-    org.rcsb.cif.model.generated.pdbxdepositionmessagefilereference.PdbxDepositionMessageFileReference getPdbxDepositionMessageFileReference();
+    org.rcsb.cif.model.generated.PdbxDepositionMessageFileReference getPdbxDepositionMessageFileReference();
 
     /**
      * Data items in the PDBX_DEPUI_ENTRY_DETAILS category record
@@ -3915,21 +3915,21 @@ public interface Block {
      * deposition to an appropriate processing site.
      * @return PdbxDepuiEntryDetails
      */
-    org.rcsb.cif.model.generated.pdbxdepuientrydetails.PdbxDepuiEntryDetails getPdbxDepuiEntryDetails();
+    org.rcsb.cif.model.generated.PdbxDepuiEntryDetails getPdbxDepuiEntryDetails();
 
     /**
      * Data items in the PDBX_DATA_PROCESSING_STATUS category record
      * data processing instructions for workflow processing tasks.
      * @return PdbxDataProcessingStatus
      */
-    org.rcsb.cif.model.generated.pdbxdataprocessingstatus.PdbxDataProcessingStatus getPdbxDataProcessingStatus();
+    org.rcsb.cif.model.generated.PdbxDataProcessingStatus getPdbxDataProcessingStatus();
 
     /**
      * Data items in the pdbx_entity_instance_feature category records
      * special features of selected entity instances.
      * @return PdbxEntityInstanceFeature
      */
-    org.rcsb.cif.model.generated.pdbxentityinstancefeature.PdbxEntityInstanceFeature getPdbxEntityInstanceFeature();
+    org.rcsb.cif.model.generated.PdbxEntityInstanceFeature getPdbxEntityInstanceFeature();
 
     /**
      * Data items in the PDBX_ENTITY_SRC_GEN_DEPOSITOR_INFO category record details of
@@ -3941,54 +3941,54 @@ public interface Block {
      * producing organism (plasmid).
      * @return PdbxEntitySrcGenDepositorInfo
      */
-    org.rcsb.cif.model.generated.pdbxentitysrcgendepositorinfo.PdbxEntitySrcGenDepositorInfo getPdbxEntitySrcGenDepositorInfo();
+    org.rcsb.cif.model.generated.PdbxEntitySrcGenDepositorInfo getPdbxEntitySrcGenDepositorInfo();
 
     /**
      * Data items in the PDBX_CHEM_COMP_MODEL category give details about each
      * of the chemical component model instances.
      * @return PdbxChemCompModel
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodel.PdbxChemCompModel getPdbxChemCompModel();
+    org.rcsb.cif.model.generated.PdbxChemCompModel getPdbxChemCompModel();
 
     /**
      * Data items in the PDBX_CHEM_COMP_MODEL_ATOM category record coordinates
      * for the chemical component model instance.
      * @return PdbxChemCompModelAtom
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodelatom.PdbxChemCompModelAtom getPdbxChemCompModelAtom();
+    org.rcsb.cif.model.generated.PdbxChemCompModelAtom getPdbxChemCompModelAtom();
 
     /**
      * Data items in the PDBX_CHEM_COMP_MODEL_BOND category record details about
      * the bonds between atoms in a chemical component model instance.
      * @return PdbxChemCompModelBond
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodelbond.PdbxChemCompModelBond getPdbxChemCompModelBond();
+    org.rcsb.cif.model.generated.PdbxChemCompModelBond getPdbxChemCompModelBond();
 
     /**
      * Additional features associated with the chemical component.
      * @return PdbxChemCompModelFeature
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodelfeature.PdbxChemCompModelFeature getPdbxChemCompModelFeature();
+    org.rcsb.cif.model.generated.PdbxChemCompModelFeature getPdbxChemCompModelFeature();
 
     /**
      * Data items in the CHEM_COMP_MODEL_DESCRIPTOR category provide
      * string descriptors for component model structures.
      * @return PdbxChemCompModelDescriptor
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodeldescriptor.PdbxChemCompModelDescriptor getPdbxChemCompModelDescriptor();
+    org.rcsb.cif.model.generated.PdbxChemCompModelDescriptor getPdbxChemCompModelDescriptor();
 
     /**
      * Data items in the PDBX_CHEM_COMP_MODEL_AUDIT category records
      * the status and tracking information for this component model instance.
      * @return PdbxChemCompModelAudit
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodelaudit.PdbxChemCompModelAudit getPdbxChemCompModelAudit();
+    org.rcsb.cif.model.generated.PdbxChemCompModelAudit getPdbxChemCompModelAudit();
 
     /**
      * Additional features associated with the chemical component.
      * @return PdbxChemCompModelReference
      */
-    org.rcsb.cif.model.generated.pdbxchemcompmodelreference.PdbxChemCompModelReference getPdbxChemCompModelReference();
+    org.rcsb.cif.model.generated.PdbxChemCompModelReference getPdbxChemCompModelReference();
 
     /**
      * Data items in the PDBX_VIEW_CATEGORY_GROUP identify collections
@@ -3996,7 +3996,7 @@ public interface Block {
      * presenting different logical arrangements of dictionary contents.
      * @return PdbxViewCategoryGroup
      */
-    org.rcsb.cif.model.generated.pdbxviewcategorygroup.PdbxViewCategoryGroup getPdbxViewCategoryGroup();
+    org.rcsb.cif.model.generated.PdbxViewCategoryGroup getPdbxViewCategoryGroup();
 
     /**
      * Data items in the PDBX_VIEW_CATEGORY specify the categories
@@ -4005,7 +4005,7 @@ public interface Block {
      * category in the view.
      * @return PdbxViewCategory
      */
-    org.rcsb.cif.model.generated.pdbxviewcategory.PdbxViewCategory getPdbxViewCategory();
+    org.rcsb.cif.model.generated.PdbxViewCategory getPdbxViewCategory();
 
     /**
      * Data items in the PDBX_VIEW_ITEM specify the mmCIF data items
@@ -4015,48 +4015,48 @@ public interface Block {
      * can be designated as mandatory, optional, or hidden.
      * @return PdbxViewItem
      */
-    org.rcsb.cif.model.generated.pdbxviewitem.PdbxViewItem getPdbxViewItem();
+    org.rcsb.cif.model.generated.PdbxViewItem getPdbxViewItem();
 
     /**
      * Gives information about what kind of coordinates are available.
      * @return PdbxCoord
      */
-    org.rcsb.cif.model.generated.pdbxcoord.PdbxCoord getPdbxCoord();
+    org.rcsb.cif.model.generated.PdbxCoord getPdbxCoord();
 
     /**
      * Local data items describing ligand and monomer
      * chemical features.
      * @return PdbxConnect
      */
-    org.rcsb.cif.model.generated.pdbxconnect.PdbxConnect getPdbxConnect();
+    org.rcsb.cif.model.generated.PdbxConnect getPdbxConnect();
 
     /**
      * Local data items describing ligand and monomer
      * type information.
      * @return PdbxConnectType
      */
-    org.rcsb.cif.model.generated.pdbxconnecttype.PdbxConnectType getPdbxConnectType();
+    org.rcsb.cif.model.generated.PdbxConnectType getPdbxConnectType();
 
     /**
      * Local data items describing ligand and monomer
      * modifications.
      * @return PdbxConnectModification
      */
-    org.rcsb.cif.model.generated.pdbxconnectmodification.PdbxConnectModification getPdbxConnectModification();
+    org.rcsb.cif.model.generated.PdbxConnectModification getPdbxConnectModification();
 
     /**
      * Local data items describing ligand and monomer
      * atom names and connectivity.
      * @return PdbxConnectAtom
      */
-    org.rcsb.cif.model.generated.pdbxconnectatom.PdbxConnectAtom getPdbxConnectAtom();
+    org.rcsb.cif.model.generated.PdbxConnectAtom getPdbxConnectAtom();
 
     /**
      * The PDBX_DATABASE_PDB_MASTER category provides placeholders
      * for the count of various PDB record types.
      * @return PdbxDatabasePDBMaster
      */
-    org.rcsb.cif.model.generated.pdbxdatabasepdbmaster.PdbxDatabasePDBMaster getPdbxDatabasePDBMaster();
+    org.rcsb.cif.model.generated.PdbxDatabasePDBMaster getPdbxDatabasePDBMaster();
 
     /**
      *
@@ -4065,14 +4065,14 @@ public interface Block {
      * format file.
      * @return PdbxDatabasePdbOmit
      */
-    org.rcsb.cif.model.generated.pdbxdatabasepdbomit.PdbxDatabasePdbOmit getPdbxDatabasePdbOmit();
+    org.rcsb.cif.model.generated.PdbxDatabasePdbOmit getPdbxDatabasePdbOmit();
 
     /**
      * These records are used in the DBREF record of a PDB file and
      * are used as place holders for NDB ID's in PDB files.
      * @return PdbxDbref
      */
-    org.rcsb.cif.model.generated.pdbxdbref.PdbxDbref getPdbxDbref();
+    org.rcsb.cif.model.generated.PdbxDbref getPdbxDbref();
 
     /**
      * Data items in the PDBX_DRUG_INFO category are still used until
@@ -4080,7 +4080,7 @@ public interface Block {
      * though the information is repeated.
      * @return PdbxDrugInfo
      */
-    org.rcsb.cif.model.generated.pdbxdruginfo.PdbxDrugInfo getPdbxDrugInfo();
+    org.rcsb.cif.model.generated.PdbxDrugInfo getPdbxDrugInfo();
 
     /**
      * Data items in the PDBX_INHIBITOR_INFO category are still used until
@@ -4088,7 +4088,7 @@ public interface Block {
      * inhibitor is repeated.
      * @return PdbxInhibitorInfo
      */
-    org.rcsb.cif.model.generated.pdbxinhibitorinfo.PdbxInhibitorInfo getPdbxInhibitorInfo();
+    org.rcsb.cif.model.generated.PdbxInhibitorInfo getPdbxInhibitorInfo();
 
     /**
      * Data items in the PDBX_ION_INFO category are still used until
@@ -4096,14 +4096,14 @@ public interface Block {
      * information is repeated.
      * @return PdbxIonInfo
      */
-    org.rcsb.cif.model.generated.pdbxioninfo.PdbxIonInfo getPdbxIonInfo();
+    org.rcsb.cif.model.generated.PdbxIonInfo getPdbxIonInfo();
 
     /**
      * Data items in the PDBX_HYBRID category are used to describe the chimeric
      * characteristics of a DNA/RNA structure.
      * @return PdbxHybrid
      */
-    org.rcsb.cif.model.generated.pdbxhybrid.PdbxHybrid getPdbxHybrid();
+    org.rcsb.cif.model.generated.PdbxHybrid getPdbxHybrid();
 
     /**
      * Data items in the PDBX_NA_STRAND_INFO category are still used until
@@ -4111,7 +4111,7 @@ public interface Block {
      * the information is repeated.
      * @return PdbxNaStrandInfo
      */
-    org.rcsb.cif.model.generated.pdbxnastrandinfo.PdbxNaStrandInfo getPdbxNaStrandInfo();
+    org.rcsb.cif.model.generated.PdbxNaStrandInfo getPdbxNaStrandInfo();
 
     /**
      * The information in this category is exclusively used to store
@@ -4119,19 +4119,19 @@ public interface Block {
      * by the PROGRAM.
      * @return PdbxNonstandardList
      */
-    org.rcsb.cif.model.generated.pdbxnonstandardlist.PdbxNonstandardList getPdbxNonstandardList();
+    org.rcsb.cif.model.generated.PdbxNonstandardList getPdbxNonstandardList();
 
     /**
      * This is a place holder for the PDB COMPND.
      * @return PdbxPdbCompnd
      */
-    org.rcsb.cif.model.generated.pdbxpdbcompnd.PdbxPdbCompnd getPdbxPdbCompnd();
+    org.rcsb.cif.model.generated.PdbxPdbCompnd getPdbxPdbCompnd();
 
     /**
      * This is a place holder for the PDB SOURCE.
      * @return PdbxPdbSource
      */
-    org.rcsb.cif.model.generated.pdbxpdbsource.PdbxPdbSource getPdbxPdbSource();
+    org.rcsb.cif.model.generated.PdbxPdbSource getPdbxPdbSource();
 
     /**
      * Data items in the PDBX_PROTEIN_INFO category are still used until
@@ -4139,7 +4139,7 @@ public interface Block {
      * information is repeated.
      * @return PdbxProteinInfo
      */
-    org.rcsb.cif.model.generated.pdbxproteininfo.PdbxProteinInfo getPdbxProteinInfo();
+    org.rcsb.cif.model.generated.PdbxProteinInfo getPdbxProteinInfo();
 
     /**
      * Data items in the PDBX_SOLVENT_INFO category are still used until
@@ -4147,28 +4147,28 @@ public interface Block {
      * information is repeated.
      * @return PdbxSolventInfo
      */
-    org.rcsb.cif.model.generated.pdbxsolventinfo.PdbxSolventInfo getPdbxSolventInfo();
+    org.rcsb.cif.model.generated.PdbxSolventInfo getPdbxSolventInfo();
 
     /**
      * Data item will still be used until the ENTITY category is fully
      * adopted by NDBQuery.
      * @return PdbxSource
      */
-    org.rcsb.cif.model.generated.pdbxsource.PdbxSource getPdbxSource();
+    org.rcsb.cif.model.generated.PdbxSource getPdbxSource();
 
     /**
      * Data items in the PDBX_STRUCT_BIOL_FUNC category record details about
      * the function of a particular biological assembly.
      * @return PdbxStructBiolFunc
      */
-    org.rcsb.cif.model.generated.pdbxstructbiolfunc.PdbxStructBiolFunc getPdbxStructBiolFunc();
+    org.rcsb.cif.model.generated.PdbxStructBiolFunc getPdbxStructBiolFunc();
 
     /**
      * Data items in the PDBX_STRUCT_PACK_GEN category record details about
      * the generation of the packing picture(s).
      * @return PdbxStructPackGen
      */
-    org.rcsb.cif.model.generated.pdbxstructpackgen.PdbxStructPackGen getPdbxStructPackGen();
+    org.rcsb.cif.model.generated.PdbxStructPackGen getPdbxStructPackGen();
 
     /**
      * Data items in the PDBX_TRNA_INFO category are still used until
@@ -4176,7 +4176,7 @@ public interface Block {
      * T-RNA is repeated.
      * @return PdbxTrnaInfo
      */
-    org.rcsb.cif.model.generated.pdbxtrnainfo.PdbxTrnaInfo getPdbxTrnaInfo();
+    org.rcsb.cif.model.generated.PdbxTrnaInfo getPdbxTrnaInfo();
 
     /**
      * These records give information about residues which do not pair
@@ -4186,28 +4186,28 @@ public interface Block {
      * records.
      * @return PdbxUnpair
      */
-    org.rcsb.cif.model.generated.pdbxunpair.PdbxUnpair getPdbxUnpair();
+    org.rcsb.cif.model.generated.PdbxUnpair getPdbxUnpair();
 
     /**
      * Holds details of NCS restraints in cases where multiple
      * conditions are provided for each domain.
      * @return PdbxRefineLsRestrNcs
      */
-    org.rcsb.cif.model.generated.pdbxrefinelsrestrncs.PdbxRefineLsRestrNcs getPdbxRefineLsRestrNcs();
+    org.rcsb.cif.model.generated.PdbxRefineLsRestrNcs getPdbxRefineLsRestrNcs();
 
     /**
      * Data items in the PDBX_STRUCT_NCS_VIRUS_GEN category record details
      * about the generation of virus structures from NCS matrix operators.
      * @return PdbxStructNcsVirusGen
      */
-    org.rcsb.cif.model.generated.pdbxstructncsvirusgen.PdbxStructNcsVirusGen getPdbxStructNcsVirusGen();
+    org.rcsb.cif.model.generated.PdbxStructNcsVirusGen getPdbxStructNcsVirusGen();
 
     /**
      * PDBX_SEQUENCE_ANNOTATION holds internal details about molecular sequences
      * described in the context of PDB chains.
      * @return PdbxSequenceAnnotation
      */
-    org.rcsb.cif.model.generated.pdbxsequenceannotation.PdbxSequenceAnnotation getPdbxSequenceAnnotation();
+    org.rcsb.cif.model.generated.PdbxSequenceAnnotation getPdbxSequenceAnnotation();
 
     /**
      * Data items in the PDBX_POST_PROCESS_DETAILS identify
@@ -4215,73 +4215,73 @@ public interface Block {
      * of this entry.
      * @return PdbxPostProcessDetails
      */
-    org.rcsb.cif.model.generated.pdbxpostprocessdetails.PdbxPostProcessDetails getPdbxPostProcessDetails();
+    org.rcsb.cif.model.generated.PdbxPostProcessDetails getPdbxPostProcessDetails();
 
     /**
      * Data items in the PDBX_POST_PROCESS_DETAILS record
      * the status of post-processed entries.
      * @return PdbxPostProcessStatus
      */
-    org.rcsb.cif.model.generated.pdbxpostprocessstatus.PdbxPostProcessStatus getPdbxPostProcessStatus();
+    org.rcsb.cif.model.generated.PdbxPostProcessStatus getPdbxPostProcessStatus();
 
     /**
      * Data items in the PDBX_STRUCT_LINK category record details about
      * covalent linkages in the structure.
      * @return PdbxStructLink
      */
-    org.rcsb.cif.model.generated.pdbxstructlink.PdbxStructLink getPdbxStructLink();
+    org.rcsb.cif.model.generated.PdbxStructLink getPdbxStructLink();
 
     /**
      * Provides a place-holder for PDB REMARK 465 data.
      * @return PdbxMissingResidueList
      */
-    org.rcsb.cif.model.generated.pdbxmissingresiduelist.PdbxMissingResidueList getPdbxMissingResidueList();
+    org.rcsb.cif.model.generated.PdbxMissingResidueList getPdbxMissingResidueList();
 
     /**
      * Crystallographic cell specifications used in data processing.
      * @return PdbxDataProcessingCell
      */
-    org.rcsb.cif.model.generated.pdbxdataprocessingcell.PdbxDataProcessingCell getPdbxDataProcessingCell();
+    org.rcsb.cif.model.generated.PdbxDataProcessingCell getPdbxDataProcessingCell();
 
     /**
      * Details of reflections used in data processing.
      * @return PdbxDataProcessingReflns
      */
-    org.rcsb.cif.model.generated.pdbxdataprocessingreflns.PdbxDataProcessingReflns getPdbxDataProcessingReflns();
+    org.rcsb.cif.model.generated.PdbxDataProcessingReflns getPdbxDataProcessingReflns();
 
     /**
      * Details of the detector used at data collection site.
      * @return PdbxDataProcessingDetector
      */
-    org.rcsb.cif.model.generated.pdbxdataprocessingdetector.PdbxDataProcessingDetector getPdbxDataProcessingDetector();
+    org.rcsb.cif.model.generated.PdbxDataProcessingDetector getPdbxDataProcessingDetector();
 
     /**
      * Data items in the PDBX_CHEM_COMP_NONSTANDARD category describes
      * common nucleotide modifications and nonstandard features.
      * @return PdbxChemCompNonstandard
      */
-    org.rcsb.cif.model.generated.pdbxchemcompnonstandard.PdbxChemCompNonstandard getPdbxChemCompNonstandard();
+    org.rcsb.cif.model.generated.PdbxChemCompNonstandard getPdbxChemCompNonstandard();
 
     /**
      * Data items in the PDBX_ENTITY_POLY_PROTEIN_CLASS category
      * provides a top-level protein classification.
      * @return PdbxEntityPolyProteinClass
      */
-    org.rcsb.cif.model.generated.pdbxentitypolyproteinclass.PdbxEntityPolyProteinClass getPdbxEntityPolyProteinClass();
+    org.rcsb.cif.model.generated.PdbxEntityPolyProteinClass getPdbxEntityPolyProteinClass();
 
     /**
      * Data items in the PDBX_ENTITY_NAME_TAXONOMY_TREE category
      * define the tree structure of the entity name taxonomy.
      * @return PdbxEntityNameTaxonomyTree
      */
-    org.rcsb.cif.model.generated.pdbxentitynametaxonomytree.PdbxEntityNameTaxonomyTree getPdbxEntityNameTaxonomyTree();
+    org.rcsb.cif.model.generated.PdbxEntityNameTaxonomyTree getPdbxEntityNameTaxonomyTree();
 
     /**
      * Data items in the PDBX_ENTITY_NAME_TAXONOMY category
      * define the names and synonyms of the entity name taxonomy.
      * @return PdbxEntityNameTaxonomy
      */
-    org.rcsb.cif.model.generated.pdbxentitynametaxonomy.PdbxEntityNameTaxonomy getPdbxEntityNameTaxonomy();
+    org.rcsb.cif.model.generated.PdbxEntityNameTaxonomy getPdbxEntityNameTaxonomy();
 
     /**
      * Data items in the PDBX_ENTITY_NAME_INSTANCE category
@@ -4290,19 +4290,19 @@ public interface Block {
      * identifiers.
      * @return PdbxEntityNameInstance
      */
-    org.rcsb.cif.model.generated.pdbxentitynameinstance.PdbxEntityNameInstance getPdbxEntityNameInstance();
+    org.rcsb.cif.model.generated.PdbxEntityNameInstance getPdbxEntityNameInstance();
 
     /**
 
      * @return PdbxTableinfo
      */
-    org.rcsb.cif.model.generated.pdbxtableinfo.PdbxTableinfo getPdbxTableinfo();
+    org.rcsb.cif.model.generated.PdbxTableinfo getPdbxTableinfo();
 
     /**
 
      * @return PdbxColumninfo
      */
-    org.rcsb.cif.model.generated.pdbxcolumninfo.PdbxColumninfo getPdbxColumninfo();
+    org.rcsb.cif.model.generated.PdbxColumninfo getPdbxColumninfo();
 
     /**
      * The PDBX_VAL_ANGLE category lists the covalent bond angles
@@ -4312,7 +4312,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxValAngle
      */
-    org.rcsb.cif.model.generated.pdbxvalangle.PdbxValAngle getPdbxValAngle();
+    org.rcsb.cif.model.generated.PdbxValAngle getPdbxValAngle();
 
     /**
      * The PDBX_VAL_BOND category lists the covalent bond angles
@@ -4322,7 +4322,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxValBond
      */
-    org.rcsb.cif.model.generated.pdbxvalbond.PdbxValBond getPdbxValBond();
+    org.rcsb.cif.model.generated.PdbxValBond getPdbxValBond();
 
     /**
      * The PDBX_VAL_CONTACT category lists non-bonded atoms within the
@@ -4335,7 +4335,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxValContact
      */
-    org.rcsb.cif.model.generated.pdbxvalcontact.PdbxValContact getPdbxValContact();
+    org.rcsb.cif.model.generated.PdbxValContact getPdbxValContact();
 
     /**
      * The PDBX_VAL_SYM_CONTACT category lists symmetry related
@@ -4348,7 +4348,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxValSymContact
      */
-    org.rcsb.cif.model.generated.pdbxvalsymcontact.PdbxValSymContact getPdbxValSymContact();
+    org.rcsb.cif.model.generated.PdbxValSymContact getPdbxValSymContact();
 
     /**
      * Data items in the PDBX_RMCH_OUTLIER category list the
@@ -4358,7 +4358,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxRmchOutlier
      */
-    org.rcsb.cif.model.generated.pdbxrmchoutlier.PdbxRmchOutlier getPdbxRmchOutlier();
+    org.rcsb.cif.model.generated.PdbxRmchOutlier getPdbxRmchOutlier();
 
     /**
      * Data items in the PDBX_MISSING_ATOM_POLY category lists
@@ -4367,7 +4367,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxMissingAtomPoly
      */
-    org.rcsb.cif.model.generated.pdbxmissingatompoly.PdbxMissingAtomPoly getPdbxMissingAtomPoly();
+    org.rcsb.cif.model.generated.PdbxMissingAtomPoly getPdbxMissingAtomPoly();
 
     /**
      * Data items in the PDBX_MISSING_ATOM_NONPOLY category list the
@@ -4376,7 +4376,7 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxMissingAtomNonpoly
      */
-    org.rcsb.cif.model.generated.pdbxmissingatomnonpoly.PdbxMissingAtomNonpoly getPdbxMissingAtomNonpoly();
+    org.rcsb.cif.model.generated.PdbxMissingAtomNonpoly getPdbxMissingAtomNonpoly();
 
     /**
      * Data items in the PDBX_VAL_CHIRAL category list the
@@ -4385,28 +4385,28 @@ public interface Block {
      * This is a completely derived category.  Do not edit.
      * @return PdbxValChiral
      */
-    org.rcsb.cif.model.generated.pdbxvalchiral.PdbxValChiral getPdbxValChiral();
+    org.rcsb.cif.model.generated.PdbxValChiral getPdbxValChiral();
 
     /**
      * Gives information about the organization of the
      * NDB Structural Atlas.
      * @return PdbxAtlas
      */
-    org.rcsb.cif.model.generated.pdbxatlas.PdbxAtlas getPdbxAtlas();
+    org.rcsb.cif.model.generated.PdbxAtlas getPdbxAtlas();
 
     /**
      * Container category for a list of feature flags associated
      * with each structure entry.
      * @return PdbxSummaryFlags
      */
-    org.rcsb.cif.model.generated.pdbxsummaryflags.PdbxSummaryFlags getPdbxSummaryFlags();
+    org.rcsb.cif.model.generated.PdbxSummaryFlags getPdbxSummaryFlags();
 
     /**
      * Data items in the PDBX_ENTITY_FUNC_BIND_MODE category describe
      * characteristics of protein oligonucleotide binding.
      * @return PdbxEntityFuncBindMode
      */
-    org.rcsb.cif.model.generated.pdbxentityfuncbindmode.PdbxEntityFuncBindMode getPdbxEntityFuncBindMode();
+    org.rcsb.cif.model.generated.PdbxEntityFuncBindMode getPdbxEntityFuncBindMode();
 
     /**
      * Data items in the PDBX_ENTITY_FUNC_ENZYME category describe
@@ -4414,7 +4414,7 @@ public interface Block {
      * the binding mode is enzymatic.
      * @return PdbxEntityFuncEnzyme
      */
-    org.rcsb.cif.model.generated.pdbxentityfuncenzyme.PdbxEntityFuncEnzyme getPdbxEntityFuncEnzyme();
+    org.rcsb.cif.model.generated.PdbxEntityFuncEnzyme getPdbxEntityFuncEnzyme();
 
     /**
      * Data items in the PDBX_ENTITY_FUNC_REGULATORY category describe
@@ -4422,7 +4422,7 @@ public interface Block {
      * the binding mode is regulatory.
      * @return PdbxEntityFuncRegulatory
      */
-    org.rcsb.cif.model.generated.pdbxentityfuncregulatory.PdbxEntityFuncRegulatory getPdbxEntityFuncRegulatory();
+    org.rcsb.cif.model.generated.PdbxEntityFuncRegulatory getPdbxEntityFuncRegulatory();
 
     /**
      * Data items in the PDBX_ENTITY_FUNC_STRUCTURAL category describe
@@ -4430,7 +4430,7 @@ public interface Block {
      * the binding mode is structural.
      * @return PdbxEntityFuncStructural
      */
-    org.rcsb.cif.model.generated.pdbxentityfuncstructural.PdbxEntityFuncStructural getPdbxEntityFuncStructural();
+    org.rcsb.cif.model.generated.PdbxEntityFuncStructural getPdbxEntityFuncStructural();
 
     /**
      * Data items in the PDBX_ENTITY_FUNC_OTHER category describe
@@ -4438,35 +4438,35 @@ public interface Block {
      * the binding mode is not classified.
      * @return PdbxEntityFuncOther
      */
-    org.rcsb.cif.model.generated.pdbxentityfuncother.PdbxEntityFuncOther getPdbxEntityFuncOther();
+    org.rcsb.cif.model.generated.PdbxEntityFuncOther getPdbxEntityFuncOther();
 
     /**
      * Data items in the PDBX_ENTITY_POLY_DOMAIN category specify domains
      * of monomers within a polymer.
      * @return PdbxEntityPolyDomain
      */
-    org.rcsb.cif.model.generated.pdbxentitypolydomain.PdbxEntityPolyDomain getPdbxEntityPolyDomain();
+    org.rcsb.cif.model.generated.PdbxEntityPolyDomain getPdbxEntityPolyDomain();
 
     /**
      * Data items in the PDBX_NA_STRUCT_KEYWDS category record give details
      * about structural features of the NA.
      * @return PdbxNaStructKeywds
      */
-    org.rcsb.cif.model.generated.pdbxnastructkeywds.PdbxNaStructKeywds getPdbxNaStructKeywds();
+    org.rcsb.cif.model.generated.PdbxNaStructKeywds getPdbxNaStructKeywds();
 
     /**
      * Data items in the PDBX_ENTITY_POLY_NA_TYPE category describe
      * type of nucleic acid polymer entities.
      * @return PdbxEntityPolyNaType
      */
-    org.rcsb.cif.model.generated.pdbxentitypolynatype.PdbxEntityPolyNaType getPdbxEntityPolyNaType();
+    org.rcsb.cif.model.generated.PdbxEntityPolyNaType getPdbxEntityPolyNaType();
 
     /**
      * Data items in the PDBX_ENTITY_POLY_NA_NONSTANDARD category
      * describe the nonstandard features of the nucleic acid polymer entities.
      * @return PdbxEntityPolyNaNonstandard
      */
-    org.rcsb.cif.model.generated.pdbxentitypolynanonstandard.PdbxEntityPolyNaNonstandard getPdbxEntityPolyNaNonstandard();
+    org.rcsb.cif.model.generated.PdbxEntityPolyNaNonstandard getPdbxEntityPolyNaNonstandard();
 
     /**
      * Data items in the PDBX_VIRTUAL_ANGLE category record details about the
@@ -4474,7 +4474,7 @@ public interface Block {
      * of the ATOM, CELL, and SYMMETRY data.
      * @return PdbxVirtualAngle
      */
-    org.rcsb.cif.model.generated.pdbxvirtualangle.PdbxVirtualAngle getPdbxVirtualAngle();
+    org.rcsb.cif.model.generated.PdbxVirtualAngle getPdbxVirtualAngle();
 
     /**
      * Data items in the PDBX_VIRTUAL_BOND category record details about
@@ -4482,7 +4482,7 @@ public interface Block {
      * of the ATOM, CELL, and SYMMETRY data.
      * @return PdbxVirtualBond
      */
-    org.rcsb.cif.model.generated.pdbxvirtualbond.PdbxVirtualBond getPdbxVirtualBond();
+    org.rcsb.cif.model.generated.PdbxVirtualBond getPdbxVirtualBond();
 
     /**
      * Data items in the PDBX_VIRTUAL_TORSION category record details about
@@ -4490,7 +4490,7 @@ public interface Block {
      * CELL, and SYMMETRY data.
      * @return PdbxVirtualTorsion
      */
-    org.rcsb.cif.model.generated.pdbxvirtualtorsion.PdbxVirtualTorsion getPdbxVirtualTorsion();
+    org.rcsb.cif.model.generated.PdbxVirtualTorsion getPdbxVirtualTorsion();
 
     /**
      * Data items in the PDBX_SEQUENCE_PATTERN category record
@@ -4498,14 +4498,14 @@ public interface Block {
      * (e.g. AA, CG, AT).
      * @return PdbxSequencePattern
      */
-    org.rcsb.cif.model.generated.pdbxsequencepattern.PdbxSequencePattern getPdbxSequencePattern();
+    org.rcsb.cif.model.generated.PdbxSequencePattern getPdbxSequencePattern();
 
     /**
      * Data items in the PDBX_STEREOCHEMISTRY identify chiral
      * centers and associated chiral volumes.
      * @return PdbxStereochemistry
      */
-    org.rcsb.cif.model.generated.pdbxstereochemistry.PdbxStereochemistry getPdbxStereochemistry();
+    org.rcsb.cif.model.generated.PdbxStereochemistry getPdbxStereochemistry();
 
     /**
      * Data items in the PDBX_RMS_DEVS_COVALENT record the summary RMS deviations
@@ -4513,7 +4513,7 @@ public interface Block {
      * standards.
      * @return PdbxRmsDevsCovalent
      */
-    org.rcsb.cif.model.generated.pdbxrmsdevscovalent.PdbxRmsDevsCovalent getPdbxRmsDevsCovalent();
+    org.rcsb.cif.model.generated.PdbxRmsDevsCovalent getPdbxRmsDevsCovalent();
 
     /**
      * Data items in the PDBX_RMS_DEVS_COV_BY_MONOMER record the RMS deviations
@@ -4521,7 +4521,7 @@ public interface Block {
      * standards.
      * @return PdbxRmsDevsCovByMonomer
      */
-    org.rcsb.cif.model.generated.pdbxrmsdevscovbymonomer.PdbxRmsDevsCovByMonomer getPdbxRmsDevsCovByMonomer();
+    org.rcsb.cif.model.generated.PdbxRmsDevsCovByMonomer getPdbxRmsDevsCovByMonomer();
 
     /**
      * Data items in the PDBX_SUGAR_PHOSPHATE_GEOMETRY record the RMS deviations
@@ -4529,7 +4529,7 @@ public interface Block {
      * standards.
      * @return PdbxSugarPhosphateGeometry
      */
-    org.rcsb.cif.model.generated.pdbxsugarphosphategeometry.PdbxSugarPhosphateGeometry getPdbxSugarPhosphateGeometry();
+    org.rcsb.cif.model.generated.PdbxSugarPhosphateGeometry getPdbxSugarPhosphateGeometry();
 
     /**
      * The table in this section is used to describe the software
@@ -4538,7 +4538,7 @@ public interface Block {
      * both the name of the software and the version used.
      * @return PdbxNmrComputing
      */
-    org.rcsb.cif.model.generated.pdbxnmrcomputing.PdbxNmrComputing getPdbxNmrComputing();
+    org.rcsb.cif.model.generated.PdbxNmrComputing getPdbxNmrComputing();
 
     /**
      * Data items in the PDBX_AUDIT_CONFORM_EXTENSION category describe
@@ -4546,14 +4546,14 @@ public interface Block {
      * the current data block are conformant.
      * @return PdbxAuditConformExtension
      */
-    org.rcsb.cif.model.generated.pdbxauditconformextension.PdbxAuditConformExtension getPdbxAuditConformExtension();
+    org.rcsb.cif.model.generated.PdbxAuditConformExtension getPdbxAuditConformExtension();
 
     /**
      * Data items in the category record details from the output of mapman
      * used by the DCC program.
      * @return PdbxDccMapman
      */
-    org.rcsb.cif.model.generated.pdbxdccmapman.PdbxDccMapman getPdbxDccMapman();
+    org.rcsb.cif.model.generated.PdbxDccMapman getPdbxDccMapman();
 
     /**
      * Data items in this category record residual map properties such as
@@ -4561,7 +4561,7 @@ public interface Block {
      * refmac and mapman.
      * @return PdbxDccRsccMapman
      */
-    org.rcsb.cif.model.generated.pdbxdccrsccmapman.PdbxDccRsccMapman getPdbxDccRsccMapman();
+    org.rcsb.cif.model.generated.PdbxDccRsccMapman getPdbxDccRsccMapman();
 
     /**
      * Data items in the category record overall map properties such
@@ -4569,7 +4569,7 @@ public interface Block {
      * from refmac and mapman.
      * @return PdbxDccRsccMapmanOverall
      */
-    org.rcsb.cif.model.generated.pdbxdccrsccmapmanoverall.PdbxDccRsccMapmanOverall getPdbxDccRsccMapmanOverall();
+    org.rcsb.cif.model.generated.PdbxDccRsccMapmanOverall getPdbxDccRsccMapmanOverall();
 
     /**
      * Data items in the category record various overall metrics
@@ -4577,7 +4577,7 @@ public interface Block {
      * pointless, REFMAC ...).
      * @return PdbxDccDensity
      */
-    org.rcsb.cif.model.generated.pdbxdccdensity.PdbxDccDensity getPdbxDccDensity();
+    org.rcsb.cif.model.generated.PdbxDccDensity getPdbxDccDensity();
 
     /**
      * Data items in the category record the overall deviations about
@@ -4586,14 +4586,14 @@ public interface Block {
      * model_vs_data.
      * @return PdbxDccGeometry
      */
-    org.rcsb.cif.model.generated.pdbxdccgeometry.PdbxDccGeometry getPdbxDccGeometry();
+    org.rcsb.cif.model.generated.PdbxDccGeometry getPdbxDccGeometry();
 
     /**
      * Data items in the category record calculated metrics from various
      * programs (such as phenix, refmac, cns, sfcheck).
      * @return PdbxDccDensityCorr
      */
-    org.rcsb.cif.model.generated.pdbxdccdensitycorr.PdbxDccDensityCorr getPdbxDccDensityCorr();
+    org.rcsb.cif.model.generated.PdbxDccDensityCorr getPdbxDccDensityCorr();
 
     /**
      * Data items in the category record residual map properties such as
@@ -4601,49 +4601,49 @@ public interface Block {
      * factors (RSR) and the Zscores for each residue, the main/side chains.
      * @return PdbxDccMap
      */
-    org.rcsb.cif.model.generated.pdbxdccmap.PdbxDccMap getPdbxDccMap();
+    org.rcsb.cif.model.generated.PdbxDccMap getPdbxDccMap();
 
     /**
      * Data items in the pdbx_deposit_group category provide identifiers
      * and related information for groups of entries deposited in a collection.
      * @return PdbxDepositGroup
      */
-    org.rcsb.cif.model.generated.pdbxdepositgroup.PdbxDepositGroup getPdbxDepositGroup();
+    org.rcsb.cif.model.generated.PdbxDepositGroup getPdbxDepositGroup();
 
     /**
      * Data items in the pdbx_deposit_group_index category provides details
      * about the individual data files in the collection of deposited entries.
      * @return PdbxDepositGroupIndex
      */
-    org.rcsb.cif.model.generated.pdbxdepositgroupindex.PdbxDepositGroupIndex getPdbxDepositGroupIndex();
+    org.rcsb.cif.model.generated.PdbxDepositGroupIndex getPdbxDepositGroupIndex();
 
     /**
      * Provides author supplied evidentiary support for assemblies
      * in pdbx_struct_assembly.
      * @return PdbxStructAssemblyAuthEvidence
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblyauthevidence.PdbxStructAssemblyAuthEvidence getPdbxStructAssemblyAuthEvidence();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyAuthEvidence getPdbxStructAssemblyAuthEvidence();
 
     /**
      * Provides reason a particular assembly in pdbx_struct_assembly is
      * of interest.
      * @return PdbxStructAssemblyAuthClassification
      */
-    org.rcsb.cif.model.generated.pdbxstructassemblyauthclassification.PdbxStructAssemblyAuthClassification getPdbxStructAssemblyAuthClassification();
+    org.rcsb.cif.model.generated.PdbxStructAssemblyAuthClassification getPdbxStructAssemblyAuthClassification();
 
     /**
      * Data in the PDBX_CRYSTAL_ALIGNMENT are produced by log files from
      * programs during indexing
      * @return PdbxCrystalAlignment
      */
-    org.rcsb.cif.model.generated.pdbxcrystalalignment.PdbxCrystalAlignment getPdbxCrystalAlignment();
+    org.rcsb.cif.model.generated.PdbxCrystalAlignment getPdbxCrystalAlignment();
 
     /**
      * Data items in the PDBX_AUDIT_REVISION_HISTORY category record
      * the revision history for a data entry.
      * @return PdbxAuditRevisionHistory
      */
-    org.rcsb.cif.model.generated.pdbxauditrevisionhistory.PdbxAuditRevisionHistory getPdbxAuditRevisionHistory();
+    org.rcsb.cif.model.generated.PdbxAuditRevisionHistory getPdbxAuditRevisionHistory();
 
     /**
      * Data items in the PDBX_AUDIT_revision_group category
@@ -4651,14 +4651,14 @@ public interface Block {
      * record.
      * @return PdbxAuditRevisionGroup
      */
-    org.rcsb.cif.model.generated.pdbxauditrevisiongroup.PdbxAuditRevisionGroup getPdbxAuditRevisionGroup();
+    org.rcsb.cif.model.generated.PdbxAuditRevisionGroup getPdbxAuditRevisionGroup();
 
     /**
      * Data items in the PDBX_AUDIT_REVISION_CATEGORY category
      * report the data categories associated with a PDBX_AUDIT_REVISION_HISTORY record.
      * @return PdbxAuditRevisionCategory
      */
-    org.rcsb.cif.model.generated.pdbxauditrevisioncategory.PdbxAuditRevisionCategory getPdbxAuditRevisionCategory();
+    org.rcsb.cif.model.generated.PdbxAuditRevisionCategory getPdbxAuditRevisionCategory();
 
     /**
      * Data items in the PDBX_audit_revision_details category
@@ -4666,49 +4666,49 @@ public interface Block {
      * PDBX_AUDIT_REVISION_HISTORY records.
      * @return PdbxAuditRevisionDetails
      */
-    org.rcsb.cif.model.generated.pdbxauditrevisiondetails.PdbxAuditRevisionDetails getPdbxAuditRevisionDetails();
+    org.rcsb.cif.model.generated.PdbxAuditRevisionDetails getPdbxAuditRevisionDetails();
 
     /**
      * Data items in the PDBX_AUDIT_REVISION_ITEM category
      * report the data items associated with a PDBX_AUDIT_REVISION_HISTORY record.
      * @return PdbxAuditRevisionItem
      */
-    org.rcsb.cif.model.generated.pdbxauditrevisionitem.PdbxAuditRevisionItem getPdbxAuditRevisionItem();
+    org.rcsb.cif.model.generated.PdbxAuditRevisionItem getPdbxAuditRevisionItem();
 
     /**
      * Data items in the PDBX_SUPPORTING_EXP_DATA_SET category record
      * to experimental data set dependencies for this entry.
      * @return PdbxSupportingExpDataSet
      */
-    org.rcsb.cif.model.generated.pdbxsupportingexpdataset.PdbxSupportingExpDataSet getPdbxSupportingExpDataSet();
+    org.rcsb.cif.model.generated.PdbxSupportingExpDataSet getPdbxSupportingExpDataSet();
 
     /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_MEASUREMENT category record
      * details the beam that is impinging on the sample
      * @return PdbxSerialCrystallographyMeasurement
      */
-    org.rcsb.cif.model.generated.pdbxserialcrystallographymeasurement.PdbxSerialCrystallographyMeasurement getPdbxSerialCrystallographyMeasurement();
+    org.rcsb.cif.model.generated.PdbxSerialCrystallographyMeasurement getPdbxSerialCrystallographyMeasurement();
 
     /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY category
      * record general details about the sample delivery
      * @return PdbxSerialCrystallographySampleDelivery
      */
-    org.rcsb.cif.model.generated.pdbxserialcrystallographysampledelivery.PdbxSerialCrystallographySampleDelivery getPdbxSerialCrystallographySampleDelivery();
+    org.rcsb.cif.model.generated.PdbxSerialCrystallographySampleDelivery getPdbxSerialCrystallographySampleDelivery();
 
     /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY_INJECTION
      * category record details about sample delivery by injection
      * @return PdbxSerialCrystallographySampleDeliveryInjection
      */
-    org.rcsb.cif.model.generated.pdbxserialcrystallographysampledeliveryinjection.PdbxSerialCrystallographySampleDeliveryInjection getPdbxSerialCrystallographySampleDeliveryInjection();
+    org.rcsb.cif.model.generated.PdbxSerialCrystallographySampleDeliveryInjection getPdbxSerialCrystallographySampleDeliveryInjection();
 
     /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY_FIXED_TARGET
      * category record details about sample delivery using a fixed taget.
      * @return PdbxSerialCrystallographySampleDeliveryFixedTarget
      */
-    org.rcsb.cif.model.generated.pdbxserialcrystallographysampledeliveryfixedtarget.PdbxSerialCrystallographySampleDeliveryFixedTarget getPdbxSerialCrystallographySampleDeliveryFixedTarget();
+    org.rcsb.cif.model.generated.PdbxSerialCrystallographySampleDeliveryFixedTarget getPdbxSerialCrystallographySampleDeliveryFixedTarget();
 
     /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_DATA_REDUCTION category record
@@ -4716,5 +4716,5 @@ public interface Block {
      * These will compliment data recorded in category pdbx_diffrn_merge_stat.
      * @return PdbxSerialCrystallographyDataReduction
      */
-    org.rcsb.cif.model.generated.pdbxserialcrystallographydatareduction.PdbxSerialCrystallographyDataReduction getPdbxSerialCrystallographyDataReduction();
+    org.rcsb.cif.model.generated.PdbxSerialCrystallographyDataReduction getPdbxSerialCrystallographyDataReduction();
 }

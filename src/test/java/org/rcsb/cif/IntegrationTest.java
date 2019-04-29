@@ -1,15 +1,11 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.model.Block;
-import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.ValueKind;
-import org.rcsb.cif.model.generated.atomsite.*;
-import org.rcsb.cif.model.generated.atomsites.AtomSites;
-import org.rcsb.cif.model.generated.cell.Cell;
-import org.rcsb.cif.model.generated.cell.PdbxUniqueAxis;
-import org.rcsb.cif.model.generated.entry.Entry;
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.generated.AtomSite;
+import org.rcsb.cif.model.generated.AtomSites;
+import org.rcsb.cif.model.generated.Cell;
+import org.rcsb.cif.model.generated.Entry;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -129,7 +125,7 @@ public class IntegrationTest {
         assertEquals(0, atomSite.getRowCount());
 
         // columns still should be accessible
-        CartnX cartnX = atomSite.getCartnX();
+        FloatColumn cartnX = atomSite.getCartnX();
         assertEquals("Cartn_x", cartnX.getColumnName());
         assertEquals(0, cartnX.getRowCount());
         assertFalse(cartnX.isDefined());
@@ -143,9 +139,9 @@ public class IntegrationTest {
         int[] end = new int[] { 3, 4, data.length() };
 
         // coord columns print with 3 decimal digits
-        CartnX cartnX = new CartnX("name", text.length, data, start, end);
-        CartnY cartnY = new CartnY("name", text.length, data, start, end);
-        CartnZ cartnZ = new CartnZ("name", text.length, data, start, end);
+        FloatColumn cartnX = new FloatColumn("Cartn_x", text.length, data, start, end);
+        FloatColumn cartnY = new FloatColumn("Cartn_y", text.length, data, start, end);
+        FloatColumn cartnZ = new FloatColumn("Cartn_z", text.length, data, start, end);
 
         Stream.of(cartnX, cartnY, cartnZ).forEach(coordColumn -> {
             assertEquals("1.000", coordColumn.getStringData(0));
@@ -154,13 +150,13 @@ public class IntegrationTest {
         });
 
         // occupancy uses 2 decimal digits
-        Occupancy occupancy = new Occupancy("name", text.length, data, start, end);
+        FloatColumn occupancy = new FloatColumn("occupancy", text.length, data, start, end);
         assertEquals("1.00", occupancy.getStringData(0));
         assertEquals("2.00", occupancy.getStringData(1));
         assertEquals("-1.57", occupancy.getStringData(2));
 
         // all other should fallback to default behavior
-        BIsoOrEquiv bIsoOrEquiv = new BIsoOrEquiv("name", text.length, data, start, end);
+        FloatColumn bIsoOrEquiv = new FloatColumn("iso", text.length, data, start, end);
         // truncate float which perfectly round to integers
         assertEquals("1", bIsoOrEquiv.getStringData(0));
         assertEquals("2", bIsoOrEquiv.getStringData(1));
@@ -200,7 +196,7 @@ public class IntegrationTest {
 
         Cell cell = text.getBlocks().get(0).getCell();
 
-        PdbxUniqueAxis pdbxUniqueAxis = cell.getPdbxUniqueAxis();
+        StrColumn pdbxUniqueAxis = cell.getPdbxUniqueAxis();
 
         assertEquals(ValueKind.UNKNOWN, pdbxUniqueAxis.getValueKind(0));
         assertEquals("", pdbxUniqueAxis.get(0));
@@ -212,7 +208,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         CifFile text = CifReader.readText(inputStream);
 
-        LabelAltId labelAltId = text.getBlocks().get(0).getAtomSite().getLabelAltId();
+        StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
         assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
         assertEquals("", labelAltId.get(0));
@@ -224,9 +220,9 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
-        Cell cell = text.getBlocks().get(0).getCell();
+        Cell cell = text.getFirstBlock().getCell();
 
-        PdbxUniqueAxis pdbxUniqueAxis = cell.getPdbxUniqueAxis();
+        StrColumn pdbxUniqueAxis = cell.getPdbxUniqueAxis();
 
         assertEquals(ValueKind.UNKNOWN, pdbxUniqueAxis.getValueKind(0));
         assertEquals("", pdbxUniqueAxis.get(0));
@@ -238,7 +234,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
-        LabelAltId labelAltId = text.getBlocks().get(0).getAtomSite().getLabelAltId();
+        StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
         assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
         assertEquals("", labelAltId.get(0));

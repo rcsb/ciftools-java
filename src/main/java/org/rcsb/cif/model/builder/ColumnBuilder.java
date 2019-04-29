@@ -31,9 +31,9 @@ public abstract class ColumnBuilder<P extends CategoryBuilder> {
         return mask;
     }
 
-    abstract ColumnBuilder markNextNotPresent();
+    abstract ColumnBuilder<P> markNextNotPresent();
 
-    abstract ColumnBuilder markNextUnknown();
+    abstract ColumnBuilder<P> markNextUnknown();
 
     abstract Column build();
 

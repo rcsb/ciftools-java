@@ -13,8 +13,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static org.rcsb.cif.internal.ModelFactory.BASE_PACKAGE;
-
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
@@ -22,6 +20,8 @@ import static org.rcsb.cif.internal.ModelFactory.BASE_PACKAGE;
 @SuppressWarnings("ALL")
 class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
+    private static final String BASE_PACKAGE = "org.rcsb.cif.model";
+    private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
         new SchemaGenerator().generate();
@@ -57,9 +57,12 @@ class SchemaGenerator {
         writeClasses();
     }
 
+    private static final StringJoiner CLASS_MAP_LOOKUP = new StringJoiner("\n");
+
     private void writeClasses() throws IOException {
         writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
         writeBlockImpl(BaseBlock.class.getSimpleName(), schema, OUTPUT_PATH);
+        Files.write(OUTPUT_PATH.resolve("field-name-class-map.csv"), CLASS_MAP_LOOKUP.toString().getBytes());
     }
 
     private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
@@ -94,8 +97,7 @@ class SchemaGenerator {
             getters.add(description);
             getters.add("     * @return " + categoryClassName);
             getters.add("     */");
-            getters.add("    " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." + categoryClassName +
-                    " get" + categoryClassName + "();");
+            getters.add("    " + BASE_PACKAGE + ".generated." + categoryClassName + " get" + categoryClassName + "();");
             getters.add("");
         }
 
@@ -127,24 +129,15 @@ class SchemaGenerator {
 
             String categoryClassName = toClassName(categoryName);
 
-            getters.add("    /**");
-            String description = Pattern.compile("\n").splitAsStream(category.getDescription())
-                    .map(s -> "     * " + s)
-                    .collect(Collectors.joining("\n"));
-            getters.add(description);
-            getters.add("     * @return " + categoryClassName);
-            getters.add("     */");
-            getters.add("    public " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." + categoryClassName +
+            getters.add("    public " + BASE_PACKAGE + ".generated." + categoryClassName +
                     " get" + categoryClassName + "() {");
-            getters.add("        return (" + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." +
-                    categoryClassName + ") categories.computeIfAbsent(\"" + categoryName + "\",");
-            getters.add("                " + BASE_PACKAGE + "." + categoryClassName.toLowerCase() + "." +
-                    categoryClassName + "::new);");
+            getters.add("        return (" + BASE_PACKAGE + ".generated." + categoryClassName + ") categories.computeIfAbsent(\"" + categoryName + "\",");
+            getters.add("                " + BASE_PACKAGE + ".generated." + categoryClassName + "::new);");
             getters.add("    }");
             getters.add("");
 
-            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()),
-                    categoryName, categoryClassName, categoryBuilder);
+            writeCategory(category.getDescription(), categoryClassName, entry.getValue(), path, categoryName,
+                    categoryClassName, categoryBuilder);
 
             // builder
             builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
@@ -179,23 +172,32 @@ class SchemaGenerator {
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String className, Table content, Path path, String categoryName,
+    private void writeCategory(String categoryDescription, String className, Table content, Path path, String categoryName,
                                String categoryClassName, StringJoiner categoryBuilder) throws IOException {
-//        System.out.println(categoryName);
         if (!Files.exists(path)) {
             Files.createDirectory(path);
         }
+        Path generatedPath = path.resolve("generated");
+        if (!Files.exists(generatedPath)) {
+            Files.createDirectory(generatedPath);
+        }
+
+        CLASS_MAP_LOOKUP.add(categoryName + " " + GENERATED_PACKAGE + "." + className);
 
         StringJoiner output = new StringJoiner("\n");
-        output.add("package " + BASE_PACKAGE + "." + className.toLowerCase() + ";");
+        output.add("package " + BASE_PACKAGE + ".generated;");
         output.add("");
-        output.add("import org.rcsb.cif.model.BaseCategory;");
-        output.add("import org.rcsb.cif.model.Column;");
+        output.add("import org.rcsb.cif.model.*;"); // import greedily from model package
         output.add("");
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.Map;");
         output.add("");
-
+        output.add("/**");
+        categoryDescription = Pattern.compile("\n").splitAsStream(categoryDescription)
+                .map(s -> " * " + s)
+                .collect(Collectors.joining("\n"));
+        output.add(categoryDescription);
+        output.add(" */");
         output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
@@ -214,26 +216,26 @@ class SchemaGenerator {
             Col column = (Col) entry.getValue();
 
             String columnClassName = toClassName(columnName);
-//            System.out.println(categoryName + "." + columnName);
+            String baseClassName = getBaseClass(column.getType(), content.getRepeat() == Repeat.SINGLE);
 
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
                     .map(s -> "     * " + s)
                     .collect(Collectors.joining("\n"));
             getters.add(description);
-            getters.add("     * @return " + columnClassName);
+            getters.add("     * @return " + baseClassName);
             getters.add("     */");
-            getters.add("    public " + columnClassName + " get" + columnClassName + "() {");
-            getters.add("        return (" + columnClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName
-                    + "\",");
-            getters.add("                " + columnClassName + "::new) : getBinaryColumn(\"" + columnName + "\"));");
+            getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
+            getters.add("        return (" + baseClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName
+                    + "\", " + baseClassName + "::new) :");
+            getters.add("                getBinaryColumn(\"" + columnName + "\"));");
             getters.add("    }");
             getters.add("");
 
-            writeColumn(columnClassName, column, content.getRepeat() == Repeat.SINGLE, path);
+            CLASS_MAP_LOOKUP.add(categoryName + "." + columnName + " " + BASE_PACKAGE + "." + baseClassName);
 
             categoryBuilder.add("");
-            categoryBuilder.add("        public " + getBaseClass(column.getType(), false) + "Builder<" +
+            categoryBuilder.add("        public " + baseClassName + "Builder<" +
                     categoryClassName + "Builder> enter" + columnClassName + "() {");
             categoryBuilder.add("            return new " + getBaseClass(column.getType(), false) +
                     "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
@@ -262,58 +264,58 @@ class SchemaGenerator {
 
         categoryBuilder.add("    }");
 
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
-        StringJoiner output = new StringJoiner("\n");
-        output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
-        output.add("");
-        output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
-        output.add("");
-        output.add("import javax.annotation.Generated;");
-        output.add("");
-
-        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
-        output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
-
-        // constructor for text data
-        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, " +
-                "int[] endToken) {");
-        output.add("        super(name, rowCount, data, startToken, endToken);");
-        output.add("    }");
-        output.add("");
-
-        // constructor for binary data
-        output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
-        output.add("        super(name, rowCount, data, mask);");
-        output.add("    }");
-        output.add("");
-
-        // constructor when no data
-        output.add("    public " + className + "(String name) {");
-        output.add("        super(name);");
-        output.add("    }");
-
-        if (className.equals("CartnX") || className.equals("CartnY") || className.equals("CartnZ")) {
-            output.add("");
-            output.add("    @Override");
-            output.add("    public String format(double val) {");
-            output.add("        return FLOAT_3.format(val);");
-            output.add("    }");
-        } else if (className.equals("Occupancy")) {
-            output.add("");
-            output.add("    @Override");
-            output.add("    public String format(double val) {");
-            output.add("        return FLOAT_2.format(val);");
-            output.add("    }");
-        }
-
-        output.add("}");
-        output.add("");
-
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
-    }
+//    private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
+//        StringJoiner output = new StringJoiner("\n");
+//        output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
+//        output.add("");
+//        output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
+//        output.add("");
+//        output.add("import javax.annotation.Generated;");
+//        output.add("");
+//
+//        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
+//        output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
+//
+//        // constructor for text data
+//        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, " +
+//                "int[] endToken) {");
+//        output.add("        super(name, rowCount, data, startToken, endToken);");
+//        output.add("    }");
+//        output.add("");
+//
+//        // constructor for binary data
+//        output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
+//        output.add("        super(name, rowCount, data, mask);");
+//        output.add("    }");
+//        output.add("");
+//
+//        // constructor when no data
+//        output.add("    public " + className + "(String name) {");
+//        output.add("        super(name);");
+//        output.add("    }");
+//
+//        if (className.equals("CartnX") || className.equals("CartnY") || className.equals("CartnZ")) {
+//            output.add("");
+//            output.add("    @Override");
+//            output.add("    public String format(double val) {");
+//            output.add("        return FLOAT_3.format(val);");
+//            output.add("    }");
+//        } else if (className.equals("Occupancy")) {
+//            output.add("");
+//            output.add("    @Override");
+//            output.add("    public String format(double val) {");
+//            output.add("        return FLOAT_2.format(val);");
+//            output.add("    }");
+//        }
+//
+//        output.add("}");
+//        output.add("");
+//
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+//    }
 
     private String getBaseClass(String type, boolean singleRow) {
         Class<?> clazz;

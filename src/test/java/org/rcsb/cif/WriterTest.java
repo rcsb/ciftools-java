@@ -4,12 +4,11 @@ import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
-import org.rcsb.cif.model.generated.atomsite.AtomSite;
-import org.rcsb.cif.model.generated.atomsite.BIsoOrEquiv;
-import org.rcsb.cif.model.generated.atomsite.CartnX;
+import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -92,7 +91,7 @@ public class WriterTest {
                 .leaveBlock()
                 .leaveFile();
         assertTrue(cifFile.getFirstBlock().getCategory("atom_site") instanceof AtomSite);
-        assertTrue(cifFile.getFirstBlock().getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof BIsoOrEquiv);
+        assertTrue(cifFile.getFirstBlock().getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
 
         Category atom_site = new CategoryBuilder("atom_site", null)
                 .build();
@@ -100,7 +99,7 @@ public class WriterTest {
 
         Column cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null)
                 .build();
-        assertTrue(cartnX instanceof CartnX);
+        assertTrue(cartnX instanceof FloatColumn);
     }
 
     @Test

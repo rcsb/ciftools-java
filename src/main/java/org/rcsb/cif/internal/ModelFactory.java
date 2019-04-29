@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
  * The factory for model instances for cases when they are somewhat difficult or ambiguously to obtain.
  */
 public class ModelFactory {
-    public static final String BASE_PACKAGE = "org.rcsb.cif.model";
-
     private static Map<String, Class<? extends BaseCategory>> categoryMap;
     private static Map<String, Class<? extends BaseColumn>> columnMap;
     static {
@@ -55,12 +53,24 @@ public class ModelFactory {
         }
     }
 
-    @SuppressWarnings("unchecked")
     private static Class<? extends BaseColumn> forColumnName(String columnName) {
-        try {
-            return (Class<? extends BaseColumn>) Class.forName(columnName);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("could not acquire column class with name: " + columnName, e);
+        // for some reason, the package name is provided in the lookup
+        columnName = columnName.split("\\.")[columnName.split("\\.").length - 1];
+        switch (columnName) {
+            case "FloatColumn":
+                return FloatColumn.class;
+            case "IntColumn":
+                return IntColumn.class;
+            case "StrColumn":
+                return StrColumn.class;
+            case "SingleRowFloatColumn":
+                return SingleRowFloatColumn.class;
+            case "SingleRowIntColumn":
+                return SingleRowIntColumn.class;
+            case "SingleRowStrColumn":
+                return SingleRowStrColumn.class;
+            default:
+                throw new IllegalArgumentException(columnName + " is not known - cannot acquire prototype");
         }
     }
 

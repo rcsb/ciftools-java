@@ -2,9 +2,9 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
-import org.rcsb.cif.model.generated.atomsite.AtomSite;
-import org.rcsb.cif.model.generated.atomsite.CartnX;
+import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -46,7 +46,7 @@ public class Demo {
         // get category with name '_atom_site' from first block - access is type-safe, all classes are
         // inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
-        CartnX cartnX = atomSite.getCartnX();
+        FloatColumn cartnX = atomSite.getCartnX();
 
         // by definition, some categories can only contain a single row of data
         String entryId = data.getEntry().getId().get();
