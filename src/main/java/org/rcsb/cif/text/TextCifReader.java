@@ -15,6 +15,7 @@ import java.util.List;
 public class TextCifReader {
     @SuppressWarnings("Duplicates")
     public TextFile parse(InputStream inputStream) throws ParsingException, IOException {
+        // TODO support GZIPInputStream
         // performance 1.1: explicitly buffer stream, increases performance drastically 1.2 resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
         if (!(inputStream instanceof BufferedInputStream)) {
             inputStream = new BufferedInputStream(inputStream);

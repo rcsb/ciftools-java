@@ -1,8 +1,10 @@
 package org.rcsb.cif.text;
 
+import org.rcsb.cif.TextCifWriterOptions;
 import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
@@ -11,8 +13,15 @@ import java.util.Map;
 import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.zip.GZIPInputStream;
 
 public class TextCifWriter {
+    private final TextCifWriterOptions options;
+
+    public TextCifWriter(TextCifWriterOptions options) {
+        this.options = options;
+    }
+
     public String compose(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
@@ -42,8 +51,10 @@ public class TextCifWriter {
         return output.toString();
     }
 
-    public InputStream write(CifFile cifFile) {
-        return new ByteArrayInputStream(compose(cifFile).getBytes(StandardCharsets.UTF_8));
+    public InputStream write(CifFile cifFile) throws IOException {
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(compose(cifFile).getBytes(StandardCharsets.UTF_8));
+
+        return options.isGzip() ? new GZIPInputStream(byteArrayInputStream) : byteArrayInputStream;
     }
 
     private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {

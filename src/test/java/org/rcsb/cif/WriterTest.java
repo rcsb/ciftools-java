@@ -4,11 +4,12 @@ import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.generated.atomsite.AtomSite;
 import org.rcsb.cif.model.generated.atomsite.BIsoOrEquiv;
 import org.rcsb.cif.model.generated.atomsite.CartnX;
-import org.rcsb.cif.text.TextCifWriter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -61,7 +62,7 @@ public class WriterTest {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
-        String output = new TextCifWriter().compose(cifFile);
+        String output = CifWriter.composeText(cifFile);
         Pattern.compile("\n")
                 .splitAsStream(output)
                 .filter(line -> {
@@ -93,14 +94,13 @@ public class WriterTest {
         assertTrue(cifFile.getFirstBlock().getCategory("atom_site") instanceof AtomSite);
         assertTrue(cifFile.getFirstBlock().getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof BIsoOrEquiv);
 
-        // TODO reimpl
-//        Category atom_site = Category.enterCategory("atom_site")
-//                .build();
-//        assertTrue(atom_site instanceof AtomSite);
-//
-//        Column cartnX = Category.enterFloatColumn("atom_site", "Cartn_x")
-//                .build();
-//        assertTrue(cartnX instanceof CartnX);
+        Category atom_site = new CategoryBuilder("atom_site", null)
+                .build();
+        assertTrue(atom_site instanceof AtomSite);
+
+        Column cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null)
+                .build();
+        assertTrue(cartnX instanceof CartnX);
     }
 
     @Test

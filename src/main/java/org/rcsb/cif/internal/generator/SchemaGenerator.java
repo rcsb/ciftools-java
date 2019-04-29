@@ -109,7 +109,7 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
@@ -119,6 +119,7 @@ class SchemaGenerator {
 
         StringJoiner getters = new StringJoiner("\n");
         StringJoiner builder = new StringJoiner("\n");
+        StringJoiner categoryBuilder = new StringJoiner("\n");
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
@@ -142,7 +143,7 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName, categoryClassName);
+            writeCategory(categoryClassName, entry.getValue(), path.resolve(categoryClassName.toLowerCase()), categoryName, categoryClassName, categoryBuilder);
 
             // builder
             builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName + "() {");
@@ -171,18 +172,18 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-//        System.out.println(builder.toString());
-//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        Files.write(path.resolve("BlockBuilder.java"), builder.toString().getBytes());
+        Files.write(path.resolve("CategoryBuilder.java"), categoryBuilder.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String className, Table content, Path path, String categoryName, String categoryClassName) throws IOException {
+    private void writeCategory(String className, Table content, Path path, String categoryName, String categoryClassName, StringJoiner categoryBuilder) throws IOException {
 //        System.out.println(categoryName);
         if (!Files.exists(path)) {
-//            Files.createDirectory(path);
+            Files.createDirectory(path);
         }
 
         StringJoiner output = new StringJoiner("\n");
-        StringJoiner builder = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + "." + className.toLowerCase() + ";");
         output.add("");
         output.add("import org.rcsb.cif.model.BaseCategory;");
@@ -197,12 +198,13 @@ class SchemaGenerator {
 
         StringJoiner getters = new StringJoiner("\n");
 
-        builder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
-        builder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
-        builder.add("");
-        builder.add("        " + categoryClassName + "Builder(BlockBuilder parent) {");
-        builder.add("            super(CATEGORY_NAME, parent);");
-        builder.add("        }");
+        categoryBuilder.add("");
+        categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
+        categoryBuilder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
+        categoryBuilder.add("");
+        categoryBuilder.add("        " + categoryClassName + "Builder(BlockBuilder parent) {");
+        categoryBuilder.add("            super(CATEGORY_NAME, parent);");
+        categoryBuilder.add("        }");
 
         for (Map.Entry<String, Object> entry : content.getColumns().entrySet()) {
             String columnName = entry.getKey();
@@ -226,10 +228,10 @@ class SchemaGenerator {
 
             writeColumn(columnClassName, column, content.getRepeat() == Repeat.SINGLE, path);
 
-            builder.add("");
-            builder.add("        public " + getBaseClass(column.getType(), false) + "Builder enter" + columnClassName + "() {");
-            builder.add("            return new " + getBaseClass(column.getType(), false) + "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
-            builder.add("        }");
+            categoryBuilder.add("");
+            categoryBuilder.add("        public " + getBaseClass(column.getType(), false) + "Builder<" + categoryClassName + "Builder> enter" + columnClassName + "() {");
+            categoryBuilder.add("            return new " + getBaseClass(column.getType(), false) + "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
+            categoryBuilder.add("        }");
         }
 
         // constructor
@@ -252,9 +254,9 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        builder.add("    }");
-        System.out.println(builder.toString());
-//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        categoryBuilder.add("    }");
+
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
@@ -303,7 +305,7 @@ class SchemaGenerator {
         output.add("}");
         output.add("");
 
-//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private String getBaseClass(String type, boolean singleRow) {

@@ -19,6 +19,7 @@ import java.util.stream.Stream;
 public class BinaryCifReader {
     @SuppressWarnings("Duplicates")
     public CifFile parse(InputStream inputStream) throws ParsingException, IOException {
+        // TODO support GZIPInputStream
         // performance 2.1: explicitly buffer stream, increases performance drastically
         if (!(inputStream instanceof BufferedInputStream)) {
             inputStream = new BufferedInputStream(inputStream);

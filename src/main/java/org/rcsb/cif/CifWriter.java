@@ -12,13 +12,14 @@ import java.io.InputStream;
  * written to a file. It is up to the user to adequately handle the InputStream and close it.
  */
 public abstract class CifWriter {
-    private static final BinaryCifWriterOptions DEFAULT_OPTIONS = BinaryCifWriterOptions.create().build();
+    private static final BinaryCifWriterOptions DEFAULT_BINARY_OPTIONS = BinaryCifWriterOptions.create().build();
+    private static final TextCifWriterOptions DEFAULT_TEXT_OPTIONS = TextCifWriterOptions.create().build();
 
     /**
      * @see CifWriter#writeBinary(CifFile, BinaryCifWriterOptions)
      */
     public static InputStream writeBinary(CifFile cifFile) throws IOException {
-        return writeBinary(cifFile, DEFAULT_OPTIONS);
+        return writeBinary(cifFile, DEFAULT_BINARY_OPTIONS);
     }
 
     /**
@@ -32,20 +33,27 @@ public abstract class CifWriter {
     }
 
     /**
-     *
-     * @param cifFile the file to process
-     * @return the text InputStream representing the file content
+     * @see CifWriter#writeText(CifFile, TextCifWriterOptions)
      */
-    public static InputStream writeText(CifFile cifFile) {
-        return new TextCifWriter().write(cifFile);
+    public static InputStream writeText(CifFile cifFile) throws IOException {
+        return writeText(cifFile, DEFAULT_TEXT_OPTIONS);
     }
 
     /**
-     * Convert this CifFile to its mmCIF representation.
+     * Convert this CifFile to its mmCIF representation and return the corresponding InputStream.
+     * @param cifFile the file to process
+     * @return the text InputStream representing the file content
+     */
+    public static InputStream writeText(CifFile cifFile, TextCifWriterOptions options) throws IOException {
+        return new TextCifWriter(options).write(cifFile);
+    }
+
+    /**
+     * Convert this CifFile to its mmCIF representation and return its String representation.
      * @param cifFile the file to process
      * @return the String representing the file content
      */
     public static String composeText(CifFile cifFile) {
-        return new TextCifWriter().compose(cifFile);
+        return new TextCifWriter(DEFAULT_TEXT_OPTIONS).compose(cifFile);
     }
 }
