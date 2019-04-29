@@ -43,7 +43,7 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        return parent.digest(this);
     }
 
     public StrColumnBuilder<P> add(String... value) {

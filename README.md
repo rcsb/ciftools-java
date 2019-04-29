@@ -28,21 +28,21 @@ class Demo {
             // parse binary CIF from ModelServer
             InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/"
                     + pdbId).openStream();
-            cifFile = CifReader.parseBinary(inputStream);
+            cifFile = CifReader.readBinary(inputStream);
         } else {
             // parse CIF from PDB
             InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId
                     + ".cif").openStream();
-            cifFile = CifReader.parseText(inputStream);
+            cifFile = CifReader.readText(inputStream);
         }
 
         // get first block of CIF
         Block data = cifFile.getFirstBlock();
 
-        // get category with name '_atom_site' from first block - access is type-safe, all classes are
+        // get category with name '_atom_site' from first block - access is type-safe, all categories are
         // inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
-        CartnX cartnX = atomSite.getCartnX();
+        FloatColumn cartnX = atomSite.getCartnX();
 
         // by definition, some categories can only contain a single row of data
         String entryId = data.getEntry().getId().get();

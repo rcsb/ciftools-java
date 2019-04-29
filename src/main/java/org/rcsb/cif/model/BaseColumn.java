@@ -6,15 +6,15 @@ import java.util.stream.Stream;
 
 public abstract class BaseColumn implements Column {
     private final String name;
-    protected final int rowCount;
+    final int rowCount;
 
-    protected final boolean isText;
+    final boolean isText;
     private final String textData;
     private final int[] startToken;
     private final int[] endToken;
 
     private final boolean hasMask;
-    protected final int[] mask;
+    private final int[] mask;
     private final boolean defined;
 
     BaseColumn(String name) {
@@ -82,11 +82,10 @@ public abstract class BaseColumn implements Column {
      * @param val the double value
      * @return the formatted String value
      */
-    protected String format(double val) {
-        String columnName = getColumnName();
-        if ("Cartn_x".equals(columnName) || "Cartn_y".equals(columnName) || "Cartn_z".equals(columnName)) {
+    private String format(double val) {
+        if ("Cartn_x".equals(name) || "Cartn_y".equals(name) || "Cartn_z".equals(name)) {
             return FLOAT_3.format(val);
-        } else if ("occupancy".equals(columnName)) {
+        } else if ("occupancy".equals(name)) {
             return FLOAT_2.format(val);
         }
 

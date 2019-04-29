@@ -70,8 +70,8 @@ public class Classifier {
     }
 
     static class ByteSize {
-        int length;
-        int elem;
+        final int length;
+        final int elem;
 
         ByteSize(int length, int elem) {
             this.length = length;
@@ -90,7 +90,7 @@ public class Classifier {
     }
 
     static class EncodingSize extends ByteSize {
-        String kind;
+        final String kind;
 
         EncodingSize(ByteSize byteSize, String kind) {
             super(byteSize.length, byteSize.elem);

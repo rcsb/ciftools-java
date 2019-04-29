@@ -43,7 +43,7 @@ public class Demo {
         // get first block of CIF
         Block data = cifFile.getFirstBlock();
 
-        // get category with name '_atom_site' from first block - access is type-safe, all classes are
+        // get category with name '_atom_site' from first block - access is type-safe, all categories are
         // inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();

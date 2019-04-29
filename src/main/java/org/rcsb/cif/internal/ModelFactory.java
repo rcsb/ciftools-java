@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
  * The factory for model instances for cases when they are somewhat difficult or ambiguously to obtain.
  */
 public class ModelFactory {
-    private static Map<String, Class<? extends BaseCategory>> categoryMap;
-    private static Map<String, Class<? extends BaseColumn>> columnMap;
+    private static final Map<String, Class<? extends BaseCategory>> CATEGORY_MAP;
+    private static final Map<String, Class<? extends BaseColumn>> COLUMN_MAP;
     static {
         // create class name lookup for reflection
         try {
@@ -28,13 +28,13 @@ public class ModelFactory {
                     .collect(Collectors.toMap(split -> split[0], split -> split[1]));
             lookupReader.close();
 
-            categoryMap = rawMap.entrySet()
+            CATEGORY_MAP = rawMap.entrySet()
                     .stream()
                     .filter(entry -> !entry.getKey().contains("."))
                     .collect(Collectors.toMap(Map.Entry::getKey,
                             (Map.Entry<String, String> entry) -> forCategoryName(entry.getValue())));
 
-            columnMap = rawMap.entrySet()
+            COLUMN_MAP = rawMap.entrySet()
                     .stream()
                     .filter(entry -> entry.getKey().contains("."))
                     .collect(Collectors.toMap(Map.Entry::getKey,
@@ -83,7 +83,7 @@ public class ModelFactory {
      */
     public static Category createCategoryText(String categoryName, Map<String, Column> textColumns) {
         // retrieve category class
-        Class<? extends BaseCategory> categoryClass = categoryMap.get(categoryName);
+        Class<? extends BaseCategory> categoryClass = CATEGORY_MAP.get(categoryName);
         if (categoryClass != null) {
             try {
                 return categoryClass.getConstructor(String.class, Map.class)
@@ -107,7 +107,7 @@ public class ModelFactory {
      */
     public static Category createCategoryBinary(String categoryName, int rowCount, Object[] encodedColumns) {
         // retrieve category class
-        Class<? extends BaseCategory> categoryClass = categoryMap.get(categoryName);
+        Class<? extends BaseCategory> categoryClass = CATEGORY_MAP.get(categoryName);
         if (categoryClass != null) {
             try {
                 return categoryClass.getConstructor(String.class, int.class, Object[].class)
@@ -159,7 +159,7 @@ public class ModelFactory {
                                           int[] startToken,
                                           int[] endToken) {
         int rowCount = startToken.length;
-        Class<? extends BaseColumn> columnClass = columnMap.get(categoryName + "." + columnName);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
         if (columnClass != null) {
             try {
                 return columnClass.getConstructor(String.class, int.class, String.class, int[].class, int[].class)
@@ -193,7 +193,7 @@ public class ModelFactory {
                 !((Map) encodedColumn.get("mask")).isEmpty();
         int[] mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
 
-        Class<? extends BaseColumn> columnClass = columnMap.get(categoryName + "." + columnName);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
         if (columnClass != null) {
             try {
                 return columnClass.getConstructor(String.class, int.class, Object.class, int[].class)
@@ -221,7 +221,7 @@ public class ModelFactory {
      * @return an empty instance of this column
      */
     public static Column createEmptyColumn(String categoryName, String columnName) {
-        Class<? extends BaseColumn> columnClass = columnMap.get(categoryName + "." + columnName);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
         if (columnClass != null) {
             try {
                 return columnClass.getConstructor(String.class)

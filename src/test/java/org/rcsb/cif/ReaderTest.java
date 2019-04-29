@@ -1,6 +1,5 @@
 package org.rcsb.cif;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
@@ -9,8 +8,6 @@ import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.List;
 import java.util.Map;
 
@@ -19,18 +16,6 @@ import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class ReaderTest {
-    @Test
-    @Ignore
-    public void parseLocalBcifFile() throws IOException {
-        for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
-            String id = testCase.getKey();
-            String middle = id.substring(1, 3);
-            InputStream inputStream = Files.newInputStream(Paths.get("/var/bcif/").resolve(middle).resolve(id + ".bcif"));
-            CifFile cifFile = CifReader.readBinary(inputStream);
-            checkParsedEntity(cifFile, testCase.getValue());
-        }
-    }
-
     @Test
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {

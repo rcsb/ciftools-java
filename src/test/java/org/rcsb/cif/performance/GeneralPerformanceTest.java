@@ -111,14 +111,14 @@ public class GeneralPerformanceTest {
     }
 
     // we define write operations as merely acquiring the InputStream of data to be written without doing any real IO
-    private static Consumer<CifFile> BINARY_WRITE = cifFile -> {
+    private static final Consumer<CifFile> BINARY_WRITE = cifFile -> {
         try {
             CifWriter.writeBinary(cifFile).close();
         } catch (IOException e) {
             throw new UncheckedIOException(e);
         }
     };
-    private static Consumer<CifFile> TEXT_WRITE = cifFile -> {
+    private static final Consumer<CifFile> TEXT_WRITE = cifFile -> {
         try {
             CifWriter.writeText(cifFile).close();
         } catch (IOException e) {
