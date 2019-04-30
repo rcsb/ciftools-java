@@ -23,12 +23,22 @@ import java.util.concurrent.atomic.AtomicInteger;
  *
  * single row approach:
  * 107 s, 359368 bytes on average
+ *
+ *
+ * Whole archive (151079 structures), parallel, as of xxx (04.30.19):
+ * naive approach:
+ * xxxx s, xxxxxx bytes on average
+ *
+ * single row approach:
+ * xxxx s, xxxxxx bytes on average
+ *
+ * -xx% time, -xx% size
  */
 public class SingleRowEncodingPerformanceTest {
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");
     private static final int TOTAL_SIZE =
-            5000
-//            Integer.MAX_VALUE
+//            5000
+            Integer.MAX_VALUE
             ;
     private static final int CHUNK_SIZE = 250;
 
@@ -49,16 +59,18 @@ public class SingleRowEncodingPerformanceTest {
     private static void roundTrip(BinaryCifWriterOptions options) throws IOException {
         AtomicInteger counter = new AtomicInteger(0);
         AtomicInteger failed = new AtomicInteger(0);
+        int target = (int) Files.walk(BCIF_DIRECTORY).filter(path -> !Files.isDirectory(path)).count();
         long start = System.nanoTime();
         List<Integer> sizes = new ArrayList<>();
 
         Files.walk(BCIF_DIRECTORY)
+                .parallel()
                 .filter(path -> !Files.isDirectory(path))
                 .limit(TOTAL_SIZE).forEach(path -> {
                     int count = counter.incrementAndGet();
                     if (count % CHUNK_SIZE == 0) {
                         long end_chunk = System.nanoTime();
-                        System.out.println("[" + count + " / " + TOTAL_SIZE + "] @ " + (((end_chunk - start) /
+                        System.out.println("[" + count + " / " + target + "] @ " + (((end_chunk - start) /
                                 1_000 / count) + " µs per structure"));
                     }
 
