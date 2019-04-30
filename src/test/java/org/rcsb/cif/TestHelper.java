@@ -46,7 +46,6 @@ public class TestHelper {
      */
     public static void assertEqualsLoosely(String expected, String actual) {
         if (expected.contains("1J59")) {
-//            System.out.println("skipping ambiguous file 1J59");
             return;
         }
 
@@ -124,9 +123,8 @@ public class TestHelper {
     @Test
     public void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
-//        System.out.println(Arrays.toString(
-                EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/molstar/" + id)).toUint8Array(null).getData()
-//        ))
-        ;
+        assertNotNull(EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/molstar/" + id))
+                .toUint8Array(null)
+                .getData());
     }
 }
