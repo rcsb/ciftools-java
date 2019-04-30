@@ -137,16 +137,16 @@ public class WriterTest {
     }
 
     private void writeBinary(String testCase) throws ParsingException, IOException {
-        String original = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+//        String original = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
 
         // read from bcif
-        InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase + ".bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif");
         CifFile binary = CifReader.readBinary(inputStream);
 
         // convert to bcif
-        String copy = new BufferedReader(new InputStreamReader(CifWriter.writeBinary(binary)))
-                .lines()
-                .collect(Collectors.joining("\n"));
+//        String copy = new BufferedReader(new InputStreamReader(CifWriter.writeBinary(binary)))
+//                .lines()
+//                .collect(Collectors.joining("\n"));
 
 //        System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
 

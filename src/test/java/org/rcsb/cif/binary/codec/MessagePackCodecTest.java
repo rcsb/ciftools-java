@@ -169,6 +169,21 @@ public class MessagePackCodecTest {
     }
 
     @Test
+    public void testNegFixInt() {
+        // there was a strange case when negative int values with length of 1 byte where horribly misinterpreted as 4
+        // bytes of information
+        Map<String, Object> originalMap = new LinkedHashMap<>();
+        originalMap.put("entry", -5);
+
+        byte[] packed = MESSAGE_PACK_CODEC.encode(originalMap);
+
+        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(packed);
+
+        assertEquals(originalMap, unpacked);
+        assertEquals(-5, unpacked.get("entry"));
+    }
+
+    @Test
     public void testBackward() throws IOException {
         // obtain example file
         byte[] bytes = TestHelper.getBytes("bcif/modelserver/1pga.bcif");

@@ -34,7 +34,7 @@ public class IntegrationTest {
         CifFile textCifFile = CifReader.readText(TestHelper.getInputStream("cif/1acj.cif"));
         testVectorAndMatrixBehavior(textCifFile);
 
-        CifFile binaryCifFile = CifReader.readBinary(TestHelper.getInputStream("bcif/1acj.bcif"));
+        CifFile binaryCifFile = CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/1acj.bcif"));
         testVectorAndMatrixBehavior(binaryCifFile);
     }
 
@@ -102,7 +102,7 @@ public class IntegrationTest {
         CifFile textCifFile = CifReader.readText(TestHelper.getInputStream("cif/0red.cif"));
         testUndefinedColumnBehavior(textCifFile);
 
-        CifFile binaryCifFile = CifReader.readBinary(TestHelper.getInputStream("bcif/0red.bcif"));
+        CifFile binaryCifFile = CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/0red.bcif"));
         testUndefinedColumnBehavior(binaryCifFile);
     }
 
@@ -169,7 +169,8 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         CifFile text = CifReader.readText(inputStream);
 
-        String stringData = text.getBlocks().get(0)
+//        String stringData =
+        text.getBlocks().get(0)
                 .getCategory("pdbx_poly_seq_scheme")
                 .getColumn("auth_mon_id")
                 .getStringData(0);
@@ -181,7 +182,8 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
-        String stringData = text.getBlocks().get(0)
+//        String stringData =
+        text.getBlocks().get(0)
                 .getCategory("pdbx_poly_seq_scheme")
                 .getColumn("auth_mon_id")
                 .getStringData(0);
@@ -273,8 +275,8 @@ public class IntegrationTest {
     }
 
     private void roundTripViaText(String testCase) throws IOException {
-        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
-        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
+//        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
 
         InputStream cifInputStream = CifWriter.writeText(originalFile);
         CifFile cifFile = CifReader.readText(cifInputStream);
@@ -286,7 +288,7 @@ public class IntegrationTest {
 
         // cannot match to David's bcif data as column types differ slightly
 //        assertEquals(originalContent, copyContent);
-        assertNotNull(originalContent);
+//        assertNotNull(originalContent);
         assertNotNull(copyContent);
     }
 
@@ -299,7 +301,7 @@ public class IntegrationTest {
     }
 
     private void readCifWriteBcif(String testCase) throws IOException {
-        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+//        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
         CifFile originalFile = CifReader.readText(TestHelper.getInputStream("cif/" + testCase + ".cif"));
 
         InputStream copyInputStream = CifWriter.writeBinary(originalFile);
@@ -309,7 +311,7 @@ public class IntegrationTest {
 
         // cannot match to David's bcif data as column types differ slightly
 //        assertEquals(originalContent, copyContent);
-        assertNotNull(originalContent);
+//        assertNotNull(originalContent);
         assertNotNull(copyContent);
     }
 
@@ -323,8 +325,8 @@ public class IntegrationTest {
 
     private void readBcifWriteCif(String testCase) throws IOException {
         // last category _pdbe_structure_quality_report_issues is missing in binary source
-        String originalContent = new String(TestHelper.getBytes("cif/" + testCase + ".mol"));
-        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
+        String originalContent = new String(TestHelper.getBytes("cif/molstar/" + testCase + ".mol"));
+        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
 
         InputStream copyInputStream = CifWriter.writeText(originalFile);
         String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))

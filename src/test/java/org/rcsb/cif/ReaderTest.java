@@ -20,7 +20,7 @@ public class ReaderTest {
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
 //            System.out.println("test cases: " + testCase.getKey() + " - binary parsing");
-            InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
+            InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifReader.readBinary(inputStream), testCase.getValue());
         }
     }
@@ -50,7 +50,7 @@ public class ReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
-        CifReader.readBinary(TestHelper.getInputStream("bcif/0emp.bcif"));
+        CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/0emp.bcif"));
     }
 
     @Test(expected = ParsingException.class)

@@ -125,7 +125,7 @@ public class TestHelper {
     public void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
 //        System.out.println(Arrays.toString(
-                EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/" + id)).toUint8Array(null).getData()
+                EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/molstar/" + id)).toUint8Array(null).getData()
 //        ))
         ;
     }

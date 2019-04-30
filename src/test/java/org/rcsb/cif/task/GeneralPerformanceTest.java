@@ -1,4 +1,4 @@
-package org.rcsb.cif.performance;
+package org.rcsb.cif.task;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.CifWriter;
