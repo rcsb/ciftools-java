@@ -81,7 +81,7 @@ public class IntegrationTest {
 
         // convert to binary representation
         BinaryCifWriterOptions options = BinaryCifWriterOptions.create().setSingleRowByMessagePack(true).build();
-        InputStream binary = CifWriter.writeBinary(textCifFile);
+        InputStream binary = CifWriter.writeBinary(textCifFile, options);
 
         // decode binary
         CifFile binaryCifFile = CifReader.readBinary(binary);
