@@ -25,11 +25,6 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  */
 public class IntegrationTest {
     @Test
-    public void testGzipBehavior() throws IOException {
-        //TODO impl
-    }
-
-    @Test
     public void testVectorAndMatrixBehavior() throws IOException {
         CifFile textCifFile = CifReader.readText(TestHelper.getInputStream("cif/1acj.cif"));
         testVectorAndMatrixBehavior(textCifFile);

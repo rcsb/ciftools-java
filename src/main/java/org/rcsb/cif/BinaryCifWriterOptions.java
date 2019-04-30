@@ -5,12 +5,10 @@ import org.rcsb.cif.binary.codec.Codec;
 public class BinaryCifWriterOptions {
     private final String encoder;
     private final boolean singleRowMessagePack;
-    private final boolean gzip;
 
     private BinaryCifWriterOptions(Builder builder) {
         this.encoder = builder.encoder;
         this.singleRowMessagePack = builder.singleRowByMessagePack;
-        this.gzip = builder.gzip;
     }
 
     public String getEncoder() {
@@ -19,10 +17,6 @@ public class BinaryCifWriterOptions {
 
     public boolean isSingleRowMessagePack() {
         return singleRowMessagePack;
-    }
-
-    public boolean isGzip() {
-        return gzip;
     }
 
     /**
@@ -36,7 +30,6 @@ public class BinaryCifWriterOptions {
     public static class Builder {
         String encoder = Codec.CODEC_NAME;
         boolean singleRowByMessagePack = false;
-        boolean gzip = false;
 
         /**
          * Specify the encoder name to write to files. Comes in handy when checking for agreement with other files.
@@ -58,16 +51,6 @@ public class BinaryCifWriterOptions {
          */
         public Builder setSingleRowByMessagePack(boolean singleRowByMessagePack) {
             this.singleRowByMessagePack = singleRowByMessagePack;
-            return this;
-        }
-
-        /**
-         * Specify whether the file should be gzipped downstream. default: false
-         * @param gzip whether to gzip the MessagePacked data
-         * @return the builder
-         */
-        public Builder setGzip(boolean gzip) {
-            this.gzip = gzip;
             return this;
         }
 

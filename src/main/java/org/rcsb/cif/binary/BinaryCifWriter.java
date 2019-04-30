@@ -11,7 +11,6 @@ import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -19,7 +18,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-import java.util.zip.GZIPInputStream;
 
 public class BinaryCifWriter {
     private final BinaryCifWriterOptions options;
@@ -28,13 +26,11 @@ public class BinaryCifWriter {
         this.options = options;
     }
 
-    public InputStream write(CifFile cifFile) throws IOException {
+    public InputStream write(CifFile cifFile) {
         Map<String, Object> file = encodeFile(cifFile);
 
-        byte[] ret = Codec.MESSAGE_PACK_CODEC.encode(file);
-        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(ret);
-
-        return options.isGzip() ? new GZIPInputStream(byteArrayInputStream) : byteArrayInputStream;
+        byte[] bytes = Codec.MESSAGE_PACK_CODEC.encode(file);
+        return new ByteArrayInputStream(bytes);
     }
 
     public Map<String, Object> encodeFile(CifFile cifFile) {

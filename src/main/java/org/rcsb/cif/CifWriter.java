@@ -4,7 +4,6 @@ import org.rcsb.cif.binary.BinaryCifWriter;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.text.TextCifWriter;
 
-import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -13,12 +12,11 @@ import java.io.InputStream;
  */
 public abstract class CifWriter {
     private static final BinaryCifWriterOptions DEFAULT_BINARY_OPTIONS = BinaryCifWriterOptions.create().build();
-    private static final TextCifWriterOptions DEFAULT_TEXT_OPTIONS = TextCifWriterOptions.create().build();
 
     /**
      * @see CifWriter#writeBinary(CifFile, BinaryCifWriterOptions)
      */
-    public static InputStream writeBinary(CifFile cifFile) throws IOException {
+    public static InputStream writeBinary(CifFile cifFile) {
         return writeBinary(cifFile, DEFAULT_BINARY_OPTIONS);
     }
 
@@ -28,15 +26,8 @@ public abstract class CifWriter {
      * @param options provide options for the {@link BinaryCifWriter} - acquire using {@link BinaryCifWriterOptions#create()}
      * @return the binary InputStream representing the file content
      */
-    public static InputStream writeBinary(CifFile cifFile, BinaryCifWriterOptions options) throws IOException {
+    public static InputStream writeBinary(CifFile cifFile, BinaryCifWriterOptions options) {
         return new BinaryCifWriter(options).write(cifFile);
-    }
-
-    /**
-     * @see CifWriter#writeText(CifFile, TextCifWriterOptions)
-     */
-    public static InputStream writeText(CifFile cifFile) throws IOException {
-        return writeText(cifFile, DEFAULT_TEXT_OPTIONS);
     }
 
     /**
@@ -44,8 +35,8 @@ public abstract class CifWriter {
      * @param cifFile the file to process
      * @return the text InputStream representing the file content
      */
-    public static InputStream writeText(CifFile cifFile, TextCifWriterOptions options) throws IOException {
-        return new TextCifWriter(options).write(cifFile);
+    public static InputStream writeText(CifFile cifFile) {
+        return new TextCifWriter().write(cifFile);
     }
 
     /**
@@ -54,6 +45,6 @@ public abstract class CifWriter {
      * @return the String representing the file content
      */
     public static String composeText(CifFile cifFile) {
-        return new TextCifWriter(DEFAULT_TEXT_OPTIONS).compose(cifFile);
+        return new TextCifWriter().compose(cifFile);
     }
 }
