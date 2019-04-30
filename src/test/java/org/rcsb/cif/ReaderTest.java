@@ -65,6 +65,6 @@ public class ReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForWrongTextContent() throws ParsingException, IOException {
-        CifReader.readText(TestHelper.getInputStream("bcif/modelserver/1acj.bcif"));
+        CifReader.readText(TestHelper.getInputStream("bcif/molstar/1acj.bcif"));
     }
 }

@@ -179,7 +179,7 @@ public class IntegrationTest {
 
     @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idBinary() throws IOException {
-        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/molstar/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
 //        String stringData =
@@ -219,7 +219,7 @@ public class IntegrationTest {
     @Test
     public void testUnknownFeatureBinary() throws IOException {
         // read from cif
-        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/molstar/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
         Cell cell = text.getFirstBlock().getCell();
@@ -233,7 +233,7 @@ public class IntegrationTest {
     @Test
     public void testNotPresentFeatureBinary() throws IOException {
         // read from cif
-        InputStream inputStream = TestHelper.getInputStream("bcif/modelserver/1acj.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/molstar/1acj.bcif");
         CifFile text = CifReader.readBinary(inputStream);
 
         StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
