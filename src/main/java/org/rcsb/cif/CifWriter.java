@@ -14,6 +14,9 @@ public abstract class CifWriter {
     private static final BinaryCifWriterOptions DEFAULT_BINARY_OPTIONS = BinaryCifWriterOptions.create().build();
 
     /**
+     * Uses several encoding strategies to create an efficient representation of a CifFile.
+     * @param cifFile the file to process
+     * @return the binary InputStream representing the file content
      * @see CifWriter#writeBinary(CifFile, BinaryCifWriterOptions)
      */
     public static InputStream writeBinary(CifFile cifFile) {

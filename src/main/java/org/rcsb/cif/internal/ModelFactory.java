@@ -134,14 +134,20 @@ public class ModelFactory {
 
     /**
      * Create a single row column based on text data.
+     * @param categoryName the category to retrieve this class from
+     * @param columnName the column name to create
+     * @param data the raw string data\ to parse
+     * @param startToken the start index which will be used to extract data
+     * @param endToken the end index which will be used to extract data
+     * @return the text column
      * @see ModelFactory#createColumnText(String, String, String, int[], int[])
      */
     public static Column createColumnText(String categoryName,
-                                          String fieldName,
+                                          String columnName,
                                           String data,
                                           int startToken,
                                           int endToken) {
-        return createColumnText(categoryName, fieldName, data, new int[] { startToken }, new int[] { endToken });
+        return createColumnText(categoryName, columnName, data, new int[] { startToken }, new int[] { endToken });
     }
 
     /**
