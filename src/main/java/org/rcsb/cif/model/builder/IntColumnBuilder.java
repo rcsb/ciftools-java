@@ -7,6 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
+/**
+ * Builds a int column, data type cannot change, all subsequent values must be ints.
+ * @param <P> the type of the parent builder
+ */
 public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<Integer> values;
 
@@ -15,10 +19,9 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         this.values = new ArrayList<>();
     }
 
-    public List<Integer> getValues() {
+    List<Integer> getValues() {
         return values;
     }
-
 
     @Override
     public IntColumnBuilder<P> markNextNotPresent() {
@@ -47,6 +50,11 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         return parent.digest(this);
     }
 
+    /**
+     * Add an arbitrary number of int values to this column.
+     * @param value 0...n int values
+     * @return this builder instance
+     */
     public IntColumnBuilder<P> add(int... value) {
         IntStream.of(value).forEach(values::add);
         IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);

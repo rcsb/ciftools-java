@@ -8,6 +8,10 @@ import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
+/**
+ * Builds a float column, data type cannot change, all subsequent values must be floats.
+ * @param <P> the type of the parent builder
+ */
 public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<Double> values;
 
@@ -16,10 +20,9 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
         this.values = new ArrayList<>();
     }
 
-    public List<Double> getValues() {
+    List<Double> getValues() {
         return values;
     }
-
 
     @Override
     public FloatColumnBuilder<P> markNextNotPresent() {
@@ -48,6 +51,11 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
         return parent.digest(this);
     }
 
+    /**
+     * Add an arbitrary number of float values to this column.
+     * @param value 0...n float values
+     * @return this builder instance
+     */
     public FloatColumnBuilder<P> add(double... value) {
         DoubleStream.of(value).forEach(values::add);
         IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);

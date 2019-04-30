@@ -6,6 +6,10 @@ import org.rcsb.cif.model.ValueKind;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Builds a String column, data type cannot change, all subsequent values must be Strings.
+ * @param <P> the type of the parent builder
+ */
 public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
     private final List<String> values;
 
@@ -14,10 +18,9 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         this.values = new ArrayList<>();
     }
 
-    public List<String> getValues() {
+    List<String> getValues() {
         return values;
     }
-
 
     @Override
     public StrColumnBuilder<P> markNextNotPresent() {
@@ -46,6 +49,11 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         return parent.digest(this);
     }
 
+    /**
+     * Add an arbitrary number of String values to this column.
+     * @param value 0...n String values
+     * @return this builder instance
+     */
     public StrColumnBuilder<P> add(String... value) {
         for (String s : value) {
             if (".".equals(s)) {
