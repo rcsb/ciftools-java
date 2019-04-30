@@ -10,15 +10,11 @@ import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.*;
 
 public class WriterTest {
@@ -66,10 +62,7 @@ public class WriterTest {
                 .splitAsStream(output)
                 .filter(line -> {
                     try {
-//                        System.out.println(
-                                Double.parseDouble(line)
-//                        )
-                        ;
+                        Double.parseDouble(line);
                         return true;
                     } catch (NumberFormatException e) {
                         return false;
@@ -77,7 +70,6 @@ public class WriterTest {
                 })
                 .map(String::trim)
                 .forEach(number -> {
-//                    System.out.println(number);
                     assertEquals(2, number.split("\\.")[1].length());
                 });
     }
@@ -108,16 +100,7 @@ public class WriterTest {
     @Test
     public void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
-//            System.out.println("test cases: " + id + " - text writing");
             writeText(id);
-        }
-    }
-
-    @Test
-    public void writeBinary() throws ParsingException, IOException {
-        for (String id : TEST_CASES.keySet()) {
-//            System.out.println("test cases: " + id + " - binary writing");
-            writeBinary(id);
         }
     }
 
@@ -136,21 +119,38 @@ public class WriterTest {
         assertEqualsLoosely(original, copy);
     }
 
+    @Test
+    public void writeBinary() throws ParsingException, IOException {
+        for (String id : TEST_CASES.keySet()) {
+            writeBinary(id);
+        }
+    }
+
+    @SuppressWarnings("Duplicates")
     private void writeBinary(String testCase) throws ParsingException, IOException {
-//        String original = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+        // a snapshot of the ciftools output is used - the implementation will not exactly recreate Mol* output
+        // this test is to check if some code change breaks
+        byte[] original = TestHelper.getBytes("bcif/ciftools/" + testCase + ".bcif");
 
         // read from bcif
         InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif");
         CifFile binary = CifReader.readBinary(inputStream);
 
         // convert to bcif
-//        String copy = new BufferedReader(new InputStreamReader(CifWriter.writeBinary(binary)))
-//                .lines()
-//                .collect(Collectors.joining("\n"));
+        InputStream copy = CifWriter.writeBinary(binary);
+        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+        int nRead;
+        byte[] data = new byte[1024];
+        while ((nRead = copy.read(data, 0, data.length)) != -1) {
+            buffer.write(data, 0, nRead);
+        }
 
-//        System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
+        buffer.flush();
+        byte[] byteArray = buffer.toByteArray();
+        buffer.close();
 
         // cannot match to David's bcif data as column types differ slightly
-//        assertEquals(original, copy);
+        assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
+                " if so, update snapshot files in bcif/ciftools/", original, byteArray);
     }
 }
