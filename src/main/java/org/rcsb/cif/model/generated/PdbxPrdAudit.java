@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_PRD_AUDIT category records
  * the status and tracking information for this molecule.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPrdAudit extends BaseCategory {
     public PdbxPrdAudit(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -11,7 +11,7 @@ import java.util.Map;
  * were clustered together to produce a set of phases or the
  * statistics for those phases.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMADExpt extends BaseCategory {
     public PhasingMADExpt(String name, Map<String, Column> columns) {
         super(name, columns);

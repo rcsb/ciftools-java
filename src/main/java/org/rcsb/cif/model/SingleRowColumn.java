@@ -7,6 +7,7 @@ package org.rcsb.cif.model;
 public interface SingleRowColumn extends Column {
     /**
      * Retrieve the ValueKind of the first element.
+     * @return the ValueKind of the first row
      * @see Column#getValueKind(int)
      */
     ValueKind getValueKind();

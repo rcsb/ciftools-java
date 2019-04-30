@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_AUDIT_SUPPORT category record details about
  * funding support for the entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAuditSupport extends BaseCategory {
     public PdbxAuditSupport(String name, Map<String, Column> columns) {
         super(name, columns);

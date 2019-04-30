@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the chem_shift_experiment category provide pointers to the NMR experiments and samples used to collect the data for a set of reported assigned chemical shifts.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrChemShiftExperiment extends BaseCategory {
     public PdbxNmrChemShiftExperiment(String name, Map<String, Column> columns) {
         super(name, columns);

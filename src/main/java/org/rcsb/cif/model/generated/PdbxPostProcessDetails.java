@@ -10,7 +10,7 @@ import java.util.Map;
  * problems or errors encountered in the post-processing
  * of this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPostProcessDetails extends BaseCategory {
     public PdbxPostProcessDetails(String name, Map<String, Column> columns) {
         super(name, columns);

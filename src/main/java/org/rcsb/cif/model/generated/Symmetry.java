@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the SYMMETRY category record details about the
  * space-group symmetry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Symmetry extends BaseCategory {
     public Symmetry(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * the overall protein production process. Examples of fractionation
  * steps are centrifugation and magnetic bead pull-down purification.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenFract extends BaseCategory {
     public PdbxEntitySrcGenFract(String name, Map<String, Column> columns) {
         super(name, columns);

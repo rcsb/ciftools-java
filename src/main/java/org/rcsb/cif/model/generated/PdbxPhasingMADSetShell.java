@@ -9,7 +9,7 @@ import java.util.Map;
  * The same as category pdbx_phasing_MAD_set, but
  * broken into shells.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingMADSetShell extends BaseCategory {
     public PdbxPhasingMADSetShell(String name, Map<String, Column> columns) {
         super(name, columns);

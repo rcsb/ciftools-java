@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_MOLECULE category identify reference molecules
  * within a PDB entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxMolecule extends BaseCategory {
     public PdbxMolecule(String name, Map<String, Column> columns) {
         super(name, columns);

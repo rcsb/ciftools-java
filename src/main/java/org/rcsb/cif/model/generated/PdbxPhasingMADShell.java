@@ -11,7 +11,7 @@ import java.util.Map;
  * anomalous dispersion techniques are involved (note: the
  * values are overall, but broken down into shells of resolution)
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingMADShell extends BaseCategory {
     public PdbxPhasingMADShell(String name, Map<String, Column> columns) {
         super(name, columns);

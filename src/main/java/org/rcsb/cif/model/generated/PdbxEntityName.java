@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_ENTITY_NAME records additional name information for
  * each entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityName extends BaseCategory {
     public PdbxEntityName(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -1,4 +1,4 @@
-package org.rcsb.cif.internal.generator;
+package org.rcsb.cif.generator;
 
 import org.rcsb.cif.CifReader;
 import org.rcsb.cif.model.*;
@@ -104,7 +104,7 @@ class SchemaGenerator {
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.List;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
         output.add("public interface " + className + " {");
 
         // getters
@@ -154,7 +154,7 @@ class SchemaGenerator {
         output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
         output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
 
         // constructor
@@ -198,7 +198,7 @@ class SchemaGenerator {
                 .collect(Collectors.joining("\n"));
         output.add(categoryDescription);
         output.add(" */");
-        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
@@ -266,56 +266,6 @@ class SchemaGenerator {
 
         Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
-
-//    private void writeColumn(String className, Col content, boolean singleRow, Path path) throws IOException {
-//        StringJoiner output = new StringJoiner("\n");
-//        output.add("package " + BASE_PACKAGE + "." + path.toFile().getName() + ";");
-//        output.add("");
-//        output.add("import " + BASE_PACKAGE.replace(".generated", "") + ".*;");
-//        output.add("");
-//        output.add("import javax.annotation.Generated;");
-//        output.add("");
-//
-//        output.add("@Generated(\"org.rcsb.cif.internal.generator.SchemaGenerator\")");
-//        output.add("public class " + className + " extends " + getBaseClass(content.getType(), singleRow) + " {");
-//
-//        // constructor for text data
-//        output.add("    public " + className + "(String name, int rowCount, String data, int[] startToken, " +
-//                "int[] endToken) {");
-//        output.add("        super(name, rowCount, data, startToken, endToken);");
-//        output.add("    }");
-//        output.add("");
-//
-//        // constructor for binary data
-//        output.add("    public " + className + "(String name, int rowCount, Object data, int[] mask) {");
-//        output.add("        super(name, rowCount, data, mask);");
-//        output.add("    }");
-//        output.add("");
-//
-//        // constructor when no data
-//        output.add("    public " + className + "(String name) {");
-//        output.add("        super(name);");
-//        output.add("    }");
-//
-//        if (className.equals("CartnX") || className.equals("CartnY") || className.equals("CartnZ")) {
-//            output.add("");
-//            output.add("    @Override");
-//            output.add("    public String format(double val) {");
-//            output.add("        return FLOAT_3.format(val);");
-//            output.add("    }");
-//        } else if (className.equals("Occupancy")) {
-//            output.add("");
-//            output.add("    @Override");
-//            output.add("    public String format(double val) {");
-//            output.add("        return FLOAT_2.format(val);");
-//            output.add("    }");
-//        }
-//
-//        output.add("}");
-//        output.add("");
-//
-//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
-//    }
 
     private String getBaseClass(String type, boolean singleRow) {
         Class<?> clazz;
@@ -497,12 +447,12 @@ class SchemaGenerator {
 
     private String getDescription(Block saveFrame) {
         Column value = getField("item_description", "description", saveFrame);
-        return Pattern.compile("\n").splitAsStream(value.getStringData(0))
+        String escapedDescription = escape(value.getStringData(0));
+        return Pattern.compile("\n").splitAsStream(escapedDescription)
                 .map(String::trim)
                 .collect(Collectors.joining("\n"))
                 .replaceAll("(\\[[1-3]])+ element", "elements")
-                .replaceAll("(\\[[1-3]])+", "")
-                ;
+                .replaceAll("(\\[[1-3]])+", "");
     }
 
     private Column getField(String category, String field, Block saveFrame) {
@@ -570,14 +520,21 @@ class SchemaGenerator {
                     String rawDescription = saveFrame.getCategory("category")
                             .getColumn("description")
                             .getStringData(0);
+                    String escapedDescription = escape(rawDescription);
                     String description = Pattern.compile("\n")
-                            .splitAsStream(rawDescription)
+                            .splitAsStream(escapedDescription)
                             .map(String::trim)
                             .collect(Collectors.joining("\n"));
 
                     schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames,
                             new LinkedHashMap<>(), repeat));
                 });
+    }
+
+    private String escape(String description) {
+        return description.replace("&", "&amp;")
+                .replace(">", "&gt;")
+                .replace("<", "&lt;");
     }
 
     enum Repeat {

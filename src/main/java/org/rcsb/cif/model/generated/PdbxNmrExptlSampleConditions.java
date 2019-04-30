@@ -10,7 +10,7 @@ import java.util.Map;
  * The experimental conditions used to for each sample.  Each set of conditions
  * is identified by a numerical code.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrExptlSampleConditions extends BaseCategory {
     public PdbxNmrExptlSampleConditions(String name, Map<String, Column> columns) {
         super(name, columns);

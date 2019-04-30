@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * This is a place holder for the PDB COMPND.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPdbCompnd extends BaseCategory {
     public PdbxPdbCompnd(String name, Map<String, Column> columns) {
         super(name, columns);

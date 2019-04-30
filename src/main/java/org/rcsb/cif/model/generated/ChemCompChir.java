@@ -11,7 +11,7 @@ import java.util.Map;
  * to the chiral atom are specified in the CHEM_COMP_CHIR_ATOM
  * category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompChir extends BaseCategory {
     public ChemCompChir(String name, Map<String, Column> columns) {
         super(name, columns);

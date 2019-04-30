@@ -9,7 +9,7 @@ import java.util.Map;
  * Contains information about the symmetry operations of the
  * space group.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class SpaceGroupSymop extends BaseCategory {
     public SpaceGroupSymop(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -13,7 +13,7 @@ import java.util.Map;
  * This category provides a container for matrices used to construct
  * icosahedral assemblies in legacy entries.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructLegacyOperList extends BaseCategory {
     public PdbxStructLegacyOperList(String name, Map<String, Column> columns) {
         super(name, columns);

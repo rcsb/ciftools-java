@@ -10,7 +10,7 @@ import java.util.Map;
  * group assignments within the entry.  Groups are defined and described in category
  * PDBX_STRUCT_GROUP_LIST.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructGroupComponents extends BaseCategory {
     public PdbxStructGroupComponents(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Administration-related data items
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmAdmin extends BaseCategory {
     public EmAdmin(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_NCS_VIRUS_GEN category record details
  * about the generation of virus structures from NCS matrix operators.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructNcsVirusGen extends BaseCategory {
     public PdbxStructNcsVirusGen(String name, Map<String, Column> columns) {
         super(name, columns);

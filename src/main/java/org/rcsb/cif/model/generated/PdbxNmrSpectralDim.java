@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the spectral_dim category describe the parameters of each dimension in the NMR experiment used to generate the spectral peak list.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSpectralDim extends BaseCategory {
     public PdbxNmrSpectralDim(String name, Map<String, Column> columns) {
         super(name, columns);

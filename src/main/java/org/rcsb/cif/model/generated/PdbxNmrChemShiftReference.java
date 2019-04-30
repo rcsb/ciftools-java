@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the chem_shift_reference category define a set of chemical shift referencing parameters.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrChemShiftReference extends BaseCategory {
     public PdbxNmrChemShiftReference(String name, Map<String, Column> columns) {
         super(name, columns);

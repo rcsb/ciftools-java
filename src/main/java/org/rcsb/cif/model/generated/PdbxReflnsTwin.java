@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Details decribing crystallographic twinning.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReflnsTwin extends BaseCategory {
     public PdbxReflnsTwin(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -107,7 +107,7 @@ public class PdbxReflnsTwin extends BaseCategory {
     /**
      * 
      * The twin fraction or twin factor represents a quantitative parameter for the
-     * crystal twinning.  The value 0 represents no twinning, < 0.5 partial twinning,
+     * crystal twinning.  The value 0 represents no twinning, &lt; 0.5 partial twinning,
      * = 0.5 for perfect twinning.
      * @return FloatColumn
      */
@@ -122,8 +122,8 @@ public class PdbxReflnsTwin extends BaseCategory {
      * acentric data are given below.
      * 
      * Statistic	Untwinned data	Perfect twinned data
-     * <I^2>/<I>^2	2.0             1.5
-     * <F>^2/<F^2>	0.785           0.865
+     * &lt;I^2&gt;/&lt;I&gt;^2	2.0             1.5
+     * &lt;F&gt;^2/&lt;F^2&gt;	0.785           0.865
      * 
      * References:
      * Yeates, T.O. (1997) Methods in Enzymology 276, 344-358. Detecting and
@@ -146,8 +146,8 @@ public class PdbxReflnsTwin extends BaseCategory {
      * acentric data are given below.
      * 
      * Statistic	Untwinned data	Perfect twinned data
-     * <I^2>/<I>^2	2.0             1.5
-     * <F>^2/<F^2>	0.785           0.865
+     * &lt;I^2&gt;/&lt;I&gt;^2	2.0             1.5
+     * &lt;F&gt;^2/&lt;F^2&gt;	0.785           0.865
      * 
      * References:
      * Yeates, T.O. (1997) Methods in Enzymology 276, 344-358. Detecting and

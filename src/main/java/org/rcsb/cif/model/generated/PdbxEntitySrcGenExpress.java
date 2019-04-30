@@ -11,7 +11,7 @@ import java.util.Map;
  * will cover all forms of cell-based expression by reading induction as
  * induction/transformation/transfection.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenExpress extends BaseCategory {
     public PdbxEntitySrcGenExpress(String name, Map<String, Column> columns) {
         super(name, columns);

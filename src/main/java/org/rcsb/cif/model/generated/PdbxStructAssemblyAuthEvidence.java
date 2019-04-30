@@ -9,7 +9,7 @@ import java.util.Map;
  * Provides author supplied evidentiary support for assemblies
  * in pdbx_struct_assembly.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructAssemblyAuthEvidence extends BaseCategory {
     public PdbxStructAssemblyAuthEvidence(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_FAMILY_GROUP_INDEX category record
  * the family membership in family groups.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxFamilyGroupIndex extends BaseCategory {
     public PdbxFamilyGroupIndex(String name, Map<String, Column> columns) {
         super(name, columns);

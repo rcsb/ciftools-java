@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STEREOCHEMISTRY identify chiral
  * centers and associated chiral volumes.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStereochemistry extends BaseCategory {
     public PdbxStereochemistry(String name, Map<String, Column> columns) {
         super(name, columns);

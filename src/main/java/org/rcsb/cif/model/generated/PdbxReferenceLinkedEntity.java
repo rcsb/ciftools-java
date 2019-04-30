@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the pdbx_reference_linked_entity category describe
  * common observed interaction patterns within linked entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceLinkedEntity extends BaseCategory {
     public PdbxReferenceLinkedEntity(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Details of reflections used in data processing.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDataProcessingReflns extends BaseCategory {
     public PdbxDataProcessingReflns(String name, Map<String, Column> columns) {
         super(name, columns);

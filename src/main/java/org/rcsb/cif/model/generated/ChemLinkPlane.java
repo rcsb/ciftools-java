@@ -11,7 +11,7 @@ import java.util.Map;
  * The atoms in the plane are specified in the CHEM_LINK_PLANE_ATOM
  * category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkPlane extends BaseCategory {
     public ChemLinkPlane(String name, Map<String, Column> columns) {
         super(name, columns);

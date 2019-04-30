@@ -10,7 +10,7 @@ import java.util.Map;
  * record descriptions of changes associated with
  * PDBX_AUDIT_REVISION_HISTORY records.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAuditRevisionDetails extends BaseCategory {
     public PdbxAuditRevisionDetails(String name, Map<String, Column> columns) {
         super(name, columns);

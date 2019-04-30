@@ -10,7 +10,7 @@ import java.util.Map;
  * ensemble of deposited structures. If only an average structure
  * has been deposited skip this section.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrEnsemble extends BaseCategory {
     public PdbxNmrEnsemble(String name, Map<String, Column> columns) {
         super(name, columns);

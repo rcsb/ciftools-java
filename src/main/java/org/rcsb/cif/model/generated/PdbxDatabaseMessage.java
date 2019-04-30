@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_DATABASE_MESSAGE category provides information about
  * correspondance related to a structure deposition.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseMessage extends BaseCategory {
     public PdbxDatabaseMessage(String name, Map<String, Column> columns) {
         super(name, columns);

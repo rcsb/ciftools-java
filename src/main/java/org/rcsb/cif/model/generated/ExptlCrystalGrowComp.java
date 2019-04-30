@@ -20,7 +20,7 @@ import java.util.Map;
  * _exptl_crystal_grow_comp.details using the solutions
  * described in EXPTL_CRYSTAL_GROW_COMP.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ExptlCrystalGrowComp extends BaseCategory {
     public ExptlCrystalGrowComp(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -19,7 +19,7 @@ import java.util.Map;
  * to be identified for publication by setting the appropriate
  * publication flag.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Geom extends BaseCategory {
     public Geom(String name, Map<String, Column> columns) {
         super(name, columns);

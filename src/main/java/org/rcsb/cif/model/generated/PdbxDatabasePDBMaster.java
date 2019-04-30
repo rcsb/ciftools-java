@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_DATABASE_PDB_MASTER category provides placeholders
  * for the count of various PDB record types.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabasePDBMaster extends BaseCategory {
     public PdbxDatabasePDBMaster(String name, Map<String, Column> columns) {
         super(name, columns);

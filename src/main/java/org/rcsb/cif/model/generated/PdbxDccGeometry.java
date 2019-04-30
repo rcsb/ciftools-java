@@ -11,7 +11,7 @@ import java.util.Map;
  * planarity). These data are calculated with the phenix module
  * model_vs_data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDccGeometry extends BaseCategory {
     public PdbxDccGeometry(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -107,7 +107,7 @@ public class PdbxDccGeometry extends BaseCategory {
     }
 
     /**
-     * Number of Cbeta deviations >0.25A.
+     * Number of Cbeta deviations &gt;0.25A.
      * @return IntColumn
      */
     public IntColumn getCbetaDeviations() {
@@ -116,7 +116,7 @@ public class PdbxDccGeometry extends BaseCategory {
     }
 
     /**
-     * All atom score is determined by steric overlaps >0.4A per 1000
+     * All atom score is determined by steric overlaps &gt;0.4A per 1000
      * atoms.
      * @return FloatColumn
      */

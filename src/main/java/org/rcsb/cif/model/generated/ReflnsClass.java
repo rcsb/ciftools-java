@@ -10,7 +10,7 @@ import java.util.Map;
  * of the reflections used to determine the structural
  * parameters for each reflection class.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ReflnsClass extends BaseCategory {
     public ReflnsClass(String name, Map<String, Column> columns) {
         super(name, columns);

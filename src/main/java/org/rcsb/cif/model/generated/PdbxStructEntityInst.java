@@ -11,7 +11,7 @@ import java.util.Map;
  * neutral identifier for the observed molecular entities in the deposited coordinate
  * set.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructEntityInst extends BaseCategory {
     public PdbxStructEntityInst(String name, Map<String, Column> columns) {
         super(name, columns);

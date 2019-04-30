@@ -12,7 +12,7 @@ import java.util.Map;
  * interactions with at least one adjacent strand and if there are
  * at least two residues in the range.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSheetRange extends BaseCategory {
     public StructSheetRange(String name, Map<String, Column> columns) {
         super(name, columns);

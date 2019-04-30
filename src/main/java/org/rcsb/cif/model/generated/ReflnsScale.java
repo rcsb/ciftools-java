@@ -10,7 +10,7 @@ import java.util.Map;
  * the structure-factor scales. They are referenced from within
  * the REFLN list through _refln.scale_group_code.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ReflnsScale extends BaseCategory {
     public ReflnsScale(String name, Map<String, Column> columns) {
         super(name, columns);

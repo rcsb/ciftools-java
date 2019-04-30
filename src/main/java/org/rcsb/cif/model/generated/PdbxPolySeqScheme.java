@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_POLY_SEQ_SCHEME category provides residue level nomenclature
  * mapping for polymer entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPolySeqScheme extends BaseCategory {
     public PdbxPolySeqScheme(String name, Map<String, Column> columns) {
         super(name, columns);

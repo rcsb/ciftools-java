@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_DEPOSITOR_INFO category record additional
  * details provided by depositors about deposited chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompDepositorInfo extends BaseCategory {
     public PdbxChemCompDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

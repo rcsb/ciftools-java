@@ -8,7 +8,7 @@ import java.util.Map;
 /**
 
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityNonpoly extends BaseCategory {
     public PdbxEntityNonpoly(String name, Map<String, Column> columns) {
         super(name, columns);

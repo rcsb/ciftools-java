@@ -21,7 +21,7 @@ import java.util.Map;
  * annotated by the PDB and may not be consistent with
  * nomenclature or labeling used in the entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DatabasePDBRemark extends BaseCategory {
     public DatabasePDBRemark(String name, Map<String, Column> columns) {
         super(name, columns);

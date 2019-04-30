@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_DATABASE_PDB_OBS_SPR category provides placeholders
  * for information on obsolete/superseded PDB entries
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabasePDBObsSpr extends BaseCategory {
     public PdbxDatabasePDBObsSpr(String name, Map<String, Column> columns) {
         super(name, columns);

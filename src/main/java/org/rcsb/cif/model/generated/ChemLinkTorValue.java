@@ -12,7 +12,7 @@ import java.util.Map;
  * in degrees, as a distance between the first and fourth atoms, or
  * both.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkTorValue extends BaseCategory {
     public ChemLinkTorValue(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * the results of the least-squares refinement broken down into
  * shells of resolution.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineLsShell extends BaseCategory {
     public RefineLsShell(String name, Map<String, Column> columns) {
         super(name, columns);

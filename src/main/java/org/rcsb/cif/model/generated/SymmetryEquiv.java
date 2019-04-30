@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the SYMMETRY_EQUIV category list the
  * symmetry-equivalent positions for the space group.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class SymmetryEquiv extends BaseCategory {
     public SymmetryEquiv(String name, Map<String, Column> columns) {
         super(name, columns);

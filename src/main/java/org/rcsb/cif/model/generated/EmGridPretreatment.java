@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Data items describing glow discharge pretreatment for an EM grid
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmGridPretreatment extends BaseCategory {
     public EmGridPretreatment(String name, Map<String, Column> columns) {
         super(name, columns);

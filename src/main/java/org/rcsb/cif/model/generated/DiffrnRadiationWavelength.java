@@ -12,7 +12,7 @@ import java.util.Map;
  * and assign weights to distinct components of a
  * polychromatic beam.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnRadiationWavelength extends BaseCategory {
     public DiffrnRadiationWavelength(String name, Map<String, Column> columns) {
         super(name, columns);

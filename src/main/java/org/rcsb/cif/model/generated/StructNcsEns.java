@@ -12,7 +12,7 @@ import java.util.Map;
  * whole may be specified, as well as any special aspects of the
  * ensemble that require description.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructNcsEns extends BaseCategory {
     public StructNcsEns(String name, Map<String, Column> columns) {
         super(name, columns);

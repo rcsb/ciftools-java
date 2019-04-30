@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description of sectioning by ultramicrotomy
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmUltramicrotomy extends BaseCategory {
     public EmUltramicrotomy(String name, Map<String, Column> columns) {
         super(name, columns);

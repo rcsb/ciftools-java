@@ -10,7 +10,7 @@ import java.util.Map;
  * literature cited as being relevant to the contents of the data
  * block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Citation extends BaseCategory {
     public Citation(String name, Map<String, Column> columns) {
         super(name, columns);

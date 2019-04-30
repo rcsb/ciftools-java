@@ -11,7 +11,7 @@ import java.util.Map;
  * the phasing process. Details about the application of each
  * method are listed in the appropriate subcategories.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Phasing extends BaseCategory {
     public Phasing(String name, Map<String, Column> columns) {
         super(name, columns);

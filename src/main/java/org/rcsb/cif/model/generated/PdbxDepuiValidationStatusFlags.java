@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DEPUI_VALIDATION_STATUS_FLAGS category record status
  * details that assess the status of selected validation diagnostics.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepuiValidationStatusFlags extends BaseCategory {
     public PdbxDepuiValidationStatusFlags(String name, Map<String, Column> columns) {
         super(name, columns);

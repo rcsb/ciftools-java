@@ -10,7 +10,7 @@ import java.util.Map;
  * covalent geometry for each momoner relative to small molecule crystal
  * standards.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSugarPhosphateGeometry extends BaseCategory {
     public PdbxSugarPhosphateGeometry(String name, Map<String, Column> columns) {
         super(name, columns);

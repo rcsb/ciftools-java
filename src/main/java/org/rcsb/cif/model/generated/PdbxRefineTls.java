@@ -12,7 +12,7 @@ import java.util.Map;
  * parameters, although other methods of obtaining TLS parameters
  * may be covered, see item _pdbx_refine_tls.method
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefineTls extends BaseCategory {
     public PdbxRefineTls(String name, Map<String, Column> columns) {
         super(name, columns);

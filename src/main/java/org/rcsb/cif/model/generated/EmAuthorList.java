@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Category to collect the authors of this entry
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmAuthorList extends BaseCategory {
     public EmAuthorList(String name, Map<String, Column> columns) {
         super(name, columns);

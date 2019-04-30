@@ -9,7 +9,7 @@ import java.util.Map;
  * PDBX_SEQUENCE_ANNOTATION holds internal details about molecular sequences
  * described in the context of PDB chains.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSequenceAnnotation extends BaseCategory {
     public PdbxSequenceAnnotation(String name, Map<String, Column> columns) {
         super(name, columns);

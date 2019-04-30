@@ -10,7 +10,7 @@ import java.util.Map;
  * details about the individual data sets used in a MAD phasing
  * experiment.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMADSet extends BaseCategory {
     public PhasingMADSet(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_SINGLE_PARTICLE_ENTITY category provide
  * the details of the symmetry for a single particle entity type.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmSingleParticleEntity extends BaseCategory {
     public EmSingleParticleEntity(String name, Map<String, Column> columns) {
         super(name, columns);

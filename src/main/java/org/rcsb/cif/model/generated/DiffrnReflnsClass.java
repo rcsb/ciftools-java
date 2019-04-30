@@ -10,7 +10,7 @@ import java.util.Map;
  * about the classes of reflections measured in the diffraction
  * experiment.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnReflnsClass extends BaseCategory {
     public DiffrnReflnsClass(String name, Map<String, Column> columns) {
         super(name, columns);

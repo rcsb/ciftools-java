@@ -13,7 +13,7 @@ import java.util.Map;
  * Note that these records describe properties common to the set of
  * standard reflections, not the standard reflections themselves.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnStandards extends BaseCategory {
     public DiffrnStandards(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the NDB_STRUCT_NA_BASE_PAIR category record details
  * of base pairing interactions.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class NdbStructNaBasePair extends BaseCategory {
     public NdbStructNaBasePair(String name, Map<String, Column> columns) {
         super(name, columns);

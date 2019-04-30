@@ -10,7 +10,7 @@ import java.util.Map;
  * the HET records of a PDB file.  This record will be generated
  * by the PROGRAM.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNonstandardList extends BaseCategory {
     public PdbxNonstandardList(String name, Map<String, Column> columns) {
         super(name, columns);

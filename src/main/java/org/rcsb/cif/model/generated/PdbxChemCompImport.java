@@ -12,7 +12,7 @@ import java.util.Map;
  * can be edited by instructions in categories
  * pdbx_chem_comp_atom_edit and pdbx_chem_comp_bond_edit.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompImport extends BaseCategory {
     public PdbxChemCompImport(String name, Map<String, Column> columns) {
         super(name, columns);

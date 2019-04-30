@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_LINK_BOND category record details about
  * bonds in a link between components in the chemical structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkBond extends BaseCategory {
     public ChemLinkBond(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_ENTITY_SUBCOMPONENTS category records
  * subcomponent sequence from which this entity could be built.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceEntitySubcomponents extends BaseCategory {
     public PdbxReferenceEntitySubcomponents(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DEPUI_ENTITY_FEATURES category record status
  * details related to the features of individual entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepuiEntityFeatures extends BaseCategory {
     public PdbxDepuiEntityFeatures(String name, Map<String, Column> columns) {
         super(name, columns);

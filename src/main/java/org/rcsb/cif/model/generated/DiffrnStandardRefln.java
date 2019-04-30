@@ -13,7 +13,7 @@ import java.util.Map;
  * Note that these are the individual standard reflections, not the
  * results of the analysis of the standard reflections.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnStandardRefln extends BaseCategory {
     public DiffrnStandardRefln(String name, Map<String, Column> columns) {
         super(name, columns);

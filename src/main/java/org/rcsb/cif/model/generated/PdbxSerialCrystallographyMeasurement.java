@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_MEASUREMENT category record
  * details the beam that is impinging on the sample
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSerialCrystallographyMeasurement extends BaseCategory {
     public PdbxSerialCrystallographyMeasurement(String name, Map<String, Column> columns) {
         super(name, columns);

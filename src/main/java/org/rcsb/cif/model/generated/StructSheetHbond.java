@@ -13,7 +13,7 @@ import java.util.Map;
  * begin in different places for the interactions of a given strand
  * with the one preceding it and the one following it in the sheet.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSheetHbond extends BaseCategory {
     public StructSheetHbond(String name, Map<String, Column> columns) {
         super(name, columns);

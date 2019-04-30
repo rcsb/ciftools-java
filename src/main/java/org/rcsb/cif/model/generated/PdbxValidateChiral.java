@@ -20,7 +20,7 @@ import java.util.Map;
  * expected answer is around -120 mean -122.52
  * D-amino acid is +120.0
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidateChiral extends BaseCategory {
     public PdbxValidateChiral(String name, Map<String, Column> columns) {
         super(name, columns);

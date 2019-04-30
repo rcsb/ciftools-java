@@ -10,7 +10,7 @@ import java.util.Map;
  * mapping information between solvent atoms before and after symmetry
  * repositioning.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSolventAtomSiteMapping extends BaseCategory {
     public PdbxSolventAtomSiteMapping(String name, Map<String, Column> columns) {
         super(name, columns);

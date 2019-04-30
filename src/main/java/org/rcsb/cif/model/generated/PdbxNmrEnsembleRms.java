@@ -9,7 +9,7 @@ import java.util.Map;
  * Structural statistics are derived from molecular dynamics and simulated annealing
  * programs.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrEnsembleRms extends BaseCategory {
     public PdbxNmrEnsembleRms(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the chem_shift_software category provide pointers to the software category and methods category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrChemShiftSoftware extends BaseCategory {
     public PdbxNmrChemShiftSoftware(String name, Map<String, Column> columns) {
         super(name, columns);

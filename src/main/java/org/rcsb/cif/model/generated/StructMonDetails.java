@@ -12,7 +12,7 @@ import java.util.Map;
  * include the coefficients used in map calculations,
  * the radii used for including points in a calculation and so on.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructMonDetails extends BaseCategory {
     public StructMonDetails(String name, Map<String, Column> columns) {
         super(name, columns);

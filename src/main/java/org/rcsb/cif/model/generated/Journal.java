@@ -14,7 +14,7 @@ import java.util.Map;
  * The data names are not defined in the dictionary because they are
  * for journal use only.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Journal extends BaseCategory {
     public Journal(String name, Map<String, Column> columns) {
         super(name, columns);

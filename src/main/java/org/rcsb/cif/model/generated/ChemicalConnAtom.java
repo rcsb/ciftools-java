@@ -24,7 +24,7 @@ import java.util.Map;
  * CHEMICAL_CONN_ATOM and CHEMICAL_CONN_BOND data items will always
  * describe a complete chemical entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemicalConnAtom extends BaseCategory {
     public ChemicalConnAtom(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -20,7 +20,7 @@ import java.util.Map;
  * data sets via _phasing_MIR_der.der_set_id and
  * _phasing_MIR_der.native_set_id.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMIRDer extends BaseCategory {
     public PhasingMIRDer(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -182,7 +182,7 @@ public class PhasingMIRDer extends BaseCategory {
      * sum is taken over the specified reflections
      * 
      * Ref: Cullis, A. F., Muirhead, H., Perutz, M. F., Rossmann, M. G.
-     * & North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
+     * &amp; North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
      * 265, 15-38.
      * @return FloatColumn
      */
@@ -221,7 +221,7 @@ public class PhasingMIRDer extends BaseCategory {
      * sum is taken over the specified reflections
      * 
      * Ref: Cullis, A. F., Muirhead, H., Perutz, M. F., Rossmann, M. G.
-     * & North, A. C. T. (1961). Proc. R. Soc.  London Ser. A,
+     * &amp; North, A. C. T. (1961). Proc. R. Soc.  London Ser. A,
      * 265, 15-38.
      * @return FloatColumn
      */
@@ -247,7 +247,7 @@ public class PhasingMIRDer extends BaseCategory {
      * sum is taken over the specified reflections
      * 
      * Ref: Cullis, A. F., Muirhead, H., Perutz, M. F., Rossmann, M. G.
-     * & North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
+     * &amp; North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
      * 265, 15-38.
      * @return FloatColumn
      */

@@ -11,7 +11,7 @@ import java.util.Map;
  * to be applied to the result of the previous production step, or the
  * gene source if this is the first production step.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenProdPcr extends BaseCategory {
     public PdbxEntitySrcGenProdPcr(String name, Map<String, Column> columns) {
         super(name, columns);

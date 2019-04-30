@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_PHASING_DM_SHELL category record details about
  * density modification in resolution shell.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingDmShell extends BaseCategory {
     public PdbxPhasingDmShell(String name, Map<String, Column> columns) {
         super(name, columns);

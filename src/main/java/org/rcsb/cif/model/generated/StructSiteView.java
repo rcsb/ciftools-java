@@ -10,7 +10,7 @@ import java.util.Map;
  * about how to draw and annotate an informative view of the
  * site.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSiteView extends BaseCategory {
     public StructSiteView(String name, Map<String, Column> columns) {
         super(name, columns);

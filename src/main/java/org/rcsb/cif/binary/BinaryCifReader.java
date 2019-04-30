@@ -2,7 +2,7 @@ package org.rcsb.cif.binary;
 
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.internal.ModelFactory;
+import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.*;
 
 import java.io.BufferedInputStream;

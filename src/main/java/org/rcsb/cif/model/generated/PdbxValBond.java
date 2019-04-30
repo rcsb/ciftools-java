@@ -12,7 +12,7 @@ import java.util.Map;
  * 
  * This is a completely derived category.  Do not edit.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValBond extends BaseCategory {
     public PdbxValBond(String name, Map<String, Column> columns) {
         super(name, columns);

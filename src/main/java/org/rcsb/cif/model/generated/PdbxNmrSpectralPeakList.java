@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the pdbx_nmr_spectral_peak_list category provide information about a list of reported spectral peak characteristic values.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSpectralPeakList extends BaseCategory {
     public PdbxNmrSpectralPeakList(String name, Map<String, Column> columns) {
         super(name, columns);

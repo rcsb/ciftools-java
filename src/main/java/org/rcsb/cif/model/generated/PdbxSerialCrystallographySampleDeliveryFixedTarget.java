@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY_FIXED_TARGET
  * category record details about sample delivery using a fixed taget.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSerialCrystallographySampleDeliveryFixedTarget extends BaseCategory {
     public PdbxSerialCrystallographySampleDeliveryFixedTarget(String name, Map<String, Column> columns) {
         super(name, columns);

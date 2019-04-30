@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Describe the method and details of the refinement of the deposited structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrRefine extends BaseCategory {
     public PdbxNmrRefine(String name, Map<String, Column> columns) {
         super(name, columns);

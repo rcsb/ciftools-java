@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description of sectioning by focused_ion_beam
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmFocusedIonBeam extends BaseCategory {
     public EmFocusedIonBeam(String name, Map<String, Column> columns) {
         super(name, columns);

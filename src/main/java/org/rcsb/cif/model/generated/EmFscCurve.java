@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EMD_VALIDATION_FSC_CURVE category
  * record details of the Fourier Shell Correlation (FSC) curve file.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmFscCurve extends BaseCategory {
     public EmFscCurve(String name, Map<String, Column> columns) {
         super(name, columns);

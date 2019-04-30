@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the STRUCT category record details about the
  * description of the crystallographic structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Struct extends BaseCategory {
     public Struct(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * experimental measurements on the crystal or crystals used,
  * such as shape, size or density.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ExptlCrystal extends BaseCategory {
     public ExptlCrystal(String name, Map<String, Column> columns) {
         super(name, columns);

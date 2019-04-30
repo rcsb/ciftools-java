@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_MOLECULE_DETAILS category records
  * textual details about small polymer molecules.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceMoleculeDetails extends BaseCategory {
     public PdbxReferenceMoleculeDetails(String name, Map<String, Column> columns) {
         super(name, columns);

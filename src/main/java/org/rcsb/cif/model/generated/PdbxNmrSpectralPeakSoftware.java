@@ -10,7 +10,7 @@ import java.util.Map;
  * Items in the pdbx_nmr_spectral_peak_software category provide pointers to the software category
  * and methods category where descriptions of software applications and methods can be found.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSpectralPeakSoftware extends BaseCategory {
     public PdbxNmrSpectralPeakSoftware(String name, Map<String, Column> columns) {
         super(name, columns);

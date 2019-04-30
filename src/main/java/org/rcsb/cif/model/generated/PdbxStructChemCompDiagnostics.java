@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_CHEM_COMP_DIAGNOSTICS category provides
  * structural diagnostics in chemical components instances.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructChemCompDiagnostics extends BaseCategory {
     public PdbxStructChemCompDiagnostics(String name, Map<String, Column> columns) {
         super(name, columns);

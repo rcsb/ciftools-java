@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SEQ_MAP_DEPOSITOR_INFO record the
  * details about the mapping sample and coordinate sequences.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSeqMapDepositorInfo extends BaseCategory {
     public PdbxSeqMapDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

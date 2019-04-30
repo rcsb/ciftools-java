@@ -10,7 +10,7 @@ import java.util.Map;
  * Complete description of each NMR sample, including the solvent
  * system used.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSampleDetails extends BaseCategory {
     public PdbxNmrSampleDetails(String name, Map<String, Column> columns) {
         super(name, columns);

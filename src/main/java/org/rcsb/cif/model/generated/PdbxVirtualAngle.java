@@ -10,7 +10,7 @@ import java.util.Map;
  * molecular virtual angles, as calculated from the contents
  * of the ATOM, CELL, and SYMMETRY data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxVirtualAngle extends BaseCategory {
     public PdbxVirtualAngle(String name, Map<String, Column> columns) {
         super(name, columns);

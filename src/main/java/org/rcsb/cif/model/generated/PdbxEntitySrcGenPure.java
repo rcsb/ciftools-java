@@ -13,7 +13,7 @@ import java.util.Map;
  * Only one PDBX_ENTITY_SRC_GEN_PURE category is allowed per entity, hence there is
  * no step_id for this category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenPure extends BaseCategory {
     public PdbxEntitySrcGenPure(String name, Map<String, Column> columns) {
         super(name, columns);

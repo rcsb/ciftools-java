@@ -10,7 +10,7 @@ import java.util.Map;
  * modified polymer components in the entry and provide some
  * details describing the nature of the modification.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructModResidue extends BaseCategory {
     public PdbxStructModResidue(String name, Map<String, Column> columns) {
         super(name, columns);

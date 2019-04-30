@@ -11,7 +11,7 @@ import java.util.Map;
  * atom sites or groups of atom sites that are modelled in
  * alternative conformations in this data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSitesAlt extends BaseCategory {
     public AtomSitesAlt(String name, Map<String, Column> columns) {
         super(name, columns);

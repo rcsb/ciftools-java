@@ -11,7 +11,7 @@ import java.util.Map;
  * used to generate constraint data. For each NMR experiment indicate
  * which sample and which sample conditions were used for the experiment.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrExptl extends BaseCategory {
     public PdbxNmrExptl(String name, Map<String, Column> columns) {
         super(name, columns);

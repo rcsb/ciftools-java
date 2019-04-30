@@ -11,7 +11,7 @@ import java.util.Map;
  * The atoms bonded to the chiral atom are specified in the
  * CHEM_LINK_CHIR_ATOM category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkChir extends BaseCategory {
     public ChemLinkChir(String name, Map<String, Column> columns) {
         super(name, columns);

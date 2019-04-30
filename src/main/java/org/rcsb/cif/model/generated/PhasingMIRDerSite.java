@@ -16,7 +16,7 @@ import java.util.Map;
  * definition of the PHASING_MIR_DER category for a
  * discussion of the meaning of derivative.)
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMIRDerSite extends BaseCategory {
     public PhasingMIRDerSite(String name, Map<String, Column> columns) {
         super(name, columns);

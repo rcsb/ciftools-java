@@ -10,7 +10,7 @@ import java.util.Map;
  * polymer, such as the type of the polymer, the number of
  * monomers and whether it has nonstandard features.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntityPoly extends BaseCategory {
     public EntityPoly(String name, Map<String, Column> columns) {
         super(name, columns);

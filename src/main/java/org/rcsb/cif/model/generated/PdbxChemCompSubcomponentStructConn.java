@@ -10,7 +10,7 @@ import java.util.Map;
  * list the chemical interactions among the subcomponents in
  * the chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompSubcomponentStructConn extends BaseCategory {
     public PdbxChemCompSubcomponentStructConn(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_MODEL category give details about each
  * of the chemical component model instances.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompModel extends BaseCategory {
     public PdbxChemCompModel(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * detector used to measure the scattered radiation, including
  * any analyser and post-sample collimation.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnDetector extends BaseCategory {
     public DiffrnDetector(String name, Map<String, Column> columns) {
         super(name, columns);

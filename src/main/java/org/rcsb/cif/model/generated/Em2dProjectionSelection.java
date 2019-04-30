@@ -10,7 +10,7 @@ import java.util.Map;
  * record details of images from scanned micrographs and the
  * number of particles selected from a scanned set of micrographs.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Em2dProjectionSelection extends BaseCategory {
     public Em2dProjectionSelection(String name, Map<String, Column> columns) {
         super(name, columns);

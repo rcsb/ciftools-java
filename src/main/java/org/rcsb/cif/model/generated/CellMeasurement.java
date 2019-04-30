@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CELL_MEASUREMENT category record details
  * about the measurement of the crystallographic cell parameters.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class CellMeasurement extends BaseCategory {
     public CellMeasurement(String name, Map<String, Column> columns) {
         super(name, columns);

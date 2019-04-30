@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Internal records to track the data processing cycle.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseProc extends BaseCategory {
     public PdbxDatabaseProc(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data item will still be used until the ENTITY category is fully
  * adopted by NDBQuery.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSource extends BaseCategory {
     public PdbxSource(String name, Map<String, Column> columns) {
         super(name, columns);

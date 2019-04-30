@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Crystallographic cell specifications used in data processing.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDataProcessingCell extends BaseCategory {
     public PdbxDataProcessingCell(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -15,7 +15,7 @@ import java.util.Map;
  * The REFLNS data items specify the parameters that apply to all
  * reflections. The REFLNS data items are not looped.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Reflns extends BaseCategory {
     public Reflns(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -289,12 +289,12 @@ public class Reflns extends BaseCategory {
      * resolution limits established by _reflns.d_resolution_high
      * and _reflns.d_resolution_low.
      * 
-     * sum~i~(sum~j~|F~j~ - <F>|)
+     * sum~i~(sum~j~|F~j~ - &lt;F&gt;|)
      * Rmerge(F) = --------------------------
-     * sum~i~(sum~j~<F>)
+     * sum~i~(sum~j~&lt;F&gt;)
      * 
      * F~j~ = the amplitude of the jth observation of reflection i
-     * <F>  = the mean of the amplitudes of all observations of
+     * &lt;F&gt;  = the mean of the amplitudes of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -312,12 +312,12 @@ public class Reflns extends BaseCategory {
      * and _reflns.d_resolution_low and the observation limit
      * established by _reflns.observed_criterion.
      * 
-     * sum~i~(sum~j~|F~j~ - <F>|)
+     * sum~i~(sum~j~|F~j~ - &lt;F&gt;|)
      * Rmerge(F) = --------------------------
-     * sum~i~(sum~j~<F>)
+     * sum~i~(sum~j~&lt;F&gt;)
      * 
      * F~j~ = the amplitude of the jth observation of reflection i
-     * <F>  = the mean of the amplitudes of all observations of
+     * &lt;F&gt;  = the mean of the amplitudes of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -357,13 +357,13 @@ public class Reflns extends BaseCategory {
      * {h k l; -h -k -l} have been measured.
      * (c) For whole-sphere data in space group Pmm2,
      * _reflns.Friedel_coverage
-     * will be < 1.0 because although reflections h k l and
+     * will be &lt; 1.0 because although reflections h k l and
      * -h -k -l are not equivalent when h k l indices are
      * nonzero, they are when l=0.
      * (d) For a crystal in space group Pmm2, measurements of the
-     * two inequivalent octants h >= 0, k >=0, l lead to the
+     * two inequivalent octants h &gt;= 0, k &gt;=0, l lead to the
      * same value as in (c), whereas measurements of the
-     * two equivalent octants h >= 0, k, l >= 0 will lead to
+     * two equivalent octants h &gt;= 0, k, l &gt;= 0 will lead to
      * a zero value for _reflns.Friedel_coverage.
      * @return SingleRowFloatColumn
      */
@@ -441,7 +441,7 @@ public class Reflns extends BaseCategory {
 
     /**
      * The ratio of the average intensity to the average uncertainty,
-     * <I>/<sigma(I)>.
+     * &lt;I&gt;/&lt;sigma(I)&gt;.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxNetIOverAvSigmaI() {
@@ -451,7 +451,7 @@ public class Reflns extends BaseCategory {
 
     /**
      * The mean of the ratio of the intensities to their
-     * standard uncertainties, <I/sigma(I)>.
+     * standard uncertainties, &lt;I/sigma(I)&gt;.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxNetIOverSigmaI() {
@@ -460,7 +460,7 @@ public class Reflns extends BaseCategory {
     }
 
     /**
-     * Resolution (angstrom) for reflections with  <I>/<sigma(I)> = 2.
+     * Resolution (angstrom) for reflections with  &lt;I&gt;/&lt;sigma(I)&gt; = 2.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxResNetIOverAvSigmaI2() {
@@ -469,7 +469,7 @@ public class Reflns extends BaseCategory {
     }
 
     /**
-     * Resolution (angstroms) for reflections with  <I/sigma(I)> = 2.
+     * Resolution (angstroms) for reflections with  &lt;I/sigma(I)&gt; = 2.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxResNetIOverSigmaI2() {
@@ -541,12 +541,12 @@ public class Reflns extends BaseCategory {
      * also denoted Rmeas, for merging all intensities in this
      * data set.
      * 
-     * sum~i~ [N~i~/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |
+     * sum~i~ [N~i~/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - &lt;I~i~&gt; |
      * Rrim = ----------------------------------------------------
      * sum~i~ ( sum~j~ I~j~ )
      * 
      * I~j~   = the intensity of the jth observation of reflection i
-     * <I~i~> = the mean of the intensities of all observations of
+     * &lt;I~i~&gt; = the mean of the intensities of all observations of
      * reflection i
      * N~i~   = the redundancy (the number of times reflection i
      * has been measured).
@@ -554,9 +554,9 @@ public class Reflns extends BaseCategory {
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
      * 
-     * Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.
+     * Ref: Diederichs, K. &amp; Karplus, P. A. (1997). Nature Struct.
      * Biol. 4, 269-275.
-     * Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.
+     * Weiss, M. S. &amp; Hilgenfeld, R. (1997). J. Appl. Cryst.
      * 30, 203-205.
      * Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135.
      * @return SingleRowFloatColumn
@@ -570,12 +570,12 @@ public class Reflns extends BaseCategory {
      * The precision-indicating merging R factor value Rpim,
      * for merging all intensities in this data set.
      * 
-     * sum~i~ [1/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |
+     * sum~i~ [1/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - &lt;I~i~&gt; |
      * Rpim = --------------------------------------------------
      * sum~i~ ( sum~j~ I~j~ )
      * 
      * I~j~   = the intensity of the jth observation of reflection i
-     * <I~i~> = the mean of the intensities of all observations
+     * &lt;I~i~&gt; = the mean of the intensities of all observations
      * of reflection i
      * N~i~   = the redundancy (the number of times reflection i
      * has been measured).
@@ -583,9 +583,9 @@ public class Reflns extends BaseCategory {
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
      * 
-     * Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.
+     * Ref: Diederichs, K. &amp; Karplus, P. A. (1997). Nature Struct.
      * Biol. 4, 269-275.
-     * Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.
+     * Weiss, M. S. &amp; Hilgenfeld, R. (1997). J. Appl. Cryst.
      * 30, 203-205.
      * Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135.
      * @return SingleRowFloatColumn
@@ -610,7 +610,7 @@ public class Reflns extends BaseCategory {
      * transform of a sphere with radius 1/dmin
      * dmin        = nominal resolution (_reflns.d_resolution_high)
      * 
-     * Ref: Vaguine, A. A., Richelle, J. & Wodak, S. J. (1999).
+     * Ref: Vaguine, A. A., Richelle, J. &amp; Wodak, S. J. (1999).
      * Acta Cryst. D55, 191-205.
      * (see also http://www.ysbl.york.ac.uk/~alexei/sfcheck.html)
      * Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135.
@@ -655,7 +655,7 @@ public class Reflns extends BaseCategory {
      * between the average intensities from randomly selected
      * half-datasets.
      * 
-     * Ref: Karplus & Diederichs (2012), Science 336, 1030-33
+     * Ref: Karplus &amp; Diederichs (2012), Science 336, 1030-33
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxCCHalf() {

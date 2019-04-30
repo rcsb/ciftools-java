@@ -10,7 +10,7 @@ import java.util.Map;
  * bond level editing instructions to be applied to imported
  * chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompBondEdit extends BaseCategory {
     public PdbxChemCompBondEdit(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DEPOSITION_MESSAGE_INFO category record internal messages
  * within the depositon and annotation system.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepositionMessageInfo extends BaseCategory {
     public PdbxDepositionMessageInfo(String name, Map<String, Column> columns) {
         super(name, columns);

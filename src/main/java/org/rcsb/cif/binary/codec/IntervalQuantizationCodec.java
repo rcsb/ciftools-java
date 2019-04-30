@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
  * }
  * Example
  * [0.5, 1, 1.5, 2, 3, 1.345 ]
- * ---IntervalQuantization--->
+ * ---IntervalQuantization---&gt;
  * { min = 1, max = 2, numSteps = 3 } [0, 0, 1, 2, 2, 1]
  * </pre>
  */

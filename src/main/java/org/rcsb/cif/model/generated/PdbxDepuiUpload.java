@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DEPUI_UPLOAD category record the
  * details of uploaded data files.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepuiUpload extends BaseCategory {
     public PdbxDepuiUpload(String name, Map<String, Column> columns) {
         super(name, columns);

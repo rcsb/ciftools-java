@@ -14,7 +14,7 @@ import java.util.Map;
  * organism for gene expression and items pertaining to the actual
  * producing organism (plasmid).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntitySrcGen extends BaseCategory {
     public EntitySrcGen(String name, Map<String, Column> columns) {
         super(name, columns);

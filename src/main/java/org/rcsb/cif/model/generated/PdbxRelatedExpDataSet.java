@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_RELATED_DATA_SET category record references
  * to experimental data sets related to the entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRelatedExpDataSet extends BaseCategory {
     public PdbxRelatedExpDataSet(String name, Map<String, Column> columns) {
         super(name, columns);

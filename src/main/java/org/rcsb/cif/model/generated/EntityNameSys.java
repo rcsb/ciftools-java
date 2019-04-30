@@ -12,7 +12,7 @@ import java.util.Map;
  * entity name may not be the same as the name of the biological
  * structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntityNameSys extends BaseCategory {
     public EntityNameSys(String name, Map<String, Column> columns) {
         super(name, columns);

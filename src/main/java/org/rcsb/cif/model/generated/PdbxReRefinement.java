@@ -9,7 +9,7 @@ import java.util.Map;
  * Describes the origin of the experimental data used in this
  * entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReRefinement extends BaseCategory {
     public PdbxReRefinement(String name, Map<String, Column> columns) {
         super(name, columns);

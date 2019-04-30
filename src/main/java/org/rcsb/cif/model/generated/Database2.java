@@ -19,7 +19,7 @@ import java.util.Map;
  * cannot be changed once they have been adopted, a new category
  * had to be created.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Database2 extends BaseCategory {
     public Database2(String name, Map<String, Column> columns) {
         super(name, columns);

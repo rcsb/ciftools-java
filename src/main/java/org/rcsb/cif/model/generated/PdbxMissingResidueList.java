@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Provides a place-holder for PDB REMARK 465 data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxMissingResidueList extends BaseCategory {
     public PdbxMissingResidueList(String name, Map<String, Column> columns) {
         super(name, columns);

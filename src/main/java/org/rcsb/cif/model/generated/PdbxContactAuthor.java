@@ -12,7 +12,7 @@ import java.util.Map;
  * information to a greater degree than the standard AUDIT_CONTACT_AUTHOR
  * category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxContactAuthor extends BaseCategory {
     public PdbxContactAuthor(String name, Map<String, Column> columns) {
         super(name, columns);

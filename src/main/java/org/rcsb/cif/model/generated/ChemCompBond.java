@@ -11,7 +11,7 @@ import java.util.Map;
  * may be specified as bond orders, as a distance between the two
  * atoms, or both.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompBond extends BaseCategory {
     public ChemCompBond(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * of related mmCIF categories.  Views provide a vehicle for
  * presenting different logical arrangements of dictionary contents.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxViewCategoryGroup extends BaseCategory {
     public PdbxViewCategoryGroup(String name, Map<String, Column> columns) {
         super(name, columns);

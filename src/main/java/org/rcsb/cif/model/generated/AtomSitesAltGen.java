@@ -10,7 +10,7 @@ import java.util.Map;
  * about the interpretation of multiple conformations in the
  * structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSitesAltGen extends BaseCategory {
     public AtomSitesAltGen(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -12,7 +12,7 @@ import java.util.Map;
  * PDBX_ENTITY_SRC_GEN_CLONE_RECOMBINATION.  If only summary information is
  * provided data in the later two categories may be omitted.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenClone extends BaseCategory {
     public PdbxEntitySrcGenClone(String name, Map<String, Column> columns) {
         super(name, columns);

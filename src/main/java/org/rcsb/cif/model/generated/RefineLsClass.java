@@ -10,7 +10,7 @@ import java.util.Map;
  * about the reflections used for the structure refinement
  * for each reflection class separately.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineLsClass extends BaseCategory {
     public RefineLsClass(String name, Map<String, Column> columns) {
         super(name, columns);

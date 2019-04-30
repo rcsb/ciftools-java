@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Constituents of buffer in sample
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxBufferComponents extends BaseCategory {
     public PdbxBufferComponents(String name, Map<String, Column> columns) {
         super(name, columns);

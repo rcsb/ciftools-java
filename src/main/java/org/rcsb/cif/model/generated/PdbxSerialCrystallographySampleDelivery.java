@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_SAMPLE_DELIVERY category
  * record general details about the sample delivery
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSerialCrystallographySampleDelivery extends BaseCategory {
     public PdbxSerialCrystallographySampleDelivery(String name, Map<String, Column> columns) {
         super(name, columns);

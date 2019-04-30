@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the REFINE category record details about the
  * structure-refinement parameters.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Refine extends BaseCategory {
     public Refine(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -127,13 +127,13 @@ public class Refine extends BaseCategory {
      * The correlation coefficient is scale-independent and gives
      * an idea of the quality of the refined model.
      * 
-     * sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)
+     * sum~i~(Fo~i~ Fc~i~ - &lt;Fo&gt;&lt;Fc&gt;)
      * R~corr~ = ------------------------------------------------------------
-     * SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}
+     * SQRT{sum~i~(Fo~i~)^2^-&lt;Fo&gt;^2^} SQRT{sum~i~(Fc~i~)^2^-&lt;Fc&gt;^2^}
      * 
      * Fo = observed structure factors
      * Fc = calculated structure factors
-     * <>   denotes average value
+     * &lt;&gt;   denotes average value
      * 
      * summation is over reflections included in the refinement
      * @return SingleRowFloatColumn
@@ -151,13 +151,13 @@ public class Refine extends BaseCategory {
      * The correlation coefficient is scale-independent and gives
      * an idea of the quality of the refined model.
      * 
-     * sum~i~(Fo~i~ Fc~i~ - <Fo><Fc>)
+     * sum~i~(Fo~i~ Fc~i~ - &lt;Fo&gt;&lt;Fc&gt;)
      * R~corr~ = ------------------------------------------------------------
-     * SQRT{sum~i~(Fo~i~)^2^-<Fo>^2^} SQRT{sum~i~(Fc~i~)^2^-<Fc>^2^}
+     * SQRT{sum~i~(Fo~i~)^2^-&lt;Fo&gt;^2^} SQRT{sum~i~(Fc~i~)^2^-&lt;Fc&gt;^2^}
      * 
      * Fo  = observed structure factors
      * Fc  = calculated structure factors
-     * <>    denotes average value
+     * &lt;&gt;    denotes average value
      * 
      * summation is over reflections not included
      * in the refinement (free reflections)
@@ -280,10 +280,10 @@ public class Refine extends BaseCategory {
      * data name is present, is 'inapplicable', represented by '.' .
      * 
      * For noncentrosymmetric structures the value must lie in the
-     * 99.97% Gaussian confidence interval  -3u =< x =< 1 + 3u and a
+     * 99.97% Gaussian confidence interval  -3u =&lt; x =&lt; 1 + 3u and a
      * standard uncertainty (estimated standard deviation) u must
      * be supplied. The item range of [0.0:1.0] is correctly
-     * interpreted as meaning (0.0 - 3u) =< x =< (1.0 + 3u).
+     * interpreted as meaning (0.0 - 3u) =&lt; x =&lt; (1.0 + 3u).
      * 
      * Ref: Flack, H. D. (1983). Acta Cryst. A39, 876-881.
      * @return SingleRowFloatColumn
@@ -309,10 +309,10 @@ public class Refine extends BaseCategory {
      * 
      * 
      * The value must lie in the 99.97% Gaussian confidence interval
-     * -1 -3u =< \h =< 1 + 3u and a standard uncertainty (estimated
+     * -1 -3u =&lt; \h =&lt; 1 + 3u and a standard uncertainty (estimated
      * standard deviation) u must be supplied. The item range of
      * [-1.0, 1.0] is correctly interpreted as meaning
-     * (-1.0 - 3u) =< \h =< (1.0 + 3u).
+     * (-1.0 - 3u) =&lt; \h =&lt; (1.0 + 3u).
      * 
      * Ref: Rogers, D. (1981). Acta Cryst. A37, 734-741.
      * @return SingleRowFloatColumn
@@ -367,7 +367,7 @@ public class Refine extends BaseCategory {
      * the 'rho' value. Note that the magnitude of these values is
      * usually of the order of 10000.
      * 
-     * Ref:  Becker, P. J. & Coppens, P. (1974). Acta Cryst. A30,
+     * Ref:  Becker, P. J. &amp; Coppens, P. (1974). Acta Cryst. A30,
      * 129-47, 148-153.
      * Zachariasen, W. H. (1967). Acta Cryst. 23, 558-564.
      * Larson, A. C. (1967). Acta Cryst. 23, 664-665.
@@ -422,7 +422,7 @@ public class Refine extends BaseCategory {
      * applied, the multiple coefficients cannot be contained in
      * *_extinction_coef and must be listed in _refine.details.
      * 
-     * Ref: Becker, P. J. & Coppens, P. (1974). Acta Cryst. A30,
+     * Ref: Becker, P. J. &amp; Coppens, P. (1974). Acta Cryst. A30,
      * 129-147, 148-153.
      * Zachariasen, W. H. (1967). Acta Cryst. 23, 558- 564.
      * Larson, A. C. (1967). Acta Cryst. 23, 664-665.
@@ -1492,7 +1492,7 @@ public class Refine extends BaseCategory {
      * Dcal is the calculated  electron density,
      * summation is for all the grid points
      * 
-     * Ref: Branden, C.I. & Jones, T.A. (1990).  Nature, 343, 687-689
+     * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxRealSpaceR() {
@@ -1506,11 +1506,11 @@ public class Refine extends BaseCategory {
      * densities of (2Fobs-Fcalc) map - "Robs" and the model
      * map (Fcalc) - "Rcalc" :
      * 
-     * D_corr =  <Robs><Rcalc>/sqrt(<Robs**2><Rcalc**2>)
+     * D_corr =  &lt;Robs&gt;&lt;Rcalc&gt;/sqrt(&lt;Robs**2&gt;&lt;Rcalc**2&gt;)
      * 
-     * where <Robs> is the mean of "observed" densities of all atoms
+     * where &lt;Robs&gt; is the mean of "observed" densities of all atoms
      * 
-     * <Rcalc> is the mean of "calculated" densities of
+     * &lt;Rcalc&gt; is the mean of "calculated" densities of
      * all atoms.
      * 
      * The value of density for some atom from map R(x) is:
@@ -1526,7 +1526,7 @@ public class Refine extends BaseCategory {
      * from the center of the atom less than the Radius_limit.
      * For all atoms Radius_limit = 2.5 A.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getPdbxDensityCorrelation() {
@@ -1766,7 +1766,7 @@ public class Refine extends BaseCategory {
      * Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]
      * sigma~{E;exp}~  = experimental uncertainties of normalized
      * structure factors
-     * sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)
+     * sigma~A~        = &lt;cos 2 pi s delta~x~&gt; SQRT(Sigma~P~/Sigma~N~)
      * estimated using maximum likelihood
      * Sigma~P~        = sum~{atoms in model}~ f^2^
      * Sigma~N~        = sum~{atoms in crystal}~ f^2^
@@ -1778,10 +1778,10 @@ public class Refine extends BaseCategory {
      * 
      * Ref: (sigma~A~ estimation) "Refinement of macromolecular
      * structures by the maximum-likelihood method",
-     * Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).
+     * Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
      * 
-     * (SU B estimation) Murshudov, G. N. & Dodson,
+     * (SU B estimation) Murshudov, G. N. &amp; Dodson,
      * E. J. (1997). Simplified error estimation a la
      * Cruickshank in macromolecular crystallography.
      * CCP4 Newsletter on Protein Crystallography, No. 33,
@@ -1818,7 +1818,7 @@ public class Refine extends BaseCategory {
      * Sigma          = (sigma~{E;exp}~)^2^ + epsilon [1-(sigma~A~)^2^]
      * sigma~{E;exp}~  = experimental uncertainties of normalized
      * structure factors
-     * sigma~A~        = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)
+     * sigma~A~        = &lt;cos 2 pi s delta~x~&gt; SQRT(Sigma~P~/Sigma~N~)
      * estimated using maximum likelihood
      * Sigma~P~        = sum~{atoms in model}~ f^2^
      * Sigma~N~        = sum~{atoms in crystal}~ f^2^
@@ -1830,10 +1830,10 @@ public class Refine extends BaseCategory {
      * 
      * Ref: (sigma_A estimation) "Refinement of macromolecular
      * structures by the maximum-likelihood method",
-     * Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).
+     * Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
      * 
-     * (SU ML estimation) Murshudov, G. N. & Dodson,
+     * (SU ML estimation) Murshudov, G. N. &amp; Dodson,
      * E. J. (1997). Simplified error estimation a la
      * Cruickshank in macromolecular crystallography.
      * CCP4 Newsletter on Protein Crystallography, No. 33,
@@ -1871,7 +1871,7 @@ public class Refine extends BaseCategory {
      * 
      * Ref: Cruickshank, D. W. J. (1999). Acta Cryst. D55, 583-601.
      * 
-     * Murshudov, G. N. & Dodson,
+     * Murshudov, G. N. &amp; Dodson,
      * E. J. (1997). Simplified error estimation a la
      * Cruickshank in macromolecular crystallography.
      * CCP4 Newsletter on Protein Crystallography, No. 33,
@@ -1908,7 +1908,7 @@ public class Refine extends BaseCategory {
      * 
      * Ref: Cruickshank, D. W. J. (1999). Acta Cryst. D55, 583-601.
      * 
-     * Murshudov, G. N. & Dodson,
+     * Murshudov, G. N. &amp; Dodson,
      * E. J. (1997). Simplified error estimation a la
      * Cruickshank in macromolecular crystallography.
      * CCP4 Newsletter on Protein Crystallography, No. 33,
@@ -1935,7 +1935,7 @@ public class Refine extends BaseCategory {
      * X              = sigma~A~ |E~o~| |E~c~|/SIGMA
      * E~o~, E~c~     = normalized observed and calculated structure
      * factors
-     * sigma~A~       = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)
+     * sigma~A~       = &lt;cos 2 pi s delta~x~&gt; SQRT(Sigma~P~/Sigma~N~)
      * estimated using maximum likelihood
      * Sigma~P~       = sum~{atoms in model}~ f^2^
      * Sigma~N~       = sum~{atoms in crystal}~ f^2^
@@ -1946,7 +1946,7 @@ public class Refine extends BaseCategory {
      * structure factors
      * epsilon       = multiplicity of the diffracting plane
      * 
-     * Ref: Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).
+     * Ref: Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
      * @return SingleRowFloatColumn
      */
@@ -1968,7 +1968,7 @@ public class Refine extends BaseCategory {
      * X              = sigma~A~ |E~o~| |E~c~|/SIGMA
      * E~o~, E~c~     = normalized observed and calculated structure
      * factors
-     * sigma~A~       = <cos 2 pi s delta~x~> SQRT(Sigma~P~/Sigma~N~)
+     * sigma~A~       = &lt;cos 2 pi s delta~x~&gt; SQRT(Sigma~P~/Sigma~N~)
      * estimated using maximum likelihood
      * Sigma~P~       = sum~{atoms in model}~ f^2^
      * Sigma~N~       = sum~{atoms in crystal}~ f^2^
@@ -1979,7 +1979,7 @@ public class Refine extends BaseCategory {
      * structure factors
      * epsilon       = multiplicity of the diffracting plane
      * 
-     * Ref: Murshudov, G. N., Vagin, A. A. & Dodson, E. J. (1997).
+     * Ref: Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
      * @return SingleRowFloatColumn
      */
@@ -2129,7 +2129,7 @@ public class Refine extends BaseCategory {
      * E_o            = normalized structure factors
      * sigma_{E;exp}  = experimental uncertainties of normalized
      * structure factors
-     * sigma_A        = <cos 2 pi s delta_x> SQRT(Sigma_P/Sigma_N)
+     * sigma_A        = &lt;cos 2 pi s delta_x&gt; SQRT(Sigma_P/Sigma_N)
      * estimated using maximum likelihood
      * Sigma_P        = sum_{atoms in model} f^2
      * Sigma_N        = sum_{atoms in crystal} f^2
@@ -2151,7 +2151,7 @@ public class Refine extends BaseCategory {
      * Reference for ESU_ML estimation:
      * 
      * "Simplified error estimation a la Cruickshank in macromolecular
-     * crystallography",  Murshudov G.N. & Dodson E.J.  in the "CCP4
+     * crystallography",  Murshudov G.N. &amp; Dodson E.J.  in the "CCP4
      * Newsletter on protein crystallography" Number 33 ed. M.Winn
      * @return SingleRowFloatColumn
      */
@@ -2179,7 +2179,7 @@ public class Refine extends BaseCategory {
      * 
      * sigma_{E;exp}  = experimental uncertainties of normalized
      * structure factors
-     * sigma_A        = <cos 2 pi s delta_x> SQRT(Sigma_P/Sigma_N)
+     * sigma_A        = &lt;cos 2 pi s delta_x&gt; SQRT(Sigma_P/Sigma_N)
      * estimated using maximum likelihood
      * Sigma_P        = sum_{atoms in model} f^2
      * Sigma_N        = sum_{atoms in crystal} f^2
@@ -2201,7 +2201,7 @@ public class Refine extends BaseCategory {
      * Reference for ESU_ML estimation:
      * 
      * Simplified error estimation a la Cruickshank in macromolecular
-     * crystallograpy  Murshudov G.N. & Dodson E.J.  in the "CCP4
+     * crystallograpy  Murshudov G.N. &amp; Dodson E.J.  in the "CCP4
      * Newsletter on protein crystallography" Number 33 ed. M.Winn
      * @return SingleRowFloatColumn
      */

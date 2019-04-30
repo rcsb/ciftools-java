@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_POST_PROCESS_DETAILS record
  * the status of post-processed entries.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPostProcessStatus extends BaseCategory {
     public PdbxPostProcessStatus(String name, Map<String, Column> columns) {
         super(name, columns);

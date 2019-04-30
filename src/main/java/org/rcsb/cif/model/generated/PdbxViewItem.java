@@ -12,7 +12,7 @@ import java.util.Map;
  * view category.  The role of the item in the view category
  * can be designated as mandatory, optional, or hidden.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxViewItem extends BaseCategory {
     public PdbxViewItem(String name, Map<String, Column> columns) {
         super(name, columns);

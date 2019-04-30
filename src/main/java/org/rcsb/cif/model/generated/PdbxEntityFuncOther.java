@@ -10,7 +10,7 @@ import java.util.Map;
  * characteristics of protein oligonucleotide binding in which
  * the binding mode is not classified.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityFuncOther extends BaseCategory {
     public PdbxEntityFuncOther(String name, Map<String, Column> columns) {
         super(name, columns);

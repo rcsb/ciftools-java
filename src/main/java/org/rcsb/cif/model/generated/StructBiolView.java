@@ -10,7 +10,7 @@ import java.util.Map;
  * about how to draw and annotate an informative view of the
  * biological structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructBiolView extends BaseCategory {
     public StructBiolView(String name, Map<String, Column> columns) {
         super(name, columns);

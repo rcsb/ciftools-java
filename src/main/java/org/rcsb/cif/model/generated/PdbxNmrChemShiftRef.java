@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the pdbx_nmr_chem_shift_ref category provide the chemical shift referencing values used in assigning the chemical shift positions for peaks in spectral peak lists and assigned atom chemical shifts.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrChemShiftRef extends BaseCategory {
     public PdbxNmrChemShiftRef(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Information about the final image classification
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmFinalClassification extends BaseCategory {
     public EmFinalClassification(String name, Map<String, Column> columns) {
         super(name, columns);

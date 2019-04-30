@@ -10,7 +10,7 @@ import java.util.Map;
  * lists the methods of fitting atomic coordinates from a PDB file
  * into a 3d-em volume map file
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Em3dFittingList extends BaseCategory {
     public Em3dFittingList(String name, Map<String, Column> columns) {
         super(name, columns);

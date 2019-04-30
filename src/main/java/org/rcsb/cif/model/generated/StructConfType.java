@@ -10,7 +10,7 @@ import java.util.Map;
  * about the criteria used to identify backbone conformations of a
  * segment of polymer.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructConfType extends BaseCategory {
     public StructConfType(String name, Map<String, Column> columns) {
         super(name, columns);

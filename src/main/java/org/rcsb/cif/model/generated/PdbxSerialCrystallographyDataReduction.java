@@ -10,7 +10,7 @@ import java.util.Map;
  * details about data processing that are unique to XFEL experiments.
  * These will compliment data recorded in category pdbx_diffrn_merge_stat.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
     public PdbxSerialCrystallographyDataReduction(String name, Map<String, Column> columns) {
         super(name, columns);

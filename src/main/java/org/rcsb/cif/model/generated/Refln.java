@@ -15,7 +15,7 @@ import java.util.Map;
  * The REFLNS data items specify the parameters that apply to all
  * reflections. The REFLNS data items are not looped.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Refln extends BaseCategory {
     public Refln(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -591,7 +591,7 @@ public class Refln extends BaseCategory {
      * The isomorphous Hendrickson-Lattman coefficient A~iso~ for this
      * reflection.
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return FloatColumn
      */
@@ -604,7 +604,7 @@ public class Refln extends BaseCategory {
      * The isomorphous Hendrickson-Lattman coefficient B~iso~ for this
      * reflection.
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return FloatColumn
      */
@@ -617,7 +617,7 @@ public class Refln extends BaseCategory {
      * The isomorphous Hendrickson-Lattman coefficient C~iso~ for this
      * reflection.
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return FloatColumn
      */
@@ -630,7 +630,7 @@ public class Refln extends BaseCategory {
      * The isomorphous Hendrickson-Lattman coefficient D~iso~ for this
      * reflection.
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return FloatColumn
      */

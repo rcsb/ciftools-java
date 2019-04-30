@@ -11,7 +11,7 @@ import java.util.Map;
  * to complete legacy REMARK 3 refinement templates in PDB
  * format files.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefine extends BaseCategory {
     public PdbxRefine(String name, Map<String, Column> columns) {
         super(name, columns);

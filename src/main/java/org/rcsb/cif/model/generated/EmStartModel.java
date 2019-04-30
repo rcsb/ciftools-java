@@ -9,7 +9,7 @@ import java.util.Map;
  * The startup model employed to begin refinement of the parameters for
  * a 3DEM reconstruction
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmStartModel extends BaseCategory {
     public EmStartModel(String name, Map<String, Column> columns) {
         super(name, columns);

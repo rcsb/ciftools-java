@@ -12,7 +12,7 @@ import java.util.Map;
  * Scaling groups might, for example, correspond to each film in a
  * multi-film data set or each crystal in a multi-crystal data set.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnScaleGroup extends BaseCategory {
     public DiffrnScaleGroup(String name, Map<String, Column> columns) {
         super(name, columns);

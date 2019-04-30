@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the pdbx_entity_instance_feature category records
  * special features of selected entity instances.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityInstanceFeature extends BaseCategory {
     public PdbxEntityInstanceFeature(String name, Map<String, Column> columns) {
         super(name, columns);

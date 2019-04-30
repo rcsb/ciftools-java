@@ -14,7 +14,7 @@ import java.util.Map;
  * details of the method of calculation are given using data items
  * in the STRUCT_MON_DETAILS category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructMonProt extends BaseCategory {
     public StructMonProt(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -178,10 +178,10 @@ public class StructMonProt extends BaseCategory {
      * described by Jones et al. (1991),  evaluated over all atoms
      * in the monomer.
      * 
-     * sum|p~obs~ - <p~obs~>| * sum|p~calc~ - <p~calc~>|
+     * sum|p~obs~ - &lt;p~obs~&gt;| * sum|p~calc~ - &lt;p~calc~&gt;|
      * RSCC = -------------------------------------------------
-     * [ sum|p~obs~  - <p~obs~> |^2^
-     * * sum|p~calc~ - <p~calc~>|^2^ ]^1/2^
+     * [ sum|p~obs~  - &lt;p~obs~&gt; |^2^
+     * * sum|p~calc~ - &lt;p~calc~&gt;|^2^ ]^1/2^
      * 
      * p~obs~  = the density in an 'experimental' map
      * p~calc~ = the density in a 'calculated' map
@@ -189,12 +189,12 @@ public class StructMonProt extends BaseCategory {
      * sum is taken over the specified grid points
      * 
      * Details of how these maps were calculated should be given
-     * in _struct_mon_details.RSCC. < > indicates an average and the
+     * in _struct_mon_details.RSCC. &lt; &gt; indicates an average and the
      * sums are taken over all map grid  points near the relevant atoms.
      * The radius for including grid points in the calculation should
      * also be given in _struct_mon_details.RSCC.
      * 
-     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. & Kjeldgaard, M.
+     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
      * @return SingleRowFloatColumn
      */
@@ -208,10 +208,10 @@ public class StructMonProt extends BaseCategory {
      * described by Jones et al. (1991), evaluated over all atoms
      * in the main chain of the monomer.
      * 
-     * sum|p~obs~ - <p~obs~>| * sum|p~calc~ - <p~calc~>|
+     * sum|p~obs~ - &lt;p~obs~&gt;| * sum|p~calc~ - &lt;p~calc~&gt;|
      * RSCC = -------------------------------------------------
-     * [ sum|p~obs~  - <p~obs~> |^2^
-     * * sum|p~calc~ - <p~calc~>|^2^ ]^1/2^
+     * [ sum|p~obs~  - &lt;p~obs~&gt; |^2^
+     * * sum|p~calc~ - &lt;p~calc~&gt;|^2^ ]^1/2^
      * 
      * p~obs~  = the density in an 'experimental' map
      * p~calc~ = the density in a 'calculated' map
@@ -219,12 +219,12 @@ public class StructMonProt extends BaseCategory {
      * sum is taken over the specified grid points
      * 
      * Details of how these maps were calculated should be given
-     * in _struct_mon_details.RSCC. < > indicates an average and the
+     * in _struct_mon_details.RSCC. &lt; &gt; indicates an average and the
      * sums are taken over all map grid  points near the relevant atoms.
      * The radius for including grid points in the calculation should
      * also be given in _struct_mon_details.RSCC.
      * 
-     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. & Kjeldgaard, M.
+     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
      * @return SingleRowFloatColumn
      */
@@ -238,10 +238,10 @@ public class StructMonProt extends BaseCategory {
      * described by Jones et al. (1991), evaluated over all atoms
      * in the side chain of the monomer.
      * 
-     * sum|p~obs~ - <p~obs~>| * sum|p~calc~ - <p~calc~>|
+     * sum|p~obs~ - &lt;p~obs~&gt;| * sum|p~calc~ - &lt;p~calc~&gt;|
      * RSCC = -------------------------------------------------
-     * [ sum|p~obs~  - <p~obs~> |^2^
-     * * sum|p~calc~ - <p~calc~>|^2^ ]^1/2^
+     * [ sum|p~obs~  - &lt;p~obs~&gt; |^2^
+     * * sum|p~calc~ - &lt;p~calc~&gt;|^2^ ]^1/2^
      * 
      * p~obs~  = the density in an 'experimental' map
      * p~calc~ = the density in a 'calculated' map
@@ -249,12 +249,12 @@ public class StructMonProt extends BaseCategory {
      * sum is taken over the specified grid points
      * 
      * Details of how these maps were calculated should be given
-     * in _struct_mon_details.RSCC. < > indicates an average and the
+     * in _struct_mon_details.RSCC. &lt; &gt; indicates an average and the
      * sums are taken over all map grid  points near the relevant atoms.
      * The radius for including grid points in the calculation should
      * also be given in _struct_mon_details.RSCC.
      * 
-     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. & Kjeldgaard, M.
+     * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
      * @return SingleRowFloatColumn
      */
@@ -264,7 +264,7 @@ public class StructMonProt extends BaseCategory {
     }
 
     /**
-     * The real-space residual RSR, as described by Branden & Jones
+     * The real-space residual RSR, as described by Branden &amp; Jones
      * (1990), evaluated over all atoms in the monomer.
      * 
      * sum|p~obs~ - p~calc~|
@@ -282,7 +282,7 @@ public class StructMonProt extends BaseCategory {
      * points in the calculation should also be given in
      * _struct_mon_details.RSR.
      * 
-     * Ref: Branden, C.-I. & Jones, T. A. (1990). Nature (London), 343,
+     * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
      * @return SingleRowFloatColumn
      */
@@ -292,7 +292,7 @@ public class StructMonProt extends BaseCategory {
     }
 
     /**
-     * The real-space residual RSR, as described by Branden & Jones
+     * The real-space residual RSR, as described by Branden &amp; Jones
      * (1990), evaluated over all atoms in the main chain of the
      * monomer.
      * 
@@ -311,7 +311,7 @@ public class StructMonProt extends BaseCategory {
      * points in the calculation should also be given in
      * _struct_mon_details.RSR.
      * 
-     * Ref: Branden, C.-I. & Jones, T. A. (1990). Nature (London), 343,
+     * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
      * @return SingleRowFloatColumn
      */
@@ -321,7 +321,7 @@ public class StructMonProt extends BaseCategory {
     }
 
     /**
-     * The real-space residual RSR, as described by Branden & Jones
+     * The real-space residual RSR, as described by Branden &amp; Jones
      * (1990), evaluated over all atoms in the side chain of the
      * monomer.
      * 
@@ -340,7 +340,7 @@ public class StructMonProt extends BaseCategory {
      * points in the calculation should also be given in
      * _struct_mon_details.RSR.
      * 
-     * Ref: Branden, C.-I. & Jones, T. A. (1990). Nature (London), 343,
+     * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
      * @return SingleRowFloatColumn
      */

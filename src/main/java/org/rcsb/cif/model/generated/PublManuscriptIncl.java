@@ -11,7 +11,7 @@ import java.util.Map;
  * data names that should be added to the standard request list
  * used by the journal printing software.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PublManuscriptIncl extends BaseCategory {
     public PublManuscriptIncl(String name, Map<String, Column> columns) {
         super(name, columns);

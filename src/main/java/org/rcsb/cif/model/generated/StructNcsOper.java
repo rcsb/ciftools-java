@@ -13,7 +13,7 @@ import java.util.Map;
  * translation vector. Operators need not represent proper
  * rotations.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructNcsOper extends BaseCategory {
     public StructNcsOper(String name, Map<String, Column> columns) {
         super(name, columns);

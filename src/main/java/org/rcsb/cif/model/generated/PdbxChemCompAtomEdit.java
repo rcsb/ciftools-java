@@ -10,7 +10,7 @@ import java.util.Map;
  * atom level editing instructions to be applied to imported
  * chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompAtomEdit extends BaseCategory {
     public PdbxChemCompAtomEdit(String name, Map<String, Column> columns) {
         super(name, columns);

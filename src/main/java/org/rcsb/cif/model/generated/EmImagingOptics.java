@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description of a few specialist optics apparatus
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmImagingOptics extends BaseCategory {
     public EmImagingOptics(String name, Map<String, Column> columns) {
         super(name, columns);

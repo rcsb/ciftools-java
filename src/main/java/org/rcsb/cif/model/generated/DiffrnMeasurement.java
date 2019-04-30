@@ -11,7 +11,7 @@ import java.util.Map;
  * during data measurement and the manner in which the diffraction
  * data were measured.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnMeasurement extends BaseCategory {
     public DiffrnMeasurement(String name, Map<String, Column> columns) {
         super(name, columns);

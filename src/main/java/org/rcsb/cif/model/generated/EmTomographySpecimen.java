@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description specimen preparation for imaging using tomography.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmTomographySpecimen extends BaseCategory {
     public EmTomographySpecimen(String name, Map<String, Column> columns) {
         super(name, columns);

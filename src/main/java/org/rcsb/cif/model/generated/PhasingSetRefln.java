@@ -12,7 +12,7 @@ import java.util.Map;
  * data sets; _phasing_set_refln.set_id indicates the data set
  * to which a given record corresponds.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingSetRefln extends BaseCategory {
     public PhasingSetRefln(String name, Map<String, Column> columns) {
         super(name, columns);

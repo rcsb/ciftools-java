@@ -10,7 +10,7 @@ import java.util.Map;
  * beginning and ending points of polypeptide chain segments
  * that form all or part of a domain.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDomainRange extends BaseCategory {
     public PdbxDomainRange(String name, Map<String, Column> columns) {
         super(name, columns);

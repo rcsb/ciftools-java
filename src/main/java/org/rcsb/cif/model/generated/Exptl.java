@@ -10,7 +10,7 @@ import java.util.Map;
  * experimental work prior to the intensity measurements and
  * details about the absorption-correction technique employed.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Exptl extends BaseCategory {
     public Exptl(String name, Map<String, Column> columns) {
         super(name, columns);

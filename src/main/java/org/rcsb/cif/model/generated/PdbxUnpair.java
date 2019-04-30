@@ -12,7 +12,7 @@ import java.util.Map;
  * The records about Watson-Crick base pairing depend on these
  * records.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxUnpair extends BaseCategory {
     public PdbxUnpair(String name, Map<String, Column> columns) {
         super(name, columns);

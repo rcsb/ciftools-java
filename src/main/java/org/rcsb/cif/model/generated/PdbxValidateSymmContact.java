@@ -15,7 +15,7 @@ import java.util.Map;
  * 2.2 Angstroms is used. For contacts involving a hydrogen atom
  * a cutoff of 1.6Angstrom is used.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidateSymmContact extends BaseCategory {
     public PdbxValidateSymmContact(String name, Map<String, Column> columns) {
         super(name, columns);

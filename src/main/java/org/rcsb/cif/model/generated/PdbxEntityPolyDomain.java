@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_POLY_DOMAIN category specify domains
  * of monomers within a polymer.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityPolyDomain extends BaseCategory {
     public PdbxEntityPolyDomain(String name, Map<String, Column> columns) {
         super(name, columns);

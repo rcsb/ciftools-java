@@ -1,4 +1,4 @@
-package org.rcsb.cif.internal.generator;
+package org.rcsb.cif.generator;
 
 class ListCol extends Col {
     private final String subType;

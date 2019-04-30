@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DATA_PROCESSING_STATUS category record
  * data processing instructions for workflow processing tasks.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDataProcessingStatus extends BaseCategory {
     public PdbxDataProcessingStatus(String name, Map<String, Column> columns) {
         super(name, columns);

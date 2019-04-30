@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the pdbx_chem_comp_subcomponent_entity_list category
  * list the constituent chemical entities and entity features in this chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompSubcomponentEntityList extends BaseCategory {
     public PdbxChemCompSubcomponentEntityList(String name, Map<String, Column> columns) {
         super(name, columns);

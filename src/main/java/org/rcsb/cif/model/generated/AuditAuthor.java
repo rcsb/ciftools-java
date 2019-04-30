@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the AUDIT_AUTHOR category record details about
  * the author(s) of the data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AuditAuthor extends BaseCategory {
     public AuditAuthor(String name, Map<String, Column> columns) {
         super(name, columns);

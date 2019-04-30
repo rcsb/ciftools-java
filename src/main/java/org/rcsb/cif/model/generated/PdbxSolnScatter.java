@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SOLN_SCATTER category record details about a
  * solution scattering experiment
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSolnScatter extends BaseCategory {
     public PdbxSolnScatter(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -178,21 +178,21 @@ public class PdbxSolnScatter extends BaseCategory {
      * relative masses of the protein(s) studied when referenced
      * against a standard.
      * 
-     * see: O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * see: O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
      * 
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
      * 
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMeanGuinerRadius() {
@@ -224,19 +224,19 @@ public class PdbxSolnScatter extends BaseCategory {
      * against a standard.
      * 
      * see:
-     * O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMeanGuinerRadiusEsd() {
@@ -268,19 +268,19 @@ public class PdbxSolnScatter extends BaseCategory {
      * against a standard.
      * 
      * see:
-     * O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMinMeanCrossSectionalRadiiGyration() {
@@ -313,20 +313,20 @@ public class PdbxSolnScatter extends BaseCategory {
      * against a standard.
      * 
      * see:
-     * O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
      * 
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMinMeanCrossSectionalRadiiGyrationEsd() {
@@ -357,19 +357,19 @@ public class PdbxSolnScatter extends BaseCategory {
      * against a standard.
      * 
      * see:
-     * O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMaxMeanCrossSectionalRadiiGyration() {
@@ -402,19 +402,19 @@ public class PdbxSolnScatter extends BaseCategory {
      * against a standard.
      * 
      * see:
-     * O.Glatter & O.Kratky, (1982). Editors of "Small angle
+     * O.Glatter &amp; O.Kratky, (1982). Editors of "Small angle
      * X-ray Scattering, Academic Press, New York.
      * O.Kratky. (1963). X-ray small angle scattering with
      * substances of biological interest in diluted solutions.
      * Prog. Biophys. Chem., 13, 105-173.
-     * G.D.Wignall & F.S.Bates, (1987). The small-angle approximation
+     * G.D.Wignall &amp; F.S.Bates, (1987). The small-angle approximation
      * of X-ray and neutron scatter from rigid rods of non-uniform
      * cross section and finite length. J.Appl. Crystallog., 18, 452-460.
      * 
      * If the structure is elongated, the mean radius of gyration
      * of the cross-sectional structure R_XS  and the mean cross sectional
-     * intensity at zero angle [I(Q).Q]_Q->0 is obtained from
-     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q->0 - ((R_XS)^2Q^2)/2
+     * intensity at zero angle [I(Q).Q]_Q-&gt;0 is obtained from
+     * ln[I(Q).Q] = ln[l(Q).(Q)]_Q-&gt;0 - ((R_XS)^2Q^2)/2
      * @return FloatColumn
      */
     public FloatColumn getMaxMeanCrossSectionalRadiiGyrationEsd() {
@@ -432,7 +432,7 @@ public class PdbxSolnScatter extends BaseCategory {
      * 
      * The length should also be given by
      * 
-     * L = pi I(0) / [ I(Q).Q]_Q->0
+     * L = pi I(0) / [ I(Q).Q]_Q-&gt;0
      * @return StrColumn
      */
     public StrColumn getProteinLength() {

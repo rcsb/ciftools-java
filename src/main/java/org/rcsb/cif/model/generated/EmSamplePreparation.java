@@ -10,7 +10,7 @@ import java.util.Map;
  * record details of sample conditions prior to and upon loading
  * onto grid support.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmSamplePreparation extends BaseCategory {
     public EmSamplePreparation(String name, Map<String, Column> columns) {
         super(name, columns);

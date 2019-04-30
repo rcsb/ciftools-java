@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_DETECTOR category record details
  * of the image detector type.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmDetector extends BaseCategory {
     public EmDetector(String name, Map<String, Column> columns) {
         super(name, columns);

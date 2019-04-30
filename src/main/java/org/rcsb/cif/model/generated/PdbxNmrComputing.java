@@ -11,7 +11,7 @@ import java.util.Map;
  * structure calculations and refinement. The description should include
  * both the name of the software and the version used.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrComputing extends BaseCategory {
     public PdbxNmrComputing(String name, Map<String, Column> columns) {
         super(name, columns);

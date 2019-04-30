@@ -10,7 +10,7 @@ import java.util.Map;
  * details about the individual terms of the function minimized
  * during refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineFunctMinimized extends BaseCategory {
     public RefineFunctMinimized(String name, Map<String, Column> columns) {
         super(name, columns);

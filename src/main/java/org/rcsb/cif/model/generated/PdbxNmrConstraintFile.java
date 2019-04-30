@@ -10,7 +10,7 @@ import java.util.Map;
  * Items in the pdbx_nmr_constraint_file category record the name of the constraint file, the software used
  * to calculate conformers with the constraint file, and the characteristics of the constraints in the constraint file.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrConstraintFile extends BaseCategory {
     public PdbxNmrConstraintFile(String name, Map<String, Column> columns) {
         super(name, columns);

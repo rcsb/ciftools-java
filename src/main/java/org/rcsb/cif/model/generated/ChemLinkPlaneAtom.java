@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_LINK_PLANE_ATOM category enumerate the
  * atoms in a plane in a link between two chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkPlaneAtom extends BaseCategory {
     public ChemLinkPlaneAtom(String name, Map<String, Column> columns) {
         super(name, columns);

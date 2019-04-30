@@ -10,7 +10,7 @@ import java.util.Map;
  * report the content groups associated with a PDBX_AUDIT_REVISION_HISTORY
  * record.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAuditRevisionGroup extends BaseCategory {
     public PdbxAuditRevisionGroup(String name, Map<String, Column> columns) {
         super(name, columns);

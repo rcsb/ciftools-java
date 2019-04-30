@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_UPLOAD_DEPOSITOR_INFO category record
  * details of the uploaded files related to depositor provided chemical assignments.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompUploadDepositorInfo extends BaseCategory {
     public PdbxChemCompUploadDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

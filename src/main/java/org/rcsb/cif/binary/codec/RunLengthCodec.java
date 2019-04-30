@@ -20,7 +20,7 @@ import java.util.LinkedList;
  * }
  * Example
  * [1, 1, 1, 2, 3, 3]
- * ---RunLength--->
+ * ---RunLength---&gt;
  * { srcSize = 6 } [1, 3, 2, 1, 3, 2]
  * </pre>
  */

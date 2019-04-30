@@ -13,7 +13,7 @@ import java.util.Map;
  * The CELL_MEASUREMENT_REFLN data items would in general be used
  * only for diffractometer data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class CellMeasurementRefln extends BaseCategory {
     public CellMeasurementRefln(String name, Map<String, Column> columns) {
         super(name, columns);

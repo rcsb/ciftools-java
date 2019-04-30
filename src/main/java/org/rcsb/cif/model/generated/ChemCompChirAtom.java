@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_COMP_CHIR_ATOM category enumerate the
  * atoms bonded to a chiral atom within a chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompChirAtom extends BaseCategory {
     public ChemCompChirAtom(String name, Map<String, Column> columns) {
         super(name, columns);

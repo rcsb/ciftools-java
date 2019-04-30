@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_BIOL_FUNC category record details about
  * the function of a particular biological assembly.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructBiolFunc extends BaseCategory {
     public PdbxStructBiolFunc(String name, Map<String, Column> columns) {
         super(name, columns);

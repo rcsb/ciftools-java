@@ -10,7 +10,7 @@ import java.util.Map;
  * for an isomorphous replacement phasing experiment.broken
  * down into shells of resolution.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMIRShell extends BaseCategory {
     public PhasingMIRShell(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -173,7 +173,7 @@ public class PhasingMIRShell extends BaseCategory {
      * sum is taken over the specified reflections
      * 
      * Ref: Cullis, A. F., Muirhead, H., Perutz, M. F., Rossmann, M. G.
-     * & North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
+     * &amp; North, A. C. T. (1961). Proc. R. Soc. London Ser. A,
      * 265, 15-38.
      * @return FloatColumn
      */
@@ -196,7 +196,7 @@ public class PhasingMIRShell extends BaseCategory {
      * 
      * sum is taken over the specified reflections
      * 
-     * Ref: Kraut, J., Sieker, L. C., High, D. F. & Freer, S. T.
+     * Ref: Kraut, J., Sieker, L. C., High, D. F. &amp; Freer, S. T.
      * (1962). Proc. Natl Acad. Sci. USA, 48, 1417-1424.
      * @return FloatColumn
      */

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_MASK_DEPOSITOR_INFO category record mask parameters
  * that are provided by the depositor
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmMaskDepositorInfo extends BaseCategory {
     public EmMaskDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

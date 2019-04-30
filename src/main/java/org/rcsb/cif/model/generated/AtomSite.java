@@ -15,7 +15,7 @@ import java.util.Map;
  * displacement factors are only used if the corresponding items
  * are not given in the ATOM_SITE_ANISOTROP category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSite extends BaseCategory {
     public AtomSite(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -587,7 +587,7 @@ public class AtomSite extends BaseCategory {
      * a*    = the reciprocal space cell lengths
      * B^ij^ = 8 pi^2^ U^ij^
      * 
-     * Ref: Fischer, R. X. & Tillmanns, E. (1988). Acta Cryst. C44,
+     * Ref: Fischer, R. X. &amp; Tillmanns, E. (1988). Acta Cryst. C44,
      * 775-776.
      * 
      * The IUCr Commission on Nomenclature recommends against the use
@@ -1045,7 +1045,7 @@ public class AtomSite extends BaseCategory {
      * A  = the real space cell lengths
      * a* = the reciprocal space cell lengths
      * 
-     * Ref: Fischer, R. X. & Tillmanns, E. (1988). Acta Cryst. C44,
+     * Ref: Fischer, R. X. &amp; Tillmanns, E. (1988). Acta Cryst. C44,
      * 775-776.
      * @return FloatColumn
      */

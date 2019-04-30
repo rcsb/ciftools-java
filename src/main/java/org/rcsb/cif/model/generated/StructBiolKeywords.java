@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the STRUCT_BIOL_KEYWORDS category record
  * keywords that describe each biological unit.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructBiolKeywords extends BaseCategory {
     public StructBiolKeywords(String name, Map<String, Column> columns) {
         super(name, columns);

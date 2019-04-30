@@ -13,7 +13,7 @@ import java.util.Map;
  * specifications of the components that constitute the asymmetric unit
  * in terms of cartesian transformations of deposited coordinates.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructMsymGen extends BaseCategory {
     public PdbxStructMsymGen(String name, Map<String, Column> columns) {
         super(name, columns);

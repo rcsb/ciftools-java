@@ -10,7 +10,7 @@ import java.util.Map;
  * the 'entity' categories are entered into the database, even though the
  * inhibitor is repeated.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxInhibitorInfo extends BaseCategory {
     public PdbxInhibitorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * covalent bonds that have values which deviate from expected
  * values by more than 6*rmsd.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidateRmsdBond extends BaseCategory {
     public PdbxValidateRmsdBond(String name, Map<String, Column> columns) {
         super(name, columns);

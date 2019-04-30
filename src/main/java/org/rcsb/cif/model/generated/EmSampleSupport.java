@@ -10,7 +10,7 @@ import java.util.Map;
  * of the electron microscope grid type, grid support film and pretreatment
  * of whole before sample is applied
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmSampleSupport extends BaseCategory {
     public EmSampleSupport(String name, Map<String, Column> columns) {
         super(name, columns);

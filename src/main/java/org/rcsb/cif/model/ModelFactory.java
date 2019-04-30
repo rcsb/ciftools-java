@@ -1,7 +1,6 @@
-package org.rcsb.cif.internal;
+package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.*;
 
 import java.io.*;
 import java.lang.reflect.InvocationTargetException;

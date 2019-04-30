@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * The details of the composition of the coordinate model.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxCoordinateModel extends BaseCategory {
     public PdbxCoordinateModel(String name, Map<String, Column> columns) {
         super(name, columns);

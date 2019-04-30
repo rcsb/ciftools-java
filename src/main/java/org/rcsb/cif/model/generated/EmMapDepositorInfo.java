@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_MAP_DEPOSITOR INFO category record map parameters
  * that are provided by the depositor
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmMapDepositorInfo extends BaseCategory {
     public EmMapDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

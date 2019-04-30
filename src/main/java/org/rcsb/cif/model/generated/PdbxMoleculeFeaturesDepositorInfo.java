@@ -10,7 +10,7 @@ import java.util.Map;
  * depositor provided information related to the archival cateogory
  * PDBX_MOLECULE_FEATURES.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxMoleculeFeaturesDepositorInfo extends BaseCategory {
     public PdbxMoleculeFeaturesDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

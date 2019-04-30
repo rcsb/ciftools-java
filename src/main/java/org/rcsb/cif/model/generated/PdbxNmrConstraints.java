@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * This section provides a tabulation of constraint data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrConstraints extends BaseCategory {
     public PdbxNmrConstraints(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -75,7 +75,7 @@ public class PdbxNmrConstraints extends BaseCategory {
     }
 
     /**
-     * The total number of medium range 1<[i-j]<=5 NOE constraints used
+     * The total number of medium range 1&lt;[i-j]&lt;=5 NOE constraints used
      * in the final structure calculation.
      * @return IntColumn
      */
@@ -85,7 +85,7 @@ public class PdbxNmrConstraints extends BaseCategory {
     }
 
     /**
-     * The total number of long range [i-j]>5 NOE constraints used
+     * The total number of long range [i-j]&gt;5 NOE constraints used
      * in the final structure calculation.
      * @return IntColumn
      */

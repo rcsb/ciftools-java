@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate the
  * the linkages between components within the polymer entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityPolyCompLinkList extends BaseCategory {
     public PdbxEntityPolyCompLinkList(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Provides reason a particular assembly in pdbx_struct_assembly is
  * of interest.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructAssemblyAuthClassification extends BaseCategory {
     public PdbxStructAssemblyAuthClassification(String name, Map<String, Column> columns) {
         super(name, columns);

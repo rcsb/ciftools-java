@@ -9,7 +9,7 @@ import java.util.Map;
  * Container category for a list of feature flags associated
  * with each structure entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSummaryFlags extends BaseCategory {
     public PdbxSummaryFlags(String name, Map<String, Column> columns) {
         super(name, columns);

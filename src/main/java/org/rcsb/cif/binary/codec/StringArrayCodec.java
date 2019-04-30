@@ -22,7 +22,7 @@ import java.util.*;
  * }
  * Example
  * ['a','AB','a']
- * ---StringArray--->
+ * ---StringArray---&gt;
  * { stringData = 'aAB', offsets = [0, 1, 3] } [0, 1, 0]
  * </pre>
  */

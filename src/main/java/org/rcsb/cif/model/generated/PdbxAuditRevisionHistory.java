@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_AUDIT_REVISION_HISTORY category record
  * the revision history for a data entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAuditRevisionHistory extends BaseCategory {
     public PdbxAuditRevisionHistory(String name, Map<String, Column> columns) {
         super(name, columns);

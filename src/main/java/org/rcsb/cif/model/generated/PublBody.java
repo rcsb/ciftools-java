@@ -14,7 +14,7 @@ import java.util.Map;
  * each journal will supply a list of the specific items it
  * requires in its Notes for Authors.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PublBody extends BaseCategory {
     public PublBody(String name, Map<String, Column> columns) {
         super(name, columns);

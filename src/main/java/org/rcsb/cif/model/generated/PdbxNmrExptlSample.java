@@ -10,7 +10,7 @@ import java.util.Map;
  * each NMR sample. Each sample is identified by a number and
  * each component in the sample is identified by name.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrExptlSample extends BaseCategory {
     public PdbxNmrExptlSample(String name, Map<String, Column> columns) {
         super(name, columns);

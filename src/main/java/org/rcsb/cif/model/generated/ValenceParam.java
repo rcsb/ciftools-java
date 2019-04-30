@@ -12,7 +12,7 @@ import java.util.Map;
  * is given to the reference (in VALENCE_REF) from which
  * the bond-valence parameters were taken.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ValenceParam extends BaseCategory {
     public ValenceParam(String name, Map<String, Column> columns) {
         super(name, columns);

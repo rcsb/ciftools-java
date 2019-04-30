@@ -954,7 +954,7 @@ public interface Block {
      * projection of the vector between site 3 and site 4. Clockwise
      * torsions are positive, anticlockwise torsions are negative.
      *
-     * Ref: Klyne, W. & Prelog, V. (1960). Experientia, 16, 521-523.
+     * Ref: Klyne, W. &amp; Prelog, V. (1960). Experientia, 16, 521-523.
      * @return GeomTorsion
      */
     org.rcsb.cif.model.generated.GeomTorsion getGeomTorsion();
@@ -2694,7 +2694,7 @@ public interface Block {
      * for main chain atoms as defined by the improper torsion
      * angle describing planarity:
      *
-     * PLANARITY = C(i-1) - CA(i-1) - N(i) - O(i-1) ==> planar < 5
+     * PLANARITY = C(i-1) - CA(i-1) - N(i) - O(i-1) ==&gt; planar &lt; 5
      * as a pseudo torsion
      * @return PdbxValidateMainChainPlane
      */

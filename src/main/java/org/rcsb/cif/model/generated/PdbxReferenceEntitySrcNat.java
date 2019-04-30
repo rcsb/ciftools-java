@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_ENTITY_SRC_NAT category record
  * details of the source from which the entity was obtained.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceEntitySrcNat extends BaseCategory {
     public PdbxReferenceEntitySrcNat(String name, Map<String, Column> columns) {
         super(name, columns);

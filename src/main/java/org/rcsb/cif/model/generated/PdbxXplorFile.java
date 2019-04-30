@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Parameter and topology files used in X-PLOR/CNS refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxXplorFile extends BaseCategory {
     public PdbxXplorFile(String name, Map<String, Column> columns) {
         super(name, columns);

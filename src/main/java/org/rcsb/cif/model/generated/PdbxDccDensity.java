@@ -10,7 +10,7 @@ import java.util.Map;
  * calculated by DCC and various wrapped programs (such as Xtriage,
  * pointless, REFMAC ...).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDccDensity extends BaseCategory {
     public PdbxDccDensity(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -224,7 +224,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <I^2>/<I>^2 calculated by Xtriage using acentric
+     * Value of &lt;I^2&gt;/&lt;I&gt;^2 calculated by Xtriage using acentric
      * reflections.(untwinned: 2.000; perfect twin 1.500).
      * @return FloatColumn
      */
@@ -234,7 +234,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <F>^2/<F^2> calculated by Xtriage using acentric
+     * Value of &lt;F&gt;^2/&lt;F^2&gt; calculated by Xtriage using acentric
      * reflections.(untwinned: 0.785; perfect twin 0.885).
      * @return FloatColumn
      */
@@ -244,7 +244,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <|E^2 - 1|> calculated by Xtriage using acentric
+     * Value of &lt;|E^2 - 1|&gt; calculated by Xtriage using acentric
      * reflections.(untwinned: 0.736; perfect twin 0.541).
      * @return FloatColumn
      */
@@ -254,7 +254,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <|L|> calculated by Xtriage using acentric reflections.
+     * Value of &lt;|L|&gt; calculated by Xtriage using acentric reflections.
      * (untwinned: 0.500; perfect twin: 0.375).
      * @return FloatColumn
      */
@@ -264,7 +264,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <L^2> calculated by Xtriage using acentric reflections.
+     * Value of &lt;L^2&gt; calculated by Xtriage using acentric reflections.
      * (untwinned: 0.333; perfect twin: 0.200).
      * @return FloatColumn
      */
@@ -274,7 +274,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * Value of <L^2> calculated by Pointless using acentric reflections.
+     * Value of &lt;L^2&gt; calculated by Pointless using acentric reflections.
      * (untwinned: 0.333; perfect twin: 0.200).
      * @return FloatColumn
      */
@@ -334,7 +334,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * The <I/SigmaI> at the highest resolution bin calculated by Xtriage.
+     * The &lt;I/SigmaI&gt; at the highest resolution bin calculated by Xtriage.
      * @return FloatColumn
      */
     public FloatColumn getIOverSigIResh() {
@@ -343,8 +343,8 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * The difference of the <I/SigmaI> in the last two points of the
-     * plot of <I/SigmaI> vs resolution (expected to be negative).
+     * The difference of the &lt;I/SigmaI&gt; in the last two points of the
+     * plot of &lt;I/SigmaI&gt; vs resolution (expected to be negative).
      * @return FloatColumn
      */
     public FloatColumn getIOverSigIDiff() {
@@ -353,7 +353,7 @@ public class PdbxDccDensity extends BaseCategory {
     }
 
     /**
-     * The overall mean value of <I/SigmaI> for the reflections.
+     * The overall mean value of &lt;I/SigmaI&gt; for the reflections.
      * @return FloatColumn
      */
     public FloatColumn getIOverSigIMean() {

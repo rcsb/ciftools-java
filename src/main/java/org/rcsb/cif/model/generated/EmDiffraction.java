@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Microscopy parameters relevant only for crystallography
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmDiffraction extends BaseCategory {
     public EmDiffraction(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -23,6 +23,7 @@ public class EmDiffraction extends BaseCategory {
     }
 
     /**
+     * TODO
      * @return FloatColumn
      */
     public FloatColumn getCameraLength() {

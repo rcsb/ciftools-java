@@ -10,7 +10,7 @@ import java.util.Map;
  * files references associated with messages defined in the PDBX_DEPOSITION_MESSAGE_INFO
  * data category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepositionMessageFileReference extends BaseCategory {
     public PdbxDepositionMessageFileReference(String name, Map<String, Column> columns) {
         super(name, columns);

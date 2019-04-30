@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_SYMMETRY_2DX category record
  * 2D crystal symmetry parameters utilized in a 3DEM reconstruction.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Em2dCrystalEntity extends BaseCategory {
     public Em2dCrystalEntity(String name, Map<String, Column> columns) {
         super(name, columns);

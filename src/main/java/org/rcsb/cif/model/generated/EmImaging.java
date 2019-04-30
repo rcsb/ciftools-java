@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_IMAGING category record details about
  * the parameters used in imaging the sample in the electron microscope.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmImaging extends BaseCategory {
     public EmImaging(String name, Map<String, Column> columns) {
         super(name, columns);

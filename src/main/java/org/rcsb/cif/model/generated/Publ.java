@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PUBL category are used when submitting a
  * manuscript for publication.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Publ extends BaseCategory {
     public Publ(String name, Map<String, Column> columns) {
         super(name, columns);

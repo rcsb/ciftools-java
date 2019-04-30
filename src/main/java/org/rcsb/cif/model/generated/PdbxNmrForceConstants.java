@@ -11,7 +11,7 @@ import java.util.Map;
  * experimental constraints, covalent geometry constraints, and the non-bonded
  * interaction terms in the target function used for simulated annealing.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrForceConstants extends BaseCategory {
     public PdbxNmrForceConstants(String name, Map<String, Column> columns) {
         super(name, columns);

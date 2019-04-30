@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.internal.ModelFactory;
+import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.*;
 
 import java.util.LinkedHashMap;

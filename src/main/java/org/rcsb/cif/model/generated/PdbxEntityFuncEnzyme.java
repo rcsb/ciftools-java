@@ -10,7 +10,7 @@ import java.util.Map;
  * characteristics of protein oligonucleotide binding in which
  * the binding mode is enzymatic.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityFuncEnzyme extends BaseCategory {
     public PdbxEntityFuncEnzyme(String name, Map<String, Column> columns) {
         super(name, columns);

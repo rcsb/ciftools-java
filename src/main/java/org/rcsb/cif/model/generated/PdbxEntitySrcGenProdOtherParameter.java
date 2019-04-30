@@ -9,7 +9,7 @@ import java.util.Map;
  * This category contains parameters and values required to capture
  * information about a particular process step
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenProdOtherParameter extends BaseCategory {
     public PdbxEntitySrcGenProdOtherParameter(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * the generation of portions of the structure that contribute to
  * structurally relevant sites.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSiteGen extends BaseCategory {
     public StructSiteGen(String name, Map<String, Column> columns) {
         super(name, columns);

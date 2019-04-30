@@ -13,7 +13,7 @@ import java.util.Map;
  * Post-sample treatment of the beam is described by data
  * items in the DIFFRN_DETECTOR category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnRadiation extends BaseCategory {
     public DiffrnRadiation(String name, Map<String, Column> columns) {
         super(name, columns);

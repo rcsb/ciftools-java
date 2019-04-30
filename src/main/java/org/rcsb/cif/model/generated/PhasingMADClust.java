@@ -10,7 +10,7 @@ import java.util.Map;
  * about a cluster of experiments that contributed to the
  * generation of a set of phases.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMADClust extends BaseCategory {
     public PhasingMADClust(String name, Map<String, Column> columns) {
         super(name, columns);

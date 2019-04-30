@@ -9,7 +9,7 @@ import java.util.Map;
  * This category contains descriptive protocols for the production
  * of this entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityProdProtocol extends BaseCategory {
     public PdbxEntityProdProtocol(String name, Map<String, Column> columns) {
         super(name, columns);

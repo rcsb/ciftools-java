@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_ENTITY_LIST category record
  * the list of entities within each reference molecule.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceEntityList extends BaseCategory {
     public PdbxReferenceEntityList(String name, Map<String, Column> columns) {
         super(name, columns);

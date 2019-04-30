@@ -10,7 +10,7 @@ import java.util.Map;
  * information about properties pertaining to this
  * structure entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxFeatureEntry extends BaseCategory {
     public PdbxFeatureEntry(String name, Map<String, Column> columns) {
         super(name, columns);

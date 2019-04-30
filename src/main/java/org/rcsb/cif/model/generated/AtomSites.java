@@ -10,7 +10,7 @@ import java.util.Map;
  * the crystallographic cell and cell transformations, which are
  * common to all atom sites.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSites extends BaseCategory {
     public AtomSites(String name, Map<String, Column> columns) {
         super(name, columns);

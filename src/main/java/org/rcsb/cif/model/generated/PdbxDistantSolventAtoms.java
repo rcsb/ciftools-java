@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DISTANT_SOLVENT_ATOMS category list the
  * solvent atoms remote from any macromolecule.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDistantSolventAtoms extends BaseCategory {
     public PdbxDistantSolventAtoms(String name, Map<String, Column> columns) {
         super(name, columns);

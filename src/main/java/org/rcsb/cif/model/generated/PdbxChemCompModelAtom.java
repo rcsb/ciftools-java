@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_MODEL_ATOM category record coordinates
  * for the chemical component model instance.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompModelAtom extends BaseCategory {
     public PdbxChemCompModelAtom(String name, Map<String, Column> columns) {
         super(name, columns);

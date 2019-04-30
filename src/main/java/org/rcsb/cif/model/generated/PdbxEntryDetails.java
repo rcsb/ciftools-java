@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTRY_DETAILS category provide additional
  * details about this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntryDetails extends BaseCategory {
     public PdbxEntryDetails(String name, Map<String, Column> columns) {
         super(name, columns);

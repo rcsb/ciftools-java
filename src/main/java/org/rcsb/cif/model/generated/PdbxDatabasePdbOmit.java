@@ -11,7 +11,7 @@ import java.util.Map;
  * list PDB record names that should be omitted in the PDB
  * format file.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabasePdbOmit extends BaseCategory {
     public PdbxDatabasePdbOmit(String name, Map<String, Column> columns) {
         super(name, columns);

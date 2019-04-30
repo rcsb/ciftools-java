@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in PDBX_DATABASE_RELATED contain references to entries
  * that are related to the this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseRelated extends BaseCategory {
     public PdbxDatabaseRelated(String name, Map<String, Column> columns) {
         super(name, columns);

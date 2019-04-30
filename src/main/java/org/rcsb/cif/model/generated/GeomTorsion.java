@@ -17,9 +17,9 @@ import java.util.Map;
  * projection of the vector between site 3 and site 4. Clockwise
  * torsions are positive, anticlockwise torsions are negative.
  * 
- * Ref: Klyne, W. & Prelog, V. (1960). Experientia, 16, 521-523.
+ * Ref: Klyne, W. &amp; Prelog, V. (1960). Experientia, 16, 521-523.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class GeomTorsion extends BaseCategory {
     public GeomTorsion(String name, Map<String, Column> columns) {
         super(name, columns);

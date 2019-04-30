@@ -12,7 +12,7 @@ import java.util.Map;
  * designated as containing cis peptide bonds is given in
  * _struct_mon_details.prot_cis.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructMonProtCis extends BaseCategory {
     public StructMonProtCis(String name, Map<String, Column> columns) {
         super(name, columns);

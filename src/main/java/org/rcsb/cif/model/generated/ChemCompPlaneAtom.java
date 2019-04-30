@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_COMP_PLANE_ATOM category enumerate the
  * atoms in a plane within a chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompPlaneAtom extends BaseCategory {
     public ChemCompPlaneAtom(String name, Map<String, Column> columns) {
         super(name, columns);

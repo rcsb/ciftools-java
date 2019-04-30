@@ -10,7 +10,7 @@ import java.util.Map;
  * about the authors associated with the citations in the
  * CITATION list.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class CitationAuthor extends BaseCategory {
     public CitationAuthor(String name, Map<String, Column> columns) {
         super(name, columns);

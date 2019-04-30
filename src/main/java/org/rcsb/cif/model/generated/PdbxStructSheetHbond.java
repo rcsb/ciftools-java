@@ -13,7 +13,7 @@ import java.util.Map;
  * STRUCT_SHEET_HBOND should be used when the initial and terminal
  * hydrogen bonds for strand pair are known.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructSheetHbond extends BaseCategory {
     public PdbxStructSheetHbond(String name, Map<String, Column> columns) {
         super(name, columns);

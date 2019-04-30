@@ -11,7 +11,7 @@ import java.util.Map;
  * to the structure being phased was used to generate the initial
  * phases.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingIsomorphous extends BaseCategory {
     public PhasingIsomorphous(String name, Map<String, Column> columns) {
         super(name, columns);

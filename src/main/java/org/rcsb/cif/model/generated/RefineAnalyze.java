@@ -12,7 +12,7 @@ import java.util.Map;
  * may or may not produce values corresponding to these data
  * names.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineAnalyze extends BaseCategory {
     public RefineAnalyze(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -350,7 +350,7 @@ public class RefineAnalyze extends BaseCategory {
      * 
      * There is no data name for the expected value of RGfree/RGwork yet.
      * 
-     * Ref: Tickle, I. J., Laskowski, R. A. & Moss, D. S. (1998).
+     * Ref: Tickle, I. J., Laskowski, R. A. &amp; Moss, D. S. (1998).
      * Acta Cryst. D54, 547-557.
      * @return FloatColumn
      */

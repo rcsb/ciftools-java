@@ -14,7 +14,7 @@ import java.util.Map;
  * should only appear in a data block if they originate from that
  * source.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DatabasePDBRevRecord extends BaseCategory {
     public DatabasePDBRevRecord(String name, Map<String, Column> columns) {
         super(name, columns);

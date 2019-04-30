@@ -10,7 +10,7 @@ import java.util.Map;
  * about the editors associated with the books or book chapters
  * cited in the CITATION list.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class CitationEditor extends BaseCategory {
     public CitationEditor(String name, Map<String, Column> columns) {
         super(name, columns);

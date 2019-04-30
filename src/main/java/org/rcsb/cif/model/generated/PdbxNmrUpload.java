@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the pdbx_nmr_upload category provide information about the data files uploaded by a depositor using the deposition system.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrUpload extends BaseCategory {
     public PdbxNmrUpload(String name, Map<String, Column> columns) {
         super(name, columns);

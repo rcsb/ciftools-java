@@ -11,7 +11,7 @@ import java.util.Map;
  * that form all or part of a domain in an ensemble of domains
  * related by noncrystallographic symmetry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructNcsDomLim extends BaseCategory {
     public StructNcsDomLim(String name, Map<String, Column> columns) {
         super(name, columns);

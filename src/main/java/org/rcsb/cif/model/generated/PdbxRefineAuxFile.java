@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Auxilary parameter and topology files used in refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefineAuxFile extends BaseCategory {
     public PdbxRefineAuxFile(String name, Map<String, Column> columns) {
         super(name, columns);

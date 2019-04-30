@@ -13,7 +13,7 @@ import java.util.Map;
  * The STRUCT_CONN_TYPE records define the criteria used to
  * identify these connections.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructConn extends BaseCategory {
     public StructConn(String name, Map<String, Column> columns) {
         super(name, columns);

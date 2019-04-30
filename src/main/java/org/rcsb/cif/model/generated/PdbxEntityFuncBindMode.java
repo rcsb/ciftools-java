@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_FUNC_BIND_MODE category describe
  * characteristics of protein oligonucleotide binding.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityFuncBindMode extends BaseCategory {
     public PdbxEntityFuncBindMode(String name, Map<String, Column> columns) {
         super(name, columns);

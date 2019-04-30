@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CELL category record details about the
  * crystallographic cell parameters.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Cell extends BaseCategory {
     public Cell(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -228,7 +228,7 @@ public class Cell extends BaseCategory {
      * = [cos(alpha)*cos(beta) - cos(gamma)]/[sin(alpha)*sin(beta)]
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalAngleAlpha() {
@@ -251,7 +251,7 @@ public class Cell extends BaseCategory {
      * = [cos(alpha)*cos(beta) - cos(gamma)]/[sin(alpha)*sin(beta)]
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalAngleBeta() {
@@ -274,7 +274,7 @@ public class Cell extends BaseCategory {
      * = [cos(alpha)*cos(beta) - cos(gamma)]/[sin(alpha)*sin(beta)]
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalAngleGamma() {
@@ -323,7 +323,7 @@ public class Cell extends BaseCategory {
      * where V is the cell volume.
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalLengthA() {
@@ -345,7 +345,7 @@ public class Cell extends BaseCategory {
      * where V is the cell volume.
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalLengthB() {
@@ -367,7 +367,7 @@ public class Cell extends BaseCategory {
      * where V is the cell volume.
      * 
      * Ref: Buerger, M. J. (1942). X-ray Crystallography, p. 360.
-     * New York: John Wiley & Sons Inc.
+     * New York: John Wiley &amp; Sons Inc.
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getReciprocalLengthC() {

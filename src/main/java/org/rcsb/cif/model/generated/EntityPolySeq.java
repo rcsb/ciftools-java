@@ -13,7 +13,7 @@ import java.util.Map;
  * corresponding ATOM_SITE entries should reflect this
  * heterogeneity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntityPolySeq extends BaseCategory {
     public EntityPolySeq(String name, Map<String, Column> columns) {
         super(name, columns);

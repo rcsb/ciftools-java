@@ -10,7 +10,7 @@ import java.util.Map;
  * the reflection data used to determine the ATOM_SITE data items
  * broken down into shells of resolution.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ReflnsShell extends BaseCategory {
     public ReflnsShell(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -148,12 +148,12 @@ public class ReflnsShell extends BaseCategory {
      * resolution limits established by _reflns_shell.d_res_high and
      * _reflns_shell.d_res_low.
      * 
-     * sum~i~(sum~j~|F~j~ - <F>|)
+     * sum~i~(sum~j~|F~j~ - &lt;F&gt;|)
      * Rmerge(F) = --------------------------
-     * sum~i~(sum~j~<F>)
+     * sum~i~(sum~j~&lt;F&gt;)
      * 
      * F~j~ = the amplitude of the jth observation of reflection i
-     * <F>  = the mean of the amplitudes of all observations of
+     * &lt;F&gt;  = the mean of the amplitudes of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -171,12 +171,12 @@ public class ReflnsShell extends BaseCategory {
      * _reflns_shell.d_res_low and the observation criterion
      * established by _reflns.observed_criterion.
      * 
-     * sum~i~(sum~j~|F~j~ - <F>|)
+     * sum~i~(sum~j~|F~j~ - &lt;F&gt;|)
      * Rmerge(F) = --------------------------
-     * sum~i~(sum~j~<F>)
+     * sum~i~(sum~j~&lt;F&gt;)
      * 
      * F~j~ = the amplitude of the jth observation of reflection i
-     * <F>  = the mean of the amplitudes of all observations of
+     * &lt;F&gt;  = the mean of the amplitudes of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -191,12 +191,12 @@ public class ReflnsShell extends BaseCategory {
     /**
      * The value of Rmerge(I) for all reflections in a given shell.
      * 
-     * sum~i~(sum~j~|I~j~ - <I>|)
+     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
      * Rmerge(I) = --------------------------
-     * sum~i~(sum~j~<I>)
+     * sum~i~(sum~j~&lt;I&gt;)
      * 
      * I~j~ = the intensity of the jth observation of reflection i
-     * <I>  = the mean of the intensities of all observations of
+     * &lt;I&gt;  = the mean of the intensities of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -212,12 +212,12 @@ public class ReflnsShell extends BaseCategory {
      * The value of Rmerge(I) for reflections classified as 'observed'
      * (see _reflns.observed_criterion) in a given shell.
      * 
-     * sum~i~(sum~j~|I~j~ - <I>|)
+     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
      * Rmerge(I) = --------------------------
-     * sum~i~(sum~j~<I>)
+     * sum~i~(sum~j~&lt;I&gt;)
      * 
      * I~j~ = the intensity of the jth observation of reflection i
-     * <I>  = the mean of the intensities of all observations of
+     * &lt;I&gt;  = the mean of the intensities of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -305,12 +305,12 @@ public class ReflnsShell extends BaseCategory {
      * The value of Rmerge(F) for significantly intense reflections
      * (see _reflns.threshold_expression) in a given shell.
      * 
-     * sum~i~ ( sum~j~ | F~j~ - <F> | )
+     * sum~i~ ( sum~j~ | F~j~ - &lt;F&gt; | )
      * Rmerge(F) = --------------------------------
-     * sum~i~ ( sum~j~ <F> )
+     * sum~i~ ( sum~j~ &lt;F&gt; )
      * 
      * F~j~  = the amplitude of the jth observation of reflection i
-     * <F> = the mean of the amplitudes of all observations of
+     * &lt;F&gt; = the mean of the amplitudes of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -326,12 +326,12 @@ public class ReflnsShell extends BaseCategory {
      * The value of Rmerge(I) for significantly intense reflections
      * (see _reflns.threshold_expression) in a given shell.
      * 
-     * sum~i~ ( sum~j~ | I~j~ - <I> | )
+     * sum~i~ ( sum~j~ | I~j~ - &lt;I&gt; | )
      * Rmerge(I) = --------------------------------
-     * sum~i~ ( sum~j~ <I> )
+     * sum~i~ ( sum~j~ &lt;I&gt; )
      * 
      * I~j~  = the intensity of the jth observation of reflection i
-     * <I> = the mean of the intensities of all observations of
+     * &lt;I&gt; = the mean of the intensities of all observations of
      * reflection i
      * 
      * sum~i~ is taken over all reflections
@@ -375,7 +375,7 @@ public class ReflnsShell extends BaseCategory {
      * standard uncertainties of all reflections in the
      * resolution shell.
      * 
-     * _reflns_shell.pdbx_netI_over_sigmaI_all =  <I/sigma(I)>
+     * _reflns_shell.pdbx_netI_over_sigmaI_all =  &lt;I/sigma(I)&gt;
      * @return FloatColumn
      */
     public FloatColumn getPdbxNetIOverSigmaIAll() {
@@ -388,7 +388,7 @@ public class ReflnsShell extends BaseCategory {
      * standard uncertainties of observed reflections
      * (see _reflns.observed_criterion) in the resolution shell.
      * 
-     * _reflns_shell.pdbx_netI_over_sigmaI_obs =  <I/sigma(I)>
+     * _reflns_shell.pdbx_netI_over_sigmaI_obs =  &lt;I/sigma(I)&gt;
      * @return FloatColumn
      */
     public FloatColumn getPdbxNetIOverSigmaIObs() {
@@ -401,12 +401,12 @@ public class ReflnsShell extends BaseCategory {
      * also denoted Rmeas, for merging all intensities in a
      * given shell.
      * 
-     * sum~i~ [N~i~ /( N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |
+     * sum~i~ [N~i~ /( N~i~ - 1)]1/2^ sum~j~ | I~j~ - &lt;I~i~&gt; |
      * Rrim = --------------------------------------------------------
      * sum~i~ ( sum~j~ I~j~ )
      * 
      * I~j~   = the intensity of the jth observation of reflection i
-     * <I~i~> = the mean of the intensities of all observations of
+     * &lt;I~i~&gt; = the mean of the intensities of all observations of
      * reflection i
      * N~i~   = the redundancy (the number of times reflection i
      * has been measured).
@@ -414,9 +414,9 @@ public class ReflnsShell extends BaseCategory {
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
      * 
-     * Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.
+     * Ref: Diederichs, K. &amp; Karplus, P. A. (1997). Nature Struct.
      * Biol. 4, 269-275.
-     * Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.
+     * Weiss, M. S. &amp; Hilgenfeld, R. (1997). J. Appl. Cryst.
      * 30, 203-205.
      * Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135.
      * @return FloatColumn
@@ -430,12 +430,12 @@ public class ReflnsShell extends BaseCategory {
      * The precision-indicating merging R factor value Rpim,
      * for merging all intensities in a given shell.
      * 
-     * sum~i~ [1/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - <I~i~> |
+     * sum~i~ [1/(N~i~ - 1)]1/2^ sum~j~ | I~j~ - &lt;I~i~&gt; |
      * Rpim = --------------------------------------------------
      * sum~i~ ( sum~j~ I~j~ )
      * 
      * I~j~   = the intensity of the jth observation of reflection i
-     * <I~i~> = the mean of the intensities of all observations of
+     * &lt;I~i~&gt; = the mean of the intensities of all observations of
      * reflection i
      * N~i~   = the redundancy (the number of times reflection i
      * has been measured).
@@ -443,9 +443,9 @@ public class ReflnsShell extends BaseCategory {
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
      * 
-     * Ref: Diederichs, K. & Karplus, P. A. (1997). Nature Struct.
+     * Ref: Diederichs, K. &amp; Karplus, P. A. (1997). Nature Struct.
      * Biol. 4, 269-275.
-     * Weiss, M. S. & Hilgenfeld, R. (1997). J. Appl. Cryst.
+     * Weiss, M. S. &amp; Hilgenfeld, R. (1997). J. Appl. Cryst.
      * 30, 203-205.
      * Weiss, M. S. (2001). J. Appl. Cryst. 34, 130-135.
      * @return FloatColumn
@@ -492,7 +492,7 @@ public class ReflnsShell extends BaseCategory {
      * between the average intensities from randomly selected
      * half-datasets within the resolution shell.
      * 
-     * Ref: Karplus & Diederichs (2012), Science 336, 1030-33
+     * Ref: Karplus &amp; Diederichs (2012), Science 336, 1030-33
      * @return FloatColumn
      */
     public FloatColumn getPdbxCCHalf() {

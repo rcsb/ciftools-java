@@ -11,7 +11,7 @@ import java.util.Map;
  * rapid freezing of the sample on the grid prior to its
  * insertion in the electron microscope
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmVitrification extends BaseCategory {
     public EmVitrification(String name, Map<String, Column> columns) {
         super(name, columns);

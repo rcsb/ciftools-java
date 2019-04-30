@@ -10,7 +10,7 @@ import java.util.Map;
  * of the image recording (either film/microdensitometer or electronic detector)
  * and parameters for image digitization.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmImageRecording extends BaseCategory {
     public EmImageRecording(String name, Map<String, Column> columns) {
         super(name, columns);

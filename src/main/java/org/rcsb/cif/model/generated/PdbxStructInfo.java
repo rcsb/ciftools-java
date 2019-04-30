@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Special features of this structural entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructInfo extends BaseCategory {
     public PdbxStructInfo(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_UNOBS_OR_ZERO_OCC_RESIDUES category list the
  * residues within the entry that are not observed or have zero occupancy.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxUnobsOrZeroOccResidues extends BaseCategory {
     public PdbxUnobsOrZeroOccResidues(String name, Map<String, Column> columns) {
         super(name, columns);

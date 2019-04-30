@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the ATOM_SITES_FOOTNOTE category record detailed
  * comments about an atom site or a group of atom sites.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSitesFootnote extends BaseCategory {
     public AtomSitesFootnote(String name, Map<String, Column> columns) {
         super(name, columns);

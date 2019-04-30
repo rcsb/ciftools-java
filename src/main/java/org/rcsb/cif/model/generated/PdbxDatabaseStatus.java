@@ -9,7 +9,7 @@ import java.util.Map;
  * These are internal RCSB records to keep track of data processing
  * and status of the entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseStatus extends BaseCategory {
     public PdbxDatabaseStatus(String name, Map<String, Column> columns) {
         super(name, columns);

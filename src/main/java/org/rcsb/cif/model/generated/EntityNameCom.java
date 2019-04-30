@@ -12,7 +12,7 @@ import java.util.Map;
  * For example, haemoglobin alpha chain would be the entity common
  * name, not haemoglobin.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntityNameCom extends BaseCategory {
     public EntityNameCom(String name, Map<String, Column> columns) {
         super(name, columns);

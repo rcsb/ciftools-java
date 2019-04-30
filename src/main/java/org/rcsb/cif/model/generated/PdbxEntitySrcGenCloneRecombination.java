@@ -14,7 +14,7 @@ import java.util.Map;
  * PDBX_ENTITY_SRC_GEN_CLONE_RECOMBINATION extend the details in PDBX_ENTITY_SRC_GEN_CLONE
  * to cover recombination dependent cloning steps.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenCloneRecombination extends BaseCategory {
     public PdbxEntitySrcGenCloneRecombination(String name, Map<String, Column> columns) {
         super(name, columns);

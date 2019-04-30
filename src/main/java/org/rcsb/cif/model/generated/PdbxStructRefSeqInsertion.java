@@ -10,7 +10,7 @@ import java.util.Map;
  * annotate insertions in the sequence of the entity described
  * in the referenced database entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructRefSeqInsertion extends BaseCategory {
     public PdbxStructRefSeqInsertion(String name, Map<String, Column> columns) {
         super(name, columns);

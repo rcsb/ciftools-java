@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the STRUCT_KEYWORDS category specify keywords
  * that describe the chemical structure in this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructKeywords extends BaseCategory {
     public StructKeywords(String name, Map<String, Column> columns) {
         super(name, columns);

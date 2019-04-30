@@ -22,7 +22,7 @@ import java.util.Map;
  * given in the PHASING_SET_REFLN category. However, these
  * items can also be listed here for completeness.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMIRDerRefln extends BaseCategory {
     public PhasingMIRDerRefln(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -134,7 +134,7 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * P~i~(alpha) = exp[k + A * cos(alpha) + B * sin(alpha)
      * + C * cos(2 * alpha) + D * sin(2 * alpha)]
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return SingleRowFloatColumn
      */
@@ -171,7 +171,7 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * P~i~(alpha) = exp[k + A * cos(alpha) + B * sin(alpha)
      * + C * cos(2 * alpha) + D * sin(2 * alpha)]
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return SingleRowFloatColumn
      */
@@ -208,7 +208,7 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * P~i~(alpha) = exp[k + A * cos(alpha) + B * sin(alpha)
      * + C * cos(2 * alpha) + D * sin(2 * alpha)]
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return SingleRowFloatColumn
      */
@@ -245,7 +245,7 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * P~i~(alpha) = exp[k + A * cos(alpha) + B * sin(alpha)
      * + C * cos(2 * alpha) + D * sin(2 * alpha)]
      * 
-     * Ref: Hendrickson, W. A. & Lattman, E. E. (1970). Acta
+     * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
      * @return SingleRowFloatColumn
      */

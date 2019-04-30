@@ -11,10 +11,10 @@ import java.util.Map;
  * for main chain atoms as defined by the improper torsion
  * angle describing planarity:
  * 
- * PLANARITY = C(i-1) - CA(i-1) - N(i) - O(i-1) ==> planar < 5
+ * PLANARITY = C(i-1) - CA(i-1) - N(i) - O(i-1) ==&gt; planar &lt; 5
  * as a pseudo torsion
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidateMainChainPlane extends BaseCategory {
     public PdbxValidateMainChainPlane(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * related by a noncrystallographic symmetry operation and
  * identify the operator.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructNcsEnsGen extends BaseCategory {
     public StructNcsEnsGen(String name, Map<String, Column> columns) {
         super(name, columns);

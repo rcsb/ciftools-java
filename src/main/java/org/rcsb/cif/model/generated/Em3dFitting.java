@@ -11,7 +11,7 @@ import java.util.Map;
  * coordinates from a PDB file into a 3d-em
  * volume map file
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Em3dFitting extends BaseCategory {
     public Em3dFitting(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * about the name and address of the author to be contacted
  * concerning the content of this data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AuditContactAuthor extends BaseCategory {
     public AuditContactAuthor(String name, Map<String, Column> columns) {
         super(name, columns);

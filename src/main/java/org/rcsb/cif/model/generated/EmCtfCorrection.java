@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description of the Contrast Transfer Function (CTF) correction
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmCtfCorrection extends BaseCategory {
     public EmCtfCorrection(String name, Map<String, Column> columns) {
         super(name, columns);

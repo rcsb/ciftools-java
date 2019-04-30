@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Description of high pressure freezing
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmHighPressureFreezing extends BaseCategory {
     public EmHighPressureFreezing(String name, Map<String, Column> columns) {
         super(name, columns);

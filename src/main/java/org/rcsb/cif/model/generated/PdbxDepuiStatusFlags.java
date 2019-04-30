@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_DEPUI_STATUS_FLAGS category record status
  * details used to maintain state within the wwPDB deposition system.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepuiStatusFlags extends BaseCategory {
     public PdbxDepuiStatusFlags(String name, Map<String, Column> columns) {
         super(name, columns);

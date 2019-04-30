@@ -13,7 +13,7 @@ import java.util.Map;
  * via bonds, angles, planes etc. in the appropriate
  * CHEM_COMP subcategories.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompAtom extends BaseCategory {
     public ChemCompAtom(String name, Map<String, Column> columns) {
         super(name, columns);

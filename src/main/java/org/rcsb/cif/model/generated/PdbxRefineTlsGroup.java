@@ -11,7 +11,7 @@ import java.util.Map;
  * 
  * Properties of the TLS group are recorded in PDBX_REFINE_TLS
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefineTlsGroup extends BaseCategory {
     public PdbxRefineTlsGroup(String name, Map<String, Column> columns) {
         super(name, columns);

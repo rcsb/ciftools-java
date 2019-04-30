@@ -9,7 +9,7 @@ import java.util.Map;
  * Local data items describing ligand and monomer
  * atom names and connectivity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxConnectAtom extends BaseCategory {
     public PdbxConnectAtom(String name, Map<String, Column> columns) {
         super(name, columns);

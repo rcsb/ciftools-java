@@ -11,7 +11,7 @@ import java.util.Map;
  * chemically redefined.   The prior and current atom nomenclature is
  * tabulated in this category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRemediationAtomSiteMapping extends BaseCategory {
     public PdbxRemediationAtomSiteMapping(String name, Map<String, Column> columns) {
         super(name, columns);

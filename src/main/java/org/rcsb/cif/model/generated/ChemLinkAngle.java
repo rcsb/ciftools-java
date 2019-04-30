@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_LINK_ANGLE category record details
  * about angles in a link between chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkAngle extends BaseCategory {
     public ChemLinkAngle(String name, Map<String, Column> columns) {
         super(name, columns);

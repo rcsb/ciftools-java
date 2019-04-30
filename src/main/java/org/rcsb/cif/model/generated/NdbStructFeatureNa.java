@@ -10,7 +10,7 @@ import java.util.Map;
  * describes tertiary and other special structural
  * features in this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class NdbStructFeatureNa extends BaseCategory {
     public NdbStructFeatureNa(String name, Map<String, Column> columns) {
         super(name, columns);

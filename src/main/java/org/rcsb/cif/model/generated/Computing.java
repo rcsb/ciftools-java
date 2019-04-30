@@ -14,7 +14,7 @@ import java.util.Map;
  * a more detailed description of computer programs and
  * their attributes to be given, would be used instead.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Computing extends BaseCategory {
     public Computing(String name, Map<String, Column> columns) {
         super(name, columns);

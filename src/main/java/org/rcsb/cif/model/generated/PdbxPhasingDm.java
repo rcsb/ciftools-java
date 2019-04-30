@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_PHASING_DM category record details about
  * density modification
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingDm extends BaseCategory {
     public PdbxPhasingDm(String name, Map<String, Column> columns) {
         super(name, columns);

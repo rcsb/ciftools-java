@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_REF_SEQ_FEATURE category provide a
  * mechanism for identifying and annotating sequence features.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructRefSeqFeature extends BaseCategory {
     public PdbxStructRefSeqFeature(String name, Map<String, Column> columns) {
         super(name, columns);

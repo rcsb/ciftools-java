@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_PHASING_MR category record details about
  * molecular replacement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingMR extends BaseCategory {
     public PdbxPhasingMR(String name, Map<String, Column> columns) {
         super(name, columns);

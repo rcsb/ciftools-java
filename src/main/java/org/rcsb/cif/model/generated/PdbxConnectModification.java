@@ -9,7 +9,7 @@ import java.util.Map;
  * Local data items describing ligand and monomer
  * modifications.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxConnectModification extends BaseCategory {
     public PdbxConnectModification(String name, Map<String, Column> columns) {
         super(name, columns);

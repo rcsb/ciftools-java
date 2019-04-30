@@ -11,7 +11,7 @@ import java.util.Map;
  * data items provide the specifications of the components that
  * constitute that assembly in terms of cartesian transformations.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructAssemblyGen extends BaseCategory {
     public PdbxStructAssemblyGen(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -12,7 +12,7 @@ import java.util.Map;
  * than 6*rmsd for the particular entry from the expected standard
  * value
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidateRmsdAngle extends BaseCategory {
     public PdbxValidateRmsdAngle(String name, Map<String, Column> columns) {
         super(name, columns);

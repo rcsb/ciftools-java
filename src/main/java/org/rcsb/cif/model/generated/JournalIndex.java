@@ -12,7 +12,7 @@ import java.util.Map;
  * The creator of a data block will not normally specify these data
  * items.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class JournalIndex extends BaseCategory {
     public JournalIndex(String name, Map<String, Column> columns) {
         super(name, columns);

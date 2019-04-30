@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Placeholder category for PDB coordinate data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class NdbOriginalNdbCoordinates extends BaseCategory {
     public NdbOriginalNdbCoordinates(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the DIFFRN_SOURCE category record details of
  * the source of radiation used in the diffraction experiment.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnSource extends BaseCategory {
     public DiffrnSource(String name, Map<String, Column> columns) {
         super(name, columns);

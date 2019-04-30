@@ -10,7 +10,7 @@ import java.util.Map;
  * Real Space electron density Correlation Coefficient (RSCC), real space R
  * factors (RSR) and the Zscores for each residue, the main/side chains.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDccMap extends BaseCategory {
     public PdbxDccMap(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -99,7 +99,7 @@ public class PdbxDccMap extends BaseCategory {
     /**
      * The Real Space electron density Correlation Coefficient for the
      * residue. It is defined as
-     * RSCC=(<xy>-<x><y>)/[sqrt(<x**2>-<x>**2)*sqrt(<y**2>-<y>**2)]
+     * RSCC=(&lt;xy&gt;-&lt;x&gt;&lt;y&gt;)/[sqrt(&lt;x**2&gt;-&lt;x&gt;**2)*sqrt(&lt;y**2&gt;-&lt;y&gt;**2)]
      * where x is the observed density from the (2mFo-DFc) map and y is the
      * calculated density from the Fc map
      * @return FloatColumn
@@ -132,7 +132,7 @@ public class PdbxDccMap extends BaseCategory {
 
     /**
      * Zscore of the Real Space Rfactor (RSRZ) for the residue. It is defined
-     * as (RSR-<RSR>)/sigma_RSR, where <RSR> and sigma_RSR are for the whole map,
+     * as (RSR-&lt;RSR&gt;)/sigma_RSR, where &lt;RSR&gt; and sigma_RSR are for the whole map,
      * RSR is for the residue.
      * @return FloatColumn
      */
@@ -143,7 +143,7 @@ public class PdbxDccMap extends BaseCategory {
 
     /**
      * Zscore of weighted Real Space Rfactor for the residue. It is defined as
-     * (wRSR-<wRSR>)/sigma_wRSR,  where <wRSR> and sigma_wRSR are for the whole map,
+     * (wRSR-&lt;wRSR&gt;)/sigma_wRSR,  where &lt;wRSR&gt; and sigma_wRSR are for the whole map,
      * wRSR is for the residue.
      * @return FloatColumn
      */
@@ -428,8 +428,8 @@ public class PdbxDccMap extends BaseCategory {
     /**
      * The real space difference density Z score
      * (defined as Delta_rho/sigma(Delta_rho)) from Tickle (2012). It is
-     * related to the model accuracy. RSZD>3, significant extra positive
-     * density around the residue; RSZD<-3, significant extra negative
+     * related to the model accuracy. RSZD&gt;3, significant extra positive
+     * density around the residue; RSZD&lt;-3, significant extra negative
      * density around the residue.
      * @return FloatColumn
      */
@@ -439,7 +439,7 @@ public class PdbxDccMap extends BaseCategory {
     }
 
     /**
-     * The real space observed density Z score (defined as <rho_obs>/sigma(Delta_rho))
+     * The real space observed density Z score (defined as &lt;rho_obs&gt;/sigma(Delta_rho))
      * from Tickle (2012). It is related to the model precision (B factors).
      * Small or large value means weak or strong density for the residue.
      * @return FloatColumn
@@ -450,7 +450,7 @@ public class PdbxDccMap extends BaseCategory {
     }
 
     /**
-     * The Zscore of RSZO (or the Zscore of <rho_obs>/sigma(Delta_rho)).
+     * The Zscore of RSZO (or the Zscore of &lt;rho_obs&gt;/sigma(Delta_rho)).
      * @return FloatColumn
      */
     public FloatColumn getRSZOZscore() {
@@ -460,7 +460,7 @@ public class PdbxDccMap extends BaseCategory {
 
     /**
      * It is the Ligand Local Density Function defined as the
-     * (<RsR>_local - RsR_Ligand)/sigma_RsR, where <RsR>_local is the
+     * (&lt;RsR&gt;_local - RsR_Ligand)/sigma_RsR, where &lt;RsR&gt;_local is the
      * mean RSR of polymer residues in 5 Angstrom (including the
      * crystallographic symmetry) surrounding the ligand, and sigma_RsR
      * is sigma value calculated from the surrounding residues.

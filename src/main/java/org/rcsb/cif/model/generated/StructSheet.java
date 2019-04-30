@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the STRUCT_SHEET category record details about
  * the beta-sheets.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSheet extends BaseCategory {
     public StructSheet(String name, Map<String, Column> columns) {
         super(name, columns);

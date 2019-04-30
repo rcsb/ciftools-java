@@ -10,7 +10,7 @@ import java.util.Map;
  * Cartesian rotation and translation operations required to
  * generate or transform the coordinates deposited with this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructOperList extends BaseCategory {
     public PdbxStructOperList(String name, Map<String, Column> columns) {
         super(name, columns);

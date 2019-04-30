@@ -14,7 +14,7 @@ import java.util.Map;
  * in the JOURNAL category that record different stages in the
  * publication of the material in the data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Audit extends BaseCategory {
     public Audit(String name, Map<String, Column> columns) {
         super(name, columns);

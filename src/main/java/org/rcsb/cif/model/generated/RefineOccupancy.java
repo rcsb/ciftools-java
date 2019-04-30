@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the REFINE_OCCUPANCY category record details
  * about the treatment of atom occupancies during refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineOccupancy extends BaseCategory {
     public RefineOccupancy(String name, Map<String, Column> columns) {
         super(name, columns);

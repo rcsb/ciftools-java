@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_ATOM_FEATURE category provide
  * a selected list of atom level features for the chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompAtomFeature extends BaseCategory {
     public PdbxChemCompAtomFeature(String name, Map<String, Column> columns) {
         super(name, columns);

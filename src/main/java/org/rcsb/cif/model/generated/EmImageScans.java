@@ -10,7 +10,7 @@ import java.util.Map;
  * of the image scanning device (microdensitometer)
  * and parameters for digitization of the image.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmImageScans extends BaseCategory {
     public EmImageScans(String name, Map<String, Column> columns) {
         super(name, columns);

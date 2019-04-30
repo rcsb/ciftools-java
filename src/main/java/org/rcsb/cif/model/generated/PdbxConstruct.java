@@ -24,7 +24,7 @@ import java.util.Map;
  * constructs used during protein production without reference to the entry_id
  * (which only becomes a  meaningful concept during deposition).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxConstruct extends BaseCategory {
     public PdbxConstruct(String name, Map<String, Column> columns) {
         super(name, columns);

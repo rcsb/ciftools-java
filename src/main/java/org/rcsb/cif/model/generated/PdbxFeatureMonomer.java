@@ -10,7 +10,7 @@ import java.util.Map;
  * information about properties pertaining to particular
  * monomers in this structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxFeatureMonomer extends BaseCategory {
     public PdbxFeatureMonomer(String name, Map<String, Column> columns) {
         super(name, columns);

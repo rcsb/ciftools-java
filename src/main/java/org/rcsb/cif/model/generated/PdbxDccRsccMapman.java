@@ -10,7 +10,7 @@ import java.util.Map;
  * correlation, real space Rfactors and the Zscore calculated from
  * refmac and mapman.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDccRsccMapman extends BaseCategory {
     public PdbxDccRsccMapman(String name, Map<String, Column> columns) {
         super(name, columns);

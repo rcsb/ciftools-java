@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_UNOBS_OR_ZERO_OCC_ATOMS category list the
  * atoms within the entry that are either unobserved or have zero occupancy/
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxUnobsOrZeroOccAtoms extends BaseCategory {
     public PdbxUnobsOrZeroOccAtoms(String name, Map<String, Column> columns) {
         super(name, columns);

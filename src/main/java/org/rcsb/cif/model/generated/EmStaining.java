@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Staining category
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmStaining extends BaseCategory {
     public EmStaining(String name, Map<String, Column> columns) {
         super(name, columns);

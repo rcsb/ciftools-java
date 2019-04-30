@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the VALENCE_REF category list the references
  * from which the bond-valence parameters have been taken.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ValenceRef extends BaseCategory {
     public ValenceRef(String name, Map<String, Column> columns) {
         super(name, columns);

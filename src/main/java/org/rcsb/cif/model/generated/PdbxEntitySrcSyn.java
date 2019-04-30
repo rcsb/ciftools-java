@@ -9,7 +9,7 @@ import java.util.Map;
  * The data items in category PDBX_ENTITY_SRC_SYN record the source details
  * about chemically synthesized molecules.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcSyn extends BaseCategory {
     public PdbxEntitySrcSyn(String name, Map<String, Column> columns) {
         super(name, columns);

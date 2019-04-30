@@ -20,7 +20,7 @@ import java.util.Map;
  * biological unit, while the two chains of the FAB and the lysozyme
  * could constitute a second biological unit.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructBiol extends BaseCategory {
     public StructBiol(String name, Map<String, Column> columns) {
         super(name, columns);

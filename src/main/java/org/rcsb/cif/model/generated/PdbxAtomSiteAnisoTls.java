@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ATOM_SITE_ANISO_TLS category record details
  * about the TLS contribution to anisotropic displacement parameters.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAtomSiteAnisoTls extends BaseCategory {
     public PdbxAtomSiteAnisoTls(String name, Map<String, Column> columns) {
         super(name, columns);

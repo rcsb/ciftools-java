@@ -36,7 +36,7 @@ import java.util.Map;
  * STRUCT_ASYM data items, which reference the entity list,
  * describe and label the contents of the asymmetric unit.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Entity extends BaseCategory {
     public Entity(String name, Map<String, Column> columns) {
         super(name, columns);

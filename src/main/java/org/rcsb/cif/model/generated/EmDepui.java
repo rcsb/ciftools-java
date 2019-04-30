@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Some internal items to power the deposition interface
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmDepui extends BaseCategory {
     public EmDepui(String name, Map<String, Column> columns) {
         super(name, columns);

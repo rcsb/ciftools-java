@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SEQUENCE_RANGE category identify the
  * beginning and ending points of polypeptide sequence segments.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSequenceRange extends BaseCategory {
     public PdbxSequenceRange(String name, Map<String, Column> columns) {
         super(name, columns);

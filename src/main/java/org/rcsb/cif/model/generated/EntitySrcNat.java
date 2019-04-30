@@ -10,7 +10,7 @@ import java.util.Map;
  * the source from which the entity was obtained in cases
  * where the entity was isolated directly from a natural tissue.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntitySrcNat extends BaseCategory {
     public EntitySrcNat(String name, Map<String, Column> columns) {
         super(name, columns);

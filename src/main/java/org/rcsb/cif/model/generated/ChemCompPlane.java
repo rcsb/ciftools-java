@@ -10,7 +10,7 @@ import java.util.Map;
  * for the planes in a chemical component.  The atoms in the plane
  * are specified in the CHEM_COMP_PLANE_ATOM category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompPlane extends BaseCategory {
     public ChemCompPlane(String name, Map<String, Column> columns) {
         super(name, columns);

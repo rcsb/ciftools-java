@@ -10,7 +10,7 @@ import java.util.Map;
  * residues that contain unexpected deviations from planes
  * centers.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidatePlanes extends BaseCategory {
     public PdbxValidatePlanes(String name, Map<String, Column> columns) {
         super(name, columns);

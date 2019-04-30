@@ -13,7 +13,7 @@ import java.util.Map;
  * items are an alternative to the STRUCT_SHEET_TOPOLOGY data
  * items and they allow all manner of sheets to be described.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSheetOrder extends BaseCategory {
     public StructSheetOrder(String name, Map<String, Column> columns) {
         super(name, columns);

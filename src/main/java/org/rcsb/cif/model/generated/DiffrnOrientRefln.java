@@ -10,7 +10,7 @@ import java.util.Map;
  * about the reflections that define the orientation matrix used in
  * the measurement of the diffraction intensities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnOrientRefln extends BaseCategory {
     public DiffrnOrientRefln(String name, Map<String, Column> columns) {
         super(name, columns);

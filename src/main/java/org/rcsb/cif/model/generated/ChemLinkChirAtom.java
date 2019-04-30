@@ -10,7 +10,7 @@ import java.util.Map;
  * atoms bonded to a chiral atom in a link between two
  * chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLinkChirAtom extends BaseCategory {
     public ChemLinkChirAtom(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the DIFFRN_REFLNS_SHELL category record details about
  * the reflection data set within shells of resolution.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDiffrnReflnsShell extends BaseCategory {
     public PdbxDiffrnReflnsShell(String name, Map<String, Column> columns) {
         super(name, columns);

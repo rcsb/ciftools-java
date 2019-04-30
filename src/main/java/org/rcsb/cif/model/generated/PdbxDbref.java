@@ -9,7 +9,7 @@ import java.util.Map;
  * These records are used in the DBREF record of a PDB file and
  * are used as place holders for NDB ID's in PDB files.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDbref extends BaseCategory {
     public PdbxDbref(String name, Map<String, Column> columns) {
         super(name, columns);

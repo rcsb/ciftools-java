@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Additional features associated with the reference entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceMoleculeFeatures extends BaseCategory {
     public PdbxReferenceMoleculeFeatures(String name, Map<String, Column> columns) {
         super(name, columns);

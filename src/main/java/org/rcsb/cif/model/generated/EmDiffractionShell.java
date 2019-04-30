@@ -9,7 +9,7 @@ import java.util.Map;
  * Statistical parameters for electron diffraction measurements
  * within a resolution shell
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmDiffractionShell extends BaseCategory {
     public EmDiffractionShell(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -11,7 +11,7 @@ import java.util.Map;
  * the categories (such as CELL, GEOM, EXPTL) that describe
  * information pertinent to the entire data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Entry extends BaseCategory {
     public Entry(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -12,7 +12,7 @@ import java.util.Map;
  * Data items in the STRUCT_CONF_TYPE category define the
  * criteria used to identify the backbone conformations.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructConf extends BaseCategory {
     public StructConf(String name, Map<String, Column> columns) {
         super(name, columns);

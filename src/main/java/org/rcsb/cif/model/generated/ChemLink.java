@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_LINK category give details about
  * the links between chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemLink extends BaseCategory {
     public ChemLink(String name, Map<String, Column> columns) {
         super(name, columns);

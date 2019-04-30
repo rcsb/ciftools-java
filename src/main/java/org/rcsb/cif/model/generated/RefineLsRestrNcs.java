@@ -14,7 +14,7 @@ import java.util.Map;
  * expected that these values will only be reported once for each
  * set of restrained domains.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineLsRestrNcs extends BaseCategory {
     public RefineLsRestrNcs(String name, Map<String, Column> columns) {
         super(name, columns);

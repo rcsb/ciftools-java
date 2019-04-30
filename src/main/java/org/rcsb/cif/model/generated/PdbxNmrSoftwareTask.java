@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the pdbx_nmr_software_task category provide information about software workflow in the NMR experiment.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSoftwareTask extends BaseCategory {
     public PdbxNmrSoftwareTask(String name, Map<String, Column> columns) {
         super(name, columns);

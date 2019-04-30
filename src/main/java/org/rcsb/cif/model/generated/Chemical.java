@@ -15,7 +15,7 @@ import java.util.Map;
  * formula data items must agree with those that specify the
  * density, unit-cell and Z values.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Chemical extends BaseCategory {
     public Chemical(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -104,9 +104,9 @@ public class Chemical extends BaseCategory {
      * _chemical.absolute_configuration are given by H. D. Flack and
      * G. Bernardinelli (1999, 2000).
      * 
-     * Ref: Flack, H. D. & Bernardinelli, G. (1999). Acta Cryst. A55,
+     * Ref: Flack, H. D. &amp; Bernardinelli, G. (1999). Acta Cryst. A55,
      * 908-915. (http://www.iucr.org/paper?sh0129)
-     * Flack, H. D. & Bernardinelli, G. (2000). J. Appl. Cryst.
+     * Flack, H. D. &amp; Bernardinelli, G. (2000). J. Appl. Cryst.
      * 33, 1143-1148. (http://www.iucr.org/paper?ks0021)
      * @return SingleRowStrColumn
      */

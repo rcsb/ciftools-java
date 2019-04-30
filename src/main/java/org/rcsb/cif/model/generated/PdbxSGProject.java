@@ -10,7 +10,7 @@ import java.util.Map;
  * about the Structural Genomics Project and name and initials
  * for each Center.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSGProject extends BaseCategory {
     public PdbxSGProject(String name, Map<String, Column> columns) {
         super(name, columns);

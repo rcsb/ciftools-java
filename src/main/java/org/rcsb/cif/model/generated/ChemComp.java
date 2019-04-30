@@ -14,7 +14,7 @@ import java.util.Map;
  * CHEM_COMP_ANGLE etc. describe the detailed geometry of these
  * chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemComp extends BaseCategory {
     public ChemComp(String name, Map<String, Column> columns) {
         super(name, columns);

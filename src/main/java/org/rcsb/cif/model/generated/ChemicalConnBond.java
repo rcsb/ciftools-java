@@ -21,7 +21,7 @@ import java.util.Map;
  * between the atoms in the CHEMICAL_CONN_ATOM list and the nature
  * of the chemical bond between these atoms.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemicalConnBond extends BaseCategory {
     public ChemicalConnBond(String name, Map<String, Column> columns) {
         super(name, columns);

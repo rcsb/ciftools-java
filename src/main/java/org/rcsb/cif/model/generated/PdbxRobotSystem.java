@@ -9,7 +9,7 @@ import java.util.Map;
  * The details about each robotic system used to collect data for this
  * project.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRobotSystem extends BaseCategory {
     public PdbxRobotSystem(String name, Map<String, Column> columns) {
         super(name, columns);

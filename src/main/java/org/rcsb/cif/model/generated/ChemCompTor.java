@@ -11,7 +11,7 @@ import java.util.Map;
  * can have more than one target value, the target values are
  * specified in the CHEM_COMP_TOR_VALUE category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompTor extends BaseCategory {
     public ChemCompTor(String name, Map<String, Column> columns) {
         super(name, columns);

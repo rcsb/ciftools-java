@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the pdbx_exptl_pd record information about
  * powder sample preparations.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxExptlPd extends BaseCategory {
     public PdbxExptlPd(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * List of EMD entries made obsolete by this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmObsolete extends BaseCategory {
     public EmObsolete(String name, Map<String, Column> columns) {
         super(name, columns);

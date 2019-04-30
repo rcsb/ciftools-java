@@ -26,7 +26,7 @@ import java.util.Map;
  * on the choice of origin.  Different formats for the
  * Hermann-Mauguin symbol are found in the symmetry CIF dictionary.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class SpaceGroup extends BaseCategory {
     public SpaceGroup(String name, Map<String, Column> columns) {
         super(name, columns);

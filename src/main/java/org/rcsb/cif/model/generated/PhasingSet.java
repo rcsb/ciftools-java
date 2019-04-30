@@ -25,7 +25,7 @@ import java.util.Map;
  * archived, these data items should be recorded in a separate
  * data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingSet extends BaseCategory {
     public PhasingSet(String name, Map<String, Column> columns) {
         super(name, columns);

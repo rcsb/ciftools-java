@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_ENTITY_LINK category give details about
  * the linkages between entities within reference molecules.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceEntityLink extends BaseCategory {
     public PdbxReferenceEntityLink(String name, Map<String, Column> columns) {
         super(name, columns);

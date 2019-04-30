@@ -9,7 +9,7 @@ import java.util.Map;
  * 
  * Items in the assigned_chem_shift_list category provide information about a list of reported assigned chemical shift values.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrAssignedChemShiftList extends BaseCategory {
     public PdbxNmrAssignedChemShiftList(String name, Map<String, Column> columns) {
         super(name, columns);

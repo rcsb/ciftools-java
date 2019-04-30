@@ -15,7 +15,7 @@ import java.util.Map;
  * The DIFFRN_REFLNS data items specify the parameters that apply
  * to all intensity measurements in a diffraction data set.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnReflns extends BaseCategory {
     public DiffrnReflns(String name, Map<String, Column> columns) {
         super(name, columns);

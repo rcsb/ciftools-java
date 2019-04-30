@@ -10,7 +10,7 @@ import java.util.Map;
  * extension dictionary versions against which the data names appearing
  * the current data block are conformant.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAuditConformExtension extends BaseCategory {
     public PdbxAuditConformExtension(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -15,7 +15,7 @@ import java.util.Map;
  * These data items allow computer programs to be referenced
  * in more detail than data items in the COMPUTING category do.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Software extends BaseCategory {
     public Software(String name, Map<String, Column> columns) {
         super(name, columns);

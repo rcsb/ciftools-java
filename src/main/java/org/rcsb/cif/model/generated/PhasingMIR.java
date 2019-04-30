@@ -15,7 +15,7 @@ import java.util.Map;
  * multiple isomorphous replacement (MIR) and single or multiple
  * isomorphous replacement plus anomalous scattering (SIRAS, MIRAS).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMIR extends BaseCategory {
     public PhasingMIR(String name, Map<String, Column> columns) {
         super(name, columns);

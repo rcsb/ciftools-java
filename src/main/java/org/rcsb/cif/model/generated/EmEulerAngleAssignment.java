@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Category to describe the euler angle assignement
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmEulerAngleAssignment extends BaseCategory {
     public EmEulerAngleAssignment(String name, Map<String, Column> columns) {
         super(name, columns);

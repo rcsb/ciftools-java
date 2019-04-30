@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_EXPTL_CRYSTAL_CRYO_TREATMENT category
  * record details cryogenic treatments applied to this crystal.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxExptlCrystalCryoTreatment extends BaseCategory {
     public PdbxExptlCrystalCryoTreatment(String name, Map<String, Column> columns) {
         super(name, columns);

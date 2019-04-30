@@ -10,7 +10,7 @@ import java.util.Map;
  * details about the solutions that were 'mixed'
  * to produce the crystal.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxExptlCrystalGrowSol extends BaseCategory {
     public PdbxExptlCrystalGrowSol(String name, Map<String, Column> columns) {
         super(name, columns);

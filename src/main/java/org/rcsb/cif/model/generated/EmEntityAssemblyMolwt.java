@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in this category record details about the molecular weight of
  * an assembly component of the sample.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmEntityAssemblyMolwt extends BaseCategory {
     public EmEntityAssemblyMolwt(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * This category contains details for the chromatographic steps used in the
  * purification of the protein.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenChrom extends BaseCategory {
     public PdbxEntitySrcGenChrom(String name, Map<String, Column> columns) {
         super(name, columns);

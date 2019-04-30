@@ -10,7 +10,7 @@ import java.util.Map;
  * Experimental details of the NMR study that have not been
  * described elsewhere in this deposition.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrDetails extends BaseCategory {
     public PdbxNmrDetails(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_LINKED_ENTITY_LINK_LIST category give details about
  * the linkages with molecules represented as linked entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxLinkedEntityLinkList extends BaseCategory {
     public PdbxLinkedEntityLinkList(String name, Map<String, Column> columns) {
         super(name, columns);

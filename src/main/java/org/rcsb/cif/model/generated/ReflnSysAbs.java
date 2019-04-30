@@ -10,7 +10,7 @@ import java.util.Map;
  * the reflection data that should be systematically absent,
  * given the designated space group.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ReflnSysAbs extends BaseCategory {
     public ReflnSysAbs(String name, Map<String, Column> columns) {
         super(name, columns);

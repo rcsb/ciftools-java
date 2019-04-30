@@ -10,7 +10,7 @@ import java.util.Map;
  * about the criteria used to identify interactions between
  * portions of the structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructConnType extends BaseCategory {
     public StructConnType(String name, Map<String, Column> columns) {
         super(name, columns);

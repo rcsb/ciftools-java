@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PUBL_AUTHOR category record details of
  * the authors of a manuscript submitted for publication.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PublAuthor extends BaseCategory {
     public PublAuthor(String name, Map<String, Column> columns) {
         super(name, columns);

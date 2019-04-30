@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_COMP_DESCRIPTOR category provide
  * string descriptors of component chemical structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompDescriptor extends BaseCategory {
     public PdbxChemCompDescriptor(String name, Map<String, Column> columns) {
         super(name, columns);

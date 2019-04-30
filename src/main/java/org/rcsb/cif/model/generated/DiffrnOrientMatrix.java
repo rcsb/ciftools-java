@@ -10,7 +10,7 @@ import java.util.Map;
  * about the orientation matrix used in the measurement of the
  * diffraction data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnOrientMatrix extends BaseCategory {
     public DiffrnOrientMatrix(String name, Map<String, Column> columns) {
         super(name, columns);

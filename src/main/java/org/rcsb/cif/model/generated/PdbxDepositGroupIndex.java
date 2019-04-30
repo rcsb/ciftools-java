@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the pdbx_deposit_group_index category provides details
  * about the individual data files in the collection of deposited entries.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepositGroupIndex extends BaseCategory {
     public PdbxDepositGroupIndex(String name, Map<String, Column> columns) {
         super(name, columns);

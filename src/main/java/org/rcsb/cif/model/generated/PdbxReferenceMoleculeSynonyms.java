@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_MOLECULE_SYNONYMS category records
  * synonym names for reference entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceMoleculeSynonyms extends BaseCategory {
     public PdbxReferenceMoleculeSynonyms(String name, Map<String, Column> columns) {
         super(name, columns);

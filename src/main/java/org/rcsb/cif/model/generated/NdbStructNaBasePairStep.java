@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the NDB_STRUCT_NA_BASE_PAIR_STEP category record details
  * of base pair step interactions.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class NdbStructNaBasePairStep extends BaseCategory {
     public NdbStructNaBasePairStep(String name, Map<String, Column> columns) {
         super(name, columns);

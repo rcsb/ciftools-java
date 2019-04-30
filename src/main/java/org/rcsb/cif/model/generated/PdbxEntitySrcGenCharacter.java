@@ -10,7 +10,7 @@ import java.util.Map;
  * refers to the characteristion of the product of a specific
  * step.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenCharacter extends BaseCategory {
     public PdbxEntitySrcGenCharacter(String name, Map<String, Column> columns) {
         super(name, columns);

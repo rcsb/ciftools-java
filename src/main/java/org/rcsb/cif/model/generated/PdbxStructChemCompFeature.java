@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_CHEM_COMP_FEATURE category provides
  * structural annotations in chemical components instances.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructChemCompFeature extends BaseCategory {
     public PdbxStructChemCompFeature(String name, Map<String, Column> columns) {
         super(name, columns);

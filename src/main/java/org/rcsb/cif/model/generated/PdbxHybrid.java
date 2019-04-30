@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_HYBRID category are used to describe the chimeric
  * characteristics of a DNA/RNA structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxHybrid extends BaseCategory {
     public PdbxHybrid(String name, Map<String, Column> columns) {
         super(name, columns);

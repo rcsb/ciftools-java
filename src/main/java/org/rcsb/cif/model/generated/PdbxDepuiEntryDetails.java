@@ -10,7 +10,7 @@ import java.util.Map;
  * information required to identify the depositor and route
  * deposition to an appropriate processing site.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDepuiEntryDetails extends BaseCategory {
     public PdbxDepuiEntryDetails(String name, Map<String, Column> columns) {
         super(name, columns);

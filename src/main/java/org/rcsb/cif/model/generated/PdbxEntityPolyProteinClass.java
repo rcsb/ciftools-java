@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_POLY_PROTEIN_CLASS category
  * provides a top-level protein classification.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityPolyProteinClass extends BaseCategory {
     public PdbxEntityPolyProteinClass(String name, Map<String, Column> columns) {
         super(name, columns);

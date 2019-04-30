@@ -10,7 +10,7 @@ import java.util.Map;
  * the treatment of isotropic B factors (displacement parameters)
  * during refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineBIso extends BaseCategory {
     public RefineBIso(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * the restraints applied to various classes of parameters during
  * the least-squares refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineLsRestr extends BaseCategory {
     public RefineLsRestr(String name, Map<String, Column> columns) {
         super(name, columns);

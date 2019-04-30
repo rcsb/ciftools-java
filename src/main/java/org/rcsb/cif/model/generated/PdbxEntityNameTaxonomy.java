@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_NAME_TAXONOMY category
  * define the names and synonyms of the entity name taxonomy.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityNameTaxonomy extends BaseCategory {
     public PdbxEntityNameTaxonomy(String name, Map<String, Column> columns) {
         super(name, columns);

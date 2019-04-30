@@ -10,7 +10,7 @@ import java.util.Map;
  * characteristics of protein oligonucleotide binding in which
  * the binding mode is regulatory.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityFuncRegulatory extends BaseCategory {
     public PdbxEntityFuncRegulatory(String name, Map<String, Column> columns) {
         super(name, columns);

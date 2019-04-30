@@ -10,7 +10,7 @@ import java.util.Map;
  * characteristics of protein oligonucleotide binding in which
  * the binding mode is structural.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityFuncStructural extends BaseCategory {
     public PdbxEntityFuncStructural(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -16,7 +16,7 @@ import java.util.Map;
  * STRUCT_SHEET_ORDER data items can be used to describe
  * single- and multiple-chain-containing sheets.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSheetTopology extends BaseCategory {
     public StructSheetTopology(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -9,7 +9,7 @@ import java.util.Map;
  * This category contains details for the cell lysis steps used in
  * the overall protein production process.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenLysis extends BaseCategory {
     public PdbxEntitySrcGenLysis(String name, Map<String, Column> columns) {
         super(name, columns);

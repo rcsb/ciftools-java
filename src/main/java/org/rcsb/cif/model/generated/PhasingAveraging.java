@@ -11,7 +11,7 @@ import java.util.Map;
  * averaging of multiple observations of the molecule in the
  * asymmetric unit are involved.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingAveraging extends BaseCategory {
     public PhasingAveraging(String name, Map<String, Column> columns) {
         super(name, columns);

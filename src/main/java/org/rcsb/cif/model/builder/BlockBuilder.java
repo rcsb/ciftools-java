@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.internal.ModelFactory;
+import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;

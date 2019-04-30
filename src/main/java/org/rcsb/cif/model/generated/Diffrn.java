@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the DIFFRN category record details about the
  * diffraction data and their measurement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Diffrn extends BaseCategory {
     public Diffrn(String name, Map<String, Column> columns) {
         super(name, columns);

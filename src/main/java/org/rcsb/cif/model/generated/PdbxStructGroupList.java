@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_GROUP_LIST define groups of related components
  * or atoms.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructGroupList extends BaseCategory {
     public PdbxStructGroupList(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * The PDBX_AUDIT holds current version information.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxAudit extends BaseCategory {
     public PdbxAudit(String name, Map<String, Column> columns) {
         super(name, columns);

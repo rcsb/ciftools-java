@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_GROUP_COMPONENT_RANGE category define a structural
  * group as a continuous span chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructGroupComponentRange extends BaseCategory {
     public PdbxStructGroupComponentRange(String name, Map<String, Column> columns) {
         super(name, columns);

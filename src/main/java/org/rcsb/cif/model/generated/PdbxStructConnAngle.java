@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_CONN_ANGLE category record the angles
  * in connections between portions of the structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructConnAngle extends BaseCategory {
     public PdbxStructConnAngle(String name, Map<String, Column> columns) {
         super(name, columns);

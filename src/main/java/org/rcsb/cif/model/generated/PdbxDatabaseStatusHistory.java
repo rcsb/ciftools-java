@@ -9,7 +9,7 @@ import java.util.Map;
  * The pdbx_database_status_history category records the time evolution of entry
  * processing status.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseStatusHistory extends BaseCategory {
     public PdbxDatabaseStatusHistory(String name, Map<String, Column> columns) {
         super(name, columns);

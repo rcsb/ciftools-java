@@ -10,7 +10,7 @@ import java.util.Map;
  * depositor provided information related to the archival cateogory
  * PDBX_POINT_SYMMETRY.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPointSymmetryDepositorInfo extends BaseCategory {
     public PdbxPointSymmetryDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

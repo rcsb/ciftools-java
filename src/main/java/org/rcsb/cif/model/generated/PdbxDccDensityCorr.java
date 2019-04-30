@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the category record calculated metrics from various
  * programs (such as phenix, refmac, cns, sfcheck).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDccDensityCorr extends BaseCategory {
     public PdbxDccDensityCorr(String name, Map<String, Column> columns) {
         super(name, columns);

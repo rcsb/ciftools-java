@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_FAMILY_PRD_AUDIT category records
  * the status and tracking information for this family.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxFamilyPrdAudit extends BaseCategory {
     public PdbxFamilyPrdAudit(String name, Map<String, Column> columns) {
         super(name, columns);

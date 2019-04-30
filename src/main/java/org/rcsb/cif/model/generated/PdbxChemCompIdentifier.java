@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the CHEM_COMP_IDENTIFIER category provide
  * identifiers for chemical components.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompIdentifier extends BaseCategory {
     public PdbxChemCompIdentifier(String name, Map<String, Column> columns) {
         super(name, columns);

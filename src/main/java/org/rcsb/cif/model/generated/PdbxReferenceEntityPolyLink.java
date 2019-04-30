@@ -10,7 +10,7 @@ import java.util.Map;
  * polymer linkages including both standard and non-standard linkages between
  * polymer componnents.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceEntityPolyLink extends BaseCategory {
     public PdbxReferenceEntityPolyLink(String name, Map<String, Column> columns) {
         super(name, columns);

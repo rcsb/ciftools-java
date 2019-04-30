@@ -13,7 +13,7 @@ import java.util.Map;
  * Note that processes that have been modelled explicitly should
  * not be represented using this category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenProdOther extends BaseCategory {
     public PdbxEntitySrcGenProdOther(String name, Map<String, Column> columns) {
         super(name, columns);

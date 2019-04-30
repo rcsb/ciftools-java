@@ -9,7 +9,7 @@ import java.util.Map;
  * This category contains details for OD time series used to monitor a
  * given EXPRESSION step used in the overall protein production process.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntitySrcGenExpressTimepoint extends BaseCategory {
     public PdbxEntitySrcGenExpressTimepoint(String name, Map<String, Column> columns) {
         super(name, columns);

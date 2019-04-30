@@ -10,7 +10,7 @@ import java.util.Map;
  * record details about each component of
  * the complex.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmEntityAssembly extends BaseCategory {
     public EmEntityAssembly(String name, Map<String, Column> columns) {
         super(name, columns);

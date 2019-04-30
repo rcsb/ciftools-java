@@ -15,7 +15,7 @@ import java.util.Map;
  * anomalous difference with itself). Therefore, there are
  * five set used for phasing.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPhasingMADSet extends BaseCategory {
     public PdbxPhasingMADSet(String name, Map<String, Column> columns) {
         super(name, columns);

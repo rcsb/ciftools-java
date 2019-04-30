@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the AUDIT_LINK category record details about the
  * relationships between data blocks in the current CIF.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AuditLink extends BaseCategory {
     public AuditLink(String name, Map<String, Column> columns) {
         super(name, columns);

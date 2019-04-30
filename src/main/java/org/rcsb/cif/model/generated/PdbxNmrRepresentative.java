@@ -10,7 +10,7 @@ import java.util.Map;
  * of the ensemble is selected as a representative structure. This section
  * describes selection of the representative structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrRepresentative extends BaseCategory {
     public PdbxNmrRepresentative(String name, Map<String, Column> columns) {
         super(name, columns);

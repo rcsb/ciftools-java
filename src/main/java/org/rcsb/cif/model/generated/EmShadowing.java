@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Data items related to shadowing of an EM specimen
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmShadowing extends BaseCategory {
     public EmShadowing(String name, Map<String, Column> columns) {
         super(name, columns);

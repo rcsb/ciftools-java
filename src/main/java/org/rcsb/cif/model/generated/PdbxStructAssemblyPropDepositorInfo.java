@@ -10,7 +10,7 @@ import java.util.Map;
  * depositor provided information related to the archival cateogory
  * PDBX_STRUCT_ASSEMBLY_PROP.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructAssemblyPropDepositorInfo extends BaseCategory {
     public PdbxStructAssemblyPropDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * limits used as criteria in determining covalent bonds.
  * The table is organized by atom type pairs.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxBondDistanceLimits extends BaseCategory {
     public PdbxBondDistanceLimits(String name, Map<String, Column> columns) {
         super(name, columns);

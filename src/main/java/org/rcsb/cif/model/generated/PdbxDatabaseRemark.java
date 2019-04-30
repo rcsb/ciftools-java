@@ -11,7 +11,7 @@ import java.util.Map;
  * information about the entry.  They are mostly used to create
  * 'non-standard' PDB REMARK annotations (6-99).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDatabaseRemark extends BaseCategory {
     public PdbxDatabaseRemark(String name, Map<String, Column> columns) {
         super(name, columns);

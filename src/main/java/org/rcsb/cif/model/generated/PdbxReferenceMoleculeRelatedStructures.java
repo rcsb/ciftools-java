@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_MOLECULE_RELATED_STRUCTURES category record
  * details of the structural examples in related databases for this entity.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferenceMoleculeRelatedStructures extends BaseCategory {
     public PdbxReferenceMoleculeRelatedStructures(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * properties of the atoms that occupy the atom sites, such as the
  * atomic scattering factors.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomType extends BaseCategory {
     public AtomType(String name, Map<String, Column> columns) {
         super(name, columns);

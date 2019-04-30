@@ -10,7 +10,7 @@ import java.util.Map;
  * the 'entity' categories are entered into the database, even though the
  * T-RNA is repeated.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxTrnaInfo extends BaseCategory {
     public PdbxTrnaInfo(String name, Map<String, Column> columns) {
         super(name, columns);

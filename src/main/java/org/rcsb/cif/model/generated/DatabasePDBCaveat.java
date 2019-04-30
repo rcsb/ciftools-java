@@ -14,7 +14,7 @@ import java.util.Map;
  * format files. They should appear in a data block only if that
  * data block was created by reformatting a PDB format file.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DatabasePDBCaveat extends BaseCategory {
     public DatabasePDBCaveat(String name, Map<String, Column> columns) {
         super(name, columns);

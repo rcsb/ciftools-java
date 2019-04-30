@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_AUDIT category records
  * the status and tracking information for this component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompAudit extends BaseCategory {
     public PdbxChemCompAudit(String name, Map<String, Column> columns) {
         super(name, columns);

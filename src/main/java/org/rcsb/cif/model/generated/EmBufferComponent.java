@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Buffer category
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmBufferComponent extends BaseCategory {
     public EmBufferComponent(String name, Map<String, Column> columns) {
         super(name, columns);

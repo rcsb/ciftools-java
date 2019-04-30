@@ -19,7 +19,7 @@ import java.util.stream.IntStream;
  * }
  * Example
  * [1.2, 1.23, 0.123]
- * ---FixedPoint--->
+ * ---FixedPoint---&gt;
  * { factor = 100 } [120, 123, 12]
  * </pre>
  */

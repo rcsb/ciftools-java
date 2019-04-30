@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_SPECIAL_SYMMETRY category list the
  * molecular components that lie on special symmetry positions.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructSpecialSymmetry extends BaseCategory {
     public PdbxStructSpecialSymmetry(String name, Map<String, Column> columns) {
         super(name, columns);

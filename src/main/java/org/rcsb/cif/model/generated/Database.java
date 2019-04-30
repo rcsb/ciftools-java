@@ -10,7 +10,7 @@ import java.util.Map;
  * data items in the DATABASE_2 category. They are included
  * here only for compliance with older CIFs.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class Database extends BaseCategory {
     public Database(String name, Map<String, Column> columns) {
         super(name, columns);

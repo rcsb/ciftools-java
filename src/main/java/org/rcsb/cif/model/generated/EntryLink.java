@@ -12,7 +12,7 @@ import java.util.Map;
  * within the current file which may be referenced
  * in the current data block.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntryLink extends BaseCategory {
     public EntryLink(String name, Map<String, Column> columns) {
         super(name, columns);

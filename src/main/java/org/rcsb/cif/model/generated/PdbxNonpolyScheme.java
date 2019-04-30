@@ -9,7 +9,7 @@ import java.util.Map;
  * The PDBX_NONPOLY_SCHEME category provides residue level nomenclature
  * mapping for non-polymer entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNonpolyScheme extends BaseCategory {
     public PdbxNonpolyScheme(String name, Map<String, Column> columns) {
         super(name, columns);

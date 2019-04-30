@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_ENTITY_DESCRIPTOR category provide
  * string descriptors of entity chemical structure.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxEntityDescriptor extends BaseCategory {
     public PdbxEntityDescriptor(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -2,7 +2,7 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.internal.ModelFactory;
+import org.rcsb.cif.model.ModelFactory;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;

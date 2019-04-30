@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the DIFFRN_ATTENUATOR category record details
  * about the diffraction attenuator scales employed.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnAttenuator extends BaseCategory {
     public DiffrnAttenuator(String name, Map<String, Column> columns) {
         super(name, columns);

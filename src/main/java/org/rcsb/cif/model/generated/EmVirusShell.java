@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EMD_VIRUS_SHELL category record details
  * of the viral shell number, shell diameter, and icosahedral triangulation number.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmVirusShell extends BaseCategory {
     public EmVirusShell(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * the number of occurences of common step sequence patterns
  * (e.g. AA, CG, AT).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSequencePattern extends BaseCategory {
     public PdbxSequencePattern(String name, Map<String, Column> columns) {
         super(name, columns);

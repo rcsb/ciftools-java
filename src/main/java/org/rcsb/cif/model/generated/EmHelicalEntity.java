@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EM_HELICAL_ENTITY category record details
  * for a helical or filament type of assembly component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmHelicalEntity extends BaseCategory {
     public EmHelicalEntity(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -76,7 +76,7 @@ public class EmHelicalEntity extends BaseCategory {
     }
 
     /**
-     * Symmetry of the helical axis, either cyclic (Cn) or dihedral (Dn), where n>=1.
+     * Symmetry of the helical axis, either cyclic (Cn) or dihedral (Dn), where n&gt;=1.
      * @return StrColumn
      */
     public StrColumn getAxialSymmetry() {

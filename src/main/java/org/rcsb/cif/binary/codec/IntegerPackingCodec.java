@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
  * }
  * Example
  * [1, 2, -3, 128]
- * ---IntegerPacking--->
+ * ---IntegerPacking---&gt;
  * { byteCount = 1, srcSize = 4, isUnsigned = false } [1, 2, -3, 127, 1]
  * </pre>
  */

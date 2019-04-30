@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_LINKED_ENTITY_INSTANCE_LIST category identify instance
  * molecules represented as linked entities within an entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxLinkedEntityInstanceList extends BaseCategory {
     public PdbxLinkedEntityInstanceList(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -11,7 +11,7 @@ import java.util.Map;
  * the mmCIF category may also be specified for the each
  * category in the view.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxViewCategory extends BaseCategory {
     public PdbxViewCategory(String name, Map<String, Column> columns) {
         super(name, columns);

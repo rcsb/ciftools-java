@@ -10,7 +10,7 @@ import java.util.Map;
  * about the ensemble structure generated from atoms with various
  * alternative conformation IDs.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSitesAltEns extends BaseCategory {
     public AtomSitesAltEns(String name, Map<String, Column> columns) {
         super(name, columns);

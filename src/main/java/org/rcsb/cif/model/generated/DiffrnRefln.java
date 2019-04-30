@@ -17,7 +17,7 @@ import java.util.Map;
  * to all intensity  measurements in the particular diffraction
  * data set identified by _diffrn_reflns.diffrn_id.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class DiffrnRefln extends BaseCategory {
     public DiffrnRefln(String name, Map<String, Column> columns) {
         super(name, columns);

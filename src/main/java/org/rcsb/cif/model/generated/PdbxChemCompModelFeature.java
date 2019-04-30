@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Additional features associated with the chemical component.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompModelFeature extends BaseCategory {
     public PdbxChemCompModelFeature(String name, Map<String, Column> columns) {
         super(name, columns);

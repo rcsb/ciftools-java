@@ -10,7 +10,7 @@ import java.util.Map;
  * the ratios of phasing statistics between pairs of data sets
  * in a MAD phasing experiment, in given shells of resolution.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PhasingMADRatio extends BaseCategory {
     public PhasingMADRatio(String name, Map<String, Column> columns) {
         super(name, columns);

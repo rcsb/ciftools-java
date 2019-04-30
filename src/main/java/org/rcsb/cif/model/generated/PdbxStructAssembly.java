@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_ASSEMBLY category record details about
  * the structural elements that form macromolecular assemblies.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructAssembly extends BaseCategory {
     public PdbxStructAssembly(String name, Map<String, Column> columns) {
         super(name, columns);

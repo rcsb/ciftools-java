@@ -12,7 +12,7 @@ import java.util.Map;
  * in the data block and the sequence in the referenced database
  * entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructRefSeq extends BaseCategory {
     public StructRefSeq(String name, Map<String, Column> columns) {
         super(name, columns);

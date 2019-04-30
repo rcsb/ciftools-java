@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the ENTITY_LINK category give details about
  * the links between entities.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EntityLink extends BaseCategory {
     public EntityLink(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -12,7 +12,7 @@ import java.util.Map;
  * Target values may be specified as angles in degrees, as a
  * distance between the first and third atoms, or both.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemCompAngle extends BaseCategory {
     public ChemCompAngle(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -10,7 +10,7 @@ import java.util.Map;
  * hydrogen bonds as calculated from the contents of the ATOM,
  * CELL and SYMMETRY data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class GeomHbond extends BaseCategory {
     public GeomHbond(String name, Map<String, Column> columns) {
         super(name, columns);

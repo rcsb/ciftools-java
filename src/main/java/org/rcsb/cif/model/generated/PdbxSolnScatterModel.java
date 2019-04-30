@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SOLN_SCATTER_MODEL category record details about the
  * homology model fitting to the solution scatter data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSolnScatterModel extends BaseCategory {
     public PdbxSolnScatterModel(String name, Map<String, Column> columns) {
         super(name, columns);

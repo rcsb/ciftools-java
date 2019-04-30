@@ -14,7 +14,7 @@ import java.util.Map;
  * sketching out the progress of the refinement, supported by a
  * small set of representative statistics.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineHist extends BaseCategory {
     public RefineHist(String name, Map<String, Column> columns) {
         super(name, columns);

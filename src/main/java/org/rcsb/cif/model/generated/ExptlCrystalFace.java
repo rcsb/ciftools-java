@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EXPTL_CRYSTAL_FACE category record details
  * of the crystal faces.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ExptlCrystalFace extends BaseCategory {
     public ExptlCrystalFace(String name, Map<String, Column> columns) {
         super(name, columns);

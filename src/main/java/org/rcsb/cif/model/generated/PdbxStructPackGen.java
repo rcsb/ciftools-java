@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_STRUCT_PACK_GEN category record details about
  * the generation of the packing picture(s).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructPackGen extends BaseCategory {
     public PdbxStructPackGen(String name, Map<String, Column> columns) {
         super(name, columns);

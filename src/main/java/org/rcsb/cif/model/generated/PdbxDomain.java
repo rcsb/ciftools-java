@@ -13,7 +13,7 @@ import java.util.Map;
  * it can be composed of one or more segments in a single chain,
  * or by segments from more than one chain.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDomain extends BaseCategory {
     public PdbxDomain(String name, Map<String, Column> columns) {
         super(name, columns);

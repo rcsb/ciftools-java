@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Listing of image files (figures) associated with an EMDB entry
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmFigureDepositorInfo extends BaseCategory {
     public EmFigureDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

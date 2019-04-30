@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the STRUCT_SITE_KEYWORDS category record
  * keywords describing the site.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSiteKeywords extends BaseCategory {
     public StructSiteKeywords(String name, Map<String, Column> columns) {
         super(name, columns);

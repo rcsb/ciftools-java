@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_CHEM_COMP_MODEL_BOND category record details about
  * the bonds between atoms in a chemical component model instance.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxChemCompModelBond extends BaseCategory {
     public PdbxChemCompModelBond(String name, Map<String, Column> columns) {
         super(name, columns);

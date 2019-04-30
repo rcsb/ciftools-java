@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Data items to describe films supporting the specimen
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmSupportFilm extends BaseCategory {
     public EmSupportFilm(String name, Map<String, Column> columns) {
         super(name, columns);

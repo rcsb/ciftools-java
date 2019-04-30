@@ -9,7 +9,7 @@ import java.util.Map;
  * Data in the PDBX_CRYSTAL_ALIGNMENT are produced by log files from
  * programs during indexing
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxCrystalAlignment extends BaseCategory {
     public PdbxCrystalAlignment(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -33,7 +33,7 @@ public class PdbxCrystalAlignment extends BaseCategory {
     }
 
     /**
-     * The actual oscillation angle (normally <1.0 degree).
+     * The actual oscillation angle (normally &lt;1.0 degree).
      * @return FloatColumn
      */
     public FloatColumn getOscillationRange() {

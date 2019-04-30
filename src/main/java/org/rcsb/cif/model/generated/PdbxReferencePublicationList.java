@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFERENCE_PUBLICATION_LIST hold reference information
  * related to PDB citation data.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxReferencePublicationList extends BaseCategory {
     public PdbxReferencePublicationList(String name, Map<String, Column> columns) {
         super(name, columns);

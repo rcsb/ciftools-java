@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_LINKED_ENTITY_LIST category record
  * the list of entity constituents for this molecule.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxLinkedEntityList extends BaseCategory {
     public PdbxLinkedEntityList(String name, Map<String, Column> columns) {
         super(name, columns);

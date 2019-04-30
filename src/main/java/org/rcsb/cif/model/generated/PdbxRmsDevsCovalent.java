@@ -10,7 +10,7 @@ import java.util.Map;
  * for nucleic acid covalent geometry relative to small molecule crystal
  * standards.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRmsDevsCovalent extends BaseCategory {
     public PdbxRmsDevsCovalent(String name, Map<String, Column> columns) {
         super(name, columns);

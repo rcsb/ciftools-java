@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Sugar embedding category
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmEmbedding extends BaseCategory {
     public EmEmbedding(String name, Map<String, Column> columns) {
         super(name, columns);

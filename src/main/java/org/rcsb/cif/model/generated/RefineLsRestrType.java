@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the REFINE_LS_RESTR_TYPE category record details
  * about the restraint types used in the least-squares refinement.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class RefineLsRestrType extends BaseCategory {
     public RefineLsRestrType(String name, Map<String, Column> columns) {
         super(name, columns);

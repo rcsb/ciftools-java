@@ -10,7 +10,7 @@ import java.util.Map;
  * depositor provided information related to the archival cateogory
  * STRUCT_REF_SEQ.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxStructRefSeqDepositorInfo extends BaseCategory {
     public PdbxStructRefSeqDepositorInfo(String name, Map<String, Column> columns) {
         super(name, columns);

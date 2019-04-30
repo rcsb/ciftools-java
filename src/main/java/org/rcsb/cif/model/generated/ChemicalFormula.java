@@ -47,7 +47,7 @@ import java.util.Map;
  * 'Hill' system used by Chemical Abstracts. This ordering is
  * used in _chemical_formula.moiety and _chemical_formula.sum.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class ChemicalFormula extends BaseCategory {
     public ChemicalFormula(String name, Map<String, Column> columns) {
         super(name, columns);

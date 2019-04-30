@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_NA_STRUCT_KEYWDS category record give details
  * about structural features of the NA.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNaStructKeywds extends BaseCategory {
     public PdbxNaStructKeywds(String name, Map<String, Column> columns) {
         super(name, columns);

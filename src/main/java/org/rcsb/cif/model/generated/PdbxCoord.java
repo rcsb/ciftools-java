@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Gives information about what kind of coordinates are available.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxCoord extends BaseCategory {
     public PdbxCoord(String name, Map<String, Column> columns) {
         super(name, columns);

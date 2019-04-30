@@ -13,7 +13,7 @@ import java.util.Map;
  * trans is defined as 180 +/- 30 and
  * cis is defined as 0 +/- 30 degrees.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidatePeptideOmega extends BaseCategory {
     public PdbxValidatePeptideOmega(String name, Map<String, Column> columns) {
         super(name, columns);

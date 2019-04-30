@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the EMD_SPECIMEN category record details
  * about specimens prepared for imaging by electron microscopy.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmSpecimen extends BaseCategory {
     public EmSpecimen(String name, Map<String, Column> columns) {
         super(name, columns);

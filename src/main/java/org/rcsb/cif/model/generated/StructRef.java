@@ -25,7 +25,7 @@ import java.util.Map;
  * value is 'yes', the differences may be identified and annotated
  * using data items in the STRUCT_REF_SEQ_DIF category.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructRef extends BaseCategory {
     public StructRef(String name, Map<String, Column> columns) {
         super(name, columns);

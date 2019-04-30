@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Listing of all layer line files associated with the EM entry
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class EmInterpretFigure extends BaseCategory {
     public EmInterpretFigure(String name, Map<String, Column> columns) {
         super(name, columns);

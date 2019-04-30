@@ -10,7 +10,7 @@ import java.util.Map;
  * sequence information.  After release this category
  * should be discarded.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxPrereleaseSeq extends BaseCategory {
     public PdbxPrereleaseSeq(String name, Map<String, Column> columns) {
         super(name, columns);

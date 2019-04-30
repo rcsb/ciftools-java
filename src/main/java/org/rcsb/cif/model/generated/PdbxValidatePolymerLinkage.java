@@ -10,7 +10,7 @@ import java.util.Map;
  * polymer linkages within the entry that are outside of typlical
  * covalent distances.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxValidatePolymerLinkage extends BaseCategory {
     public PdbxValidatePolymerLinkage(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -11,7 +11,7 @@ import java.util.Map;
  * If the ATOM_SITE_ANISOTROP category is used for storing these
  * data, the corresponding ATOM_SITE data items are not used.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class AtomSiteAnisotrop extends BaseCategory {
     public AtomSiteAnisotrop(String name, Map<String, Column> columns) {
         super(name, columns);

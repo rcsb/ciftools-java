@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_SUPPORTING_EXP_DATA_SET category record
  * to experimental data set dependencies for this entry.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxSupportingExpDataSet extends BaseCategory {
     public PdbxSupportingExpDataSet(String name, Map<String, Column> columns) {
         super(name, columns);

@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * Details of the detector used at data collection site.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxDataProcessingDetector extends BaseCategory {
     public PdbxDataProcessingDetector(String name, Map<String, Column> columns) {
         super(name, columns);

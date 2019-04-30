@@ -11,7 +11,7 @@ import java.util.Map;
  * relevant sites (e.g. active sites, substrate-binding subsites,
  * metal-coordination sites).
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class StructSite extends BaseCategory {
     public StructSite(String name, Map<String, Column> columns) {
         super(name, columns);

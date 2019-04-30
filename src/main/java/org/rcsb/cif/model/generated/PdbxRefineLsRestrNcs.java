@@ -9,7 +9,7 @@ import java.util.Map;
  * Holds details of NCS restraints in cases where multiple
  * conditions are provided for each domain.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefineLsRestrNcs extends BaseCategory {
     public PdbxRefineLsRestrNcs(String name, Map<String, Column> columns) {
         super(name, columns);

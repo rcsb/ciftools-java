@@ -9,7 +9,7 @@ import java.util.Map;
  * Data items in the PDBX_REFINE_COMPONENT category record
  * statistics of the final model relative to the density map.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxRefineComponent extends BaseCategory {
     public PdbxRefineComponent(String name, Map<String, Column> columns) {
         super(name, columns);
@@ -165,7 +165,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * the gradient of difference density to the curvature. The amplitude of
      * the displacement vector is an indicator of the positional error.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getShift() {
@@ -183,7 +183,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * the gradient of difference density to the curvature. The amplitude of
      * the displacement vector is an indicator of the positional error.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getShiftSideChain() {
@@ -201,7 +201,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * the gradient of difference density to the curvature. The amplitude of
      * the displacement vector is an indicator of the positional error.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getShiftMainChain() {
@@ -218,12 +218,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * from atomic densities of (2Fobs-Fcalc) map - "Robs" and the model
      * map (Fcalc) - "Rcalc" :
      * 
-     * D_corr =  <Robs><Rcalc>/sqrt(<Robs**2><Rcalc**2>)
+     * D_corr =  &lt;Robs&gt;&lt;Rcalc&gt;/sqrt(&lt;Robs**2&gt;&lt;Rcalc**2&gt;)
      * 
-     * where <Robs> is the mean of "observed" densities of atoms of the
+     * where &lt;Robs&gt; is the mean of "observed" densities of atoms of the
      * component (backbone or side chain).
      * 
-     * <Rcalc> is the mean of "calculated" densities of
+     * &lt;Rcalc&gt; is the mean of "calculated" densities of
      * component atoms.
      * 
      * The value of density for some atom from map R(x) is:
@@ -239,7 +239,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * from the center of the atom less than the Radius_limit.
      * For all atoms Radius_limit = 2.5 A.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getCorrelation() {
@@ -256,12 +256,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * from atomic densities of (2Fobs-Fcalc) map - "Robs" and the model
      * map (Fcalc) - "Rcalc" :
      * 
-     * D_corr =  <Robs><Rcalc>/sqrt(<Robs**2><Rcalc**2>)
+     * D_corr =  &lt;Robs&gt;&lt;Rcalc&gt;/sqrt(&lt;Robs**2&gt;&lt;Rcalc**2&gt;)
      * 
-     * where <Robs> is the mean of "observed" densities of atoms of the
+     * where &lt;Robs&gt; is the mean of "observed" densities of atoms of the
      * component (backbone or side chain).
      * 
-     * <Rcalc> is the mean of "calculated" densities of
+     * &lt;Rcalc&gt; is the mean of "calculated" densities of
      * component atoms.
      * 
      * The value of density for some atom from map R(x) is:
@@ -277,7 +277,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * from the center of the atom less than the Radius_limit.
      * For all atoms Radius_limit = 2.5 A.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getCorrelationSideChain() {
@@ -294,12 +294,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * from atomic densities of (2Fobs-Fcalc) map - "Robs" and the model
      * map (Fcalc) - "Rcalc" :
      * 
-     * D_corr =  <Robs><Rcalc>/sqrt(<Robs**2><Rcalc**2>)
+     * D_corr =  &lt;Robs&gt;&lt;Rcalc&gt;/sqrt(&lt;Robs**2&gt;&lt;Rcalc**2&gt;)
      * 
-     * where <Robs> is the mean of "observed" densities of atoms of the
+     * where &lt;Robs&gt; is the mean of "observed" densities of atoms of the
      * component (backbone or side chain).
      * 
-     * <Rcalc> is the mean of "calculated" densities of
+     * &lt;Rcalc&gt; is the mean of "calculated" densities of
      * component atoms.
      * 
      * The value of density for some atom from map R(x) is:
@@ -315,7 +315,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * from the center of the atom less than the Radius_limit.
      * For all atoms Radius_limit = 2.5 A.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getCorrelationMainChain() {
@@ -337,7 +337,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * Dcal is the calculated  electron density,
      * summation is for all the grid points
      * 
-     * Ref: Branden, C.I. & Jones, T.A. (1990).  Nature, 343, 687-689
+     * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getRealSpaceR() {
@@ -359,7 +359,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * Dcal is the calculated  electron density,
      * summation is for all the grid points
      * 
-     * Ref: Branden, C.I. & Jones, T.A. (1990).  Nature, 343, 687-689
+     * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getRealSpaceRSideChain() {
@@ -381,7 +381,7 @@ public class PdbxRefineComponent extends BaseCategory {
      * Dcal is the calculated  electron density,
      * summation is for all the grid points
      * 
-     * Ref: Branden, C.I. & Jones, T.A. (1990).  Nature, 343, 687-689
+     * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getRealSpaceRMainChain() {
@@ -397,14 +397,14 @@ public class PdbxRefineComponent extends BaseCategory {
      * index indicate breaks in the backbone electron density which may be
      * due to flexibility of the chain or incorrect tracing.
      * 
-     * connect = [(D(xi)...D(xi))^(1/N)] /<D>_all
+     * connect = [(D(xi)...D(xi))^(1/N)] /&lt;D&gt;_all
      * 
      * Where:
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the averaged value of density for the structure.
+     * &lt;D&gt;_all is the averaged value of density for the structure.
      * The product is for N atoms of group.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getConnect() {
@@ -419,14 +419,14 @@ public class PdbxRefineComponent extends BaseCategory {
      * for the structure. Low values (less than 1.0) may be problematic for
      * model fitting.
      * 
-     * index = [(D(xi)...D(xi))^(1/N)] /<D>_all
+     * index = [(D(xi)...D(xi))^(1/N)] /&lt;D&gt;_all
      * 
      * Where :
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the averaged value of density for the structure.
+     * &lt;D&gt;_all is the averaged value of density for the structure.
      * The product is for N atoms of group.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getDensityIndex() {
@@ -441,14 +441,14 @@ public class PdbxRefineComponent extends BaseCategory {
      * for the structure. Low values (less than 1.0) may be problematic for
      * model fitting.
      * 
-     * index = [(D(xi)...D(xi))^(1/N)] /<D>_all
+     * index = [(D(xi)...D(xi))^(1/N)] /&lt;D&gt;_all
      * 
      * Where :
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the averaged value of density for the structure.
+     * &lt;D&gt;_all is the averaged value of density for the structure.
      * The product is for N atoms of group.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getDensityIndexMainChain() {
@@ -463,14 +463,14 @@ public class PdbxRefineComponent extends BaseCategory {
      * for the structure. Low values (less than 1.0) may be problematic for
      * model fitting.
      * 
-     * index = [(D(xi)...D(xi))^(1/N)] /<D>_all
+     * index = [(D(xi)...D(xi))^(1/N)] /&lt;D&gt;_all
      * 
      * Where :
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the averaged value of density for the structure.
+     * &lt;D&gt;_all is the averaged value of density for the structure.
      * The product is for N atoms of group.
      * 
-     * Ref: Vaguine, A.A., Richelle, J. & Wodak, S.J. (1999). Acta Cryst. D55,199-205
+     * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
      * @return SingleRowFloatColumn
      */
     public SingleRowFloatColumn getDensityIndexSideChain() {
@@ -489,12 +489,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * problematic for the group.
      * 
      * 
-     * index = [Sum~i D(xi)]/<D>_all
+     * index = [Sum~i D(xi)]/&lt;D&gt;_all
      * 
      * Where:
      * 
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the average value of density for the structure.
+     * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
      * @return SingleRowFloatColumn
      */
@@ -514,12 +514,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * problematic for the group.
      * 
      * 
-     * index = [Sum~i D(xi)]/<D>_all
+     * index = [Sum~i D(xi)]/&lt;D&gt;_all
      * 
      * Where:
      * 
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the average value of density for the structure.
+     * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
      * @return SingleRowFloatColumn
      */
@@ -539,12 +539,12 @@ public class PdbxRefineComponent extends BaseCategory {
      * problematic for the group.
      * 
      * 
-     * index = [Sum~i D(xi)]/<D>_all
+     * index = [Sum~i D(xi)]/&lt;D&gt;_all
      * 
      * Where:
      * 
      * D(xi) = (2*Fobs - Fcal)
-     * <D>_all is the average value of density for the structure.
+     * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
      * @return SingleRowFloatColumn
      */

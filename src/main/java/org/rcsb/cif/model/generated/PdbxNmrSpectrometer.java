@@ -10,7 +10,7 @@ import java.util.Map;
  * The details about each spectrometer used to collect data for this
  * deposition.
  */
-@Generated("org.rcsb.cif.internal.generator.SchemaGenerator")
+@Generated("org.rcsb.cif.generator.SchemaGenerator")
 public class PdbxNmrSpectrometer extends BaseCategory {
     public PdbxNmrSpectrometer(String name, Map<String, Column> columns) {
         super(name, columns);
