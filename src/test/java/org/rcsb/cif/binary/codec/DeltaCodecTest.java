@@ -19,13 +19,13 @@ public class DeltaCodecTest {
         DeltaEncoding deltaEncoding = new DeltaEncoding();
         SignedIntArray encodedData = plainArray.encode(deltaEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         NumberArray decodedArray = encodedData.decode(deltaEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 

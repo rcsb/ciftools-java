@@ -18,13 +18,13 @@ public class IntegerPackingCodecTest {
         IntegerPackingEncoding integerPackingEncoding = new IntegerPackingEncoding();
         IntArray encodedData = plainArray.encode(integerPackingEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         Int32Array decodedArray = encodedData.decode(integerPackingEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), decodedArray.getData());
     }
 }

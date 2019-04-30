@@ -19,8 +19,8 @@ public class IntervalQuantizationCodecTest {
         // encode
         Int32Array encodedData = INTERVAL_QUANTIZATION_CODEC.encode(plainArray, new IntervalQuantizationEncoding(1, 2, 3, 32));
 
-        System.out.println(encodedData);
-        System.out.println(expected);
+//        System.out.println(encodedData);
+//        System.out.println(expected);
 
         assertArrayEquals(expected.getData(), encodedData.getData());
     }

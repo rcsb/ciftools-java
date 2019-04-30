@@ -21,13 +21,13 @@ public class StringArrayCodecTest {
         StringArrayEncoding stringArrayEncoding = new StringArrayEncoding();
         ByteArray encodedData = plainArray.encode(stringArrayEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         StringArray decodedArray = encodedData.decode(stringArrayEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), decodedArray.getData());
     }
 
@@ -41,13 +41,13 @@ public class StringArrayCodecTest {
         StringArrayEncoding stringArrayEncoding = new StringArrayEncoding();
         ByteArray encodedData = plainArray.encode(stringArrayEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         StringArray decodedArray = encodedData.decode(stringArrayEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), decodedArray.getData());
     }
 
@@ -61,13 +61,13 @@ public class StringArrayCodecTest {
         StringArrayEncoding stringArrayEncoding = new StringArrayEncoding();
         ByteArray encodedData = plainArray.encode(stringArrayEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         StringArray decodedArray = encodedData.decode(stringArrayEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(expected, decodedArray.getData());
     }
 
@@ -81,13 +81,13 @@ public class StringArrayCodecTest {
         StringArrayEncoding stringArrayEncoding = new StringArrayEncoding();
         ByteArray encodedData = plainArray.encode(stringArrayEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         StringArray decodedArray = encodedData.decode(stringArrayEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), decodedArray.getData());
     }
 }

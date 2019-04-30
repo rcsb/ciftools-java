@@ -19,7 +19,7 @@ public class ReaderTest {
     @Test
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
-            System.out.println("test cases: " + testCase.getKey() + " - binary parsing");
+//            System.out.println("test cases: " + testCase.getKey() + " - binary parsing");
             InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifReader.readBinary(inputStream), testCase.getValue());
         }
@@ -28,7 +28,7 @@ public class ReaderTest {
     @Test
     public void parseText() throws ParsingException, IOException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
-            System.out.println("test cases: " + testCase.getKey() + " - text parsing");
+//            System.out.println("test cases: " + testCase.getKey() + " - text parsing");
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
             checkParsedEntity(CifReader.readText(inputStream), testCase.getValue());
         }

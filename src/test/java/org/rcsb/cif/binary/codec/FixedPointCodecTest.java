@@ -19,13 +19,13 @@ public class FixedPointCodecTest {
         FixedPointEncoding fixedPointEncoding = new FixedPointEncoding(factor);
         Int32Array encodedData = plainArray.encode(fixedPointEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         NumberArray decodedArray = encodedData.decode(fixedPointEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), (double[]) decodedArray.getData(), TestHelper.ERROR_MARGIN);
     }
 

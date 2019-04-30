@@ -4,7 +4,6 @@ import org.junit.Test;
 import org.rcsb.cif.TestHelper;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -30,8 +29,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -47,8 +46,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -63,8 +62,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -80,8 +79,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -96,8 +95,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -116,8 +115,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -132,8 +131,8 @@ public class MessagePackCodecTest {
 
         int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(actual));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(actual));
 
         assertArrayEquals(expected, actual);
     }
@@ -179,8 +178,8 @@ public class MessagePackCodecTest {
         // encode
         byte[] packed = MESSAGE_PACK_CODEC.encode(unpacked);
 
-        System.out.println(Arrays.toString(bytes));
-        System.out.println(Arrays.toString(packed));
+//        System.out.println(Arrays.toString(bytes));
+//        System.out.println(Arrays.toString(packed));
         assertArrayEquals(bytes, packed);
     }
 }

@@ -4,8 +4,6 @@ import org.junit.Test;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
-import java.util.Arrays;
-
 import static org.junit.Assert.assertArrayEquals;
 
 public class RunLengthCodecTest {
@@ -18,13 +16,13 @@ public class RunLengthCodecTest {
         RunLengthEncoding runLengthEncoding = new RunLengthEncoding();
         Int32Array encodedData = plainArray.encode(runLengthEncoding);
 
-        System.out.println(encodedData);
+//        System.out.println(encodedData);
 
         // decode
         NumberArray decodedArray = encodedData.decode(runLengthEncoding);
 
-        System.out.println(plainArray);
-        System.out.println(decodedArray);
+//        System.out.println(plainArray);
+//        System.out.println(decodedArray);
         assertArrayEquals(plainArray.getData(), (int[]) decodedArray.getData());
     }
 
@@ -36,8 +34,8 @@ public class RunLengthCodecTest {
         RunLengthEncoding runLengthEncoding = new RunLengthEncoding();
         Int32Array encodedData = plainArray.encode(runLengthEncoding);
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(encodedData.getData()));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(encodedData.getData()));
 
         assertArrayEquals(expected, encodedData.getData());
     }
@@ -49,8 +47,8 @@ public class RunLengthCodecTest {
 
         IntArray plainData = encodedArray.decode(new RunLengthEncoding(3, expected.length));
 
-        System.out.println(Arrays.toString(expected));
-        System.out.println(Arrays.toString(plainData.getData()));
+//        System.out.println(Arrays.toString(expected));
+//        System.out.println(Arrays.toString(plainData.getData()));
 
         assertArrayEquals(expected, plainData.getData());
     }

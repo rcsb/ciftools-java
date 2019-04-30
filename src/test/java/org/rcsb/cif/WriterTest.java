@@ -66,7 +66,10 @@ public class WriterTest {
                 .splitAsStream(output)
                 .filter(line -> {
                     try {
-                        System.out.println(Double.parseDouble(line));
+//                        System.out.println(
+                                Double.parseDouble(line)
+//                        )
+                        ;
                         return true;
                     } catch (NumberFormatException e) {
                         return false;
@@ -74,7 +77,7 @@ public class WriterTest {
                 })
                 .map(String::trim)
                 .forEach(number -> {
-                    System.out.println(number);
+//                    System.out.println(number);
                     assertEquals(2, number.split("\\.")[1].length());
                 });
     }
@@ -105,7 +108,7 @@ public class WriterTest {
     @Test
     public void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println("test cases: " + id + " - text writing");
+//            System.out.println("test cases: " + id + " - text writing");
             writeText(id);
         }
     }
@@ -113,7 +116,7 @@ public class WriterTest {
     @Test
     public void writeBinary() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println("test cases: " + id + " - binary writing");
+//            System.out.println("test cases: " + id + " - binary writing");
             writeBinary(id);
         }
     }
@@ -145,7 +148,7 @@ public class WriterTest {
                 .lines()
                 .collect(Collectors.joining("\n"));
 
-        System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
+//        System.out.println("original: " + original.getBytes().length + " bytes, copy: " + copy.getBytes().length + " bytes");
 
         // cannot match to David's bcif data as column types differ slightly
 //        assertEquals(original, copy);

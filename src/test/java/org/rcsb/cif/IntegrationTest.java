@@ -173,7 +173,7 @@ public class IntegrationTest {
                 .getCategory("pdbx_poly_seq_scheme")
                 .getColumn("auth_mon_id")
                 .getStringData(0);
-        System.out.println(stringData);
+//        System.out.println(stringData);
     }
 
     @Test
@@ -185,7 +185,7 @@ public class IntegrationTest {
                 .getCategory("pdbx_poly_seq_scheme")
                 .getColumn("auth_mon_id")
                 .getStringData(0);
-        System.out.println(stringData);
+//        System.out.println(stringData);
     }
 
     @Test
@@ -243,7 +243,7 @@ public class IntegrationTest {
     @Test
     public void roundTripViaBinary() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println(id + " via binary");
+//            System.out.println(id + " via binary");
             roundTripViaBinary(id);
         }
     }
@@ -267,7 +267,7 @@ public class IntegrationTest {
     @Test
     public void roundTripViaText() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println(id + " via text");
+//            System.out.println(id + " via text");
             roundTripViaText(id);
         }
     }
@@ -293,7 +293,7 @@ public class IntegrationTest {
     @Test
     public void readCifWriteBcif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println(id + " cif to bcif");
+//            System.out.println(id + " cif to bcif");
             readCifWriteBcif(id);
         }
     }
@@ -316,7 +316,7 @@ public class IntegrationTest {
     @Test
     public void readBcifWriteCif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-            System.out.println(id + " bcif to cif");
+//            System.out.println(id + " bcif to cif");
             readBcifWriteCif(id);
         }
     }
