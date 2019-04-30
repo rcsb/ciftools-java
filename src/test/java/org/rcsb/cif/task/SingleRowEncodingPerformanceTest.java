@@ -25,14 +25,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 107 s, 359368 bytes on average
  *
  *
- * Whole archive (151079 structures), parallel, as of xxx (04.30.19):
+ * Whole archive (151079 structures), parallel, as of 8d561ba (04.30.19):
  * naive approach:
- * xxxx s, xxxxxx bytes on average
+ * 802 s, 425063 bytes on average
  *
  * single row approach:
- * xxxx s, xxxxxx bytes on average
+ * 674 s, 345571 bytes on average
  *
- * -xx% time, -xx% size
+ * -16% time, -19% size
  */
 public class SingleRowEncodingPerformanceTest {
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");
