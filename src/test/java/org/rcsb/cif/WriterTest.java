@@ -138,19 +138,10 @@ public class WriterTest {
 
         // convert to bcif
         InputStream copy = CifWriter.writeBinary(binary);
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[1024];
-        while ((nRead = copy.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-
-        buffer.flush();
-        byte[] byteArray = buffer.toByteArray();
-        buffer.close();
+        byte[] output = getBytes(copy);
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
-                " if so, update snapshot files in bcif/ciftools/", original, byteArray);
+                " if so, update snapshot files in bcif/ciftools/", original, output);
     }
 }

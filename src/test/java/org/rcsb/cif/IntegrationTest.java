@@ -15,8 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
-import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
+import static org.rcsb.cif.TestHelper.*;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -163,26 +162,32 @@ public class IntegrationTest {
     public void test_pdbx_poly_seq_scheme_auth_mon_idText() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         CifFile text = CifReader.readText(inputStream);
-
-//        String stringData =
-        text.getBlocks().get(0)
-                .getCategory("pdbx_poly_seq_scheme")
-                .getColumn("auth_mon_id")
-                .getStringData(0);
-//        System.out.println(stringData);
+        test_pdbx_poly_seq_scheme_auth_mon_id(text);
     }
 
     @Test
     public void test_pdbx_poly_seq_scheme_auth_mon_idBinary() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("bcif/molstar/1acj.bcif");
-        CifFile text = CifReader.readBinary(inputStream);
+        CifFile binary = CifReader.readBinary(inputStream);
+        test_pdbx_poly_seq_scheme_auth_mon_id(binary);
+    }
 
-//        String stringData =
-        text.getBlocks().get(0)
+    private void test_pdbx_poly_seq_scheme_auth_mon_id(CifFile cifFile) {
+        Column column = cifFile.getFirstBlock()
                 .getCategory("pdbx_poly_seq_scheme")
-                .getColumn("auth_mon_id")
-                .getStringData(0);
-//        System.out.println(stringData);
+                .getColumn("auth_mon_id");
+
+        // should be ? for first group
+        String firstStringData = column.getStringData(0);
+        // which reports as an empty string
+        assertTrue(firstStringData.isEmpty());
+        assertEquals(ValueKind.UNKNOWN, column.getValueKind(0));
+
+        // should be ? for first group
+        String forthStringData = column.getStringData(3);
+        // which reports as an empty string
+        assertFalse(forthStringData.isEmpty());
+        assertEquals(ValueKind.PRESENT, column.getValueKind(3));
     }
 
     @Test
@@ -240,7 +245,6 @@ public class IntegrationTest {
     @Test
     public void roundTripViaBinary() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-//            System.out.println(id + " via binary");
             roundTripViaBinary(id);
         }
     }
@@ -264,56 +268,49 @@ public class IntegrationTest {
     @Test
     public void roundTripViaText() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-//            System.out.println(id + " via text");
             roundTripViaText(id);
         }
     }
 
     private void roundTripViaText(String testCase) throws IOException {
-//        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
-        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+//        byte[] original = TestHelper.getBytes("bcif/ciftools/" + testCase + ".bcif");
+        CifFile originalFile = CifReader.readBinary(TestHelper.getInputStream("bcif/ciftools/" + testCase + ".bcif"));
 
         InputStream cifInputStream = CifWriter.writeText(originalFile);
         CifFile cifFile = CifReader.readText(cifInputStream);
 
         InputStream copyInputStream = CifWriter.writeBinary(cifFile);
-        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
-                .lines()
-                .collect(Collectors.joining("\n"));
+        byte[] output = getBytes(copyInputStream);
 
-        // cannot match to David's bcif data as column types differ slightly
-//        assertEquals(originalContent, copyContent);
-//        assertNotNull(originalContent);
-        assertNotNull(copyContent);
+        assertNotNull(output);
+//        assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
+//        assertArrayEquals("binary write output does not match snapshot of output for " + testCase +
+//                " - did the implementation change? if so, update snapshot files in bcif/ciftools/", original, output);
     }
 
     @Test
     public void readCifWriteBcif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-//            System.out.println(id + " cif to bcif");
             readCifWriteBcif(id);
         }
     }
 
     private void readCifWriteBcif(String testCase) throws IOException {
-//        String originalContent = new String(TestHelper.getBytes("bcif/" + testCase + ".bcif"));
+//        byte[] original = TestHelper.getBytes("bcif/ciftools/" + testCase + ".bcif");
         CifFile originalFile = CifReader.readText(TestHelper.getInputStream("cif/" + testCase + ".cif"));
 
         InputStream copyInputStream = CifWriter.writeBinary(originalFile);
-        String copyContent = new BufferedReader(new InputStreamReader(copyInputStream))
-                .lines()
-                .collect(Collectors.joining("\n"));
+        byte[] output = getBytes(copyInputStream);
 
-        // cannot match to David's bcif data as column types differ slightly
-//        assertEquals(originalContent, copyContent);
-//        assertNotNull(originalContent);
-        assertNotNull(copyContent);
+        assertNotNull(output);
+//        assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
+//        assertArrayEquals("binary write output does not match snapshot of output for " + testCase +
+//                " - did the implementation change? if so, update snapshot files in bcif/ciftools/", original, output);
     }
 
     @Test
     public void readBcifWriteCif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
-//            System.out.println(id + " bcif to cif");
             readBcifWriteCif(id);
         }
     }
