@@ -3,11 +3,13 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.rcsb</groupId>
     <artifactId>ciftools-java</artifactId>
-    <version>0.3.1-SNAPSHOT</version>
+    <version>0.3.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <description>
         A Java library for handling text and binary CIF files.
     </description>
+    <name>ciftools-java</name>
+    <url>http://github.com/rcsb/ciftools-java</url>
     <organization>
         <name>RCSB PDB</name>
         <url>https://www.rcsb.org/</url>
@@ -53,12 +55,6 @@
         <project.build.targetEncoding>UTF-8</project.build.targetEncoding>
     </properties>
 
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-    </distributionManagement>
     <build>
         <plugins>
             <plugin>
@@ -73,12 +69,25 @@
         </plugins>
     </build>
 
+    <!-- https://central.sonatype.org/pages/apache-maven.html -->
+    <!-- https://github.com/chhh/sonatype-ossrh-parent/blob/master/pom.xml -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
+
     <profiles>
         <profile>
             <id>release</id>
             <build>
                 <plugins>
-                    <!-- https://central.sonatype.org/pages/apache-maven.html -->
+                    <!-- handles propagating the build to the staging repository -->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -90,6 +99,8 @@
                             <autoReleaseAfterClose>false</autoReleaseAfterClose>
                         </configuration>
                     </plugin>
+
+                    <!-- signing of content to be published -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
@@ -101,9 +112,18 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <!-- This is necessary for gpg to not try to use the pinentry programs -->
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- create source -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-source-plugin</artifactId>
@@ -117,6 +137,8 @@
                             </execution>
                         </executions>
                     </plugin>
+
+                    <!-- create javadoc -->
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
@@ -129,15 +151,6 @@
                                 </goals>
                             </execution>
                         </executions>
-                    </plugin>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-compiler-plugin</artifactId>
-                        <version>3.6.1</version>
-                        <configuration>
-                            <source>${jdk.version}</source>
-                            <target>${jdk.version}</target>
-                        </configuration>
                     </plugin>
                 </plugins>
             </build>
