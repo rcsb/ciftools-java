@@ -14,15 +14,15 @@ public interface Column {
     String getColumnName();
 
     /**
-     * The number of rows in this column. 0 indicates undefined columns.
+     * The number of rows in this column. 0 indicates undefined a column.
      * @return the length of this column
      */
     int getRowCount();
 
     /**
-     * Access to entries of this column without any assumptions about the content type. No checks are performed about
-     * the validity of the row argument are made. However, values smaller than 0 or larger or equal to the row count
-     * will raise exceptions.
+     * Access to entries of this column without any assumptions about the content type. No checks about the validity of
+     * the row argument are made. However, values smaller than 0 or larger or equal to the row count will raise
+     * exceptions.
      * @param row index of the element to retrieve
      * @return the String representation of the corresponding row
      */
@@ -32,7 +32,7 @@ public interface Column {
      * Access to all entries of this column as String values.
      * @return a Stream of all String values
      */
-    default Stream<String> getStringData() {
+    default Stream<String> stringData() {
         return IntStream.range(0, getRowCount())
                 .mapToObj(this::getStringData);
     }
@@ -54,7 +54,7 @@ public interface Column {
     /**
      * Queries this column whether it is defined. To avoid NullPointerExceptions left, right, and center, categories and
      * columns not present in a parsed file will be presented by an undefined state.
-     * @return true if this column has row count 0 and no data in it
+     * @return <code>false</code> if this column has row count 0 and no data in it
      */
     boolean isDefined();
 }
