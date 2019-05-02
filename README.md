@@ -11,8 +11,8 @@ are decoded the first time when they are actually requested. Thus, the parsing o
 Plots and details coming soon.
 
 ## Getting Started
-CIFTools is distributed by Maven Central. To get started, append your pom.xml by:
-```Maven
+CIFTools is distributed by Maven Central. To get started, append your ```pom.xml``` by:
+```xml
 <dependency>
   <groupId>org.rcsb</groupId>
   <artifactId>ciftools-java</artifactId>
@@ -56,7 +56,7 @@ class Demo {
         System.out.println(entryId);
 
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
-        // schema for column 'cartn_x'
+        // schema for column 'Cartn_x'
         OptionalDouble averageCartnX = cartnX.values().average();
         averageCartnX.ifPresent(System.out::println);
 
@@ -71,7 +71,14 @@ class Demo {
 }
 ```
 
-Just as in Mol* implementation, all parsing and decoding is done as lazily as possible.
+No difference exists in the API between text-based and binary CIF files. CIF files organize data in blocks, which contain
+categories (e.g. `AtomSite`), which contain columns (e.g. `CartnX`), which contain values of a particular type (e.g. 
+`double` values representing x-coordinates of atoms). The correct names and types for all defined categories and column 
+from the CIF dictionary are provided.
+
+Just as in Mol* implementation, all parsing and decoding is done as lazily as possible. This makes it cheap to acquire 
+the data structure and hardly wastes any time on preparing information you will never access. In contrast to 
+[MMTF](https://mmtf.rcsb.org/), all data can be accessed if needed.
 
 ## Model Creation Example
 ```Java
@@ -100,7 +107,7 @@ class Demo {
                 .add(-3.14, 5.0)
                 .leaveColumn()
 
-                // after leaving, the builder is in AtomSite again and provides columns
+                // after leaving, the builder is in AtomSite again and provides column names
                 .enterCartnY()
                 .add(0.0, -1.0, 2.72)
                 .markNextNotPresent()
@@ -114,6 +121,10 @@ class Demo {
     }
 }
 ```
+
+A step-wise builder is provided for the creation of `CifFile` instances. It is aware of category and column names and 
+the corresponding type described by a column (e.g. the `add` function called above is not overloaded, but rather will 
+only accept `String` values while in `entry.id` and only `double` values in `atom_site.Cartn_x`.
 
 ## Contributions
 

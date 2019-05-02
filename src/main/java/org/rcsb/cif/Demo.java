@@ -53,7 +53,7 @@ public class Demo {
         System.out.println(entryId);
 
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
-        // schema for column 'cartn_x'
+        // schema for column 'Cartn_x'
         OptionalDouble averageCartnX = cartnX.values().average();
         averageCartnX.ifPresent(System.out::println);
 
@@ -90,7 +90,7 @@ public class Demo {
                 .add(-3.14, 5.0)
                 .leaveColumn()
 
-                // after leaving, the builder is in AtomSite again and provides columns
+                // after leaving, the builder is in AtomSite again and provides column names
                 .enterCartnY()
                 .add(0.0, -1.0, 2.72)
                 .markNextNotPresent()
