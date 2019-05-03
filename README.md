@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/rcsb/ciftools-java.svg?branch=master)](https://travis-ci.com/rcsb/ciftools-java)
+
 # CIFTools
 CIFTools implements reading and writing of CIF files ([specification](http://www.iucr.org/resources/cif/spec/version1.1/cifsyntax))
 as well as their efficiently encoded counterpart, called BinaryCIF. The idea is to have a robust, type-safe 
