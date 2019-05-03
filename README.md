@@ -7,13 +7,13 @@ implementation for the handling of CIF files which does not care about the origi
 text-based and binary files should be handled the same way.
 
 ## Performance
-The implementation can read the entire PDB archive in 102 s. This is achieved by lazy decoding and parsing - all columns
+The implementation can read the entire PDB archive in 101 s. This is achieved by lazy decoding and parsing - all columns
 are decoded the first time when they are actually requested. Thus, the parsing overhead is kept minimal.
 
 Plots and details coming soon.
 
 ## Getting Started
-CIFTools is distributed by Maven Central. To get started, append your ```pom.xml``` by:
+CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 ```xml
 <dependency>
   <groupId>org.rcsb</groupId>
@@ -48,8 +48,8 @@ class Demo {
         // get first block of CIF
         Block data = cifFile.getFirstBlock();
 
-        // get category with name '_atom_site' from first block - access is type-safe, all categories are
-        // inferred from the CIF schema
+        // get category with name '_atom_site' from first block - access is type-safe, all categories
+        // are inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();
 

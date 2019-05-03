@@ -6,7 +6,6 @@ import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
@@ -43,8 +42,8 @@ public class Demo {
         // get first block of CIF
         Block data = cifFile.getFirstBlock();
 
-        // get category with name '_atom_site' from first block - access is type-safe, all categories are
-        // inferred from the CIF schema
+        // get category with name '_atom_site' from first block - access is type-safe, all categories
+        // are inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();
 
@@ -102,7 +101,7 @@ public class Demo {
                 .leaveBlock()
                 .leaveFile();
 
-        println(CifWriter.writeText(cifFile));
+        System.out.println(new String(SharedIO.inputStreamToBytes(CifWriter.writeText(cifFile))));
 
         System.out.println(cifFile.getFirstBlock().getEntry().getId().get());
         cifFile.getFirstBlock()
@@ -110,18 +109,5 @@ public class Demo {
                 .getCartnX()
                 .values()
                 .forEach(System.out::println);
-    }
-
-    @SuppressWarnings("Duplicates")
-    private static void println(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[1024];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-
-        buffer.close();
-        System.out.println(new String(buffer.toByteArray()));
     }
 }

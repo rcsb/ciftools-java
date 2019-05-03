@@ -3,7 +3,6 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -85,19 +84,7 @@ public class TestHelper {
     }
 
     public static byte[] getBytes(String localPath) throws IOException {
-        return getBytes(getInputStream(localPath));
-    }
-
-    public static byte[] getBytes(InputStream inputStream) throws IOException {
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[2048];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-
-        buffer.close();
-        return buffer.toByteArray();
+        return SharedIO.inputStreamToBytes(getInputStream(localPath));
     }
 
     public static int[] convertToIntArray(byte[] bytes) {

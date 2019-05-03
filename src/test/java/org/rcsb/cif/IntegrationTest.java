@@ -280,7 +280,7 @@ public class IntegrationTest {
         CifFile cifFile = CifReader.readText(cifInputStream);
 
         InputStream copyInputStream = CifWriter.writeBinary(cifFile);
-        byte[] output = getBytes(copyInputStream);
+        byte[] output = SharedIO.inputStreamToBytes(copyInputStream);
 
         assertNotNull(output);
 //        assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
@@ -300,7 +300,7 @@ public class IntegrationTest {
         CifFile originalFile = CifReader.readText(TestHelper.getInputStream("cif/" + testCase + ".cif"));
 
         InputStream copyInputStream = CifWriter.writeBinary(originalFile);
-        byte[] output = getBytes(copyInputStream);
+        byte[] output = SharedIO.inputStreamToBytes(copyInputStream);
 
         assertNotNull(output);
 //        assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));

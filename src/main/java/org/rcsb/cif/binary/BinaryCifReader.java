@@ -1,12 +1,10 @@
 package org.rcsb.cif.binary;
 
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.SharedIO;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.*;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedHashMap;
@@ -17,26 +15,8 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifReader {
-    @SuppressWarnings("Duplicates")
     public CifFile read(InputStream inputStream) throws ParsingException, IOException {
-        // TODO support GZIPInputStream
-        // performance 2.1: explicitly buffer stream, increases performance drastically
-        if (!(inputStream instanceof BufferedInputStream)) {
-            inputStream = new BufferedInputStream(inputStream);
-        }
-
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[1024];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-
-        buffer.flush();
-        byte[] byteArray = buffer.toByteArray();
-        buffer.close();
-        inputStream.close();
-
+        byte[] byteArray = SharedIO.inputStreamToBytes(inputStream);
         return readBinary(byteArray);
     }
 
@@ -50,7 +30,7 @@ public class BinaryCifReader {
         try {
             unpacked = Codec.MESSAGE_PACK_CODEC.decode(data);
         } catch (ClassCastException e) {
-            throw new ParsingException("File seems to be not in binary CIF. Encountered unexpected cast.", e);
+            throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
             throw new ParsingException("Parsing failed.", e);
         }

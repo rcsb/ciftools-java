@@ -54,6 +54,9 @@ import java.util.zip.GZIPInputStream;
  * As of 967535d (04.23.19):
  * - read, decode, encode, and 'write' (without actual IO) 151079 structures (binary) in 595 s, parallel @ 12 cores
  *
+ * As of 6e36d7d (05.03.19):
+ * - read 151079 structures (binary) in 469 s, sequential
+ * - read 151079 structures (binary) in 101 s, parallel @ 12 cores
  */
 public class GeneralPerformanceTest {
     private static final Path PDB_DIRECTORY = Paths.get("/var/pdb/");
@@ -68,8 +71,8 @@ public class GeneralPerformanceTest {
 //        readTextSequential();
 //        readTextParallel();
 //
-//        readBinarySequential();
-        readBinaryParallel();
+        readBinarySequential();
+//        readBinaryParallel();
 
 //        writeTextSequential();
 //        writeTextParallel();

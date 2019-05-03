@@ -138,7 +138,7 @@ public class WriterTest {
 
         // convert to bcif
         InputStream copy = CifWriter.writeBinary(binary);
-        byte[] output = getBytes(copy);
+        byte[] output = SharedIO.inputStreamToBytes(copy);
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +

@@ -1,39 +1,21 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.SharedIO;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
 
-import java.io.BufferedInputStream;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TextCifReader {
-    @SuppressWarnings("Duplicates")
     public TextFile read(InputStream inputStream) throws ParsingException, IOException {
-        // TODO support GZIPInputStream
-        // performance 1.1: explicitly buffer stream, increases performance drastically
-        // 1.2 resizing of token lists is an issue - provide initial guess to avoid excessive resizing
-        if (!(inputStream instanceof BufferedInputStream)) {
-            inputStream = new BufferedInputStream(inputStream);
-        }
-
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        int nRead;
-        byte[] data = new byte[1024];
-        while ((nRead = inputStream.read(data, 0, data.length)) != -1) {
-            buffer.write(data, 0, nRead);
-        }
-
-        buffer.flush();
-        String string = buffer.toString("UTF-8");
-        buffer.close();
-        inputStream.close();
-
+        byte[] byteArray = SharedIO.inputStreamToBytes(inputStream);
+        String string = new String(byteArray, StandardCharsets.UTF_8);
         return readText(string);
     }
 

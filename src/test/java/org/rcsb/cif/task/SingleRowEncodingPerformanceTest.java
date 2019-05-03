@@ -1,9 +1,9 @@
 package org.rcsb.cif.task;
 
-import org.rcsb.cif.TestHelper;
+import org.rcsb.cif.BinaryCifWriterOptions;
+import org.rcsb.cif.SharedIO;
 import org.rcsb.cif.binary.BinaryCifReader;
 import org.rcsb.cif.binary.BinaryCifWriter;
-import org.rcsb.cif.BinaryCifWriterOptions;
 import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
@@ -80,7 +80,7 @@ public class SingleRowEncodingPerformanceTest {
                         InputStream inputStream = new BinaryCifWriter(options).write(cifFile);
 
                         // get size of encoded file
-                        byte[] bytes = TestHelper.getBytes(inputStream);
+                        byte[] bytes = SharedIO.inputStreamToBytes(inputStream);
                         sizes.add(bytes.length);
 
                         // read once more
