@@ -1,5 +1,6 @@
 package org.rcsb.cif.text;
 
+import org.rcsb.cif.TextCifWriterOptions;
 import org.rcsb.cif.model.*;
 
 import java.io.ByteArrayInputStream;
@@ -13,6 +14,12 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class TextCifWriter {
+    private final TextCifWriterOptions options;
+
+    public TextCifWriter(TextCifWriterOptions options) {
+        this.options = options;
+    }
+
     public String compose(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 

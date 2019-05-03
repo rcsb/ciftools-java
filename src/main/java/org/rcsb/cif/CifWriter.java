@@ -12,6 +12,7 @@ import java.io.InputStream;
  */
 public abstract class CifWriter {
     private static final BinaryCifWriterOptions DEFAULT_BINARY_OPTIONS = BinaryCifWriterOptions.create().build();
+    private static final TextCifWriterOptions DEFAULT_TEXT_OPTIONS = TextCifWriterOptions.create().build();
 
     /**
      * Uses several encoding strategies to create an efficient representation of a CifFile.
@@ -39,7 +40,17 @@ public abstract class CifWriter {
      * @return the text InputStream representing the file content
      */
     public static InputStream writeText(CifFile cifFile) {
-        return new TextCifWriter().write(cifFile);
+        return writeText(cifFile, DEFAULT_TEXT_OPTIONS);
+    }
+
+    /**
+     * Convert this CifFile to its mmCIF representation and return the corresponding InputStream.
+     * @param cifFile the file to process
+     * @param options provide options for the {@link TextCifWriter} - acquire using {@link TextCifWriterOptions#create()}
+     * @return the text InputStream representing the file content
+     */
+    public static InputStream writeText(CifFile cifFile, TextCifWriterOptions options) {
+        return new TextCifWriter(options).write(cifFile);
     }
 
     /**
@@ -48,6 +59,16 @@ public abstract class CifWriter {
      * @return the String representing the file content
      */
     public static String composeText(CifFile cifFile) {
-        return new TextCifWriter().compose(cifFile);
+        return composeText(cifFile, DEFAULT_TEXT_OPTIONS);
+    }
+
+    /**
+     * Convert this CifFile to its mmCIF representation and return its String representation.
+     * @param cifFile the file to process
+     * @param options provide options for the {@link TextCifWriter} - acquire using {@link TextCifWriterOptions#create()}
+     * @return the String representing the file content
+     */
+    public static String composeText(CifFile cifFile, TextCifWriterOptions options) {
+        return new TextCifWriter(options).compose(cifFile);
     }
 }

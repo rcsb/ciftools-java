@@ -2,11 +2,12 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.binary.codec.Codec;
 
-public class BinaryCifWriterOptions {
+public class BinaryCifWriterOptions extends CifWriterOptions {
     private final String encoder;
     private final boolean singleRowMessagePack;
 
-    private BinaryCifWriterOptions(Builder builder) {
+    private BinaryCifWriterOptions(BinaryCifWriterBuilder builder) {
+        super(builder);
         this.encoder = builder.encoder;
         this.singleRowMessagePack = builder.singleRowByMessagePack;
     }
@@ -23,11 +24,11 @@ public class BinaryCifWriterOptions {
      * Create a builder instance which provides access to all options.
      * @return the builder
      */
-    public static Builder create() {
-        return new Builder();
+    public static BinaryCifWriterBuilder create() {
+        return new BinaryCifWriterBuilder();
     }
 
-    public static class Builder {
+    public static class BinaryCifWriterBuilder extends CifWriterOptionsBuilder {
         String encoder = Codec.CODEC_NAME;
         boolean singleRowByMessagePack = false;
 
@@ -37,7 +38,7 @@ public class BinaryCifWriterOptions {
          * @param encoder the encoder name to use
          * @return the builder
          */
-        public Builder setEncoderName(String encoder) {
+        public BinaryCifWriterBuilder setEncoderName(String encoder) {
             this.encoder = encoder;
             return this;
         }
@@ -49,7 +50,7 @@ public class BinaryCifWriterOptions {
          * @param singleRowByMessagePack feed single row categories directly by MessagePack
          * @return the builder
          */
-        public Builder setSingleRowByMessagePack(boolean singleRowByMessagePack) {
+        public BinaryCifWriterBuilder setSingleRowByMessagePack(boolean singleRowByMessagePack) {
             this.singleRowByMessagePack = singleRowByMessagePack;
             return this;
         }
