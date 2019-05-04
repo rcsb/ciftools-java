@@ -10,9 +10,9 @@ import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.*;
@@ -22,8 +22,8 @@ public class WriterTest {
     public void testNumberFormat() throws IOException {
         // read and write cif file
         InputStream inputStream = getInputStream("cif/1a2c.cif");
-        CifFile cifFile = CifReader.readText(inputStream);
-        String output = CifWriter.composeText(cifFile);
+        CifFile cifFile = CifIO.readFromInputStream(inputStream);
+        String output = new String(CifIO.writeText(cifFile));
 
         Pattern.compile("\n")
                 .splitAsStream(output)
@@ -57,7 +57,7 @@ public class WriterTest {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
-        String output = CifWriter.composeText(cifFile);
+        String output = new String(CifIO.writeText(cifFile));
         Pattern.compile("\n")
                 .splitAsStream(output)
                 .filter(line -> {
@@ -109,12 +109,10 @@ public class WriterTest {
 
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/" + testCase + ".cif");
-        CifFile text = CifReader.readText(inputStream);
+        CifFile text = CifIO.readFromInputStream(inputStream);
 
         // convert to cif
-        String copy = new BufferedReader(new InputStreamReader(CifWriter.writeText(text)))
-                .lines()
-                .collect(Collectors.joining("\n"));
+        String copy = new String(CifIO.writeText(text));
 
         assertEqualsLoosely(original, copy);
     }
@@ -126,7 +124,6 @@ public class WriterTest {
         }
     }
 
-    @SuppressWarnings("Duplicates")
     private void writeBinary(String testCase) throws ParsingException, IOException {
         // a snapshot of the ciftools output is used - the implementation will not exactly recreate Mol* output
         // this test is to check if some code change breaks
@@ -134,11 +131,12 @@ public class WriterTest {
 
         // read from bcif
         InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif");
-        CifFile binary = CifReader.readBinary(inputStream);
+        CifFile binary = CifIO.readFromInputStream(inputStream);
 
         // convert to bcif
-        InputStream copy = CifWriter.writeBinary(binary);
-        byte[] output = SharedIO.inputStreamToBytes(copy);
+        byte[] output = CifIO.writeBinary(binary);
+
+        assertEquals(new String(original), new String(output));
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +

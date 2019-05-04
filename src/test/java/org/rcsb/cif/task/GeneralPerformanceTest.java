@@ -1,12 +1,10 @@
 package org.rcsb.cif.task;
 
-import org.rcsb.cif.CifReader;
-import org.rcsb.cif.CifWriter;
+import org.rcsb.cif.CifIO;
 import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -71,8 +69,8 @@ public class GeneralPerformanceTest {
 //        readTextSequential();
 //        readTextParallel();
 //
-        readBinarySequential();
-//        readBinaryParallel();
+//        readBinarySequential();
+        readBinaryParallel();
 
 //        writeTextSequential();
 //        writeTextParallel();
@@ -113,21 +111,9 @@ public class GeneralPerformanceTest {
         performance(BCIF_DIRECTORY, true, true, null);
     }
 
-    // we define write operations as merely acquiring the InputStream of data to be written without doing any real IO
-    private static final Consumer<CifFile> BINARY_WRITE = cifFile -> {
-        try {
-            CifWriter.writeBinary(cifFile).close();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-    };
-    private static final Consumer<CifFile> TEXT_WRITE = cifFile -> {
-        try {
-            CifWriter.writeText(cifFile).close();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
-    };
+    // we define write operations as merely acquiring the byte[] to be written without doing any real IO
+    private static final Consumer<CifFile> BINARY_WRITE = CifIO::writeBinary;
+    private static final Consumer<CifFile> TEXT_WRITE = CifIO::writeText;
 
     private static void performance(Path basePath, boolean binary, boolean parallel, Consumer<CifFile> downstreamOperation) throws IOException {
         AtomicInteger counter = new AtomicInteger(0);
@@ -154,10 +140,10 @@ public class GeneralPerformanceTest {
                         CifFile cifFile;
                         if (binary) {
                             InputStream inputStream = Files.newInputStream(path);
-                            cifFile = CifReader.readBinary(inputStream);
+                            cifFile = CifIO.readFromInputStream(inputStream);
                         } else {
                             InputStream inputStream = new GZIPInputStream(Files.newInputStream(path));
-                            cifFile = CifReader.readText(inputStream);
+                            cifFile = CifIO.readFromInputStream(inputStream);
                         }
 
                         if (downstreamOperation != null) {

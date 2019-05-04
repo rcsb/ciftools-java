@@ -1,12 +1,10 @@
 package org.rcsb.cif.binary;
 
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.SharedIO;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.*;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,13 +13,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifReader {
-    public CifFile read(InputStream inputStream) throws ParsingException, IOException {
-        byte[] byteArray = SharedIO.inputStreamToBytes(inputStream);
-        return readBinary(byteArray);
+    private final CifOptions options;
+
+    public BinaryCifReader(CifOptions options) {
+        this.options = options;
     }
 
     @SuppressWarnings("unchecked")
-    public CifFile readBinary(byte[] data) throws ParsingException {
+    public CifFile read(byte[] data) throws ParsingException {
         if (data.length == 0) {
             throw new ParsingException("Cannot parse empty file.");
         }

@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary;
 
-import org.rcsb.cif.BinaryCifWriterOptions;
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
@@ -10,8 +10,6 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -20,17 +18,15 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BinaryCifWriter {
-    private final BinaryCifWriterOptions options;
+    private final CifOptions options;
 
-    public BinaryCifWriter(BinaryCifWriterOptions options) {
+    public BinaryCifWriter(CifOptions options) {
         this.options = options;
     }
 
-    public InputStream write(CifFile cifFile) {
+    public byte[] write(CifFile cifFile) {
         Map<String, Object> file = encodeFile(cifFile);
-
-        byte[] bytes = Codec.MESSAGE_PACK_CODEC.encode(file);
-        return new ByteArrayInputStream(bytes);
+        return Codec.MESSAGE_PACK_CODEC.encode(file);
     }
 
     public Map<String, Object> encodeFile(CifFile cifFile) {
@@ -63,7 +59,7 @@ public class BinaryCifWriter {
                 category.put("name", "_" + cifCategory.getCategoryName());
 
                 // single row
-                if (options.isSingleRowMessagePack() && rowCount == 1) {
+                if (options.isSingleRow() && rowCount == 1) {
                     category.put("columns", encodeSingleRowCategory(cifCategory));
                 } else {
                     Object[] fields = new Object[cifCategory.getColumnNames().size()];

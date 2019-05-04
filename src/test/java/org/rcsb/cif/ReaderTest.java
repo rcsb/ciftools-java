@@ -20,7 +20,7 @@ public class ReaderTest {
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase.getKey() + ".bcif");
-            checkParsedEntity(CifReader.readBinary(inputStream), testCase.getValue());
+            checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
         }
     }
 
@@ -28,7 +28,7 @@ public class ReaderTest {
     public void parseText() throws ParsingException, IOException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
-            checkParsedEntity(CifReader.readText(inputStream), testCase.getValue());
+            checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
         }
     }
 
@@ -48,21 +48,11 @@ public class ReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
-        CifReader.readBinary(TestHelper.getInputStream("bcif/molstar/0emp.bcif"));
-    }
-
-    @Test(expected = ParsingException.class)
-    public void shouldReportExceptionForWrongBinaryContent() throws ParsingException, IOException {
-        CifReader.readBinary(TestHelper.getInputStream("cif/1acj.cif"));
+        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/0emp.bcif"));
     }
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyTextFile() throws ParsingException, IOException {
-        CifReader.readText(TestHelper.getInputStream("cif/0emp.cif"));
-    }
-
-    @Test(expected = ParsingException.class)
-    public void shouldReportExceptionForWrongTextContent() throws ParsingException, IOException {
-        CifReader.readText(TestHelper.getInputStream("bcif/molstar/1acj.bcif"));
+        CifIO.readFromInputStream(TestHelper.getInputStream("cif/0emp.cif"));
     }
 }

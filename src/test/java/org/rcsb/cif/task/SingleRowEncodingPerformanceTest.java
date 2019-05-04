@@ -1,13 +1,11 @@
 package org.rcsb.cif.task;
 
-import org.rcsb.cif.BinaryCifWriterOptions;
-import org.rcsb.cif.SharedIO;
-import org.rcsb.cif.binary.BinaryCifReader;
-import org.rcsb.cif.binary.BinaryCifWriter;
+import org.rcsb.cif.CifIO;
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.model.CifFile;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -45,18 +43,18 @@ public class SingleRowEncodingPerformanceTest {
     public static void main(String[] args) throws IOException {
         System.out.println(" ### standard encoding ###");
         System.out.println();
-        roundTrip(BinaryCifWriterOptions.create().setSingleRowByMessagePack(false).build());
+        roundTrip(CifOptions.builder().singleRow(true).gzip(true).build());
         System.out.println();
         System.out.println();
 
         System.out.println(" ### single row encoding ###");
         System.out.println();
-        roundTrip(BinaryCifWriterOptions.create().setSingleRowByMessagePack(true).build());
+        roundTrip(CifOptions.builder().singleRow(true).gzip(true).build());
         System.out.println();
         System.out.println();
     }
 
-    private static void roundTrip(BinaryCifWriterOptions options) throws IOException {
+    private static void roundTrip(CifOptions options) throws IOException {
         AtomicInteger counter = new AtomicInteger(0);
         AtomicInteger failed = new AtomicInteger(0);
         int target = (int) Files.walk(BCIF_DIRECTORY).filter(path -> !Files.isDirectory(path)).count();
@@ -76,15 +74,14 @@ public class SingleRowEncodingPerformanceTest {
 
                     try {
                         // read source file
-                        CifFile cifFile = new BinaryCifReader().read(Files.newInputStream(path));
-                        InputStream inputStream = new BinaryCifWriter(options).write(cifFile);
+                        CifFile cifFile = CifIO.readFromPath(path);
+                        byte[] bytes = CifIO.writeBinary(cifFile, options);
 
                         // get size of encoded file
-                        byte[] bytes = SharedIO.inputStreamToBytes(inputStream);
                         sizes.add(bytes.length);
 
                         // read once more
-                        new BinaryCifReader().readBinary(bytes);
+                        CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
                     } catch (Exception e) {
                         e.printStackTrace();
                         failed.incrementAndGet();

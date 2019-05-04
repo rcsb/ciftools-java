@@ -1,7 +1,6 @@
 package org.rcsb.cif.task;
 
-import org.rcsb.cif.CifReader;
-import org.rcsb.cif.CifWriter;
+import org.rcsb.cif.CifIO;
 import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
@@ -9,7 +8,6 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 import java.util.zip.GZIPInputStream;
@@ -50,13 +48,11 @@ public class ConvertCifToBcif {
                 Path outputPath = subDir.resolve(filename);
 
                 InputStream inputStream = new GZIPInputStream(Files.newInputStream(path));
-                CifFile cifFile = CifReader.readText(inputStream);
-                InputStream outputStream = CifWriter.writeBinary(cifFile);
+                CifFile cifFile = CifIO.readFromInputStream(inputStream);
 
-                Files.copy(outputStream, outputPath, StandardCopyOption.REPLACE_EXISTING);
+                CifIO.writeBinary(cifFile, outputPath);
 
                 inputStream.close();
-                outputStream.close();
             } catch (Exception e) {
                 e.printStackTrace();
                 failed.incrementAndGet();

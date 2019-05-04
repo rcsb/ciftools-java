@@ -1,6 +1,6 @@
 package org.rcsb.cif.generator;
 
-import org.rcsb.cif.CifReader;
+import org.rcsb.cif.CifIO;
 import org.rcsb.cif.model.*;
 
 import java.io.IOException;
@@ -294,7 +294,7 @@ class SchemaGenerator {
     }
 
     private SchemaGenerator() throws IOException {
-        this.cifFile = CifReader.readText(Thread.currentThread()
+        this.cifFile = CifIO.readFromInputStream(Thread.currentThread()
                 .getContextClassLoader()
                 .getResourceAsStream("mmcif_pdbx_v50.dic"));
         this.schema = new LinkedHashMap<>();

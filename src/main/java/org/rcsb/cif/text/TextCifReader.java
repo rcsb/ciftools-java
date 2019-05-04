@@ -1,21 +1,24 @@
 package org.rcsb.cif.text;
 
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.SharedIO;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
 public class TextCifReader {
-    public TextFile read(InputStream inputStream) throws ParsingException, IOException {
-        byte[] byteArray = SharedIO.inputStreamToBytes(inputStream);
-        String string = new String(byteArray, StandardCharsets.UTF_8);
+    private final CifOptions options;
+
+    public TextCifReader(CifOptions options) {
+        this.options = options;
+    }
+
+    public TextFile read(byte[] bytes) throws ParsingException {
+        String string = new String(bytes, StandardCharsets.UTF_8);
         return readText(string);
     }
 

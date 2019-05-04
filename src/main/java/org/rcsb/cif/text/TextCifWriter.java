@@ -1,10 +1,8 @@
 package org.rcsb.cif.text;
 
-import org.rcsb.cif.TextCifWriterOptions;
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.model.*;
 
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import java.util.HashMap;
 import java.util.List;
@@ -14,13 +12,13 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class TextCifWriter {
-    private final TextCifWriterOptions options;
+    private final CifOptions options;
 
-    public TextCifWriter(TextCifWriterOptions options) {
+    public TextCifWriter(CifOptions options) {
         this.options = options;
     }
 
-    public String compose(CifFile cifFile) {
+    public byte[] write(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
         for (Block block : cifFile.getBlocks()) {
@@ -46,12 +44,7 @@ public class TextCifWriter {
         }
         output.append("\n");
 
-        return output.toString();
-    }
-
-    public InputStream write(CifFile cifFile) {
-        byte[] bytes = compose(cifFile).getBytes(StandardCharsets.UTF_8);
-        return new ByteArrayInputStream(bytes);
+        return output.toString().getBytes(StandardCharsets.UTF_8);
     }
 
     private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {

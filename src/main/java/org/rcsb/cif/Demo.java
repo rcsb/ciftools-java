@@ -7,7 +7,6 @@ import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.net.URL;
 import java.util.Optional;
 import java.util.OptionalDouble;
@@ -29,14 +28,10 @@ public class Demo {
         CifFile cifFile;
         if (parseBinary) {
             // parse binary CIF from ModelServer
-            InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/"
-                    + pdbId).openStream();
-            cifFile = CifReader.readBinary(inputStream);
+            cifFile = CifIO.readFromURL(new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId));
         } else {
             // parse CIF from PDB
-            InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId
-                    + ".cif").openStream();
-            cifFile = CifReader.readText(inputStream);
+            cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
         }
 
         // get first block of CIF
@@ -101,7 +96,7 @@ public class Demo {
                 .leaveBlock()
                 .leaveFile();
 
-        System.out.println(new String(SharedIO.inputStreamToBytes(CifWriter.writeText(cifFile))));
+        System.out.println(new String(CifIO.writeText(cifFile)));
 
         System.out.println(cifFile.getFirstBlock().getEntry().getId().get());
         cifFile.getFirstBlock()
