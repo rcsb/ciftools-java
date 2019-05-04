@@ -56,24 +56,23 @@ public class CifIO {
 
     public static CifFile readFromInputStream(InputStream inputStream, CifOptions options) throws IOException {
         // performance: explicitly buffer stream, increases performance drastically
-        if (!(inputStream instanceof BufferedInputStream)) {
-            inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
-        }
+        inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
 
-        // while reading the stream, check if gzipped
-        boolean streamStart = true;
-        boolean gzipped = false;
+        // check if gzipped - mark this position - the mark will become invalid after 2 bytes were read
+        inputStream.mark(2);
+        boolean gzipped = GZIPInputStream.GZIP_MAGIC == (inputStream.read() & 0xff | ((inputStream.read() << 8) & 0xff00));
+        // move back to start of stream
+        inputStream.reset();
+
+        // if gzipped, wrap stream to inflater
+        if (gzipped) {
+            inputStream = new GZIPInputStream(inputStream, BUFFER_SIZE);
+        }
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         int bytesRead;
         byte[] buffer = new byte[BUFFER_SIZE];
         while ((bytesRead = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            // check first two bytes of stream for magic
-            if (streamStart) {
-                gzipped = GZIPInputStream.GZIP_MAGIC == (buffer[0] & 0xff | ((buffer[1] << 8) & 0xff00));
-                streamStart = false;
-            }
-
             byteArrayOutputStream.write(buffer, 0, bytesRead);
         }
 
@@ -85,9 +84,6 @@ public class CifIO {
         // determine binary or text
         byte[] probe = Arrays.copyOf(byteArray, TEXT_MAGIC.length);
         boolean text = Arrays.equals(TEXT_MAGIC, probe);
-
-//        System.out.println("is gzip: " + gzipped);
-//        System.out.println("is text: " + text);
 
         return text ? new TextCifReader(options).read(byteArray) : new BinaryCifReader(options).read(byteArray);
     }
