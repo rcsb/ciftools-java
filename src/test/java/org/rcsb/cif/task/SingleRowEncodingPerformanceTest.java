@@ -36,6 +36,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * problem:
  * - difference should vanish for gzipped files
  *
+ * TODO rerun, update, plots
  * Whole archive (151079 structures), parallel, as of xxxx (05.03.19):
  * naive approach:
  * xxx s, xxx bytes on average

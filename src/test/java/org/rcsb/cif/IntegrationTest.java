@@ -22,6 +22,8 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class IntegrationTest {
+    // TODO test for gzip integration
+
     @Test
     public void testVectorAndMatrixBehavior() throws IOException {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
