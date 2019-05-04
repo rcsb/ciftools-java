@@ -5,6 +5,7 @@ import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.UncheckedIOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -112,8 +113,20 @@ public class GeneralPerformanceTest {
     }
 
     // we define write operations as merely acquiring the byte[] to be written without doing any real IO
-    private static final Consumer<CifFile> BINARY_WRITE = CifIO::writeBinary;
-    private static final Consumer<CifFile> TEXT_WRITE = CifIO::writeText;
+    private static final Consumer<CifFile> BINARY_WRITE = cifFile -> {
+        try {
+            CifIO.writeBinary(cifFile);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    };
+    private static final Consumer<CifFile> TEXT_WRITE = cifFile -> {
+        try {
+            CifIO.writeText(cifFile);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        }
+    };
 
     private static void performance(Path basePath, boolean binary, boolean parallel, Consumer<CifFile> downstreamOperation) throws IOException {
         AtomicInteger counter = new AtomicInteger(0);

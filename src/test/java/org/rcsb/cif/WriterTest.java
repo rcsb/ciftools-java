@@ -47,7 +47,7 @@ public class WriterTest {
     }
 
     @Test
-    public void testNumberFormatOfBuiltCifFile() {
+    public void testNumberFormatOfBuiltCifFile() throws IOException {
         CifFile cifFile = new CifBuilder()
                 .enterBlock("test")
                 .enterCategory("atom_site")

@@ -31,6 +31,17 @@ import java.util.concurrent.atomic.AtomicInteger;
  * 674 s, 345571 bytes on average
  *
  * -16% time, -19% size
+ *
+ *
+ * problem:
+ * - difference should vanish for gzipped files
+ *
+ * Whole archive (151079 structures), parallel, as of xxxx (05.03.19):
+ * naive approach:
+ * xxx s, xxx bytes on average
+ *
+ * single row approach:
+ * xxx s, xxx bytes on average
  */
 public class SingleRowEncodingPerformanceTest {
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");

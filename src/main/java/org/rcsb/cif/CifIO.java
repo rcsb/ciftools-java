@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
 import java.util.zip.GZIPInputStream;
+import java.util.zip.GZIPOutputStream;
 
 /**
  * Collection of IO operations to retrieve, process, and write CIF files.
@@ -99,12 +100,13 @@ public class CifIO {
         Files.write(outputFile, writeBinary(cifFile, options));
     }
 
-    public static byte[] writeBinary(CifFile cifFile) {
+    public static byte[] writeBinary(CifFile cifFile) throws IOException {
         return writeBinary(cifFile, DEFAULT_OPTIONS);
     }
 
-    public static byte[] writeBinary(CifFile cifFile, CifOptions options) {
-        return new BinaryCifWriter(options).write(cifFile);
+    public static byte[] writeBinary(CifFile cifFile, CifOptions options) throws IOException {
+        byte[] raw = new BinaryCifWriter(options).write(cifFile);
+        return options.isGzip() ? compress(raw) : raw;
     }
 
     public static void writeText(CifFile cifFile, Path outputFile) throws IOException {
@@ -115,11 +117,23 @@ public class CifIO {
         Files.write(outputFile, writeText(cifFile, options));
     }
 
-    public static byte[] writeText(CifFile cifFile) {
+    public static byte[] writeText(CifFile cifFile) throws IOException {
         return writeText(cifFile, DEFAULT_OPTIONS);
     }
 
-    public static byte[] writeText(CifFile cifFile, CifOptions options) {
-        return new TextCifWriter(options).write(cifFile);
+    public static byte[] writeText(CifFile cifFile, CifOptions options) throws IOException {
+        byte[] raw = new TextCifWriter(options).write(cifFile);
+        return options.isGzip() ? compress(raw) : raw;
+    }
+
+    private static byte[] compress(byte[] bytes) throws IOException {
+        byte[] output;
+        try (ByteArrayOutputStream byteStream = new ByteArrayOutputStream(bytes.length)) {
+            try (GZIPOutputStream zipStream = new GZIPOutputStream(byteStream)) {
+                zipStream.write(bytes);
+            }
+            output = byteStream.toByteArray();
+        }
+        return output;
     }
 }
