@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.Entry;
 
 import java.io.ByteArrayInputStream;
@@ -12,6 +13,14 @@ import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {
+    @Test
+    public void testFetchUrl() throws IOException {
+        // by switching to RCSB cif files, the implementation type should be text
+        CifFile cifFile = CifIO.readById("1acj", CifOptions.builder()
+                .fetchUrl("https://files.rcsb.org/download/%s.cif").build());
+        assertTrue(cifFile instanceof TextFile);
+    }
+
     @Test
     public void testFilteringBehavior() throws IOException {
         for (String id : TEST_CASES.keySet()) {
