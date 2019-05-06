@@ -36,13 +36,12 @@ import java.util.concurrent.atomic.AtomicInteger;
  * problem:
  * - difference should vanish for gzipped files
  *
- * TODO rerun, update, plots
- * Whole archive (151079 structures), parallel, as of xxxx (05.03.19):
+ * Whole archive (151079 structures), parallel, as of 4e1653ad (05.06.19):
  * naive approach:
- * xxx s, xxx bytes on average
+ * 875 s, 119321 bytes on average
  *
  * single row approach:
- * xxx s, xxx bytes on average
+ * 866 s, 119321 bytes on average
  */
 public class SingleRowEncodingPerformanceTest {
     private static final Path BCIF_DIRECTORY = Paths.get("/var/bcif/");
