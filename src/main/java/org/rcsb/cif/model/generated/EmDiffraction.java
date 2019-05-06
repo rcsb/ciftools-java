@@ -23,7 +23,6 @@ public class EmDiffraction extends BaseCategory {
     }
 
     /**
-     * TODO
      * @return FloatColumn
      */
     public FloatColumn getCameraLength() {
