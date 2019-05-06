@@ -1,0 +1,776 @@
+# ----------------------------------------------------------------------------------------------------------------------------
+#
+#  File: entity_branch_extension.dic
+#  Date: 8-May-2012 Jdw
+#  Update:  1-Aug-2018 Ep
+#          16-Aug-2018 Ep Removal of pdbx_struct_binding_mode, extension of pdbx_branch_scheme
+#
+#  Draft dictionary extension for representing branched enities
+#
+#  In category ENTITY - adds new _entity.type = branched
+#
+#  STRUCT_CONN - adds stereo chemistry of atoms in link.
+#
+#  PDBX_ENTITY_BRANCH_LIST - provides for a list of components within the branched entity. This is used to establish
+#  unique numbering among the components within the branched entity.  Provides for possible component level heterogeneity.
+#
+#  PDBX_ENTITY_BRANCH_LINK - describes linkages among components within the branched entity.
+#
+#  PDBX_ENTITY_BRANCH - describes the type of branched entity.
+#
+#  PDBX_BRANCH_SCHEME - maps authors provided chemical components in pdbx_entity_branch to author provided nomenclature
+#
+#  ENTITY_NAME_COM - add provenance
+#
+# ----------------------------------------------------------------------------------------------------------------------------
+
+
+#################
+## STRUCT_CONN ##
+#################
+save__struct_conn.pdbx_ptnr1_atom_stereo_config
+    _item_description.description
+;              The chiral configuration of the first atom making the linkage.
+;
+    _item.name                   '_struct_conn.pdbx_ptnr1_atom_stereo_config'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_default.value           'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      R  'rectus - right handed configuration'
+                                  S  'sinister - left handed configuration'
+                                  N  'none'
+    _pdbx_item_context.type       WWPDB_LOCAL
+    _pdbx_item_context.item_name  '_struct_conn.pdbx_ptnr1_atom_stereo_config'
+     save_
+
+save__struct_conn.pdbx_ptnr1_leaving_atom_id
+    _item_description.description
+;              The leaving atom that is removed from first atom making the linkage. 
+;
+    _item.name                  '_struct_conn.pdbx_ptnr1_leaving_atom_id'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    _item_linked.child_name       '_struct_conn.pdbx_ptnr1_leaving_atom_id'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+    _pdbx_item_context.type       WWPDB_LOCAL
+    _pdbx_item_context.item_name  '_struct_conn.pdbx_ptnr1_leaving_atom_id'
+     save_
+
+save__struct_conn.pdbx_ptnr2_atom_stereo_config
+    _item_description.description
+;              The chiral configuration of the second atom making the linkage.
+;
+    _item.name                   '_struct_conn.pdbx_ptnr2_atom_stereo_config'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_default.value           'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      R  'rectus - right handed configuration'
+                                  S  'sinister - left handed configuration'
+                                  N  'none'
+    _pdbx_item_context.type       WWPDB_LOCAL
+    _pdbx_item_context.item_name  '_struct_conn.pdbx_ptnr2_atom_stereo_config'
+     save_
+
+save__struct_conn.pdbx_ptnr2_leaving_atom_id
+    _item_description.description
+;              The leaving atom that is removed from second atom making the linkage. 
+
+;
+    _item.name                  '_struct_conn.pdbx_ptnr2_leaving_atom_id'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_type.code               atcode
+    _item_linked.child_name       '_struct_conn.pdbx_ptnr2_leaving_atom_id'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+    _pdbx_item_context.type       WWPDB_LOCAL
+    _pdbx_item_context.item_name  '_struct_conn.pdbx_ptnr2_leaving_atom_id'
+     save_
+
+save__struct_conn.pdbx_role
+    _item_description.description
+;              The chemical or structural role of the interaction
+;
+    _item.name                  '_struct_conn.pdbx_role'
+    _item.category_id             struct_conn
+    _item.mandatory_code          no
+    _item_type.code               uline
+    loop_
+    _item_examples.case          'donor'
+                                 'acceptor'
+                                 'negative'
+                                 'positive'
+                                 'metal coordination'
+                                 'Glycosylation'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail     Glycosylation                      .
+                                 'Post-translational modification'  . 
+     save_
+
+#############################
+## PDBX_ENTITY_BRANCH_LIST ##
+#############################
+
+save_pdbx_entity_branch_list
+    _category.description
+;              Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
+               of monomers in a branched entity.  Allowance is made for the possibility
+               of microheterogeneity in a sample by allowing a given sequence
+               number to be correlated with more than one monomer ID. The
+               corresponding ATOM_SITE entries should reflect this
+               heterogeneity.
+;
+    _category.id                  pdbx_entity_branch_list
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_pdbx_entity_branch_list.entity_id'
+                                '_pdbx_entity_branch_list.num'
+                                '_pdbx_entity_branch_list.comp_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'pdbx_group'
+				 'branch_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+     loop_
+    _pdbx_entity_branch_list.entity_id
+    _pdbx_entity_branch_list.num
+    _pdbx_entity_branch_list.comp_id
+    _pdbx_entity_branch_list.hetero
+    2 1  NAG   n
+    2 2  GAL   n
+    2 3  FUC   n 
+    2 4  FUC   n
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         WWPDB_LOCAL
+    _pdbx_category_context.category_id  pdbx_entity_branch_list
+     save_
+
+save__pdbx_entity_branch_list.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                  '_pdbx_entity_branch_list.entity_id'
+    _item.category_id             pdbx_entity_branch_list
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_pdbx_entity_branch_list.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__pdbx_entity_branch_list.hetero
+    _item_description.description
+;              A flag to indicate whether this monomer in the entity is
+               heterogeneous in sequence.
+;
+    _item.name                  '_pdbx_entity_branch_list.hetero'
+    _item.category_id             pdbx_entity_branch_list
+    _item.mandatory_code          no
+    _item_default.value           no
+    _item_type.code               ucode
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      no
+                                 'sequence is not heterogeneous at this monomer'
+                                  n
+                                 'abbreviation for "no"'
+                                  yes
+                                 'sequence is heterogeneous at this monomer'
+                                  y
+                                 'abbreviation for "yes"'
+     save_
+
+save__pdbx_entity_branch_list.comp_id
+    _item_description.description
+;              This data item is a pointer to _chem_comp.id in the CHEM_COMP
+               category.
+;
+    _item.name                  '_pdbx_entity_branch_list.comp_id'
+    _item.category_id             pdbx_entity_branch_list
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_linked.child_name       '_pdbx_entity_branch_list.comp_id'
+    _item_linked.parent_name      '_chem_comp.id'
+     save_
+
+
+save__pdbx_entity_branch_list.num
+    _item_description.description
+;              The value pair  _pdbx_entity_branch_list.num and _pdbx_entity_branch_list.comp_id
+               must uniquely identify a record in the PDBX_ENTITY_BRANCH_LIST list.
+
+;
+    _item.name            '_pdbx_entity_branch_list.num'                         
+    _item.category_id      pdbx_entity_branch_list     
+    _item.mandatory_code   yes
+ 
+    loop_
+    _item_range.maximum
+    _item_range.minimum           .   1
+                                  1   1
+    _item_type.code               int
+     save_
+
+
+#############################
+## PDBX_ENTITY_BRANCH_LINK ##
+#############################
+
+save_pdbx_entity_branch_link
+    _category.description
+;              Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
+               the linkages between components within a branched entity.
+;
+    _category.id                  pdbx_entity_branch_link
+    _category.mandatory_code      no
+    loop_
+    _category_key.name           '_pdbx_entity_branch_link.link_id'
+     loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'pdbx_group'
+				 'branch_group'
+     loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+    loop_
+    _pdbx_entity_branch_link.link_id 
+    _pdbx_entity_branch_link.entity_id
+    _pdbx_entity_branch_link.entity_branch_list_num_1
+    _pdbx_entity_branch_link.comp_id_1
+    _pdbx_entity_branch_link.atom_id_1
+    _pdbx_entity_branch_link.leaving_atom_id_1
+    _pdbx_entity_branch_link.atom_stereo_config_1
+    _pdbx_entity_branch_link.entity_branch_list_num_2
+    _pdbx_entity_branch_link.comp_id_2
+    _pdbx_entity_branch_link.atom_id_2
+    _pdbx_entity_branch_link.leaving_atom_id_2
+    _pdbx_entity_branch_link.atom_stereo_config_2
+    _pdbx_entity_branch_link.value_order
+    _pdbx_entity_branch_link.details
+    1 2 1 NAG O4 O1 R 2 GAL C1 O1 R sing ?
+    2 2 2 GAL O2 O1 R 3 FUC C1 O1 R sing ?
+    3 2 1 NAG O3 O1 R 4 FUC C1 O1 R sing ?
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         WWPDB_LOCAL
+    _pdbx_category_context.category_id  pdbx_entity_branch_link
+     save_
+
+save__pdbx_entity_branch_link.link_id
+    _item_description.description
+;              The value of _pdbx_entity_branch_link.link_id uniquely identifies
+               linkages within the branched entity.
+
+;
+    _item.name                  '_pdbx_entity_branch_link.link_id'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               int
+     save_
+
+save__pdbx_entity_branch_link.details
+    _item_description.description
+;              A description of special aspects of this linkage.
+;
+    _item.name                  '_pdbx_entity_branch_link.details'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          no
+    _item_type.code               text
+     save_
+
+save__pdbx_entity_branch_link.entity_id
+    _item_description.description
+;              The entity id for this branched entity. 
+
+               This data item is a pointer to _pdbx_entity_branch_list.entity_id  
+               in the PDBX_ENTITY_BRANCH_LIST category.
+;
+    _item.name                  '_pdbx_entity_branch_link.entity_id'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_entity_branch_link.entity_id'
+    _item_linked.parent_name    '_pdbx_entity_branch_list.entity_id'
+     save_
+
+save__pdbx_entity_branch_link.entity_branch_list_num_1
+    _item_description.description
+;              The component number for the first component making the linkage. 
+
+               This data item is a pointer to _pdbx_entity_branch_list.num 
+               in the PDBX_ENTITY_BRANCH_LIST category.
+
+;
+    _item.name                  '_pdbx_entity_branch_link.entity_branch_list_num_1'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               int    
+    _item_linked.child_name	'_pdbx_entity_branch_link.entity_branch_list_num_1'
+    _item_linked.parent_name    '_pdbx_entity_branch_list.num'
+     save_
+
+save__pdbx_entity_branch_link.entity_branch_list_num_2
+    _item_description.description
+;              The component number for the second component making the linkage. 
+
+               This data item is a pointer to _pdbx_entity_branch_list.num 
+               in the PDBX_ENTITY_BRANCH_LIST category.
+
+;
+    _item.name                  '_pdbx_entity_branch_link.entity_branch_list_num_2'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               int    
+    _item_linked.child_name	'_pdbx_entity_branch_link.entity_branch_list_num_2'
+    _item_linked.parent_name    '_pdbx_entity_branch_list.num'
+     save_
+
+
+save__pdbx_entity_branch_link.comp_id_1
+    _item_description.description
+;              The component identifier for the first component making the linkage. 
+
+               This data item is a pointer to _pdbx_entity_branch_list.comp_id 
+               in the PDBX_ENTITY_BRANCH_LIST category.
+;
+    _item.name                  '_pdbx_entity_branch_link.comp_id_1'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_entity_branch_link.comp_id_2
+    _item_description.description
+;              The component identifier for the second component making the linkage. 
+
+               This data item is a pointer to _pdbx_entity_branch_list.comp_id 
+               in the PDBX_ENTITY_BRANCH_LIST category.
+;
+    _item.name                  '_pdbx_entity_branch_link.comp_id_2'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               code
+     save_
+
+save__pdbx_entity_branch_link.atom_id_1
+    _item_description.description
+;              The atom identifier/name for the first atom making the linkage. 
+
+;
+    _item.name                  '_pdbx_entity_branch_link.atom_id_1'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               atcode
+    _item_linked.child_name       '_pdbx_entity_branch_link.atom_id_1'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+     save_
+
+save__pdbx_entity_branch_link.leaving_atom_id_1
+    _item_description.description
+;              The leaving atom identifier/name bonded to the first atom making the linkage. 
+
+;
+    _item.name                  '_pdbx_entity_branch_link.leaving_atom_id_1'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               atcode
+    _item_linked.child_name       '_pdbx_entity_branch_link.leaving_atom_id_1'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+     save_
+
+save__pdbx_entity_branch_link.atom_stereo_config_1
+    _item_description.description
+;              The chiral configuration of the first atom making the linkage.
+;
+    _item.name                   '_pdbx_entity_branch_link.atom_stereo_config_1'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_default.value           'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      R  'rectus - right handed configuration'
+                                  S  'sinister - left handed configuration'
+                                  N  'none'
+     save_
+
+save__pdbx_entity_branch_link.atom_id_2
+    _item_description.description
+;              The atom identifier/name for the second atom making the linkage. 
+
+;
+    _item.name                  '_pdbx_entity_branch_link.atom_id_2'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               atcode
+    _item_linked.child_name       '_pdbx_entity_branch_link.atom_id_2'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+     save_
+
+save__pdbx_entity_branch_link.leaving_atom_id_2
+    _item_description.description
+;              The leaving atom identifier/name bonded to the second atom making the linkage. 
+
+;
+    _item.name                  '_pdbx_entity_branch_link.leaving_atom_id_2'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          yes
+    _item_type.code               atcode
+    _item_linked.child_name       '_pdbx_entity_branch_link.leaving_atom_id_2'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+     save_
+
+save__pdbx_entity_branch_link.atom_stereo_config_2
+    _item_description.description
+;              The chiral configuration of the second atom making the linkage.
+;
+    _item.name                   '_pdbx_entity_branch_link.atom_stereo_config_2'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          no
+    _item_type.code               ucode
+    _item_default.value           'N'
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      R  'rectus - right handed configuration'
+                                  S  'sinister - left handed configuration'
+                                  N  'none'
+     save_
+
+save__pdbx_entity_branch_link.value_order
+    _item_description.description
+;              The bond order target for the chemical linkage.
+;
+    _item.name                  '_pdbx_entity_branch_link.value_order'
+    _item.category_id             pdbx_entity_branch_link
+    _item.mandatory_code          no
+    _item_default.value           sing
+    _item_type.code               ucode
+     loop_
+    _item_enumeration.value
+    _item_enumeration.detail      sing  'single bond'
+                                  doub  'double bond'
+                                  trip  'triple bond'
+                                  quad  'quadruple bond'
+                                  arom  'aromatic bond'
+                                  poly  'polymeric bond'
+                                  delo  'delocalised double bond'
+                                  pi    'pi bond'
+     save_
+
+########################
+## PDBX_ENTITY_BRANCH ##
+########################
+
+save_pdbx_entity_branch
+    _category.description
+;              Data items in the PDBX_ENTITY_BRANCH category specify the list
+               of branched entities and the type. 
+;
+    _category.id                  pdbx_entity_branch
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_pdbx_entity_branch.entity_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'pdbx_group'
+				 'branch_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+    loop_
+    _pdbx_entity_branch.entity_id
+    _pdbx_entity_branch.type
+      2  oligosaccharide
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         WWPDB_LOCAL
+    _pdbx_category_context.category_id  pdbx_entity_branch
+     save_
+
+save__pdbx_entity_branch.entity_id
+    _item_description.description
+;              The entity id for this branched entity. 
+
+               This data item is a pointer to _entity.id  
+;
+    _item.name                  '_pdbx_entity_branch.entity_id'
+    _item.category_id             pdbx_entity_branch
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_entity_branch.entity_id'
+    _item_linked.parent_name    '_entity.id'
+     save_
+
+save__pdbx_entity_branch.type
+    _item_description.description
+;              The type of this branched oligosaccharide.
+;
+    _item.name                  '_pdbx_entity_branch.type'
+    _item.category_id             pdbx_entity_branch
+    _item.mandatory_code          yes
+    _item_type.code               code
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      oligosaccharide  .
+     save_
+
+########################
+## PDBX_BRANCH_SCHEME ##
+########################
+
+save_pdbx_branch_scheme
+    _category.description
+;              The PDBX_BRANCH_SCHEME category provides residue level nomenclature
+  	       mapping for branch chain entities.
+;
+    _category.id                  pdbx_branch_scheme
+    _category.mandatory_code      no
+    loop_
+    _category_key.name          '_pdbx_branch_scheme.asym_id'
+                                '_pdbx_branch_scheme.entity_id'
+                                '_pdbx_branch_scheme.num'
+                                '_pdbx_branch_scheme.mon_id'
+    loop_
+    _category_group.id           'inclusive_group'
+                                 'entity_group'
+                                 'pdbx_group'
+				 'branch_group'
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+     loop_
+     _pdbx_branch_scheme.asym_id 
+     _pdbx_branch_scheme.entity_id 
+     _pdbx_branch_scheme.mon_id 
+     _pdbx_branch_scheme.num
+     _pdbx_branch_scheme.pdb_asym_id 
+     _pdbx_branch_scheme.pdb_mon_id 
+     _pdbx_branch_scheme.pdb_seq_num 
+     _pdbx_branch_scheme.auth_asym_id 
+     _pdbx_branch_scheme.auth_mon_id 
+     _pdbx_branch_scheme.auth_seq_num 
+     _pdbx_branch_scheme.hetero 
+     B  2 NAG 1 B NAG 1  NAG A 1592 n
+     B  2 GAL 2 B GAL 2  GAL A 1591 n
+     B  2 FUC 3 B FUC 3  FUC A 1590 n
+     B  2 FUC 4 B FUC 4  FUC A 1593 n
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    _pdbx_category_context.type         WWPDB_LOCAL
+    _pdbx_category_context.category_id  pdbx_branch_scheme
+     save_
+
+save__pdbx_branch_scheme.entity_id
+    _item_description.description
+;              This data item is a pointer to _entity.id in the ENTITY category.
+;
+    _item.name                  '_pdbx_branch_scheme.entity_id'
+    _item.category_id             pdbx_branch_scheme
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_pdbx_branch_scheme.entity_id'
+    _item_linked.parent_name      '_entity.id'
+     save_
+
+save__pdbx_branch_scheme.hetero
+    _item_description.description
+;              A flag to indicate whether this monomer in the entity is
+               heterogeneous in sequence. 
+;
+    _item.name                  '_pdbx_branch_scheme.hetero'
+    _item.category_id             pdbx_branch_scheme
+    _item.mandatory_code          no
+    _item_default.value           no
+    _item_type.code               ucode
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      no
+                                 'sequence is not heterogeneous at this monomer'
+                                  n
+                                 'abbreviation for "no"'
+                                  yes
+                                 'sequence is heterogeneous at this monomer'
+                                  y
+                                 'abbreviation for "yes"'
+     save_
+
+save__pdbx_branch_scheme.asym_id
+    _item_description.description
+;    Pointer to _atom_site.label_asym_id.
+;
+    _item.name                   '_pdbx_branch_scheme.asym_id'
+    _item.category_id             pdbx_branch_scheme
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name	'_pdbx_branch_scheme.asym_id'
+    _item_linked.parent_name    '_atom_site.label_asym_id'
+     loop_
+    _item_examples.case          '1'
+                                 'A'
+                                 '2B3'
+     save_
+
+save__pdbx_branch_scheme.mon_id
+    _item_description.description
+;              This data item is a pointer to _atom_site.label_comp_id in the
+               PDBX_ENTITY_BRANCH_LIST category.
+;
+    _item.name                  '_pdbx_branch_scheme.mon_id'
+    _item.category_id             pdbx_branch_scheme
+    _item.mandatory_code          yes
+    _item_type.code               ucode
+    _item_linked.child_name       '_pdbx_branch_scheme.mon_id'
+    _item_linked.parent_name      '_atom_site.label_comp_id'
+     save_
+
+save__pdbx_branch_scheme.num
+    _item_description.description
+;              This data item is a pointer to _pdbx_entity_branch_list.num in the
+               PDBX_ENTITY_BRANCH_LIST category.
+
+
+;
+    _item.name            '_pdbx_branch_scheme.num'                         
+    _item.category_id      pdbx_branch_scheme     
+    _item.mandatory_code   yes
+ 
+    loop_
+    _item_range.maximum
+    _item_range.minimum           .   1
+                                  1   1
+    _item_type.code               int
+    _item_linked.child_name       '_pdbx_branch_scheme.num'
+    _item_linked.parent_name      '_pdbx_entity_branch_list.num'
+     save_
+
+save__pdbx_branch_scheme.pdb_asym_id
+    _item_description.description
+;              This data item is a pointer to _atom_site.auth_asym_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.pdb_asym_id'                         
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_pdbx_branch_scheme.pdb_asym_id'
+    _item_linked.parent_name      '_atom_site.auth_asym_id'
+     save_
+
+
+save__pdbx_branch_scheme.pdb_seq_num
+    _item_description.description
+;              This data item is a pointer to _atom_site.auth_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.pdb_seq_num'                         
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_pdbx_branch_scheme.pdb_seq_num'
+    _item_linked.parent_name      '_atom_site.auth_seq_id'
+     save_
+
+
+save__pdbx_branch_scheme.pdb_mon_id
+    _item_description.description
+;              This data item is a pointer to _atom_site.auth_comp_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.pdb_mon_id'
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          yes
+    _item_type.code               code
+    _item_linked.child_name       '_pdbx_branch_scheme.pdb_mon_id'
+    _item_linked.parent_name      '_atom_site.auth_comp_id'
+     save_
+
+
+save__pdbx_branch_scheme.auth_asym_id
+    _item_description.description
+;              This data item is a pointer to _atom_site.pdbx_auth_asym_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.auth_asym_id'                         
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          no
+    _item_type.code               code
+    # No links are parent not present in public model file
+     save_
+
+
+save__pdbx_branch_scheme.auth_seq_num
+    _item_description.description
+;              This data item is a pointer to _atom_site.pdbx_auth_seq_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.auth_seq_num'                         
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          no
+    _item_type.code               code
+    # No links are parent not present in public model file
+     save_
+
+
+save__pdbx_branch_scheme.auth_mon_id
+    _item_description.description
+;              This data item is a pointer to _atom_site.pdbx_auth_comp_id in the
+               ATOM_SITE category.
+;
+    _item.name                    '_pdbx_branch_scheme.auth_mon_id'
+    _item.category_id             pdbx_branch_scheme     
+    _item.mandatory_code          no
+    _item_type.code               code
+    # No links are parent not present in public model file
+     save_
+
+
+#####################
+## ENTITY_NAME_COM ##
+#####################
+save__entity_name_com.pdbx_provenance
+    _item_description.description
+;              Provides the provenance of the name in the _entity_name_com.name field/
+;
+    _item.name                   '_entity_name_com.pdbx_provenance'
+    _item.category_id             entity_name_com
+    _item.mandatory_code          no
+    _item_type.code               line
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      UNIPROT 'UniProt provided'
+                                  AUTHOR  'Author provided'
+    _pdbx_item_context.type       WWPDB_LOCAL
+    _pdbx_item_context.item_name  '_entity_name_com.pdbx_provenance'
+     save_

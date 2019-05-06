@@ -1,0 +1,354 @@
+# ----------------------------------------------------------------------------------------------------------------------------
+#
+#  File: chem_comp-extension.dic
+#  Date: 1-Aug-2018 Ep
+#  Update: 10-Oct-2018
+#
+#  Draft dictionary extensions for extending the chemical components definition to support carbohydrates
+#
+#  PDBX_CHEM_COMP_SYNONYMS - reuse of existing but never used category to provide synonyms
+#
+#
+#  PDBX_CHEM_COMP_RELATED - Describes relationship between monosaccaharide and
+#                           its core structure
+#
+# PDBX_CHEM_COMP_ATOM_RELATED - Describes the atom level nomenclature mapping between related components
+# ----------------------------------------------------------------------------------------------------------------------------
+
+#############################
+## PDBX_CHEM_COMP_SYNONYMS ##
+#############################
+save_pdbx_chem_comp_synonyms
+   #
+   _category.description     'PDBX_CHEM_COMP_SYNONYMS holds chemical name and synonym correspondences.'
+   _category.id              pdbx_chem_comp_synonyms
+   _category.mandatory_code  no
+   #
+   loop_
+   _category_key.name
+     '_pdbx_chem_comp_synonyms.comp_id'
+     '_pdbx_chem_comp_synonyms.name'
+   #
+   loop_
+   _category_group.id
+     inclusive_group
+     pdbx_group
+     chem_comp_group
+   #
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+    loop_
+    _pdbx_chem_comp_synonyms.comp_id
+    _pdbx_chem_comp_synonyms.name 
+    _pdbx_chem_comp_synonyms.provenance
+    ROC  Fortovase       DRUGBANK
+    ROC  SAQUINAVIR      DRUGBANK
+    ROC  "RO 31-8959"    ?
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         WWPDB_LOCAL
+   _pdbx_category_context.category_id  pdbx_chem_comp_synonyms
+   #
+save_
+#
+save__pdbx_chem_comp_synonyms.name
+   #
+   _item_description.description  'The synonym of this particular chemical component.'
+   #
+   _item.name            '_pdbx_chem_comp_synonyms.name'
+   _item.category_id     pdbx_chem_comp_synonyms
+   _item.mandatory_code  yes
+   #
+   _item_type.code  text
+   #
+   _item_aliases.alias_name  '_rcsb_chem_comp_synonyms.name'
+   _item_aliases.dictionary  cif_rcsb.dic
+   _item_aliases.version     1.1
+   #
+save_
+#
+save__pdbx_chem_comp_synonyms.comp_id
+   #
+   _item_description.description  'The chemical component for which this synonym applies.'
+   #
+   _item.name                    '_pdbx_chem_comp_synonyms.comp_id'
+   _item.category_id             pdbx_chem_comp_synonyms
+   _item.mandatory_code          yes
+   _item_type.code               ucode
+   _item_linked.child_name       '_pdbx_chem_comp_synonyms.comp_id'
+   _item_linked.parent_name      '_chem_comp.id'
+   #
+save_
+
+save__pdbx_chem_comp_synonyms.provenance
+   #
+   _item_description.description  'The provenance of this synonym.'
+   #
+   _item.name                    '_pdbx_chem_comp_synonyms.provenance'
+   _item.category_id             pdbx_chem_comp_synonyms
+   _item.mandatory_code          no
+   _item_type.code               line
+    loop_
+    _item_enumeration.value
+    _item_enumeration.detail      AUTHOR    .
+                                  DRUGBANK  .
+                                  CHEBI     .
+                                  CHEMBL    .
+                                  PDB       .
+                                  PUBCHEM   .
+   #
+save_
+
+############################
+## PDBX_CHEM_COMP_RELATED ##
+############################
+save_pdbx_chem_comp_related
+   #
+   _category.description     'PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.'
+   _category.id              pdbx_chem_comp_related
+   _category.mandatory_code  no
+   #
+   loop_
+   _category_key.name
+     '_pdbx_chem_comp_related.comp_id'
+     '_pdbx_chem_comp_related.related_comp_id'
+     '_pdbx_chem_comp_related.relationship_type'
+   #
+   loop_
+   _category_group.id
+     inclusive_group
+     pdbx_group
+     chem_comp_group
+   #
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+    _pdbx_chem_comp_related.comp_id             SGN
+    _pdbx_chem_comp_related.related_comp_id     GLC
+    _pdbx_chem_comp_related.relationship_type   "Carbohydrate core"
+    _pdbx_chem_comp_related.details             ?
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         WWPDB_LOCAL
+   _pdbx_category_context.category_id  pdbx_chem_comp_related
+   #
+save_
+#
+#
+save__pdbx_chem_comp_related.comp_id
+   #
+   _item_description.description  'The chemical component for which this relationship applies.'
+   #
+   _item.name                    '_pdbx_chem_comp_related.comp_id'
+   _item.category_id             pdbx_chem_comp_related
+   _item.mandatory_code          yes
+   _item_type.code               ucode
+   _item_linked.child_name       '_pdbx_chem_comp_related.comp_id'
+   _item_linked.parent_name      '_chem_comp.id'
+   #
+save_
+
+save__pdbx_chem_comp_related.related_comp_id
+   #
+   _item_description.description  'The related chemical component for which this chemical component is based.'
+   #
+   _item.name                    '_pdbx_chem_comp_related.related_comp_id'
+   _item.category_id             pdbx_chem_comp_related
+   _item.mandatory_code          yes
+   _item_type.code               ucode
+   #
+save_
+
+save__pdbx_chem_comp_related.relationship_type
+   #
+   _item_description.description  'Describes the type of relationship'
+   #
+   _item.name                    '_pdbx_chem_comp_related.relationship_type'
+   _item.category_id             pdbx_chem_comp_related
+   _item.mandatory_code          yes
+   _item_type.code               line
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail      
+        'Carbohydrate core'      'References a common core carbohydrate structure'
+        'Precursor'              'The related component is a precursor for this one'
+   #
+save_
+
+save__pdbx_chem_comp_related.details
+   #
+   _item_description.description  'Describes the type of relationship'
+   #
+   _item.name                    '_pdbx_chem_comp_related.details'
+   _item.category_id             pdbx_chem_comp_related
+   _item.mandatory_code          no
+   _item_type.code               text
+   #
+save_
+
+#################################
+## PDBX_CHEM_COMP_ATOM_RELATED ##
+#################################
+save_pdbx_chem_comp_atom_related
+   #
+   _category.description     'PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.'
+   _category.id              pdbx_chem_comp_atom_related
+   _category.mandatory_code  no
+   #
+   loop_
+   _category_key.name
+     '_pdbx_chem_comp_atom_related.comp_id'
+     '_pdbx_chem_comp_atom_related.ordinal'
+     '_pdbx_chem_comp_atom_related.related_comp_id'
+   #
+   loop_
+   _category_group.id
+     inclusive_group
+     pdbx_group
+     chem_comp_group
+   #
+    loop_
+    _category_examples.detail
+    _category_examples.case
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+;
+    Example 1 - 
+;
+;
+    loop_      
+    _pdbx_chem_comp_atom_related.ordinal
+    _pdbx_chem_comp_atom_related.comp_id
+    _pdbx_chem_comp_atom_related.atom_id
+    _pdbx_chem_comp_atom_related.related_comp_id
+    _pdbx_chem_comp_atom_related.related_atom_id
+    _pdbx_chem_comp_atom_related.related_type
+     1 SGN C1    GLC C1   'Carbohydrate core'
+     2 SGN C2    GLC C2   'Carbohydrate core'
+     3 SGN C3    GLC C3   'Carbohydrate core'
+     4 SGN C4    GLC C4   'Carbohydrate core'
+     5 SGN C5    GLC C5   'Carbohydrate core'
+     6 SGN C6    GLC C6   'Carbohydrate core'
+     7 SGN N     GLC ?    'Carbohydrate core'
+     8 SGN O1    GLC O1   'Carbohydrate core'
+     9 SGN O3    GLC O3   'Carbohydrate core'
+    10 SGN O4    GLC O4   'Carbohydrate core'
+    11 SGN O5    GLC O5   'Carbohydrate core'
+    12 SGN O6    GLC O6   'Carbohydrate core'
+    13 SGN S1    GLC ?    'Carbohydrate core'
+    14 SGN O1S   GLC ?    'Carbohydrate core'
+    15 SGN O2S   GLC ?    'Carbohydrate core'
+    16 SGN O3S   GLC ?    'Carbohydrate core'
+    17 SGN S2    GLC ?    'Carbohydrate core'
+    18 SGN O4S   GLC ?    'Carbohydrate core'
+    19 SGN O5S   GLC ?    'Carbohydrate core'
+    20 SGN O6S   GLC ?    'Carbohydrate core'
+    21 SGN H1    GLC H1   'Carbohydrate core'
+    22 SGN H2    GLC H2   'Carbohydrate core'
+    23 SGN H3    GLC H3   'Carbohydrate core'
+    24 SGN H4    GLC H4   'Carbohydrate core'
+    25 SGN H5    GLC H5   'Carbohydrate core'
+    26 SGN H61   GLC H61  'Carbohydrate core'
+    27 SGN H62   GLC H62  'Carbohydrate core'
+    28 SGN HN    GLC ?    'Carbohydrate core'
+    29 SGN HO1   GLC HO1  'Carbohydrate core'
+    30 SGN HO3   GLC HO3  'Carbohydrate core'
+    31 SGN HO4   GLC HO4  'Carbohydrate core'
+    32 SGN HOS3  GLC ?    'Carbohydrate core'
+    33 SGN HOS6  GLC ?    'Carbohydrate core'
+    #
+;
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+   _pdbx_category_context.type         WWPDB_LOCAL
+   _pdbx_category_context.category_id  pdbx_chem_comp_atom_related
+   #
+save_
+#
+#
+save__pdbx_chem_comp_atom_related.comp_id
+   #
+   _item_description.description  'The chemical component for which this relationship applies.'
+   #
+   _item.name                    '_pdbx_chem_comp_atom_related.comp_id'
+   _item.category_id             pdbx_chem_comp_atom_related
+   _item.mandatory_code          yes
+   _item_type.code               ucode
+   _item_linked.child_name       '_pdbx_chem_comp_atom_related.comp_id'
+   _item_linked.parent_name      '_chem_comp.id'
+   #
+save_
+
+save__pdbx_chem_comp_atom_related.related_comp_id
+   #
+   _item_description.description  'The related chemical component for which this chemical component is based.'
+   #
+   _item.name                    '_pdbx_chem_comp_atom_related.related_comp_id'
+   _item.category_id             pdbx_chem_comp_atom_related
+   _item.mandatory_code          yes
+   _item_type.code               ucode
+   #
+save_
+
+save__pdbx_chem_comp_atom_related.ordinal
+    _item_description.description
+;
+               An ordinal index for this category
+;
+    _item.name                  '_pdbx_chem_comp_atom_related.ordinal'
+    _item.category_id             pdbx_chem_comp_atom_related
+    _item.mandatory_code          yes
+    _item_type.code               int    
+     loop_
+    _item_examples.case      1 2
+     save_
+
+save__pdbx_chem_comp_atom_related.atom_id
+    _item_description.description
+;              The atom identifier/name for the atom mapping
+
+;
+    _item.name                  '_pdbx_chem_comp_atom_related.atom_id'
+    _item.category_id             pdbx_chem_comp_atom_related
+    _item.mandatory_code          yes
+    _item_type.code               atcode
+    _item_linked.child_name       '_pdbx_chem_comp_atom_related.atom_id'
+    _item_linked.parent_name      '_chem_comp_atom.atom_id'
+     save_
+
+save__pdbx_chem_comp_atom_related.related_atom_id
+    _item_description.description
+;              The atom identifier/name for the atom mapping in the related chemical component
+;
+    _item.name                  '_pdbx_chem_comp_atom_related.related_atom_id'
+    _item.category_id             pdbx_chem_comp_atom_related
+    _item.mandatory_code          no
+    _item_type.code               atcode
+     save_
+
+save__pdbx_chem_comp_atom_related.related_type
+   #
+   _item_description.description  'Describes the type of relationship'
+   #
+   _item.name                    '_pdbx_chem_comp_atom_related.related_type'
+   _item.category_id             pdbx_chem_comp_atom_related
+   _item.mandatory_code          yes
+   _item_type.code               line
+   loop_
+   _item_enumeration.value
+   _item_enumeration.detail      
+        'Carbohydrate core'      'References a core carbohydrate structure'
+        'Precursor'              'The related component is a precursor for this one'
+   #
+    _item_linked.child_name       '_pdbx_chem_comp_atom_related.related_type'
+    _item_linked.parent_name      '_pdbx_chem_comp_related.relationship_type'
+save_
