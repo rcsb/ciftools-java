@@ -74,7 +74,11 @@ public class StringArrayCodecTest {
     @Test
     public void testChaining() {
         StringArray plainArray = EncodedDataFactory.stringArray(Pattern.compile(", ")
-                .splitAsStream("L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, peptide linking, L-peptide linking, non-polymer, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, non-polymer, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking")
+                .splitAsStream("L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, " +
+                        "L-peptide linking, L-peptide linking, L-peptide linking, peptide linking, L-peptide linking, " +
+                        "non-polymer, L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, " +
+                        "L-peptide linking, L-peptide linking, L-peptide linking, non-polymer, L-peptide linking, " +
+                        "L-peptide linking, L-peptide linking, L-peptide linking")
                 .toArray(String[]::new));
 
         // encode

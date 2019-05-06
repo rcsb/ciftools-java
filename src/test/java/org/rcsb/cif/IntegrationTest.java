@@ -11,6 +11,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.Stream;
+import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
@@ -22,7 +23,61 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class IntegrationTest {
-    // TODO test for gzip integration
+    @Test
+    public void testGzipReadingBehavior() throws IOException {
+        // should recognize gzipped formats and decode them without specifying
+        for (String id : TEST_CASES.keySet()) {
+            testGzipReadingBehavior(id);
+        }
+    }
+
+    private void testGzipReadingBehavior(String testCase) throws IOException {
+        CifFile binaryGz = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/gz/" + testCase + ".bcif.gz"));
+        assertEquals(testCase.toUpperCase(), binaryGz.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile binary = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        assertEquals(testCase.toUpperCase(), binary.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile textGz = CifIO.readFromInputStream(TestHelper.getInputStream("cif/gz/" + testCase + ".cif.gz"));
+        assertEquals(testCase.toUpperCase(), textGz.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile text = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif"));
+        assertEquals(testCase.toUpperCase(), text.getFirstBlock().getEntry().getId().get(0));
+    }
+
+    @Test
+    public void testGzipWritingBehavior() throws IOException {
+        // should wrap output in gzip if requested
+        for (String id : TEST_CASES.keySet()) {
+            testGzipWritingBehavior(id);
+        }
+    }
+
+    private void testGzipWritingBehavior(String testCase) throws IOException {
+        // check that file was loaded correctly
+        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        assertEquals(testCase.toUpperCase(), file.getFirstBlock().getEntry().getId().get(0));
+
+        // write text text with downstream gzip
+        byte[] binaryGz = CifIO.writeText(file, CifOptions.builder().gzip(true).build());
+        // magic number must be gzip
+        assertEquals(GZIPInputStream.GZIP_MAGIC, (binaryGz[0] & 0xff | ((binaryGz[1] << 8) & 0xff00)));
+
+        // write text text
+        byte[] binary = CifIO.writeText(file, CifOptions.builder().gzip(false).build());
+        // magic number must not be gzip
+        assertNotEquals(GZIPInputStream.GZIP_MAGIC, (binary[0] & 0xff | ((binary[1] << 8) & 0xff00)));
+
+        // write text text with downstream gzip
+        byte[] textGz = CifIO.writeText(file, CifOptions.builder().gzip(true).build());
+        // magic number must be gzip
+        assertEquals(GZIPInputStream.GZIP_MAGIC, (textGz[0] & 0xff | ((textGz[1] << 8) & 0xff00)));
+
+        // write text text
+        byte[] text = CifIO.writeText(file, CifOptions.builder().gzip(false).build());
+        // magic number must not be gzip
+        assertNotEquals(GZIPInputStream.GZIP_MAGIC, (text[0] & 0xff | ((text[1] << 8) & 0xff00)));
+    }
 
     @Test
     public void testVectorAndMatrixBehavior() throws IOException {
