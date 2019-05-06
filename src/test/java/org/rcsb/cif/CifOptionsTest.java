@@ -1,18 +1,33 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.Entry;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {
+    @Test
+    public void testEncoder() throws IOException {
+        // the encoder name should be honored when specified
+        String encoderName = "yet-another-cif-encoder";
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/1acj.bcif"));
+
+        byte[] bytes = CifIO.writeBinary(cifFile,
+                CifOptions.builder().encoder(encoderName).build());
+
+        Map<String, Object> map = Codec.MESSAGE_PACK_CODEC.decode(bytes);
+        assertEquals(encoderName, map.get("encoder"));
+    }
+
     @Test
     public void testFetchUrl() throws IOException {
         // by switching to RCSB cif files, the implementation type should be text
