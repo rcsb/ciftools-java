@@ -16,6 +16,12 @@ import java.util.stream.Stream;
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
+ *
+ * Download URLS:
+ * http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic
+ * https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic
+ * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic
+ * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic
  */
 @SuppressWarnings("ALL")
 class SchemaGenerator {
