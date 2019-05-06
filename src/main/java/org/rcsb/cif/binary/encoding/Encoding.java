@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.encoding;
 
+import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.EncodedData;
 
 /**
@@ -7,7 +8,7 @@ import org.rcsb.cif.binary.data.EncodedData;
  */
 public interface Encoding<E extends EncodedData> {
     /**
-     * The name of this encoding. Used for serialization and to retrieve the necessary Codec implementations.
+     * The name of this encoding. Used for serialization and to retrieve the necessary {@link Codec} implementations.
      * @return a String representing the name of this encoding
      */
     String getKind();

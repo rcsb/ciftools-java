@@ -10,8 +10,8 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 /**
- * Stores a 32-bit integer array using 8- or 16-bit values. Includes the size of the input array for easier decoding.
- * The encoding is more effective when only unsigned values are provided.
+ * <p>Stores a {@link Int32Array} using 8- or 16-bit values. Includes the size of the input array for easier decoding.
+ * The encoding is more effective when only unsigned values are provided.</p>
  *
  * <pre>
  * IntegerPacking {

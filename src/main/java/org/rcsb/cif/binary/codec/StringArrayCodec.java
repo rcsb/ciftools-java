@@ -9,8 +9,8 @@ import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import java.util.*;
 
 /**
- * Stores an array of strings as a concatenation of all unique strings, an array of offsets describing substrings, and
- * indices into the offset array. Indices to corresponding substrings.
+ * <p>Stores an array of strings as a concatenation of all unique strings, an array of offsets describing substrings,
+ * and indices into the offset array. Indices to corresponding substrings.</p>
  *
  * <pre>
  * StringArray {

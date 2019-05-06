@@ -4,6 +4,9 @@ import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.LinkedList;
 
+/**
+ * Factory class for the instantiation of {@link EncodedData} instances.
+ */
 public class EncodedDataFactory {
     public static ByteArray byteArray(byte[] bytes) {
         return new ByteArray(bytes);

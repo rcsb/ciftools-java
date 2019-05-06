@@ -9,14 +9,15 @@ import java.util.List;
 import java.util.stream.DoubleStream;
 
 /**
- * Classifies Int32Array and Float64Array instances, i.e. for the given information find the most efficient encoding
- * strategy which results in the most compact storage of the data.
+ * Classifies {@link Int32Array} and {@link Float64Array} instances, i.e. for the given information find the most
+ * efficient encoding strategy which results in the most compact storage of the data.
  */
 public class Classifier {
     /**
-     * Auto-encodes this Int32Array by the encoding strategy with the minimal size.
+     * Auto-encodes this {@link Int32Array} by the encoding strategy with the minimal size.
      * @param data the data to encode
-     * @return the EncodedData instance which wraps a primitive byte[] and provides all information needed to decode it
+     * @return the {@link EncodedData} instance which wraps a primitive <code>byte[]</code> and provides all information
+     * needed to decode it
      */
     public static ByteArray classify(Int32Array data) {
         if (data.getData().length < 2) {
@@ -202,10 +203,11 @@ public class Classifier {
     private static final double DELTA = 1e-6;
 
     /**
-     * Auto-encodes this FloatArray by the encoding strategy with the minimal size. All Float64Array instances are
-     * encoded as Int32Array after finding a reasonable FixedPointEncoding.
+     * Auto-encodes this {@link FloatArray} by the encoding strategy with the minimal size. All {@link Float64Array}
+     * instances are encoded as {@link Int32Array} after finding a reasonable {@link FixedPointEncoding}.
      * @param data the data to encode
-     * @return the EncodedData instance which wraps a primitive byte[] and provides all information needed to decode it
+     * @return the {@link EncodedData} instance which wraps a primitive <code>byte[]</code> and provides all information
+     * needed to decode it
      */
     public static ByteArray classify(Float64Array data) {
         int maxDigits = 4;

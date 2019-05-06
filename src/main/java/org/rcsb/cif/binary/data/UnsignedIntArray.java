@@ -5,8 +5,8 @@ package org.rcsb.cif.binary.data;
  */
 public interface UnsignedIntArray extends IntArray {
     /**
-     * States whether this IntArray contains signed elements.
-     * @return true for Int8Array, Int16Array, and Int32Array
+     * States whether this {@link IntArray} contains signed elements.
+     * @return true for {@link Int8Array}, {@link Int16Array}, and {@link Int32Array}
      */
     default boolean isSigned() {
         return false;

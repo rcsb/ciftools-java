@@ -19,16 +19,16 @@ public class BinaryFile implements CifFile {
     }
 
     /**
-     * Reports the version of this CifFile.
-     * @return the version String
+     * Reports the version of this {@link CifFile}.
+     * @return the version <code>String</code>
      */
     public String getVersion() {
         return version;
     }
 
     /**
-     * Reports the encoder which created this CifFile.
-     * @return the encoder String
+     * Reports the encoder which created this {@link CifFile}.
+     * @return the encoder <code>String</code>
      */
     public String getEncoder() {
         return encoder;

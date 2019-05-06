@@ -8,8 +8,9 @@ import java.nio.ByteOrder;
 import java.util.LinkedList;
 
 /**
- * Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
- * Uint8Array) can be efficiently represented by single byte rather than int values which would require four bytes.
+ * <p>Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
+ * {@link Uint8Array}) can be efficiently represented by single byte rather than int values which would require four
+ * bytes.</p>
  *
  * <pre>
  * ByteArray {

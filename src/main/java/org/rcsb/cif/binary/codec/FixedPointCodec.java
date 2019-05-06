@@ -9,7 +9,7 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
 /**
- * Converts an array of floating point numbers to an array of 32-bit integers multiplied by a given factor.
+ * <p>Converts an array of floating point numbers to a {@link Int32Array} multiplied by a given factor.</p>
  *
  * <pre>
  * FixedPoint {

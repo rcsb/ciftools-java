@@ -8,7 +8,7 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.util.LinkedList;
 
 /**
- * Stores the input integer array as an array of consecutive differences.
+ * <p>Stores the input integer array as an array of consecutive differences.</p>
  *
  * <pre>
  * Delta {

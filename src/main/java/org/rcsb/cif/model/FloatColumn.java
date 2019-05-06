@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Type-safe column which contains float values as entries.
+ * Type-safe column which contains <code>float</code> values as entries.
  */
 public class FloatColumn extends BaseColumn {
     private final double[] binaryData;
@@ -50,8 +50,8 @@ public class FloatColumn extends BaseColumn {
     }
 
     /**
-     * Type-safe Stream of all elements.
-     * @return a DoubleStream of values
+     * Type-safe {@link Stream} of all elements.
+     * @return a {@link DoubleStream} of values
      */
     public DoubleStream values() {
         return IntStream.range(0, rowCount)
@@ -65,7 +65,7 @@ public class FloatColumn extends BaseColumn {
 
     /**
      * For internal use. Returns the decoded binary data which this column wraps. Returns null for text columns.
-     * @return the double[] data
+     * @return the <code>double[]</code> data
      */
     public double[] getBinaryData() {
         return binaryData;

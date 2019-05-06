@@ -30,7 +30,7 @@ public class Codec {
     public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     /**
-     * Decode an instance of EncodedData by traversing its encoding chain until the original data is restored.
+     * Decode an instance of {@link EncodedData} by traversing its encoding chain until the original data is restored.
      * @param encodedData the data to decode
      * @return the decoded data
      */
@@ -48,7 +48,7 @@ public class Codec {
     }
 
     /**
-     * Decode an instance of EncodedData by traversing its encoding chain until the original data is restored.
+     * Decode an instance of {@link EncodedData} by traversing its encoding chain until the original data is restored.
      * @param encodedData the map of data to decode
      * @return the decoded data
      */

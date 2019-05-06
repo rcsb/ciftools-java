@@ -4,30 +4,31 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * Represents a Block in a CifFile.
+ * Represents a {@link Block} in a {@link CifFile}.
  */
 public interface Block {
     /**
-     * The header of this block.
-     * @return String of the header
+     * The header of this {@link Block}.
+     * @return <code>String</code> of the header
      */
     String getBlockHeader();
 
     /**
-     * Retrieve a particular category by name.
+     * Retrieve a particular {@link Category} by name.
      * @param name the category name
-     * @return the corresponding category, if none exists a instance of BaseCategory is returned as proxy
+     * @return the corresponding {@link Category}, if none exists a instance of {@link BaseCategory} is returned as
+     * proxy
      */
     Category getCategory(String name);
 
     /**
-     * The names of all categories which will not return an empty category when queried.
-     * @return collection of all category names
+     * The names of all {@link Category} instances which will not return an empty {@link Category} when queried.
+     * @return collection of all {@link Category} names
      */
     List<String> getCategoryNames();
 
     /**
-     * Convenience method to access all present category names.
+     * Convenience method to access all present {@link Category} names.
      * @return a stream of all registered categories
      */
     default Stream<String> categoryNames() {
@@ -36,21 +37,21 @@ public interface Block {
 
     /**
      * Traverses all present categories.
-     * @return a Stream of all categories
+     * @return a Stream of all {@link Category} instances
      */
     default Stream<Category> categories() {
         return categoryNames().map(this::getCategory);
     }
 
     /**
-     * All save frames associated to this block.
+     * All save frames associated to this {@link Block}.
      * @return collection of save frames
      */
     List<Block> getSaveFrames();
 
     /**
      * Convenience method to traverse all save frames.
-     * @return a Stream of all save frames.
+     * @return a {@link Stream} of all save frames.
      */
     default Stream<Block> saveFrames() {
         return getSaveFrames().stream();

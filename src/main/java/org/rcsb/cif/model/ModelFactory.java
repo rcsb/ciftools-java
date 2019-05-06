@@ -66,8 +66,8 @@ public class ModelFactory {
     }
 
     /**
-     * Create a Category from text data. Tries to find a strict (i.e. concrete implementation by reflection using the
-     * internal) instance of the requested category.
+     * Create a {@link Category} from text data. Tries to find a strict (i.e. concrete implementation by reflection
+     * using the internal) instance of the requested {@link Category}.
      * @param categoryName the category name
      * @param textColumns the text data to provide within this category
      * @return the created instance
@@ -89,8 +89,8 @@ public class ModelFactory {
     }
 
     /**
-     * Create a Category from binary data. Tries to find a strict (i.e. concrete implementation by reflection using the
-     * internal) instance of the requested category.
+     * Create a {@link Category} from binary data. Tries to find a strict (i.e. concrete implementation by reflection
+     * using the  internal) instance of the requested {@link Category}.
      * @param categoryName the category name
      * @param rowCount the row count
      * @param encodedColumns the data, still encoded, to be decoded once requested
@@ -113,9 +113,9 @@ public class ModelFactory {
     }
 
     /**
-     * Create an empty Category, void of data. Used, so that the data model does not throw NullPointerExceptions
-     * ungracefully. Rather the consumer should enquire whether the Category present (see {@link Category#isDefined()}.
-     * Has row count 0 and can report its name.
+     * Create an empty {@link Category}, void of data. Used, so that the data model does not throw a
+     * {@link NullPointerException} ungracefully. Rather the consumer should enquire whether the {@link Category}
+     * present (see {@link Category#isDefined()}. Has row count 0 and can report its name.
      * @param name the name this category should report
      * @return an empty category which will report being undefined
      */
@@ -124,7 +124,7 @@ public class ModelFactory {
     }
 
     /**
-     * Create a single row column based on text data.
+     * Create a single row {@link Column} based on text data.
      * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
      * @param data the raw string data to parse
@@ -142,7 +142,7 @@ public class ModelFactory {
     }
 
     /**
-     * The creation method for a column based on text data which is not yet parsed.
+     * The creation method for a {@link Column} based on text data which is not yet parsed.
      * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
      * @param data the raw string data to parse
@@ -173,7 +173,7 @@ public class ModelFactory {
     }
 
     /**
-     * The creation method for a column based on binary (still encoded) data.
+     * The creation method for a {@link Column} based on binary (still encoded) data.
      * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
      * @param encodedColumn a map encompassing all information needed to create this column
@@ -212,7 +212,7 @@ public class ModelFactory {
     }
 
     /**
-     * The creation method for absent columns.
+     * The creation method for a {@link Column} which is absent.
      * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
      * @return an empty instance of this column

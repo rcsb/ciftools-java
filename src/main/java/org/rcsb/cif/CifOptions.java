@@ -7,9 +7,12 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Allows to set options for CIF writing. Acquire by calling {@link CifOptions#builder()}. Pass into {@link CifIO}
+ * <p>Allows to set options for CIF writing. Acquire by calling {@link CifOptions#builder()}. Pass into {@link CifIO}
  * functions. Use white- and blacklist functions to select a subset of categories and/or columns to write. If a value is
- * present in both white- and blacklist, the blacklist values will trump the whitelist.
+ * present in both white- and blacklist, the blacklist values will trump the whitelist.</p>
+ *
+ * <p>For now only writer classes will respect these options. They can be passed to reader classes as well, however
+ * there are currently no relevant options for CIF reading.</p>
  */
 public class CifOptions {
     private final boolean gzip;

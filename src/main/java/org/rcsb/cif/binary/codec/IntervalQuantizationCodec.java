@@ -8,9 +8,9 @@ import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 /**
- * Converts an array of floating point numbers to an array of 32-bit integers where the values are quantized within a
+ * <p>Converts an array of floating point numbers to a {@link Int32Array} where the values are quantized within a
  * given interval into specified number of discrete steps. Values lower than the minimum value or greater than the
- * maximum are represented by the respective boundary values.
+ * maximum are represented by the respective boundary values.</p>
  *
  * <pre>
  * FixedPoint {

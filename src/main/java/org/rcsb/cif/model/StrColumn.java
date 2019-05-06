@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Type-safe column which contains String values as entries.
+ * Type-safe column which contains <code>String</code> values as entries.
  */
 public class StrColumn extends BaseColumn {
     private final String[] binaryData;
@@ -34,7 +34,7 @@ public class StrColumn extends BaseColumn {
     }
 
     /**
-     * Retrieve the String value at the given row index.
+     * Retrieve the <code>String</code> value at the given row index.
      * @param row the index to retrieve
      * @return the value - empty String if not present according to {@link #getValueKind(int)}
      */
@@ -43,8 +43,8 @@ public class StrColumn extends BaseColumn {
     }
 
     /**
-     * Type-safe Stream of all elements.
-     * @return a Stream of String values
+     * Type-safe {@link Stream} of all elements.
+     * @return a {@link Stream} of <code>String</code> values
      */
     public Stream<String> values() {
         return IntStream.range(0, rowCount)
@@ -57,8 +57,9 @@ public class StrColumn extends BaseColumn {
     }
 
     /**
-     * For internal use. Returns the decoded binary data which this column wraps. Returns null for text columns.
-     * @return the String[] data
+     * For internal use. Returns the decoded binary data which this column wraps. Returns <code>null</code> for text
+     * columns.
+     * @return the <code>String[]</code> data
      */
     public String[] getBinaryData() {
         return binaryData;

@@ -9,8 +9,9 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import java.util.LinkedList;
 
 /**
- * Represents each integer value in the input as a pair of (value, number of repeats) and stores the result sequentially
- * as an array of 32-bit integers. Additionally, stores the size of the original array to make decoding easier.
+ * <p>Represents each integer value in the input as a pair of (value, number of repeats) and stores the result
+ * sequentially as {@link Int32Array}. Additionally, stores the size of the original array to make decoding
+ * easier.</p>
  *
  * <pre>
  * RunLength {
