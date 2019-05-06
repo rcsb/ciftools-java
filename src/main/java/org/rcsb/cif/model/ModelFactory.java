@@ -53,8 +53,6 @@ public class ModelFactory {
     }
 
     private static Class<? extends BaseColumn> forColumnName(String columnName) {
-        // for some reason, the package name is provided in the lookup
-        columnName = columnName.split("\\.")[columnName.split("\\.").length - 1];
         switch (columnName) {
             case "FloatColumn":
                 return FloatColumn.class;
@@ -129,7 +127,7 @@ public class ModelFactory {
      * Create a single row column based on text data.
      * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
-     * @param data the raw string data\ to parse
+     * @param data the raw string data to parse
      * @param startToken the start index which will be used to extract data
      * @param endToken the end index which will be used to extract data
      * @return the text column

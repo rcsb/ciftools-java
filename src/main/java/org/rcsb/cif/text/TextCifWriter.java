@@ -29,16 +29,30 @@ public class TextCifWriter {
                     .append("\n#\n");
 
             for (String categoryName : block.getCategoryNames()) {
+                if (!options.filterCategory(categoryName)) {
+                    continue;
+                }
+
                 Category cifCategory = block.getCategory(categoryName);
                 int rowCount = cifCategory.getRowCount();
                 if (rowCount == 0) {
                     continue;
                 }
 
+                List<Column> columns = cifCategory.getColumnNames()
+                        .stream()
+                        .filter(columnName -> options.filterColumn(categoryName, columnName))
+                        .map(cifCategory::getColumn)
+                        .collect(Collectors.toList());
+
+                if (columns.isEmpty()) {
+                    continue;
+                }
+
                 if (rowCount == 1) {
-                    writeCifSingleRecord(output, cifCategory);
+                    writeCifSingleRecord(output, cifCategory, columns);
                 } else {
-                    writeCifLoop(output, cifCategory);
+                    writeCifLoop(output, cifCategory, columns);
                 }
             }
         }
@@ -47,13 +61,8 @@ public class TextCifWriter {
         return output.toString().getBytes(StandardCharsets.UTF_8);
     }
 
-    private void writeCifSingleRecord(StringBuilder output, Category cifCategory) {
-        List<Column> cifFields = cifCategory.getColumnNames()
-                .stream()
-                .map(cifCategory::getColumn)
-                .collect(Collectors.toList());
-
-        OptionalInt optionalWidth = cifFields.stream()
+    private void writeCifSingleRecord(StringBuilder output, Category cifCategory, List<Column> columns) {
+        OptionalInt optionalWidth = columns.stream()
                 .map(Column::getColumnName)
                 .mapToInt(String::length)
                 .max();
@@ -65,7 +74,7 @@ public class TextCifWriter {
 
         int width = optionalWidth.getAsInt() + 6 + cifCategory.getCategoryName().length();
 
-        for (Column cifField : cifFields) {
+        for (Column cifField : columns) {
             writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getColumnName(), width);
 
             for (int row = 0; row < cifField.getRowCount(); row++) {
@@ -78,19 +87,14 @@ public class TextCifWriter {
         output.append("#\n");
     }
 
-    private void writeCifLoop(StringBuilder output, Category cifCategory) {
-        List<Column> cifFields = cifCategory.getColumnNames()
-                .stream()
-                .map(cifCategory::getColumn)
-                .collect(Collectors.toList());
-
-        if (cifFields.size() == 0) {
+    private void writeCifLoop(StringBuilder output, Category cifCategory, List<Column> columns) {
+        if (columns.size() == 0) {
             return;
         }
 
         output.append("loop_")
                 .append("\n");
-        for (Column cifField : cifFields) {
+        for (Column cifField : columns) {
             output.append("_")
                     .append(cifCategory.getCategoryName())
                     .append(".")
@@ -98,9 +102,9 @@ public class TextCifWriter {
                     .append("\n");
         }
 
-        for (int row = 0; row < cifFields.get(0).getRowCount(); row++) {
+        for (int row = 0; row < columns.get(0).getRowCount(); row++) {
             boolean multiline = false;
-            for (Column cifField : cifFields) {
+            for (Column cifField : columns) {
                 multiline = writeValue(output, cifField, row);
             }
             if (!multiline) {

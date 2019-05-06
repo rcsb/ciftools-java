@@ -49,6 +49,10 @@ public class BinaryCifWriter {
             blocks[blockCount++] = block;
 
             for (String categoryName : cifBlock.getCategoryNames()) {
+                if (!options.filterCategory(categoryName)) {
+                    continue;
+                }
+
                 Category cifCategory = cifBlock.getCategory(categoryName);
                 int rowCount = cifCategory.getRowCount();
                 if (rowCount == 0) {
@@ -62,12 +66,13 @@ public class BinaryCifWriter {
                 if (options.isSingleRow() && rowCount == 1) {
                     category.put("columns", encodeSingleRowCategory(cifCategory));
                 } else {
-                    Object[] fields = new Object[cifCategory.getColumnNames().size()];
-                    int fieldCount = 0;
-                    category.put("columns", fields);
-                    for (String fieldName : cifCategory.getColumnNames()) {
-                        fields[fieldCount++] = encodeColumn(cifCategory.getColumn(fieldName));
-                    }
+                    Object[] columns = cifCategory.getColumnNames()
+                            .stream()
+                            .filter(columnName -> options.filterColumn(categoryName, columnName))
+                            .map(cifCategory::getColumn)
+                            .map(this::encodeColumn)
+                            .toArray();
+                    category.put("columns", columns);
                 }
                 category.put("rowCount", rowCount);
                 categories[categoryCount++] = category;
@@ -80,6 +85,7 @@ public class BinaryCifWriter {
     private byte[] encodeSingleRowCategory(Category category) {
         Map<String, Object> map = category.getColumnNames()
                 .stream()
+                .filter(columnName -> options.filterColumn(category.getCategoryName(), columnName))
                 .map(category::getColumn)
                 .collect(Collectors.toMap(Column::getColumnName,
                         this::extractStringData,
