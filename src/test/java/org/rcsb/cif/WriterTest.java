@@ -13,11 +13,46 @@ import org.rcsb.cif.model.generated.AtomSite;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.regex.Pattern;
+import java.util.zip.GZIPInputStream;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.*;
 
 public class WriterTest {
+    @Test
+    public void testGzipWritingBehavior() throws IOException {
+        // should wrap output in gzip if requested
+        for (String id : TEST_CASES.keySet()) {
+            testGzipWritingBehavior(id);
+        }
+    }
+
+    private void testGzipWritingBehavior(String testCase) throws IOException {
+        // check that file was loaded correctly
+        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        assertEquals(testCase.toUpperCase(), file.getFirstBlock().getEntry().getId().get(0));
+
+        // write text text with downstream gzip
+        byte[] binaryGz = CifIO.writeText(file, CifOptions.builder().gzip(true).build());
+        // magic number must be gzip
+        assertEquals(GZIPInputStream.GZIP_MAGIC, (binaryGz[0] & 0xff | ((binaryGz[1] << 8) & 0xff00)));
+
+        // write text text
+        byte[] binary = CifIO.writeText(file, CifOptions.builder().gzip(false).build());
+        // magic number must not be gzip
+        assertNotEquals(GZIPInputStream.GZIP_MAGIC, (binary[0] & 0xff | ((binary[1] << 8) & 0xff00)));
+
+        // write text text with downstream gzip
+        byte[] textGz = CifIO.writeText(file, CifOptions.builder().gzip(true).build());
+        // magic number must be gzip
+        assertEquals(GZIPInputStream.GZIP_MAGIC, (textGz[0] & 0xff | ((textGz[1] << 8) & 0xff00)));
+
+        // write text text
+        byte[] text = CifIO.writeText(file, CifOptions.builder().gzip(false).build());
+        // magic number must not be gzip
+        assertNotEquals(GZIPInputStream.GZIP_MAGIC, (text[0] & 0xff | ((text[1] << 8) & 0xff00)));
+    }
+
     @Test
     public void testNumberFormat() throws IOException {
         // read and write cif file

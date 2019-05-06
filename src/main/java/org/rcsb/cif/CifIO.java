@@ -52,7 +52,8 @@ public class CifIO {
         return readFromInputStream(inputStream, DEFAULT_OPTIONS);
     }
 
-    private static final byte[] TEXT_MAGIC = new byte[] { 0x64, 0x61, 0x74, 0x61 };
+//    private static final byte[] TEXT_MAGIC = new byte[] { 0x64, 0x61, 0x74, 0x61 };
+    private static final byte[] BINARY_MAGIC = new byte[] { -0x7D, -0x59, 0x65, 0x6E };
 
     public static CifFile readFromInputStream(InputStream inputStream, CifOptions options) throws IOException {
         // performance: explicitly buffer stream, increases performance drastically
@@ -82,10 +83,10 @@ public class CifIO {
         inputStream.close();
 
         // determine binary or text
-        byte[] probe = Arrays.copyOf(byteArray, TEXT_MAGIC.length);
-        boolean text = Arrays.equals(TEXT_MAGIC, probe);
+        byte[] probe = Arrays.copyOf(byteArray, BINARY_MAGIC.length);
+        boolean binary = Arrays.equals(BINARY_MAGIC, probe);
 
-        return text ? new TextCifReader(options).read(byteArray) : new BinaryCifReader(options).read(byteArray);
+        return binary ? new BinaryCifReader(options).read(byteArray) : new TextCifReader(options).read(byteArray);
     }
 
     public static void writeBinary(CifFile cifFile, Path outputFile) throws IOException {

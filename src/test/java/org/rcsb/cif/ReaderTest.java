@@ -17,6 +17,28 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class ReaderTest {
     @Test
+    public void testGzipReadingBehavior() throws IOException {
+        // should recognize gzipped formats and decode them without specifying
+        for (String id : TEST_CASES.keySet()) {
+            testGzipReadingBehavior(id);
+        }
+    }
+
+    private void testGzipReadingBehavior(String testCase) throws IOException {
+        CifFile binaryGz = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/gz/" + testCase + ".bcif.gz"));
+        assertEquals(testCase.toUpperCase(), binaryGz.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile binary = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        assertEquals(testCase.toUpperCase(), binary.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile textGz = CifIO.readFromInputStream(TestHelper.getInputStream("cif/gz/" + testCase + ".cif.gz"));
+        assertEquals(testCase.toUpperCase(), textGz.getFirstBlock().getEntry().getId().get(0));
+
+        CifFile text = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif"));
+        assertEquals(testCase.toUpperCase(), text.getFirstBlock().getEntry().getId().get(0));
+    }
+
+    @Test
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase.getKey() + ".bcif");
