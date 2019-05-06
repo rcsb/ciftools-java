@@ -30,7 +30,8 @@ class SchemaGenerator {
     private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator().generate();
+        new SchemaGenerator("mmcif_pdbx_v50.dic", "chem_comp-extension.dic", "entity_branch-extension.dic",
+                "ihm-extension.dic");
     }
 
     static String toClassName(String rawName) {
@@ -51,16 +52,6 @@ class SchemaGenerator {
             return "_" + name;
         }
         return name;
-    }
-
-    private void generate() throws IOException {
-        getCategoryMetadata();
-
-        buildListOfLinksBetweenCategories();
-
-        getFieldData();
-
-        writeClasses();
     }
 
     private static final StringJoiner CLASS_MAP_LOOKUP = new StringJoiner("\n");
@@ -299,13 +290,20 @@ class SchemaGenerator {
         return clazz.getSimpleName();
     }
 
-    private SchemaGenerator() throws IOException {
-        this.cifFile = CifIO.readFromInputStream(Thread.currentThread()
-                .getContextClassLoader()
-                .getResourceAsStream("mmcif_pdbx_v50.dic"));
+    private SchemaGenerator(String... resource) throws IOException {
         this.schema = new LinkedHashMap<>();
         this.categories = new LinkedHashMap<>();
         this.links = new LinkedHashMap<>();
+        for (String res : resource) {
+            System.out.println(res);
+            CifFile cifFile = CifIO.readFromInputStream(Thread.currentThread()
+                    .getContextClassLoader()
+                    .getResourceAsStream(res));
+            getCategoryMetadata(cifFile);
+            buildListOfLinksBetweenCategories(cifFile);
+        }
+        getFieldData();
+        writeClasses();
     }
 
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
@@ -323,7 +321,6 @@ class SchemaGenerator {
             "_struct_sheet_range.end_auth_seq_id"
     ).collect(Collectors.toList());
 
-    private final CifFile cifFile;
     private final Map<String, Table> schema;
     private final Map<String, Block> categories;
     private final Map<String, String> links;
@@ -476,7 +473,7 @@ class SchemaGenerator {
         }
     }
 
-    private void buildListOfLinksBetweenCategories() {
+    private void buildListOfLinksBetweenCategories(CifFile cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()
@@ -501,7 +498,7 @@ class SchemaGenerator {
                 });
     }
 
-    private void getCategoryMetadata() {
+    private void getCategoryMetadata(CifFile cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()
