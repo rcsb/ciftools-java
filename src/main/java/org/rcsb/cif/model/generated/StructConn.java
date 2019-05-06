@@ -634,4 +634,49 @@ public class StructConn extends BaseCategory {
         return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ptnr3_auth_ins_code", StrColumn::new) :
                 getBinaryColumn("pdbx_ptnr3_auth_ins_code"));
     }
+
+    /**
+     * The chiral configuration of the first atom making the linkage.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPtnr1AtomStereoConfig() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_atom_stereo_config", StrColumn::new) :
+                getBinaryColumn("pdbx_ptnr1_atom_stereo_config"));
+    }
+
+    /**
+     * The leaving atom that is removed from first atom making the linkage.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPtnr1LeavingAtomId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ptnr1_leaving_atom_id", StrColumn::new) :
+                getBinaryColumn("pdbx_ptnr1_leaving_atom_id"));
+    }
+
+    /**
+     * The chiral configuration of the second atom making the linkage.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPtnr2AtomStereoConfig() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ptnr2_atom_stereo_config", StrColumn::new) :
+                getBinaryColumn("pdbx_ptnr2_atom_stereo_config"));
+    }
+
+    /**
+     * The leaving atom that is removed from second atom making the linkage.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPtnr2LeavingAtomId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ptnr2_leaving_atom_id", StrColumn::new) :
+                getBinaryColumn("pdbx_ptnr2_leaving_atom_id"));
+    }
+
+    /**
+     * The chemical or structural role of the interaction
+     * @return StrColumn
+     */
+    public StrColumn getPdbxRole() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_role", StrColumn::new) :
+                getBinaryColumn("pdbx_role"));
+    }
 }

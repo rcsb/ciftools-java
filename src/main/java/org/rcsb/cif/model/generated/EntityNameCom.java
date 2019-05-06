@@ -43,4 +43,13 @@ public class EntityNameCom extends BaseCategory {
         return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
+
+    /**
+     * Provides the provenance of the name in the _entity_name_com.name field/
+     * @return StrColumn
+     */
+    public StrColumn getPdbxProvenance() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_provenance", StrColumn::new) :
+                getBinaryColumn("pdbx_provenance"));
+    }
 }

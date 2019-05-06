@@ -2309,4 +2309,252 @@ public class BlockBuilder {
     public CategoryBuilder.PdbxSerialCrystallographyDataReductionBuilder enterPdbxSerialCrystallographyDataReduction() {
         return new CategoryBuilder.PdbxSerialCrystallographyDataReductionBuilder(this);
     }
+
+    public CategoryBuilder.PdbxChemCompSynonymsBuilder enterPdbxChemCompSynonyms() {
+        return new CategoryBuilder.PdbxChemCompSynonymsBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxChemCompRelatedBuilder enterPdbxChemCompRelated() {
+        return new CategoryBuilder.PdbxChemCompRelatedBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
+        return new CategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
+        return new CategoryBuilder.PdbxEntityBranchListBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxEntityBranchLinkBuilder enterPdbxEntityBranchLink() {
+        return new CategoryBuilder.PdbxEntityBranchLinkBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxEntityBranchBuilder enterPdbxEntityBranch() {
+        return new CategoryBuilder.PdbxEntityBranchBuilder(this);
+    }
+
+    public CategoryBuilder.PdbxBranchSchemeBuilder enterPdbxBranchScheme() {
+        return new CategoryBuilder.PdbxBranchSchemeBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStartingModelDetailsBuilder enterIhmStartingModelDetails() {
+        return new CategoryBuilder.IhmStartingModelDetailsBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStartingComparativeModelsBuilder enterIhmStartingComparativeModels() {
+        return new CategoryBuilder.IhmStartingComparativeModelsBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStartingComputationalModelsBuilder enterIhmStartingComputationalModels() {
+        return new CategoryBuilder.IhmStartingComputationalModelsBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStartingModelSeqDifBuilder enterIhmStartingModelSeqDif() {
+        return new CategoryBuilder.IhmStartingModelSeqDifBuilder(this);
+    }
+
+    public CategoryBuilder.IhmModelRepresentationBuilder enterIhmModelRepresentation() {
+        return new CategoryBuilder.IhmModelRepresentationBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStructAssemblyBuilder enterIhmStructAssembly() {
+        return new CategoryBuilder.IhmStructAssemblyBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStructAssemblyDetailsBuilder enterIhmStructAssemblyDetails() {
+        return new CategoryBuilder.IhmStructAssemblyDetailsBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStructAssemblyClassListBuilder enterIhmStructAssemblyClassList() {
+        return new CategoryBuilder.IhmStructAssemblyClassListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStructAssemblyClassBuilder enterIhmStructAssemblyClass() {
+        return new CategoryBuilder.IhmStructAssemblyClassBuilder(this);
+    }
+
+    public CategoryBuilder.IhmModelingProtocolBuilder enterIhmModelingProtocol() {
+        return new CategoryBuilder.IhmModelingProtocolBuilder(this);
+    }
+
+    public CategoryBuilder.IhmMultiStateModelingBuilder enterIhmMultiStateModeling() {
+        return new CategoryBuilder.IhmMultiStateModelingBuilder(this);
+    }
+
+    public CategoryBuilder.IhmOrderedEnsembleBuilder enterIhmOrderedEnsemble() {
+        return new CategoryBuilder.IhmOrderedEnsembleBuilder(this);
+    }
+
+    public CategoryBuilder.IhmModelingPostProcessBuilder enterIhmModelingPostProcess() {
+        return new CategoryBuilder.IhmModelingPostProcessBuilder(this);
+    }
+
+    public CategoryBuilder.IhmEnsembleInfoBuilder enterIhmEnsembleInfo() {
+        return new CategoryBuilder.IhmEnsembleInfoBuilder(this);
+    }
+
+    public CategoryBuilder.IhmModelListBuilder enterIhmModelList() {
+        return new CategoryBuilder.IhmModelListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmModelRepresentativeBuilder enterIhmModelRepresentative() {
+        return new CategoryBuilder.IhmModelRepresentativeBuilder(this);
+    }
+
+    public CategoryBuilder.IhmDatasetListBuilder enterIhmDatasetList() {
+        return new CategoryBuilder.IhmDatasetListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmDatasetGroupBuilder enterIhmDatasetGroup() {
+        return new CategoryBuilder.IhmDatasetGroupBuilder(this);
+    }
+
+    public CategoryBuilder.IhmRelatedDatasetsBuilder enterIhmRelatedDatasets() {
+        return new CategoryBuilder.IhmRelatedDatasetsBuilder(this);
+    }
+
+    public CategoryBuilder.IhmDatasetRelatedDbReferenceBuilder enterIhmDatasetRelatedDbReference() {
+        return new CategoryBuilder.IhmDatasetRelatedDbReferenceBuilder(this);
+    }
+
+    public CategoryBuilder.IhmExternalReferenceInfoBuilder enterIhmExternalReferenceInfo() {
+        return new CategoryBuilder.IhmExternalReferenceInfoBuilder(this);
+    }
+
+    public CategoryBuilder.IhmExternalFilesBuilder enterIhmExternalFiles() {
+        return new CategoryBuilder.IhmExternalFilesBuilder(this);
+    }
+
+    public CategoryBuilder.IhmDatasetExternalReferenceBuilder enterIhmDatasetExternalReference() {
+        return new CategoryBuilder.IhmDatasetExternalReferenceBuilder(this);
+    }
+
+    public CategoryBuilder.IhmLocalizationDensityFilesBuilder enterIhmLocalizationDensityFiles() {
+        return new CategoryBuilder.IhmLocalizationDensityFilesBuilder(this);
+    }
+
+    public CategoryBuilder.IhmPredictedContactRestraintBuilder enterIhmPredictedContactRestraint() {
+        return new CategoryBuilder.IhmPredictedContactRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmHydroxylRadicalFpRestraintBuilder enterIhmHydroxylRadicalFpRestraint() {
+        return new CategoryBuilder.IhmHydroxylRadicalFpRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmCrossLinkListBuilder enterIhmCrossLinkList() {
+        return new CategoryBuilder.IhmCrossLinkListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmCrossLinkRestraintBuilder enterIhmCrossLinkRestraint() {
+        return new CategoryBuilder.IhmCrossLinkRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmCrossLinkResultBuilder enterIhmCrossLinkResult() {
+        return new CategoryBuilder.IhmCrossLinkResultBuilder(this);
+    }
+
+    public CategoryBuilder.IhmCrossLinkResultParametersBuilder enterIhmCrossLinkResultParameters() {
+        return new CategoryBuilder.IhmCrossLinkResultParametersBuilder(this);
+    }
+
+    public CategoryBuilder.Ihm2demClassAverageRestraintBuilder enterIhm2demClassAverageRestraint() {
+        return new CategoryBuilder.Ihm2demClassAverageRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.Ihm2demClassAverageFittingBuilder enterIhm2demClassAverageFitting() {
+        return new CategoryBuilder.Ihm2demClassAverageFittingBuilder(this);
+    }
+
+    public CategoryBuilder.Ihm3demRestraintBuilder enterIhm3demRestraint() {
+        return new CategoryBuilder.Ihm3demRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmSasRestraintBuilder enterIhmSasRestraint() {
+        return new CategoryBuilder.IhmSasRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmStartingModelCoordBuilder enterIhmStartingModelCoord() {
+        return new CategoryBuilder.IhmStartingModelCoordBuilder(this);
+    }
+
+    public CategoryBuilder.IhmSphereObjSiteBuilder enterIhmSphereObjSite() {
+        return new CategoryBuilder.IhmSphereObjSiteBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGaussianObjSiteBuilder enterIhmGaussianObjSite() {
+        return new CategoryBuilder.IhmGaussianObjSiteBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGaussianObjEnsembleBuilder enterIhmGaussianObjEnsemble() {
+        return new CategoryBuilder.IhmGaussianObjEnsembleBuilder(this);
+    }
+
+    public CategoryBuilder.IhmResiduesNotModeledBuilder enterIhmResiduesNotModeled() {
+        return new CategoryBuilder.IhmResiduesNotModeledBuilder(this);
+    }
+
+    public CategoryBuilder.IhmFeatureListBuilder enterIhmFeatureList() {
+        return new CategoryBuilder.IhmFeatureListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmPseudoSiteFeatureBuilder enterIhmPseudoSiteFeature() {
+        return new CategoryBuilder.IhmPseudoSiteFeatureBuilder(this);
+    }
+
+    public CategoryBuilder.IhmPolyAtomFeatureBuilder enterIhmPolyAtomFeature() {
+        return new CategoryBuilder.IhmPolyAtomFeatureBuilder(this);
+    }
+
+    public CategoryBuilder.IhmPolyResidueFeatureBuilder enterIhmPolyResidueFeature() {
+        return new CategoryBuilder.IhmPolyResidueFeatureBuilder(this);
+    }
+
+    public CategoryBuilder.IhmNonPolyFeatureBuilder enterIhmNonPolyFeature() {
+        return new CategoryBuilder.IhmNonPolyFeatureBuilder(this);
+    }
+
+    public CategoryBuilder.IhmInterfaceResidueFeatureBuilder enterIhmInterfaceResidueFeature() {
+        return new CategoryBuilder.IhmInterfaceResidueFeatureBuilder(this);
+    }
+
+    public CategoryBuilder.IhmDerivedDistanceRestraintBuilder enterIhmDerivedDistanceRestraint() {
+        return new CategoryBuilder.IhmDerivedDistanceRestraintBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectListBuilder enterIhmGeometricObjectList() {
+        return new CategoryBuilder.IhmGeometricObjectListBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectCenterBuilder enterIhmGeometricObjectCenter() {
+        return new CategoryBuilder.IhmGeometricObjectCenterBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectTransformationBuilder enterIhmGeometricObjectTransformation() {
+        return new CategoryBuilder.IhmGeometricObjectTransformationBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectSphereBuilder enterIhmGeometricObjectSphere() {
+        return new CategoryBuilder.IhmGeometricObjectSphereBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectTorusBuilder enterIhmGeometricObjectTorus() {
+        return new CategoryBuilder.IhmGeometricObjectTorusBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectHalfTorusBuilder enterIhmGeometricObjectHalfTorus() {
+        return new CategoryBuilder.IhmGeometricObjectHalfTorusBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectAxisBuilder enterIhmGeometricObjectAxis() {
+        return new CategoryBuilder.IhmGeometricObjectAxisBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectPlaneBuilder enterIhmGeometricObjectPlane() {
+        return new CategoryBuilder.IhmGeometricObjectPlaneBuilder(this);
+    }
+
+    public CategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder enterIhmGeometricObjectDistanceRestraint() {
+        return new CategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder(this);
+    }
 }

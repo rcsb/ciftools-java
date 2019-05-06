@@ -564,6 +564,10 @@ public class CategoryBuilder {
         public StrColumnBuilder<AtomSiteBuilder> enterPdbxNotInAsym() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_not_in_asym", this);
         }
+
+        public IntColumnBuilder<AtomSiteBuilder> enterIhmModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ihm_model_id", this);
+        }
     }
 
     public static class AtomSiteAnisotropBuilder extends CategoryBuilder {
@@ -3955,6 +3959,10 @@ public class CategoryBuilder {
 
         public StrColumnBuilder<EntityNameComBuilder> enterName() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "name", this);
+        }
+
+        public StrColumnBuilder<EntityNameComBuilder> enterPdbxProvenance() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_provenance", this);
         }
     }
 
@@ -9175,6 +9183,26 @@ public class CategoryBuilder {
 
         public StrColumnBuilder<StructConnBuilder> enterPdbxPtnr3AuthInsCode() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_ptnr3_auth_ins_code", this);
+        }
+
+        public StrColumnBuilder<StructConnBuilder> enterPdbxPtnr1AtomStereoConfig() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_ptnr1_atom_stereo_config", this);
+        }
+
+        public StrColumnBuilder<StructConnBuilder> enterPdbxPtnr1LeavingAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_ptnr1_leaving_atom_id", this);
+        }
+
+        public StrColumnBuilder<StructConnBuilder> enterPdbxPtnr2AtomStereoConfig() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_ptnr2_atom_stereo_config", this);
+        }
+
+        public StrColumnBuilder<StructConnBuilder> enterPdbxPtnr2LeavingAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_ptnr2_leaving_atom_id", this);
+        }
+
+        public StrColumnBuilder<StructConnBuilder> enterPdbxRole() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdbx_role", this);
         }
     }
 
@@ -29279,6 +29307,2614 @@ public class CategoryBuilder {
 
         public StrColumnBuilder<PdbxSerialCrystallographyDataReductionBuilder> enterXfelRunNumbers() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "xfel_run_numbers", this);
+        }
+    }
+
+    public static class PdbxChemCompSynonymsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_chem_comp_synonyms";
+
+        public PdbxChemCompSynonymsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxChemCompSynonymsBuilder> enterName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "name", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompSynonymsBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompSynonymsBuilder> enterProvenance() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "provenance", this);
+        }
+    }
+
+    public static class PdbxChemCompRelatedBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_chem_comp_related";
+
+        public PdbxChemCompRelatedBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxChemCompRelatedBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompRelatedBuilder> enterRelatedCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "related_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompRelatedBuilder> enterRelationshipType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "relationship_type", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompRelatedBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class PdbxChemCompAtomRelatedBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_chem_comp_atom_related";
+
+        public PdbxChemCompAtomRelatedBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterRelatedCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "related_comp_id", this);
+        }
+
+        public IntColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterOrdinal() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterRelatedAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "related_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder> enterRelatedType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "related_type", this);
+        }
+    }
+
+    public static class PdbxEntityBranchListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_entity_branch_list";
+
+        public PdbxEntityBranchListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchListBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchListBuilder> enterHetero() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hetero", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchListBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public IntColumnBuilder<PdbxEntityBranchListBuilder> enterNum() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num", this);
+        }
+    }
+
+    public static class PdbxEntityBranchLinkBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_entity_branch_link";
+
+        public PdbxEntityBranchLinkBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxEntityBranchLinkBuilder> enterLinkId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "link_id", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public IntColumnBuilder<PdbxEntityBranchLinkBuilder> enterEntityBranchListNum1() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "entity_branch_list_num_1", this);
+        }
+
+        public IntColumnBuilder<PdbxEntityBranchLinkBuilder> enterEntityBranchListNum2() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "entity_branch_list_num_2", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterCompId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_1", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterCompId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_2", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterAtomId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_1", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterLeavingAtomId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "leaving_atom_id_1", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterAtomStereoConfig1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_stereo_config_1", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterAtomId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_2", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterLeavingAtomId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "leaving_atom_id_2", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterAtomStereoConfig2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_stereo_config_2", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchLinkBuilder> enterValueOrder() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "value_order", this);
+        }
+    }
+
+    public static class PdbxEntityBranchBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_entity_branch";
+
+        public PdbxEntityBranchBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<PdbxEntityBranchBuilder> enterType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "type", this);
+        }
+    }
+
+    public static class PdbxBranchSchemeBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_branch_scheme";
+
+        public PdbxBranchSchemeBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterHetero() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hetero", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterMonId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mon_id", this);
+        }
+
+        public IntColumnBuilder<PdbxBranchSchemeBuilder> enterNum() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterPdbAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdb_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterPdbSeqNum() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdb_seq_num", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterPdbMonId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "pdb_mon_id", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterAuthAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterAuthSeqNum() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "auth_seq_num", this);
+        }
+
+        public StrColumnBuilder<PdbxBranchSchemeBuilder> enterAuthMonId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "auth_mon_id", this);
+        }
+    }
+
+    public static class IhmStartingModelDetailsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_starting_model_details";
+
+        public IhmStartingModelDetailsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterEntityDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelDetailsBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelDetailsBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterStartingModelSource() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_source", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelDetailsBuilder> enterStartingModelAuthAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_auth_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelDetailsBuilder> enterStartingModelSequenceOffset() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "starting_model_sequence_offset", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelDetailsBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+    }
+
+    public static class IhmStartingComparativeModelsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_starting_comparative_models";
+
+        public IhmStartingComparativeModelsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingComparativeModelsBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingComparativeModelsBuilder> enterStartingModelAuthAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_auth_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterStartingModelSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "starting_model_seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterStartingModelSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "starting_model_seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateAuthAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "template_auth_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "template_seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "template_seq_id_end", this);
+        }
+
+        public FloatColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateSequenceIdentity() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "template_sequence_identity", this);
+        }
+
+        public StrColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateSequenceIdentityDenominator() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "template_sequence_identity_denominator", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterTemplateDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "template_dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComparativeModelsBuilder> enterAlignmentFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "alignment_file_id", this);
+        }
+    }
+
+    public static class IhmStartingComputationalModelsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_starting_computational_models";
+
+        public IhmStartingComputationalModelsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<IhmStartingComputationalModelsBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComputationalModelsBuilder> enterScriptFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "script_file_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingComputationalModelsBuilder> enterSoftwareId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "software_id", this);
+        }
+    }
+
+    public static class IhmStartingModelSeqDifBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_starting_model_seq_dif";
+
+        public IhmStartingModelSeqDifBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStartingModelSeqDifBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelSeqDifBuilder> enterSeqId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterDbEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "db_entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterDbAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "db_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelSeqDifBuilder> enterDbSeqId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "db_seq_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterDbCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "db_comp_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelSeqDifBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmModelRepresentationBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_model_representation";
+
+        public IhmModelRepresentationBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterRepresentationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "representation_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterSegmentId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "segment_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterEntityDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterEntityAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterModelObjectPrimitive() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_object_primitive", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterModelMode() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_mode", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentationBuilder> enterModelGranularity() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_granularity", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentationBuilder> enterModelObjectCount() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_object_count", this);
+        }
+    }
+
+    public static class IhmStructAssemblyBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_struct_assembly";
+
+        public IhmStructAssemblyBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyBuilder> enterAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "assembly_id", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyBuilder> enterParentAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "parent_assembly_id", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyBuilder> enterEntityDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+    }
+
+    public static class IhmStructAssemblyDetailsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_struct_assembly_details";
+
+        public IhmStructAssemblyDetailsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyDetailsBuilder> enterAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "assembly_id", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyDetailsBuilder> enterAssemblyName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "assembly_name", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyDetailsBuilder> enterAssemblyDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "assembly_description", this);
+        }
+    }
+
+    public static class IhmStructAssemblyClassListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_struct_assembly_class_list";
+
+        public IhmStructAssemblyClassListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyClassListBuilder> enterClassId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "class_id", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyClassListBuilder> enterName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "name", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyClassListBuilder> enterType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<IhmStructAssemblyClassListBuilder> enterDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "description", this);
+        }
+    }
+
+    public static class IhmStructAssemblyClassBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_struct_assembly_class";
+
+        public IhmStructAssemblyClassBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyClassBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyClassBuilder> enterClassId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "class_id", this);
+        }
+
+        public IntColumnBuilder<IhmStructAssemblyClassBuilder> enterAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "assembly_id", this);
+        }
+    }
+
+    public static class IhmModelingProtocolBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_modeling_protocol";
+
+        public IhmModelingProtocolBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterProtocolId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "protocol_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterStepId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "step_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterStructAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "struct_assembly_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterDatasetGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_group_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterStructAssemblyDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "struct_assembly_description", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterProtocolName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "protocol_name", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterStepName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "step_name", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterStepMethod() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "step_method", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterNumModelsBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_models_begin", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterNumModelsEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_models_end", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterMultiScaleFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "multi_scale_flag", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterMultiStateFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "multi_state_flag", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterOrderedFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ordered_flag", this);
+        }
+
+        public StrColumnBuilder<IhmModelingProtocolBuilder> enterEnsembleFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ensemble_flag", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterScriptFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "script_file_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingProtocolBuilder> enterSoftwareId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "software_id", this);
+        }
+    }
+
+    public static class IhmMultiStateModelingBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_multi_state_modeling";
+
+        public IhmMultiStateModelingBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmMultiStateModelingBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmMultiStateModelingBuilder> enterStateId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "state_id", this);
+        }
+
+        public IntColumnBuilder<IhmMultiStateModelingBuilder> enterStateGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "state_group_id", this);
+        }
+
+        public FloatColumnBuilder<IhmMultiStateModelingBuilder> enterPopulationFraction() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "population_fraction", this);
+        }
+
+        public FloatColumnBuilder<IhmMultiStateModelingBuilder> enterPopulationFractionSd() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "population_fraction_sd", this);
+        }
+
+        public StrColumnBuilder<IhmMultiStateModelingBuilder> enterStateType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "state_type", this);
+        }
+
+        public StrColumnBuilder<IhmMultiStateModelingBuilder> enterStateName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "state_name", this);
+        }
+
+        public IntColumnBuilder<IhmMultiStateModelingBuilder> enterModelGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id", this);
+        }
+
+        public StrColumnBuilder<IhmMultiStateModelingBuilder> enterExperimentType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "experiment_type", this);
+        }
+
+        public StrColumnBuilder<IhmMultiStateModelingBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmOrderedEnsembleBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_ordered_ensemble";
+
+        public IhmOrderedEnsembleBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmOrderedEnsembleBuilder> enterProcessId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "process_id", this);
+        }
+
+        public StrColumnBuilder<IhmOrderedEnsembleBuilder> enterProcessDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "process_description", this);
+        }
+
+        public IntColumnBuilder<IhmOrderedEnsembleBuilder> enterEdgeId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "edge_id", this);
+        }
+
+        public StrColumnBuilder<IhmOrderedEnsembleBuilder> enterEdgeDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "edge_description", this);
+        }
+
+        public IntColumnBuilder<IhmOrderedEnsembleBuilder> enterStepId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "step_id", this);
+        }
+
+        public StrColumnBuilder<IhmOrderedEnsembleBuilder> enterStepDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "step_description", this);
+        }
+
+        public StrColumnBuilder<IhmOrderedEnsembleBuilder> enterOrderedBy() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ordered_by", this);
+        }
+
+        public IntColumnBuilder<IhmOrderedEnsembleBuilder> enterModelGroupIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmOrderedEnsembleBuilder> enterModelGroupIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id_end", this);
+        }
+    }
+
+    public static class IhmModelingPostProcessBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_modeling_post_process";
+
+        public IhmModelingPostProcessBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterProtocolId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "protocol_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterAnalysisId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "analysis_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterStepId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "step_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterStructAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "struct_assembly_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterDatasetGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_group_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelingPostProcessBuilder> enterType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<IhmModelingPostProcessBuilder> enterFeature() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "feature", this);
+        }
+
+        public StrColumnBuilder<IhmModelingPostProcessBuilder> enterFeatureName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "feature_name", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterNumModelsBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_models_begin", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterNumModelsEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_models_end", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterScriptFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "script_file_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelingPostProcessBuilder> enterSoftwareId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "software_id", this);
+        }
+    }
+
+    public static class IhmEnsembleInfoBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_ensemble_info";
+
+        public IhmEnsembleInfoBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterEnsembleId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ensemble_id", this);
+        }
+
+        public StrColumnBuilder<IhmEnsembleInfoBuilder> enterEnsembleName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ensemble_name", this);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterPostProcessId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "post_process_id", this);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterModelGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id", this);
+        }
+
+        public StrColumnBuilder<IhmEnsembleInfoBuilder> enterEnsembleClusteringMethod() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ensemble_clustering_method", this);
+        }
+
+        public StrColumnBuilder<IhmEnsembleInfoBuilder> enterEnsembleClusteringFeature() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "ensemble_clustering_feature", this);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterNumEnsembleModels() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_ensemble_models", this);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterNumEnsembleModelsDeposited() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_ensemble_models_deposited", this);
+        }
+
+        public FloatColumnBuilder<IhmEnsembleInfoBuilder> enterEnsemblePrecisionValue() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "ensemble_precision_value", this);
+        }
+
+        public IntColumnBuilder<IhmEnsembleInfoBuilder> enterEnsembleFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ensemble_file_id", this);
+        }
+    }
+
+    public static class IhmModelListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_model_list";
+
+        public IhmModelListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterModelGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelListBuilder> enterModelName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_name", this);
+        }
+
+        public StrColumnBuilder<IhmModelListBuilder> enterModelGroupName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_group_name", this);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "assembly_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterProtocolId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "protocol_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelListBuilder> enterRepresentationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "representation_id", this);
+        }
+    }
+
+    public static class IhmModelRepresentativeBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_model_representative";
+
+        public IhmModelRepresentativeBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentativeBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentativeBuilder> enterModelGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_group_id", this);
+        }
+
+        public IntColumnBuilder<IhmModelRepresentativeBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public StrColumnBuilder<IhmModelRepresentativeBuilder> enterSelectionCriteria() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "selection_criteria", this);
+        }
+    }
+
+    public static class IhmDatasetListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_dataset_list";
+
+        public IhmDatasetListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmDatasetListBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetListBuilder> enterDataType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "data_type", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetListBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetListBuilder> enterDatabaseHosted() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "database_hosted", this);
+        }
+    }
+
+    public static class IhmDatasetGroupBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_dataset_group";
+
+        public IhmDatasetGroupBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmDatasetGroupBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmDatasetGroupBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public IntColumnBuilder<IhmDatasetGroupBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetGroupBuilder> enterApplication() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "application", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetGroupBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmRelatedDatasetsBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_related_datasets";
+
+        public IhmRelatedDatasetsBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmRelatedDatasetsBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmRelatedDatasetsBuilder> enterDatasetListIdDerived() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id_derived", this);
+        }
+
+        public IntColumnBuilder<IhmRelatedDatasetsBuilder> enterDatasetListIdPrimary() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id_primary", this);
+        }
+    }
+
+    public static class IhmDatasetRelatedDbReferenceBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_dataset_related_db_reference";
+
+        public IhmDatasetRelatedDbReferenceBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterDbName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "db_name", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterAccessionCode() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "accession_code", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterVersion() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "version", this);
+        }
+
+        public StrColumnBuilder<IhmDatasetRelatedDbReferenceBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmExternalReferenceInfoBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_external_reference_info";
+
+        public IhmExternalReferenceInfoBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmExternalReferenceInfoBuilder> enterReferenceId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "reference_id", this);
+        }
+
+        public StrColumnBuilder<IhmExternalReferenceInfoBuilder> enterReferenceProvider() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "reference_provider", this);
+        }
+
+        public StrColumnBuilder<IhmExternalReferenceInfoBuilder> enterReferenceType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "reference_type", this);
+        }
+
+        public StrColumnBuilder<IhmExternalReferenceInfoBuilder> enterReference() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "reference", this);
+        }
+
+        public StrColumnBuilder<IhmExternalReferenceInfoBuilder> enterRefersTo() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "refers_to", this);
+        }
+
+        public StrColumnBuilder<IhmExternalReferenceInfoBuilder> enterAssociatedUrl() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "associated_url", this);
+        }
+    }
+
+    public static class IhmExternalFilesBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_external_files";
+
+        public IhmExternalFilesBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmExternalFilesBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmExternalFilesBuilder> enterReferenceId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "reference_id", this);
+        }
+
+        public StrColumnBuilder<IhmExternalFilesBuilder> enterFilePath() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "file_path", this);
+        }
+
+        public StrColumnBuilder<IhmExternalFilesBuilder> enterFileFormat() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "file_format", this);
+        }
+
+        public StrColumnBuilder<IhmExternalFilesBuilder> enterContentType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "content_type", this);
+        }
+
+        public FloatColumnBuilder<IhmExternalFilesBuilder> enterFileSizeBytes() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "file_size_bytes", this);
+        }
+
+        public StrColumnBuilder<IhmExternalFilesBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmDatasetExternalReferenceBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_dataset_external_reference";
+
+        public IhmDatasetExternalReferenceBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmDatasetExternalReferenceBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmDatasetExternalReferenceBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<IhmDatasetExternalReferenceBuilder> enterFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "file_id", this);
+        }
+    }
+
+    public static class IhmLocalizationDensityFilesBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_localization_density_files";
+
+        public IhmLocalizationDensityFilesBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmLocalizationDensityFilesBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmLocalizationDensityFilesBuilder> enterFileId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "file_id", this);
+        }
+
+        public IntColumnBuilder<IhmLocalizationDensityFilesBuilder> enterEnsembleId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ensemble_id", this);
+        }
+
+        public StrColumnBuilder<IhmLocalizationDensityFilesBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public IntColumnBuilder<IhmLocalizationDensityFilesBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmLocalizationDensityFilesBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmLocalizationDensityFilesBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+    }
+
+    public static class IhmPredictedContactRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_predicted_contact_restraint";
+
+        public IhmPredictedContactRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterEntityDescription1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description_1", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterEntityDescription2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description_2", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterEntityId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterEntityId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterAsymId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterAsymId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterCompId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterCompId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_2", this);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterSeqId1() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_1", this);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterSeqId2() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterAtomId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterAtomId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_2", this);
+        }
+
+        public FloatColumnBuilder<IhmPredictedContactRestraintBuilder> enterDistanceLowerLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_lower_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmPredictedContactRestraintBuilder> enterDistanceUpperLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_upper_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmPredictedContactRestraintBuilder> enterProbability() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "probability", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterRestraintType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "restraint_type", this);
+        }
+
+        public StrColumnBuilder<IhmPredictedContactRestraintBuilder> enterModelGranularity() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_granularity", this);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<IhmPredictedContactRestraintBuilder> enterSoftwareId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "software_id", this);
+        }
+    }
+
+    public static class IhmHydroxylRadicalFpRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_hydroxyl_radical_fp_restraint";
+
+        public IhmHydroxylRadicalFpRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public StrColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterEntityDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description", this);
+        }
+
+        public StrColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public StrColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterSeqId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id", this);
+        }
+
+        public FloatColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterFpRate() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "fp_rate", this);
+        }
+
+        public FloatColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterFpRateError() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "fp_rate_error", this);
+        }
+
+        public FloatColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterLogPf() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "log_pf", this);
+        }
+
+        public FloatColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterLogPfError() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "log_pf_error", this);
+        }
+
+        public FloatColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterPredictedSasa() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "predicted_sasa", this);
+        }
+
+        public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder> enterSoftwareId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "software_id", this);
+        }
+    }
+
+    public static class IhmCrossLinkListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_cross_link_list";
+
+        public IhmCrossLinkListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkListBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkListBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterEntityDescription1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterEntityDescription2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterEntityId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterEntityId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterCompId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterCompId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_2", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkListBuilder> enterSeqId1() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_1", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkListBuilder> enterSeqId2() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkListBuilder> enterLinkerType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "linker_type", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkListBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+    }
+
+    public static class IhmCrossLinkRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_cross_link_restraint";
+
+        public IhmCrossLinkRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkRestraintBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterEntityId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterEntityId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterAsymId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterAsymId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterCompId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterCompId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_2", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkRestraintBuilder> enterSeqId1() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_1", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkRestraintBuilder> enterSeqId2() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterAtomId1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_1", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterAtomId2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterRestraintType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "restraint_type", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterConditionalCrosslinkFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "conditional_crosslink_flag", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkRestraintBuilder> enterModelGranularity() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "model_granularity", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkRestraintBuilder> enterDistanceThreshold() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_threshold", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkRestraintBuilder> enterPsi() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "psi", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkRestraintBuilder> enterSigma1() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "sigma_1", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkRestraintBuilder> enterSigma2() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "sigma_2", this);
+        }
+    }
+
+    public static class IhmCrossLinkResultBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_cross_link_result";
+
+        public IhmCrossLinkResultBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultBuilder> enterRestraintId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "restraint_id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultBuilder> enterEnsembleId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ensemble_id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultBuilder> enterNumModels() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "num_models", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkResultBuilder> enterDistanceThreshold() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_threshold", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkResultBuilder> enterMedianDistance() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "median_distance", this);
+        }
+
+        public StrColumnBuilder<IhmCrossLinkResultBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmCrossLinkResultParametersBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_cross_link_result_parameters";
+
+        public IhmCrossLinkResultParametersBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultParametersBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultParametersBuilder> enterRestraintId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "restraint_id", this);
+        }
+
+        public IntColumnBuilder<IhmCrossLinkResultParametersBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkResultParametersBuilder> enterPsi() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "psi", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkResultParametersBuilder> enterSigma1() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "sigma_1", this);
+        }
+
+        public FloatColumnBuilder<IhmCrossLinkResultParametersBuilder> enterSigma2() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "sigma_2", this);
+        }
+    }
+
+    public static class Ihm2demClassAverageRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_2dem_class_average_restraint";
+
+        public Ihm2demClassAverageRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterNumberRawMicrographs() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "number_raw_micrographs", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterPixelSizeWidth() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "pixel_size_width", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterPixelSizeHeight() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "pixel_size_height", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterImageResolution() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "image_resolution", this);
+        }
+
+        public StrColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterImageSegmentFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "image_segment_flag", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterNumberOfProjections() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "number_of_projections", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterStructAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "struct_assembly_id", this);
+        }
+
+        public StrColumnBuilder<Ihm2demClassAverageRestraintBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class Ihm2demClassAverageFittingBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_2dem_class_average_fitting";
+
+        public Ihm2demClassAverageFittingBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageFittingBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRestraintId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "restraint_id", this);
+        }
+
+        public IntColumnBuilder<Ihm2demClassAverageFittingBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterCrossCorrelationCoefficient() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "cross_correlation_coefficient", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix11() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][1]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix21() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][1]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix31() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][1]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix12() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][2]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix22() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][2]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix32() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][2]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix13() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][3]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix23() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][3]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterRotMatrix33() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][3]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterTrVector1() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[1]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterTrVector2() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[2]", this);
+        }
+
+        public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder> enterTrVector3() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[3]", this);
+        }
+    }
+
+    public static class Ihm3demRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_3dem_restraint";
+
+        public Ihm3demRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<Ihm3demRestraintBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<Ihm3demRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<Ihm3demRestraintBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public IntColumnBuilder<Ihm3demRestraintBuilder> enterStructAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "struct_assembly_id", this);
+        }
+
+        public StrColumnBuilder<Ihm3demRestraintBuilder> enterFittingMethod() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fitting_method", this);
+        }
+
+        public IntColumnBuilder<Ihm3demRestraintBuilder> enterNumberOfGaussians() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "number_of_gaussians", this);
+        }
+
+        public StrColumnBuilder<Ihm3demRestraintBuilder> enterMapSegmentFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "map_segment_flag", this);
+        }
+
+        public FloatColumnBuilder<Ihm3demRestraintBuilder> enterCrossCorrelationCoefficient() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "cross_correlation_coefficient", this);
+        }
+
+        public StrColumnBuilder<Ihm3demRestraintBuilder> enterFittingMethodCitationId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fitting_method_citation_id", this);
+        }
+
+        public StrColumnBuilder<Ihm3demRestraintBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmSasRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_sas_restraint";
+
+        public IhmSasRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmSasRestraintBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmSasRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public IntColumnBuilder<IhmSasRestraintBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public IntColumnBuilder<IhmSasRestraintBuilder> enterStructAssemblyId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "struct_assembly_id", this);
+        }
+
+        public StrColumnBuilder<IhmSasRestraintBuilder> enterProfileSegmentFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "profile_segment_flag", this);
+        }
+
+        public StrColumnBuilder<IhmSasRestraintBuilder> enterFittingAtomType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fitting_atom_type", this);
+        }
+
+        public StrColumnBuilder<IhmSasRestraintBuilder> enterFittingMethod() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fitting_method", this);
+        }
+
+        public StrColumnBuilder<IhmSasRestraintBuilder> enterFittingState() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fitting_state", this);
+        }
+
+        public FloatColumnBuilder<IhmSasRestraintBuilder> enterRadiusOfGyration() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "radius_of_gyration", this);
+        }
+
+        public FloatColumnBuilder<IhmSasRestraintBuilder> enterChiValue() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "chi_value", this);
+        }
+
+        public StrColumnBuilder<IhmSasRestraintBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmStartingModelCoordBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_starting_model_coord";
+
+        public IhmStartingModelCoordBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmStartingModelCoordBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterStartingModelId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "starting_model_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterGroupPDB() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "group_PDB", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelCoordBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterTypeSymbol() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "type_symbol", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelCoordBuilder> enterSeqId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id", this);
+        }
+
+        public StrColumnBuilder<IhmStartingModelCoordBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public FloatColumnBuilder<IhmStartingModelCoordBuilder> enterCartnX() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_x", this);
+        }
+
+        public FloatColumnBuilder<IhmStartingModelCoordBuilder> enterCartnY() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_y", this);
+        }
+
+        public FloatColumnBuilder<IhmStartingModelCoordBuilder> enterCartnZ() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_z", this);
+        }
+
+        public FloatColumnBuilder<IhmStartingModelCoordBuilder> enterBIsoOrEquiv() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "B_iso_or_equiv", this);
+        }
+
+        public IntColumnBuilder<IhmStartingModelCoordBuilder> enterFormalCharge() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "formal_charge", this);
+        }
+    }
+
+    public static class IhmSphereObjSiteBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_sphere_obj_site";
+
+        public IhmSphereObjSiteBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmSphereObjSiteBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmSphereObjSiteBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public IntColumnBuilder<IhmSphereObjSiteBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmSphereObjSiteBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmSphereObjSiteBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public FloatColumnBuilder<IhmSphereObjSiteBuilder> enterCartnX() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_x", this);
+        }
+
+        public FloatColumnBuilder<IhmSphereObjSiteBuilder> enterCartnY() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_y", this);
+        }
+
+        public FloatColumnBuilder<IhmSphereObjSiteBuilder> enterCartnZ() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_z", this);
+        }
+
+        public FloatColumnBuilder<IhmSphereObjSiteBuilder> enterObjectRadius() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "object_radius", this);
+        }
+
+        public FloatColumnBuilder<IhmSphereObjSiteBuilder> enterRmsf() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rmsf", this);
+        }
+
+        public IntColumnBuilder<IhmSphereObjSiteBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+    }
+
+    public static class IhmGaussianObjSiteBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_gaussian_obj_site";
+
+        public IhmGaussianObjSiteBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjSiteBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmGaussianObjSiteBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjSiteBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjSiteBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmGaussianObjSiteBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterMeanCartnX() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_x", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterMeanCartnY() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_y", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterMeanCartnZ() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_z", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterWeight() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "weight", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix11() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix12() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix13() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix21() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix22() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix23() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix31() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix32() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjSiteBuilder> enterCovarianceMatrix33() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][3]", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjSiteBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+    }
+
+    public static class IhmGaussianObjEnsembleBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_gaussian_obj_ensemble";
+
+        public IhmGaussianObjEnsembleBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjEnsembleBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public StrColumnBuilder<IhmGaussianObjEnsembleBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjEnsembleBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjEnsembleBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmGaussianObjEnsembleBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterMeanCartnX() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_x", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterMeanCartnY() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_y", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterMeanCartnZ() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "mean_Cartn_z", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterWeight() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "weight", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix11() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix12() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix13() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[1][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix21() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix22() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix23() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[2][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix31() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix32() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGaussianObjEnsembleBuilder> enterCovarianceMatrix33() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "covariance_matrix[3][3]", this);
+        }
+
+        public IntColumnBuilder<IhmGaussianObjEnsembleBuilder> enterEnsembleId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ensemble_id", this);
+        }
+    }
+
+    public static class IhmResiduesNotModeledBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_residues_not_modeled";
+
+        public IhmResiduesNotModeledBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmResiduesNotModeledBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmResiduesNotModeledBuilder> enterModelId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "model_id", this);
+        }
+
+        public StrColumnBuilder<IhmResiduesNotModeledBuilder> enterEntityDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_description", this);
+        }
+
+        public StrColumnBuilder<IhmResiduesNotModeledBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmResiduesNotModeledBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmResiduesNotModeledBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmResiduesNotModeledBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmResiduesNotModeledBuilder> enterReason() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "reason", this);
+        }
+
+        public StrColumnBuilder<IhmResiduesNotModeledBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmFeatureListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_feature_list";
+
+        public IhmFeatureListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmFeatureListBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmFeatureListBuilder> enterFeatureType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "feature_type", this);
+        }
+
+        public StrColumnBuilder<IhmFeatureListBuilder> enterEntityType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_type", this);
+        }
+    }
+
+    public static class IhmPseudoSiteFeatureBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_pseudo_site_feature";
+
+        public IhmPseudoSiteFeatureBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmPseudoSiteFeatureBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public FloatColumnBuilder<IhmPseudoSiteFeatureBuilder> enterCartnX() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_x", this);
+        }
+
+        public FloatColumnBuilder<IhmPseudoSiteFeatureBuilder> enterCartnY() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_y", this);
+        }
+
+        public FloatColumnBuilder<IhmPseudoSiteFeatureBuilder> enterCartnZ() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "Cartn_z", this);
+        }
+
+        public FloatColumnBuilder<IhmPseudoSiteFeatureBuilder> enterRadius() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "radius", this);
+        }
+
+        public StrColumnBuilder<IhmPseudoSiteFeatureBuilder> enterDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "description", this);
+        }
+    }
+
+    public static class IhmPolyAtomFeatureBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_poly_atom_feature";
+
+        public IhmPolyAtomFeatureBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmPolyAtomFeatureBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmPolyAtomFeatureBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyAtomFeatureBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyAtomFeatureBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyAtomFeatureBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public IntColumnBuilder<IhmPolyAtomFeatureBuilder> enterSeqId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyAtomFeatureBuilder> enterAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id", this);
+        }
+    }
+
+    public static class IhmPolyResidueFeatureBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_poly_residue_feature";
+
+        public IhmPolyResidueFeatureBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmPolyResidueFeatureBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmPolyResidueFeatureBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterCompIdBegin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_begin", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterCompIdEnd() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id_end", this);
+        }
+
+        public IntColumnBuilder<IhmPolyResidueFeatureBuilder> enterSeqIdBegin() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_begin", this);
+        }
+
+        public IntColumnBuilder<IhmPolyResidueFeatureBuilder> enterSeqIdEnd() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "seq_id_end", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterResidueRangeGranularity() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "residue_range_granularity", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterRepAtom() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "rep_atom", this);
+        }
+
+        public StrColumnBuilder<IhmPolyResidueFeatureBuilder> enterInterfaceResidueFlag() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "interface_residue_flag", this);
+        }
+    }
+
+    public static class IhmNonPolyFeatureBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_non_poly_feature";
+
+        public IhmNonPolyFeatureBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmNonPolyFeatureBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmNonPolyFeatureBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmNonPolyFeatureBuilder> enterEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmNonPolyFeatureBuilder> enterAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "asym_id", this);
+        }
+
+        public StrColumnBuilder<IhmNonPolyFeatureBuilder> enterCompId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<IhmNonPolyFeatureBuilder> enterAtomId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_id", this);
+        }
+    }
+
+    public static class IhmInterfaceResidueFeatureBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_interface_residue_feature";
+
+        public IhmInterfaceResidueFeatureBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterOrdinalId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "ordinal_id", this);
+        }
+
+        public IntColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterBindingPartnerEntityId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "binding_partner_entity_id", this);
+        }
+
+        public StrColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterBindingPartnerAsymId() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "binding_partner_asym_id", this);
+        }
+
+        public IntColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public StrColumnBuilder<IhmInterfaceResidueFeatureBuilder> enterDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "details", this);
+        }
+    }
+
+    public static class IhmDerivedDistanceRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_derived_distance_restraint";
+
+        public IhmDerivedDistanceRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterGroupId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "group_id", this);
+        }
+
+        public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterFeatureId1() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id_1", this);
+        }
+
+        public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterFeatureId2() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id_2", this);
+        }
+
+        public StrColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterGroupConditionality() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "group_conditionality", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterRandomExclusionFraction() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "random_exclusion_fraction", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterDistanceLowerLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_lower_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterDistanceUpperLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_upper_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterDistanceLowerLimitEsd() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_lower_limit_esd", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterDistanceUpperLimitEsd() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_upper_limit_esd", this);
+        }
+
+        public FloatColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterProbability() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "probability", this);
+        }
+
+        public StrColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterRestraintType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "restraint_type", this);
+        }
+
+        public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+    }
+
+    public static class IhmGeometricObjectListBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_list";
+
+        public IhmGeometricObjectListBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectListBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectListBuilder> enterObjectType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "object_type", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectListBuilder> enterObjectName() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "object_name", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectListBuilder> enterObjectDescription() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "object_description", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectListBuilder> enterOtherDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "other_details", this);
+        }
+    }
+
+    public static class IhmGeometricObjectCenterBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_center";
+
+        public IhmGeometricObjectCenterBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectCenterBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectCenterBuilder> enterXcoord() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "xcoord", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectCenterBuilder> enterYcoord() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "ycoord", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectCenterBuilder> enterZcoord() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "zcoord", this);
+        }
+    }
+
+    public static class IhmGeometricObjectTransformationBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_transformation";
+
+        public IhmGeometricObjectTransformationBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectTransformationBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix11() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix21() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix31() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix12() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix22() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix32() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix13() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[1][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix23() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[2][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterRotMatrix33() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "rot_matrix[3][3]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterTrVector1() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[1]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterTrVector2() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[2]", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder> enterTrVector3() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "tr_vector[3]", this);
+        }
+    }
+
+    public static class IhmGeometricObjectSphereBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_sphere";
+
+        public IhmGeometricObjectSphereBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectSphereBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectSphereBuilder> enterCenterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "center_id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectSphereBuilder> enterTransformationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "transformation_id", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectSphereBuilder> enterRadiusR() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "radius_r", this);
+        }
+    }
+
+    public static class IhmGeometricObjectTorusBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_torus";
+
+        public IhmGeometricObjectTorusBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectTorusBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectTorusBuilder> enterCenterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "center_id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectTorusBuilder> enterTransformationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "transformation_id", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTorusBuilder> enterMajorRadiusR() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "major_radius_R", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectTorusBuilder> enterMinorRadiusR() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "minor_radius_r", this);
+        }
+    }
+
+    public static class IhmGeometricObjectHalfTorusBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_half_torus";
+
+        public IhmGeometricObjectHalfTorusBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectHalfTorusBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectHalfTorusBuilder> enterThicknessTh() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "thickness_th", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectHalfTorusBuilder> enterSection() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "section", this);
+        }
+    }
+
+    public static class IhmGeometricObjectAxisBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_axis";
+
+        public IhmGeometricObjectAxisBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectAxisBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectAxisBuilder> enterAxisType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "axis_type", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectAxisBuilder> enterTransformationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "transformation_id", this);
+        }
+    }
+
+    public static class IhmGeometricObjectPlaneBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_plane";
+
+        public IhmGeometricObjectPlaneBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectPlaneBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectPlaneBuilder> enterPlaneType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "plane_type", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectPlaneBuilder> enterTransformationId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "transformation_id", this);
+        }
+    }
+
+    public static class IhmGeometricObjectDistanceRestraintBuilder extends CategoryBuilder {
+        private static final String CATEGORY_NAME = "ihm_geometric_object_distance_restraint";
+
+        public IhmGeometricObjectDistanceRestraintBuilder(BlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterObjectId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "object_id", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterFeatureId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "feature_id", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterObjectCharacteristic() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "object_characteristic", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterRestraintType() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "restraint_type", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterHarmonicForceConstant() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "harmonic_force_constant", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterGroupConditionality() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "group_conditionality", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDistanceLowerLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_lower_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDistanceUpperLimit() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_upper_limit", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDistanceLowerLimitEsd() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_lower_limit_esd", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDistanceUpperLimitEsd() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_upper_limit_esd", this);
+        }
+
+        public FloatColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDistanceProbability() {
+            return new FloatColumnBuilder<>(CATEGORY_NAME, "distance_probability", this);
+        }
+
+        public IntColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterDatasetListId() {
+            return new IntColumnBuilder<>(CATEGORY_NAME, "dataset_list_id", this);
+        }
+
+        public StrColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder> enterOtherDetails() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "other_details", this);
         }
     }
 }

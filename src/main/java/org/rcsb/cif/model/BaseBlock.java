@@ -2804,4 +2804,314 @@ public class BaseBlock implements Block {
         return (org.rcsb.cif.model.generated.PdbxSerialCrystallographyDataReduction) categories.computeIfAbsent("pdbx_serial_crystallography_data_reduction",
                 org.rcsb.cif.model.generated.PdbxSerialCrystallographyDataReduction::new);
     }
+
+    public org.rcsb.cif.model.generated.PdbxChemCompSynonyms getPdbxChemCompSynonyms() {
+        return (org.rcsb.cif.model.generated.PdbxChemCompSynonyms) categories.computeIfAbsent("pdbx_chem_comp_synonyms",
+                org.rcsb.cif.model.generated.PdbxChemCompSynonyms::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxChemCompRelated getPdbxChemCompRelated() {
+        return (org.rcsb.cif.model.generated.PdbxChemCompRelated) categories.computeIfAbsent("pdbx_chem_comp_related",
+                org.rcsb.cif.model.generated.PdbxChemCompRelated::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
+        return (org.rcsb.cif.model.generated.PdbxChemCompAtomRelated) categories.computeIfAbsent("pdbx_chem_comp_atom_related",
+                org.rcsb.cif.model.generated.PdbxChemCompAtomRelated::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxEntityBranchList getPdbxEntityBranchList() {
+        return (org.rcsb.cif.model.generated.PdbxEntityBranchList) categories.computeIfAbsent("pdbx_entity_branch_list",
+                org.rcsb.cif.model.generated.PdbxEntityBranchList::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxEntityBranchLink getPdbxEntityBranchLink() {
+        return (org.rcsb.cif.model.generated.PdbxEntityBranchLink) categories.computeIfAbsent("pdbx_entity_branch_link",
+                org.rcsb.cif.model.generated.PdbxEntityBranchLink::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxEntityBranch getPdbxEntityBranch() {
+        return (org.rcsb.cif.model.generated.PdbxEntityBranch) categories.computeIfAbsent("pdbx_entity_branch",
+                org.rcsb.cif.model.generated.PdbxEntityBranch::new);
+    }
+
+    public org.rcsb.cif.model.generated.PdbxBranchScheme getPdbxBranchScheme() {
+        return (org.rcsb.cif.model.generated.PdbxBranchScheme) categories.computeIfAbsent("pdbx_branch_scheme",
+                org.rcsb.cif.model.generated.PdbxBranchScheme::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStartingModelDetails getIhmStartingModelDetails() {
+        return (org.rcsb.cif.model.generated.IhmStartingModelDetails) categories.computeIfAbsent("ihm_starting_model_details",
+                org.rcsb.cif.model.generated.IhmStartingModelDetails::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStartingComparativeModels getIhmStartingComparativeModels() {
+        return (org.rcsb.cif.model.generated.IhmStartingComparativeModels) categories.computeIfAbsent("ihm_starting_comparative_models",
+                org.rcsb.cif.model.generated.IhmStartingComparativeModels::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStartingComputationalModels getIhmStartingComputationalModels() {
+        return (org.rcsb.cif.model.generated.IhmStartingComputationalModels) categories.computeIfAbsent("ihm_starting_computational_models",
+                org.rcsb.cif.model.generated.IhmStartingComputationalModels::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStartingModelSeqDif getIhmStartingModelSeqDif() {
+        return (org.rcsb.cif.model.generated.IhmStartingModelSeqDif) categories.computeIfAbsent("ihm_starting_model_seq_dif",
+                org.rcsb.cif.model.generated.IhmStartingModelSeqDif::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmModelRepresentation getIhmModelRepresentation() {
+        return (org.rcsb.cif.model.generated.IhmModelRepresentation) categories.computeIfAbsent("ihm_model_representation",
+                org.rcsb.cif.model.generated.IhmModelRepresentation::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStructAssembly getIhmStructAssembly() {
+        return (org.rcsb.cif.model.generated.IhmStructAssembly) categories.computeIfAbsent("ihm_struct_assembly",
+                org.rcsb.cif.model.generated.IhmStructAssembly::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStructAssemblyDetails getIhmStructAssemblyDetails() {
+        return (org.rcsb.cif.model.generated.IhmStructAssemblyDetails) categories.computeIfAbsent("ihm_struct_assembly_details",
+                org.rcsb.cif.model.generated.IhmStructAssemblyDetails::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStructAssemblyClassList getIhmStructAssemblyClassList() {
+        return (org.rcsb.cif.model.generated.IhmStructAssemblyClassList) categories.computeIfAbsent("ihm_struct_assembly_class_list",
+                org.rcsb.cif.model.generated.IhmStructAssemblyClassList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStructAssemblyClass getIhmStructAssemblyClass() {
+        return (org.rcsb.cif.model.generated.IhmStructAssemblyClass) categories.computeIfAbsent("ihm_struct_assembly_class",
+                org.rcsb.cif.model.generated.IhmStructAssemblyClass::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmModelingProtocol getIhmModelingProtocol() {
+        return (org.rcsb.cif.model.generated.IhmModelingProtocol) categories.computeIfAbsent("ihm_modeling_protocol",
+                org.rcsb.cif.model.generated.IhmModelingProtocol::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmMultiStateModeling getIhmMultiStateModeling() {
+        return (org.rcsb.cif.model.generated.IhmMultiStateModeling) categories.computeIfAbsent("ihm_multi_state_modeling",
+                org.rcsb.cif.model.generated.IhmMultiStateModeling::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmOrderedEnsemble getIhmOrderedEnsemble() {
+        return (org.rcsb.cif.model.generated.IhmOrderedEnsemble) categories.computeIfAbsent("ihm_ordered_ensemble",
+                org.rcsb.cif.model.generated.IhmOrderedEnsemble::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmModelingPostProcess getIhmModelingPostProcess() {
+        return (org.rcsb.cif.model.generated.IhmModelingPostProcess) categories.computeIfAbsent("ihm_modeling_post_process",
+                org.rcsb.cif.model.generated.IhmModelingPostProcess::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmEnsembleInfo getIhmEnsembleInfo() {
+        return (org.rcsb.cif.model.generated.IhmEnsembleInfo) categories.computeIfAbsent("ihm_ensemble_info",
+                org.rcsb.cif.model.generated.IhmEnsembleInfo::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmModelList getIhmModelList() {
+        return (org.rcsb.cif.model.generated.IhmModelList) categories.computeIfAbsent("ihm_model_list",
+                org.rcsb.cif.model.generated.IhmModelList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmModelRepresentative getIhmModelRepresentative() {
+        return (org.rcsb.cif.model.generated.IhmModelRepresentative) categories.computeIfAbsent("ihm_model_representative",
+                org.rcsb.cif.model.generated.IhmModelRepresentative::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmDatasetList getIhmDatasetList() {
+        return (org.rcsb.cif.model.generated.IhmDatasetList) categories.computeIfAbsent("ihm_dataset_list",
+                org.rcsb.cif.model.generated.IhmDatasetList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmDatasetGroup getIhmDatasetGroup() {
+        return (org.rcsb.cif.model.generated.IhmDatasetGroup) categories.computeIfAbsent("ihm_dataset_group",
+                org.rcsb.cif.model.generated.IhmDatasetGroup::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmRelatedDatasets getIhmRelatedDatasets() {
+        return (org.rcsb.cif.model.generated.IhmRelatedDatasets) categories.computeIfAbsent("ihm_related_datasets",
+                org.rcsb.cif.model.generated.IhmRelatedDatasets::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmDatasetRelatedDbReference getIhmDatasetRelatedDbReference() {
+        return (org.rcsb.cif.model.generated.IhmDatasetRelatedDbReference) categories.computeIfAbsent("ihm_dataset_related_db_reference",
+                org.rcsb.cif.model.generated.IhmDatasetRelatedDbReference::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmExternalReferenceInfo getIhmExternalReferenceInfo() {
+        return (org.rcsb.cif.model.generated.IhmExternalReferenceInfo) categories.computeIfAbsent("ihm_external_reference_info",
+                org.rcsb.cif.model.generated.IhmExternalReferenceInfo::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmExternalFiles getIhmExternalFiles() {
+        return (org.rcsb.cif.model.generated.IhmExternalFiles) categories.computeIfAbsent("ihm_external_files",
+                org.rcsb.cif.model.generated.IhmExternalFiles::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmDatasetExternalReference getIhmDatasetExternalReference() {
+        return (org.rcsb.cif.model.generated.IhmDatasetExternalReference) categories.computeIfAbsent("ihm_dataset_external_reference",
+                org.rcsb.cif.model.generated.IhmDatasetExternalReference::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmLocalizationDensityFiles getIhmLocalizationDensityFiles() {
+        return (org.rcsb.cif.model.generated.IhmLocalizationDensityFiles) categories.computeIfAbsent("ihm_localization_density_files",
+                org.rcsb.cif.model.generated.IhmLocalizationDensityFiles::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmPredictedContactRestraint getIhmPredictedContactRestraint() {
+        return (org.rcsb.cif.model.generated.IhmPredictedContactRestraint) categories.computeIfAbsent("ihm_predicted_contact_restraint",
+                org.rcsb.cif.model.generated.IhmPredictedContactRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmHydroxylRadicalFpRestraint getIhmHydroxylRadicalFpRestraint() {
+        return (org.rcsb.cif.model.generated.IhmHydroxylRadicalFpRestraint) categories.computeIfAbsent("ihm_hydroxyl_radical_fp_restraint",
+                org.rcsb.cif.model.generated.IhmHydroxylRadicalFpRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmCrossLinkList getIhmCrossLinkList() {
+        return (org.rcsb.cif.model.generated.IhmCrossLinkList) categories.computeIfAbsent("ihm_cross_link_list",
+                org.rcsb.cif.model.generated.IhmCrossLinkList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmCrossLinkRestraint getIhmCrossLinkRestraint() {
+        return (org.rcsb.cif.model.generated.IhmCrossLinkRestraint) categories.computeIfAbsent("ihm_cross_link_restraint",
+                org.rcsb.cif.model.generated.IhmCrossLinkRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmCrossLinkResult getIhmCrossLinkResult() {
+        return (org.rcsb.cif.model.generated.IhmCrossLinkResult) categories.computeIfAbsent("ihm_cross_link_result",
+                org.rcsb.cif.model.generated.IhmCrossLinkResult::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmCrossLinkResultParameters getIhmCrossLinkResultParameters() {
+        return (org.rcsb.cif.model.generated.IhmCrossLinkResultParameters) categories.computeIfAbsent("ihm_cross_link_result_parameters",
+                org.rcsb.cif.model.generated.IhmCrossLinkResultParameters::new);
+    }
+
+    public org.rcsb.cif.model.generated.Ihm2demClassAverageRestraint getIhm2demClassAverageRestraint() {
+        return (org.rcsb.cif.model.generated.Ihm2demClassAverageRestraint) categories.computeIfAbsent("ihm_2dem_class_average_restraint",
+                org.rcsb.cif.model.generated.Ihm2demClassAverageRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.Ihm2demClassAverageFitting getIhm2demClassAverageFitting() {
+        return (org.rcsb.cif.model.generated.Ihm2demClassAverageFitting) categories.computeIfAbsent("ihm_2dem_class_average_fitting",
+                org.rcsb.cif.model.generated.Ihm2demClassAverageFitting::new);
+    }
+
+    public org.rcsb.cif.model.generated.Ihm3demRestraint getIhm3demRestraint() {
+        return (org.rcsb.cif.model.generated.Ihm3demRestraint) categories.computeIfAbsent("ihm_3dem_restraint",
+                org.rcsb.cif.model.generated.Ihm3demRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmSasRestraint getIhmSasRestraint() {
+        return (org.rcsb.cif.model.generated.IhmSasRestraint) categories.computeIfAbsent("ihm_sas_restraint",
+                org.rcsb.cif.model.generated.IhmSasRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmStartingModelCoord getIhmStartingModelCoord() {
+        return (org.rcsb.cif.model.generated.IhmStartingModelCoord) categories.computeIfAbsent("ihm_starting_model_coord",
+                org.rcsb.cif.model.generated.IhmStartingModelCoord::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmSphereObjSite getIhmSphereObjSite() {
+        return (org.rcsb.cif.model.generated.IhmSphereObjSite) categories.computeIfAbsent("ihm_sphere_obj_site",
+                org.rcsb.cif.model.generated.IhmSphereObjSite::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGaussianObjSite getIhmGaussianObjSite() {
+        return (org.rcsb.cif.model.generated.IhmGaussianObjSite) categories.computeIfAbsent("ihm_gaussian_obj_site",
+                org.rcsb.cif.model.generated.IhmGaussianObjSite::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGaussianObjEnsemble getIhmGaussianObjEnsemble() {
+        return (org.rcsb.cif.model.generated.IhmGaussianObjEnsemble) categories.computeIfAbsent("ihm_gaussian_obj_ensemble",
+                org.rcsb.cif.model.generated.IhmGaussianObjEnsemble::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmResiduesNotModeled getIhmResiduesNotModeled() {
+        return (org.rcsb.cif.model.generated.IhmResiduesNotModeled) categories.computeIfAbsent("ihm_residues_not_modeled",
+                org.rcsb.cif.model.generated.IhmResiduesNotModeled::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmFeatureList getIhmFeatureList() {
+        return (org.rcsb.cif.model.generated.IhmFeatureList) categories.computeIfAbsent("ihm_feature_list",
+                org.rcsb.cif.model.generated.IhmFeatureList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmPseudoSiteFeature getIhmPseudoSiteFeature() {
+        return (org.rcsb.cif.model.generated.IhmPseudoSiteFeature) categories.computeIfAbsent("ihm_pseudo_site_feature",
+                org.rcsb.cif.model.generated.IhmPseudoSiteFeature::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmPolyAtomFeature getIhmPolyAtomFeature() {
+        return (org.rcsb.cif.model.generated.IhmPolyAtomFeature) categories.computeIfAbsent("ihm_poly_atom_feature",
+                org.rcsb.cif.model.generated.IhmPolyAtomFeature::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmPolyResidueFeature getIhmPolyResidueFeature() {
+        return (org.rcsb.cif.model.generated.IhmPolyResidueFeature) categories.computeIfAbsent("ihm_poly_residue_feature",
+                org.rcsb.cif.model.generated.IhmPolyResidueFeature::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmNonPolyFeature getIhmNonPolyFeature() {
+        return (org.rcsb.cif.model.generated.IhmNonPolyFeature) categories.computeIfAbsent("ihm_non_poly_feature",
+                org.rcsb.cif.model.generated.IhmNonPolyFeature::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmInterfaceResidueFeature getIhmInterfaceResidueFeature() {
+        return (org.rcsb.cif.model.generated.IhmInterfaceResidueFeature) categories.computeIfAbsent("ihm_interface_residue_feature",
+                org.rcsb.cif.model.generated.IhmInterfaceResidueFeature::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmDerivedDistanceRestraint getIhmDerivedDistanceRestraint() {
+        return (org.rcsb.cif.model.generated.IhmDerivedDistanceRestraint) categories.computeIfAbsent("ihm_derived_distance_restraint",
+                org.rcsb.cif.model.generated.IhmDerivedDistanceRestraint::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectList getIhmGeometricObjectList() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectList) categories.computeIfAbsent("ihm_geometric_object_list",
+                org.rcsb.cif.model.generated.IhmGeometricObjectList::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectCenter getIhmGeometricObjectCenter() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectCenter) categories.computeIfAbsent("ihm_geometric_object_center",
+                org.rcsb.cif.model.generated.IhmGeometricObjectCenter::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectTransformation getIhmGeometricObjectTransformation() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectTransformation) categories.computeIfAbsent("ihm_geometric_object_transformation",
+                org.rcsb.cif.model.generated.IhmGeometricObjectTransformation::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectSphere getIhmGeometricObjectSphere() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectSphere) categories.computeIfAbsent("ihm_geometric_object_sphere",
+                org.rcsb.cif.model.generated.IhmGeometricObjectSphere::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectTorus getIhmGeometricObjectTorus() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectTorus) categories.computeIfAbsent("ihm_geometric_object_torus",
+                org.rcsb.cif.model.generated.IhmGeometricObjectTorus::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectHalfTorus getIhmGeometricObjectHalfTorus() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectHalfTorus) categories.computeIfAbsent("ihm_geometric_object_half_torus",
+                org.rcsb.cif.model.generated.IhmGeometricObjectHalfTorus::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectAxis getIhmGeometricObjectAxis() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectAxis) categories.computeIfAbsent("ihm_geometric_object_axis",
+                org.rcsb.cif.model.generated.IhmGeometricObjectAxis::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectPlane getIhmGeometricObjectPlane() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectPlane) categories.computeIfAbsent("ihm_geometric_object_plane",
+                org.rcsb.cif.model.generated.IhmGeometricObjectPlane::new);
+    }
+
+    public org.rcsb.cif.model.generated.IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint() {
+        return (org.rcsb.cif.model.generated.IhmGeometricObjectDistanceRestraint) categories.computeIfAbsent("ihm_geometric_object_distance_restraint",
+                org.rcsb.cif.model.generated.IhmGeometricObjectDistanceRestraint::new);
+    }
 }

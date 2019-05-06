@@ -1309,4 +1309,15 @@ public class AtomSite extends BaseCategory {
         return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_not_in_asym", StrColumn::new) :
                 getBinaryColumn("pdbx_not_in_asym"));
     }
+
+    /**
+     * The model id corresponding to the atom site.
+     * This data item is a pointer to _ihm_model_list.model_id
+     * in the IHM_MODEL_LIST category.
+     * @return IntColumn
+     */
+    public IntColumn getIhmModelId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ihm_model_id", IntColumn::new) :
+                getBinaryColumn("ihm_model_id"));
+    }
 }

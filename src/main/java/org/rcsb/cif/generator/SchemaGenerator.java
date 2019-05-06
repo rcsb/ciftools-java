@@ -137,9 +137,9 @@ class SchemaGenerator {
                     categoryClassName, categoryBuilder);
 
             // builder
-            builder.add("    public GenericCategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
+            builder.add("    public CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
                     + "() {");
-            builder.add("        return new GenericCategoryBuilder." + categoryClassName + "Builder(this);");
+            builder.add("        return new CategoryBuilder." + categoryClassName + "Builder(this);");
             builder.add("    }");
             builder.add("");
         }

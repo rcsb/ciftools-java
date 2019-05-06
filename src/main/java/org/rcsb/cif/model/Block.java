@@ -4717,4 +4717,520 @@ public interface Block {
      * @return PdbxSerialCrystallographyDataReduction
      */
     org.rcsb.cif.model.generated.PdbxSerialCrystallographyDataReduction getPdbxSerialCrystallographyDataReduction();
+
+    /**
+     * PDBX_CHEM_COMP_SYNONYMS holds chemical name and synonym correspondences.
+     * @return PdbxChemCompSynonyms
+     */
+    org.rcsb.cif.model.generated.PdbxChemCompSynonyms getPdbxChemCompSynonyms();
+
+    /**
+     * PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.
+     * @return PdbxChemCompRelated
+     */
+    org.rcsb.cif.model.generated.PdbxChemCompRelated getPdbxChemCompRelated();
+
+    /**
+     * PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.
+     * @return PdbxChemCompAtomRelated
+     */
+    org.rcsb.cif.model.generated.PdbxChemCompAtomRelated getPdbxChemCompAtomRelated();
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
+     * of monomers in a branched entity.  Allowance is made for the possibility
+     * of microheterogeneity in a sample by allowing a given sequence
+     * number to be correlated with more than one monomer ID. The
+     * corresponding ATOM_SITE entries should reflect this
+     * heterogeneity.
+     * @return PdbxEntityBranchList
+     */
+    org.rcsb.cif.model.generated.PdbxEntityBranchList getPdbxEntityBranchList();
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
+     * the linkages between components within a branched entity.
+     * @return PdbxEntityBranchLink
+     */
+    org.rcsb.cif.model.generated.PdbxEntityBranchLink getPdbxEntityBranchLink();
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH category specify the list
+     * of branched entities and the type.
+     * @return PdbxEntityBranch
+     */
+    org.rcsb.cif.model.generated.PdbxEntityBranch getPdbxEntityBranch();
+
+    /**
+     * The PDBX_BRANCH_SCHEME category provides residue level nomenclature
+     * mapping for branch chain entities.
+     * @return PdbxBranchScheme
+     */
+    org.rcsb.cif.model.generated.PdbxBranchScheme getPdbxBranchScheme();
+
+    /**
+     * Data items in the IHM_STARTING_MODEL_DETAILS category records the
+     * details about structural models used as starting inputs in
+     * the integrative model building process.
+     * @return IhmStartingModelDetails
+     */
+    org.rcsb.cif.model.generated.IhmStartingModelDetails getIhmStartingModelDetails();
+
+    /**
+     * Data items in the IHM_STARTING_COMPARATIVE_MODELS category records
+     * additional details about comparative models used as starting inputs in
+     * the integrative model building process.
+     * @return IhmStartingComparativeModels
+     */
+    org.rcsb.cif.model.generated.IhmStartingComparativeModels getIhmStartingComparativeModels();
+
+    /**
+     * Data items in the IHM_STARTING_COMPUTATIONAL_MODELS category records
+     * additional details about computational models used as starting inputs in
+     * the integrative model building process.
+     * @return IhmStartingComputationalModels
+     */
+    org.rcsb.cif.model.generated.IhmStartingComputationalModels getIhmStartingComputationalModels();
+
+    /**
+     * Data items in the IHM_STARTING_MODEL_SEQ_DIF category provide a
+     * mechanism for indicating and annotating point differences
+     * between the sequence of the entity or biological unit described
+     * in the data block and the sequence of the starting model used in
+     * the integrative modeling referenced from a database. The point
+     * differences may be due to point mutations introduced in the
+     * starting model or the presence of modified amino acid residues.
+     * @return IhmStartingModelSeqDif
+     */
+    org.rcsb.cif.model.generated.IhmStartingModelSeqDif getIhmStartingModelSeqDif();
+
+    /**
+     * Data items in the IHM_MODEL_REPRESENTATION category records the
+     * details about the architecture and representation of structural
+     * models created by the integrative model building tasks. This
+     * category handles the multi-scale model representation, if employed.
+     * @return IhmModelRepresentation
+     */
+    org.rcsb.cif.model.generated.IhmModelRepresentation getIhmModelRepresentation();
+
+    /**
+     * Data items in the IHM_STRUCT_ASSEMBLY category records the
+     * details of the structural assemblies and used in the
+     * IHM modeling.
+     * @return IhmStructAssembly
+     */
+    org.rcsb.cif.model.generated.IhmStructAssembly getIhmStructAssembly();
+
+    /**
+     * Data items in the IHM_STRUCT_ASSEMBLY_DETAILS category provides
+     * additional details regarding the structure assembly.
+     * @return IhmStructAssemblyDetails
+     */
+    org.rcsb.cif.model.generated.IhmStructAssemblyDetails getIhmStructAssemblyDetails();
+
+    /**
+     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS_LIST category lists
+     * all the structural assembly classes relevant to the entry. This
+     * category provides a mechanism to define classes of the
+     * structural assemblies.
+     * @return IhmStructAssemblyClassList
+     */
+    org.rcsb.cif.model.generated.IhmStructAssemblyClassList getIhmStructAssemblyClassList();
+
+    /**
+     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS category provides
+     * details regarding the structural assembly classes. This
+     * category provides a mechanism to identify the classes to which
+     * structural assemblies belong.
+     * @return IhmStructAssemblyClass
+     */
+    org.rcsb.cif.model.generated.IhmStructAssemblyClass getIhmStructAssemblyClass();
+
+    /**
+     * Data items in the IHM_MODELING_PROTOCOL category records the
+     * step-wise details of the integrative modeling workflow.
+     * @return IhmModelingProtocol
+     */
+    org.rcsb.cif.model.generated.IhmModelingProtocol getIhmModelingProtocol();
+
+    /**
+     * Data items in the IHM_MULTI_STATE_MODELING category records the
+     * details of the multi-state modeling protocol, if applicable.
+     * @return IhmMultiStateModeling
+     */
+    org.rcsb.cif.model.generated.IhmMultiStateModeling getIhmMultiStateModeling();
+
+    /**
+     * Data items in the IHM_ORDERED_ENSEMBLE category records the
+     * details of the ensembles ordered by time or other order.
+     * Ordered ensembles are described as directed graphs with
+     * edges between nodes representing models or model groups.
+     * @return IhmOrderedEnsemble
+     */
+    org.rcsb.cif.model.generated.IhmOrderedEnsemble getIhmOrderedEnsemble();
+
+    /**
+     * Data items in the IHM_MODELING_POST_PROCESS category records
+     * the details of the post processing of the models/results of
+     * the modeling protocol.
+     * @return IhmModelingPostProcess
+     */
+    org.rcsb.cif.model.generated.IhmModelingPostProcess getIhmModelingPostProcess();
+
+    /**
+     * Data items in the IHM_ENSEMBLE_INFO category records the
+     * details of the model clusters or ensembles obtained after
+     * sampling.
+     * @return IhmEnsembleInfo
+     */
+    org.rcsb.cif.model.generated.IhmEnsembleInfo getIhmEnsembleInfo();
+
+    /**
+     * Data items in the IHM_MODEL_LIST category record the
+     * details of the models being deposited.
+     * @return IhmModelList
+     */
+    org.rcsb.cif.model.generated.IhmModelList getIhmModelList();
+
+    /**
+     * Data items in the IHM_MODEL_REPRESENTATIVE category record the
+     * details of the representative model in an ensemble or cluster.
+     * @return IhmModelRepresentative
+     */
+    org.rcsb.cif.model.generated.IhmModelRepresentative getIhmModelRepresentative();
+
+    /**
+     * Category holds the list of all datasets used in the IHM modeling.
+     * These can be datasets archived in other related databases such as
+     * BMRB, EMDB, EMPIAR, SASBDB, PRIDE etc., or can be hosted in other
+     * places such as the authors website, github etc. These datasets are
+     * elaborated in detail in the IHM_DATASET_RELATED_DB_REFERENCE and/or
+     * the IHM_DATASET_EXTERNAL_REFERENCE categories. This category
+     * holds the list of all datasets used.
+     * @return IhmDatasetList
+     */
+    org.rcsb.cif.model.generated.IhmDatasetList getIhmDatasetList();
+
+    /**
+     * Category provides a mechanism to group datasets.
+     * @return IhmDatasetGroup
+     */
+    org.rcsb.cif.model.generated.IhmDatasetGroup getIhmDatasetGroup();
+
+    /**
+     * Category holds information about related datasets, where one is derived from the other.
+     * @return IhmRelatedDatasets
+     */
+    org.rcsb.cif.model.generated.IhmRelatedDatasets getIhmRelatedDatasets();
+
+    /**
+     * Category holds information related to data sources for the entry.
+     * These can be datasets archived in other related databases such as
+     * BMRB, EMDB, EMPIAR, SASBDB, PRIDE etc.
+     * @return IhmDatasetRelatedDbReference
+     */
+    org.rcsb.cif.model.generated.IhmDatasetRelatedDbReference getIhmDatasetRelatedDbReference();
+
+    /**
+     * Category holds links to other external data sources for the I/H model entry.
+     * Input datasets held in other databases such as EMDB, BMRB, SASBDB etc.
+     * are referenced in the IHM_DATASET_RELATED_DB_REFERENCE category.
+     * This data category, along with IHM_EXTERNAL_FILES category, holds information
+     * regarding other non-database external data sources, such as  DOIs (digital
+     * object identifiers) or supplementary files stored locally. The DOIs can either
+     * lead to the external data file(s) directly (as in case of DOIs provided by the PDB)
+     * or might lead to an HTML landing page (as provided by Zenodo). In the latter case,
+     * additional URL (Uniform Resource Locator) information is required to retrieve
+     * the external data file(s).
+     * @return IhmExternalReferenceInfo
+     */
+    org.rcsb.cif.model.generated.IhmExternalReferenceInfo getIhmExternalReferenceInfo();
+
+    /**
+     * Category provides details regarding external files. The IHM_EXTERNAL_REFERENCE_INFO
+     * category captures the top-level details regarding external data sources.
+     * This category captures the specific details regarding externally stored files
+     * related to the particular I/H model entry.
+     * @return IhmExternalFiles
+     */
+    org.rcsb.cif.model.generated.IhmExternalFiles getIhmExternalFiles();
+
+    /**
+     * Category provides additional details regarding input data hosted externally
+     * at other resources.
+     * @return IhmDatasetExternalReference
+     */
+    org.rcsb.cif.model.generated.IhmDatasetExternalReference getIhmDatasetExternalReference();
+
+    /**
+     * Data items in the IHM_LOCALIZATION_DENSITY_FILES category records the
+     * details of files that provide information regarding localization densities
+     * of ensembles. These may be stored externally as local files or linked via
+     * DOI and can be in any accepted format that provides volume information
+     * (CCP4, MRC, etc.).
+     * @return IhmLocalizationDensityFiles
+     */
+    org.rcsb.cif.model.generated.IhmLocalizationDensityFiles getIhmLocalizationDensityFiles();
+
+    /**
+     * Data items in the IHM_PREDICTED_CONTACT_RESTRAINT category records the
+     * list of predicted contacts used in the integrative modeling experiment.
+     * This has been adapted from the widely used CASP RR format
+     * (http://www.predictioncenter.org/casp8/index.cgi?page=format#RR).
+     * These contacts may be derived from various computational tools.
+     * The software information can be provided in the SOFTWARE category.
+     * @return IhmPredictedContactRestraint
+     */
+    org.rcsb.cif.model.generated.IhmPredictedContactRestraint getIhmPredictedContactRestraint();
+
+    /**
+     * Data items in the IHM_HYDROXYL_RADICAL_FP_RESTRAINT category records the
+     * restraints derived from hydroxyl radical footprinting experiment.
+     * These restraints provide information regarding solvent accessible surface
+     * area of residues.
+     * @return IhmHydroxylRadicalFpRestraint
+     */
+    org.rcsb.cif.model.generated.IhmHydroxylRadicalFpRestraint getIhmHydroxylRadicalFpRestraint();
+
+    /**
+     * Data items in the IHM_CROSS_LINK_LIST category records the
+     * list of spatial restraints derived from chemical crosslinking
+     * experiment.
+     * @return IhmCrossLinkList
+     */
+    org.rcsb.cif.model.generated.IhmCrossLinkList getIhmCrossLinkList();
+
+    /**
+     * Data items in the IHM_CROSS_LINK_RESTRAINT category enumerates the
+     * implementation details of the chemical crosslinking restraints in
+     * the integrative modeling. This category holds the details of how
+     * the experimentally derived crosslinks are applied in the modeling.
+     * @return IhmCrossLinkRestraint
+     */
+    org.rcsb.cif.model.generated.IhmCrossLinkRestraint getIhmCrossLinkRestraint();
+
+    /**
+     * Data items in the IHM_CROSS_LINK_RESULT category records the
+     * results of the crosslinking restraints in the IHM modeling.
+     * @return IhmCrossLinkResult
+     */
+    org.rcsb.cif.model.generated.IhmCrossLinkResult getIhmCrossLinkResult();
+
+    /**
+     * Data items in the IHM_CROSS_LINK_RESULT_PARAMETERS category records the
+     * results of the crosslinking restraint parameters in the IHM modeling.
+     * @return IhmCrossLinkResultParameters
+     */
+    org.rcsb.cif.model.generated.IhmCrossLinkResultParameters getIhmCrossLinkResultParameters();
+
+    /**
+     * Data items in the IHM_2DEM_CLASS_AVERAGE_RESTRAINT category records the
+     * details of the 2DEM class averages used in the IHM modeling.
+     * @return Ihm2demClassAverageRestraint
+     */
+    org.rcsb.cif.model.generated.Ihm2demClassAverageRestraint getIhm2demClassAverageRestraint();
+
+    /**
+     * Data items in the IHM_2DEM_CLASS_AVERAGE_FITTING category records the
+     * details of the fitting of the model to the 2DEM class averages
+     * used in the IHM modeling. The following conventions are recommended
+     * while generating the rotation matrix and translation vector for
+     * transformation.
+     *
+     * - The model is rotated and translated to fit to the 2DEM image.
+     * - The 2DEM image should be in the XY plane.
+     * - The lower left image corner (image pixel index 0,0) should be at x,y,z = (0,0,0).
+     * - The 2D image is scaled by the _ihm_2dem_class_average_restraint.pixel_size_width
+     * and _ihm_2dem_class_average_restraint.pixel_size_height from the
+     * IHM_2DEM_CLASS_AVERAGE_RESTRAINT table.
+     * - The transformation is applied after the scaling and hence the translation vector
+     * should account for the scaling.
+     * - There are no specifications for Z translations i.e., how far the image should be
+     * from the model while projecting. It may be set to zero.
+     * @return Ihm2demClassAverageFitting
+     */
+    org.rcsb.cif.model.generated.Ihm2demClassAverageFitting getIhm2demClassAverageFitting();
+
+    /**
+     * Data items in the IHM_3DEM_RESTRAINT category records the
+     * details of the 3DEM maps used as restraints in the
+     * IHM modeling.
+     * @return Ihm3demRestraint
+     */
+    org.rcsb.cif.model.generated.Ihm3demRestraint getIhm3demRestraint();
+
+    /**
+     * Data items in the IHM_SAS_RESTRAINT category records the
+     * details of the SAS data used as restraints in the
+     * IHM modeling.
+     * @return IhmSasRestraint
+     */
+    org.rcsb.cif.model.generated.IhmSasRestraint getIhmSasRestraint();
+
+    /**
+     * Data items in the IHM_STARTING_MODEL_COORD category records the coordinates
+     * for structural templates used as starting inputs in the integrative model
+     * building tasks.
+     * @return IhmStartingModelCoord
+     */
+    org.rcsb.cif.model.generated.IhmStartingModelCoord getIhmStartingModelCoord();
+
+    /**
+     * Data items in the IHM_SPHERE_OBJ_SITE category records the details
+     * of the spherical objects modeled in the integrative structural model.
+     * @return IhmSphereObjSite
+     */
+    org.rcsb.cif.model.generated.IhmSphereObjSite getIhmSphereObjSite();
+
+    /**
+     * Data items in the IHM_GAUSSIAN_OBJ_SITE category records the details
+     * of the gaussian objects modeled in the integrative structural model.
+     * @return IhmGaussianObjSite
+     */
+    org.rcsb.cif.model.generated.IhmGaussianObjSite getIhmGaussianObjSite();
+
+    /**
+     * Data items in the IHM_GAUSSIAN_OBJ_ENSEMBLE category records the details
+     * of the gaussian objects representing an ensemble or cluster of models.
+     * @return IhmGaussianObjEnsemble
+     */
+    org.rcsb.cif.model.generated.IhmGaussianObjEnsemble getIhmGaussianObjEnsemble();
+
+    /**
+     * Data items in the IHM_RESIDUES_NOT_MODELED category record the
+     * details of the residues that are defined in the
+     * IHM_STRUCT_ASSEMBLY category but are missing in the
+     * three-dimensional model (ATOM_SITE, IHM_SPHERE_OBJ_SITE,
+     * IHM_GAUSSIAN_OBJ_SITE categories) i.e., residues in the
+     * assembly that are not modeled.
+     * @return IhmResiduesNotModeled
+     */
+    org.rcsb.cif.model.generated.IhmResiduesNotModeled getIhmResiduesNotModeled();
+
+    /**
+     * IHM_FEATURE_LIST is the high level category that provides defintions
+     * to select atoms/residues from polymeric and non-polymeric entities.
+     * @return IhmFeatureList
+     */
+    org.rcsb.cif.model.generated.IhmFeatureList getIhmFeatureList();
+
+    /**
+     * Data items in the IHM_PSEUDO_SITE_FEATURE category records the details
+     * of pseudo positions for the features listed in IHM_FEATURE_LIST.
+     * @return IhmPseudoSiteFeature
+     */
+    org.rcsb.cif.model.generated.IhmPseudoSiteFeature getIhmPseudoSiteFeature();
+
+    /**
+     * Data items in the IHM_POLY_ATOM_FEATURE category provides the defintions
+     * required to select specific atoms.
+     * @return IhmPolyAtomFeature
+     */
+    org.rcsb.cif.model.generated.IhmPolyAtomFeature getIhmPolyAtomFeature();
+
+    /**
+     * Data items in the IHM_POLY_RESIDUE_FEATURE category provides the defintions
+     * required to select a specific residue or a set of residues that may or may not be
+     * in a contiguous range.
+     * @return IhmPolyResidueFeature
+     */
+    org.rcsb.cif.model.generated.IhmPolyResidueFeature getIhmPolyResidueFeature();
+
+    /**
+     * Data items in the IHM_NON_POLY_FEATURE category provides the defintions
+     * required to select a non-polymeric (ligand) feature.
+     * @return IhmNonPolyFeature
+     */
+    org.rcsb.cif.model.generated.IhmNonPolyFeature getIhmNonPolyFeature();
+
+    /**
+     * Data items in the IHM_INTERFACE_RESIDUE_FEATURE category captures the
+     * details of residues that are identified to be at the binding interface
+     * from experiments. This information is used by modeling software such as
+     * HADDOCK to create a set of ambiguous distance restraints at the binding
+     * interface between the molecular entities involved.
+     * @return IhmInterfaceResidueFeature
+     */
+    org.rcsb.cif.model.generated.IhmInterfaceResidueFeature getIhmInterfaceResidueFeature();
+
+    /**
+     * Data items in the IHM_DERIVED_DISTANCE_RESTRAINT category records the
+     * list of distance restraints used in the integrative modeling experiment.
+     * These distance redistance restraints may be derived from various kinds of experiments.
+     * @return IhmDerivedDistanceRestraint
+     */
+    org.rcsb.cif.model.generated.IhmDerivedDistanceRestraint getIhmDerivedDistanceRestraint();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_LIST category records the list of
+     * geometric objects used as restraints in the integrative modeling study.
+     * @return IhmGeometricObjectList
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectList getIhmGeometricObjectList();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_CENTER category records the center of
+     * geometric objects used as restraints in the integrative modeling study.
+     * @return IhmGeometricObjectCenter
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectCenter getIhmGeometricObjectCenter();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_TRANSFORMATION category records the
+     * details of the rotation matrix and translation vector applied for transforming
+     * the geometric object.
+     * If no transformation is provide, identity transformation is assumed.
+     * @return IhmGeometricObjectTransformation
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectTransformation getIhmGeometricObjectTransformation();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_SPHERE category records the parameters of
+     * a sphere.
+     * @return IhmGeometricObjectSphere
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectSphere getIhmGeometricObjectSphere();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_TORUS category records the parameters of
+     * a torus. By definition, the base plane of the torus is the XY plane. The
+     * `ihm_geometric_object_transformation` category can be used to generate
+     * transformations to any other plane.
+     * @return IhmGeometricObjectTorus
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectTorus getIhmGeometricObjectTorus();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_HALF_TORUS category records the parameters of
+     * half-torus that represents a membrane.
+     * @return IhmGeometricObjectHalfTorus
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectHalfTorus getIhmGeometricObjectHalfTorus();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_AXIS category records the details of
+     * an axis used in a spatial restraint.
+     * @return IhmGeometricObjectAxis
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectAxis getIhmGeometricObjectAxis();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_PLANE category records the details of
+     * a plane used in a spatial restraint.
+     * @return IhmGeometricObjectPlane
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectPlane getIhmGeometricObjectPlane();
+
+    /**
+     * Data items in the IHM_GEOMETRIC_OBJECT_DISTANCE_RESTRAINT category records the
+     * details of distance restraints involving geometric objects.
+     *
+     * If the geometric object involved is a plane, then the distance
+     * is along the normal following the right-hand rule.
+     * So for the xy plane, distance is along the z axis in the positive
+     * direction, 'above' the plane such that negative distances
+     * corresponded to positions below the plane.
+     * @return IhmGeometricObjectDistanceRestraint
+     */
+    org.rcsb.cif.model.generated.IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint();
 }
