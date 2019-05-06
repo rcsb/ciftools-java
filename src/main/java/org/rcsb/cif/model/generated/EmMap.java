@@ -30,118 +30,118 @@ public class EmMap extends BaseCategory {
 
     /**
      * map annotation details
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnotationDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annotation_details", SingleRowStrColumn::new) :
+    public StrColumn getAnnotationDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annotation_details", StrColumn::new) :
                 getBinaryColumn("annotation_details"));
     }
 
     /**
      * The map axis that corresponds to Columns.
      * (CCP4 HEADER WORD 17 MAPC 1=x, 2=y, 3=z)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAxisOrderFast() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("axis_order_fast", SingleRowStrColumn::new) :
+    public StrColumn getAxisOrderFast() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("axis_order_fast", StrColumn::new) :
                 getBinaryColumn("axis_order_fast"));
     }
 
     /**
      * The map axis that corresponds to Rows.
      * (CCP4 map header word 18 MAPR 1=x, 2=y, 3=z)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAxisOrderMedium() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("axis_order_medium", SingleRowStrColumn::new) :
+    public StrColumn getAxisOrderMedium() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("axis_order_medium", StrColumn::new) :
                 getBinaryColumn("axis_order_medium"));
     }
 
     /**
      * The map axis that corresponds to Sections.
      * (CCP4 map header word 19 MAPS 1=x, 2=y, 3=z)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAxisOrderSlow() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("axis_order_slow", SingleRowStrColumn::new) :
+    public StrColumn getAxisOrderSlow() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("axis_order_slow", StrColumn::new) :
                 getBinaryColumn("axis_order_slow"));
     }
 
     /**
      * Map unit cell length parameter a.
      * (CCP4 map header word 11)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellA() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_a", SingleRowFloatColumn::new) :
+    public FloatColumn getCellA() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_a", FloatColumn::new) :
                 getBinaryColumn("cell_a"));
     }
 
     /**
      * Map unit cell length parameter b.
      * (CCP4 map header word 12)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellB() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_b", SingleRowFloatColumn::new) :
+    public FloatColumn getCellB() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_b", FloatColumn::new) :
                 getBinaryColumn("cell_b"));
     }
 
     /**
      * Map unit cell length parameter c.
      * (CCP4 map header word 13)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellC() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_c", SingleRowFloatColumn::new) :
+    public FloatColumn getCellC() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_c", FloatColumn::new) :
                 getBinaryColumn("cell_c"));
     }
 
     /**
      * Value of map unit cell angle parameter alpha in degrees.
      * (CCP4 map header word 14)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellAlpha() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_alpha", SingleRowFloatColumn::new) :
+    public FloatColumn getCellAlpha() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_alpha", FloatColumn::new) :
                 getBinaryColumn("cell_alpha"));
     }
 
     /**
      * Value of map unit cell angle parameter beta in degrees.
      * (CCP4 map header word 15)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellBeta() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_beta", SingleRowFloatColumn::new) :
+    public FloatColumn getCellBeta() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_beta", FloatColumn::new) :
                 getBinaryColumn("cell_beta"));
     }
 
     /**
      * Value of map unit cell angle parameter gamma in degrees.
      * (CCP4 map header word 16)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellGamma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_gamma", SingleRowFloatColumn::new) :
+    public FloatColumn getCellGamma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_gamma", FloatColumn::new) :
                 getBinaryColumn("cell_gamma"));
     }
 
     /**
      * recommended contour level for viewing the map
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getContourLevel() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("contour_level", SingleRowFloatColumn::new) :
+    public FloatColumn getContourLevel() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("contour_level", FloatColumn::new) :
                 getBinaryColumn("contour_level"));
     }
 
     /**
      * source of the recommended contour level
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContourLevelSource() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contour_level_source", SingleRowStrColumn::new) :
+    public StrColumn getContourLevelSource() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contour_level_source", StrColumn::new) :
                 getBinaryColumn("contour_level_source"));
     }
 
@@ -153,105 +153,105 @@ public class EmMap extends BaseCategory {
      * MODE = 0: 8 bits, density stored as a signed byte (-128 to 127, ISO/IEC 10967)
      * MODE = 1: 16 bits, density stored as a signed integer (-32768 to 32767, ISO/IEC 10967)
      * MODE = 2: 32 bits, density stored as a floating point number (IEEE 754)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_type", SingleRowStrColumn::new) :
+    public StrColumn getDataType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_type", StrColumn::new) :
                 getBinaryColumn("data_type"));
     }
 
     /**
      * The number of columns in the map.
      * (CCP4 map header word 1 NC)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDimensionsCol() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("dimensions_col", SingleRowIntColumn::new) :
+    public IntColumn getDimensionsCol() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("dimensions_col", IntColumn::new) :
                 getBinaryColumn("dimensions_col"));
     }
 
     /**
      * The number of rows in the map.
      * (CCP4 map header word 2 NR)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDimensionsRow() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("dimensions_row", SingleRowIntColumn::new) :
+    public IntColumn getDimensionsRow() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("dimensions_row", IntColumn::new) :
                 getBinaryColumn("dimensions_row"));
     }
 
     /**
      * The number of sections in the map.
      * (CCP4 map header word 3 NS)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDimensionsSec() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("dimensions_sec", SingleRowIntColumn::new) :
+    public IntColumn getDimensionsSec() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("dimensions_sec", IntColumn::new) :
                 getBinaryColumn("dimensions_sec"));
     }
 
     /**
      * map file endian type
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndianType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("endian_type", SingleRowStrColumn::new) :
+    public StrColumn getEndianType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("endian_type", StrColumn::new) :
                 getBinaryColumn("endian_type"));
     }
 
     /**
      * Map file name.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFile() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("file", SingleRowStrColumn::new) :
+    public StrColumn getFile() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("file", StrColumn::new) :
                 getBinaryColumn("file"));
     }
 
     /**
      * map format
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFormat() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("format", SingleRowStrColumn::new) :
+    public StrColumn getFormat() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("format", StrColumn::new) :
                 getBinaryColumn("format"));
     }
 
     /**
      * Unique id for the EMD_MAP category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("id", SingleRowIntColumn::new) :
+    public IntColumn getId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("id", IntColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Identifies the archive file partition number of a primary map,
      * half map, additional map, or mask.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPartition() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("partition", SingleRowIntColumn::new) :
+    public IntColumn getPartition() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("partition", IntColumn::new) :
                 getBinaryColumn("partition"));
     }
 
     /**
      * This data item is a pointer to the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * text stored in the label field of the CCP4 map header
      * (WORDS 57-256)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label", SingleRowStrColumn::new) :
+    public StrColumn getLabel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label", StrColumn::new) :
                 getBinaryColumn("label"));
     }
 
@@ -259,10 +259,10 @@ public class EmMap extends BaseCategory {
      * The final column position of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (derived  =  .origin_col + .dimensions_col -1)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLimitCol() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("limit_col", SingleRowIntColumn::new) :
+    public IntColumn getLimitCol() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("limit_col", IntColumn::new) :
                 getBinaryColumn("limit_col"));
     }
 
@@ -270,10 +270,10 @@ public class EmMap extends BaseCategory {
      * The final row position of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (derived =  .origin_row + .dimensions_row -1)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLimitRow() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("limit_row", SingleRowIntColumn::new) :
+    public IntColumn getLimitRow() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("limit_row", IntColumn::new) :
                 getBinaryColumn("limit_row"));
     }
 
@@ -281,10 +281,10 @@ public class EmMap extends BaseCategory {
      * The final section position of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (derived -- .origin_sec + .dimensions_sec  -1)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLimitSec() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("limit_sec", SingleRowIntColumn::new) :
+    public IntColumn getLimitSec() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("limit_sec", IntColumn::new) :
                 getBinaryColumn("limit_sec"));
     }
 
@@ -292,10 +292,10 @@ public class EmMap extends BaseCategory {
      * The position of the first column of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (CCP4 map header word 5 NCSTART)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOriginCol() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("origin_col", SingleRowIntColumn::new) :
+    public IntColumn getOriginCol() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("origin_col", IntColumn::new) :
                 getBinaryColumn("origin_col"));
     }
 
@@ -303,10 +303,10 @@ public class EmMap extends BaseCategory {
      * The position of the first row of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (CCP4 map header word 6 NRSTART)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOriginRow() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("origin_row", SingleRowIntColumn::new) :
+    public IntColumn getOriginRow() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("origin_row", IntColumn::new) :
                 getBinaryColumn("origin_row"));
     }
 
@@ -314,112 +314,112 @@ public class EmMap extends BaseCategory {
      * The position of the first section of the map relative to the
      * Cartesian coordinate origin in voxel grid units.
      * (CCP4 map header word 7 NSSTART)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOriginSec() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("origin_sec", SingleRowIntColumn::new) :
+    public IntColumn getOriginSec() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("origin_sec", IntColumn::new) :
                 getBinaryColumn("origin_sec"));
     }
 
     /**
      * The length in Angstroms of one voxel along the X axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingX() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_x", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingX() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_x", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_x"));
     }
 
     /**
      * The length in Angstroms of one voxel along the Y axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingY() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_y", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingY() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_y", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_y"));
     }
 
     /**
      * The length in Angstroms of one voxel along the Z axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingZ() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_z", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingZ() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_z", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_z"));
     }
 
     /**
      * map storage size in Kilobytes (before compression)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSizeKb() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("size_kb", SingleRowIntColumn::new) :
+    public IntColumn getSizeKb() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("size_kb", IntColumn::new) :
                 getBinaryColumn("size_kb"));
     }
 
     /**
      * The number of intervals per cell repeat in X.
      * (CCP4 map header word 8 NX)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSpacingX() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("spacing_x", SingleRowIntColumn::new) :
+    public IntColumn getSpacingX() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("spacing_x", IntColumn::new) :
                 getBinaryColumn("spacing_x"));
     }
 
     /**
      * The number of intervals per cell repeat in Y.
      * (CCP4 map header word 9 NY)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSpacingY() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("spacing_y", SingleRowIntColumn::new) :
+    public IntColumn getSpacingY() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("spacing_y", IntColumn::new) :
                 getBinaryColumn("spacing_y"));
     }
 
     /**
      * The number of intervals per cell repeat in Z.
      * (CCP4 map header word 10 NZ)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSpacingZ() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("spacing_z", SingleRowIntColumn::new) :
+    public IntColumn getSpacingZ() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("spacing_z", IntColumn::new) :
                 getBinaryColumn("spacing_z"));
     }
 
     /**
      * Mean (average) density value of the map.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getStatisticsAverage() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("statistics_average", SingleRowFloatColumn::new) :
+    public FloatColumn getStatisticsAverage() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("statistics_average", FloatColumn::new) :
                 getBinaryColumn("statistics_average"));
     }
 
     /**
      * Maximum density value of the map.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getStatisticsMaximum() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("statistics_maximum", SingleRowFloatColumn::new) :
+    public FloatColumn getStatisticsMaximum() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("statistics_maximum", FloatColumn::new) :
                 getBinaryColumn("statistics_maximum"));
     }
 
     /**
      * Minimum density value of the map.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getStatisticsMinimum() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("statistics_minimum", SingleRowFloatColumn::new) :
+    public FloatColumn getStatisticsMinimum() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("statistics_minimum", FloatColumn::new) :
                 getBinaryColumn("statistics_minimum"));
     }
 
     /**
      * The standard deviation of the map density values.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getStatisticsStd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("statistics_std", SingleRowFloatColumn::new) :
+    public FloatColumn getStatisticsStd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("statistics_std", FloatColumn::new) :
                 getBinaryColumn("statistics_std"));
     }
 
@@ -427,19 +427,19 @@ public class EmMap extends BaseCategory {
      * The space group number for the map.
      * The value is 1 unless the sample is crystalline.
      * (CCP4 map header word 23 ISPG)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSymmetrySpaceGroup() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("symmetry_space_group", SingleRowStrColumn::new) :
+    public StrColumn getSymmetrySpaceGroup() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("symmetry_space_group", StrColumn::new) :
                 getBinaryColumn("symmetry_space_group"));
     }
 
     /**
      * map format
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

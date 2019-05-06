@@ -27,10 +27,10 @@ public class StructBiolView extends BaseCategory {
     /**
      * This data item is a pointer to _struct_biol.id in the STRUCT_BIOL
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBiolId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("biol_id", SingleRowStrColumn::new) :
+    public StrColumn getBiolId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("biol_id", StrColumn::new) :
                 getBinaryColumn("biol_id"));
     }
 
@@ -39,10 +39,10 @@ public class StructBiolView extends BaseCategory {
      * structure.
      * 
      * This data item can be used as a figure legend.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -52,10 +52,10 @@ public class StructBiolView extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -69,10 +69,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][1]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[1][1]"));
     }
 
@@ -86,10 +86,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][2]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[1][2]"));
     }
 
@@ -103,10 +103,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[1][3]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[1][3]"));
     }
 
@@ -120,10 +120,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix21() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix21() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][1]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[2][1]"));
     }
 
@@ -137,10 +137,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][2]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[2][2]"));
     }
 
@@ -154,10 +154,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[2][3]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[2][3]"));
     }
 
@@ -171,10 +171,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix31() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix31() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][1]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[3][1]"));
     }
 
@@ -188,10 +188,10 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix32() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix32() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][2]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[3][2]"));
     }
 
@@ -205,37 +205,37 @@ public class StructBiolView extends BaseCategory {
      * |x'|                         |11 12 13| |x|
      * |y'|~reoriented Cartesian~ = |21 22 23| |y|~Cartesian~
      * |z'|                         |31 32 33| |z|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotMatrix33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getRotMatrix33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rot_matrix[3][3]", FloatColumn::new) :
                 getBinaryColumn("rot_matrix[3][3]"));
     }
 
     /**
      * translation vector
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxVector1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[1]", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxVector1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[1]", FloatColumn::new) :
                 getBinaryColumn("pdbx_vector[1]"));
     }
 
     /**
      * translation vector
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxVector2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[2]", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxVector2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[2]", FloatColumn::new) :
                 getBinaryColumn("pdbx_vector[2]"));
     }
 
     /**
      * translation vector
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxVector3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[3]", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxVector3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_vector[3]", FloatColumn::new) :
                 getBinaryColumn("pdbx_vector[3]"));
     }
 }

@@ -26,93 +26,93 @@ public class EmImageRecording extends BaseCategory {
 
     /**
      * The average exposure time for each image.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAverageExposureTime() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("average_exposure_time", SingleRowFloatColumn::new) :
+    public FloatColumn getAverageExposureTime() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("average_exposure_time", FloatColumn::new) :
                 getBinaryColumn("average_exposure_time"));
     }
 
     /**
      * The electron dose received by the specimen per image (electrons per square angstrom).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAvgElectronDosePerImage() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("avg_electron_dose_per_image", SingleRowFloatColumn::new) :
+    public FloatColumn getAvgElectronDosePerImage() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("avg_electron_dose_per_image", FloatColumn::new) :
                 getBinaryColumn("avg_electron_dose_per_image"));
     }
 
     /**
      * Any additional details about image recording.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The detector mode used during image recording.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetectorMode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("detector_mode", SingleRowStrColumn::new) :
+    public StrColumn getDetectorMode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("detector_mode", StrColumn::new) :
                 getBinaryColumn("detector_mode"));
     }
 
     /**
      * The detector type used for recording images.
      * Usually film or CCD camera.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFilmOrDetectorModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("film_or_detector_model", SingleRowStrColumn::new) :
+    public StrColumn getFilmOrDetectorModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("film_or_detector_model", StrColumn::new) :
                 getBinaryColumn("film_or_detector_model"));
     }
 
     /**
      * The item _em_image_recording.id uniquely identifies
      * a set of recorded images.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item the id of the microscopy settings used in the imaging.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImagingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("imaging_id", SingleRowStrColumn::new) :
+    public StrColumn getImagingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("imaging_id", StrColumn::new) :
                 getBinaryColumn("imaging_id"));
     }
 
     /**
      * The number of diffraction images collected.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumDiffractionImages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_diffraction_images", SingleRowIntColumn::new) :
+    public IntColumn getNumDiffractionImages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_diffraction_images", IntColumn::new) :
                 getBinaryColumn("num_diffraction_images"));
     }
 
     /**
      * Number of grids in the microscopy session
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumGridsImaged() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_grids_imaged", SingleRowIntColumn::new) :
+    public IntColumn getNumGridsImaged() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_grids_imaged", IntColumn::new) :
                 getBinaryColumn("num_grids_imaged"));
     }
 
     /**
      * The number of micrograph images collected.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumRealImages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_real_images", SingleRowIntColumn::new) :
+    public IntColumn getNumRealImages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_real_images", IntColumn::new) :
                 getBinaryColumn("num_real_images"));
     }
 }

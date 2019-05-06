@@ -24,55 +24,55 @@ public class EmShadowing extends BaseCategory {
 
     /**
      * The shadowing angle (degrees)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle", SingleRowFloatColumn::new) :
+    public FloatColumn getAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle", FloatColumn::new) :
                 getBinaryColumn("angle"));
     }
 
     /**
      * Additional details about specimen shadowing
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item is the primary key of the category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The material used in the shadowing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("material", SingleRowStrColumn::new) :
+    public StrColumn getMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("material", StrColumn::new) :
                 getBinaryColumn("material"));
     }
 
     /**
      * Foreign key relationship to the EMD SPECIMEN category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_id", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_id", StrColumn::new) :
                 getBinaryColumn("specimen_id"));
     }
 
     /**
      * Thickness of the deposited shadow coat, in Angstroms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getThickness() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("thickness", SingleRowFloatColumn::new) :
+    public FloatColumn getThickness() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("thickness", FloatColumn::new) :
                 getBinaryColumn("thickness"));
     }
 }

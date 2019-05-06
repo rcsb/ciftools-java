@@ -32,20 +32,20 @@ public class RefineLsRestrNcs extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _refine_ls_restr_ncs.pdbx_refine_id can be used to distinguish the results
      * of joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
     /**
      * This data item is a pointer to _struct_ncs_dom.id in the
      * STRUCT_NCS_DOM category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDomId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dom_id", SingleRowStrColumn::new) :
+    public StrColumn getDomId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dom_id", StrColumn::new) :
                 getBinaryColumn("dom_id"));
     }
 
@@ -54,10 +54,10 @@ public class RefineLsRestrNcs extends BaseCategory {
      * restraints were applied to atomic parameters in the domain
      * specified by _refine_ls_restr_ncs.dom_id and equivalent
      * atomic parameters in the domains against which it was restrained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNcsModelDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ncs_model_details", SingleRowStrColumn::new) :
+    public StrColumn getNcsModelDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ncs_model_details", StrColumn::new) :
                 getBinaryColumn("ncs_model_details"));
     }
 
@@ -66,10 +66,10 @@ public class RefineLsRestrNcs extends BaseCategory {
      * displacement parameters in the domain specified by
      * _refine_ls_restr_ncs.dom_id
      * and in the domains against which it was restrained.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRmsDevBIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rms_dev_B_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getRmsDevBIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rms_dev_B_iso", FloatColumn::new) :
                 getBinaryColumn("rms_dev_B_iso"));
     }
 
@@ -77,10 +77,10 @@ public class RefineLsRestrNcs extends BaseCategory {
      * The root-mean-square deviation in equivalent atom positions in
      * the domain specified by _refine_ls_restr_ncs.dom_id and in the
      * domains against which it was restrained.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRmsDevPosition() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rms_dev_position", SingleRowFloatColumn::new) :
+    public FloatColumn getRmsDevPosition() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rms_dev_position", FloatColumn::new) :
                 getBinaryColumn("rms_dev_position"));
     }
 
@@ -91,10 +91,10 @@ public class RefineLsRestrNcs extends BaseCategory {
      * _refine_ls_restr_ncs.dom_id to equivalent isotropic
      * displacement parameters in the domains against
      * which it was restrained.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWeightBIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("weight_B_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getWeightBIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("weight_B_iso", FloatColumn::new) :
                 getBinaryColumn("weight_B_iso"));
     }
 
@@ -103,83 +103,83 @@ public class RefineLsRestrNcs extends BaseCategory {
      * noncrystallographic symmetry restraint of atom positions in the
      * domain specified by _refine_ls_restr_ncs.dom_id to equivalent
      * atom positions in the domains against which it was restrained.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWeightPosition() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("weight_position", SingleRowFloatColumn::new) :
+    public FloatColumn getWeightPosition() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("weight_position", FloatColumn::new) :
                 getBinaryColumn("weight_position"));
     }
 
     /**
      * An ordinal index for the list of NCS restraints.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxOrdinal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_ordinal", SingleRowIntColumn::new) :
+    public IntColumn getPdbxOrdinal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_ordinal", IntColumn::new) :
                 getBinaryColumn("pdbx_ordinal"));
     }
 
     /**
      * The type of NCS restraint. (for example: tight positional)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_type", SingleRowStrColumn::new) :
+    public StrColumn getPdbxType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_type", StrColumn::new) :
                 getBinaryColumn("pdbx_type"));
     }
 
     /**
      * A reference to  _struct_asym.id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_asym_id", StrColumn::new) :
                 getBinaryColumn("pdbx_asym_id"));
     }
 
     /**
      * A reference to the PDB Chain ID
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxAuthAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_auth_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxAuthAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_auth_asym_id", StrColumn::new) :
                 getBinaryColumn("pdbx_auth_asym_id"));
     }
 
     /**
      * Records the number restraints in the contributing to the RMS statistic.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumber() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumber() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number", IntColumn::new) :
                 getBinaryColumn("pdbx_number"));
     }
 
     /**
      * Records the standard deviation in the restraint between NCS related domains.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRms() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_rms", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRms() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_rms", FloatColumn::new) :
                 getBinaryColumn("pdbx_rms"));
     }
 
     /**
      * Records the weight used for NCS restraint.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxWeight() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_weight", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxWeight() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_weight", FloatColumn::new) :
                 getBinaryColumn("pdbx_weight"));
     }
 
     /**
      * This is a unique identifier for a collection NCS related domains.
      * This references item '_struct_ncs_dom.pdbx_ens_id'.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxEnsId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_ens_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxEnsId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ens_id", StrColumn::new) :
                 getBinaryColumn("pdbx_ens_id"));
     }
 }

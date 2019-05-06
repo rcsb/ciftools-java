@@ -25,10 +25,10 @@ public class StructSheet extends BaseCategory {
 
     /**
      * A description of special aspects of the beta-sheet.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -38,10 +38,10 @@ public class StructSheet extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -51,19 +51,19 @@ public class StructSheet extends BaseCategory {
      * If a strand is composed of two different regions of polypeptide,
      * it is still counted as one strand, as long as the proper hydrogen-
      * bonding connections are made to adjacent strands.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberStrands() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_strands", SingleRowIntColumn::new) :
+    public IntColumn getNumberStrands() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_strands", IntColumn::new) :
                 getBinaryColumn("number_strands"));
     }
 
     /**
      * A simple descriptor for the type of the sheet.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

@@ -25,55 +25,55 @@ public class PdbxPostProcessStatus extends BaseCategory {
 
     /**
      * The value of _pdbx_post_process_status.entry_id identifies the data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Identifier for the current cycle of post-processing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCycleId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cycle_id", SingleRowStrColumn::new) :
+    public StrColumn getCycleId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cycle_id", StrColumn::new) :
                 getBinaryColumn("cycle_id"));
     }
 
     /**
      * The starting date for the current post-processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateBegin() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_begin", SingleRowStrColumn::new) :
+    public StrColumn getDateBegin() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_begin", StrColumn::new) :
                 getBinaryColumn("date_begin"));
     }
 
     /**
      * The completion date for the current post-processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateEnd() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_end", SingleRowStrColumn::new) :
+    public StrColumn getDateEnd() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_end", StrColumn::new) :
                 getBinaryColumn("date_end"));
     }
 
     /**
      * A description of the current post-processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The name of the annotator.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnotator() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annotator", SingleRowStrColumn::new) :
+    public StrColumn getAnnotator() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annotator", StrColumn::new) :
                 getBinaryColumn("annotator"));
     }
 }

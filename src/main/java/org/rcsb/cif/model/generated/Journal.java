@@ -30,343 +30,343 @@ public class Journal extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCodenASTM() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coden_ASTM", SingleRowStrColumn::new) :
+    public StrColumn getCodenASTM() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coden_ASTM", StrColumn::new) :
                 getBinaryColumn("coden_ASTM"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCodenCambridge() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coden_Cambridge", SingleRowStrColumn::new) :
+    public StrColumn getCodenCambridge() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coden_Cambridge", StrColumn::new) :
                 getBinaryColumn("coden_Cambridge"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorAddress() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_address", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorAddress() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_address", StrColumn::new) :
                 getBinaryColumn("coeditor_address"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_code", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_code", StrColumn::new) :
                 getBinaryColumn("coeditor_code"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_email", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_email", StrColumn::new) :
                 getBinaryColumn("coeditor_email"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorFax() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_fax", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorFax() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_fax", StrColumn::new) :
                 getBinaryColumn("coeditor_fax"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_name", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_name", StrColumn::new) :
                 getBinaryColumn("coeditor_name"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorNotes() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_notes", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorNotes() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_notes", StrColumn::new) :
                 getBinaryColumn("coeditor_notes"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoeditorPhone() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("coeditor_phone", SingleRowStrColumn::new) :
+    public StrColumn getCoeditorPhone() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("coeditor_phone", StrColumn::new) :
                 getBinaryColumn("coeditor_phone"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataValidationNumber() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_validation_number", SingleRowStrColumn::new) :
+    public StrColumn getDataValidationNumber() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_validation_number", StrColumn::new) :
                 getBinaryColumn("data_validation_number"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateAccepted() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_accepted", SingleRowStrColumn::new) :
+    public StrColumn getDateAccepted() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_accepted", StrColumn::new) :
                 getBinaryColumn("date_accepted"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateFromCoeditor() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_from_coeditor", SingleRowStrColumn::new) :
+    public StrColumn getDateFromCoeditor() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_from_coeditor", StrColumn::new) :
                 getBinaryColumn("date_from_coeditor"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateToCoeditor() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_to_coeditor", SingleRowStrColumn::new) :
+    public StrColumn getDateToCoeditor() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_to_coeditor", StrColumn::new) :
                 getBinaryColumn("date_to_coeditor"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDatePrintersFinal() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_printers_final", SingleRowStrColumn::new) :
+    public StrColumn getDatePrintersFinal() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_printers_final", StrColumn::new) :
                 getBinaryColumn("date_printers_final"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDatePrintersFirst() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_printers_first", SingleRowStrColumn::new) :
+    public StrColumn getDatePrintersFirst() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_printers_first", StrColumn::new) :
                 getBinaryColumn("date_printers_first"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateProofsIn() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_proofs_in", SingleRowStrColumn::new) :
+    public StrColumn getDateProofsIn() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_proofs_in", StrColumn::new) :
                 getBinaryColumn("date_proofs_in"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateProofsOut() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_proofs_out", SingleRowStrColumn::new) :
+    public StrColumn getDateProofsOut() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_proofs_out", StrColumn::new) :
                 getBinaryColumn("date_proofs_out"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateRecdCopyright() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_recd_copyright", SingleRowStrColumn::new) :
+    public StrColumn getDateRecdCopyright() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_recd_copyright", StrColumn::new) :
                 getBinaryColumn("date_recd_copyright"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateRecdElectronic() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_recd_electronic", SingleRowStrColumn::new) :
+    public StrColumn getDateRecdElectronic() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_recd_electronic", StrColumn::new) :
                 getBinaryColumn("date_recd_electronic"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateRecdHardCopy() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_recd_hard_copy", SingleRowStrColumn::new) :
+    public StrColumn getDateRecdHardCopy() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_recd_hard_copy", StrColumn::new) :
                 getBinaryColumn("date_recd_hard_copy"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIssue() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("issue", SingleRowStrColumn::new) :
+    public StrColumn getIssue() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("issue", StrColumn::new) :
                 getBinaryColumn("issue"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLanguage() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("language", SingleRowStrColumn::new) :
+    public StrColumn getLanguage() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("language", StrColumn::new) :
                 getBinaryColumn("language"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameFull() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_full", SingleRowStrColumn::new) :
+    public StrColumn getNameFull() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_full", StrColumn::new) :
                 getBinaryColumn("name_full"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPageFirst() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("page_first", SingleRowStrColumn::new) :
+    public StrColumn getPageFirst() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("page_first", StrColumn::new) :
                 getBinaryColumn("page_first"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPageLast() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("page_last", SingleRowStrColumn::new) :
+    public StrColumn getPageLast() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("page_last", StrColumn::new) :
                 getBinaryColumn("page_last"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPaperCategory() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("paper_category", SingleRowStrColumn::new) :
+    public StrColumn getPaperCategory() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("paper_category", StrColumn::new) :
                 getBinaryColumn("paper_category"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSupplPublNumber() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("suppl_publ_number", SingleRowStrColumn::new) :
+    public StrColumn getSupplPublNumber() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("suppl_publ_number", StrColumn::new) :
                 getBinaryColumn("suppl_publ_number"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSupplPublPages() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("suppl_publ_pages", SingleRowStrColumn::new) :
+    public StrColumn getSupplPublPages() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("suppl_publ_pages", StrColumn::new) :
                 getBinaryColumn("suppl_publ_pages"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorAddress() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_address", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorAddress() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_address", StrColumn::new) :
                 getBinaryColumn("techeditor_address"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_code", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_code", StrColumn::new) :
                 getBinaryColumn("techeditor_code"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_email", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_email", StrColumn::new) :
                 getBinaryColumn("techeditor_email"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorFax() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_fax", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorFax() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_fax", StrColumn::new) :
                 getBinaryColumn("techeditor_fax"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_name", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_name", StrColumn::new) :
                 getBinaryColumn("techeditor_name"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorNotes() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_notes", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorNotes() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_notes", StrColumn::new) :
                 getBinaryColumn("techeditor_notes"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTecheditorPhone() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("techeditor_phone", SingleRowStrColumn::new) :
+    public StrColumn getTecheditorPhone() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("techeditor_phone", StrColumn::new) :
                 getBinaryColumn("techeditor_phone"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getVolume() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("volume", SingleRowStrColumn::new) :
+    public StrColumn getVolume() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("volume", StrColumn::new) :
                 getBinaryColumn("volume"));
     }
 
     /**
      * Journal data items are defined by the journal staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getYear() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("year", SingleRowStrColumn::new) :
+    public StrColumn getYear() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("year", StrColumn::new) :
                 getBinaryColumn("year"));
     }
 }

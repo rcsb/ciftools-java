@@ -32,10 +32,10 @@ public class DiffrnScaleGroup extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("code", SingleRowStrColumn::new) :
+    public StrColumn getCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("code", StrColumn::new) :
                 getBinaryColumn("code"));
     }
 
@@ -43,10 +43,10 @@ public class DiffrnScaleGroup extends BaseCategory {
      * The scale for a specific measurement group which is to be
      * multiplied with the net intensity to place all intensities
      * in the DIFFRN_REFLN or REFLN list on a common scale.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getINet() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("I_net", SingleRowFloatColumn::new) :
+    public FloatColumn getINet() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("I_net", FloatColumn::new) :
                 getBinaryColumn("I_net"));
     }
 }

@@ -30,10 +30,10 @@ public class StructNcsEnsGen extends BaseCategory {
      * 
      * This data item is a pointer to _struct_ncs_dom.id in the
      * STRUCT_NCS_DOM category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDomId1() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dom_id_1", SingleRowStrColumn::new) :
+    public StrColumn getDomId1() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dom_id_1", StrColumn::new) :
                 getBinaryColumn("dom_id_1"));
     }
 
@@ -43,30 +43,30 @@ public class StructNcsEnsGen extends BaseCategory {
      * 
      * This data item is a pointer to _struct_ncs_dom.id in the
      * STRUCT_NCS_DOM category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDomId2() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dom_id_2", SingleRowStrColumn::new) :
+    public StrColumn getDomId2() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dom_id_2", StrColumn::new) :
                 getBinaryColumn("dom_id_2"));
     }
 
     /**
      * This data item is a pointer to _struct_ncs_ens.id in the
      * STRUCT_NCS_ENS category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnsId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ens_id", SingleRowStrColumn::new) :
+    public StrColumn getEnsId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ens_id", StrColumn::new) :
                 getBinaryColumn("ens_id"));
     }
 
     /**
      * This data item is a pointer to _struct_ncs_oper.id in the
      * STRUCT_NCS_OPER category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOperId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("oper_id", SingleRowStrColumn::new) :
+    public StrColumn getOperId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("oper_id", StrColumn::new) :
                 getBinaryColumn("oper_id"));
     }
 }

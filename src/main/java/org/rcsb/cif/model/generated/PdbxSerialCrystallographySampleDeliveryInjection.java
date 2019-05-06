@@ -26,30 +26,30 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends BaseCatego
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * For continuous sample flow experiments, a description of the injector used
      * to move the sample into the beam.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("description", SingleRowStrColumn::new) :
+    public StrColumn getDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("description", StrColumn::new) :
                 getBinaryColumn("description"));
     }
 
     /**
      * For continuous sample flow experiments, the diameter of the
      * injector in micrometres.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getInjectorDiameter() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("injector_diameter", SingleRowFloatColumn::new) :
+    public FloatColumn getInjectorDiameter() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("injector_diameter", FloatColumn::new) :
                 getBinaryColumn("injector_diameter"));
     }
 
@@ -57,30 +57,30 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends BaseCatego
      * For continuous sample flow experiments, the temperature in
      * Kelvins of the speciman injected. This may be different from
      * the temperature of the sample.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getInjectorTemperature() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("injector_temperature", SingleRowFloatColumn::new) :
+    public FloatColumn getInjectorTemperature() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("injector_temperature", FloatColumn::new) :
                 getBinaryColumn("injector_temperature"));
     }
 
     /**
      * For continuous sample flow experiments, the mean pressure
      * in kilopascals at which the sample is injected into the beam.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getInjectorPressure() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("injector_pressure", SingleRowFloatColumn::new) :
+    public FloatColumn getInjectorPressure() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("injector_pressure", FloatColumn::new) :
                 getBinaryColumn("injector_pressure"));
     }
 
     /**
      * For continuous sample flow experiments, the flow rate of
      * solution being injected  measured in ul/min.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFlowRate() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("flow_rate", SingleRowFloatColumn::new) :
+    public FloatColumn getFlowRate() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("flow_rate", FloatColumn::new) :
                 getBinaryColumn("flow_rate"));
     }
 
@@ -88,10 +88,10 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends BaseCatego
      * For continuous sample flow experiments, the carrier buffer used
      * to move the sample into the beam. Should include protein
      * concentration.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCarrierSolvent() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("carrier_solvent", SingleRowStrColumn::new) :
+    public StrColumn getCarrierSolvent() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("carrier_solvent", StrColumn::new) :
                 getBinaryColumn("carrier_solvent"));
     }
 
@@ -100,55 +100,55 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends BaseCatego
      * crystals in the solution being injected.
      * 
      * The concentration is measured in million crystals/ml.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCrystalConcentration() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("crystal_concentration", SingleRowFloatColumn::new) :
+    public FloatColumn getCrystalConcentration() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("crystal_concentration", FloatColumn::new) :
                 getBinaryColumn("crystal_concentration"));
     }
 
     /**
      * Details of crystal growth and preparation of the crystals
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPreparation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("preparation", SingleRowStrColumn::new) :
+    public StrColumn getPreparation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("preparation", StrColumn::new) :
                 getBinaryColumn("preparation"));
     }
 
     /**
      * Sample deliver driving force, e.g. Gas, Electronic Potential
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPowerBy() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("power_by", SingleRowStrColumn::new) :
+    public StrColumn getPowerBy() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("power_by", StrColumn::new) :
                 getBinaryColumn("power_by"));
     }
 
     /**
      * The type of nozzle to deliver and focus sample jet
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getInjectorNozzle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("injector_nozzle", SingleRowStrColumn::new) :
+    public StrColumn getInjectorNozzle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("injector_nozzle", StrColumn::new) :
                 getBinaryColumn("injector_nozzle"));
     }
 
     /**
      * Diameter in micrometres of jet stream of sample delivery
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getJetDiameter() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("jet_diameter", SingleRowFloatColumn::new) :
+    public FloatColumn getJetDiameter() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("jet_diameter", FloatColumn::new) :
                 getBinaryColumn("jet_diameter"));
     }
 
     /**
      * The size of filter in micrometres in filtering crystals
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFilterSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("filter_size", SingleRowFloatColumn::new) :
+    public FloatColumn getFilterSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("filter_size", FloatColumn::new) :
                 getBinaryColumn("filter_size"));
     }
 }

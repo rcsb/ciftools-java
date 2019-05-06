@@ -42,8 +42,8 @@ public class Demo {
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();
 
-        // by definition, some categories can only contain a single row of data
-        String entryId = data.getEntry().getId().get();
+        // obtain entry id
+        String entryId = data.getEntry().getId().get(0);
         System.out.println(entryId);
 
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
@@ -98,7 +98,7 @@ public class Demo {
 
         System.out.println(new String(CifIO.writeText(cifFile)));
 
-        System.out.println(cifFile.getFirstBlock().getEntry().getId().get());
+        System.out.println(cifFile.getFirstBlock().getEntry().getId().get(0));
         cifFile.getFirstBlock()
                 .getAtomSite()
                 .getCartnX()

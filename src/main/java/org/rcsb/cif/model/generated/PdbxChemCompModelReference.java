@@ -24,28 +24,28 @@ public class PdbxChemCompModelReference extends BaseCategory {
 
     /**
      * The component model identifier for this feature.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getModelId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("model_id", SingleRowStrColumn::new) :
+    public StrColumn getModelId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("model_id", StrColumn::new) :
                 getBinaryColumn("model_id"));
     }
 
     /**
      * The component model feature type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_name", SingleRowStrColumn::new) :
+    public StrColumn getDbName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_name", StrColumn::new) :
                 getBinaryColumn("db_name"));
     }
 
     /**
      * The component feature value.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_code", SingleRowStrColumn::new) :
+    public StrColumn getDbCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_code", StrColumn::new) :
                 getBinaryColumn("db_code"));
     }
 }

@@ -25,55 +25,55 @@ public class EmExperiment extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Placeholder ID.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The reconstruction method used in the EM experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReconstructionMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reconstruction_method", SingleRowStrColumn::new) :
+    public StrColumn getReconstructionMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reconstruction_method", StrColumn::new) :
                 getBinaryColumn("reconstruction_method"));
     }
 
     /**
      * The aggregation/assembly state of the imaged specimen.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAggregationState() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("aggregation_state", SingleRowStrColumn::new) :
+    public StrColumn getAggregationState() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("aggregation_state", StrColumn::new) :
                 getBinaryColumn("aggregation_state"));
     }
 
     /**
      * The specimen type used in the EM experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_type", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_type", StrColumn::new) :
                 getBinaryColumn("specimen_type"));
     }
 
     /**
      * Foreign key to the EM_ENTITY_ASSEMBLY category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityAssemblyId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_assembly_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityAssemblyId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_assembly_id", StrColumn::new) :
                 getBinaryColumn("entity_assembly_id"));
     }
 }

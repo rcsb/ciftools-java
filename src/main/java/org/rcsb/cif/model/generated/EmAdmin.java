@@ -24,109 +24,109 @@ public class EmAdmin extends BaseCategory {
 
     /**
      * This data item indicates the current status of the EMDB entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCurrentStatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("current_status", SingleRowStrColumn::new) :
+    public StrColumn getCurrentStatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("current_status", StrColumn::new) :
                 getBinaryColumn("current_status"));
     }
 
     /**
      * date of the entry deposition
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepositionDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("deposition_date", SingleRowStrColumn::new) :
+    public StrColumn getDepositionDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("deposition_date", StrColumn::new) :
                 getBinaryColumn("deposition_date"));
     }
 
     /**
      * entry deposition site
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepositionSite() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("deposition_site", SingleRowStrColumn::new) :
+    public StrColumn getDepositionSite() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("deposition_site", StrColumn::new) :
                 getBinaryColumn("deposition_site"));
     }
 
     /**
      * EMDB administration details
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item is a pointer to _entry.id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * date of last update to the file
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLastUpdate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("last_update", SingleRowStrColumn::new) :
+    public StrColumn getLastUpdate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("last_update", StrColumn::new) :
                 getBinaryColumn("last_update"));
     }
 
     /**
      * date of map release for this entry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMapReleaseDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("map_release_date", SingleRowStrColumn::new) :
+    public StrColumn getMapReleaseDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("map_release_date", StrColumn::new) :
                 getBinaryColumn("map_release_date"));
     }
 
     /**
      * date of the embargo expiration for this map entry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMapHoldDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("map_hold_date", SingleRowStrColumn::new) :
+    public StrColumn getMapHoldDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("map_hold_date", StrColumn::new) :
                 getBinaryColumn("map_hold_date"));
     }
 
     /**
      * date of header information release for this entry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHeaderReleaseDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("header_release_date", SingleRowStrColumn::new) :
+    public StrColumn getHeaderReleaseDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("header_release_date", StrColumn::new) :
                 getBinaryColumn("header_release_date"));
     }
 
     /**
      * date that map entry was obsoleted
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getObsoletedDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("obsoleted_date", SingleRowStrColumn::new) :
+    public StrColumn getObsoletedDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("obsoleted_date", StrColumn::new) :
                 getBinaryColumn("obsoleted_date"));
     }
 
     /**
      * This item indicates that the current entry replaced a previously released structure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReplaceExistingEntryFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("replace_existing_entry_flag", SingleRowStrColumn::new) :
+    public StrColumn getReplaceExistingEntryFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("replace_existing_entry_flag", StrColumn::new) :
                 getBinaryColumn("replace_existing_entry_flag"));
     }
 
     /**
      * Title for the EMDB entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTitle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("title", SingleRowStrColumn::new) :
+    public StrColumn getTitle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("title", StrColumn::new) :
                 getBinaryColumn("title"));
     }
 }

@@ -27,28 +27,28 @@ public class PdbxAuditConformExtension extends BaseCategory {
     /**
      * A file name or uniform resource locator (URL) for the
      * file containing the extension dictionary.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExtensionDictLocation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("extension_dict_location", SingleRowStrColumn::new) :
+    public StrColumn getExtensionDictLocation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("extension_dict_location", StrColumn::new) :
                 getBinaryColumn("extension_dict_location"));
     }
 
     /**
      * An identifier for the extension dictionary to which the current data block conforms.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExtensionDictName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("extension_dict_name", SingleRowStrColumn::new) :
+    public StrColumn getExtensionDictName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("extension_dict_name", StrColumn::new) :
                 getBinaryColumn("extension_dict_name"));
     }
 
     /**
      * The version number of the extension dictionary to which the currrent data block conforms.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExtensionDictVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("extension_dict_version", SingleRowStrColumn::new) :
+    public StrColumn getExtensionDictVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("extension_dict_version", StrColumn::new) :
                 getBinaryColumn("extension_dict_version"));
     }
 }

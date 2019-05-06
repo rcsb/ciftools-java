@@ -24,55 +24,55 @@ public class EmGridPretreatment extends BaseCategory {
 
     /**
      * The atmosphere used for glow discharge of the em grid.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAtmosphere() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("atmosphere", SingleRowStrColumn::new) :
+    public StrColumn getAtmosphere() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("atmosphere", StrColumn::new) :
                 getBinaryColumn("atmosphere"));
     }
 
     /**
      * This data item is the primary key of the category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Pressure of the glow discharge chamber, in pascals
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPressure() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pressure", SingleRowFloatColumn::new) :
+    public FloatColumn getPressure() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pressure", FloatColumn::new) :
                 getBinaryColumn("pressure"));
     }
 
     /**
      * Pointer to  EM SAMPLE SUPPORT
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleSupportId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", SingleRowStrColumn::new) :
+    public StrColumn getSampleSupportId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", StrColumn::new) :
                 getBinaryColumn("sample_support_id"));
     }
 
     /**
      * Time period for glow discharge of the em grid, in seconds
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getTime() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("time", SingleRowIntColumn::new) :
+    public IntColumn getTime() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("time", IntColumn::new) :
                 getBinaryColumn("time"));
     }
 
     /**
      * Type of grid pretreatment
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

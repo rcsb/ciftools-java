@@ -25,10 +25,10 @@ public class PdbxXplorFile extends BaseCategory {
 
     /**
      * Serial number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSerialNo() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("serial_no", SingleRowStrColumn::new) :
+    public StrColumn getSerialNo() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("serial_no", StrColumn::new) :
                 getBinaryColumn("serial_no"));
     }
 
@@ -36,28 +36,28 @@ public class PdbxXplorFile extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _pdbx_xplor_file.pdbx_refine_id can be used to distinguish the results
      * of joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
     /**
      * Parameter file name in X-PLOR/CNS refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getParamFile() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("param_file", SingleRowStrColumn::new) :
+    public StrColumn getParamFile() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("param_file", StrColumn::new) :
                 getBinaryColumn("param_file"));
     }
 
     /**
      * Topology file name in X-PLOR/CNS refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTopolFile() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("topol_file", SingleRowStrColumn::new) :
+    public StrColumn getTopolFile() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("topol_file", StrColumn::new) :
                 getBinaryColumn("topol_file"));
     }
 }

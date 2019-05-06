@@ -30,10 +30,10 @@ public class PdbxEntitySrcGenProdPcr extends BaseCategory {
      * a sample consisting of one or more proteins whose structure is
      * to be determined. This is a pointer to _entry.id. This item may
      * be a site dependent bar code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -42,19 +42,19 @@ public class PdbxEntitySrcGenProdPcr extends BaseCategory {
      * each protein contained in the project target protein complex whose
      * structure is to be determined. This data item is a pointer to _entity.id
      * in the ENTITY category. This item may be a site dependent bar code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
     /**
      * This item is the unique identifier for this PCR step.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getStepId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("step_id", SingleRowIntColumn::new) :
+    public IntColumn getStepId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("step_id", IntColumn::new) :
                 getBinaryColumn("step_id"));
     }
 
@@ -62,10 +62,10 @@ public class PdbxEntitySrcGenProdPcr extends BaseCategory {
      * This item unique identifier for the next production step.
      * This allows a workflow to have multiple entry points leading
      * to a single product.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNextStepId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("next_step_id", SingleRowIntColumn::new) :
+    public IntColumn getNextStepId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("next_step_id", IntColumn::new) :
                 getBinaryColumn("next_step_id"));
     }
 
@@ -73,10 +73,10 @@ public class PdbxEntitySrcGenProdPcr extends BaseCategory {
      * This item is a pointer to pdbx_construct.id in the PDBX_CONSTRUCT
      * category. The referenced nucleic acid sequence is that of the
      * PCR product.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndConstructId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("end_construct_id", SingleRowStrColumn::new) :
+    public StrColumn getEndConstructId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("end_construct_id", StrColumn::new) :
                 getBinaryColumn("end_construct_id"));
     }
 
@@ -85,68 +85,68 @@ public class PdbxEntitySrcGenProdPcr extends BaseCategory {
      * PDBX_ROBOT_SYSTEM category. The referenced robot is the
      * robot responsible for the PCR reaction (normally the heat
      * cycler).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRobotId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("robot_id", SingleRowStrColumn::new) :
+    public StrColumn getRobotId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("robot_id", StrColumn::new) :
                 getBinaryColumn("robot_id"));
     }
 
     /**
      * The date of this production step.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date", SingleRowStrColumn::new) :
+    public StrColumn getDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date", StrColumn::new) :
                 getBinaryColumn("date"));
     }
 
     /**
      * This item is a pointer to pdbx_construct.id in the PDBX_CONSTRUCT category.
      * The referenced nucleic acid sequence is that of the forward primer.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getForwardPrimerId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("forward_primer_id", SingleRowStrColumn::new) :
+    public StrColumn getForwardPrimerId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("forward_primer_id", StrColumn::new) :
                 getBinaryColumn("forward_primer_id"));
     }
 
     /**
      * This item is a pointer to pdbx_construct.id in the PDBX_CONSTRUCT category.
      * The referenced nucleic acid sequence is that of the reverse primer.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReversePrimerId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reverse_primer_id", SingleRowStrColumn::new) :
+    public StrColumn getReversePrimerId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reverse_primer_id", StrColumn::new) :
                 getBinaryColumn("reverse_primer_id"));
     }
 
     /**
      * String value containing details of the PCR reaction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReactionDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reaction_details", SingleRowStrColumn::new) :
+    public StrColumn getReactionDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reaction_details", StrColumn::new) :
                 getBinaryColumn("reaction_details"));
     }
 
     /**
      * String value containing details of any purification of the
      * product of the PCR reaction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPurificationDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("purification_details", SingleRowStrColumn::new) :
+    public StrColumn getPurificationDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("purification_details", StrColumn::new) :
                 getBinaryColumn("purification_details"));
     }
 
     /**
      * Summary of the details of the PCR reaction any purification of the
      * product of the PCR reaction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSummary() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("summary", SingleRowStrColumn::new) :
+    public StrColumn getSummary() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("summary", StrColumn::new) :
                 getBinaryColumn("summary"));
     }
 }

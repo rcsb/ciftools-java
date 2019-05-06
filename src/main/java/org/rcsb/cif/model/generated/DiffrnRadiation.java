@@ -29,39 +29,39 @@ public class DiffrnRadiation extends BaseCategory {
 
     /**
      * The collimation or focusing applied to the radiation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCollimation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("collimation", SingleRowStrColumn::new) :
+    public StrColumn getCollimation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("collimation", StrColumn::new) :
                 getBinaryColumn("collimation"));
     }
 
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * Absorption edge in angstroms of the radiation filter used.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFilterEdge() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("filter_edge", SingleRowFloatColumn::new) :
+    public FloatColumn getFilterEdge() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("filter_edge", FloatColumn::new) :
                 getBinaryColumn("filter_edge"));
     }
 
     /**
      * Half-width in millimetres of the incident beam in the
      * direction perpendicular to the diffraction plane.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getInhomogeneity() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("inhomogeneity", SingleRowFloatColumn::new) :
+    public FloatColumn getInhomogeneity() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("inhomogeneity", FloatColumn::new) :
                 getBinaryColumn("inhomogeneity"));
     }
 
@@ -69,10 +69,10 @@ public class DiffrnRadiation extends BaseCategory {
      * The method used to obtain monochromatic radiation. If a mono-
      * chromator crystal is used, the material and the indices of the
      * Bragg reflection are specified.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMonochromator() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("monochromator", SingleRowStrColumn::new) :
+    public StrColumn getMonochromator() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("monochromator", StrColumn::new) :
                 getBinaryColumn("monochromator"));
     }
 
@@ -80,10 +80,10 @@ public class DiffrnRadiation extends BaseCategory {
      * The angle in degrees, as viewed from the specimen, between the
      * perpendicular component of the polarization and the diffraction
      * plane. See _diffrn_radiation.polarisn_ratio.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPolarisnNorm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("polarisn_norm", SingleRowFloatColumn::new) :
+    public FloatColumn getPolarisnNorm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("polarisn_norm", FloatColumn::new) :
                 getBinaryColumn("polarisn_norm"));
     }
 
@@ -95,10 +95,10 @@ public class DiffrnRadiation extends BaseCategory {
      * _diffrn_radiation.polarisn_norm to the normal to the
      * diffraction plane of the sample (i.e. the plane containing
      * the incident and reflected beams).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPolarisnRatio() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("polarisn_ratio", SingleRowFloatColumn::new) :
+    public FloatColumn getPolarisnRatio() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("polarisn_ratio", FloatColumn::new) :
                 getBinaryColumn("polarisn_ratio"));
     }
 
@@ -107,76 +107,76 @@ public class DiffrnRadiation extends BaseCategory {
      * subatomic particle or the region of the electromagnetic
      * spectrum). It is strongly recommended that this information
      * is given, so that the probe radiation can be simply determined.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProbe() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("probe", SingleRowStrColumn::new) :
+    public StrColumn getProbe() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("probe", StrColumn::new) :
                 getBinaryColumn("probe"));
     }
 
     /**
      * The nature of the radiation. This is typically a description
      * of the X-ray wavelength in Siegbahn notation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * The IUPAC symbol for the X-ray wavelength for the probe
      * radiation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getXraySymbol() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("xray_symbol", SingleRowStrColumn::new) :
+    public StrColumn getXraySymbol() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("xray_symbol", StrColumn::new) :
                 getBinaryColumn("xray_symbol"));
     }
 
     /**
      * This data item is a pointer to _diffrn_radiation_wavelength.id
      * in the DIFFRN_RADIATION_WAVELENGTH category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getWavelengthId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("wavelength_id", SingleRowStrColumn::new) :
+    public StrColumn getWavelengthId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("wavelength_id", StrColumn::new) :
                 getBinaryColumn("wavelength_id"));
     }
 
     /**
      * Monochromatic or Laue.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxMonochromaticOrLaueML() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_monochromatic_or_laue_m_l", SingleRowStrColumn::new) :
+    public StrColumn getPdbxMonochromaticOrLaueML() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_monochromatic_or_laue_m_l", StrColumn::new) :
                 getBinaryColumn("pdbx_monochromatic_or_laue_m_l"));
     }
 
     /**
      * Comma separated list of wavelengths or wavelength range.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxWavelengthList() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_wavelength_list", SingleRowStrColumn::new) :
+    public StrColumn getPdbxWavelengthList() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_wavelength_list", StrColumn::new) :
                 getBinaryColumn("pdbx_wavelength_list"));
     }
 
     /**
      * Wavelength of radiation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxWavelength() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_wavelength", SingleRowStrColumn::new) :
+    public StrColumn getPdbxWavelength() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_wavelength", StrColumn::new) :
                 getBinaryColumn("pdbx_wavelength"));
     }
 
     /**
      * SINGLE WAVELENGTH, LAUE, or MAD.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDiffrnProtocol() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_diffrn_protocol", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDiffrnProtocol() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_diffrn_protocol", StrColumn::new) :
                 getBinaryColumn("pdbx_diffrn_protocol"));
     }
 
@@ -198,19 +198,19 @@ public class DiffrnRadiation extends BaseCategory {
      * For further discussion see R. Jenkins and R. Snyder,
      * Introduction to X-ray Powder Diffraction, Wiley (1996),
      * pp. 164-5.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxAnalyzer() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_analyzer", SingleRowStrColumn::new) :
+    public StrColumn getPdbxAnalyzer() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_analyzer", StrColumn::new) :
                 getBinaryColumn("pdbx_analyzer"));
     }
 
     /**
      * The radiation scattering type for this diffraction data set.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxScatteringType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_scattering_type", SingleRowStrColumn::new) :
+    public StrColumn getPdbxScatteringType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_scattering_type", StrColumn::new) :
                 getBinaryColumn("pdbx_scattering_type"));
     }
 }

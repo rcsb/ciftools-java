@@ -25,37 +25,37 @@ public class PdbxDatabaseRelated extends BaseCategory {
 
     /**
      * The name of the database containing the related entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_name", SingleRowStrColumn::new) :
+    public StrColumn getDbName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_name", StrColumn::new) :
                 getBinaryColumn("db_name"));
     }
 
     /**
      * A description of the related entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The identifying code in the related database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_id", SingleRowStrColumn::new) :
+    public StrColumn getDbId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_id", StrColumn::new) :
                 getBinaryColumn("db_id"));
     }
 
     /**
      * The identifying content type of the related entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContentType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("content_type", SingleRowStrColumn::new) :
+    public StrColumn getContentType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("content_type", StrColumn::new) :
                 getBinaryColumn("content_type"));
     }
 }

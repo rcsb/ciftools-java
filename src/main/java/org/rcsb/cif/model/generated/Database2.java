@@ -35,20 +35,20 @@ public class Database2 extends BaseCategory {
 
     /**
      * An abbreviation that identifies the database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDatabaseId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("database_id", SingleRowStrColumn::new) :
+    public StrColumn getDatabaseId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("database_id", StrColumn::new) :
                 getBinaryColumn("database_id"));
     }
 
     /**
      * The code assigned by the database identified in
      * _database_2.database_id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDatabaseCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("database_code", SingleRowStrColumn::new) :
+    public StrColumn getDatabaseCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("database_code", StrColumn::new) :
                 getBinaryColumn("database_code"));
     }
 }

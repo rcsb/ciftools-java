@@ -26,46 +26,46 @@ public class PdbxExptlCrystalCryoTreatment extends BaseCategory {
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_id", SingleRowStrColumn::new) :
+    public StrColumn getCrystalId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_id", StrColumn::new) :
                 getBinaryColumn("crystal_id"));
     }
 
     /**
      * Details of the final solution used in the treatment of this crystal
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFinalSolutionDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("final_solution_details", SingleRowStrColumn::new) :
+    public StrColumn getFinalSolutionDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("final_solution_details", StrColumn::new) :
                 getBinaryColumn("final_solution_details"));
     }
 
     /**
      * Details of the soaking treatment applied to this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSoakingDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("soaking_details", SingleRowStrColumn::new) :
+    public StrColumn getSoakingDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("soaking_details", StrColumn::new) :
                 getBinaryColumn("soaking_details"));
     }
 
     /**
      * Details of the cooling treatment applied to this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCoolingDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cooling_details", SingleRowStrColumn::new) :
+    public StrColumn getCoolingDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cooling_details", StrColumn::new) :
                 getBinaryColumn("cooling_details"));
     }
 
     /**
      * Details of the annealing treatment applied to this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnealingDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annealing_details", SingleRowStrColumn::new) :
+    public StrColumn getAnnealingDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annealing_details", StrColumn::new) :
                 getBinaryColumn("annealing_details"));
     }
 }

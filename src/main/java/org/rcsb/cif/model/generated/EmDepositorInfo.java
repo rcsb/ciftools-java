@@ -25,28 +25,28 @@ public class EmDepositorInfo extends BaseCategory {
 
     /**
      * This data item is a pointer to the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The selected EM experimental method.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmMethodSelection() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("em_method_selection", SingleRowStrColumn::new) :
+    public StrColumn getEmMethodSelection() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("em_method_selection", StrColumn::new) :
                 getBinaryColumn("em_method_selection"));
     }
 
     /**
      * Records whether molecular/polymer entities of the EM sample will be described.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMolecularDescriptionFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("molecular_description_flag", SingleRowStrColumn::new) :
+    public StrColumn getMolecularDescriptionFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("molecular_description_flag", StrColumn::new) :
                 getBinaryColumn("molecular_description_flag"));
     }
 }

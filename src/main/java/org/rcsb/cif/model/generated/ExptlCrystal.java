@@ -26,20 +26,20 @@ public class ExptlCrystal extends BaseCategory {
 
     /**
      * The colour of the crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getColour() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("colour", SingleRowStrColumn::new) :
+    public StrColumn getColour() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("colour", StrColumn::new) :
                 getBinaryColumn("colour"));
     }
 
     /**
      * Density values calculated from the crystal cell and contents. The
      * units are megagrams per cubic metre (grams per cubic centimetre).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityDiffrn() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_diffrn", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityDiffrn() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_diffrn", FloatColumn::new) :
                 getBinaryColumn("density_diffrn"));
     }
 
@@ -49,19 +49,19 @@ public class ExptlCrystal extends BaseCategory {
      * monomer of the structure, in units of angstroms^3^ per dalton.
      * 
      * Ref: Matthews, B. W. (1968). J. Mol. Biol. 33, 491-497.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMatthews() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_Matthews", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMatthews() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_Matthews", FloatColumn::new) :
                 getBinaryColumn("density_Matthews"));
     }
 
     /**
      * The method used to measure _exptl_crystal.density_meas.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDensityMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("density_method", SingleRowStrColumn::new) :
+    public StrColumn getDensityMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("density_method", StrColumn::new) :
                 getBinaryColumn("density_method"));
     }
 
@@ -82,10 +82,10 @@ public class ExptlCrystal extends BaseCategory {
      * 
      * where 0.74 is an assumed value for the partial specific
      * volume of the molecule
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityPercentSol() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_percent_sol", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityPercentSol() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_percent_sol", FloatColumn::new) :
                 getBinaryColumn("density_percent_sol"));
     }
 
@@ -96,10 +96,10 @@ public class ExptlCrystal extends BaseCategory {
      * relating to size for the gross dimensions of the crystal and
      * data items in the EXPTL_CRYSTAL_FACE category to describe the
      * relationship between individual faces.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("description", SingleRowStrColumn::new) :
+    public StrColumn getDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("description", StrColumn::new) :
                 getBinaryColumn("description"));
     }
 
@@ -115,10 +115,10 @@ public class ExptlCrystal extends BaseCategory {
      * theta = 0 degree
      * 
      * the sum is taken over each atom in the unit cell
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getF000() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("F_000", SingleRowIntColumn::new) :
+    public IntColumn getF000() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("F_000", IntColumn::new) :
                 getBinaryColumn("F_000"));
     }
 
@@ -128,20 +128,20 @@ public class ExptlCrystal extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Details of crystal growth and preparation of the crystal (e.g.
      * mounting) prior to the intensity measurements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPreparation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("preparation", SingleRowStrColumn::new) :
+    public StrColumn getPreparation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("preparation", StrColumn::new) :
                 getBinaryColumn("preparation"));
     }
 
@@ -149,10 +149,10 @@ public class ExptlCrystal extends BaseCategory {
      * The maximum dimension of the crystal. This item may appear in a
      * list with _exptl_crystal.id if multiple crystals are used in the
      * experiment.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSizeMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("size_max", SingleRowFloatColumn::new) :
+    public FloatColumn getSizeMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("size_max", FloatColumn::new) :
                 getBinaryColumn("size_max"));
     }
 
@@ -160,10 +160,10 @@ public class ExptlCrystal extends BaseCategory {
      * The medial dimension of the crystal. This item may appear in a
      * list with _exptl_crystal.id if multiple crystals are used in the
      * experiment.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSizeMid() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("size_mid", SingleRowFloatColumn::new) :
+    public FloatColumn getSizeMid() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("size_mid", FloatColumn::new) :
                 getBinaryColumn("size_mid"));
     }
 
@@ -171,10 +171,10 @@ public class ExptlCrystal extends BaseCategory {
      * The minimum dimension of the crystal. This item may appear in a
      * list with _exptl_crystal.id if multiple crystals are used in the
      * experiment.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSizeMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("size_min", SingleRowFloatColumn::new) :
+    public FloatColumn getSizeMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("size_min", FloatColumn::new) :
                 getBinaryColumn("size_min"));
     }
 
@@ -182,10 +182,10 @@ public class ExptlCrystal extends BaseCategory {
      * The radius of the crystal, if the crystal is a sphere or a
      * cylinder. This item may appear in a list with _exptl_crystal.id
      * if multiple crystals are used in the experiment.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSizeRad() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("size_rad", SingleRowFloatColumn::new) :
+    public FloatColumn getSizeRad() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("size_rad", FloatColumn::new) :
                 getBinaryColumn("size_rad"));
     }
 
@@ -197,10 +197,10 @@ public class ExptlCrystal extends BaseCategory {
      * _exptl_crystal.colour_primary, as in 'dark-green' or
      * 'bluish-violet', if necessary combined with
      * _exptl_crystal.colour_lustre, as in 'metallic-green'.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getColourLustre() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("colour_lustre", SingleRowStrColumn::new) :
+    public StrColumn getColourLustre() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("colour_lustre", StrColumn::new) :
                 getBinaryColumn("colour_lustre"));
     }
 
@@ -212,10 +212,10 @@ public class ExptlCrystal extends BaseCategory {
      * _exptl_crystal.colour_primary, as in 'dark-green' or
      * 'bluish-violet', if necessary combined with
      * _exptl_crystal.colour_lustre, as in 'metallic-green'.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getColourModifier() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("colour_modifier", SingleRowStrColumn::new) :
+    public StrColumn getColourModifier() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("colour_modifier", StrColumn::new) :
                 getBinaryColumn("colour_modifier"));
     }
 
@@ -227,10 +227,10 @@ public class ExptlCrystal extends BaseCategory {
      * _exptl_crystal.colour_primary, as in 'dark-green' or
      * 'bluish-violet', if necessary combined with
      * _exptl_crystal.colour_lustre, as in 'metallic-green'.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getColourPrimary() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("colour_primary", SingleRowStrColumn::new) :
+    public StrColumn getColourPrimary() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("colour_primary", StrColumn::new) :
                 getBinaryColumn("colour_primary"));
     }
 
@@ -238,19 +238,19 @@ public class ExptlCrystal extends BaseCategory {
      * Density values measured using standard chemical and physical
      * methods. The units are megagrams per cubic metre (grams per
      * cubic centimetre).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeas() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeas() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas", FloatColumn::new) :
                 getBinaryColumn("density_meas"));
     }
 
     /**
      * The estimated standard deviation of _exptl_crystal.density_meas.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_esd", FloatColumn::new) :
                 getBinaryColumn("density_meas_esd"));
     }
 
@@ -264,10 +264,10 @@ public class ExptlCrystal extends BaseCategory {
      * intended for use in reporting information in existing databases
      * and archives which would be misleading if reported under
      * _exptl_crystal.density_meas.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_gt", FloatColumn::new) :
                 getBinaryColumn("density_meas_gt"));
     }
 
@@ -281,30 +281,30 @@ public class ExptlCrystal extends BaseCategory {
      * intended for use in reporting information in existing databases
      * and archives which would be misleading if reported under
      * _exptl_crystal.density_meas.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_lt", FloatColumn::new) :
                 getBinaryColumn("density_meas_lt"));
     }
 
     /**
      * Temperature in kelvins at which _exptl_crystal.density_meas
      * was determined.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp", FloatColumn::new) :
                 getBinaryColumn("density_meas_temp"));
     }
 
     /**
      * The estimated standard deviation of
      * _exptl_crystal.density_meas_temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasTempEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasTempEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_esd", FloatColumn::new) :
                 getBinaryColumn("density_meas_temp_esd"));
     }
 
@@ -317,10 +317,10 @@ public class ExptlCrystal extends BaseCategory {
      * use in reporting information stored in databases or archives
      * which would be misleading if reported under
      * _exptl_crystal.density_meas_temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasTempGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasTempGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_gt", FloatColumn::new) :
                 getBinaryColumn("density_meas_temp_gt"));
     }
 
@@ -333,29 +333,29 @@ public class ExptlCrystal extends BaseCategory {
      * use in reporting information stored in databases or archives
      * which would be misleading if reported under
      * _exptl_crystal.density_meas_temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityMeasTempLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityMeasTempLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_meas_temp_lt", FloatColumn::new) :
                 getBinaryColumn("density_meas_temp_lt"));
     }
 
     /**
      * The URL for an a file containing the image of crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxCrystalImageUrl() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image_url", SingleRowStrColumn::new) :
+    public StrColumn getPdbxCrystalImageUrl() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image_url", StrColumn::new) :
                 getBinaryColumn("pdbx_crystal_image_url"));
     }
 
     /**
      * The image format for the file containing the image of crystal specified
      * as an RFC2045/RFC2046 mime type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxCrystalImageFormat() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image_format", SingleRowStrColumn::new) :
+    public StrColumn getPdbxCrystalImageFormat() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image_format", StrColumn::new) :
                 getBinaryColumn("pdbx_crystal_image_format"));
     }
 
@@ -364,93 +364,93 @@ public class ExptlCrystal extends BaseCategory {
      * The of the distribution of mis-orientation angles specified in degrees
      * of all the unit cells in the crystal. Lower mosaicity indicates better
      * ordered crystals.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxMosaicity() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_mosaicity", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxMosaicity() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_mosaicity", FloatColumn::new) :
                 getBinaryColumn("pdbx_mosaicity"));
     }
 
     /**
      * The uncertainty in the mosaicity estimate for the crystal.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxMosaicityEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_mosaicity_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxMosaicityEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_mosaicity_esd", FloatColumn::new) :
                 getBinaryColumn("pdbx_mosaicity_esd"));
     }
 
     /**
      * A code to indicate that a crystal image is available
      * for this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxCrystalImage() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image", SingleRowStrColumn::new) :
+    public StrColumn getPdbxCrystalImage() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_image", StrColumn::new) :
                 getBinaryColumn("pdbx_crystal_image"));
     }
 
     /**
      * A code to indicate that an x-ray image is available for
      * this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxX_rayImage() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_x-ray_image", SingleRowStrColumn::new) :
+    public StrColumn getPdbxX_rayImage() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_x-ray_image", StrColumn::new) :
                 getBinaryColumn("pdbx_x-ray_image"));
     }
 
     /**
      * A description of the type of x-ray image for this crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxX_rayImageType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_x-ray_image_type", SingleRowStrColumn::new) :
+    public StrColumn getPdbxX_rayImageType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_x-ray_image_type", StrColumn::new) :
                 getBinaryColumn("pdbx_x-ray_image_type"));
     }
 
     /**
      * The measured diffraction limit for this crystal.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCrystalDiffrnLimit() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_diffrn_limit", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCrystalDiffrnLimit() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_diffrn_limit", FloatColumn::new) :
                 getBinaryColumn("pdbx_crystal_diffrn_limit"));
     }
 
     /**
      * The measured diffraction limit for this crystal.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCrystalDiffrnLifetime() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_diffrn_lifetime", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCrystalDiffrnLifetime() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_diffrn_lifetime", FloatColumn::new) :
                 getBinaryColumn("pdbx_crystal_diffrn_lifetime"));
     }
 
     /**
      * The crystal size along the first measured direction in millimeters.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCrystalDirection1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_1", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCrystalDirection1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_1", FloatColumn::new) :
                 getBinaryColumn("pdbx_crystal_direction_1"));
     }
 
     /**
      * The crystal size along the second measured direction in millimeters.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCrystalDirection2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_2", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCrystalDirection2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_2", FloatColumn::new) :
                 getBinaryColumn("pdbx_crystal_direction_2"));
     }
 
     /**
      * The crystal size along the third measured direction in millimeters.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCrystalDirection3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_3", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCrystalDirection3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_crystal_direction_3", FloatColumn::new) :
                 getBinaryColumn("pdbx_crystal_direction_3"));
     }
 }

@@ -27,19 +27,19 @@ public class PhasingIsomorphous extends BaseCategory {
 
     /**
      * A description of special aspects of the isomorphous phasing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -54,10 +54,10 @@ public class PhasingIsomorphous extends BaseCategory {
      * This data item should be used to describe significant
      * methodological options used within the isomorphous phasing
      * program.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
@@ -67,10 +67,10 @@ public class PhasingIsomorphous extends BaseCategory {
      * by virtue of being isomorphous to a known structure (e.g.
      * a mutant that crystallizes in the same space group as the
      * wild-type protein.)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getParent() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("parent", SingleRowStrColumn::new) :
+    public StrColumn getParent() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("parent", StrColumn::new) :
                 getBinaryColumn("parent"));
     }
 }

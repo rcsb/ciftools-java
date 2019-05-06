@@ -25,10 +25,10 @@ public class PdbxRefineAuxFile extends BaseCategory {
 
     /**
      * Serial number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSerialNo() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("serial_no", SingleRowStrColumn::new) :
+    public StrColumn getSerialNo() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("serial_no", StrColumn::new) :
                 getBinaryColumn("serial_no"));
     }
 
@@ -36,28 +36,28 @@ public class PdbxRefineAuxFile extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _pdbx_refine_aux_file.pdbx_refine_id can be used to distinguish the results
      * of joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
     /**
      * Auxilary file name.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("file_name", SingleRowStrColumn::new) :
+    public StrColumn getFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("file_name", StrColumn::new) :
                 getBinaryColumn("file_name"));
     }
 
     /**
      * Auxilary file type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFileType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("file_type", SingleRowStrColumn::new) :
+    public StrColumn getFileType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("file_type", StrColumn::new) :
                 getBinaryColumn("file_type"));
     }
 }

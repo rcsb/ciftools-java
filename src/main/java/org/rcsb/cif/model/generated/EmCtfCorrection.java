@@ -24,100 +24,100 @@ public class EmCtfCorrection extends BaseCategory {
 
     /**
      * Yes if CTF amplitude correction was performed
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAmplitudeCorrection() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("amplitude_correction", SingleRowStrColumn::new) :
+    public StrColumn getAmplitudeCorrection() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("amplitude_correction", StrColumn::new) :
                 getBinaryColumn("amplitude_correction"));
     }
 
     /**
      * Amplitude correction factor used in CTF correction
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmplitudeCorrectionFactor() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("amplitude_correction_factor", SingleRowFloatColumn::new) :
+    public FloatColumn getAmplitudeCorrectionFactor() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("amplitude_correction_factor", FloatColumn::new) :
                 getBinaryColumn("amplitude_correction_factor"));
     }
 
     /**
      * CTF amplitude correction space
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAmplitudeCorrectionSpace() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("amplitude_correction_space", SingleRowStrColumn::new) :
+    public StrColumn getAmplitudeCorrectionSpace() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("amplitude_correction_space", StrColumn::new) :
                 getBinaryColumn("amplitude_correction_space"));
     }
 
     /**
      * CTF correction operation
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCorrectionOperation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("correction_operation", SingleRowStrColumn::new) :
+    public StrColumn getCorrectionOperation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("correction_operation", StrColumn::new) :
                 getBinaryColumn("correction_operation"));
     }
 
     /**
      * Any additional details about CTF correction
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_PROCESSING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("em_image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getEmImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("em_image_processing_id", StrColumn::new) :
                 getBinaryColumn("em_image_processing_id"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Yes if Phase reversal (flipping) was performed
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhaseReversal() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phase_reversal", SingleRowStrColumn::new) :
+    public StrColumn getPhaseReversal() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phase_reversal", StrColumn::new) :
                 getBinaryColumn("phase_reversal"));
     }
 
     /**
      * Yes if Anisotropic phase reversal (flipping) was performed
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhaseReversalAnisotropic() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phase_reversal_anisotropic", SingleRowStrColumn::new) :
+    public StrColumn getPhaseReversalAnisotropic() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phase_reversal_anisotropic", StrColumn::new) :
                 getBinaryColumn("phase_reversal_anisotropic"));
     }
 
     /**
      * CTF phase reversal correction space
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhaseReversalCorrectionSpace() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phase_reversal_correction_space", SingleRowStrColumn::new) :
+    public StrColumn getPhaseReversalCorrectionSpace() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phase_reversal_correction_space", StrColumn::new) :
                 getBinaryColumn("phase_reversal_correction_space"));
     }
 
     /**
      * Type of CTF correction applied
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

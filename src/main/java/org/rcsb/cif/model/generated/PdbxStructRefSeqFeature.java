@@ -26,136 +26,136 @@ public class PdbxStructRefSeqFeature extends BaseCategory {
     /**
      * Uniquely identfies a sequence feature in
      * the STRUCT_REF_SEQ_FEATURE  category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFeatureId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("feature_id", SingleRowIntColumn::new) :
+    public IntColumn getFeatureId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("feature_id", IntColumn::new) :
                 getBinaryColumn("feature_id"));
     }
 
     /**
      * This data item is a pointer to _struct_ref_seq.align_id in
      * the STRUCT_REF_SEQ  category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAlignId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("align_id", SingleRowStrColumn::new) :
+    public StrColumn getAlignId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("align_id", StrColumn::new) :
                 getBinaryColumn("align_id"));
     }
 
     /**
      * A classification of the feature
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * A description of special aspects of the feature
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * PDB strand/chain id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbStrandId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_strand_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbStrandId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_strand_id", StrColumn::new) :
                 getBinaryColumn("pdb_strand_id"));
     }
 
     /**
      * Instance identifier for the polymer molecule.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("asym_id", StrColumn::new) :
                 getBinaryColumn("asym_id"));
     }
 
     /**
      * 
      * Initial position in the PDB sequence segment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBegAuthSeqId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("beg_auth_seq_id", SingleRowStrColumn::new) :
+    public StrColumn getBegAuthSeqId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("beg_auth_seq_id", StrColumn::new) :
                 getBinaryColumn("beg_auth_seq_id"));
     }
 
     /**
      * 
      * Ending position in the PDB sequence segment
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndAuthSeqId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("end_auth_seq_id", SingleRowStrColumn::new) :
+    public StrColumn getEndAuthSeqId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("end_auth_seq_id", StrColumn::new) :
                 getBinaryColumn("end_auth_seq_id"));
     }
 
     /**
      * 
      * Initial position in the sequence segment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBegSeqNum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("beg_seq_num", SingleRowStrColumn::new) :
+    public StrColumn getBegSeqNum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("beg_seq_num", StrColumn::new) :
                 getBinaryColumn("beg_seq_num"));
     }
 
     /**
      * 
      * Ending position in the sequence segment
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndSeqNum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("end_seq_num", SingleRowStrColumn::new) :
+    public StrColumn getEndSeqNum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("end_seq_num", StrColumn::new) :
                 getBinaryColumn("end_seq_num"));
     }
 
     /**
      * 
      * Monomer ID at the initial position in the PDB sequence segment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBegAuthMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("beg_auth_mon_id", SingleRowStrColumn::new) :
+    public StrColumn getBegAuthMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("beg_auth_mon_id", StrColumn::new) :
                 getBinaryColumn("beg_auth_mon_id"));
     }
 
     /**
      * 
      * Monomer ID at the terminal position in the PDB sequence segment
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndAuthMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("end_auth_mon_id", SingleRowStrColumn::new) :
+    public StrColumn getEndAuthMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("end_auth_mon_id", StrColumn::new) :
                 getBinaryColumn("end_auth_mon_id"));
     }
 
     /**
      * 
      * Initial insertion code of the PDB sequence segment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBegPdbInsCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("beg_pdb_ins_code", SingleRowStrColumn::new) :
+    public StrColumn getBegPdbInsCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("beg_pdb_ins_code", StrColumn::new) :
                 getBinaryColumn("beg_pdb_ins_code"));
     }
 
     /**
      * 
      * Terminal insertion code of the PDB sequence segment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEndPdbInsCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("end_pdb_ins_code", SingleRowStrColumn::new) :
+    public StrColumn getEndPdbInsCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("end_pdb_ins_code", StrColumn::new) :
                 getBinaryColumn("end_pdb_ins_code"));
     }
 }

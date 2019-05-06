@@ -30,10 +30,10 @@ public class Computing extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -41,10 +41,10 @@ public class Computing extends BaseCategory {
      * Software used for cell refinement.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCellRefinement() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cell_refinement", SingleRowStrColumn::new) :
+    public StrColumn getCellRefinement() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cell_refinement", StrColumn::new) :
                 getBinaryColumn("cell_refinement"));
     }
 
@@ -52,10 +52,10 @@ public class Computing extends BaseCategory {
      * Software used for data collection.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataCollection() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_collection", SingleRowStrColumn::new) :
+    public StrColumn getDataCollection() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_collection", StrColumn::new) :
                 getBinaryColumn("data_collection"));
     }
 
@@ -63,10 +63,10 @@ public class Computing extends BaseCategory {
      * Software used for data reduction.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataReduction() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_reduction", SingleRowStrColumn::new) :
+    public StrColumn getDataReduction() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_reduction", StrColumn::new) :
                 getBinaryColumn("data_reduction"));
     }
 
@@ -74,10 +74,10 @@ public class Computing extends BaseCategory {
      * Software used for molecular graphics.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMolecularGraphics() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("molecular_graphics", SingleRowStrColumn::new) :
+    public StrColumn getMolecularGraphics() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("molecular_graphics", StrColumn::new) :
                 getBinaryColumn("molecular_graphics"));
     }
 
@@ -85,10 +85,10 @@ public class Computing extends BaseCategory {
      * Software used for generating material for publication.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPublicationMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("publication_material", SingleRowStrColumn::new) :
+    public StrColumn getPublicationMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("publication_material", StrColumn::new) :
                 getBinaryColumn("publication_material"));
     }
 
@@ -96,10 +96,10 @@ public class Computing extends BaseCategory {
      * Software used for refinement of the structure.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructureRefinement() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structure_refinement", SingleRowStrColumn::new) :
+    public StrColumn getStructureRefinement() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structure_refinement", StrColumn::new) :
                 getBinaryColumn("structure_refinement"));
     }
 
@@ -107,37 +107,37 @@ public class Computing extends BaseCategory {
      * Software used for solution of the structure.
      * 
      * Give the program or package name and a brief reference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructureSolution() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structure_solution", SingleRowStrColumn::new) :
+    public StrColumn getStructureSolution() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structure_solution", StrColumn::new) :
                 getBinaryColumn("structure_solution"));
     }
 
     /**
      * Program/package name for structure refinement method.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxStructureRefinementMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_structure_refinement_method", SingleRowStrColumn::new) :
+    public StrColumn getPdbxStructureRefinementMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_structure_refinement_method", StrColumn::new) :
                 getBinaryColumn("pdbx_structure_refinement_method"));
     }
 
     /**
      * Program/package name for data reduction/intensity integration software
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDataReductionIi() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_data_reduction_ii", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDataReductionIi() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_data_reduction_ii", StrColumn::new) :
                 getBinaryColumn("pdbx_data_reduction_ii"));
     }
 
     /**
      * Program/package name for data reduction/data scaling
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDataReductionDs() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_data_reduction_ds", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDataReductionDs() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_data_reduction_ds", StrColumn::new) :
                 getBinaryColumn("pdbx_data_reduction_ds"));
     }
 }

@@ -35,29 +35,29 @@ public class DiffrnRadiationWavelength extends BaseCategory {
      * This code is used to link with the DIFFRN_REFLN category.
      * The _diffrn_refln.wavelength_id codes must match one of
      * the codes defined in this category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The radiation wavelength in angstroms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWavelength() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("wavelength", SingleRowFloatColumn::new) :
+    public FloatColumn getWavelength() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("wavelength", FloatColumn::new) :
                 getBinaryColumn("wavelength"));
     }
 
     /**
      * The relative weight of a wavelength identified by the code
      * _diffrn_radiation_wavelength.id in the list of wavelengths.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("wt", SingleRowFloatColumn::new) :
+    public FloatColumn getWt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("wt", FloatColumn::new) :
                 getBinaryColumn("wt"));
     }
 }

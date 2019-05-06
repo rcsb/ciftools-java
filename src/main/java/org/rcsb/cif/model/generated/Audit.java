@@ -31,29 +31,29 @@ public class Audit extends BaseCategory {
     /**
      * A date that the data block was created. The date format is
      * yyyy-mm-dd.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCreationDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("creation_date", SingleRowStrColumn::new) :
+    public StrColumn getCreationDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("creation_date", StrColumn::new) :
                 getBinaryColumn("creation_date"));
     }
 
     /**
      * A description of how data were entered into the data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCreationMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("creation_method", SingleRowStrColumn::new) :
+    public StrColumn getCreationMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("creation_method", StrColumn::new) :
                 getBinaryColumn("creation_method"));
     }
 
     /**
      * The value of _audit.revision_id must uniquely identify a record
      * in the AUDIT list.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRevisionId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("revision_id", SingleRowStrColumn::new) :
+    public StrColumn getRevisionId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("revision_id", StrColumn::new) :
                 getBinaryColumn("revision_id"));
     }
 
@@ -61,10 +61,10 @@ public class Audit extends BaseCategory {
      * A record of any changes to the data block. The update format is
      * a date (yyyy-mm-dd) followed by a description of the changes.
      * The latest update entry is added to the bottom of this record.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUpdateRecord() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("update_record", SingleRowStrColumn::new) :
+    public StrColumn getUpdateRecord() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("update_record", StrColumn::new) :
                 getBinaryColumn("update_record"));
     }
 }

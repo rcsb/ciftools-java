@@ -29,10 +29,10 @@ public class StructRefSeqDif extends BaseCategory {
     /**
      * This data item is a pointer to _struct_ref_seq.align_id in
      * the STRUCT_REF_SEQ  category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAlignId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("align_id", SingleRowStrColumn::new) :
+    public StrColumn getAlignId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("align_id", StrColumn::new) :
                 getBinaryColumn("align_id"));
     }
 
@@ -42,10 +42,10 @@ public class StructRefSeqDif extends BaseCategory {
      * 
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_mon_id", SingleRowStrColumn::new) :
+    public StrColumn getDbMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_mon_id", StrColumn::new) :
                 getBinaryColumn("db_mon_id"));
     }
 
@@ -53,10 +53,10 @@ public class StructRefSeqDif extends BaseCategory {
      * A description of special aspects of the point differences
      * between the sequence of the entity or biological unit described
      * in the data block and that in the referenced database entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -66,93 +66,93 @@ public class StructRefSeqDif extends BaseCategory {
      * 
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mon_id", SingleRowStrColumn::new) :
+    public StrColumn getMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mon_id", StrColumn::new) :
                 getBinaryColumn("mon_id"));
     }
 
     /**
      * This data item is a pointer to _entity_poly_seq.num in the
      * ENTITY_POLY_SEQ category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSeqNum() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("seq_num", SingleRowIntColumn::new) :
+    public IntColumn getSeqNum() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("seq_num", IntColumn::new) :
                 getBinaryColumn("seq_num"));
     }
 
     /**
      * 
      * The PDB ID code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxPdbIdCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_id_code", SingleRowStrColumn::new) :
+    public StrColumn getPdbxPdbIdCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_id_code", StrColumn::new) :
                 getBinaryColumn("pdbx_pdb_id_code"));
     }
 
     /**
      * PDB strand/chain id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxPdbStrandId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_strand_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxPdbStrandId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_strand_id", StrColumn::new) :
                 getBinaryColumn("pdbx_pdb_strand_id"));
     }
 
     /**
      * Insertion code in PDB sequence
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxPdbInsCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_ins_code", SingleRowStrColumn::new) :
+    public StrColumn getPdbxPdbInsCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_pdb_ins_code", StrColumn::new) :
                 getBinaryColumn("pdbx_pdb_ins_code"));
     }
 
     /**
      * Insertion code in PDB sequence
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxAuthSeqNum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_auth_seq_num", SingleRowStrColumn::new) :
+    public StrColumn getPdbxAuthSeqNum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_auth_seq_num", StrColumn::new) :
                 getBinaryColumn("pdbx_auth_seq_num"));
     }
 
     /**
      * Sequence database name.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxSeqDbName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_name", SingleRowStrColumn::new) :
+    public StrColumn getPdbxSeqDbName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_name", StrColumn::new) :
                 getBinaryColumn("pdbx_seq_db_name"));
     }
 
     /**
      * Sequence database accession number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxSeqDbAccessionCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_accession_code", SingleRowStrColumn::new) :
+    public StrColumn getPdbxSeqDbAccessionCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_accession_code", StrColumn::new) :
                 getBinaryColumn("pdbx_seq_db_accession_code"));
     }
 
     /**
      * Sequence database sequence number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxSeqDbSeqNum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_seq_num", SingleRowStrColumn::new) :
+    public StrColumn getPdbxSeqDbSeqNum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_seq_db_seq_num", StrColumn::new) :
                 getBinaryColumn("pdbx_seq_db_seq_num"));
     }
 
     /**
      * A synthetic integer primary key for this category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxOrdinal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_ordinal", SingleRowIntColumn::new) :
+    public IntColumn getPdbxOrdinal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_ordinal", IntColumn::new) :
                 getBinaryColumn("pdbx_ordinal"));
     }
 }

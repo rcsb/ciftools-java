@@ -62,12 +62,6 @@ public class ModelFactory {
                 return IntColumn.class;
             case "StrColumn":
                 return StrColumn.class;
-            case "SingleRowFloatColumn":
-                return SingleRowFloatColumn.class;
-            case "SingleRowIntColumn":
-                return SingleRowIntColumn.class;
-            case "SingleRowStrColumn":
-                return SingleRowStrColumn.class;
             default:
                 throw new IllegalArgumentException(columnName + " is not known - cannot acquire prototype");
         }

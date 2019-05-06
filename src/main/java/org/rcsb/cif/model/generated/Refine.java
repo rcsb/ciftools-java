@@ -27,10 +27,10 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][1]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[1][1]"));
     }
 
@@ -38,10 +38,10 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][2]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[1][2]"));
     }
 
@@ -49,10 +49,10 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[1][3]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[1][3]"));
     }
 
@@ -60,10 +60,10 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[2][2]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[2][2]"));
     }
 
@@ -71,10 +71,10 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[2][3]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[2][3]"));
     }
 
@@ -82,40 +82,40 @@ public class Refine extends BaseCategory {
      * The elements of the matrix that defines the overall
      * anisotropic displacement model if one was refined for this
      * structure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnisoB33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getAnisoB33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("aniso_B[3][3]", FloatColumn::new) :
                 getBinaryColumn("aniso_B[3][3]"));
     }
 
     /**
      * The maximum isotropic displacement parameter (B value)
      * found in the coordinate set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIsoMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso_max", SingleRowFloatColumn::new) :
+    public FloatColumn getBIsoMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso_max", FloatColumn::new) :
                 getBinaryColumn("B_iso_max"));
     }
 
     /**
      * The mean isotropic displacement parameter (B value)
      * for the coordinate set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIsoMean() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso_mean", SingleRowFloatColumn::new) :
+    public FloatColumn getBIsoMean() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso_mean", FloatColumn::new) :
                 getBinaryColumn("B_iso_mean"));
     }
 
     /**
      * The minimum isotropic displacement parameter (B value)
      * found in the coordinate set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIsoMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso_min", SingleRowFloatColumn::new) :
+    public FloatColumn getBIsoMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso_min", FloatColumn::new) :
                 getBinaryColumn("B_iso_min"));
     }
 
@@ -136,10 +136,10 @@ public class Refine extends BaseCategory {
      * &lt;&gt;   denotes average value
      * 
      * summation is over reflections included in the refinement
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCorrelationCoeffFoToFc() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("correlation_coeff_Fo_to_Fc", SingleRowFloatColumn::new) :
+    public FloatColumn getCorrelationCoeffFoToFc() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("correlation_coeff_Fo_to_Fc", FloatColumn::new) :
                 getBinaryColumn("correlation_coeff_Fo_to_Fc"));
     }
 
@@ -161,59 +161,59 @@ public class Refine extends BaseCategory {
      * 
      * summation is over reflections not included
      * in the refinement (free reflections)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCorrelationCoeffFoToFcFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("correlation_coeff_Fo_to_Fc_free", SingleRowFloatColumn::new) :
+    public FloatColumn getCorrelationCoeffFoToFcFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("correlation_coeff_Fo_to_Fc_free", FloatColumn::new) :
                 getBinaryColumn("correlation_coeff_Fo_to_Fc_free"));
     }
 
     /**
      * Description of special aspects of the refinement process.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The maximum value of the electron density in the final difference
      * Fourier map.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_max", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_max", FloatColumn::new) :
                 getBinaryColumn("diff_density_max"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.diff_density_max.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityMaxEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_max_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityMaxEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_max_esd", FloatColumn::new) :
                 getBinaryColumn("diff_density_max_esd"));
     }
 
     /**
      * The minimum value of the electron density in the final difference
      * Fourier map.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_min", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_min", FloatColumn::new) :
                 getBinaryColumn("diff_density_min"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.diff_density_min.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityMinEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_min_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityMinEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_min_esd", FloatColumn::new) :
                 getBinaryColumn("diff_density_min_esd"));
     }
 
@@ -225,29 +225,29 @@ public class Refine extends BaseCategory {
      * quantity is useful for assessing the significance of the values
      * of _refine.diff_density_min and _refine.diff_density_max, and
      * also for defining suitable contour levels.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityRms() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_rms", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityRms() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_rms", FloatColumn::new) :
                 getBinaryColumn("diff_density_rms"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.diff_density_rms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffDensityRmsEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diff_density_rms_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffDensityRmsEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diff_density_rms_esd", FloatColumn::new) :
                 getBinaryColumn("diff_density_rms_esd"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -255,20 +255,20 @@ public class Refine extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _refine.pdbx_refine_id can be used to distinguish the results of
      * joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
     /**
      * The nature of the absolute structure and how it was determined.
      * For example, this may describe the Friedel pairs used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsAbsStructureDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_details", SingleRowStrColumn::new) :
+    public StrColumn getLsAbsStructureDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_details", StrColumn::new) :
                 getBinaryColumn("ls_abs_structure_details"));
     }
 
@@ -286,20 +286,20 @@ public class Refine extends BaseCategory {
      * interpreted as meaning (0.0 - 3u) =&lt; x =&lt; (1.0 + 3u).
      * 
      * Ref: Flack, H. D. (1983). Acta Cryst. A39, 876-881.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsAbsStructureFlack() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Flack", SingleRowFloatColumn::new) :
+    public FloatColumn getLsAbsStructureFlack() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Flack", FloatColumn::new) :
                 getBinaryColumn("ls_abs_structure_Flack"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.ls_abs_structure_Flack.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsAbsStructureFlackEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Flack_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getLsAbsStructureFlackEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Flack_esd", FloatColumn::new) :
                 getBinaryColumn("ls_abs_structure_Flack_esd"));
     }
 
@@ -315,20 +315,20 @@ public class Refine extends BaseCategory {
      * (-1.0 - 3u) =&lt; \h =&lt; (1.0 + 3u).
      * 
      * Ref: Rogers, D. (1981). Acta Cryst. A37, 734-741.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsAbsStructureRogers() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Rogers", SingleRowFloatColumn::new) :
+    public FloatColumn getLsAbsStructureRogers() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Rogers", FloatColumn::new) :
                 getBinaryColumn("ls_abs_structure_Rogers"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.ls_abs_structure_Rogers.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsAbsStructureRogersEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Rogers_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getLsAbsStructureRogersEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_abs_structure_Rogers_esd", FloatColumn::new) :
                 getBinaryColumn("ls_abs_structure_Rogers_esd"));
     }
 
@@ -336,10 +336,10 @@ public class Refine extends BaseCategory {
      * The smallest value for the interplanar spacings for the
      * reflection data used in the refinement in angstroms. This is
      * called the highest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsDResHigh() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_d_res_high", SingleRowFloatColumn::new) :
+    public FloatColumn getLsDResHigh() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_d_res_high", FloatColumn::new) :
                 getBinaryColumn("ls_d_res_high"));
     }
 
@@ -347,10 +347,10 @@ public class Refine extends BaseCategory {
      * The largest value for the interplanar spacings for
      * the reflection data used in the refinement in angstroms.
      * This is called the lowest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsDResLow() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_d_res_low", SingleRowFloatColumn::new) :
+    public FloatColumn getLsDResLow() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_d_res_low", FloatColumn::new) :
                 getBinaryColumn("ls_d_res_low"));
     }
 
@@ -371,20 +371,20 @@ public class Refine extends BaseCategory {
      * 129-47, 148-153.
      * Zachariasen, W. H. (1967). Acta Cryst. 23, 558-564.
      * Larson, A. C. (1967). Acta Cryst. 23, 664-665.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsExtinctionCoef() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_extinction_coef", SingleRowFloatColumn::new) :
+    public FloatColumn getLsExtinctionCoef() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_extinction_coef", FloatColumn::new) :
                 getBinaryColumn("ls_extinction_coef"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.ls_extinction_coef.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsExtinctionCoefEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_extinction_coef_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getLsExtinctionCoefEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_extinction_coef_esd", FloatColumn::new) :
                 getBinaryColumn("ls_extinction_coef_esd"));
     }
 
@@ -394,10 +394,10 @@ public class Refine extends BaseCategory {
      * _refine.ls_extinction_coef. This information must be sufficient
      * to reproduce the extinction-correction factors applied to the
      * structure factors.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsExtinctionExpression() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_extinction_expression", SingleRowStrColumn::new) :
+    public StrColumn getLsExtinctionExpression() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_extinction_expression", StrColumn::new) :
                 getBinaryColumn("ls_extinction_expression"));
     }
 
@@ -426,10 +426,10 @@ public class Refine extends BaseCategory {
      * 129-147, 148-153.
      * Zachariasen, W. H. (1967). Acta Cryst. 23, 558- 564.
      * Larson, A. C. (1967). Acta Cryst. 23, 664-665.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsExtinctionMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_extinction_method", SingleRowStrColumn::new) :
+    public StrColumn getLsExtinctionMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_extinction_method", StrColumn::new) :
                 getBinaryColumn("ls_extinction_method"));
     }
 
@@ -454,20 +454,20 @@ public class Refine extends BaseCategory {
      * N~param~ = the number of refined parameters
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_all", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_all", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_all"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.ls_goodness_of_fit_all.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitAllEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_all_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitAllEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_all_esd", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_all_esd"));
     }
 
@@ -493,38 +493,38 @@ public class Refine extends BaseCategory {
      * N~param~ = the number of refined parameters
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_obs", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_obs"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _refine.ls_goodness_of_fit_obs.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitObsEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_obs_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitObsEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_obs_esd", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_obs_esd"));
     }
 
     /**
      * Treatment of hydrogen atoms in the least-squares refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsHydrogenTreatment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_hydrogen_treatment", SingleRowStrColumn::new) :
+    public StrColumn getLsHydrogenTreatment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_hydrogen_treatment", StrColumn::new) :
                 getBinaryColumn("ls_hydrogen_treatment"));
     }
 
     /**
      * Type of matrix used to accumulate the least-squares derivatives.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsMatrixType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_matrix_type", SingleRowStrColumn::new) :
+    public StrColumn getLsMatrixType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_matrix_type", StrColumn::new) :
                 getBinaryColumn("ls_matrix_type"));
     }
 
@@ -534,10 +534,10 @@ public class Refine extends BaseCategory {
      * other constraint process (e.g. rigid-body refinement). See also
      * _atom_site.constraints and _atom_site.refinement_flags. A general
      * description of constraints may appear in _refine.details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberConstraints() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_constraints", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberConstraints() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_constraints", IntColumn::new) :
                 getBinaryColumn("ls_number_constraints"));
     }
 
@@ -551,20 +551,20 @@ public class Refine extends BaseCategory {
      * energy considerations and this makes their direct contribution
      * to this number, and to the goodness-of-fit calculation,
      * difficult to assess.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberParameters() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_parameters", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberParameters() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_parameters", IntColumn::new) :
                 getBinaryColumn("ls_number_parameters"));
     }
 
     /**
      * The number of reflections that satisfy the resolution limits
      * established by _refine.ls_d_res_high and _refine.ls_d_res_low.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberReflnsAll() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_all", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberReflnsAll() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_all", IntColumn::new) :
                 getBinaryColumn("ls_number_reflns_all"));
     }
 
@@ -573,10 +573,10 @@ public class Refine extends BaseCategory {
      * established by _refine.ls_d_res_high and _refine.ls_d_res_low
      * and the observation limit established by
      * _reflns.observed_criterion.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberReflnsObs() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_obs", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberReflnsObs() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_obs", IntColumn::new) :
                 getBinaryColumn("ls_number_reflns_obs"));
     }
 
@@ -589,10 +589,10 @@ public class Refine extends BaseCategory {
      * refinement included the calculation of a 'free' R factor.
      * Details of how reflections were assigned to the working and
      * test sets are given in _reflns.R_free_details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberReflnsRFree() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_R_free", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberReflnsRFree() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_R_free", IntColumn::new) :
                 getBinaryColumn("ls_number_reflns_R_free"));
     }
 
@@ -605,10 +605,10 @@ public class Refine extends BaseCategory {
      * refinement included the calculation of a 'free' R factor.
      * Details of how reflections were assigned to the working and
      * test sets are given in _reflns.R_free_details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberReflnsRWork() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_R_work", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberReflnsRWork() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_reflns_R_work", IntColumn::new) :
                 getBinaryColumn("ls_number_reflns_R_work"));
     }
 
@@ -620,10 +620,10 @@ public class Refine extends BaseCategory {
      * See also _atom_site.constraints and _atom_site.refinement_flags.
      * A general description of refinement constraints may appear in
      * _refine.details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLsNumberRestraints() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ls_number_restraints", SingleRowIntColumn::new) :
+    public IntColumn getLsNumberRestraints() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ls_number_restraints", IntColumn::new) :
                 getBinaryColumn("ls_number_restraints"));
     }
 
@@ -634,10 +634,10 @@ public class Refine extends BaseCategory {
      * _reflns.observed_criterion, expressed as a percentage of the
      * number of geometrically observable reflections that satisfy
      * the resolution limits.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsPercentReflnsObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_percent_reflns_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsPercentReflnsObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_percent_reflns_obs", FloatColumn::new) :
                 getBinaryColumn("ls_percent_reflns_obs"));
     }
 
@@ -650,10 +650,10 @@ public class Refine extends BaseCategory {
      * refinement included the calculation of a 'free' R factor,
      * expressed as a percentage of the number of geometrically
      * observable reflections that satisfy the resolution limits.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsPercentReflnsRFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_percent_reflns_R_free", SingleRowFloatColumn::new) :
+    public FloatColumn getLsPercentReflnsRFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_percent_reflns_R_free", FloatColumn::new) :
                 getBinaryColumn("ls_percent_reflns_R_free"));
     }
 
@@ -670,10 +670,10 @@ public class Refine extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_all", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_all", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_all"));
     }
 
@@ -702,10 +702,10 @@ public class Refine extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_obs", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_obs"));
     }
 
@@ -727,10 +727,10 @@ public class Refine extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorRFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorRFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_R_free"));
     }
 
@@ -738,20 +738,20 @@ public class Refine extends BaseCategory {
      * The estimated error in _refine.ls_R_factor_R_free.
      * The method used to estimate the error is described in the
      * item _refine.ls_R_factor_R_free_error_details.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorRFreeError() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free_error", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorRFreeError() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free_error", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_R_free_error"));
     }
 
     /**
      * Special aspects of the method used to estimated the error in
      * _refine.ls_R_factor_R_free.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsRFactorRFreeErrorDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free_error_details", SingleRowStrColumn::new) :
+    public StrColumn getLsRFactorRFreeErrorDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_free_error_details", StrColumn::new) :
                 getBinaryColumn("ls_R_factor_R_free_error_details"));
     }
 
@@ -784,10 +784,10 @@ public class Refine extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorRWork() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_work", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorRWork() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_R_work", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_R_work"));
     }
 
@@ -807,10 +807,10 @@ public class Refine extends BaseCategory {
      * amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFsqdFactorObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_Fsqd_factor_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFsqdFactorObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_Fsqd_factor_obs", FloatColumn::new) :
                 getBinaryColumn("ls_R_Fsqd_factor_obs"));
     }
 
@@ -832,10 +832,10 @@ public class Refine extends BaseCategory {
      * I~calc~ = the net calculated intensities
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRIFactorObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_I_factor_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRIFactorObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_I_factor_obs", FloatColumn::new) :
                 getBinaryColumn("ls_R_I_factor_obs"));
     }
 
@@ -845,10 +845,10 @@ public class Refine extends BaseCategory {
      * _refine.ls_d_res_high and _refine.ls_d_res_low to the number
      * of crystallographically unique reflections that satisfy the
      * same limits.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRedundancyReflnsAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_redundancy_reflns_all", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRedundancyReflnsAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_redundancy_reflns_all", FloatColumn::new) :
                 getBinaryColumn("ls_redundancy_reflns_all"));
     }
 
@@ -859,10 +859,10 @@ public class Refine extends BaseCategory {
      * observation limit established by _reflns.observed_criterion to
      * the number of crystallographically unique reflections that
      * satisfy the same limits.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRedundancyReflnsObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_redundancy_reflns_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRedundancyReflnsObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_redundancy_reflns_obs", FloatColumn::new) :
                 getBinaryColumn("ls_redundancy_reflns_obs"));
     }
 
@@ -898,10 +898,10 @@ public class Refine extends BaseCategory {
      * 
      * sum  is taken over the specified reflections
      * sumr is taken over the restraints
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRestrainedSAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_restrained_S_all", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRestrainedSAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_restrained_S_all", FloatColumn::new) :
                 getBinaryColumn("ls_restrained_S_all"));
     }
 
@@ -938,10 +938,10 @@ public class Refine extends BaseCategory {
      * 
      * sum  is taken over the specified reflections
      * sumr is taken over the restraints
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRestrainedSObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_restrained_S_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRestrainedSObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_restrained_S_obs", FloatColumn::new) :
                 getBinaryColumn("ls_restrained_S_obs"));
     }
 
@@ -949,10 +949,10 @@ public class Refine extends BaseCategory {
      * The largest ratio of the final least-squares parameter shift
      * to the final standard uncertainty (estimated standard
      * deviation).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverEsdMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_esd_max", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverEsdMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_esd_max", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_esd_max"));
     }
 
@@ -960,20 +960,20 @@ public class Refine extends BaseCategory {
      * The average ratio of the final least-squares parameter shift
      * to the final standard uncertainty (estimated standard
      * deviation).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverEsdMean() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_esd_mean", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverEsdMean() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_esd_mean", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_esd_mean"));
     }
 
     /**
      * Structure-factor coefficient |F|, F^2^ or I used in the least-
      * squares refinement process.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsStructureFactorCoef() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_structure_factor_coef", SingleRowStrColumn::new) :
+    public StrColumn getLsStructureFactorCoef() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_structure_factor_coef", StrColumn::new) :
                 getBinaryColumn("ls_structure_factor_coef"));
     }
 
@@ -982,10 +982,10 @@ public class Refine extends BaseCategory {
      * in least-squares refinement. Used to describe the weighting
      * when the value of _refine.ls_weighting_scheme is specified
      * as 'calc'.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsWeightingDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_weighting_details", SingleRowStrColumn::new) :
+    public StrColumn getLsWeightingDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_weighting_details", StrColumn::new) :
                 getBinaryColumn("ls_weighting_details"));
     }
 
@@ -993,10 +993,10 @@ public class Refine extends BaseCategory {
      * The weighting scheme applied in the least-squares process. The
      * standard code may be followed by a description of the weight
      * (but see _refine.ls_weighting_details for a preferred approach).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLsWeightingScheme() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ls_weighting_scheme", SingleRowStrColumn::new) :
+    public StrColumn getLsWeightingScheme() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ls_weighting_scheme", StrColumn::new) :
                 getBinaryColumn("ls_weighting_scheme"));
     }
 
@@ -1016,10 +1016,10 @@ public class Refine extends BaseCategory {
      * w       = the least-squares weight
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsWRFactorAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_all", SingleRowFloatColumn::new) :
+    public FloatColumn getLsWRFactorAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_all", FloatColumn::new) :
                 getBinaryColumn("ls_wR_factor_all"));
     }
 
@@ -1040,10 +1040,10 @@ public class Refine extends BaseCategory {
      * w       = the least-squares weight
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsWRFactorObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getLsWRFactorObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_obs", FloatColumn::new) :
                 getBinaryColumn("ls_wR_factor_obs"));
     }
 
@@ -1068,10 +1068,10 @@ public class Refine extends BaseCategory {
      * w       = the least-squares weight
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsWRFactorRFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_R_free", SingleRowFloatColumn::new) :
+    public FloatColumn getLsWRFactorRFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_R_free", FloatColumn::new) :
                 getBinaryColumn("ls_wR_factor_R_free"));
     }
 
@@ -1096,37 +1096,37 @@ public class Refine extends BaseCategory {
      * w       = the least-squares weight
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsWRFactorRWork() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_R_work", SingleRowFloatColumn::new) :
+    public FloatColumn getLsWRFactorRWork() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_wR_factor_R_work", FloatColumn::new) :
                 getBinaryColumn("ls_wR_factor_R_work"));
     }
 
     /**
      * The maximum value for occupancy found in the coordinate set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOccupancyMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("occupancy_max", SingleRowFloatColumn::new) :
+    public FloatColumn getOccupancyMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("occupancy_max", FloatColumn::new) :
                 getBinaryColumn("occupancy_max"));
     }
 
     /**
      * The minimum value for occupancy found in the coordinate set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOccupancyMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("occupancy_min", SingleRowFloatColumn::new) :
+    public FloatColumn getOccupancyMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("occupancy_min", FloatColumn::new) :
                 getBinaryColumn("occupancy_min"));
     }
 
     /**
      * Special aspects of the solvent model used during refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSolventModelDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("solvent_model_details", SingleRowStrColumn::new) :
+    public StrColumn getSolventModelDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("solvent_model_details", StrColumn::new) :
                 getBinaryColumn("solvent_model_details"));
     }
 
@@ -1146,10 +1146,10 @@ public class Refine extends BaseCategory {
      * where k0 and B0 are the scale factors for the protein.
      * 
      * Ref: Tronrud, D. E. (1997). Methods Enzymol. 277, 243-268.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSolventModelParamBsol() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("solvent_model_param_bsol", SingleRowFloatColumn::new) :
+    public FloatColumn getSolventModelParamBsol() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("solvent_model_param_bsol", FloatColumn::new) :
                 getBinaryColumn("solvent_model_param_bsol"));
     }
 
@@ -1169,10 +1169,10 @@ public class Refine extends BaseCategory {
      * where k0 and B0 are the scale factors for the protein.
      * 
      * Ref: Tronrud, D. E. (1997). Methods Enzymol. 277, 243-268.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSolventModelParamKsol() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("solvent_model_param_ksol", SingleRowFloatColumn::new) :
+    public FloatColumn getSolventModelParamKsol() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("solvent_model_param_ksol", FloatColumn::new) :
                 getBinaryColumn("solvent_model_param_ksol"));
     }
 
@@ -1193,10 +1193,10 @@ public class Refine extends BaseCategory {
      * F(calc) = the calculated structure-factor amplitudes
      * 
      * and the sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsRFactorGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getLsRFactorGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_R_factor_gt", FloatColumn::new) :
                 getBinaryColumn("ls_R_factor_gt"));
     }
 
@@ -1224,10 +1224,10 @@ public class Refine extends BaseCategory {
      * Nparam = the number of refined parameters
      * 
      * and the sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_gt", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_gt"));
     }
 
@@ -1254,20 +1254,20 @@ public class Refine extends BaseCategory {
      * Nparam = the number of refined parameters
      * 
      * and the sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsGoodnessOfFitRef() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_ref", SingleRowFloatColumn::new) :
+    public FloatColumn getLsGoodnessOfFitRef() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_goodness_of_fit_ref", FloatColumn::new) :
                 getBinaryColumn("ls_goodness_of_fit_ref"));
     }
 
     /**
      * The largest ratio of the final least-squares parameter
      * shift to the final standard uncertainty.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverSuMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_max", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverSuMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_max", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_su_max"));
     }
 
@@ -1277,20 +1277,20 @@ public class Refine extends BaseCategory {
      * standard uncertainty.  This item is used when the largest
      * value of the shift divided by the final standard uncertainty
      * is too small to measure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverSuMaxLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_max_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverSuMaxLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_max_lt", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_su_max_lt"));
     }
 
     /**
      * The average ratio of the final least-squares parameter
      * shift to the final standard uncertainty.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverSuMean() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_mean", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverSuMean() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_mean", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_su_mean"));
     }
 
@@ -1300,64 +1300,64 @@ public class Refine extends BaseCategory {
      * final standard uncertainty.  This
      * item is used when the average value of the shift divided by
      * the final standard uncertainty is too small to measure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getLsShiftOverSuMeanLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_mean_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getLsShiftOverSuMeanLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ls_shift_over_su_mean_lt", FloatColumn::new) :
                 getBinaryColumn("ls_shift_over_su_mean_lt"));
     }
 
     /**
      * Data cutoff (SIGMA(I))
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLsSigmaI() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_I", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLsSigmaI() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_I", FloatColumn::new) :
                 getBinaryColumn("pdbx_ls_sigma_I"));
     }
 
     /**
      * Data cutoff (SIGMA(F))
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLsSigmaF() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_F", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLsSigmaF() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_F", FloatColumn::new) :
                 getBinaryColumn("pdbx_ls_sigma_F"));
     }
 
     /**
      * Data cutoff (SIGMA(F^2))
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLsSigmaFsqd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_Fsqd", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLsSigmaFsqd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_sigma_Fsqd", FloatColumn::new) :
                 getBinaryColumn("pdbx_ls_sigma_Fsqd"));
     }
 
     /**
      * Value of F at "high end" of data cutoff.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDataCutoffHighAbsF() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_high_absF", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDataCutoffHighAbsF() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_high_absF", FloatColumn::new) :
                 getBinaryColumn("pdbx_data_cutoff_high_absF"));
     }
 
     /**
      * Value of RMS |F| used as high data cutoff.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDataCutoffHighRmsAbsF() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_high_rms_absF", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDataCutoffHighRmsAbsF() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_high_rms_absF", FloatColumn::new) :
                 getBinaryColumn("pdbx_data_cutoff_high_rms_absF"));
     }
 
     /**
      * Value of F at "low end" of data cutoff.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDataCutoffLowAbsF() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_low_absF", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDataCutoffLowAbsF() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_data_cutoff_low_absF", FloatColumn::new) :
                 getBinaryColumn("pdbx_data_cutoff_low_absF"));
     }
 
@@ -1365,10 +1365,10 @@ public class Refine extends BaseCategory {
      * 
      * Whether the structure was refined with indvidual
      * isotropic, anisotropic or overall temperature factor.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxIsotropicThermalModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_isotropic_thermal_model", SingleRowStrColumn::new) :
+    public StrColumn getPdbxIsotropicThermalModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_isotropic_thermal_model", StrColumn::new) :
                 getBinaryColumn("pdbx_isotropic_thermal_model"));
     }
 
@@ -1376,19 +1376,19 @@ public class Refine extends BaseCategory {
      * 
      * Whether the cross validataion method was used through
      * out or only at the end.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxLsCrossValidMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_cross_valid_method", SingleRowStrColumn::new) :
+    public StrColumn getPdbxLsCrossValidMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_ls_cross_valid_method", StrColumn::new) :
                 getBinaryColumn("pdbx_ls_cross_valid_method"));
     }
 
     /**
      * Method(s) used to determine the structure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxMethodToDetermineStruct() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_method_to_determine_struct", SingleRowStrColumn::new) :
+    public StrColumn getPdbxMethodToDetermineStruct() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_method_to_determine_struct", StrColumn::new) :
                 getBinaryColumn("pdbx_method_to_determine_struct"));
     }
 
@@ -1396,29 +1396,29 @@ public class Refine extends BaseCategory {
      * Starting model for refinement.  Starting model for
      * molecular replacement should refer to a previous
      * structure or experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxStartingModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_starting_model", SingleRowStrColumn::new) :
+    public StrColumn getPdbxStartingModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_starting_model", StrColumn::new) :
                 getBinaryColumn("pdbx_starting_model"));
     }
 
     /**
      * Stereochemistry target values used in refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxStereochemistryTargetValues() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_stereochemistry_target_values", SingleRowStrColumn::new) :
+    public StrColumn getPdbxStereochemistryTargetValues() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_stereochemistry_target_values", StrColumn::new) :
                 getBinaryColumn("pdbx_stereochemistry_target_values"));
     }
 
     /**
      * Details of the manner in which the cross validation
      * reflections were selected.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRFreeSelectionDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_R_Free_selection_details", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRFreeSelectionDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_R_Free_selection_details", StrColumn::new) :
                 getBinaryColumn("pdbx_R_Free_selection_details"));
     }
 
@@ -1426,56 +1426,56 @@ public class Refine extends BaseCategory {
      * 
      * Special case of stereochemistry target values used
      * in SHELXL refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxStereochemTargetValSpecCase() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_stereochem_target_val_spec_case", SingleRowStrColumn::new) :
+    public StrColumn getPdbxStereochemTargetValSpecCase() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_stereochem_target_val_spec_case", StrColumn::new) :
                 getBinaryColumn("pdbx_stereochem_target_val_spec_case"));
     }
 
     /**
      * Overall estimated standard uncertainties of positional
      * parameters based on R value.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallESUR() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_R", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallESUR() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_R", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_ESU_R"));
     }
 
     /**
      * Overall estimated standard uncertainties of positional parameters based on R free value.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallESURFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_R_Free", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallESURFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_R_Free", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_ESU_R_Free"));
     }
 
     /**
      * For bulk solvent mask calculation, the value by which the vdw radii of non-ion atoms (like carbon) are increased and used.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxSolventVdwProbeRadii() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_vdw_probe_radii", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxSolventVdwProbeRadii() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_vdw_probe_radii", FloatColumn::new) :
                 getBinaryColumn("pdbx_solvent_vdw_probe_radii"));
     }
 
     /**
      * For bulk solvent mask calculation, the amount that the ionic radii of atoms, which can be ions, are increased used.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxSolventIonProbeRadii() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_ion_probe_radii", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxSolventIonProbeRadii() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_ion_probe_radii", FloatColumn::new) :
                 getBinaryColumn("pdbx_solvent_ion_probe_radii"));
     }
 
     /**
      * For bulk solvent mask calculation, amount mask is shrunk after taking away atoms with new radii and a constant value assigned to this new region.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxSolventShrinkageRadii() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_shrinkage_radii", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxSolventShrinkageRadii() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_solvent_shrinkage_radii", FloatColumn::new) :
                 getBinaryColumn("pdbx_solvent_shrinkage_radii"));
     }
 
@@ -1493,10 +1493,10 @@ public class Refine extends BaseCategory {
      * summation is for all the grid points
      * 
      * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRealSpaceR() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_real_space_R", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRealSpaceR() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_real_space_R", FloatColumn::new) :
                 getBinaryColumn("pdbx_real_space_R"));
     }
 
@@ -1527,38 +1527,38 @@ public class Refine extends BaseCategory {
      * For all atoms Radius_limit = 2.5 A.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDensityCorrelation() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_density_correlation", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDensityCorrelation() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_density_correlation", FloatColumn::new) :
                 getBinaryColumn("pdbx_density_correlation"));
     }
 
     /**
      * The total number of powder patterns used.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxPdNumberOfPowderPatterns() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_number_of_powder_patterns", SingleRowIntColumn::new) :
+    public IntColumn getPdbxPdNumberOfPowderPatterns() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_number_of_powder_patterns", IntColumn::new) :
                 getBinaryColumn("pdbx_pd_number_of_powder_patterns"));
     }
 
     /**
      * The total number of data points in the processed diffractogram.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxPdNumberOfPoints() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_number_of_points", SingleRowIntColumn::new) :
+    public IntColumn getPdbxPdNumberOfPoints() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_number_of_points", IntColumn::new) :
                 getBinaryColumn("pdbx_pd_number_of_points"));
     }
 
     /**
      * The total number of points in the measured
      * diffractogram.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxPdMeasNumberOfPoints() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_meas_number_of_points", SingleRowIntColumn::new) :
+    public IntColumn getPdbxPdMeasNumberOfPoints() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_meas_number_of_points", IntColumn::new) :
                 getBinaryColumn("pdbx_pd_meas_number_of_points"));
     }
 
@@ -1586,10 +1586,10 @@ public class Refine extends BaseCategory {
      * n is the total number of data points (see _refine.pdbx_pd_number_of_points)
      * less the number of data points excluded from the refinement.
      * p is the total number of refined parameters.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPdProcLsProfRFactor() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_proc_ls_prof_R_factor", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPdProcLsProfRFactor() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_proc_ls_prof_R_factor", FloatColumn::new) :
                 getBinaryColumn("pdbx_pd_proc_ls_prof_R_factor"));
     }
 
@@ -1618,10 +1618,10 @@ public class Refine extends BaseCategory {
      * n is the total number of data points (see _refine.pdbx_pd_number_of_points)
      * less the number of data points excluded from the refinement.
      * p is the total number of refined parameters.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPdProcLsProfWRFactor() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_proc_ls_prof_wR_factor", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPdProcLsProfWRFactor() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_proc_ls_prof_wR_factor", FloatColumn::new) :
                 getBinaryColumn("pdbx_pd_proc_ls_prof_wR_factor"));
     }
 
@@ -1636,10 +1636,10 @@ public class Refine extends BaseCategory {
      * of the residuals.
      * A description of the equations is given on
      * http://www.water.hut.fi/~tkarvone/fr_org_s.htm
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPdMarquardtCorrelationCoeff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_Marquardt_correlation_coeff", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPdMarquardtCorrelationCoeff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_Marquardt_correlation_coeff", FloatColumn::new) :
                 getBinaryColumn("pdbx_pd_Marquardt_correlation_coeff"));
     }
 
@@ -1654,29 +1654,29 @@ public class Refine extends BaseCategory {
      * F~obs~  = the observed structure-factor amplitudes
      * F~calc~ = the calculated structure-factor amplitudes
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPdFsqrdRFactor() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_Fsqrd_R_factor", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPdFsqrdRFactor() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_Fsqrd_R_factor", FloatColumn::new) :
                 getBinaryColumn("pdbx_pd_Fsqrd_R_factor"));
     }
 
     /**
      * The least squares refinement "band matrix" approximation to the full matrix.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxPdLsMatrixBandWidth() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_ls_matrix_band_width", SingleRowIntColumn::new) :
+    public IntColumn getPdbxPdLsMatrixBandWidth() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_pd_ls_matrix_band_width", IntColumn::new) :
                 getBinaryColumn("pdbx_pd_ls_matrix_band_width"));
     }
 
     /**
      * The overall phase error for all reflections after refinement using
      * the current refinement target.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallPhaseError() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_phase_error", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallPhaseError() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_phase_error", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_phase_error"));
     }
 
@@ -1687,10 +1687,10 @@ public class Refine extends BaseCategory {
      * precision indicator (DPI).
      * 
      * Ref: Cruickshank, D. W. J. (1999). Acta Cryst. D55, 583-601.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallSURFreeCruickshankDPI() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_free_Cruickshank_DPI", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallSURFreeCruickshankDPI() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_free_Cruickshank_DPI", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_SU_R_free_Cruickshank_DPI"));
     }
 
@@ -1701,10 +1701,10 @@ public class Refine extends BaseCategory {
      * precision indicator (DPI).
      * 
      * Ref: Blow, D (2002) Acta Cryst. D58, 792-797
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallSURFreeBlowDPI() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_free_Blow_DPI", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallSURFreeBlowDPI() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_free_Blow_DPI", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_SU_R_free_Blow_DPI"));
     }
 
@@ -1715,20 +1715,20 @@ public class Refine extends BaseCategory {
      * precision indicator (DPI).
      * 
      * Ref: Blow, D (2002) Acta Cryst. D58, 792-797
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallSURBlowDPI() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_Blow_DPI", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallSURBlowDPI() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_SU_R_Blow_DPI", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_SU_R_Blow_DPI"));
     }
 
     /**
      * A flag for TLS refinements identifying the type of atomic displacement parameters stored
      * in _atom_site.B_iso_or_equiv.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxTLSResidualADPFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_TLS_residual_ADP_flag", SingleRowStrColumn::new) :
+    public StrColumn getPdbxTLSResidualADPFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_TLS_residual_ADP_flag", StrColumn::new) :
                 getBinaryColumn("pdbx_TLS_residual_ADP_flag"));
     }
 
@@ -1736,10 +1736,10 @@ public class Refine extends BaseCategory {
      * An identifier for the diffraction data set used in this refinement.
      * 
      * Multiple diffraction data sets specified as a comma separated list.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_diffrn_id", StrColumn::new) :
                 getBinaryColumn("pdbx_diffrn_id"));
     }
 
@@ -1788,10 +1788,10 @@ public class Refine extends BaseCategory {
      * January 1997, pp. 31-39.
      * 
      * http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallSUB() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_B", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallSUB() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_B", FloatColumn::new) :
                 getBinaryColumn("overall_SU_B"));
     }
 
@@ -1840,10 +1840,10 @@ public class Refine extends BaseCategory {
      * January 1997, pp. 31-39.
      * 
      * http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallSUML() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_ML", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallSUML() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_ML", FloatColumn::new) :
                 getBinaryColumn("overall_SU_ML"));
     }
 
@@ -1878,10 +1878,10 @@ public class Refine extends BaseCategory {
      * January 1997, pp. 31-39.
      * 
      * http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallSURCruickshankDPI() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_R_Cruickshank_DPI", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallSURCruickshankDPI() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_R_Cruickshank_DPI", FloatColumn::new) :
                 getBinaryColumn("overall_SU_R_Cruickshank_DPI"));
     }
 
@@ -1915,10 +1915,10 @@ public class Refine extends BaseCategory {
      * January 1997, pp. 31-39.
      * 
      * http://www.ccp4.ac.uk/newsletters/newsletter33/murshudov.html
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallSURFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_R_free", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallSURFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_SU_R_free", FloatColumn::new) :
                 getBinaryColumn("overall_SU_R_free"));
     }
 
@@ -1948,10 +1948,10 @@ public class Refine extends BaseCategory {
      * 
      * Ref: Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallFOMFreeRSet() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_FOM_free_R_set", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallFOMFreeRSet() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_FOM_free_R_set", FloatColumn::new) :
                 getBinaryColumn("overall_FOM_free_R_set"));
     }
 
@@ -1981,10 +1981,10 @@ public class Refine extends BaseCategory {
      * 
      * Ref: Murshudov, G. N., Vagin, A. A. &amp; Dodson, E. J. (1997).
      * Acta Cryst. D53, 240-255.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallFOMWorkRSet() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_FOM_work_R_set", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallFOMWorkRSet() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_FOM_work_R_set", FloatColumn::new) :
                 getBinaryColumn("overall_FOM_work_R_set"));
     }
 
@@ -2022,10 +2022,10 @@ public class Refine extends BaseCategory {
      * "Optimal determination of particle orientation, absolute hand,
      * and contrast loss in single-particle electron cryomicroscopy.
      * Journal of Molecular Biology. 2003;333(4):721-745, equation (A6).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxAverageFscOverall() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_overall", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxAverageFscOverall() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_overall", FloatColumn::new) :
                 getBinaryColumn("pdbx_average_fsc_overall"));
     }
 
@@ -2063,10 +2063,10 @@ public class Refine extends BaseCategory {
      * "Optimal determination of particle orientation, absolute hand,
      * and contrast loss in single-particle electron cryomicroscopy.
      * Journal of Molecular Biology. 2003;333(4):721-745, equation (A6).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxAverageFscWork() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_work", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxAverageFscWork() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_work", FloatColumn::new) :
                 getBinaryColumn("pdbx_average_fsc_work"));
     }
 
@@ -2104,10 +2104,10 @@ public class Refine extends BaseCategory {
      * "Optimal determination of particle orientation, absolute hand,
      * and contrast loss in single-particle electron cryomicroscopy.
      * Journal of Molecular Biology. 2003;333(4):721-745, equation (A6).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxAverageFscFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_free", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxAverageFscFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_average_fsc_free", FloatColumn::new) :
                 getBinaryColumn("pdbx_average_fsc_free"));
     }
 
@@ -2153,10 +2153,10 @@ public class Refine extends BaseCategory {
      * "Simplified error estimation a la Cruickshank in macromolecular
      * crystallography",  Murshudov G.N. &amp; Dodson E.J.  in the "CCP4
      * Newsletter on protein crystallography" Number 33 ed. M.Winn
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallESUB() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_B", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallESUB() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_B", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_ESU_B"));
     }
 
@@ -2203,10 +2203,10 @@ public class Refine extends BaseCategory {
      * Simplified error estimation a la Cruickshank in macromolecular
      * crystallograpy  Murshudov G.N. &amp; Dodson E.J.  in the "CCP4
      * Newsletter on protein crystallography" Number 33 ed. M.Winn
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxOverallESUML() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_ML", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxOverallESUML() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_overall_ESU_ML", FloatColumn::new) :
                 getBinaryColumn("pdbx_overall_ESU_ML"));
     }
 }

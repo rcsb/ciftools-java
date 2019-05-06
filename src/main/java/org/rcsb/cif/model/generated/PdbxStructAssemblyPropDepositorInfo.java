@@ -26,37 +26,37 @@ public class PdbxStructAssemblyPropDepositorInfo extends BaseCategory {
 
     /**
      * The identifier for the assembly used in category STRUCT_BIOL.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getBiolId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("biol_id", SingleRowStrColumn::new) :
+    public StrColumn getBiolId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("biol_id", StrColumn::new) :
                 getBinaryColumn("biol_id"));
     }
 
     /**
      * The property type for the assembly.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * The value of the assembly property.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getValue() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("value", SingleRowStrColumn::new) :
+    public StrColumn getValue() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("value", StrColumn::new) :
                 getBinaryColumn("value"));
     }
 
     /**
      * Additional details about this assembly property.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

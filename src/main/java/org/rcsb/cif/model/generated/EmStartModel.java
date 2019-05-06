@@ -25,118 +25,118 @@ public class EmStartModel extends BaseCategory {
 
     /**
      * Any additional details about generating the startup model
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * EMDB id of the map used as the startup model
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmdbId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("emdb_id", SingleRowStrColumn::new) :
+    public StrColumn getEmdbId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("emdb_id", StrColumn::new) :
                 getBinaryColumn("emdb_id"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_PROCESSING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * Description of the "in silico" model used to generate the startup model
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getInsilicoModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("insilico_model", SingleRowStrColumn::new) :
+    public StrColumn getInsilicoModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("insilico_model", StrColumn::new) :
                 getBinaryColumn("insilico_model"));
     }
 
     /**
      * Tilt angle for the 1st image set of the orthogonal tilt pairs
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOrthogonalTiltAngle1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_angle1", SingleRowFloatColumn::new) :
+    public FloatColumn getOrthogonalTiltAngle1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_angle1", FloatColumn::new) :
                 getBinaryColumn("orthogonal_tilt_angle1"));
     }
 
     /**
      * Tilt angle for the 2nd image set of the orthogonal tilt pairs
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOrthogonalTiltAngle2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_angle2", SingleRowFloatColumn::new) :
+    public FloatColumn getOrthogonalTiltAngle2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_angle2", FloatColumn::new) :
                 getBinaryColumn("orthogonal_tilt_angle2"));
     }
 
     /**
      * number of images used to generate the orthogonal tilt startup model
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOrthogonalTiltNumImages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_num_images", SingleRowIntColumn::new) :
+    public IntColumn getOrthogonalTiltNumImages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("orthogonal_tilt_num_images", IntColumn::new) :
                 getBinaryColumn("orthogonal_tilt_num_images"));
     }
 
     /**
      * Description of other method/source used to generate the startup model
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOther() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("other", SingleRowStrColumn::new) :
+    public StrColumn getOther() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("other", StrColumn::new) :
                 getBinaryColumn("other"));
     }
 
     /**
      * PDB id of the model coordinates used to generate the startup model
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_id", StrColumn::new) :
                 getBinaryColumn("pdb_id"));
     }
 
     /**
      * Angular difference between the conical tilt images used to generate the startup model
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRandomConicalTiltAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("random_conical_tilt_angle", SingleRowFloatColumn::new) :
+    public FloatColumn getRandomConicalTiltAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("random_conical_tilt_angle", FloatColumn::new) :
                 getBinaryColumn("random_conical_tilt_angle"));
     }
 
     /**
      * number of images used to generate the random conical tilt startup model
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getRandomConicalTiltNumImages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("random_conical_tilt_num_images", SingleRowIntColumn::new) :
+    public IntColumn getRandomConicalTiltNumImages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("random_conical_tilt_num_images", IntColumn::new) :
                 getBinaryColumn("random_conical_tilt_num_images"));
     }
 
     /**
      * Type of startup model (map density) used to initiate the reconstruction
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

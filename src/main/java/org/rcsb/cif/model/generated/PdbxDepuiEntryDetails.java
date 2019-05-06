@@ -26,91 +26,91 @@ public class PdbxDepuiEntryDetails extends BaseCategory {
 
     /**
      * The internal identifier assigned to each deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepDatasetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", SingleRowStrColumn::new) :
+    public StrColumn getDepDatasetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", StrColumn::new) :
                 getBinaryColumn("dep_dataset_id"));
     }
 
     /**
      * The wwPDB internal site configuration identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getWwpdbSiteId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("wwpdb_site_id", SingleRowStrColumn::new) :
+    public StrColumn getWwpdbSiteId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("wwpdb_site_id", StrColumn::new) :
                 getBinaryColumn("wwpdb_site_id"));
     }
 
     /**
      * Comma separated list of supported experimental methods.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExperimentalMethods() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("experimental_methods", SingleRowStrColumn::new) :
+    public StrColumn getExperimentalMethods() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("experimental_methods", StrColumn::new) :
                 getBinaryColumn("experimental_methods"));
     }
 
     /**
      * Comma separated list of requested accession code types.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRequestedAccessionTypes() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("requested_accession_types", SingleRowStrColumn::new) :
+    public StrColumn getRequestedAccessionTypes() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("requested_accession_types", StrColumn::new) :
                 getBinaryColumn("requested_accession_types"));
     }
 
     /**
      * The validated contact e-mail address for the correponding depositor.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getValidatedContactEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("validated_contact_email", SingleRowStrColumn::new) :
+    public StrColumn getValidatedContactEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("validated_contact_email", StrColumn::new) :
                 getBinaryColumn("validated_contact_email"));
     }
 
     /**
      * The country location of the institution submitting the deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCountry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("country", SingleRowStrColumn::new) :
+    public StrColumn getCountry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("country", StrColumn::new) :
                 getBinaryColumn("country"));
     }
 
     /**
      * A flag to indicate the that the deposition is a contribution from a structural genomics project.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructuralGenomicsFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structural_genomics_flag", SingleRowStrColumn::new) :
+    public StrColumn getStructuralGenomicsFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structural_genomics_flag", StrColumn::new) :
                 getBinaryColumn("structural_genomics_flag"));
     }
 
     /**
      * The name of the database associated with the related database code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRelatedDatabaseName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("related_database_name", SingleRowStrColumn::new) :
+    public StrColumn getRelatedDatabaseName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("related_database_name", StrColumn::new) :
                 getBinaryColumn("related_database_name"));
     }
 
     /**
      * A database code closely related to the current deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRelatedDatabaseCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("related_database_code", SingleRowStrColumn::new) :
+    public StrColumn getRelatedDatabaseCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("related_database_code", StrColumn::new) :
                 getBinaryColumn("related_database_code"));
     }
 
     /**
      * The PDB ID code of the entry that is superseded by this entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReplacePdbId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("replace_pdb_id", SingleRowStrColumn::new) :
+    public StrColumn getReplacePdbId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("replace_pdb_id", StrColumn::new) :
                 getBinaryColumn("replace_pdb_id"));
     }
 }

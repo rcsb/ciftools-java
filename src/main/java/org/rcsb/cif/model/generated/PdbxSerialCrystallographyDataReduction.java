@@ -27,29 +27,29 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * The total number of data frames collected for this
      * data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFramesTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("frames_total", SingleRowIntColumn::new) :
+    public IntColumn getFramesTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("frames_total", IntColumn::new) :
                 getBinaryColumn("frames_total"));
     }
 
     /**
      * For FEL experiments, the number of pulse events in the dataset.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getXfelPulseEvents() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("xfel_pulse_events", SingleRowIntColumn::new) :
+    public IntColumn getXfelPulseEvents() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("xfel_pulse_events", IntColumn::new) :
                 getBinaryColumn("xfel_pulse_events"));
     }
 
@@ -57,10 +57,10 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For experiments in which samples are provided in a
      * continuous stream, the total number of data frames collected
      * in which the sample was hit.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFrameHits() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("frame_hits", SingleRowIntColumn::new) :
+    public IntColumn getFrameHits() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("frame_hits", IntColumn::new) :
                 getBinaryColumn("frame_hits"));
     }
 
@@ -68,10 +68,10 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For experiments in which samples are provided in a
      * continuous stream, the total number of frames collected
      * in which the crystal was hit.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCrystalHits() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("crystal_hits", SingleRowIntColumn::new) :
+    public IntColumn getCrystalHits() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("crystal_hits", IntColumn::new) :
                 getBinaryColumn("crystal_hits"));
     }
 
@@ -79,10 +79,10 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For experiments in which samples are provided in a
      * continuous stream, the total number of frames collected
      * in which a droplet was hit.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDropletHits() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("droplet_hits", SingleRowIntColumn::new) :
+    public IntColumn getDropletHits() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("droplet_hits", IntColumn::new) :
                 getBinaryColumn("droplet_hits"));
     }
 
@@ -90,10 +90,10 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For experiments in which samples are provided in a
      * continuous stream, the total number of data frames collected
      * that contained a "hit" but failed to index.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFramesFailedIndex() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("frames_failed_index", SingleRowIntColumn::new) :
+    public IntColumn getFramesFailedIndex() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("frames_failed_index", IntColumn::new) :
                 getBinaryColumn("frames_failed_index"));
     }
 
@@ -101,20 +101,20 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For experiments in which samples are provided in a
      * continuous stream, the total number of data frames collected
      * that were indexed.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFramesIndexed() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("frames_indexed", SingleRowIntColumn::new) :
+    public IntColumn getFramesIndexed() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("frames_indexed", IntColumn::new) :
                 getBinaryColumn("frames_indexed"));
     }
 
     /**
      * For experiments in which samples are provided in a
      * continuous stream, the total number of lattices indexed.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLatticesIndexed() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("lattices_indexed", SingleRowIntColumn::new) :
+    public IntColumn getLatticesIndexed() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("lattices_indexed", IntColumn::new) :
                 getBinaryColumn("lattices_indexed"));
     }
 
@@ -122,10 +122,10 @@ public class PdbxSerialCrystallographyDataReduction extends BaseCategory {
      * For FEL experiments, in which data collection was performed
      * in batches, indicates which subset of the data collected
      * were used in producing this dataset.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getXfelRunNumbers() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("xfel_run_numbers", SingleRowStrColumn::new) :
+    public StrColumn getXfelRunNumbers() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("xfel_run_numbers", StrColumn::new) :
                 getBinaryColumn("xfel_run_numbers"));
     }
 }

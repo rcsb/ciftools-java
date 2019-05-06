@@ -29,49 +29,49 @@ public class Em3dFitting extends BaseCategory {
      * The value of _em_3d_fitting.id must uniquely identify
      * a fitting procedure of atomic coordinates
      * into 3dem reconstructed map volume.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item is a pointer to _entry_id in
      * the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The method used to fit atomic coordinates
      * into the 3dem reconstructed map.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The measure used to assess quality of fit of the atomic coordinates in the
      * 3DEM map volume.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTargetCriteria() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("target_criteria", SingleRowStrColumn::new) :
+    public StrColumn getTargetCriteria() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("target_criteria", StrColumn::new) :
                 getBinaryColumn("target_criteria"));
     }
 
     /**
      * The software used for fitting atomic coordinates to the map.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSoftwareName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("software_name", SingleRowStrColumn::new) :
+    public StrColumn getSoftwareName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("software_name", StrColumn::new) :
                 getBinaryColumn("software_name"));
     }
 
@@ -79,38 +79,38 @@ public class Em3dFitting extends BaseCategory {
      * Any additional details regarding fitting of atomic coordinates into
      * the 3DEM volume, including data and considerations from other
      * methods used in computation of the model.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The overall B (temperature factor) value for the 3d-em volume.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallBValue() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_b_value", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallBValue() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_b_value", FloatColumn::new) :
                 getBinaryColumn("overall_b_value"));
     }
 
     /**
      * A flag to indicate whether fitting was carried out in real
      * or reciprocal refinement space.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefSpace() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ref_space", SingleRowStrColumn::new) :
+    public StrColumn getRefSpace() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ref_space", StrColumn::new) :
                 getBinaryColumn("ref_space"));
     }
 
     /**
      * The refinement protocol used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefProtocol() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ref_protocol", SingleRowStrColumn::new) :
+    public StrColumn getRefProtocol() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ref_protocol", StrColumn::new) :
                 getBinaryColumn("ref_protocol"));
     }
 }

@@ -24,28 +24,28 @@ public class PdbxEntityNonpoly extends BaseCategory {
 
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
     /**
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("comp_id", SingleRowStrColumn::new) :
+    public StrColumn getCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("comp_id", StrColumn::new) :
                 getBinaryColumn("comp_id"));
     }
 
     /**
      * A name for the non-polymer entity
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 }

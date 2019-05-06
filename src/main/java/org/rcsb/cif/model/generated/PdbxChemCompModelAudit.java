@@ -26,55 +26,55 @@ public class PdbxChemCompModelAudit extends BaseCategory {
     /**
      * This data item is a pointer to _pdbx_chem_comp_model.id in the PDBX_CHEM_COMP_MODEL
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getModelId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("model_id", SingleRowStrColumn::new) :
+    public StrColumn getModelId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("model_id", StrColumn::new) :
                 getBinaryColumn("model_id"));
     }
 
     /**
      * The date associated with this audit record.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date", SingleRowStrColumn::new) :
+    public StrColumn getDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date", StrColumn::new) :
                 getBinaryColumn("date"));
     }
 
     /**
      * The initials of the annotator creating of modifying the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnotator() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annotator", SingleRowStrColumn::new) :
+    public StrColumn getAnnotator() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annotator", StrColumn::new) :
                 getBinaryColumn("annotator"));
     }
 
     /**
      * An identifier for the wwPDB site creating or modifying the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProcessingSite() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("processing_site", SingleRowStrColumn::new) :
+    public StrColumn getProcessingSite() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("processing_site", StrColumn::new) :
                 getBinaryColumn("processing_site"));
     }
 
     /**
      * Additional details decribing this change.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The action associated with this audit record.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getActionType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("action_type", SingleRowStrColumn::new) :
+    public StrColumn getActionType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("action_type", StrColumn::new) :
                 getBinaryColumn("action_type"));
     }
 }

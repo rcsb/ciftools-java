@@ -25,74 +25,74 @@ public class PdbxDepuiValidationStatusFlags extends BaseCategory {
 
     /**
      * The internal identifier assigned to each deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepDatasetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", SingleRowStrColumn::new) :
+    public StrColumn getDepDatasetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", StrColumn::new) :
                 getBinaryColumn("dep_dataset_id"));
     }
 
     /**
      * A flag to indicate if the uploaded data is contains residual B-values
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getResidualBFactorsFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("residual_B_factors_flag", SingleRowStrColumn::new) :
+    public StrColumn getResidualBFactorsFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("residual_B_factors_flag", StrColumn::new) :
                 getBinaryColumn("residual_B_factors_flag"));
     }
 
     /**
      * Count of atoms with occupancy values less than 0
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOccupancyOutliersLow() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("occupancy_outliers_low", SingleRowIntColumn::new) :
+    public IntColumn getOccupancyOutliersLow() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("occupancy_outliers_low", IntColumn::new) :
                 getBinaryColumn("occupancy_outliers_low"));
     }
 
     /**
      * Count of atoms with occupancy values greater than 1
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOccupancyOutliersHigh() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("occupancy_outliers_high", SingleRowIntColumn::new) :
+    public IntColumn getOccupancyOutliersHigh() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("occupancy_outliers_high", IntColumn::new) :
                 getBinaryColumn("occupancy_outliers_high"));
     }
 
     /**
      * Count of atoms with ADP (B-values) values less than 0
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getAdpOutliersLow() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("adp_outliers_low", SingleRowIntColumn::new) :
+    public IntColumn getAdpOutliersLow() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("adp_outliers_low", IntColumn::new) :
                 getBinaryColumn("adp_outliers_low"));
     }
 
     /**
      * Count of solvent atoms with anonalous positions.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSolventOutliers() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("solvent_outliers", SingleRowIntColumn::new) :
+    public IntColumn getSolventOutliers() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("solvent_outliers", IntColumn::new) :
                 getBinaryColumn("solvent_outliers"));
     }
 
     /**
      * A flag to indicate if the uploaded model has TLS records
      * but no anisotropic ones.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTlsNoAniso() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("tls_no_aniso", SingleRowStrColumn::new) :
+    public StrColumn getTlsNoAniso() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("tls_no_aniso", StrColumn::new) :
                 getBinaryColumn("tls_no_aniso"));
     }
 
     /**
      * A flag to indicate if any isotropic B factors are zero.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAdpOutliersZero() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("adp_outliers_zero", SingleRowStrColumn::new) :
+    public StrColumn getAdpOutliersZero() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("adp_outliers_zero", StrColumn::new) :
                 getBinaryColumn("adp_outliers_zero"));
     }
 }

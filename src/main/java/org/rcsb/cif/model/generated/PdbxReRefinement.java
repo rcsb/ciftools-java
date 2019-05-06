@@ -25,10 +25,10 @@ public class PdbxReRefinement extends BaseCategory {
 
     /**
      * The identifier for entry where the experimental data was obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -36,19 +36,19 @@ public class PdbxReRefinement extends BaseCategory {
      * A pointer to _citation.id in category CITATION describing the
      * the citation of the entry from from which the experimental data
      * was obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 
     /**
      * Additional details about this re-refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

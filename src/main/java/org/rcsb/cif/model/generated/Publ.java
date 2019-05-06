@@ -25,10 +25,10 @@ public class Publ extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -37,10 +37,10 @@ public class Publ extends BaseCategory {
      * data block. This is the person contacted by the journal
      * editorial staff. It is preferable to use the separate data items
      * _publ.contact_author_name and _publ.contact_author_address.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthor() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthor() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author", StrColumn::new) :
                 getBinaryColumn("contact_author"));
     }
 
@@ -48,10 +48,10 @@ public class Publ extends BaseCategory {
      * The address of the author submitting the manuscript and data
      * block. This is the person contacted by the journal editorial
      * staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthorAddress() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author_address", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthorAddress() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author_address", StrColumn::new) :
                 getBinaryColumn("contact_author_address"));
     }
 
@@ -60,10 +60,10 @@ public class Publ extends BaseCategory {
      * The format of e-mail addresses is given in Section 3.4, Address
      * Specification, of Internet Message Format, RFC 2822, P. Resnick
      * (Editor), Network Standards Group, April 2001.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthorEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author_email", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthorEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author_email", StrColumn::new) :
                 getBinaryColumn("contact_author_email"));
     }
 
@@ -76,10 +76,10 @@ public class Publ extends BaseCategory {
      * local number with no spaces. The earlier convention of including
      * the international dialing prefix in parentheses is no longer
      * recommended.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthorFax() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author_fax", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthorFax() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author_fax", StrColumn::new) :
                 getBinaryColumn("contact_author_fax"));
     }
 
@@ -87,10 +87,10 @@ public class Publ extends BaseCategory {
      * The name of the author submitting the manuscript and data
      * block. This is the person contacted by the journal editorial
      * staff.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthorName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author_name", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthorName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author_name", StrColumn::new) :
                 getBinaryColumn("contact_author_name"));
     }
 
@@ -104,19 +104,19 @@ public class Publ extends BaseCategory {
      * with no spaces. The earlier convention of including
      * the international dialing prefix in parentheses is no longer
      * recommended.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactAuthorPhone() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_author_phone", SingleRowStrColumn::new) :
+    public StrColumn getContactAuthorPhone() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_author_phone", StrColumn::new) :
                 getBinaryColumn("contact_author_phone"));
     }
 
     /**
      * A letter submitted to the journal editor by the contact author.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContactLetter() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("contact_letter", SingleRowStrColumn::new) :
+    public StrColumn getContactLetter() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("contact_letter", StrColumn::new) :
                 getBinaryColumn("contact_letter"));
     }
 
@@ -124,10 +124,10 @@ public class Publ extends BaseCategory {
      * A description of the word-processor package and computer used to
      * create the word-processed manuscript stored as
      * _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getManuscriptCreation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("manuscript_creation", SingleRowStrColumn::new) :
+    public StrColumn getManuscriptCreation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("manuscript_creation", StrColumn::new) :
                 getBinaryColumn("manuscript_creation"));
     }
 
@@ -136,20 +136,20 @@ public class Publ extends BaseCategory {
      * and the tables) output in ASCII characters from a word processor.
      * Information about the generation of this data item must be
      * specified in the data item _publ.manuscript_creation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getManuscriptProcessed() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("manuscript_processed", SingleRowStrColumn::new) :
+    public StrColumn getManuscriptProcessed() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("manuscript_processed", StrColumn::new) :
                 getBinaryColumn("manuscript_processed"));
     }
 
     /**
      * The full manuscript of a paper (excluding figures and possibly
      * the tables) output as standard ASCII text.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getManuscriptText() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("manuscript_text", SingleRowStrColumn::new) :
+    public StrColumn getManuscriptText() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("manuscript_text", StrColumn::new) :
                 getBinaryColumn("manuscript_text"));
     }
 
@@ -158,30 +158,30 @@ public class Publ extends BaseCategory {
      * Acta Crystallographica Section C or
      * Acta Crystallographica Section E, ONLY the codes indicated
      * for use with these journals should be used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRequestedCategory() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("requested_category", SingleRowStrColumn::new) :
+    public StrColumn getRequestedCategory() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("requested_category", StrColumn::new) :
                 getBinaryColumn("requested_category"));
     }
 
     /**
      * The name of the co-editor whom the authors would like to
      * handle the submitted manuscript.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRequestedCoeditorName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("requested_coeditor_name", SingleRowStrColumn::new) :
+    public StrColumn getRequestedCoeditorName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("requested_coeditor_name", StrColumn::new) :
                 getBinaryColumn("requested_coeditor_name"));
     }
 
     /**
      * The name of the journal to which the manuscript is being
      * submitted.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRequestedJournal() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("requested_journal", SingleRowStrColumn::new) :
+    public StrColumn getRequestedJournal() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("requested_journal", StrColumn::new) :
                 getBinaryColumn("requested_journal"));
     }
 
@@ -189,10 +189,10 @@ public class Publ extends BaseCategory {
      * The abstract section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionAbstract() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_abstract", SingleRowStrColumn::new) :
+    public StrColumn getSectionAbstract() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_abstract", StrColumn::new) :
                 getBinaryColumn("section_abstract"));
     }
 
@@ -200,10 +200,10 @@ public class Publ extends BaseCategory {
      * The acknowledgements section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionAcknowledgements() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_acknowledgements", SingleRowStrColumn::new) :
+    public StrColumn getSectionAcknowledgements() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_acknowledgements", StrColumn::new) :
                 getBinaryColumn("section_acknowledgements"));
     }
 
@@ -211,10 +211,10 @@ public class Publ extends BaseCategory {
      * The comment section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionComment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_comment", SingleRowStrColumn::new) :
+    public StrColumn getSectionComment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_comment", StrColumn::new) :
                 getBinaryColumn("section_comment"));
     }
 
@@ -222,10 +222,10 @@ public class Publ extends BaseCategory {
      * The discussion section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionDiscussion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_discussion", SingleRowStrColumn::new) :
+    public StrColumn getSectionDiscussion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_discussion", StrColumn::new) :
                 getBinaryColumn("section_discussion"));
     }
 
@@ -237,10 +237,10 @@ public class Publ extends BaseCategory {
      * _publ.section_exptl_refinement items are preferred for
      * separating the chemical preparation, structure solution and
      * refinement aspects of the description of the experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionExperimental() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_experimental", SingleRowStrColumn::new) :
+    public StrColumn getSectionExperimental() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_experimental", StrColumn::new) :
                 getBinaryColumn("section_experimental"));
     }
 
@@ -248,10 +248,10 @@ public class Publ extends BaseCategory {
      * The experimental preparation section of a manuscript if the
      * manuscript is submitted in parts. As an alternative see
      * _publ.manuscript_text and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionExptlPrep() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_exptl_prep", SingleRowStrColumn::new) :
+    public StrColumn getSectionExptlPrep() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_exptl_prep", StrColumn::new) :
                 getBinaryColumn("section_exptl_prep"));
     }
 
@@ -259,10 +259,10 @@ public class Publ extends BaseCategory {
      * The experimental refinement section of a manuscript if the
      * manuscript is submitted in parts. As an alternative see
      * _publ.manuscript_text and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionExptlRefinement() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_exptl_refinement", SingleRowStrColumn::new) :
+    public StrColumn getSectionExptlRefinement() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_exptl_refinement", StrColumn::new) :
                 getBinaryColumn("section_exptl_refinement"));
     }
 
@@ -270,10 +270,10 @@ public class Publ extends BaseCategory {
      * The experimental solution section of a manuscript if the
      * manuscript is submitted in parts. As an alternative see
      * _publ.manuscript_text and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionExptlSolution() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_exptl_solution", SingleRowStrColumn::new) :
+    public StrColumn getSectionExptlSolution() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_exptl_solution", StrColumn::new) :
                 getBinaryColumn("section_exptl_solution"));
     }
 
@@ -281,10 +281,10 @@ public class Publ extends BaseCategory {
      * The figure captions section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionFigureCaptions() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_figure_captions", SingleRowStrColumn::new) :
+    public StrColumn getSectionFigureCaptions() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_figure_captions", StrColumn::new) :
                 getBinaryColumn("section_figure_captions"));
     }
 
@@ -292,10 +292,10 @@ public class Publ extends BaseCategory {
      * The introduction section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionIntroduction() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_introduction", SingleRowStrColumn::new) :
+    public StrColumn getSectionIntroduction() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_introduction", StrColumn::new) :
                 getBinaryColumn("section_introduction"));
     }
 
@@ -303,10 +303,10 @@ public class Publ extends BaseCategory {
      * The references section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionReferences() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_references", SingleRowStrColumn::new) :
+    public StrColumn getSectionReferences() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_references", StrColumn::new) :
                 getBinaryColumn("section_references"));
     }
 
@@ -314,10 +314,10 @@ public class Publ extends BaseCategory {
      * The synopsis section of a manuscript if the manuscript is
      * submitted in parts. As an alternative see _publ.manuscript_text
      * and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionSynopsis() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_synopsis", SingleRowStrColumn::new) :
+    public StrColumn getSectionSynopsis() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_synopsis", StrColumn::new) :
                 getBinaryColumn("section_synopsis"));
     }
 
@@ -325,10 +325,10 @@ public class Publ extends BaseCategory {
      * The table legends section of a manuscript if the manuscript
      * is submitted in parts. As an alternative see
      * _publ.manuscript_text and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionTableLegends() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_table_legends", SingleRowStrColumn::new) :
+    public StrColumn getSectionTableLegends() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_table_legends", StrColumn::new) :
                 getBinaryColumn("section_table_legends"));
     }
 
@@ -336,10 +336,10 @@ public class Publ extends BaseCategory {
      * The title of a manuscript if the manuscript is submitted in
      * parts. As an alternative see _publ.manuscript_text and
      * _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionTitle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_title", SingleRowStrColumn::new) :
+    public StrColumn getSectionTitle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_title", StrColumn::new) :
                 getBinaryColumn("section_title"));
     }
 
@@ -347,10 +347,10 @@ public class Publ extends BaseCategory {
      * The footnote to the title of a manuscript if the manuscript
      * is submitted in parts. As an alternative see
      * _publ.manuscript_text and _publ.manuscript_processed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSectionTitleFootnote() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("section_title_footnote", SingleRowStrColumn::new) :
+    public StrColumn getSectionTitleFootnote() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("section_title_footnote", StrColumn::new) :
                 getBinaryColumn("section_title_footnote"));
     }
 }

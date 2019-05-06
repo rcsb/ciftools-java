@@ -25,55 +25,55 @@ public class PdbxDatabaseStatusHistory extends BaseCategory {
 
     /**
      * The value of _pdbx_database_status_history.entry_id identifies the entry data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Ordinal index for the status history list.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOrdinal() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ordinal", SingleRowStrColumn::new) :
+    public StrColumn getOrdinal() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ordinal", StrColumn::new) :
                 getBinaryColumn("ordinal"));
     }
 
     /**
      * This is the date of the start of the current processing status state.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateBegin() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_begin", SingleRowStrColumn::new) :
+    public StrColumn getDateBegin() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_begin", StrColumn::new) :
                 getBinaryColumn("date_begin"));
     }
 
     /**
      * This is the date of the end of the current processing status state.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateEnd() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_end", SingleRowStrColumn::new) :
+    public StrColumn getDateEnd() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_end", StrColumn::new) :
                 getBinaryColumn("date_end"));
     }
 
     /**
      * Current entry processing status.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStatusCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("status_code", SingleRowStrColumn::new) :
+    public StrColumn getStatusCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("status_code", StrColumn::new) :
                 getBinaryColumn("status_code"));
     }
 
     /**
      * Special details about the current process status state.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

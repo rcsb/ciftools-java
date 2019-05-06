@@ -27,20 +27,20 @@ public class EmEntityAssembly extends BaseCategory {
     /**
      * The value of _em_entity_assembly.id identifies
      * one component of the complex.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item is a pointer to _em_assembly.id in the
      * ASSEMBLY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAssemblyId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("assembly_id", SingleRowStrColumn::new) :
+    public StrColumn getAssemblyId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("assembly_id", StrColumn::new) :
                 getBinaryColumn("assembly_id"));
     }
 
@@ -48,47 +48,47 @@ public class EmEntityAssembly extends BaseCategory {
      * The parent of this assembly.
      * This data item is an internal category pointer to _em_entity_assembly.id.
      * By convention, the full assembly (top of hierarchy) is assigned parent id 0 (zero).
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getParentId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("parent_id", SingleRowIntColumn::new) :
+    public IntColumn getParentId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("parent_id", IntColumn::new) :
                 getBinaryColumn("parent_id"));
     }
 
     /**
      * The assembly type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSource() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("source", SingleRowStrColumn::new) :
+    public StrColumn getSource() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("source", StrColumn::new) :
                 getBinaryColumn("source"));
     }
 
     /**
      * A description of types of components of the
      * assembly of the biological structure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * Name of this component in the observed assembly.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 
     /**
      * Additional details about the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -96,10 +96,10 @@ public class EmEntityAssembly extends BaseCategory {
      * The Gene Ontology (GO) identifier for the component.
      * The GO id is the appropriate identifier used by the Gene Ontology
      * Consortium. Reference: Nature Genetics vol 25:25-29 (2000).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGoId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("go_id", SingleRowStrColumn::new) :
+    public StrColumn getGoId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("go_id", StrColumn::new) :
                 getBinaryColumn("go_id"));
     }
 
@@ -107,152 +107,152 @@ public class EmEntityAssembly extends BaseCategory {
      * The InterPro (IPR) identifier for the component.
      * The IPR id is the appropriate identifier used by the Interpro Resource.
      * Reference: Nucleic Acid Research vol 29(1):37-40(2001).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIprId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ipr_id", SingleRowStrColumn::new) :
+    public StrColumn getIprId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ipr_id", StrColumn::new) :
                 getBinaryColumn("ipr_id"));
     }
 
     /**
      * Alternative name of the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSynonym() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("synonym", SingleRowStrColumn::new) :
+    public StrColumn getSynonym() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("synonym", StrColumn::new) :
                 getBinaryColumn("synonym"));
     }
 
     /**
      * number of copies
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberOfCopies() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_of_copies", SingleRowIntColumn::new) :
+    public IntColumn getNumberOfCopies() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_of_copies", IntColumn::new) :
                 getBinaryColumn("number_of_copies"));
     }
 
     /**
      * oligomeric details
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOligomericDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("oligomeric_details", SingleRowStrColumn::new) :
+    public StrColumn getOligomericDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("oligomeric_details", StrColumn::new) :
                 getBinaryColumn("oligomeric_details"));
     }
 
     /**
      * macromolecules associated with this component, if defined
      * as comma separated list of entity ids (integers).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityIdList() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id_list", SingleRowStrColumn::new) :
+    public StrColumn getEntityIdList() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id_list", StrColumn::new) :
                 getBinaryColumn("entity_id_list"));
     }
 
     /**
      * The species of the natural organism from which the component
      * was obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiOrganismScientific() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_organism_scientific", SingleRowStrColumn::new) :
+    public StrColumn getEbiOrganismScientific() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_organism_scientific", StrColumn::new) :
                 getBinaryColumn("ebi_organism_scientific"));
     }
 
     /**
      * The common name of the species of the natural organism from which
      * the component was obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiOrganismCommon() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_organism_common", SingleRowStrColumn::new) :
+    public StrColumn getEbiOrganismCommon() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_organism_common", StrColumn::new) :
                 getBinaryColumn("ebi_organism_common"));
     }
 
     /**
      * The strain of the natural organism from which the component was
      * obtained, if relevant.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiStrain() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_strain", SingleRowStrColumn::new) :
+    public StrColumn getEbiStrain() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_strain", StrColumn::new) :
                 getBinaryColumn("ebi_strain"));
     }
 
     /**
      * The tissue of the natural organism from which the component was
      * obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiTissue() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_tissue", SingleRowStrColumn::new) :
+    public StrColumn getEbiTissue() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_tissue", StrColumn::new) :
                 getBinaryColumn("ebi_tissue"));
     }
 
     /**
      * The cell from which the component was
      * obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiCell() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_cell", SingleRowStrColumn::new) :
+    public StrColumn getEbiCell() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_cell", StrColumn::new) :
                 getBinaryColumn("ebi_cell"));
     }
 
     /**
      * The organelle from which the component was
      * obtained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiOrganelle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_organelle", SingleRowStrColumn::new) :
+    public StrColumn getEbiOrganelle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_organelle", StrColumn::new) :
                 getBinaryColumn("ebi_organelle"));
     }
 
     /**
      * The cellular location of the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiCellularLocation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_cellular_location", SingleRowStrColumn::new) :
+    public StrColumn getEbiCellularLocation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_cellular_location", StrColumn::new) :
                 getBinaryColumn("ebi_cellular_location"));
     }
 
     /**
      * A flag to indicate whether the component is engineered.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiEngineered() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_engineered", SingleRowStrColumn::new) :
+    public StrColumn getEbiEngineered() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_engineered", StrColumn::new) :
                 getBinaryColumn("ebi_engineered"));
     }
 
     /**
      * The expression system used to produce the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiExpressionSystem() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_expression_system", SingleRowStrColumn::new) :
+    public StrColumn getEbiExpressionSystem() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_expression_system", StrColumn::new) :
                 getBinaryColumn("ebi_expression_system"));
     }
 
     /**
      * The plasmid used to produce the component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEbiExpressionSystemPlasmid() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ebi_expression_system_plasmid", SingleRowStrColumn::new) :
+    public StrColumn getEbiExpressionSystemPlasmid() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ebi_expression_system_plasmid", StrColumn::new) :
                 getBinaryColumn("ebi_expression_system_plasmid"));
     }
 
     /**
      * mutant flag
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMutantFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mutant_flag", SingleRowStrColumn::new) :
+    public StrColumn getMutantFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mutant_flag", StrColumn::new) :
                 getBinaryColumn("mutant_flag"));
     }
 }

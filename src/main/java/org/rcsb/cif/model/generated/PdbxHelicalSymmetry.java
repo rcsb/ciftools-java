@@ -25,65 +25,65 @@ public class PdbxHelicalSymmetry extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Number of operations.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberOfOperations() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_of_operations", SingleRowIntColumn::new) :
+    public IntColumn getNumberOfOperations() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_of_operations", IntColumn::new) :
                 getBinaryColumn("number_of_operations"));
     }
 
     /**
      * Angular rotation (degrees) in N subunits
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRotationPerNSubunits() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rotation_per_n_subunits", SingleRowFloatColumn::new) :
+    public FloatColumn getRotationPerNSubunits() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rotation_per_n_subunits", FloatColumn::new) :
                 getBinaryColumn("rotation_per_n_subunits"));
     }
 
     /**
      * Angular rotation (degrees) in N subunits
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRisePerNSubunits() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("rise_per_n_subunits", SingleRowFloatColumn::new) :
+    public FloatColumn getRisePerNSubunits() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("rise_per_n_subunits", FloatColumn::new) :
                 getBinaryColumn("rise_per_n_subunits"));
     }
 
     /**
      * Number of subunits used in the calculation of rise and
      * rotation.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNSubunitsDivisor() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("n_subunits_divisor", SingleRowIntColumn::new) :
+    public IntColumn getNSubunitsDivisor() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("n_subunits_divisor", IntColumn::new) :
                 getBinaryColumn("n_subunits_divisor"));
     }
 
     /**
      * Two-fold symmetry perpendicular to the helical axis.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDyadAxis() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dyad_axis", SingleRowStrColumn::new) :
+    public StrColumn getDyadAxis() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dyad_axis", StrColumn::new) :
                 getBinaryColumn("dyad_axis"));
     }
 
     /**
      * Rotational n-fold symmetry about the helical axis.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCircularSymmetry() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("circular_symmetry", SingleRowIntColumn::new) :
+    public IntColumn getCircularSymmetry() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("circular_symmetry", IntColumn::new) :
                 getBinaryColumn("circular_symmetry"));
     }
 }

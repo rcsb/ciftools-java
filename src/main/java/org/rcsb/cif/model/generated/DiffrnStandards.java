@@ -30,10 +30,10 @@ public class DiffrnStandards extends BaseCategory {
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
@@ -45,40 +45,40 @@ public class DiffrnStandards extends BaseCategory {
      * during the diffraction measurement process. Negative values
      * are used in exceptional instances where the final intensities
      * are greater than the initial ones.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDecay() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("decay_%", SingleRowFloatColumn::new) :
+    public FloatColumn getDecay() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("decay_%", FloatColumn::new) :
                 getBinaryColumn("decay_%"));
     }
 
     /**
      * The number of reflection intensities between the measurement of
      * standard reflection intensities.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIntervalCount() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("interval_count", SingleRowIntColumn::new) :
+    public IntColumn getIntervalCount() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("interval_count", IntColumn::new) :
                 getBinaryColumn("interval_count"));
     }
 
     /**
      * The time in minutes between the measurement of standard
      * reflection intensities.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getIntervalTime() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("interval_time", SingleRowFloatColumn::new) :
+    public FloatColumn getIntervalTime() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("interval_time", FloatColumn::new) :
                 getBinaryColumn("interval_time"));
     }
 
     /**
      * The number of unique standard reflections used during the
      * measurement of  the diffraction intensities.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumber() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number", SingleRowIntColumn::new) :
+    public IntColumn getNumber() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number", IntColumn::new) :
                 getBinaryColumn("number"));
     }
 
@@ -86,20 +86,20 @@ public class DiffrnStandards extends BaseCategory {
      * The standard uncertainty (estimated standard deviation) of
      * the individual mean standard scales applied to the intensity
      * data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScaleSigma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scale_sigma", SingleRowFloatColumn::new) :
+    public FloatColumn getScaleSigma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scale_sigma", FloatColumn::new) :
                 getBinaryColumn("scale_sigma"));
     }
 
     /**
      * The standard uncertainty of the individual mean
      * standard scales applied to the intensity data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScaleU() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scale_u", SingleRowFloatColumn::new) :
+    public FloatColumn getScaleU() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scale_u", FloatColumn::new) :
                 getBinaryColumn("scale_u"));
     }
 }

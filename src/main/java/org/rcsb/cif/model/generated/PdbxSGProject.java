@@ -26,37 +26,37 @@ public class PdbxSGProject extends BaseCategory {
 
     /**
      * A unique integer identifier for this center
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The value identifies the Structural Genomics project.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProjectName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("project_name", SingleRowStrColumn::new) :
+    public StrColumn getProjectName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("project_name", StrColumn::new) :
                 getBinaryColumn("project_name"));
     }
 
     /**
      * The value identifies the full name of center.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFullNameOfCenter() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("full_name_of_center", SingleRowStrColumn::new) :
+    public StrColumn getFullNameOfCenter() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("full_name_of_center", StrColumn::new) :
                 getBinaryColumn("full_name_of_center"));
     }
 
     /**
      * The value identifies the full name of center.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getInitialOfCenter() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("initial_of_center", SingleRowStrColumn::new) :
+    public StrColumn getInitialOfCenter() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("initial_of_center", StrColumn::new) :
                 getBinaryColumn("initial_of_center"));
     }
 }

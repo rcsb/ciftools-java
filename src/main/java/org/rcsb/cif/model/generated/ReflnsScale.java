@@ -30,37 +30,37 @@ public class ReflnsScale extends BaseCategory {
      * These are linked to the REFLN list by the
      * _refln.scale_group_code. These codes
      * need not correspond to those in the DIFFRN_SCALE list.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGroupCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("group_code", SingleRowStrColumn::new) :
+    public StrColumn getGroupCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("group_code", StrColumn::new) :
                 getBinaryColumn("group_code"));
     }
 
     /**
      * A scale associated with _reflns_scale.group_code.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeasF() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("meas_F", SingleRowFloatColumn::new) :
+    public FloatColumn getMeasF() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("meas_F", FloatColumn::new) :
                 getBinaryColumn("meas_F"));
     }
 
     /**
      * A scale associated with _reflns_scale.group_code.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeasFSquared() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("meas_F_squared", SingleRowFloatColumn::new) :
+    public FloatColumn getMeasFSquared() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("meas_F_squared", FloatColumn::new) :
                 getBinaryColumn("meas_F_squared"));
     }
 
     /**
      * A scale associated with _reflns_scale.group_code.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeasIntensity() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("meas_intensity", SingleRowFloatColumn::new) :
+    public FloatColumn getMeasIntensity() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("meas_intensity", FloatColumn::new) :
                 getBinaryColumn("meas_intensity"));
     }
 }

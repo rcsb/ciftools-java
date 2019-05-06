@@ -26,110 +26,110 @@ public class PdbxSerialCrystallographySampleDeliveryFixedTarget extends BaseCate
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * For a fixed target sample, a description of sample preparation
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("description", SingleRowStrColumn::new) :
+    public StrColumn getDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("description", StrColumn::new) :
                 getBinaryColumn("description"));
     }
 
     /**
      * For a fixed target sample, mechanism to hold sample in the beam
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleHolding() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_holding", SingleRowStrColumn::new) :
+    public StrColumn getSampleHolding() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_holding", StrColumn::new) :
                 getBinaryColumn("sample_holding"));
     }
 
     /**
      * Type of base holding the support
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSupportBase() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("support_base", SingleRowStrColumn::new) :
+    public StrColumn getSupportBase() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("support_base", StrColumn::new) :
                 getBinaryColumn("support_base"));
     }
 
     /**
      * Size of pore in grid supporting sample. Diameter or length in micrometres,
      * e.g. pore diameter
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSampleUnitSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("sample_unit_size", SingleRowFloatColumn::new) :
+    public FloatColumn getSampleUnitSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("sample_unit_size", FloatColumn::new) :
                 getBinaryColumn("sample_unit_size"));
     }
 
     /**
      * The number of crystals per dropplet or pore in fixed target
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCrystalsPerUnit() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("crystals_per_unit", SingleRowIntColumn::new) :
+    public IntColumn getCrystalsPerUnit() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("crystals_per_unit", IntColumn::new) :
                 getBinaryColumn("crystals_per_unit"));
     }
 
     /**
      * The sample solution content and concentration
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleSolvent() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_solvent", SingleRowStrColumn::new) :
+    public StrColumn getSampleSolvent() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_solvent", StrColumn::new) :
                 getBinaryColumn("sample_solvent"));
     }
 
     /**
      * Method to prevent dehydration of sample
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleDehydrationPrevention() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_dehydration_prevention", SingleRowStrColumn::new) :
+    public StrColumn getSampleDehydrationPrevention() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_dehydration_prevention", StrColumn::new) :
                 getBinaryColumn("sample_dehydration_prevention"));
     }
 
     /**
      * Device used to control movement of the fixed sample
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMotionControl() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("motion_control", SingleRowStrColumn::new) :
+    public StrColumn getMotionControl() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("motion_control", StrColumn::new) :
                 getBinaryColumn("motion_control"));
     }
 
     /**
      * Velocity of sample horizontally relative to a perpendicular beam in millimetres/second
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getVelocityHorizontal() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("velocity_horizontal", SingleRowFloatColumn::new) :
+    public FloatColumn getVelocityHorizontal() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("velocity_horizontal", FloatColumn::new) :
                 getBinaryColumn("velocity_horizontal"));
     }
 
     /**
      * Velocity of sample vertically relative to a perpendicular beam in millimetres/second
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getVelocityVertical() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("velocity_vertical", SingleRowFloatColumn::new) :
+    public FloatColumn getVelocityVertical() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("velocity_vertical", FloatColumn::new) :
                 getBinaryColumn("velocity_vertical"));
     }
 
     /**
      * Any details pertinent to the fixed sample target
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

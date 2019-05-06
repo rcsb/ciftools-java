@@ -27,92 +27,92 @@ public class EmSampleSupport extends BaseCategory {
     /**
      * The value of _em_sample_support.id must uniquely identify
      * the sample support.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The support material covering the em grid.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFilmMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("film_material", SingleRowStrColumn::new) :
+    public StrColumn getFilmMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("film_material", StrColumn::new) :
                 getBinaryColumn("film_material"));
     }
 
     /**
      * A description of the method used to produce the support film.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The name of the material from which the grid is made.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGridMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("grid_material", SingleRowStrColumn::new) :
+    public StrColumn getGridMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("grid_material", StrColumn::new) :
                 getBinaryColumn("grid_material"));
     }
 
     /**
      * The value of the mesh size (divisions per inch) of the em grid.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getGridMeshSize() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("grid_mesh_size", SingleRowIntColumn::new) :
+    public IntColumn getGridMeshSize() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("grid_mesh_size", IntColumn::new) :
                 getBinaryColumn("grid_mesh_size"));
     }
 
     /**
      * A description of the grid type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGridType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("grid_type", SingleRowStrColumn::new) :
+    public StrColumn getGridType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("grid_type", StrColumn::new) :
                 getBinaryColumn("grid_type"));
     }
 
     /**
      * A description of the grid plus support film pretreatment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPretreatment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pretreatment", SingleRowStrColumn::new) :
+    public StrColumn getPretreatment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pretreatment", StrColumn::new) :
                 getBinaryColumn("pretreatment"));
     }
 
     /**
      * Any additional details concerning the sample support.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item is a pointer to _em_sample_preparation.id in the EM_SPECIMEN category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_id", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_id", StrColumn::new) :
                 getBinaryColumn("specimen_id"));
     }
 
     /**
      * This data item is a pointer to _citation.id
      * in the CITATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 }

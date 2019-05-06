@@ -25,46 +25,46 @@ public class EmSingleParticleEntity extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Unique category label.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The single particle symmetry type.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSymmetryType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("symmetry_type", SingleRowStrColumn::new) :
+    public StrColumn getSymmetryType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("symmetry_type", StrColumn::new) :
                 getBinaryColumn("symmetry_type"));
     }
 
     /**
      * pointer to _em_image_processing.id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * Point symmetry symbol, either Cn, Dn, T, O, or I
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPointSymmetry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("point_symmetry", SingleRowStrColumn::new) :
+    public StrColumn getPointSymmetry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("point_symmetry", StrColumn::new) :
                 getBinaryColumn("point_symmetry"));
     }
 }

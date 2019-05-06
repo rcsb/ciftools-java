@@ -26,30 +26,30 @@ public class PdbxSerialCrystallographySampleDelivery extends BaseCategory {
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * The description of the mechanism by which the specimen in placed in the path
      * of the source.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("description", SingleRowStrColumn::new) :
+    public StrColumn getDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("description", StrColumn::new) :
                 getBinaryColumn("description"));
     }
 
     /**
      * The description of the mechanism by which the specimen in placed in the path
      * of the source.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 }

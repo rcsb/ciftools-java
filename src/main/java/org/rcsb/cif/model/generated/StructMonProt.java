@@ -31,50 +31,50 @@ public class StructMonProt extends BaseCategory {
     /**
      * The value in degrees of the side-chain torsion angle chi1, for
      * those residues containing such an angle.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChi1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chi1", SingleRowFloatColumn::new) :
+    public FloatColumn getChi1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chi1", FloatColumn::new) :
                 getBinaryColumn("chi1"));
     }
 
     /**
      * The value in degrees of the side-chain torsion angle chi2, for
      * those residues containing such an angle.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChi2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chi2", SingleRowFloatColumn::new) :
+    public FloatColumn getChi2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chi2", FloatColumn::new) :
                 getBinaryColumn("chi2"));
     }
 
     /**
      * The value in degrees of the side-chain torsion angle chi3, for
      * those residues containing such an angle.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChi3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chi3", SingleRowFloatColumn::new) :
+    public FloatColumn getChi3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chi3", FloatColumn::new) :
                 getBinaryColumn("chi3"));
     }
 
     /**
      * The value in degrees of the side-chain torsion angle chi4, for
      * those residues containing such an angle.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChi4() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chi4", SingleRowFloatColumn::new) :
+    public FloatColumn getChi4() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chi4", FloatColumn::new) :
                 getBinaryColumn("chi4"));
     }
 
     /**
      * The value in degrees of the side-chain torsion angle chi5, for
      * those residues containing such an angle.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChi5() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chi5", SingleRowFloatColumn::new) :
+    public FloatColumn getChi5() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chi5", FloatColumn::new) :
                 getBinaryColumn("chi5"));
     }
 
@@ -82,10 +82,10 @@ public class StructMonProt extends BaseCategory {
      * A description of special aspects of the residue, its
      * conformation, behaviour in refinement, or any other aspect that
      * requires annotation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDetails() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("details", SingleRowFloatColumn::new) :
+    public FloatColumn getDetails() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("details", FloatColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -94,10 +94,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_sites_alt.id in the
      * ATOM_SITES_ALT category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelAltId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_alt_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelAltId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_alt_id", StrColumn::new) :
                 getBinaryColumn("label_alt_id"));
     }
 
@@ -106,10 +106,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_asym_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_asym_id", StrColumn::new) :
                 getBinaryColumn("label_asym_id"));
     }
 
@@ -118,10 +118,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_comp_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_comp_id", StrColumn::new) :
                 getBinaryColumn("label_comp_id"));
     }
 
@@ -130,10 +130,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_seq_id in the
      * ATOM_SITE category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLabelSeqId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("label_seq_id", SingleRowIntColumn::new) :
+    public IntColumn getLabelSeqId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("label_seq_id", IntColumn::new) :
                 getBinaryColumn("label_seq_id"));
     }
 
@@ -142,10 +142,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_asym_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", StrColumn::new) :
                 getBinaryColumn("auth_asym_id"));
     }
 
@@ -154,10 +154,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", StrColumn::new) :
                 getBinaryColumn("auth_comp_id"));
     }
 
@@ -166,10 +166,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_seq_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthSeqId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthSeqId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", StrColumn::new) :
                 getBinaryColumn("auth_seq_id"));
     }
 
@@ -196,10 +196,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSCCAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSCC_all", SingleRowFloatColumn::new) :
+    public FloatColumn getRSCCAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSCC_all", FloatColumn::new) :
                 getBinaryColumn("RSCC_all"));
     }
 
@@ -226,10 +226,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSCCMain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSCC_main", SingleRowFloatColumn::new) :
+    public FloatColumn getRSCCMain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSCC_main", FloatColumn::new) :
                 getBinaryColumn("RSCC_main"));
     }
 
@@ -256,10 +256,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Jones, T. A., Zou, J.-Y., Cowan, S. W. &amp; Kjeldgaard, M.
      * (1991). Acta Cryst. A47, 110-119.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSCCSide() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSCC_side", SingleRowFloatColumn::new) :
+    public FloatColumn getRSCCSide() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSCC_side", FloatColumn::new) :
                 getBinaryColumn("RSCC_side"));
     }
 
@@ -284,10 +284,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSRAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSR_all", SingleRowFloatColumn::new) :
+    public FloatColumn getRSRAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSR_all", FloatColumn::new) :
                 getBinaryColumn("RSR_all"));
     }
 
@@ -313,10 +313,10 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSRMain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSR_main", SingleRowFloatColumn::new) :
+    public FloatColumn getRSRMain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSR_main", FloatColumn::new) :
                 getBinaryColumn("RSR_main"));
     }
 
@@ -342,67 +342,67 @@ public class StructMonProt extends BaseCategory {
      * 
      * Ref: Branden, C.-I. &amp; Jones, T. A. (1990). Nature (London), 343,
      * 687-689.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSRSide() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("RSR_side", SingleRowFloatColumn::new) :
+    public FloatColumn getRSRSide() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("RSR_side", FloatColumn::new) :
                 getBinaryColumn("RSR_side"));
     }
 
     /**
      * The mean value of the isotropic displacement parameter for all
      * atoms in the monomer.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeanBAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("mean_B_all", SingleRowFloatColumn::new) :
+    public FloatColumn getMeanBAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("mean_B_all", FloatColumn::new) :
                 getBinaryColumn("mean_B_all"));
     }
 
     /**
      * The mean value of the isotropic displacement parameter for atoms
      * in the main chain of the monomer.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeanBMain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("mean_B_main", SingleRowFloatColumn::new) :
+    public FloatColumn getMeanBMain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("mean_B_main", FloatColumn::new) :
                 getBinaryColumn("mean_B_main"));
     }
 
     /**
      * The mean value of the isotropic displacement parameter for atoms
      * in the side chain of the monomer.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMeanBSide() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("mean_B_side", SingleRowFloatColumn::new) :
+    public FloatColumn getMeanBSide() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("mean_B_side", FloatColumn::new) :
                 getBinaryColumn("mean_B_side"));
     }
 
     /**
      * The value in degrees of the main-chain torsion angle omega.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOmega() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("omega", SingleRowFloatColumn::new) :
+    public FloatColumn getOmega() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("omega", FloatColumn::new) :
                 getBinaryColumn("omega"));
     }
 
     /**
      * The value in degrees of the main-chain torsion angle phi.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPhi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("phi", SingleRowFloatColumn::new) :
+    public FloatColumn getPhi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("phi", FloatColumn::new) :
                 getBinaryColumn("phi"));
     }
 
     /**
      * The value in degrees of the main-chain torsion angle psi.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPsi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("psi", SingleRowFloatColumn::new) :
+    public FloatColumn getPsi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("psi", FloatColumn::new) :
                 getBinaryColumn("psi"));
     }
 }

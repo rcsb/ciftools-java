@@ -26,93 +26,93 @@ public class EmAssembly extends BaseCategory {
     /**
      * The value of _em_assembly.id must uniquely identify
      * a collection of observed complexes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The name of the assembly of observed complexes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 
     /**
      * A description of the aggregation state of the assembly.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAggregationState() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("aggregation_state", SingleRowStrColumn::new) :
+    public StrColumn getAggregationState() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("aggregation_state", StrColumn::new) :
                 getBinaryColumn("aggregation_state"));
     }
 
     /**
      * The composition of the assembly.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getComposition() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("composition", SingleRowStrColumn::new) :
+    public StrColumn getComposition() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("composition", StrColumn::new) :
                 getBinaryColumn("composition"));
     }
 
     /**
      * The number of components of the biological assembly.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumComponents() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_components", SingleRowIntColumn::new) :
+    public IntColumn getNumComponents() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_components", IntColumn::new) :
                 getBinaryColumn("num_components"));
     }
 
     /**
      * The value (in megadaltons) of the experimentally
      * determined molecular weight of the assembly.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMolWtExp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("mol_wt_exp", SingleRowFloatColumn::new) :
+    public FloatColumn getMolWtExp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("mol_wt_exp", FloatColumn::new) :
                 getBinaryColumn("mol_wt_exp"));
     }
 
     /**
      * The value (in megadaltons) of the theoretically
      * determined molecular weight of the assembly.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMolWtTheo() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("mol_wt_theo", SingleRowFloatColumn::new) :
+    public FloatColumn getMolWtTheo() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("mol_wt_theo", FloatColumn::new) :
                 getBinaryColumn("mol_wt_theo"));
     }
 
     /**
      * The method used to determine the molecular weight.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMolWtMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mol_wt_method", SingleRowStrColumn::new) :
+    public StrColumn getMolWtMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mol_wt_method", StrColumn::new) :
                 getBinaryColumn("mol_wt_method"));
     }
 
     /**
      * Any additional details describing the imaged sample.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

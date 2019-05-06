@@ -24,55 +24,55 @@ public class EmFinalClassification extends BaseCategory {
 
     /**
      * The average number of images per class in the final 2D classification
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getAvgNumImagesPerClass() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("avg_num_images_per_class", SingleRowIntColumn::new) :
+    public IntColumn getAvgNumImagesPerClass() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("avg_num_images_per_class", IntColumn::new) :
                 getBinaryColumn("avg_num_images_per_class"));
     }
 
     /**
      * Additional details about the final 2D classification
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_PROCESSING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * The number of classes used in the final 2D classification
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumClasses() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_classes", SingleRowIntColumn::new) :
+    public IntColumn getNumClasses() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_classes", IntColumn::new) :
                 getBinaryColumn("num_classes"));
     }
 
     /**
      * Space (2D/3D) for the classification.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

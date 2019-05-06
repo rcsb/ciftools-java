@@ -25,87 +25,87 @@ public class PdbxEntityInstanceFeature extends BaseCategory {
 
     /**
      * Special structural details about this entity instance.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * A feature type associated with entity instance.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFeatureType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("feature_type", SingleRowStrColumn::new) :
+    public StrColumn getFeatureType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("feature_type", StrColumn::new) :
                 getBinaryColumn("feature_type"));
     }
 
     /**
      * Author instance identifier (formerly PDB Chain ID)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", StrColumn::new) :
                 getBinaryColumn("auth_asym_id"));
     }
 
     /**
      * Instance identifier for this entity.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("asym_id", StrColumn::new) :
                 getBinaryColumn("asym_id"));
     }
 
     /**
      * 
      * Author provided residue number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthSeqNum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_seq_num", SingleRowStrColumn::new) :
+    public StrColumn getAuthSeqNum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_seq_num", StrColumn::new) :
                 getBinaryColumn("auth_seq_num"));
     }
 
     /**
      * 
      * Position in the sequence.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSeqNum() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("seq_num", SingleRowIntColumn::new) :
+    public IntColumn getSeqNum() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("seq_num", IntColumn::new) :
                 getBinaryColumn("seq_num"));
     }
 
     /**
      * 
      * Chemical component identifier
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("comp_id", SingleRowStrColumn::new) :
+    public StrColumn getCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("comp_id", StrColumn::new) :
                 getBinaryColumn("comp_id"));
     }
 
     /**
      * 
      * The author provided chemical component identifier
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", StrColumn::new) :
                 getBinaryColumn("auth_comp_id"));
     }
 
     /**
      * 
      * An ordinal index for this category
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOrdinal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ordinal", SingleRowIntColumn::new) :
+    public IntColumn getOrdinal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ordinal", IntColumn::new) :
                 getBinaryColumn("ordinal"));
     }
 }

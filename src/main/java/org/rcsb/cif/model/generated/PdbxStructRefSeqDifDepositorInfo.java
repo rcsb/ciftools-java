@@ -26,29 +26,29 @@ public class PdbxStructRefSeqDifDepositorInfo extends BaseCategory {
 
     /**
      * Ordinal index for this category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOrdinal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ordinal", SingleRowIntColumn::new) :
+    public IntColumn getOrdinal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ordinal", IntColumn::new) :
                 getBinaryColumn("ordinal"));
     }
 
     /**
      * This data item is a pointer to _struct_ref_seq.ref_id in
      * the STRUCT_REF_SEQ_DEPOSITOR_INFO  category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ref_id", SingleRowStrColumn::new) :
+    public StrColumn getRefId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ref_id", StrColumn::new) :
                 getBinaryColumn("ref_id"));
     }
 
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
@@ -58,19 +58,19 @@ public class PdbxStructRefSeqDifDepositorInfo extends BaseCategory {
      * 
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_mon_id", SingleRowStrColumn::new) :
+    public StrColumn getDbMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_mon_id", StrColumn::new) :
                 getBinaryColumn("db_mon_id"));
     }
 
     /**
      * The monomer position in the referenced database entry.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDbSeqId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("db_seq_id", SingleRowIntColumn::new) :
+    public IntColumn getDbSeqId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("db_seq_id", IntColumn::new) :
                 getBinaryColumn("db_seq_id"));
     }
 
@@ -78,67 +78,67 @@ public class PdbxStructRefSeqDifDepositorInfo extends BaseCategory {
      * A description of special aspects of the point differences
      * between the sequence of the entity or biological unit described
      * in the data block and that in the referenced database entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The monomer type found at this position in the sequence of
      * the entity or biological unit provided by the depositor.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthMonId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_mon_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthMonId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_mon_id", StrColumn::new) :
                 getBinaryColumn("auth_mon_id"));
     }
 
     /**
      * The monomer position in the author provided sequence.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getAuthSeqId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", SingleRowIntColumn::new) :
+    public IntColumn getAuthSeqId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", IntColumn::new) :
                 getBinaryColumn("auth_seq_id"));
     }
 
     /**
      * Accession code of the reference database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbAccession() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_accession", SingleRowStrColumn::new) :
+    public StrColumn getDbAccession() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_accession", StrColumn::new) :
                 getBinaryColumn("db_accession"));
     }
 
     /**
      * The code for this entity or biological unit or for a closely
      * related entity or biological unit in the named database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_code", SingleRowStrColumn::new) :
+    public StrColumn getDbCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_code", StrColumn::new) :
                 getBinaryColumn("db_code"));
     }
 
     /**
      * The name of the database containing reference information about
      * this entity or biological unit.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_name", SingleRowStrColumn::new) :
+    public StrColumn getDbName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_name", StrColumn::new) :
                 getBinaryColumn("db_name"));
     }
 
     /**
      * The description of the sequence difference.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnotation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annotation", SingleRowStrColumn::new) :
+    public StrColumn getAnnotation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annotation", StrColumn::new) :
                 getBinaryColumn("annotation"));
     }
 }

@@ -28,10 +28,10 @@ public class StructNcsEns extends BaseCategory {
 
     /**
      * A description of special aspects of the ensemble.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -41,10 +41,10 @@ public class StructNcsEns extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -54,10 +54,10 @@ public class StructNcsEns extends BaseCategory {
      * relationships need not be precise; this data item is intended
      * to give a rough description of the noncrystallographic symmetry
      * relationships.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPointGroup() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("point_group", SingleRowStrColumn::new) :
+    public StrColumn getPointGroup() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("point_group", StrColumn::new) :
                 getBinaryColumn("point_group"));
     }
 }

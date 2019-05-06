@@ -26,20 +26,20 @@ public class PdbxNmrRepresentative extends BaseCategory {
 
     /**
      * msd will assign the ID.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * If a member of the ensemble has been selected as a representative
      * structure, identify it by its model number.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getConformerId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("conformer_id", SingleRowStrColumn::new) :
+    public StrColumn getConformerId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("conformer_id", StrColumn::new) :
                 getBinaryColumn("conformer_id"));
     }
 
@@ -48,10 +48,10 @@ public class PdbxNmrRepresentative extends BaseCategory {
      * By highlighting the appropriate choice(s), describe the criteria used to
      * select this structure as a representative structure, or if an average
      * structure has been calculated describe how this was done.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSelectionCriteria() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("selection_criteria", SingleRowStrColumn::new) :
+    public StrColumn getSelectionCriteria() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("selection_criteria", StrColumn::new) :
                 getBinaryColumn("selection_criteria"));
     }
 }

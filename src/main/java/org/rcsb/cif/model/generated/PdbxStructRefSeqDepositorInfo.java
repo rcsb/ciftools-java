@@ -26,107 +26,107 @@ public class PdbxStructRefSeqDepositorInfo extends BaseCategory {
 
     /**
      * This data item is a unique identifier for reference sequence information.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ref_id", SingleRowStrColumn::new) :
+    public StrColumn getRefId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ref_id", StrColumn::new) :
                 getBinaryColumn("ref_id"));
     }
 
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
     /**
      * The sequence position in the referenced database entry
      * at which the alignment begins.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDbAlignBeg() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("db_align_beg", SingleRowIntColumn::new) :
+    public IntColumn getDbAlignBeg() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("db_align_beg", IntColumn::new) :
                 getBinaryColumn("db_align_beg"));
     }
 
     /**
      * The sequence position in the referenced database entry
      * at which the alignment ends.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDbAlignEnd() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("db_align_end", SingleRowIntColumn::new) :
+    public IntColumn getDbAlignEnd() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("db_align_end", IntColumn::new) :
                 getBinaryColumn("db_align_end"));
     }
 
     /**
      * A description of special aspects of the sequence alignment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Accession code of the reference database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbAccession() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_accession", SingleRowStrColumn::new) :
+    public StrColumn getDbAccession() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_accession", StrColumn::new) :
                 getBinaryColumn("db_accession"));
     }
 
     /**
      * The code for this entity or biological unit or for a closely
      * related entity or biological unit in the named database.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_code", SingleRowStrColumn::new) :
+    public StrColumn getDbCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_code", StrColumn::new) :
                 getBinaryColumn("db_code"));
     }
 
     /**
      * The name of the database containing reference information about
      * this entity or biological unit.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_name", SingleRowStrColumn::new) :
+    public StrColumn getDbName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_name", StrColumn::new) :
                 getBinaryColumn("db_name"));
     }
 
     /**
      * Database chemical sequence expressed as string of one-letter
      * residue codes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDbSeqOneLetterCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("db_seq_one_letter_code", SingleRowStrColumn::new) :
+    public StrColumn getDbSeqOneLetterCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("db_seq_one_letter_code", StrColumn::new) :
                 getBinaryColumn("db_seq_one_letter_code"));
     }
 
     /**
      * 
      * Beginning index in the author provided chemical sequence.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeqAlignBegin() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seq_align_begin", SingleRowStrColumn::new) :
+    public StrColumn getSeqAlignBegin() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seq_align_begin", StrColumn::new) :
                 getBinaryColumn("seq_align_begin"));
     }
 
     /**
      * 
      * Ending index in the author provided chemical sequence.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeqAlignEnd() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seq_align_end", SingleRowStrColumn::new) :
+    public StrColumn getSeqAlignEnd() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seq_align_end", StrColumn::new) :
                 getBinaryColumn("seq_align_end"));
     }
 }

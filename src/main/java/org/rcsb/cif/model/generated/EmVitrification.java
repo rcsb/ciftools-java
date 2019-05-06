@@ -27,123 +27,123 @@ public class EmVitrification extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _em_vitrification.id must uniquely identify
      * the vitrification procedure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item is a pointer to _em_sample_preparation.id in the
      * EM_SAMPLE_PREPARATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSamplePreparationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_preparation_id", SingleRowStrColumn::new) :
+    public StrColumn getSamplePreparationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_preparation_id", StrColumn::new) :
                 getBinaryColumn("sample_preparation_id"));
     }
 
     /**
      * This data item is a pointer to _em_specimen.id
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_id", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_id", StrColumn::new) :
                 getBinaryColumn("specimen_id"));
     }
 
     /**
      * This is the name of the cryogen.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCryogenName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cryogen_name", SingleRowStrColumn::new) :
+    public StrColumn getCryogenName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cryogen_name", StrColumn::new) :
                 getBinaryColumn("cryogen_name"));
     }
 
     /**
      * The humidity (%) in the vicinity of the vitrification process.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHumidity() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("humidity", SingleRowFloatColumn::new) :
+    public FloatColumn getHumidity() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("humidity", FloatColumn::new) :
                 getBinaryColumn("humidity"));
     }
 
     /**
      * The vitrification temperature (in degrees Kelvin), e.g.,
      * temperature of the plunge instrument cryogen bath.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp", SingleRowFloatColumn::new) :
+    public FloatColumn getTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp", FloatColumn::new) :
                 getBinaryColumn("temp"));
     }
 
     /**
      * The temperature (in degrees Kelvin) of the sample just prior to vitrification.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getChamberTemperature() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("chamber_temperature", SingleRowFloatColumn::new) :
+    public FloatColumn getChamberTemperature() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("chamber_temperature", FloatColumn::new) :
                 getBinaryColumn("chamber_temperature"));
     }
 
     /**
      * The type of instrument used in the vitrification process.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getInstrument() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("instrument", SingleRowStrColumn::new) :
+    public StrColumn getInstrument() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("instrument", StrColumn::new) :
                 getBinaryColumn("instrument"));
     }
 
     /**
      * The procedure for vitrification.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The length of time after an event effecting the sample that
      * vitrification was induced and a description of the event.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTimeResolvedState() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("time_resolved_state", SingleRowStrColumn::new) :
+    public StrColumn getTimeResolvedState() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("time_resolved_state", StrColumn::new) :
                 getBinaryColumn("time_resolved_state"));
     }
 
     /**
      * This data item is a pointer to _citation.id in the
      * CITATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 
     /**
      * Any additional details relating to vitrification.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

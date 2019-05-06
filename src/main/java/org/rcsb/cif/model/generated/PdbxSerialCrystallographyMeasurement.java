@@ -26,102 +26,102 @@ public class PdbxSerialCrystallographyMeasurement extends BaseCategory {
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * The energy/pulse of the X-ray pulse impacting the sample measured in microjoules.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPulseEnergy() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pulse_energy", SingleRowFloatColumn::new) :
+    public FloatColumn getPulseEnergy() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pulse_energy", FloatColumn::new) :
                 getBinaryColumn("pulse_energy"));
     }
 
     /**
      * The average duration (femtoseconds)
      * of the pulse energy measured at the sample.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPulseDuration() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pulse_duration", SingleRowFloatColumn::new) :
+    public FloatColumn getPulseDuration() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pulse_duration", FloatColumn::new) :
                 getBinaryColumn("pulse_duration"));
     }
 
     /**
      * For FEL experiments, the pulse repetition rate measured in cycles per seconds.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getXfelPulseRepetitionRate() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("xfel_pulse_repetition_rate", SingleRowFloatColumn::new) :
+    public FloatColumn getXfelPulseRepetitionRate() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("xfel_pulse_repetition_rate", FloatColumn::new) :
                 getBinaryColumn("xfel_pulse_repetition_rate"));
     }
 
     /**
      * The photon energy of the X-ray pulse measured in KeV.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPulsePhotonEnergy() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pulse_photon_energy", SingleRowFloatColumn::new) :
+    public FloatColumn getPulsePhotonEnergy() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pulse_photon_energy", FloatColumn::new) :
                 getBinaryColumn("pulse_photon_energy"));
     }
 
     /**
      * The photons per pulse measured in  (tera photons (10^(12)^)/pulse units).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPhotonsPerPulse() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("photons_per_pulse", SingleRowFloatColumn::new) :
+    public FloatColumn getPhotonsPerPulse() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("photons_per_pulse", FloatColumn::new) :
                 getBinaryColumn("photons_per_pulse"));
     }
 
     /**
      * The dimension of the source beam measured at the source (micrometres squared).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSourceSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("source_size", SingleRowFloatColumn::new) :
+    public FloatColumn getSourceSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("source_size", FloatColumn::new) :
                 getBinaryColumn("source_size"));
     }
 
     /**
      * The distance from source to the sample along the optical axis (metres).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSourceDistance() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("source_distance", SingleRowFloatColumn::new) :
+    public FloatColumn getSourceDistance() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("source_distance", FloatColumn::new) :
                 getBinaryColumn("source_distance"));
     }
 
     /**
      * The focal spot size of the beam
      * impinging on the sample (micrometres squared).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFocalSpotSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("focal_spot_size", SingleRowFloatColumn::new) :
+    public FloatColumn getFocalSpotSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("focal_spot_size", FloatColumn::new) :
                 getBinaryColumn("focal_spot_size"));
     }
 
     /**
      * The collimation or type of focusing optics applied to the radiation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCollimation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("collimation", SingleRowStrColumn::new) :
+    public StrColumn getCollimation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("collimation", StrColumn::new) :
                 getBinaryColumn("collimation"));
     }
 
     /**
      * The total number of hours required to measure this data set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCollectionTimeTotal() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("collection_time_total", SingleRowFloatColumn::new) :
+    public FloatColumn getCollectionTimeTotal() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("collection_time_total", FloatColumn::new) :
                 getBinaryColumn("collection_time_total"));
     }
 }

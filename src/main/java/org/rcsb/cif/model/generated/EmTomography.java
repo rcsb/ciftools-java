@@ -25,87 +25,87 @@ public class EmTomography extends BaseCategory {
     /**
      * The angle increment of specimen tilting to obtain the
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis1AngleIncrement() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis1_angle_increment", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis1AngleIncrement() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis1_angle_increment", FloatColumn::new) :
                 getBinaryColumn("axis1_angle_increment"));
     }
 
     /**
      * The maximum angle at which the specimen was tilted to obtain
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis1MaxAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis1_max_angle", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis1MaxAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis1_max_angle", FloatColumn::new) :
                 getBinaryColumn("axis1_max_angle"));
     }
 
     /**
      * The minimum angle at which the specimen was tilted to obtain
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis1MinAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis1_min_angle", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis1MinAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis1_min_angle", FloatColumn::new) :
                 getBinaryColumn("axis1_min_angle"));
     }
 
     /**
      * The angle increment of specimen tilting to obtain the
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis2AngleIncrement() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis2_angle_increment", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis2AngleIncrement() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis2_angle_increment", FloatColumn::new) :
                 getBinaryColumn("axis2_angle_increment"));
     }
 
     /**
      * The maximum angle at which the specimen was tilted to obtain
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis2MaxAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis2_max_angle", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis2MaxAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis2_max_angle", FloatColumn::new) :
                 getBinaryColumn("axis2_max_angle"));
     }
 
     /**
      * The minimum angle at which the specimen was tilted to obtain
      * recorded images (axis 1).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAxis2MinAngle() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("axis2_min_angle", SingleRowFloatColumn::new) :
+    public FloatColumn getAxis2MinAngle() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("axis2_min_angle", FloatColumn::new) :
                 getBinaryColumn("axis2_min_angle"));
     }
 
     /**
      * Angular difference between axis1 and axis2 in degrees
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDualTiltAxisRotation() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("dual_tilt_axis_rotation", SingleRowFloatColumn::new) :
+    public FloatColumn getDualTiltAxisRotation() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("dual_tilt_axis_rotation", FloatColumn::new) :
                 getBinaryColumn("dual_tilt_axis_rotation"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM IMAGING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImagingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("imaging_id", SingleRowStrColumn::new) :
+    public StrColumn getImagingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("imaging_id", StrColumn::new) :
                 getBinaryColumn("imaging_id"));
     }
 }

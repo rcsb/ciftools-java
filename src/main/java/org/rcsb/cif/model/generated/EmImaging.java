@@ -25,305 +25,305 @@ public class EmImaging extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _em_imaging.id must uniquely identify
      * each imaging experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * astigmatism
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAstigmatism() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("astigmatism", SingleRowStrColumn::new) :
+    public StrColumn getAstigmatism() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("astigmatism", StrColumn::new) :
                 getBinaryColumn("astigmatism"));
     }
 
     /**
      * electron beam tilt params
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getElectronBeamTiltParams() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("electron_beam_tilt_params", SingleRowStrColumn::new) :
+    public StrColumn getElectronBeamTiltParams() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("electron_beam_tilt_params", StrColumn::new) :
                 getBinaryColumn("electron_beam_tilt_params"));
     }
 
     /**
      * residual tilt of the electron beam
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getResidualTilt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("residual_tilt", SingleRowFloatColumn::new) :
+    public FloatColumn getResidualTilt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("residual_tilt", FloatColumn::new) :
                 getBinaryColumn("residual_tilt"));
     }
 
     /**
      * This data item is a pointer to _em_sample_support.id in
      * the EM_SAMPLE_SUPPORT category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleSupportId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", SingleRowStrColumn::new) :
+    public StrColumn getSampleSupportId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", StrColumn::new) :
                 getBinaryColumn("sample_support_id"));
     }
 
     /**
      * The value of _em_imaging.detector_id must uniquely identify
      * the type of detector used in the experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetectorId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("detector_id", SingleRowStrColumn::new) :
+    public StrColumn getDetectorId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("detector_id", StrColumn::new) :
                 getBinaryColumn("detector_id"));
     }
 
     /**
      * The value of _em_imaging.scans_id must uniquely identify
      * the image_scans used in the experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getScansId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("scans_id", SingleRowStrColumn::new) :
+    public StrColumn getScansId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("scans_id", StrColumn::new) :
                 getBinaryColumn("scans_id"));
     }
 
     /**
      * This data item is a pointer to _em_microscope.id in
      * the EM_MICROSCOPE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMicroscopeId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("microscope_id", SingleRowStrColumn::new) :
+    public StrColumn getMicroscopeId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("microscope_id", StrColumn::new) :
                 getBinaryColumn("microscope_id"));
     }
 
     /**
      * The name of the model of microscope.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMicroscopeModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("microscope_model", SingleRowStrColumn::new) :
+    public StrColumn getMicroscopeModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("microscope_model", StrColumn::new) :
                 getBinaryColumn("microscope_model"));
     }
 
     /**
      * The type of specimen holder used during imaging.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenHolderType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_holder_type", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenHolderType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_holder_type", StrColumn::new) :
                 getBinaryColumn("specimen_holder_type"));
     }
 
     /**
      * The name of the model of specimen holder used during imaging.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenHolderModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_holder_model", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenHolderModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_holder_model", StrColumn::new) :
                 getBinaryColumn("specimen_holder_model"));
     }
 
     /**
      * Any additional imaging details.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Date (YYYY-MM-DD) of imaging experiment or the date at which
      * a series of experiments began.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date", SingleRowStrColumn::new) :
+    public StrColumn getDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date", StrColumn::new) :
                 getBinaryColumn("date"));
     }
 
     /**
      * A value of accelerating voltage (in kV) used for imaging.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getAcceleratingVoltage() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("accelerating_voltage", SingleRowIntColumn::new) :
+    public IntColumn getAcceleratingVoltage() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("accelerating_voltage", IntColumn::new) :
                 getBinaryColumn("accelerating_voltage"));
     }
 
     /**
      * The mode of illumination.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIlluminationMode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("illumination_mode", SingleRowStrColumn::new) :
+    public StrColumn getIlluminationMode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("illumination_mode", StrColumn::new) :
                 getBinaryColumn("illumination_mode"));
     }
 
     /**
      * The mode of imaging.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mode", SingleRowStrColumn::new) :
+    public StrColumn getMode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mode", StrColumn::new) :
                 getBinaryColumn("mode"));
     }
 
     /**
      * The spherical aberration coefficient (Cs) in millimeters,
      * of the objective lens.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNominalCs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("nominal_cs", SingleRowFloatColumn::new) :
+    public FloatColumn getNominalCs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("nominal_cs", FloatColumn::new) :
                 getBinaryColumn("nominal_cs"));
     }
 
     /**
      * The minimum defocus value of the objective lens (in nanometers) used
      * to obtain the recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNominalDefocusMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("nominal_defocus_min", SingleRowFloatColumn::new) :
+    public FloatColumn getNominalDefocusMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("nominal_defocus_min", FloatColumn::new) :
                 getBinaryColumn("nominal_defocus_min"));
     }
 
     /**
      * The maximum defocus value of the objective lens (in nanometers) used
      * to obtain the recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNominalDefocusMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("nominal_defocus_max", SingleRowFloatColumn::new) :
+    public FloatColumn getNominalDefocusMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("nominal_defocus_max", FloatColumn::new) :
                 getBinaryColumn("nominal_defocus_max"));
     }
 
     /**
      * The minimum defocus value of the objective lens (in nanometers) used
      * to obtain the recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCalibratedDefocusMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("calibrated_defocus_min", SingleRowFloatColumn::new) :
+    public FloatColumn getCalibratedDefocusMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("calibrated_defocus_min", FloatColumn::new) :
                 getBinaryColumn("calibrated_defocus_min"));
     }
 
     /**
      * The maximum defocus value of the objective lens (in nanometers) used
      * to obtain the recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCalibratedDefocusMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("calibrated_defocus_max", SingleRowFloatColumn::new) :
+    public FloatColumn getCalibratedDefocusMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("calibrated_defocus_max", FloatColumn::new) :
                 getBinaryColumn("calibrated_defocus_max"));
     }
 
     /**
      * The minimum angle at which the specimen was tilted to obtain
      * recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTiltAngleMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("tilt_angle_min", SingleRowFloatColumn::new) :
+    public FloatColumn getTiltAngleMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("tilt_angle_min", FloatColumn::new) :
                 getBinaryColumn("tilt_angle_min"));
     }
 
     /**
      * The maximum angle at which the specimen was tilted to obtain
      * recorded images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTiltAngleMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("tilt_angle_max", SingleRowFloatColumn::new) :
+    public FloatColumn getTiltAngleMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("tilt_angle_max", FloatColumn::new) :
                 getBinaryColumn("tilt_angle_max"));
     }
 
     /**
      * The magnification indicated by the microscope readout.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNominalMagnification() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("nominal_magnification", SingleRowIntColumn::new) :
+    public IntColumn getNominalMagnification() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("nominal_magnification", IntColumn::new) :
                 getBinaryColumn("nominal_magnification"));
     }
 
     /**
      * The magnification value obtained for a known standard just
      * prior to, during or just after the imaging experiment.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCalibratedMagnification() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("calibrated_magnification", SingleRowIntColumn::new) :
+    public IntColumn getCalibratedMagnification() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("calibrated_magnification", IntColumn::new) :
                 getBinaryColumn("calibrated_magnification"));
     }
 
     /**
      * The source of electrons. The electron gun.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getElectronSource() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("electron_source", SingleRowStrColumn::new) :
+    public StrColumn getElectronSource() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("electron_source", StrColumn::new) :
                 getBinaryColumn("electron_source"));
     }
 
     /**
      * The electron dose received by the specimen (electrons per square angstrom).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getElectronDose() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("electron_dose", SingleRowFloatColumn::new) :
+    public FloatColumn getElectronDose() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("electron_dose", FloatColumn::new) :
                 getBinaryColumn("electron_dose"));
     }
 
     /**
      * The type of energy filter spectrometer apparatus.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnergyFilter() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("energy_filter", SingleRowStrColumn::new) :
+    public StrColumn getEnergyFilter() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("energy_filter", StrColumn::new) :
                 getBinaryColumn("energy_filter"));
     }
 
     /**
      * The energy filter range in electron volts (eV)set by spectrometer.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnergyWindow() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("energy_window", SingleRowStrColumn::new) :
+    public StrColumn getEnergyWindow() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("energy_window", StrColumn::new) :
                 getBinaryColumn("energy_window"));
     }
 
     /**
      * This data item is a pointer to _citation.id in
      * the CITATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 
     /**
      * The mean specimen stage temperature (degrees Kelvin) during imaging
      * in the microscope.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTemperature() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temperature", SingleRowFloatColumn::new) :
+    public FloatColumn getTemperature() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temperature", FloatColumn::new) :
                 getBinaryColumn("temperature"));
     }
 
@@ -332,68 +332,68 @@ public class EmImaging extends BaseCategory {
      * product of the objective focal length and the combined magnification
      * of the intermediate and projector lenses when the microscope is
      * operated in the diffraction mode.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDetectorDistance() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("detector_distance", SingleRowFloatColumn::new) :
+    public FloatColumn getDetectorDistance() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("detector_distance", FloatColumn::new) :
                 getBinaryColumn("detector_distance"));
     }
 
     /**
      * The specimen temperature minimum (degrees Kelvin) for the duration
      * of imaging.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRecordingTemperatureMinimum() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("recording_temperature_minimum", SingleRowFloatColumn::new) :
+    public FloatColumn getRecordingTemperatureMinimum() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("recording_temperature_minimum", FloatColumn::new) :
                 getBinaryColumn("recording_temperature_minimum"));
     }
 
     /**
      * The specimen temperature maximum (degrees Kelvin) for the duration
      * of imaging.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRecordingTemperatureMaximum() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("recording_temperature_maximum", SingleRowFloatColumn::new) :
+    public FloatColumn getRecordingTemperatureMaximum() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("recording_temperature_maximum", FloatColumn::new) :
                 getBinaryColumn("recording_temperature_maximum"));
     }
 
     /**
      * microscope alignment procedure
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAlignmentProcedure() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("alignment_procedure", SingleRowStrColumn::new) :
+    public StrColumn getAlignmentProcedure() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("alignment_procedure", StrColumn::new) :
                 getBinaryColumn("alignment_procedure"));
     }
 
     /**
      * The open diameter of the c2 condenser lens,
      * in microns.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getC2ApertureDiameter() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("c2_aperture_diameter", SingleRowFloatColumn::new) :
+    public FloatColumn getC2ApertureDiameter() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("c2_aperture_diameter", FloatColumn::new) :
                 getBinaryColumn("c2_aperture_diameter"));
     }
 
     /**
      * Foreign key to the EM_SPECIMEN category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_id", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_id", StrColumn::new) :
                 getBinaryColumn("specimen_id"));
     }
 
     /**
      * Cryogen type used to maintain the specimen stage temperature during imaging
      * in the microscope.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCryogen() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cryogen", SingleRowStrColumn::new) :
+    public StrColumn getCryogen() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cryogen", StrColumn::new) :
                 getBinaryColumn("cryogen"));
     }
 }

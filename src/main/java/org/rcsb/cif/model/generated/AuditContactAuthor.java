@@ -27,10 +27,10 @@ public class AuditContactAuthor extends BaseCategory {
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAddress() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("address", SingleRowStrColumn::new) :
+    public StrColumn getAddress() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("address", StrColumn::new) :
                 getBinaryColumn("address"));
     }
 
@@ -41,10 +41,10 @@ public class AuditContactAuthor extends BaseCategory {
      * addresses is given in Section 3.4, Address Specification, of
      * Internet Message Format, RFC 2822, P. Resnick (Editor),
      * Network Standards Group, April 2001.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("email", SingleRowStrColumn::new) :
+    public StrColumn getEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("email", StrColumn::new) :
                 getBinaryColumn("email"));
     }
 
@@ -55,10 +55,10 @@ public class AuditContactAuthor extends BaseCategory {
      * The recommended style starts with the international dialing
      * prefix, followed by the area code in parentheses, followed by the
      * local number with no spaces.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFax() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("fax", SingleRowStrColumn::new) :
+    public StrColumn getFax() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("fax", StrColumn::new) :
                 getBinaryColumn("fax"));
     }
 
@@ -68,10 +68,10 @@ public class AuditContactAuthor extends BaseCategory {
      * 
      * The family name(s), followed by a comma and including any
      * dynastic components, precedes the first name(s) or initial(s).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 
@@ -83,10 +83,10 @@ public class AuditContactAuthor extends BaseCategory {
      * prefix, followed by the area code in parentheses, followed by the
      * local number and any extension number prefixed by 'x',
      * with no spaces.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhone() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phone", SingleRowStrColumn::new) :
+    public StrColumn getPhone() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phone", StrColumn::new) :
                 getBinaryColumn("phone"));
     }
 }

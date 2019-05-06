@@ -45,19 +45,19 @@ public class SpaceGroup extends BaseCategory {
      * groups (crystal system) to which the space group belongs.
      * Note that rhombohedral space groups belong to the
      * trigonal system.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalSystem() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_system", SingleRowStrColumn::new) :
+    public StrColumn getCrystalSystem() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_system", StrColumn::new) :
                 getBinaryColumn("crystal_system"));
     }
 
     /**
      * This is the unique identifier for the SPACE_GROUP category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -68,10 +68,10 @@ public class SpaceGroup extends BaseCategory {
      * (crystallographic space-group type) to which the space group
      * belongs.  This number defines the space-group type but not
      * the coordinate system in which it is expressed.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getITNumber() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("IT_number", SingleRowIntColumn::new) :
+    public IntColumn getITNumber() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("IT_number", IntColumn::new) :
                 getBinaryColumn("IT_number"));
     }
 
@@ -91,10 +91,10 @@ public class SpaceGroup extends BaseCategory {
      * (1981), A37, 921.
      * [See also International Tables for Crystallography
      * Vol. B (2001), Chapter 1.4, Appendix 1.4.2.]
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameHall() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_Hall", SingleRowStrColumn::new) :
+    public StrColumn getNameHall() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_Hall", StrColumn::new) :
                 getBinaryColumn("name_Hall"));
     }
 
@@ -125,10 +125,10 @@ public class SpaceGroup extends BaseCategory {
      * choice of basis, but not on the choice of origin. To
      * define the setting uniquely, use _space_group.name_Hall or
      * list the symmetry operations.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameH_MAlt() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_H-M_alt", SingleRowStrColumn::new) :
+    public StrColumn getNameH_MAlt() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_H-M_alt", StrColumn::new) :
                 getBinaryColumn("name_H-M_alt"));
     }
 }

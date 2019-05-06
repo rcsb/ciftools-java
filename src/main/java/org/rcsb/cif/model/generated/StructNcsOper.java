@@ -34,20 +34,20 @@ public class StructNcsOper extends BaseCategory {
      * whether the operator is used to generate new coordinates from
      * those that are given in the data block (in which case the value
      * of code is 'generate').
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("code", SingleRowStrColumn::new) :
+    public StrColumn getCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("code", StrColumn::new) :
                 getBinaryColumn("code"));
     }
 
     /**
      * A description of special aspects of the noncrystallographic
      * symmetry operator.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -57,130 +57,130 @@ public class StructNcsOper extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][1]", FloatColumn::new) :
                 getBinaryColumn("matrix[1][1]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][2]", FloatColumn::new) :
                 getBinaryColumn("matrix[1][2]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[1][3]", FloatColumn::new) :
                 getBinaryColumn("matrix[1][3]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix21() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix21() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][1]", FloatColumn::new) :
                 getBinaryColumn("matrix[2][1]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][2]", FloatColumn::new) :
                 getBinaryColumn("matrix[2][2]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[2][3]", FloatColumn::new) :
                 getBinaryColumn("matrix[2][3]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix31() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix31() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][1]", FloatColumn::new) :
                 getBinaryColumn("matrix[3][1]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix32() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix32() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][2]", FloatColumn::new) :
                 getBinaryColumn("matrix[3][2]"));
     }
 
     /**
      * The elements of the 3x3 matrix component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getMatrix33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getMatrix33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("matrix[3][3]", FloatColumn::new) :
                 getBinaryColumn("matrix[3][3]"));
     }
 
     /**
      * The elements of the three-element vector component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getVector1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("vector[1]", SingleRowFloatColumn::new) :
+    public FloatColumn getVector1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("vector[1]", FloatColumn::new) :
                 getBinaryColumn("vector[1]"));
     }
 
     /**
      * The elements of the three-element vector component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getVector2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("vector[2]", SingleRowFloatColumn::new) :
+    public FloatColumn getVector2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("vector[2]", FloatColumn::new) :
                 getBinaryColumn("vector[2]"));
     }
 
     /**
      * The elements of the three-element vector component of a
      * noncrystallographic symmetry operation.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getVector3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("vector[3]", SingleRowFloatColumn::new) :
+    public FloatColumn getVector3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("vector[3]", FloatColumn::new) :
                 getBinaryColumn("vector[3]"));
     }
 }

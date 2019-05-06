@@ -25,39 +25,39 @@ public class EmDetector extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _em_detector.id must uniquely identify
      * the detector used for imaging.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Any additional information about the detection system.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The detector type used for recording images.
      * Usually film or CCD camera.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
@@ -74,19 +74,19 @@ public class EmDetector extends BaseCategory {
      * (0.5)**2
      * DQE = --------- = 0.25.
      * (1.0)**2
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDetectiveQuantumEfficiency() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("detective_quantum_efficiency", SingleRowFloatColumn::new) :
+    public FloatColumn getDetectiveQuantumEfficiency() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("detective_quantum_efficiency", FloatColumn::new) :
                 getBinaryColumn("detective_quantum_efficiency"));
     }
 
     /**
      * The detector mode used during image recording.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mode", SingleRowStrColumn::new) :
+    public StrColumn getMode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mode", StrColumn::new) :
                 getBinaryColumn("mode"));
     }
 }

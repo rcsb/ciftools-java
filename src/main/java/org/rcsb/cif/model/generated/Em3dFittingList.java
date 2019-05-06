@@ -26,29 +26,29 @@ public class Em3dFittingList extends BaseCategory {
 
     /**
      * This data item is a unique identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The value of _em_3d_fitting_list.3d_fitting_id is a pointer
      * to  _em_3d_fitting.id in the 3d_fitting category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn get_3dFittingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("3d_fitting_id", SingleRowStrColumn::new) :
+    public StrColumn get_3dFittingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("3d_fitting_id", StrColumn::new) :
                 getBinaryColumn("3d_fitting_id"));
     }
 
     /**
      * The PDB code for the entry used in fitting.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_entry_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_entry_id", StrColumn::new) :
                 getBinaryColumn("pdb_entry_id"));
     }
 
@@ -56,28 +56,28 @@ public class Em3dFittingList extends BaseCategory {
      * The ID of the biopolymer chain used for fitting, e.g., A.  Please note that
      * only one chain can be specified per instance.  If all chains of a particular
      * structure have been used for fitting, this field can be left blank.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbChainId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbChainId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_id", StrColumn::new) :
                 getBinaryColumn("pdb_chain_id"));
     }
 
     /**
      * The molecular entities represented in this fitting description.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbChainResidueRange() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_residue_range", SingleRowStrColumn::new) :
+    public StrColumn getPdbChainResidueRange() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_residue_range", StrColumn::new) :
                 getBinaryColumn("pdb_chain_residue_range"));
     }
 
     /**
      * Details about the model used in fitting.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

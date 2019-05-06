@@ -25,37 +25,37 @@ public class PdbxDepositGroup extends BaseCategory {
 
     /**
      * A unique identifier for a group of entries deposited as a collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGroupId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("group_id", SingleRowStrColumn::new) :
+    public StrColumn getGroupId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("group_id", StrColumn::new) :
                 getBinaryColumn("group_id"));
     }
 
     /**
      * A title to describe the group of entries deposited in the collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGroupTitle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("group_title", SingleRowStrColumn::new) :
+    public StrColumn getGroupTitle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("group_title", StrColumn::new) :
                 getBinaryColumn("group_title"));
     }
 
     /**
      * A description of the contents of entries in the collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGroupDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("group_description", SingleRowStrColumn::new) :
+    public StrColumn getGroupDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("group_description", StrColumn::new) :
                 getBinaryColumn("group_description"));
     }
 
     /**
      * Text to describe a grouping of entries in multiple collections
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getGroupType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("group_type", SingleRowStrColumn::new) :
+    public StrColumn getGroupType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("group_type", StrColumn::new) :
                 getBinaryColumn("group_type"));
     }
 }

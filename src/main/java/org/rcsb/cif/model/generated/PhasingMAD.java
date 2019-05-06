@@ -26,19 +26,19 @@ public class PhasingMAD extends BaseCategory {
 
     /**
      * A description of special aspects of the MAD phasing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -52,230 +52,230 @@ public class PhasingMAD extends BaseCategory {
      * 
      * This data item should be used to describe significant
      * methodological options used within the MAD phasing program.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * _phasing_MAD.pdbx_d_res_low records the lowest resolution
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDResLow() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_low", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDResLow() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_low", FloatColumn::new) :
                 getBinaryColumn("pdbx_d_res_low"));
     }
 
     /**
      * _phasing_MAD.pdbx_d_res_high records the highest resolution
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDResHigh() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_high", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDResHigh() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_high", FloatColumn::new) :
                 getBinaryColumn("pdbx_d_res_high"));
     }
 
     /**
      * _phasing_MAD.pdbx_reflns_acentric records the number of
      * acentric reflections for MAD phasing.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxReflnsAcentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns_acentric", SingleRowIntColumn::new) :
+    public IntColumn getPdbxReflnsAcentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns_acentric", IntColumn::new) :
                 getBinaryColumn("pdbx_reflns_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_reflns_centric records the number of
      * centric reflections for MAD phasing.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxReflnsCentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns_centric", SingleRowIntColumn::new) :
+    public IntColumn getPdbxReflnsCentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns_centric", IntColumn::new) :
                 getBinaryColumn("pdbx_reflns_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_reflns records the number of
      * reflections used for MAD phasing.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxReflns() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns", SingleRowIntColumn::new) :
+    public IntColumn getPdbxReflns() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_reflns", IntColumn::new) :
                 getBinaryColumn("pdbx_reflns"));
     }
 
     /**
      * _phasing_MAD.pdbx_fom_acentric  records the figure of merit
      * using acentric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxFomAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxFomAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom_acentric", FloatColumn::new) :
                 getBinaryColumn("pdbx_fom_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_fom_centric  records the figure of merit
      * using centric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxFomCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxFomCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom_centric", FloatColumn::new) :
                 getBinaryColumn("pdbx_fom_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_fom records the figure of merit
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxFom() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxFom() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_fom", FloatColumn::new) :
                 getBinaryColumn("pdbx_fom"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_cullis_centric records R_cullis
      * using centric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRCullisCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRCullisCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis_centric", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_cullis_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_cullis_acentric records R_cullis
      * using acentric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRCullisAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRCullisAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis_acentric", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_cullis_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_cullis records R_cullis
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRCullis() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRCullis() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_cullis", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_cullis"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_kraut_centric records R_kraut
      * using centric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRKrautCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRKrautCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut_centric", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_kraut_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_kraut_acentric records R_kraut
      * using acentric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRKrautAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRKrautAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut_acentric", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_kraut_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_R_kraut records R_kraut
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxRKraut() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxRKraut() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_R_kraut", FloatColumn::new) :
                 getBinaryColumn("pdbx_R_kraut"));
     }
 
     /**
      * _phasing_MAD.pdbx_loc_centric records lack of closure
      * using centric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLocCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLocCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc_centric", FloatColumn::new) :
                 getBinaryColumn("pdbx_loc_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_loc_acentric records lack of closure
      * using acentric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLocAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLocAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc_acentric", FloatColumn::new) :
                 getBinaryColumn("pdbx_loc_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_loc records lack of closure
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxLoc() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxLoc() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_loc", FloatColumn::new) :
                 getBinaryColumn("pdbx_loc"));
     }
 
     /**
      * _phasing_MAD.pdbx_power_centric records phasing power
      * using centric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPowerCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPowerCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power_centric", FloatColumn::new) :
                 getBinaryColumn("pdbx_power_centric"));
     }
 
     /**
      * _phasing_MAD.pdbx_power_acentric records phasing power
      * using acentric data for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPowerAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPowerAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power_acentric", FloatColumn::new) :
                 getBinaryColumn("pdbx_power_acentric"));
     }
 
     /**
      * _phasing_MAD.pdbx_power records phasing power
      * for MAD phasing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxPower() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxPower() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_power", FloatColumn::new) :
                 getBinaryColumn("pdbx_power"));
     }
 
     /**
      * _phasing_MAD.pdbx_loc records the number
      * of data sets used for MAD phasing.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberDataSets() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_data_sets", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberDataSets() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_data_sets", IntColumn::new) :
                 getBinaryColumn("pdbx_number_data_sets"));
     }
 
     /**
      * _phasing_MAD.pdbx_anom_scat_method records the method
      * used to locate anomalous scatterers for MAD phasing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxAnomScatMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_anom_scat_method", SingleRowStrColumn::new) :
+    public StrColumn getPdbxAnomScatMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_anom_scat_method", StrColumn::new) :
                 getBinaryColumn("pdbx_anom_scat_method"));
     }
 }

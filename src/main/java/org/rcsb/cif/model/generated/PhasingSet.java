@@ -41,55 +41,55 @@ public class PhasingSet extends BaseCategory {
 
     /**
      * Unit-cell angle alpha for this data set in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellAngleAlpha() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_alpha", SingleRowFloatColumn::new) :
+    public FloatColumn getCellAngleAlpha() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_alpha", FloatColumn::new) :
                 getBinaryColumn("cell_angle_alpha"));
     }
 
     /**
      * Unit-cell angle beta for this data set in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellAngleBeta() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_beta", SingleRowFloatColumn::new) :
+    public FloatColumn getCellAngleBeta() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_beta", FloatColumn::new) :
                 getBinaryColumn("cell_angle_beta"));
     }
 
     /**
      * Unit-cell angle gamma for this data set in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellAngleGamma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_gamma", SingleRowFloatColumn::new) :
+    public FloatColumn getCellAngleGamma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_angle_gamma", FloatColumn::new) :
                 getBinaryColumn("cell_angle_gamma"));
     }
 
     /**
      * Unit-cell length a for this data set in angstroms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellLengthA() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_length_a", SingleRowFloatColumn::new) :
+    public FloatColumn getCellLengthA() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_length_a", FloatColumn::new) :
                 getBinaryColumn("cell_length_a"));
     }
 
     /**
      * Unit-cell length b for this data set in angstroms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellLengthB() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_length_b", SingleRowFloatColumn::new) :
+    public FloatColumn getCellLengthB() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_length_b", FloatColumn::new) :
                 getBinaryColumn("cell_length_b"));
     }
 
     /**
      * Unit-cell length c for this data set in angstroms.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCellLengthC() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("cell_length_c", SingleRowFloatColumn::new) :
+    public FloatColumn getCellLengthC() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("cell_length_c", FloatColumn::new) :
                 getBinaryColumn("cell_length_c"));
     }
 
@@ -97,19 +97,19 @@ public class PhasingSet extends BaseCategory {
      * The particular radiation detector. In general, this will be a
      * manufacturer, description, model number or some combination of
      * these.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetectorSpecific() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("detector_specific", SingleRowStrColumn::new) :
+    public StrColumn getDetectorSpecific() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("detector_specific", StrColumn::new) :
                 getBinaryColumn("detector_specific"));
     }
 
     /**
      * The general class of the radiation detector.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetectorType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("detector_type", SingleRowStrColumn::new) :
+    public StrColumn getDetectorType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("detector_type", StrColumn::new) :
                 getBinaryColumn("detector_type"));
     }
 
@@ -119,10 +119,10 @@ public class PhasingSet extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -131,30 +131,30 @@ public class PhasingSet extends BaseCategory {
      * manufacturer, description, or model number (or some combination
      * of these) for laboratory sources and an institution name and
      * beamline name for synchrotron sources.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRadiationSourceSpecific() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("radiation_source_specific", SingleRowStrColumn::new) :
+    public StrColumn getRadiationSourceSpecific() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("radiation_source_specific", StrColumn::new) :
                 getBinaryColumn("radiation_source_specific"));
     }
 
     /**
      * The mean wavelength of the radiation used to measure this
      * data set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRadiationWavelength() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("radiation_wavelength", SingleRowFloatColumn::new) :
+    public FloatColumn getRadiationWavelength() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("radiation_wavelength", FloatColumn::new) :
                 getBinaryColumn("radiation_wavelength"));
     }
 
     /**
      * The temperature in kelvins at which the data set was
      * measured.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp", SingleRowFloatColumn::new) :
+    public FloatColumn getTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp", FloatColumn::new) :
                 getBinaryColumn("temp"));
     }
 
@@ -162,10 +162,10 @@ public class PhasingSet extends BaseCategory {
      * The value of _phasing_set.pdbx_temp_details describes any
      * special details about the data collection temperature
      * for this phasing data set.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxTempDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_temp_details", SingleRowStrColumn::new) :
+    public StrColumn getPdbxTempDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_temp_details", StrColumn::new) :
                 getBinaryColumn("pdbx_temp_details"));
     }
 
@@ -173,10 +173,10 @@ public class PhasingSet extends BaseCategory {
      * The smallest value in angstroms for the interplanar spacings
      * for the reflections in this shell. This is called the highest
      * resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDResHigh() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_high", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDResHigh() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_high", FloatColumn::new) :
                 getBinaryColumn("pdbx_d_res_high"));
     }
 
@@ -184,10 +184,10 @@ public class PhasingSet extends BaseCategory {
      * The highest value in angstroms for the interplanar spacings
      * for the reflections in this shell. This is called the lowest
      * resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxDResLow() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_low", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxDResLow() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_d_res_low", FloatColumn::new) :
                 getBinaryColumn("pdbx_d_res_low"));
     }
 }

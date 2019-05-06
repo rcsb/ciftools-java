@@ -27,30 +27,30 @@ public class AuditConform extends BaseCategory {
     /**
      * A file name or uniform resource locator (URL) for the
      * dictionary to which the current data block conforms.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDictLocation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dict_location", SingleRowStrColumn::new) :
+    public StrColumn getDictLocation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dict_location", StrColumn::new) :
                 getBinaryColumn("dict_location"));
     }
 
     /**
      * The string identifying the highest-level dictionary defining
      * data names used in this file.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDictName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dict_name", SingleRowStrColumn::new) :
+    public StrColumn getDictName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dict_name", StrColumn::new) :
                 getBinaryColumn("dict_name"));
     }
 
     /**
      * The version number of the dictionary to which the current
      * data block conforms.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDictVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dict_version", SingleRowStrColumn::new) :
+    public StrColumn getDictVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dict_version", StrColumn::new) :
                 getBinaryColumn("dict_version"));
     }
 }

@@ -25,66 +25,66 @@ public class Em3dReconstruction extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _em_3d_reconstruction.id must
      * uniquely identify the 3d reconstruction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The algorithm method used for the 3d-reconstruction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The algorithm used project from 2D orientations to 3D map.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAlgorithm() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("algorithm", SingleRowStrColumn::new) :
+    public StrColumn getAlgorithm() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("algorithm", StrColumn::new) :
                 getBinaryColumn("algorithm"));
     }
 
     /**
      * This data item is a pointer to _citation.id in the
      * CITATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 
     /**
      * Any additional details used in the 3d reconstruction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The final resolution (in Angstroms)of the 3D reconstruction.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getResolution() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("resolution", SingleRowFloatColumn::new) :
+    public FloatColumn getResolution() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("resolution", FloatColumn::new) :
                 getBinaryColumn("resolution"));
     }
 
@@ -95,19 +95,19 @@ public class Em3dReconstruction extends BaseCategory {
      * resolution is based on the concept of splitting the (2D)
      * data set into two halves; averaging each and comparing them
      * using the Fourier Ring Correlation (FRC) technique.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getResolutionMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("resolution_method", SingleRowStrColumn::new) :
+    public StrColumn getResolutionMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("resolution_method", StrColumn::new) :
                 getBinaryColumn("resolution_method"));
     }
 
     /**
      * The magnification calibration method for the 3d reconstruction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMagnificationCalibration() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("magnification_calibration", SingleRowStrColumn::new) :
+    public StrColumn getMagnificationCalibration() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("magnification_calibration", StrColumn::new) :
                 getBinaryColumn("magnification_calibration"));
     }
 
@@ -122,46 +122,46 @@ public class Em3dReconstruction extends BaseCategory {
      * to each extracted particle separately or to the whole micrograph after
      * digitisation. The simplest level of compensation is to reverse phases
      * at the negative lobes of the CTF.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCtfCorrectionMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ctf_correction_method", SingleRowStrColumn::new) :
+    public StrColumn getCtfCorrectionMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ctf_correction_method", StrColumn::new) :
                 getBinaryColumn("ctf_correction_method"));
     }
 
     /**
      * The nominal pixel size of the projection set of images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNominalPixelSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("nominal_pixel_size", SingleRowFloatColumn::new) :
+    public FloatColumn getNominalPixelSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("nominal_pixel_size", FloatColumn::new) :
                 getBinaryColumn("nominal_pixel_size"));
     }
 
     /**
      * The actual pixel size of projection set of images.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getActualPixelSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("actual_pixel_size", SingleRowFloatColumn::new) :
+    public FloatColumn getActualPixelSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("actual_pixel_size", FloatColumn::new) :
                 getBinaryColumn("actual_pixel_size"));
     }
 
     /**
      * The number of 2D projections or 3D subtomograms used in the 3d reconstruction
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumParticles() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_particles", SingleRowIntColumn::new) :
+    public IntColumn getNumParticles() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_particles", IntColumn::new) :
                 getBinaryColumn("num_particles"));
     }
 
     /**
      * euler angles details
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEulerAnglesDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("euler_angles_details", SingleRowStrColumn::new) :
+    public StrColumn getEulerAnglesDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("euler_angles_details", StrColumn::new) :
                 getBinaryColumn("euler_angles_details"));
     }
 
@@ -169,55 +169,55 @@ public class Em3dReconstruction extends BaseCategory {
      * This item was correspondence to two type of em dataset
      * processing_emDataSet_singleParticle.numClassAverages
      * processing_emDataSet_icosahedral.numClassAverages
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumClassAverages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_class_averages", SingleRowIntColumn::new) :
+    public IntColumn getNumClassAverages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_class_averages", IntColumn::new) :
                 getBinaryColumn("num_class_averages"));
     }
 
     /**
      * software name
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSoftware() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("software", SingleRowStrColumn::new) :
+    public StrColumn getSoftware() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("software", StrColumn::new) :
                 getBinaryColumn("software"));
     }
 
     /**
      * type of FSC curve used to determine map resolution
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFscType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("fsc_type", SingleRowStrColumn::new) :
+    public StrColumn getFscType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("fsc_type", StrColumn::new) :
                 getBinaryColumn("fsc_type"));
     }
 
     /**
      * type of refinement performed in order to determine map resolution
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefinementType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("refinement_type", SingleRowStrColumn::new) :
+    public StrColumn getRefinementType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("refinement_type", StrColumn::new) :
                 getBinaryColumn("refinement_type"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_PROCESSING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * The type of symmetry applied to the reconstruction
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSymmetryType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("symmetry_type", SingleRowStrColumn::new) :
+    public StrColumn getSymmetryType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("symmetry_type", StrColumn::new) :
                 getBinaryColumn("symmetry_type"));
     }
 }

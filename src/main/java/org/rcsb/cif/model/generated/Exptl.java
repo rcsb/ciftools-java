@@ -28,10 +28,10 @@ public class Exptl extends BaseCategory {
      * The absorption coefficient mu in reciprocal millimetres
      * calculated from the atomic content of the cell, the density and
      * the radiation wavelength.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAbsorptCoefficientMu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("absorpt_coefficient_mu", SingleRowFloatColumn::new) :
+    public FloatColumn getAbsorptCoefficientMu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("absorpt_coefficient_mu", FloatColumn::new) :
                 getBinaryColumn("absorpt_coefficient_mu"));
     }
 
@@ -40,10 +40,10 @@ public class Exptl extends BaseCategory {
      * The maximum and minimum transmission factors are also referred
      * to as the absorption correction
      * A or 1/A*.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAbsorptCorrectionTMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_T_max", SingleRowFloatColumn::new) :
+    public FloatColumn getAbsorptCorrectionTMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_T_max", FloatColumn::new) :
                 getBinaryColumn("absorpt_correction_T_max"));
     }
 
@@ -52,10 +52,10 @@ public class Exptl extends BaseCategory {
      * The maximum and minimum transmission factors are also referred
      * to as the absorption correction
      * A or 1/A*.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAbsorptCorrectionTMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_T_min", SingleRowFloatColumn::new) :
+    public FloatColumn getAbsorptCorrectionTMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_T_min", FloatColumn::new) :
                 getBinaryColumn("absorpt_correction_T_min"));
     }
 
@@ -63,10 +63,10 @@ public class Exptl extends BaseCategory {
      * The absorption correction type and method. The value
      * 'empirical' should NOT be used unless more detailed
      * information is not available.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAbsorptCorrectionType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_type", SingleRowStrColumn::new) :
+    public StrColumn getAbsorptCorrectionType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("absorpt_correction_type", StrColumn::new) :
                 getBinaryColumn("absorpt_correction_type"));
     }
 
@@ -74,57 +74,57 @@ public class Exptl extends BaseCategory {
      * Description of the absorption process applied to the
      * intensities. A literature reference should be supplied for
      * psi-scan techniques.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAbsorptProcessDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("absorpt_process_details", SingleRowStrColumn::new) :
+    public StrColumn getAbsorptProcessDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("absorpt_process_details", StrColumn::new) :
                 getBinaryColumn("absorpt_process_details"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The total number of crystals used in the  measurement of
      * intensities.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCrystalsNumber() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("crystals_number", SingleRowIntColumn::new) :
+    public IntColumn getCrystalsNumber() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("crystals_number", IntColumn::new) :
                 getBinaryColumn("crystals_number"));
     }
 
     /**
      * Any special information about the experimental work prior to the
      * intensity measurement. See also _exptl_crystal.preparation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The method used in the experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * A description of special aspects of the experimental method.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethodDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method_details", SingleRowStrColumn::new) :
+    public StrColumn getMethodDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method_details", StrColumn::new) :
                 getBinaryColumn("method_details"));
     }
 }

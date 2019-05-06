@@ -35,30 +35,30 @@ public class IntegrationTest {
         AtomSites atomSites = cifFile.getBlocks().get(0).getAtomSites();
 
         assertDefined(atomSites.getFractTransfMatrix11());
-        assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix12());
-        assertEquals(0.005078, atomSites.getFractTransfMatrix12().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.005078, atomSites.getFractTransfMatrix12().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix13());
-        assertEquals(0.0, atomSites.getFractTransfMatrix13().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfMatrix13().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix21());
-        assertEquals(0.0, atomSites.getFractTransfMatrix21().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfMatrix21().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix22());
-        assertEquals(0.010156, atomSites.getFractTransfMatrix22().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.010156, atomSites.getFractTransfMatrix22().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix23());
-        assertEquals(0.0, atomSites.getFractTransfMatrix23().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfMatrix23().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix31());
-        assertEquals(0.0, atomSites.getFractTransfMatrix31().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfMatrix31().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix32());
-        assertEquals(0.0, atomSites.getFractTransfMatrix32().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfMatrix32().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfMatrix33());
-        assertEquals(0.007241, atomSites.getFractTransfMatrix33().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.007241, atomSites.getFractTransfMatrix33().get(0), TestHelper.ERROR_MARGIN);
 
         assertDefined(atomSites.getFractTransfVector1());
-        assertEquals(0.0, atomSites.getFractTransfVector1().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfVector1().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfVector2());
-        assertEquals(0.0, atomSites.getFractTransfVector2().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfVector2().get(0), TestHelper.ERROR_MARGIN);
         assertDefined(atomSites.getFractTransfVector3());
-        assertEquals(0.0, atomSites.getFractTransfVector3().get(), TestHelper.ERROR_MARGIN);
+        assertEquals(0.0, atomSites.getFractTransfVector3().get(0), TestHelper.ERROR_MARGIN);
     }
 
     private void assertDefined(Column column) {
@@ -76,7 +76,7 @@ public class IntegrationTest {
         Entry textEntry = textCifFile.getFirstBlock().getEntry();
         assertEquals("id", textEntry.getId().getColumnName());
         assertEquals(1, textEntry.getRowCount());
-        assertEquals(expected, textEntry.getId().get());
+        assertEquals(expected, textEntry.getId().get(0));
 
         // convert to binary representation
         CifOptions options = CifOptions.builder().singleRow(true).build();
@@ -87,7 +87,7 @@ public class IntegrationTest {
         Entry binaryEntry = binaryCifFile.getFirstBlock().getEntry();
         assertEquals("id", binaryEntry.getId().getColumnName());
         assertEquals(1, binaryEntry.getRowCount());
-        assertEquals(expected, binaryEntry.getId().get());
+        assertEquals(expected, binaryEntry.getId().get(0));
     }
 
     @Test
@@ -105,7 +105,7 @@ public class IntegrationTest {
 
         assertTrue(block.getEntry().isDefined());
 
-        String entryId = block.getEntry().getId().get();
+        String entryId = block.getEntry().getId().get(0);
         assertEquals("0RED", entryId);
 
         // atom site should be obtainable

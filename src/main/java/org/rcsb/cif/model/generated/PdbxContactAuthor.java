@@ -28,40 +28,40 @@ public class PdbxContactAuthor extends BaseCategory {
 
     /**
      * A unique integer identifier for this author
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, line 1 of 3.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAddress1() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("address_1", SingleRowStrColumn::new) :
+    public StrColumn getAddress1() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("address_1", StrColumn::new) :
                 getBinaryColumn("address_1"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, line 2 of 3.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAddress2() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("address_2", SingleRowStrColumn::new) :
+    public StrColumn getAddress2() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("address_2", StrColumn::new) :
                 getBinaryColumn("address_2"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, line 3 of 3.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAddress3() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("address_3", SingleRowStrColumn::new) :
+    public StrColumn getAddress3() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("address_3", StrColumn::new) :
                 getBinaryColumn("address_3"));
     }
 
@@ -69,40 +69,40 @@ public class PdbxContactAuthor extends BaseCategory {
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed transfered from
      * _audit_contact_author.address
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLegacyAddress() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("legacy_address", SingleRowStrColumn::new) :
+    public StrColumn getLegacyAddress() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("legacy_address", StrColumn::new) :
                 getBinaryColumn("legacy_address"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, city.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCity() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("city", SingleRowStrColumn::new) :
+    public StrColumn getCity() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("city", StrColumn::new) :
                 getBinaryColumn("city"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, state or province.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStateProvince() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("state_province", SingleRowStrColumn::new) :
+    public StrColumn getStateProvince() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("state_province", StrColumn::new) :
                 getBinaryColumn("state_province"));
     }
 
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed, zip code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPostalCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("postal_code", SingleRowStrColumn::new) :
+    public StrColumn getPostalCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("postal_code", StrColumn::new) :
                 getBinaryColumn("postal_code"));
     }
 
@@ -110,10 +110,10 @@ public class PdbxContactAuthor extends BaseCategory {
      * The electronic mail address of the author of the data block to
      * whom correspondence should be addressed, in a form recognisable
      * to international networks.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("email", SingleRowStrColumn::new) :
+    public StrColumn getEmail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("email", StrColumn::new) :
                 getBinaryColumn("email"));
     }
 
@@ -124,70 +124,70 @@ public class PdbxContactAuthor extends BaseCategory {
      * The recommended style includes the international dialing
      * prefix, the area code in parentheses, followed by the
      * local number with no spaces.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFax() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("fax", SingleRowStrColumn::new) :
+    public StrColumn getFax() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("fax", StrColumn::new) :
                 getBinaryColumn("fax"));
     }
 
     /**
      * The first name of the author of the data block to whom correspondence
      * should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameFirst() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_first", SingleRowStrColumn::new) :
+    public StrColumn getNameFirst() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_first", StrColumn::new) :
                 getBinaryColumn("name_first"));
     }
 
     /**
      * The last name of the author of the data block to whom correspondence
      * should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameLast() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_last", SingleRowStrColumn::new) :
+    public StrColumn getNameLast() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_last", StrColumn::new) :
                 getBinaryColumn("name_last"));
     }
 
     /**
      * The middle initial(s) of the author of the data block to whom correspondence
      * should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameMi() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_mi", SingleRowStrColumn::new) :
+    public StrColumn getNameMi() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_mi", StrColumn::new) :
                 getBinaryColumn("name_mi"));
     }
 
     /**
      * The salutation of the author of the data block to whom correspondence
      * should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNameSalutation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name_salutation", SingleRowStrColumn::new) :
+    public StrColumn getNameSalutation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name_salutation", StrColumn::new) :
                 getBinaryColumn("name_salutation"));
     }
 
     /**
      * The country of the author of the data block to whom
      * correspondence should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCountry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("country", SingleRowStrColumn::new) :
+    public StrColumn getCountry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("country", StrColumn::new) :
                 getBinaryColumn("country"));
     }
 
     /**
      * The continent of the author of the data block to whom
      * correspondence should be addressed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getContinent() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("continent", SingleRowStrColumn::new) :
+    public StrColumn getContinent() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("continent", StrColumn::new) :
                 getBinaryColumn("continent"));
     }
 
@@ -201,37 +201,37 @@ public class PdbxContactAuthor extends BaseCategory {
      * with no spaces. The earlier convention of including
      * the international dialing prefixes in parentheses is no longer
      * recommended.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhone() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phone", SingleRowStrColumn::new) :
+    public StrColumn getPhone() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phone", StrColumn::new) :
                 getBinaryColumn("phone"));
     }
 
     /**
      * The role of this author in the project depositing this data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRole() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("role", SingleRowStrColumn::new) :
+    public StrColumn getRole() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("role", StrColumn::new) :
                 getBinaryColumn("role"));
     }
 
     /**
      * The organization type to which this author is affiliated.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOrganizationType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("organization_type", SingleRowStrColumn::new) :
+    public StrColumn getOrganizationType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("organization_type", StrColumn::new) :
                 getBinaryColumn("organization_type"));
     }
 
     /**
      * The Open Researcher and Contributor ID (ORCID).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIdentifierORCID() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("identifier_ORCID", SingleRowStrColumn::new) :
+    public StrColumn getIdentifierORCID() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("identifier_ORCID", StrColumn::new) :
                 getBinaryColumn("identifier_ORCID"));
     }
 }

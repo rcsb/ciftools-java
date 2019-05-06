@@ -66,19 +66,19 @@ public class ChemicalFormula extends BaseCategory {
      * elements. See the CHEMICAL_FORMULA category description for
      * rules for writing chemical formulae. Parentheses are used only
      * for standard uncertainties (estimated standard deviations).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnalytical() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("analytical", SingleRowStrColumn::new) :
+    public StrColumn getAnalytical() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("analytical", StrColumn::new) :
                 getBinaryColumn("analytical"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -92,10 +92,10 @@ public class ChemicalFormula extends BaseCategory {
      * 
      * Ref: IUPAC (1990). Nomenclature of Inorganic Chemistry.
      * Oxford: Blackwell Scientific Publications.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIupac() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("iupac", SingleRowStrColumn::new) :
+    public StrColumn getIupac() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("iupac", StrColumn::new) :
                 getBinaryColumn("iupac"));
     }
 
@@ -114,10 +114,10 @@ public class ChemicalFormula extends BaseCategory {
      * and should be separated from the last (element symbol +
      * count) by a space. Pre- or post-multipliers may be used for
      * individual moieties.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMoiety() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("moiety", SingleRowStrColumn::new) :
+    public StrColumn getMoiety() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("moiety", StrColumn::new) :
                 getBinaryColumn("moiety"));
     }
 
@@ -133,10 +133,10 @@ public class ChemicalFormula extends BaseCategory {
      * trace elements not included in atom-type and atom-site data
      * should not be included in this formula (see also
      * _chemical_formula.analytical).
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructural() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structural", SingleRowStrColumn::new) :
+    public StrColumn getStructural() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structural", StrColumn::new) :
                 getBinaryColumn("structural"));
     }
 
@@ -147,10 +147,10 @@ public class ChemicalFormula extends BaseCategory {
      * following the ordering given in general rule (5) in the
      * CHEMICAL_FORMULA category description. Parentheses are not
      * normally used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSum() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sum", SingleRowStrColumn::new) :
+    public StrColumn getSum() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sum", StrColumn::new) :
                 getBinaryColumn("sum"));
     }
 
@@ -160,19 +160,19 @@ public class ChemicalFormula extends BaseCategory {
      * _chemical_formula.moiety or _chemical_formula.sum and,
      * together with the Z value and cell parameters, should
      * yield the density given as _exptl_crystal.density_diffrn.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWeight() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("weight", SingleRowFloatColumn::new) :
+    public FloatColumn getWeight() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("weight", FloatColumn::new) :
                 getBinaryColumn("weight"));
     }
 
     /**
      * Formula mass in daltons measured by a non-diffraction experiment.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWeightMeas() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("weight_meas", SingleRowFloatColumn::new) :
+    public FloatColumn getWeightMeas() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("weight_meas", FloatColumn::new) :
                 getBinaryColumn("weight_meas"));
     }
 }

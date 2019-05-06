@@ -25,28 +25,28 @@ public class PdbxDepuiEntityFeatures extends BaseCategory {
 
     /**
      * The internal identifier assigned to each deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepDatasetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", SingleRowStrColumn::new) :
+    public StrColumn getDepDatasetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", StrColumn::new) :
                 getBinaryColumn("dep_dataset_id"));
     }
 
     /**
      * A reference to the _entity.id in the ENTITY category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
     /**
      * A flag to indicate the molecule class for the entity.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

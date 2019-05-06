@@ -25,73 +25,73 @@ public class EmMaskDepositorInfo extends BaseCategory {
 
     /**
      * Unique identifier for each map listed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The name of a file containing the map.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUploadFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("upload_file_name", SingleRowStrColumn::new) :
+    public StrColumn getUploadFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("upload_file_name", StrColumn::new) :
                 getBinaryColumn("upload_file_name"));
     }
 
     /**
      * map format
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUploadFormat() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("upload_format", SingleRowStrColumn::new) :
+    public StrColumn getUploadFormat() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("upload_format", StrColumn::new) :
                 getBinaryColumn("upload_format"));
     }
 
     /**
      * recommended contour level for viewing the map
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getContourLevel() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("contour_level", SingleRowFloatColumn::new) :
+    public FloatColumn getContourLevel() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("contour_level", FloatColumn::new) :
                 getBinaryColumn("contour_level"));
     }
 
     /**
      * map annotation details
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAnnotationDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("annotation_details", SingleRowStrColumn::new) :
+    public StrColumn getAnnotationDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("annotation_details", StrColumn::new) :
                 getBinaryColumn("annotation_details"));
     }
 
     /**
      * The length in Angstroms of one voxel along the X axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingX() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_x", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingX() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_x", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_x"));
     }
 
     /**
      * The length in Angstroms of one voxel along the Y axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingY() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_y", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingY() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_y", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_y"));
     }
 
     /**
      * The length in Angstroms of one voxel along the Z axis.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPixelSpacingZ() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_z", SingleRowFloatColumn::new) :
+    public FloatColumn getPixelSpacingZ() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pixel_spacing_z", FloatColumn::new) :
                 getBinaryColumn("pixel_spacing_z"));
     }
 }

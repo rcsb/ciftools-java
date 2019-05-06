@@ -26,46 +26,46 @@ public class PdbxPointSymmetryDepositorInfo extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The Schoenflies point symmetry symbol.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSchoenfliesSymbol() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("Schoenflies_symbol", SingleRowStrColumn::new) :
+    public StrColumn getSchoenfliesSymbol() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("Schoenflies_symbol", StrColumn::new) :
                 getBinaryColumn("Schoenflies_symbol"));
     }
 
     /**
      * Rotational n-fold C and D point symmetry.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCircularSymmetry() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("circular_symmetry", SingleRowIntColumn::new) :
+    public IntColumn getCircularSymmetry() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("circular_symmetry", IntColumn::new) :
                 getBinaryColumn("circular_symmetry"));
     }
 
     /**
      * The Hermann-Mauguin notation for this point symmetry group.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getH_MNotation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("H-M_notation", SingleRowStrColumn::new) :
+    public StrColumn getH_MNotation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("H-M_notation", StrColumn::new) :
                 getBinaryColumn("H-M_notation"));
     }
 
     /**
      * A flag to indicate that this data is relevant to the current entry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStatusFlag() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("status_flag", SingleRowStrColumn::new) :
+    public StrColumn getStatusFlag() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("status_flag", StrColumn::new) :
                 getBinaryColumn("status_flag"));
     }
 }

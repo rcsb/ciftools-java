@@ -31,47 +31,47 @@ public class PdbxReferenceMoleculeFamily extends BaseCategory {
      * in the PDB reference dictionary.
      * 
      * The ID has the template form FAM_dddddd (e.g. FAM_000001)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getFamilyPrdId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("family_prd_id", SingleRowStrColumn::new) :
+    public StrColumn getFamilyPrdId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("family_prd_id", StrColumn::new) :
                 getBinaryColumn("family_prd_id"));
     }
 
     /**
      * The entity family name.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 
     /**
      * Assigns the current PDB release status for this family.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReleaseStatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("release_status", SingleRowStrColumn::new) :
+    public StrColumn getReleaseStatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("release_status", StrColumn::new) :
                 getBinaryColumn("release_status"));
     }
 
     /**
      * Assigns the identifier for the family which have been replaced by this family.
      * Multiple family identifier codes should be separated by commas.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReplaces() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("replaces", SingleRowStrColumn::new) :
+    public StrColumn getReplaces() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("replaces", StrColumn::new) :
                 getBinaryColumn("replaces"));
     }
 
     /**
      * Assigns the identifier of the family that has replaced this component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReplacedBy() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("replaced_by", SingleRowStrColumn::new) :
+    public StrColumn getReplacedBy() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("replaced_by", StrColumn::new) :
                 getBinaryColumn("replaced_by"));
     }
 }

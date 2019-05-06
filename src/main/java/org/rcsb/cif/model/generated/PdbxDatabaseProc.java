@@ -24,46 +24,46 @@ public class PdbxDatabaseProc extends BaseCategory {
 
     /**
      * The value of _pdbx_database_proc.entry_id identifies the data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * This is a number of the processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCycleId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cycle_id", SingleRowStrColumn::new) :
+    public StrColumn getCycleId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cycle_id", StrColumn::new) :
                 getBinaryColumn("cycle_id"));
     }
 
     /**
      * This is the date of the start of the processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateBeginCycle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_begin_cycle", SingleRowStrColumn::new) :
+    public StrColumn getDateBeginCycle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_begin_cycle", StrColumn::new) :
                 getBinaryColumn("date_begin_cycle"));
     }
 
     /**
      * This is the date of the end of the processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDateEndCycle() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date_end_cycle", SingleRowStrColumn::new) :
+    public StrColumn getDateEndCycle() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date_end_cycle", StrColumn::new) :
                 getBinaryColumn("date_end_cycle"));
     }
 
     /**
      * Special details about the current processing cycle.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

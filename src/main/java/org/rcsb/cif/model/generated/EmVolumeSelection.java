@@ -24,65 +24,65 @@ public class EmVolumeSelection extends BaseCategory {
 
     /**
      * Any additional details used for selecting volumes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Ordinal identifier
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The value of _em_volume_selection.image_processing_id points to
      * the EM_IMAGE_PROCESSING category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * The method used for selecting volumes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The number of tomograms used in the extraction/selection
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumTomograms() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_tomograms", SingleRowIntColumn::new) :
+    public IntColumn getNumTomograms() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_tomograms", IntColumn::new) :
                 getBinaryColumn("num_tomograms"));
     }
 
     /**
      * The number of volumes selected from the projection set of images.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumVolumesExtracted() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_volumes_extracted", SingleRowIntColumn::new) :
+    public IntColumn getNumVolumesExtracted() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_volumes_extracted", IntColumn::new) :
                 getBinaryColumn("num_volumes_extracted"));
     }
 
     /**
      * Description of reference model used for volume selection
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReferenceModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reference_model", SingleRowStrColumn::new) :
+    public StrColumn getReferenceModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reference_model", StrColumn::new) :
                 getBinaryColumn("reference_model"));
     }
 }

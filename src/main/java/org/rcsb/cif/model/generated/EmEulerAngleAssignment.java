@@ -24,73 +24,73 @@ public class EmEulerAngleAssignment extends BaseCategory {
 
     /**
      * Any additional details about euler angle assignment
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_PROCESSING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * Stage of the reconstruction in which the angle assignments were made.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOrder() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("order", SingleRowStrColumn::new) :
+    public StrColumn getOrder() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("order", StrColumn::new) :
                 getBinaryColumn("order"));
     }
 
     /**
      * Angular sampling of projection matching
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getProjMatchingAngularSampling() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("proj_matching_angular_sampling", SingleRowFloatColumn::new) :
+    public FloatColumn getProjMatchingAngularSampling() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("proj_matching_angular_sampling", FloatColumn::new) :
                 getBinaryColumn("proj_matching_angular_sampling"));
     }
 
     /**
      * Overall figure of merit for projection matching
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProjMatchingMeritFunction() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("proj_matching_merit_function", SingleRowStrColumn::new) :
+    public StrColumn getProjMatchingMeritFunction() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("proj_matching_merit_function", StrColumn::new) :
                 getBinaryColumn("proj_matching_merit_function"));
     }
 
     /**
      * Number of reference projections used for euler angle assignment
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getProjMatchingNumProjections() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("proj_matching_num_projections", SingleRowIntColumn::new) :
+    public IntColumn getProjMatchingNumProjections() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("proj_matching_num_projections", IntColumn::new) :
                 getBinaryColumn("proj_matching_num_projections"));
     }
 
     /**
      * The procedure used to assigned euler angles.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 }

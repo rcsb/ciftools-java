@@ -26,10 +26,10 @@ public class PdbxPostProcessDetails extends BaseCategory {
 
     /**
      * The value of _pdbx_post_process_details.entry_id identifies the data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -37,20 +37,20 @@ public class PdbxPostProcessDetails extends BaseCategory {
      * The text description of changes required to standardize
      * this entry.   This should include any errors detected
      * or changes in nomenclature.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getText() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("text", SingleRowStrColumn::new) :
+    public StrColumn getText() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("text", StrColumn::new) :
                 getBinaryColumn("text"));
     }
 
     /**
      * Details concerning the standardization of the chemical
      * sequence data in this entry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeqDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seq_details", SingleRowStrColumn::new) :
+    public StrColumn getSeqDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seq_details", StrColumn::new) :
                 getBinaryColumn("seq_details"));
     }
 }

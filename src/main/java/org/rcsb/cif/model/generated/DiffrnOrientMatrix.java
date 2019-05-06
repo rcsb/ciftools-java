@@ -27,10 +27,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
@@ -38,10 +38,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * A description of the orientation matrix type and how it should
      * be applied to define the orientation of the crystal precisely
      * with respect to the diffractometer axes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
@@ -49,10 +49,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[1][1]", FloatColumn::new) :
                 getBinaryColumn("UB[1][1]"));
     }
 
@@ -60,10 +60,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[1][2]", FloatColumn::new) :
                 getBinaryColumn("UB[1][2]"));
     }
 
@@ -71,10 +71,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[1][3]", FloatColumn::new) :
                 getBinaryColumn("UB[1][3]"));
     }
 
@@ -82,10 +82,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB21() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[2][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB21() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[2][1]", FloatColumn::new) :
                 getBinaryColumn("UB[2][1]"));
     }
 
@@ -93,10 +93,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[2][2]", FloatColumn::new) :
                 getBinaryColumn("UB[2][2]"));
     }
 
@@ -104,10 +104,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[2][3]", FloatColumn::new) :
                 getBinaryColumn("UB[2][3]"));
     }
 
@@ -115,10 +115,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB31() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[3][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB31() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[3][1]", FloatColumn::new) :
                 getBinaryColumn("UB[3][1]"));
     }
 
@@ -126,10 +126,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB32() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[3][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB32() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[3][2]", FloatColumn::new) :
                 getBinaryColumn("UB[3][2]"));
     }
 
@@ -137,10 +137,10 @@ public class DiffrnOrientMatrix extends BaseCategory {
      * The elements of the 3x3 matrix that defines the dimensions
      * of the reciprocal cell and its orientation with respect to the
      * local  diffractometer axes. See also _diffrn_orient_matrix.type.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getUB33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("UB[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getUB33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("UB[3][3]", FloatColumn::new) :
                 getBinaryColumn("UB[3][3]"));
     }
 }

@@ -27,148 +27,148 @@ public class PdbxNmrForceConstants extends BaseCategory {
 
     /**
      * You can leave this blank as an ID will be assigned by the RCSB.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The final force constant for distance (NOEs) constraints
      * term employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptlDistanceTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_distance_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptlDistanceTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_distance_term", FloatColumn::new) :
                 getBinaryColumn("exptl_distance_term"));
     }
 
     /**
      * The units for the force constant for the distance
      * constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptlDistanceTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_distance_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptlDistanceTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_distance_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_distance_term_units"));
     }
 
     /**
      * The final force constant for the torsion angle term employed in
      * the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptlTorsionAnglesTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_torsion_angles_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptlTorsionAnglesTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_torsion_angles_term", FloatColumn::new) :
                 getBinaryColumn("exptl_torsion_angles_term"));
     }
 
     /**
      * The units for the force constant for the torsion angle
      * constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptlTorsionAnglesTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_torsion_angles_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptlTorsionAnglesTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_torsion_angles_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_torsion_angles_term_units"));
     }
 
     /**
      * The final force constant for J coupling term employed in the
      * target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptlJCouplingTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_J_coupling_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptlJCouplingTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_J_coupling_term", FloatColumn::new) :
                 getBinaryColumn("exptl_J_coupling_term"));
     }
 
     /**
      * The units for the force constant for the J coupling term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptlJCouplingTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_J_coupling_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptlJCouplingTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_J_coupling_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_J_coupling_term_units"));
     }
 
     /**
      * The final force constant for 13C shift constraints term employed
      * in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptl13CShiftTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_13C_shift_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptl13CShiftTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_13C_shift_term", FloatColumn::new) :
                 getBinaryColumn("exptl_13C_shift_term"));
     }
 
     /**
      * The units for the force constant for the 13C shift constraints
      * term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptl13CShiftTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_13C_shift_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptl13CShiftTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_13C_shift_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_13C_shift_term_units"));
     }
 
     /**
      * The final force constant for 1H shift constraints term employed
      * in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptl1HShiftTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_1H_shift_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptl1HShiftTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_1H_shift_term", FloatColumn::new) :
                 getBinaryColumn("exptl_1H_shift_term"));
     }
 
     /**
      * The units for the force constant for the 1H shift constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptl1HShiftTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_1H_shift_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptl1HShiftTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_1H_shift_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_1H_shift_term_units"));
     }
 
     /**
      * The final force constant for dipolar coupling constraint term
      * employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptlDipolarCouplingTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_dipolar_coupling_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptlDipolarCouplingTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_dipolar_coupling_term", FloatColumn::new) :
                 getBinaryColumn("exptl_dipolar_coupling_term"));
     }
 
     /**
      * The units for the force constant for the dipolar coupling
      * constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptlDipolarCouplingTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_dipolar_coupling_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptlDipolarCouplingTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_dipolar_coupling_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_dipolar_coupling_term_units"));
     }
 
     /**
      * The final force constant for Deuterium isotope shift constraints
      * term employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getExptlDIsotopeShiftTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("exptl_D_isotope_shift_term", SingleRowFloatColumn::new) :
+    public FloatColumn getExptlDIsotopeShiftTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("exptl_D_isotope_shift_term", FloatColumn::new) :
                 getBinaryColumn("exptl_D_isotope_shift_term"));
     }
 
     /**
      * The units for the force constant for the Deuterium isotope
      * shift constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExptlDIsotopeShiftTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("exptl_D_isotope_shift_term_units", SingleRowStrColumn::new) :
+    public StrColumn getExptlDIsotopeShiftTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("exptl_D_isotope_shift_term_units", StrColumn::new) :
                 getBinaryColumn("exptl_D_isotope_shift_term_units"));
     }
 
@@ -176,40 +176,40 @@ public class PdbxNmrForceConstants extends BaseCategory {
      * The final force constant for the covalent geometry bond length
      * constraints term employed in the target function used for simulated
      * annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCovalentGeomBondTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_bond_term", SingleRowFloatColumn::new) :
+    public FloatColumn getCovalentGeomBondTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_bond_term", FloatColumn::new) :
                 getBinaryColumn("covalent_geom_bond_term"));
     }
 
     /**
      * The units for the force constant for the covalent geometry bond
      * length constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCovalentGeomBondTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_bond_term_units", SingleRowStrColumn::new) :
+    public StrColumn getCovalentGeomBondTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_bond_term_units", StrColumn::new) :
                 getBinaryColumn("covalent_geom_bond_term_units"));
     }
 
     /**
      * The final force constant for covalent geometry angle constraints
      * term employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCovalentGeomAnglesTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_angles_term", SingleRowFloatColumn::new) :
+    public FloatColumn getCovalentGeomAnglesTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_angles_term", FloatColumn::new) :
                 getBinaryColumn("covalent_geom_angles_term"));
     }
 
     /**
      * The units for the force constant for the covalent geometry angle
      * constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCovalentGeomAnglesTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_angles_term_units", SingleRowStrColumn::new) :
+    public StrColumn getCovalentGeomAnglesTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_angles_term_units", StrColumn::new) :
                 getBinaryColumn("covalent_geom_angles_term_units"));
     }
 
@@ -217,49 +217,49 @@ public class PdbxNmrForceConstants extends BaseCategory {
      * The final force constant for covalent geometry impropers
      * contstraints term employed in the target function used for simulated
      * annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCovalentGeomImpropersTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_impropers_term", SingleRowFloatColumn::new) :
+    public FloatColumn getCovalentGeomImpropersTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("covalent_geom_impropers_term", FloatColumn::new) :
                 getBinaryColumn("covalent_geom_impropers_term"));
     }
 
     /**
      * The units for the force constant for the covalent geometry
      * impropers constraints term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCovalentGeomImpropersTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_impropers_term_units", SingleRowStrColumn::new) :
+    public StrColumn getCovalentGeomImpropersTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("covalent_geom_impropers_term_units", StrColumn::new) :
                 getBinaryColumn("covalent_geom_impropers_term_units"));
     }
 
     /**
      * The type of van der Waals term employed in the target function
      * used for simulated annealing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNon_bondedInterVanDerWaalsTermType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term_type", SingleRowStrColumn::new) :
+    public StrColumn getNon_bondedInterVanDerWaalsTermType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term_type", StrColumn::new) :
                 getBinaryColumn("non-bonded_inter_van_der_Waals_term_type"));
     }
 
     /**
      * The force constant used for the non-bonded interaction van der Waals
      * term employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNon_bondedInterVanDerWaalsTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term", SingleRowFloatColumn::new) :
+    public FloatColumn getNon_bondedInterVanDerWaalsTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term", FloatColumn::new) :
                 getBinaryColumn("non-bonded_inter_van_der_Waals_term"));
     }
 
     /**
      * The units for the force constant for the van der Waals term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNon_bondedInterVanDerWaalsTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term_units", SingleRowStrColumn::new) :
+    public StrColumn getNon_bondedInterVanDerWaalsTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_van_der_Waals_term_units", StrColumn::new) :
                 getBinaryColumn("non-bonded_inter_van_der_Waals_term_units"));
     }
 
@@ -267,29 +267,29 @@ public class PdbxNmrForceConstants extends BaseCategory {
      * The force constant used for the non-bonded interaction conformational
      * database potential term employed in the target function used for simulated
      * annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNon_bondedInterConfDbPotentialTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_conf_db_potential_term", SingleRowFloatColumn::new) :
+    public FloatColumn getNon_bondedInterConfDbPotentialTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_conf_db_potential_term", FloatColumn::new) :
                 getBinaryColumn("non-bonded_inter_conf_db_potential_term"));
     }
 
     /**
      * The force constant used for the non-bonded interaction radius of
      * gyration term employed in the target function used for simulated annealing.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNon_bondedInterRadiusOfGyrationTerm() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_radius_of_gyration_term", SingleRowFloatColumn::new) :
+    public FloatColumn getNon_bondedInterRadiusOfGyrationTerm() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_radius_of_gyration_term", FloatColumn::new) :
                 getBinaryColumn("non-bonded_inter_radius_of_gyration_term"));
     }
 
     /**
      * The units for the force constant for the radius of gyration term.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNon_bondedInterRadiusOfGyrationTermUnits() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_radius_of_gyration_term_units", SingleRowStrColumn::new) :
+    public StrColumn getNon_bondedInterRadiusOfGyrationTermUnits() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("non-bonded_inter_radius_of_gyration_term_units", StrColumn::new) :
                 getBinaryColumn("non-bonded_inter_radius_of_gyration_term_units"));
     }
 }

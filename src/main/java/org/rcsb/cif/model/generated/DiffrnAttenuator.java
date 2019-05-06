@@ -27,10 +27,10 @@ public class DiffrnAttenuator extends BaseCategory {
      * A code associated with a particular attenuator setting. This
      * code is referenced by the _diffrn_refln.attenuator_code which is
      * stored with the diffraction data. See _diffrn_attenuator.scale.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("code", SingleRowStrColumn::new) :
+    public StrColumn getCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("code", StrColumn::new) :
                 getBinaryColumn("code"));
     }
 
@@ -39,19 +39,19 @@ public class DiffrnAttenuator extends BaseCategory {
      * reduced by an attenuator identified by _diffrn_attenuator.code.
      * The measured intensity must be multiplied by this scale to
      * convert it to the same scale as unattenuated intensities.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScale() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scale", SingleRowFloatColumn::new) :
+    public FloatColumn getScale() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scale", FloatColumn::new) :
                 getBinaryColumn("scale"));
     }
 
     /**
      * Material from which the attenuator is made.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("material", SingleRowStrColumn::new) :
+    public StrColumn getMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("material", StrColumn::new) :
                 getBinaryColumn("material"));
     }
 }

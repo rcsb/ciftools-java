@@ -24,82 +24,82 @@ public class EmImagingOptics extends BaseCategory {
 
     /**
      * Chromatic aberration corrector information
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getChrAberrationCorrector() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("chr_aberration_corrector", SingleRowStrColumn::new) :
+    public StrColumn getChrAberrationCorrector() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("chr_aberration_corrector", StrColumn::new) :
                 getBinaryColumn("chr_aberration_corrector"));
     }
 
     /**
      * The energy filter range lower value in electron volts (eV) set by spectrometer.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnergyfilterLower() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("energyfilter_lower", SingleRowStrColumn::new) :
+    public StrColumn getEnergyfilterLower() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("energyfilter_lower", StrColumn::new) :
                 getBinaryColumn("energyfilter_lower"));
     }
 
     /**
      * The energy filter range slit width in electron volts (eV).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getEnergyfilterSlitWidth() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("energyfilter_slit_width", SingleRowFloatColumn::new) :
+    public FloatColumn getEnergyfilterSlitWidth() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("energyfilter_slit_width", FloatColumn::new) :
                 getBinaryColumn("energyfilter_slit_width"));
     }
 
     /**
      * The type of energy filter spectrometer
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnergyfilterName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("energyfilter_name", SingleRowStrColumn::new) :
+    public StrColumn getEnergyfilterName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("energyfilter_name", StrColumn::new) :
                 getBinaryColumn("energyfilter_name"));
     }
 
     /**
      * The energy filter range upper value in electron volts (eV) set by spectrometer.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEnergyfilterUpper() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("energyfilter_upper", SingleRowStrColumn::new) :
+    public StrColumn getEnergyfilterUpper() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("energyfilter_upper", StrColumn::new) :
                 getBinaryColumn("energyfilter_upper"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM IMAGING category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImagingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("imaging_id", SingleRowStrColumn::new) :
+    public StrColumn getImagingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("imaging_id", StrColumn::new) :
                 getBinaryColumn("imaging_id"));
     }
 
     /**
      * Phase plate information
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhasePlate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phase_plate", SingleRowStrColumn::new) :
+    public StrColumn getPhasePlate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phase_plate", StrColumn::new) :
                 getBinaryColumn("phase_plate"));
     }
 
     /**
      * Spherical aberration corrector information
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSphAberrationCorrector() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sph_aberration_corrector", SingleRowStrColumn::new) :
+    public StrColumn getSphAberrationCorrector() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sph_aberration_corrector", StrColumn::new) :
                 getBinaryColumn("sph_aberration_corrector"));
     }
 }

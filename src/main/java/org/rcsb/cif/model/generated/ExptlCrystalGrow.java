@@ -25,58 +25,58 @@ public class ExptlCrystalGrow extends BaseCategory {
 
     /**
      * The physical apparatus in which the crystal was grown.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getApparatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("apparatus", SingleRowStrColumn::new) :
+    public StrColumn getApparatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("apparatus", StrColumn::new) :
                 getBinaryColumn("apparatus"));
     }
 
     /**
      * The nature of the gas or gas mixture in which the crystal was
      * grown.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAtmosphere() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("atmosphere", SingleRowStrColumn::new) :
+    public StrColumn getAtmosphere() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("atmosphere", StrColumn::new) :
                 getBinaryColumn("atmosphere"));
     }
 
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_id", SingleRowStrColumn::new) :
+    public StrColumn getCrystalId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_id", StrColumn::new) :
                 getBinaryColumn("crystal_id"));
     }
 
     /**
      * A description of special aspects of the crystal growth.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The method used to grow the crystals.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * A literature reference that describes the method used to grow
      * the crystals.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethodRef() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method_ref", SingleRowStrColumn::new) :
+    public StrColumn getMethodRef() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method_ref", StrColumn::new) :
                 getBinaryColumn("method_ref"));
     }
 
@@ -85,50 +85,50 @@ public class ExptlCrystalGrow extends BaseCategory {
      * employed during the crystallization process, the final pH should
      * be noted here and the protocol involving multiple pH values
      * should be described in _exptl_crystal_grow.details.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPH() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pH", SingleRowFloatColumn::new) :
+    public FloatColumn getPH() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pH", FloatColumn::new) :
                 getBinaryColumn("pH"));
     }
 
     /**
      * The ambient pressure in kilopascals at which the crystal was
      * grown.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPressure() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pressure", SingleRowFloatColumn::new) :
+    public FloatColumn getPressure() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pressure", FloatColumn::new) :
                 getBinaryColumn("pressure"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _exptl_crystal_grow.pressure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPressureEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pressure_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getPressureEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pressure_esd", FloatColumn::new) :
                 getBinaryColumn("pressure_esd"));
     }
 
     /**
      * A description of the protocol used for seeding the crystal
      * growth.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeeding() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seeding", SingleRowStrColumn::new) :
+    public StrColumn getSeeding() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seeding", StrColumn::new) :
                 getBinaryColumn("seeding"));
     }
 
     /**
      * A literature reference that describes the protocol used to seed
      * the crystal.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeedingRef() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seeding_ref", SingleRowStrColumn::new) :
+    public StrColumn getSeedingRef() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seeding_ref", StrColumn::new) :
                 getBinaryColumn("seeding_ref"));
     }
 
@@ -138,59 +138,59 @@ public class ExptlCrystalGrow extends BaseCategory {
      * crystallization process, the final temperature should be noted
      * here and the protocol  involving multiple temperatures should be
      * described in _exptl_crystal_grow.details.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp", SingleRowFloatColumn::new) :
+    public FloatColumn getTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp", FloatColumn::new) :
                 getBinaryColumn("temp"));
     }
 
     /**
      * A description of special aspects of temperature control during
      * crystal growth.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTempDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("temp_details", SingleRowStrColumn::new) :
+    public StrColumn getTempDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("temp_details", StrColumn::new) :
                 getBinaryColumn("temp_details"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _exptl_crystal_grow.temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTempEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getTempEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp_esd", FloatColumn::new) :
                 getBinaryColumn("temp_esd"));
     }
 
     /**
      * The approximate time that the crystal took to grow to the size
      * used for data collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTime() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("time", SingleRowStrColumn::new) :
+    public StrColumn getTime() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("time", StrColumn::new) :
                 getBinaryColumn("time"));
     }
 
     /**
      * Text description of crystal growth procedure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_details", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_details", StrColumn::new) :
                 getBinaryColumn("pdbx_details"));
     }
 
     /**
      * The range of pH values at which the crystal was grown.   Used when
      * a point estimate of pH is not appropriate.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxPHRange() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_pH_range", SingleRowStrColumn::new) :
+    public StrColumn getPdbxPHRange() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_pH_range", StrColumn::new) :
                 getBinaryColumn("pdbx_pH_range"));
     }
 }

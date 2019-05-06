@@ -25,19 +25,19 @@ public class PdbxSequenceAnnotation extends BaseCategory {
 
     /**
      * PDB chain ID.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbChainId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbChainId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_chain_id", StrColumn::new) :
                 getBinaryColumn("pdb_chain_id"));
     }
 
     /**
      * NCBI TaxID
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getNcbiTaxid() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ncbi_taxid", SingleRowStrColumn::new) :
+    public StrColumn getNcbiTaxid() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ncbi_taxid", StrColumn::new) :
                 getBinaryColumn("ncbi_taxid"));
     }
 }

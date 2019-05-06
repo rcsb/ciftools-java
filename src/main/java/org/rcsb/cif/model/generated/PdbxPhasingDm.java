@@ -25,110 +25,110 @@ public class PdbxPhasingDm extends BaseCategory {
 
     /**
      * The value of _pdbx_phasing_dm.entry_id identifies the data block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.method identifies the method used for
      * density modification
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.mask_type  identifies the type of mask used for
      * density modification
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMaskType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("mask_type", SingleRowStrColumn::new) :
+    public StrColumn getMaskType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("mask_type", StrColumn::new) :
                 getBinaryColumn("mask_type"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.fom_acentric  identifies the figure of merit
      * for acentric data
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFomAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fom_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getFomAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fom_acentric", FloatColumn::new) :
                 getBinaryColumn("fom_acentric"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.fom_centric  identifies the figure of merit
      * for acentric data
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFomCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fom_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getFomCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fom_centric", FloatColumn::new) :
                 getBinaryColumn("fom_centric"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.fom identifies the figure of merit
      * for all the data
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFom() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fom", SingleRowFloatColumn::new) :
+    public FloatColumn getFom() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fom", FloatColumn::new) :
                 getBinaryColumn("fom"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.reflns_acentric  identifies the number
      * of acentric reflections.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflnsAcentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns_acentric", SingleRowIntColumn::new) :
+    public IntColumn getReflnsAcentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns_acentric", IntColumn::new) :
                 getBinaryColumn("reflns_acentric"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.reflns_centric  identifies the number
      * of centric reflections.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflnsCentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns_centric", SingleRowIntColumn::new) :
+    public IntColumn getReflnsCentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns_centric", IntColumn::new) :
                 getBinaryColumn("reflns_centric"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.reflns  identifies the number
      * of centric and acentric reflections.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflns() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns", SingleRowIntColumn::new) :
+    public IntColumn getReflns() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns", IntColumn::new) :
                 getBinaryColumn("reflns"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.delta_phi_initial  identifies phase difference
      * before density modification
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDeltaPhiInitial() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("delta_phi_initial", SingleRowFloatColumn::new) :
+    public FloatColumn getDeltaPhiInitial() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("delta_phi_initial", FloatColumn::new) :
                 getBinaryColumn("delta_phi_initial"));
     }
 
     /**
      * The value of _pdbx_phasing_dm.delta_phi_final  identifies phase difference
      * after density modification
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDeltaPhiFinal() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("delta_phi_final", SingleRowFloatColumn::new) :
+    public FloatColumn getDeltaPhiFinal() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("delta_phi_final", FloatColumn::new) :
                 getBinaryColumn("delta_phi_final"));
     }
 }

@@ -24,46 +24,46 @@ public class EmSupportFilm extends BaseCategory {
 
     /**
      * This data item is the primary key of the category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The support material covering the em grid.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMaterial() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("material", SingleRowStrColumn::new) :
+    public StrColumn getMaterial() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("material", StrColumn::new) :
                 getBinaryColumn("material"));
     }
 
     /**
      * Pointer to  EM SAMPLE SUPPORT
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleSupportId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", SingleRowStrColumn::new) :
+    public StrColumn getSampleSupportId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_support_id", StrColumn::new) :
                 getBinaryColumn("sample_support_id"));
     }
 
     /**
      * Thickness of the support film, in Angstroms
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getThickness() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("thickness", SingleRowFloatColumn::new) :
+    public FloatColumn getThickness() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("thickness", FloatColumn::new) :
                 getBinaryColumn("thickness"));
     }
 
     /**
      * The topology of the material from which the grid is made.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getTopology() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("topology", SingleRowStrColumn::new) :
+    public StrColumn getTopology() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("topology", StrColumn::new) :
                 getBinaryColumn("topology"));
     }
 }

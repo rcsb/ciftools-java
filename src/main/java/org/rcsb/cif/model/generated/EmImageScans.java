@@ -27,130 +27,130 @@ public class EmImageScans extends BaseCategory {
     /**
      * This data item is a pointer to _entry.id in the
      * ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The value of _em_image_scans.id must uniquely identify
      * the images scanned.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The number of real images.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberDigitalImages() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_digital_images", SingleRowIntColumn::new) :
+    public IntColumn getNumberDigitalImages() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_digital_images", IntColumn::new) :
                 getBinaryColumn("number_digital_images"));
     }
 
     /**
      * Any additional details about image recording.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The scanner model.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getScannerModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("scanner_model", SingleRowStrColumn::new) :
+    public StrColumn getScannerModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("scanner_model", StrColumn::new) :
                 getBinaryColumn("scanner_model"));
     }
 
     /**
      * The sampling step size (microns) set on the scanner.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSamplingSize() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("sampling_size", SingleRowFloatColumn::new) :
+    public FloatColumn getSamplingSize() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("sampling_size", FloatColumn::new) :
                 getBinaryColumn("sampling_size"));
     }
 
     /**
      * The optical density range (OD=-log 10 transmission).
      * To the eye OD=1 appears light grey and OD=3 is opaque.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOdRange() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("od_range", SingleRowFloatColumn::new) :
+    public FloatColumn getOdRange() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("od_range", FloatColumn::new) :
                 getBinaryColumn("od_range"));
     }
 
     /**
      * The number of bits per pixel.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getQuantBitSize() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("quant_bit_size", SingleRowIntColumn::new) :
+    public IntColumn getQuantBitSize() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("quant_bit_size", IntColumn::new) :
                 getBinaryColumn("quant_bit_size"));
     }
 
     /**
      * This data item is a pointer to _citation.id
      * in the CITATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCitationId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("citation_id", SingleRowStrColumn::new) :
+    public StrColumn getCitationId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("citation_id", StrColumn::new) :
                 getBinaryColumn("citation_id"));
     }
 
     /**
      * height of scanned image
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDimensionHeight() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("dimension_height", SingleRowIntColumn::new) :
+    public IntColumn getDimensionHeight() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("dimension_height", IntColumn::new) :
                 getBinaryColumn("dimension_height"));
     }
 
     /**
      * width of scanned image
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getDimensionWidth() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("dimension_width", SingleRowIntColumn::new) :
+    public IntColumn getDimensionWidth() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("dimension_width", IntColumn::new) :
                 getBinaryColumn("dimension_width"));
     }
 
     /**
      * Total number of time-slice (movie) frames taken per image.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getFramesPerImage() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("frames_per_image", SingleRowIntColumn::new) :
+    public IntColumn getFramesPerImage() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("frames_per_image", IntColumn::new) :
                 getBinaryColumn("frames_per_image"));
     }
 
     /**
      * foreign key linked to _em_image_recording
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageRecordingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_recording_id", SingleRowStrColumn::new) :
+    public StrColumn getImageRecordingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_recording_id", StrColumn::new) :
                 getBinaryColumn("image_recording_id"));
     }
 
     /**
      * Range of time-slice (movie) frames used for the reconstruction.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUsedFramesPerImage() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("used_frames_per_image", SingleRowStrColumn::new) :
+    public StrColumn getUsedFramesPerImage() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("used_frames_per_image", StrColumn::new) :
                 getBinaryColumn("used_frames_per_image"));
     }
 }

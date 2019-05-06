@@ -25,38 +25,38 @@ public class PdbxNaStructKeywds extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Provides overall idea about conformation type of NA.  Also,
      * it identifies tRNAs by assigning a 'T' here.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getConformationType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("conformation_type", SingleRowStrColumn::new) :
+    public StrColumn getConformationType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("conformation_type", StrColumn::new) :
                 getBinaryColumn("conformation_type"));
     }
 
     /**
      * Gives general structural description of NA.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStrandDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("strand_description", SingleRowStrColumn::new) :
+    public StrColumn getStrandDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("strand_description", StrColumn::new) :
                 getBinaryColumn("strand_description"));
     }
 
     /**
      * Describes special features of NA.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecialFeature() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("special_feature", SingleRowStrColumn::new) :
+    public StrColumn getSpecialFeature() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("special_feature", StrColumn::new) :
                 getBinaryColumn("special_feature"));
     }
 }

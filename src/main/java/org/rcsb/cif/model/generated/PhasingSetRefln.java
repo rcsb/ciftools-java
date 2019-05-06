@@ -29,77 +29,77 @@ public class PhasingSetRefln extends BaseCategory {
     /**
      * This data item is a pointer to _phasing_set.id in the
      * PHASING_SET category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("set_id", SingleRowStrColumn::new) :
+    public StrColumn getSetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("set_id", StrColumn::new) :
                 getBinaryColumn("set_id"));
     }
 
     /**
      * The measured value of the structure factor for this reflection
      * in this data set in electrons.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeas() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeas() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas", FloatColumn::new) :
                 getBinaryColumn("F_meas"));
     }
 
     /**
      * The measured value of the structure factor for this reflection
      * in this data set in arbitrary units.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasAu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_au", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasAu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_au", FloatColumn::new) :
                 getBinaryColumn("F_meas_au"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _phasing_set_refln.F_meas in electrons.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasSigma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasSigma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma", FloatColumn::new) :
                 getBinaryColumn("F_meas_sigma"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _phasing_set_refln.F_meas_au in arbitrary units.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasSigmaAu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma_au", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasSigmaAu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma_au", FloatColumn::new) :
                 getBinaryColumn("F_meas_sigma_au"));
     }
 
     /**
      * Miller index h of this reflection in this data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexH() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_h", SingleRowIntColumn::new) :
+    public IntColumn getIndexH() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_h", IntColumn::new) :
                 getBinaryColumn("index_h"));
     }
 
     /**
      * Miller index k of this reflection in this data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexK() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_k", SingleRowIntColumn::new) :
+    public IntColumn getIndexK() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_k", IntColumn::new) :
                 getBinaryColumn("index_k"));
     }
 
     /**
      * Miller index l of this reflection in this data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexL() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_l", SingleRowIntColumn::new) :
+    public IntColumn getIndexL() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_l", IntColumn::new) :
                 getBinaryColumn("index_l"));
     }
 }

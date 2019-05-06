@@ -29,10 +29,10 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices
      * in the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleChi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_chi", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleChi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_chi", FloatColumn::new) :
                 getBinaryColumn("angle_chi"));
     }
 
@@ -41,10 +41,10 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices
      * in the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleKappa() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_kappa", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleKappa() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_kappa", FloatColumn::new) :
                 getBinaryColumn("angle_kappa"));
     }
 
@@ -53,10 +53,10 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices in
      * the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleOmega() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_omega", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleOmega() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_omega", FloatColumn::new) :
                 getBinaryColumn("angle_omega"));
     }
 
@@ -65,10 +65,10 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices
      * in the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnglePhi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_phi", SingleRowFloatColumn::new) :
+    public FloatColumn getAnglePhi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_phi", FloatColumn::new) :
                 getBinaryColumn("angle_phi"));
     }
 
@@ -77,10 +77,10 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices
      * in the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnglePsi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_psi", SingleRowFloatColumn::new) :
+    public FloatColumn getAnglePsi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_psi", FloatColumn::new) :
                 getBinaryColumn("angle_psi"));
     }
 
@@ -89,50 +89,50 @@ public class DiffrnOrientRefln extends BaseCategory {
      * define the orientation matrix in degrees. See
      * _diffrn_orient_matrix.UB[][] and the Miller indices
      * in the DIFFRN_ORIENT_REFLN category.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleTheta() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_theta", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleTheta() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_theta", FloatColumn::new) :
                 getBinaryColumn("angle_theta"));
     }
 
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * Miller index h of a reflection used to define the orientation
      * matrix.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexH() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_h", SingleRowIntColumn::new) :
+    public IntColumn getIndexH() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_h", IntColumn::new) :
                 getBinaryColumn("index_h"));
     }
 
     /**
      * Miller index k of a reflection used to define the orientation
      * matrix.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexK() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_k", SingleRowIntColumn::new) :
+    public IntColumn getIndexK() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_k", IntColumn::new) :
                 getBinaryColumn("index_k"));
     }
 
     /**
      * Miller index l of a reflection used to define the orientation
      * matrix.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexL() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_l", SingleRowIntColumn::new) :
+    public IntColumn getIndexL() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_l", IntColumn::new) :
                 getBinaryColumn("index_l"));
     }
 }

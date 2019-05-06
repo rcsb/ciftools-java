@@ -36,10 +36,10 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleChi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_chi", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleChi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_chi", FloatColumn::new) :
                 getBinaryColumn("angle_chi"));
     }
 
@@ -48,10 +48,10 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleKappa() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_kappa", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleKappa() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_kappa", FloatColumn::new) :
                 getBinaryColumn("angle_kappa"));
     }
 
@@ -60,10 +60,10 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleOmega() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_omega", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleOmega() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_omega", FloatColumn::new) :
                 getBinaryColumn("angle_omega"));
     }
 
@@ -72,10 +72,10 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnglePhi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_phi", SingleRowFloatColumn::new) :
+    public FloatColumn getAnglePhi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_phi", FloatColumn::new) :
                 getBinaryColumn("angle_phi"));
     }
 
@@ -84,10 +84,10 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds  to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAnglePsi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_psi", SingleRowFloatColumn::new) :
+    public FloatColumn getAnglePsi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_psi", FloatColumn::new) :
                 getBinaryColumn("angle_psi"));
     }
 
@@ -96,109 +96,109 @@ public class DiffrnRefln extends BaseCategory {
      * angle corresponds  to the specified orientation matrix
      * and the original measured cell before any subsequent cell
      * transformations.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAngleTheta() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("angle_theta", SingleRowFloatColumn::new) :
+    public FloatColumn getAngleTheta() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("angle_theta", FloatColumn::new) :
                 getBinaryColumn("angle_theta"));
     }
 
     /**
      * The code identifying the attenuator setting for this reflection.
      * This code must match one of the _diffrn_attenuator.code values.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAttenuatorCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("attenuator_code", SingleRowStrColumn::new) :
+    public StrColumn getAttenuatorCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("attenuator_code", StrColumn::new) :
                 getBinaryColumn("attenuator_code"));
     }
 
     /**
      * The diffractometer counts for the measurement of the background
      * before the peak.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCountsBg1() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("counts_bg_1", SingleRowIntColumn::new) :
+    public IntColumn getCountsBg1() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("counts_bg_1", IntColumn::new) :
                 getBinaryColumn("counts_bg_1"));
     }
 
     /**
      * The diffractometer counts for the measurement of the background
      * after the peak.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCountsBg2() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("counts_bg_2", SingleRowIntColumn::new) :
+    public IntColumn getCountsBg2() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("counts_bg_2", IntColumn::new) :
                 getBinaryColumn("counts_bg_2"));
     }
 
     /**
      * The diffractometer counts for the measurement of net counts after
      * background removal.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCountsNet() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("counts_net", SingleRowIntColumn::new) :
+    public IntColumn getCountsNet() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("counts_net", IntColumn::new) :
                 getBinaryColumn("counts_net"));
     }
 
     /**
      * The diffractometer counts for the measurement of counts for the
      * peak scan or position.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCountsPeak() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("counts_peak", SingleRowIntColumn::new) :
+    public IntColumn getCountsPeak() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("counts_peak", IntColumn::new) :
                 getBinaryColumn("counts_peak"));
     }
 
     /**
      * The diffractometer counts for the measurement of total counts
      * (background plus peak).
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getCountsTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("counts_total", SingleRowIntColumn::new) :
+    public IntColumn getCountsTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("counts_total", IntColumn::new) :
                 getBinaryColumn("counts_total"));
     }
 
     /**
      * Total slit aperture in degrees in the diffraction plane.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDetectSlitHoriz() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("detect_slit_horiz", SingleRowFloatColumn::new) :
+    public FloatColumn getDetectSlitHoriz() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("detect_slit_horiz", FloatColumn::new) :
                 getBinaryColumn("detect_slit_horiz"));
     }
 
     /**
      * Total slit aperture in degrees perpendicular to the
      * diffraction plane.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDetectSlitVert() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("detect_slit_vert", SingleRowFloatColumn::new) :
+    public FloatColumn getDetectSlitVert() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("detect_slit_vert", FloatColumn::new) :
                 getBinaryColumn("detect_slit_vert"));
     }
 
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * Elapsed time in minutes from the start of the diffraction
      * experiment to the measurement of this intensity.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getElapsedTime() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("elapsed_time", SingleRowFloatColumn::new) :
+    public FloatColumn getElapsedTime() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("elapsed_time", FloatColumn::new) :
                 getBinaryColumn("elapsed_time"));
     }
 
@@ -209,10 +209,10 @@ public class DiffrnRefln extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -224,10 +224,10 @@ public class DiffrnRefln extends BaseCategory {
      * Details of the cell transformation are given in
      * _diffrn_reflns.reduction_process. See also
      * _diffrn_reflns.transf_matrix[][].
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexH() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_h", SingleRowIntColumn::new) :
+    public IntColumn getIndexH() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_h", IntColumn::new) :
                 getBinaryColumn("index_h"));
     }
 
@@ -239,10 +239,10 @@ public class DiffrnRefln extends BaseCategory {
      * Details of the cell transformation are given in
      * _diffrn_reflns.reduction_process. See also
      * _diffrn_reflns.transf_matrix[][].
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexK() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_k", SingleRowIntColumn::new) :
+    public IntColumn getIndexK() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_k", IntColumn::new) :
                 getBinaryColumn("index_k"));
     }
 
@@ -254,20 +254,20 @@ public class DiffrnRefln extends BaseCategory {
      * Details of the cell transformation are given in
      * _diffrn_reflns.reduction_process. See also
      * _diffrn_reflns.transf_matrix[][].
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexL() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_l", SingleRowIntColumn::new) :
+    public IntColumn getIndexL() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_l", IntColumn::new) :
                 getBinaryColumn("index_l"));
     }
 
     /**
      * Net intensity calculated from the diffraction counts after the
      * attenuator and standard scales have been applied.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getIntensityNet() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("intensity_net", SingleRowFloatColumn::new) :
+    public FloatColumn getIntensityNet() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("intensity_net", FloatColumn::new) :
                 getBinaryColumn("intensity_net"));
     }
 
@@ -275,10 +275,10 @@ public class DiffrnRefln extends BaseCategory {
      * Standard uncertainty (estimated standard deviation) of the
      * intensity calculated from the diffraction counts after the
      * attenuator and standard scales have been applied.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getIntensitySigma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("intensity_sigma", SingleRowFloatColumn::new) :
+    public FloatColumn getIntensitySigma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("intensity_sigma", FloatColumn::new) :
                 getBinaryColumn("intensity_sigma"));
     }
 
@@ -287,10 +287,10 @@ public class DiffrnRefln extends BaseCategory {
      * 
      * This data item is a pointer to _diffrn_scale_group.code in the
      * DIFFRN_SCALE_GROUP category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getScaleGroupCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("scale_group_code", SingleRowStrColumn::new) :
+    public StrColumn getScaleGroupCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("scale_group_code", StrColumn::new) :
                 getBinaryColumn("scale_group_code"));
     }
 
@@ -298,59 +298,59 @@ public class DiffrnRefln extends BaseCategory {
      * The code identifying the mode of scanning for measurements
      * using a diffractometer.
      * See _diffrn_refln.scan_width and _diffrn_refln.scan_mode_backgd.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getScanMode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("scan_mode", SingleRowStrColumn::new) :
+    public StrColumn getScanMode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("scan_mode", StrColumn::new) :
                 getBinaryColumn("scan_mode"));
     }
 
     /**
      * The code identifying the mode of scanning a reflection to
      * measure the background intensity.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getScanModeBackgd() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("scan_mode_backgd", SingleRowStrColumn::new) :
+    public StrColumn getScanModeBackgd() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("scan_mode_backgd", StrColumn::new) :
                 getBinaryColumn("scan_mode_backgd"));
     }
 
     /**
      * The rate of scanning a reflection in degrees per minute
      * to measure the intensity.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScanRate() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scan_rate", SingleRowFloatColumn::new) :
+    public FloatColumn getScanRate() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scan_rate", FloatColumn::new) :
                 getBinaryColumn("scan_rate"));
     }
 
     /**
      * The time spent measuring each background in seconds.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScanTimeBackgd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scan_time_backgd", SingleRowFloatColumn::new) :
+    public FloatColumn getScanTimeBackgd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scan_time_backgd", FloatColumn::new) :
                 getBinaryColumn("scan_time_backgd"));
     }
 
     /**
      * The scan width in degrees of the scan mode defined by the code
      * _diffrn_refln.scan_mode.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getScanWidth() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("scan_width", SingleRowFloatColumn::new) :
+    public FloatColumn getScanWidth() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("scan_width", FloatColumn::new) :
                 getBinaryColumn("scan_width"));
     }
 
     /**
      * The (sin theta)/lambda value in reciprocal angstroms for this
      * reflection.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getSintOverLambda() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("sint_over_lambda", SingleRowFloatColumn::new) :
+    public FloatColumn getSintOverLambda() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("sint_over_lambda", FloatColumn::new) :
                 getBinaryColumn("sint_over_lambda"));
     }
 
@@ -360,10 +360,10 @@ public class DiffrnRefln extends BaseCategory {
      * 
      * This data item is a pointer to _diffrn_standard_refln.code in the
      * DIFFRN_STANDARD_REFLN category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStandardCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("standard_code", SingleRowStrColumn::new) :
+    public StrColumn getStandardCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("standard_code", StrColumn::new) :
                 getBinaryColumn("standard_code"));
     }
 
@@ -372,20 +372,20 @@ public class DiffrnRefln extends BaseCategory {
      * the intensity of this reflection. This is an important parameter
      * for data collected using energy-dispersive detectors or the
      * Laue method.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWavelength() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("wavelength", SingleRowFloatColumn::new) :
+    public FloatColumn getWavelength() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("wavelength", FloatColumn::new) :
                 getBinaryColumn("wavelength"));
     }
 
     /**
      * This data item is a pointer to _diffrn_radiation.wavelength_id in
      * the DIFFRN_RADIATION category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getWavelengthId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("wavelength_id", SingleRowStrColumn::new) :
+    public StrColumn getWavelengthId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("wavelength_id", StrColumn::new) :
                 getBinaryColumn("wavelength_id"));
     }
 
@@ -398,10 +398,10 @@ public class DiffrnRefln extends BaseCategory {
      * number m=sum|m~i~|, where the m~i~ are the integer coefficients
      * that, in addition to h,k,l, index the corresponding diffraction
      * vector in the basis defined for the reciprocal lattice.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getClassCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("class_code", SingleRowStrColumn::new) :
+    public StrColumn getClassCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("class_code", StrColumn::new) :
                 getBinaryColumn("class_code"));
     }
 
@@ -409,10 +409,10 @@ public class DiffrnRefln extends BaseCategory {
      * Standard uncertainty of the net intensity calculated from
      * the diffraction counts after the attenuator and standard
      * scales have been applied.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getIntensityU() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("intensity_u", SingleRowFloatColumn::new) :
+    public FloatColumn getIntensityU() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("intensity_u", FloatColumn::new) :
                 getBinaryColumn("intensity_u"));
     }
 }

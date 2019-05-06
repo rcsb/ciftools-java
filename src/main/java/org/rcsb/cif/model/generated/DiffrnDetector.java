@@ -26,95 +26,95 @@ public class DiffrnDetector extends BaseCategory {
 
     /**
      * A description of special aspects of the radiation detector.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The general class of the radiation detector.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetector() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("detector", SingleRowStrColumn::new) :
+    public StrColumn getDetector() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("detector", StrColumn::new) :
                 getBinaryColumn("detector"));
     }
 
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * The make, model or name of the detector device used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * The resolution of an area detector, in pixels/mm.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAreaResolMean() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("area_resol_mean", SingleRowFloatColumn::new) :
+    public FloatColumn getAreaResolMean() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("area_resol_mean", FloatColumn::new) :
                 getBinaryColumn("area_resol_mean"));
     }
 
     /**
      * The deadtime in microseconds of the detector used to measure
      * the diffraction intensities.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDtime() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("dtime", SingleRowFloatColumn::new) :
+    public FloatColumn getDtime() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("dtime", FloatColumn::new) :
                 getBinaryColumn("dtime"));
     }
 
     /**
      * The total number of data frames collected for this
      * data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxFramesTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_frames_total", SingleRowIntColumn::new) :
+    public IntColumn getPdbxFramesTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_frames_total", IntColumn::new) :
                 getBinaryColumn("pdbx_frames_total"));
     }
 
     /**
      * The total number of seconds required to measure this
      * data set.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxCollectionTimeTotal() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_collection_time_total", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxCollectionTimeTotal() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_collection_time_total", FloatColumn::new) :
                 getBinaryColumn("pdbx_collection_time_total"));
     }
 
     /**
      * The date of data collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxCollectionDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_collection_date", SingleRowStrColumn::new) :
+    public StrColumn getPdbxCollectionDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_collection_date", StrColumn::new) :
                 getBinaryColumn("pdbx_collection_date"));
     }
 
     /**
      * The operating frequency of the detector (Hz) used in data collection.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxFrequency() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_frequency", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxFrequency() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_frequency", FloatColumn::new) :
                 getBinaryColumn("pdbx_frequency"));
     }
 }

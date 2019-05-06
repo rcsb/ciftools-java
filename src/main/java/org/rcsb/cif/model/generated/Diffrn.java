@@ -25,60 +25,60 @@ public class Diffrn extends BaseCategory {
 
     /**
      * The gas or liquid surrounding the sample, if not air.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAmbientEnvironment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ambient_environment", SingleRowStrColumn::new) :
+    public StrColumn getAmbientEnvironment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ambient_environment", StrColumn::new) :
                 getBinaryColumn("ambient_environment"));
     }
 
     /**
      * The mean temperature in kelvins at which the intensities were
      * measured.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp", FloatColumn::new) :
                 getBinaryColumn("ambient_temp"));
     }
 
     /**
      * A description of special aspects of temperature control during
      * data collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAmbientTempDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("ambient_temp_details", SingleRowStrColumn::new) :
+    public StrColumn getAmbientTempDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("ambient_temp_details", StrColumn::new) :
                 getBinaryColumn("ambient_temp_details"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _diffrn.ambient_temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientTempEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientTempEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_esd", FloatColumn::new) :
                 getBinaryColumn("ambient_temp_esd"));
     }
 
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_id", SingleRowStrColumn::new) :
+    public StrColumn getCrystalId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_id", StrColumn::new) :
                 getBinaryColumn("crystal_id"));
     }
 
     /**
      * The physical device used to support the crystal during data
      * collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalSupport() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_support", SingleRowStrColumn::new) :
+    public StrColumn getCrystalSupport() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_support", StrColumn::new) :
                 getBinaryColumn("crystal_support"));
     }
 
@@ -86,10 +86,10 @@ public class Diffrn extends BaseCategory {
      * Remarks about how the crystal was treated prior to intensity
      * measurement. Particularly relevant when intensities were
      * measured at low temperature.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalTreatment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_treatment", SingleRowStrColumn::new) :
+    public StrColumn getCrystalTreatment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_treatment", StrColumn::new) :
                 getBinaryColumn("crystal_treatment"));
     }
 
@@ -97,39 +97,39 @@ public class Diffrn extends BaseCategory {
      * Special details of the diffraction measurement process. Should
      * include information about source instability, crystal motion,
      * degradation and so on.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item uniquely identifies a set of diffraction
      * data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The mean hydrostatic pressure in kilopascals at which the
      * intensities were measured.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientPressure() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientPressure() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure", FloatColumn::new) :
                 getBinaryColumn("ambient_pressure"));
     }
 
     /**
      * The estimated standard deviation of _diffrn.ambient_pressure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientPressureEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientPressureEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_esd", FloatColumn::new) :
                 getBinaryColumn("ambient_pressure_esd"));
     }
 
@@ -140,10 +140,10 @@ public class Diffrn extends BaseCategory {
      * 
      * _diffrn.ambient_pressure should always be used in
      * preference to these two items whenever possible.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientPressureGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientPressureGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_gt", FloatColumn::new) :
                 getBinaryColumn("ambient_pressure_gt"));
     }
 
@@ -154,10 +154,10 @@ public class Diffrn extends BaseCategory {
      * 
      * _diffrn.ambient_pressure should always be used in
      * preference to these two items whenever possible.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientPressureLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientPressureLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_pressure_lt", FloatColumn::new) :
                 getBinaryColumn("ambient_pressure_lt"));
     }
 
@@ -168,10 +168,10 @@ public class Diffrn extends BaseCategory {
      * 
      * _diffrn.ambient_temp should always be used in preference
      * to these two items whenever possible.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientTempGt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_gt", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientTempGt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_gt", FloatColumn::new) :
                 getBinaryColumn("ambient_temp_gt"));
     }
 
@@ -182,19 +182,19 @@ public class Diffrn extends BaseCategory {
      * 
      * _diffrn.ambient_temp should always be used in preference
      * to these two items whenever possible.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getAmbientTempLt() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_lt", SingleRowFloatColumn::new) :
+    public FloatColumn getAmbientTempLt() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("ambient_temp_lt", FloatColumn::new) :
                 getBinaryColumn("ambient_temp_lt"));
     }
 
     /**
      * Y/N if using serial crystallography experiment in which multiple crystals contribute to each diffraction frame in the experiment.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxSerialCrystalExperiment() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_serial_crystal_experiment", SingleRowStrColumn::new) :
+    public StrColumn getPdbxSerialCrystalExperiment() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_serial_crystal_experiment", StrColumn::new) :
                 getBinaryColumn("pdbx_serial_crystal_experiment"));
     }
 }

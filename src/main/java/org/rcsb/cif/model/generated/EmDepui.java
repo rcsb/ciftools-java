@@ -31,28 +31,28 @@ public class EmDepui extends BaseCategory {
      * the primary citation has been published. Please note that map-associated
      * experimental information and metadata (header data) are made available to the
      * public when an entry is placed on hold.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepositorHoldInstructions() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("depositor_hold_instructions", SingleRowStrColumn::new) :
+    public StrColumn getDepositorHoldInstructions() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("depositor_hold_instructions", StrColumn::new) :
                 getBinaryColumn("depositor_hold_instructions"));
     }
 
     /**
      * Primary key
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Indicates whether the authors are providing a macromolecule level description of their sample
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMacromoleculeDescription() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("macromolecule_description", SingleRowStrColumn::new) :
+    public StrColumn getMacromoleculeDescription() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("macromolecule_description", StrColumn::new) :
                 getBinaryColumn("macromolecule_description"));
     }
 
@@ -68,30 +68,30 @@ public class EmDepui extends BaseCategory {
      * * to update the map of an HPUB entry.
      * * to change the hand of a released map.
      * * to deposit an improved version of a released map.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getObsoleteInstructions() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("obsolete_instructions", SingleRowStrColumn::new) :
+    public StrColumn getObsoleteInstructions() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("obsolete_instructions", StrColumn::new) :
                 getBinaryColumn("obsolete_instructions"));
     }
 
     /**
      * Indicates whether the authors for the EMDB entry are the same as for the PDB entry
      * in a joint map + model deposition
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSameAuthorsAsPdb() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("same_authors_as_pdb", SingleRowStrColumn::new) :
+    public StrColumn getSameAuthorsAsPdb() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("same_authors_as_pdb", StrColumn::new) :
                 getBinaryColumn("same_authors_as_pdb"));
     }
 
     /**
      * Indicates whether the title for the EMDB entry is the same as for the PDB entry
      * in a joint map + model deposition
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSameTitleAsPdb() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("same_title_as_pdb", SingleRowStrColumn::new) :
+    public StrColumn getSameTitleAsPdb() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("same_title_as_pdb", StrColumn::new) :
                 getBinaryColumn("same_title_as_pdb"));
     }
 }

@@ -26,90 +26,90 @@ public class ExptlCrystalFace extends BaseCategory {
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCrystalId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("crystal_id", SingleRowStrColumn::new) :
+    public StrColumn getCrystalId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("crystal_id", StrColumn::new) :
                 getBinaryColumn("crystal_id"));
     }
 
     /**
      * The chi diffractometer setting angle in degrees for a specific
      * crystal face associated with _exptl_crystal_face.perp_dist.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffrChi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diffr_chi", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffrChi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diffr_chi", FloatColumn::new) :
                 getBinaryColumn("diffr_chi"));
     }
 
     /**
      * The kappa diffractometer setting angle in degrees for a specific
      * crystal face associated with _exptl_crystal_face.perp_dist.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffrKappa() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diffr_kappa", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffrKappa() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diffr_kappa", FloatColumn::new) :
                 getBinaryColumn("diffr_kappa"));
     }
 
     /**
      * The phi diffractometer setting angle in degrees for a specific
      * crystal face associated with _exptl_crystal_face.perp_dist.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffrPhi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diffr_phi", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffrPhi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diffr_phi", FloatColumn::new) :
                 getBinaryColumn("diffr_phi"));
     }
 
     /**
      * The psi diffractometer setting angle in degrees for a specific
      * crystal face associated with _exptl_crystal_face.perp_dist.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDiffrPsi() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("diffr_psi", SingleRowFloatColumn::new) :
+    public FloatColumn getDiffrPsi() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("diffr_psi", FloatColumn::new) :
                 getBinaryColumn("diffr_psi"));
     }
 
     /**
      * Miller index h of the crystal face associated with the value
      * _exptl_crystal_face.perp_dist.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexH() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_h", SingleRowIntColumn::new) :
+    public IntColumn getIndexH() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_h", IntColumn::new) :
                 getBinaryColumn("index_h"));
     }
 
     /**
      * Miller index k of the crystal face associated with the value
      * _exptl_crystal_face.perp_dist.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexK() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_k", SingleRowIntColumn::new) :
+    public IntColumn getIndexK() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_k", IntColumn::new) :
                 getBinaryColumn("index_k"));
     }
 
     /**
      * Miller index l of the crystal face associated with the value
      * _exptl_crystal_face.perp_dist.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexL() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_l", SingleRowIntColumn::new) :
+    public IntColumn getIndexL() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_l", IntColumn::new) :
                 getBinaryColumn("index_l"));
     }
 
     /**
      * The perpendicular distance in millimetres from the face to the
      * centre of rotation of the crystal.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPerpDist() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("perp_dist", SingleRowFloatColumn::new) :
+    public FloatColumn getPerpDist() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("perp_dist", FloatColumn::new) :
                 getBinaryColumn("perp_dist"));
     }
 }

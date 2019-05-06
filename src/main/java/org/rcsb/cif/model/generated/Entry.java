@@ -30,20 +30,20 @@ public class Entry extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Document Object Identifier (DOI) for this entry registered
      * with http://crossref.org.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDOI() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_DOI", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDOI() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_DOI", StrColumn::new) :
                 getBinaryColumn("pdbx_DOI"));
     }
 }

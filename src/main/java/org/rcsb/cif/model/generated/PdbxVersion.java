@@ -25,29 +25,29 @@ public class PdbxVersion extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * A date for the current version or revision. The date format is
      * yyyy-mm-dd.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRevisionDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("revision_date", SingleRowStrColumn::new) :
+    public StrColumn getRevisionDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("revision_date", StrColumn::new) :
                 getBinaryColumn("revision_date"));
     }
 
     /**
      * Major version number for this datablock.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getMajorVersion() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("major_version", SingleRowIntColumn::new) :
+    public IntColumn getMajorVersion() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("major_version", IntColumn::new) :
                 getBinaryColumn("major_version"));
     }
 
@@ -55,28 +55,28 @@ public class PdbxVersion extends BaseCategory {
      * Minor version identifier for this datablock:
      * 
      * The minor version is incremented for each datablock revision.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMinorVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("minor_version", SingleRowStrColumn::new) :
+    public StrColumn getMinorVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("minor_version", StrColumn::new) :
                 getBinaryColumn("minor_version"));
     }
 
     /**
      * A text description of any special details of the current version.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The content type that associated with the revision.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRevisionType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("revision_type", SingleRowStrColumn::new) :
+    public StrColumn getRevisionType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("revision_type", StrColumn::new) :
                 getBinaryColumn("revision_type"));
     }
 }

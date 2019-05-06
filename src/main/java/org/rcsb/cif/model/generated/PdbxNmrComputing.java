@@ -27,118 +27,118 @@ public class PdbxNmrComputing extends BaseCategory {
 
     /**
      * The entry ID for the structure determination.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * Enter the name of the software used for data collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCollection() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("collection", SingleRowStrColumn::new) :
+    public StrColumn getCollection() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("collection", StrColumn::new) :
                 getBinaryColumn("collection"));
     }
 
     /**
      * Enter the version of the software used for data collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCollectionVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("collection_version", SingleRowStrColumn::new) :
+    public StrColumn getCollectionVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("collection_version", StrColumn::new) :
                 getBinaryColumn("collection_version"));
     }
 
     /**
      * Enter the name of the software used for data processing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProcessing() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("processing", SingleRowStrColumn::new) :
+    public StrColumn getProcessing() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("processing", StrColumn::new) :
                 getBinaryColumn("processing"));
     }
 
     /**
      * Enter the version of the software used for data processing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getProcessingVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("processing_version", SingleRowStrColumn::new) :
+    public StrColumn getProcessingVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("processing_version", StrColumn::new) :
                 getBinaryColumn("processing_version"));
     }
 
     /**
      * Enter the name of the software used for data analysis.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataAnalysis() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_analysis", SingleRowStrColumn::new) :
+    public StrColumn getDataAnalysis() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_analysis", StrColumn::new) :
                 getBinaryColumn("data_analysis"));
     }
 
     /**
      * Enter the version of the software used for data analysis.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDataAnalysisVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("data_analysis_version", SingleRowStrColumn::new) :
+    public StrColumn getDataAnalysisVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("data_analysis_version", StrColumn::new) :
                 getBinaryColumn("data_analysis_version"));
     }
 
     /**
      * Enter the name of the software used to calculate the structure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructureSolution() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structure_solution", SingleRowStrColumn::new) :
+    public StrColumn getStructureSolution() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structure_solution", StrColumn::new) :
                 getBinaryColumn("structure_solution"));
     }
 
     /**
      * Enter the version of the software used to calculate the structure.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStructureSolutionVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("structure_solution_version", SingleRowStrColumn::new) :
+    public StrColumn getStructureSolutionVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("structure_solution_version", StrColumn::new) :
                 getBinaryColumn("structure_solution_version"));
     }
 
     /**
      * Enter the name of the software used for refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefinement() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("refinement", SingleRowStrColumn::new) :
+    public StrColumn getRefinement() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("refinement", StrColumn::new) :
                 getBinaryColumn("refinement"));
     }
 
     /**
      * Enter the version of the software used for refinement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRefinementVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("refinement_version", SingleRowStrColumn::new) :
+    public StrColumn getRefinementVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("refinement_version", StrColumn::new) :
                 getBinaryColumn("refinement_version"));
     }
 
     /**
      * Enter the name of the software used for iterative relaxation matrix methods.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIterativeRelaxationMatrix() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("iterative_relaxation_matrix", SingleRowStrColumn::new) :
+    public StrColumn getIterativeRelaxationMatrix() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("iterative_relaxation_matrix", StrColumn::new) :
                 getBinaryColumn("iterative_relaxation_matrix"));
     }
 
     /**
      * Enter the version of the software used for iterative relaxation matrix methods.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIterativeRelaxationMatrixVersion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("iterative_relaxation_matrix_version", SingleRowStrColumn::new) :
+    public StrColumn getIterativeRelaxationMatrixVersion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("iterative_relaxation_matrix_version", StrColumn::new) :
                 getBinaryColumn("iterative_relaxation_matrix_version"));
     }
 }

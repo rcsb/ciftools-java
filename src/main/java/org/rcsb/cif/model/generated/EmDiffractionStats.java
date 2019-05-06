@@ -24,110 +24,110 @@ public class EmDiffractionStats extends BaseCategory {
 
     /**
      * Any addition details about the structure factor measurements
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Completeness of the structure factor data within the defined space group
      * at the reported resolution (percent).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFourierSpaceCoverage() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fourier_space_coverage", SingleRowFloatColumn::new) :
+    public FloatColumn getFourierSpaceCoverage() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fourier_space_coverage", FloatColumn::new) :
                 getBinaryColumn("fourier_space_coverage"));
     }
 
     /**
      * High resolution limit of the structure factor data, in Angstroms
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHighResolution() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("high_resolution", SingleRowFloatColumn::new) :
+    public FloatColumn getHighResolution() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("high_resolution", FloatColumn::new) :
                 getBinaryColumn("high_resolution"));
     }
 
     /**
      * Identifier for this category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Pointer to _em_image_processing.id
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * Total number of diffraction intensities measured (before averaging)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumIntensitiesMeasured() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_intensities_measured", SingleRowIntColumn::new) :
+    public IntColumn getNumIntensitiesMeasured() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_intensities_measured", IntColumn::new) :
                 getBinaryColumn("num_intensities_measured"));
     }
 
     /**
      * Number of structure factors obtained (merged amplitudes + phases)
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumStructureFactors() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_structure_factors", SingleRowIntColumn::new) :
+    public IntColumn getNumStructureFactors() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_structure_factors", IntColumn::new) :
                 getBinaryColumn("num_structure_factors"));
     }
 
     /**
      * Overall phase error in degrees
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallPhaseError() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_phase_error", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallPhaseError() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_phase_error", FloatColumn::new) :
                 getBinaryColumn("overall_phase_error"));
     }
 
     /**
      * Overall phase residual in degrees
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getOverallPhaseResidual() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("overall_phase_residual", SingleRowFloatColumn::new) :
+    public FloatColumn getOverallPhaseResidual() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("overall_phase_residual", FloatColumn::new) :
                 getBinaryColumn("overall_phase_residual"));
     }
 
     /**
      * Criteria used to reject phases
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPhaseErrorRejectionCriteria() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("phase_error_rejection_criteria", SingleRowStrColumn::new) :
+    public StrColumn getPhaseErrorRejectionCriteria() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("phase_error_rejection_criteria", StrColumn::new) :
                 getBinaryColumn("phase_error_rejection_criteria"));
     }
 
     /**
      * Rmerge value (percent)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRMerge() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("r_merge", SingleRowFloatColumn::new) :
+    public FloatColumn getRMerge() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("r_merge", FloatColumn::new) :
                 getBinaryColumn("r_merge"));
     }
 
     /**
      * Rsym value (percent)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRSym() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("r_sym", SingleRowFloatColumn::new) :
+    public FloatColumn getRSym() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("r_sym", FloatColumn::new) :
                 getBinaryColumn("r_sym"));
     }
 }

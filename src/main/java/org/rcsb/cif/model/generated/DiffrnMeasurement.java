@@ -28,77 +28,77 @@ public class DiffrnMeasurement extends BaseCategory {
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDiffrnId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", SingleRowStrColumn::new) :
+    public StrColumn getDiffrnId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("diffrn_id", StrColumn::new) :
                 getBinaryColumn("diffrn_id"));
     }
 
     /**
      * A description of special aspects of the intensity measurement.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The general class of  goniometer or device used to support and
      * orient the specimen.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDevice() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("device", SingleRowStrColumn::new) :
+    public StrColumn getDevice() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("device", StrColumn::new) :
                 getBinaryColumn("device"));
     }
 
     /**
      * A description of special aspects of the device used to measure
      * the diffraction intensities.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDeviceDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("device_details", SingleRowStrColumn::new) :
+    public StrColumn getDeviceDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("device_details", StrColumn::new) :
                 getBinaryColumn("device_details"));
     }
 
     /**
      * The make, model or name of the measurement device
      * (goniometer) used.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDeviceType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("device_type", SingleRowStrColumn::new) :
+    public StrColumn getDeviceType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("device_type", StrColumn::new) :
                 getBinaryColumn("device_type"));
     }
 
     /**
      * Method used to measure intensities.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The physical device used to support the crystal during data
      * collection.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecimenSupport() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("specimen_support", SingleRowStrColumn::new) :
+    public StrColumn getSpecimenSupport() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("specimen_support", StrColumn::new) :
                 getBinaryColumn("specimen_support"));
     }
 
     /**
      * The date of data measurement
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_date", SingleRowStrColumn::new) :
+    public StrColumn getPdbxDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_date", StrColumn::new) :
                 getBinaryColumn("pdbx_date"));
     }
 }

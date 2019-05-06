@@ -25,28 +25,28 @@ public class EmImageProcessing extends BaseCategory {
 
     /**
      * Method details.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * This data item provides a unique identifier for each data processing block.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * Foreign key to the EM_IMAGE_RECORDING
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageRecordingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_recording_id", SingleRowStrColumn::new) :
+    public StrColumn getImageRecordingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_recording_id", StrColumn::new) :
                 getBinaryColumn("image_recording_id"));
     }
 }

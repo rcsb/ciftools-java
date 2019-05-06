@@ -25,199 +25,199 @@ public class PdbxDepuiStatusFlags extends BaseCategory {
 
     /**
      * The internal identifier assigned to each deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepDatasetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", SingleRowStrColumn::new) :
+    public StrColumn getDepDatasetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", StrColumn::new) :
                 getBinaryColumn("dep_dataset_id"));
     }
 
     /**
      * A flag to indicate status about primary citation data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPrimaryCitationStatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("primary_citation_status", SingleRowStrColumn::new) :
+    public StrColumn getPrimaryCitationStatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("primary_citation_status", StrColumn::new) :
                 getBinaryColumn("primary_citation_status"));
     }
 
     /**
      * A flag to indicate status about corresponding author data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCorrespondingAuthorStatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("corresponding_author_status", SingleRowStrColumn::new) :
+    public StrColumn getCorrespondingAuthorStatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("corresponding_author_status", StrColumn::new) :
                 getBinaryColumn("corresponding_author_status"));
     }
 
     /**
      * A flag to indicate status about reference citation data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReferenceCitationStatus() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reference_citation_status", SingleRowStrColumn::new) :
+    public StrColumn getReferenceCitationStatus() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reference_citation_status", StrColumn::new) :
                 getBinaryColumn("reference_citation_status"));
     }
 
     /**
      * A flag to indicate that the deposition was grant funded.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIsGrantFunded() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("is_grant_funded", SingleRowStrColumn::new) :
+    public StrColumn getIsGrantFunded() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("is_grant_funded", StrColumn::new) :
                 getBinaryColumn("is_grant_funded"));
     }
 
     /**
      * A flag to indicate that the deposition includes NCS data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasNcsData() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_ncs_data", SingleRowStrColumn::new) :
+    public StrColumn getHasNcsData() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_ncs_data", StrColumn::new) :
                 getBinaryColumn("has_ncs_data"));
     }
 
     /**
      * A flag to indicate that this entry is a candidate prediction target.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPredictionTarget() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("prediction_target", SingleRowStrColumn::new) :
+    public StrColumn getPredictionTarget() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("prediction_target", StrColumn::new) :
                 getBinaryColumn("prediction_target"));
     }
 
     /**
      * A flag to indicate that this entry has helical symmetry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasHelicalSymmetry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_helical_symmetry", SingleRowStrColumn::new) :
+    public StrColumn getHasHelicalSymmetry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_helical_symmetry", StrColumn::new) :
                 getBinaryColumn("has_helical_symmetry"));
     }
 
     /**
      * A flag to indicate that this entry has point symmetry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasPointSymmetry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_point_symmetry", SingleRowStrColumn::new) :
+    public StrColumn getHasPointSymmetry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_point_symmetry", StrColumn::new) :
                 getBinaryColumn("has_point_symmetry"));
     }
 
     /**
      * A flag to indicate that this entry has cyclic symmetry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasCyclicSymmetry() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_cyclic_symmetry", SingleRowStrColumn::new) :
+    public StrColumn getHasCyclicSymmetry() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_cyclic_symmetry", StrColumn::new) :
                 getBinaryColumn("has_cyclic_symmetry"));
     }
 
     /**
      * A flag to indicate the acceptance of wwPDB deposition and annotation terms and conditions.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasAcceptedTermsAndConditions() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_accepted_terms_and_conditions", SingleRowStrColumn::new) :
+    public StrColumn getHasAcceptedTermsAndConditions() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_accepted_terms_and_conditions", StrColumn::new) :
                 getBinaryColumn("has_accepted_terms_and_conditions"));
     }
 
     /**
      * A flag to indicate the viewing the latest validation report.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasViewedValidationReport() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_viewed_validation_report", SingleRowStrColumn::new) :
+    public StrColumn getHasViewedValidationReport() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_viewed_validation_report", StrColumn::new) :
                 getBinaryColumn("has_viewed_validation_report"));
     }
 
     /**
      * The the last validation report operation, the name of the model file last validated.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getValidatedModelFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("validated_model_file_name", SingleRowStrColumn::new) :
+    public StrColumn getValidatedModelFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("validated_model_file_name", StrColumn::new) :
                 getBinaryColumn("validated_model_file_name"));
     }
 
     /**
      * For the last model merge operation, the name of the model file containing prior data for the current deposition session.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMergePriorModelFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("merge_prior_model_file_name", SingleRowStrColumn::new) :
+    public StrColumn getMergePriorModelFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("merge_prior_model_file_name", StrColumn::new) :
                 getBinaryColumn("merge_prior_model_file_name"));
     }
 
     /**
      * For the last model merge operation, the name of the model file containing user provided replacement coordinate and model data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMergeReplaceModelFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("merge_replace_model_file_name", SingleRowStrColumn::new) :
+    public StrColumn getMergeReplaceModelFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("merge_replace_model_file_name", StrColumn::new) :
                 getBinaryColumn("merge_replace_model_file_name"));
     }
 
     /**
      * For the last model merge operation, the name of the model file containing output from the merge operation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMergeOutputModelFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("merge_output_model_file_name", SingleRowStrColumn::new) :
+    public StrColumn getMergeOutputModelFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("merge_output_model_file_name", StrColumn::new) :
                 getBinaryColumn("merge_output_model_file_name"));
     }
 
     /**
      * A flag to indicate that ligand processing is complete
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIsLigandProcessingComplete() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("is_ligand_processing_complete", SingleRowStrColumn::new) :
+    public StrColumn getIsLigandProcessingComplete() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("is_ligand_processing_complete", StrColumn::new) :
                 getBinaryColumn("is_ligand_processing_complete"));
     }
 
     /**
      * A flag to indicate that all sample coordinate sequence alignments are valid.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleXyzSequenceAlignmentsValid() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_xyz_sequence_alignments_valid", SingleRowStrColumn::new) :
+    public StrColumn getSampleXyzSequenceAlignmentsValid() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_xyz_sequence_alignments_valid", StrColumn::new) :
                 getBinaryColumn("sample_xyz_sequence_alignments_valid"));
     }
 
     /**
      * A flag to indicate whether the author has related SAXS/SANS data.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasSasData() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_sas_data", SingleRowStrColumn::new) :
+    public StrColumn getHasSasData() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_sas_data", StrColumn::new) :
                 getBinaryColumn("has_sas_data"));
     }
 
     /**
      * A flag to indicate whether related SAXS/SANS data is already deposited elsewhere
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getIsSasDeposited() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("is_sas_deposited", SingleRowStrColumn::new) :
+    public StrColumn getIsSasDeposited() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("is_sas_deposited", StrColumn::new) :
                 getBinaryColumn("is_sas_deposited"));
     }
 
     /**
      * A flag to indicate whether related SAXS/SANS data were used in refinement
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUseSasRefine() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("use_sas_refine", SingleRowStrColumn::new) :
+    public StrColumn getUseSasRefine() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("use_sas_refine", StrColumn::new) :
                 getBinaryColumn("use_sas_refine"));
     }
 
     /**
      * A flag to indicate that merging of new coordinates has failed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMergedFail() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("merged_fail", SingleRowStrColumn::new) :
+    public StrColumn getMergedFail() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("merged_fail", StrColumn::new) :
                 getBinaryColumn("merged_fail"));
     }
 }

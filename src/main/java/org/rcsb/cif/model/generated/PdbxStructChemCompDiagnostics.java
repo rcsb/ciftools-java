@@ -25,88 +25,88 @@ public class PdbxStructChemCompDiagnostics extends BaseCategory {
 
     /**
      * Special structural details about this chemical component.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * A classification of the diagnostic for the chemical
      * component instance
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
     /**
      * PDB strand/chain id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbStrandId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_strand_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbStrandId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_strand_id", StrColumn::new) :
                 getBinaryColumn("pdb_strand_id"));
     }
 
     /**
      * Instance identifier for the polymer molecule.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("asym_id", StrColumn::new) :
                 getBinaryColumn("asym_id"));
     }
 
     /**
      * 
      * PDB  position in the sequence.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthSeqId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthSeqId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", StrColumn::new) :
                 getBinaryColumn("auth_seq_id"));
     }
 
     /**
      * 
      * Position in the sequence.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getSeqNum() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("seq_num", SingleRowIntColumn::new) :
+    public IntColumn getSeqNum() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("seq_num", IntColumn::new) :
                 getBinaryColumn("seq_num"));
     }
 
     /**
      * 
      * PDB component ID
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", StrColumn::new) :
                 getBinaryColumn("auth_comp_id"));
     }
 
     /**
      * 
      * Insertion code of the monomer or ligand .
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbInsCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdb_ins_code", SingleRowStrColumn::new) :
+    public StrColumn getPdbInsCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdb_ins_code", StrColumn::new) :
                 getBinaryColumn("pdb_ins_code"));
     }
 
     /**
      * 
      * An ordinal index for this category
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getOrdinal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("ordinal", SingleRowIntColumn::new) :
+    public IntColumn getOrdinal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("ordinal", IntColumn::new) :
                 getBinaryColumn("ordinal"));
     }
 }

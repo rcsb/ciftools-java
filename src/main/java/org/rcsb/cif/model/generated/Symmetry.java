@@ -25,29 +25,29 @@ public class Symmetry extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
     /**
      * The cell settings for this space-group symmetry.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCellSetting() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cell_setting", SingleRowStrColumn::new) :
+    public StrColumn getCellSetting() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cell_setting", StrColumn::new) :
                 getBinaryColumn("cell_setting"));
     }
 
     /**
      * Space-group number from International Tables for Crystallography
      * Vol. A (2002).
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIntTablesNumber() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("Int_Tables_number", SingleRowIntColumn::new) :
+    public IntColumn getIntTablesNumber() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("Int_Tables_number", IntColumn::new) :
                 getBinaryColumn("Int_Tables_number"));
     }
 
@@ -58,10 +58,10 @@ public class Symmetry extends BaseCategory {
      * 
      * Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525; erratum
      * (1981) A37, 921.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpaceGroupNameHall() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("space_group_name_Hall", SingleRowStrColumn::new) :
+    public StrColumn getSpaceGroupNameHall() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("space_group_name_Hall", StrColumn::new) :
                 getBinaryColumn("space_group_name_Hall"));
     }
 
@@ -77,10 +77,10 @@ public class Symmetry extends BaseCategory {
      * _symmetry.space_group_name_Hall  data items as well. Leave
      * spaces between symbols referring to
      * different axes.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpaceGroupNameH_M() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("space_group_name_H-M", SingleRowStrColumn::new) :
+    public StrColumn getSpaceGroupNameH_M() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("space_group_name_H-M", StrColumn::new) :
                 getBinaryColumn("space_group_name_H-M"));
     }
 
@@ -93,10 +93,10 @@ public class Symmetry extends BaseCategory {
      * 'P 1 1 21' (instead of P 21 -unique C axis)
      * 'H 3'      (instead of R 3   -hexagonal)
      * 'H 3 2'    (instead of R 3 2 -hexagonal)
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxFullSpaceGroupNameH_M() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_full_space_group_name_H-M", SingleRowStrColumn::new) :
+    public StrColumn getPdbxFullSpaceGroupNameH_M() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_full_space_group_name_H-M", StrColumn::new) :
                 getBinaryColumn("pdbx_full_space_group_name_H-M"));
     }
 }

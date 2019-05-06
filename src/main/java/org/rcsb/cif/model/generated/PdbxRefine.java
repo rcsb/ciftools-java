@@ -27,10 +27,10 @@ public class PdbxRefine extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -38,158 +38,158 @@ public class PdbxRefine extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _pdbx_refine.pdbx_refine_id can be used to distinguish the results
      * of joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
     /**
      * R-value (all reflections, no cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorAllNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorAllNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("R_factor_all_no_cutoff"));
     }
 
     /**
      * R-value (working set reflections, no cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorObsNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorObsNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("R_factor_obs_no_cutoff"));
     }
 
     /**
      * R free value (4 sigma cutoff).
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRFactor4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_factor_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRFactor4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_factor_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_factor_4sig_cutoff"));
     }
 
     /**
      * Free R-value (no cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRFactorNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_factor_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRFactorNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_factor_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_factor_no_cutoff"));
     }
 
     /**
      * Free R-value error(no cutoff)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRErrorNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_error_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRErrorNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_error_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_error_no_cutoff"));
     }
 
     /**
      * Free R-value test set size (in percent, no cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRValTestSetSizePercNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_size_perc_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRValTestSetSizePercNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_size_perc_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_test_set_size_perc_no_cutoff"));
     }
 
     /**
      * Free R-value test set count (no cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRValTestSetCtNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_ct_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRValTestSetCtNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_ct_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_test_set_ct_no_cutoff"));
     }
 
     /**
      * Total number of reflections (no cutoff).
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNumberReflnsObsNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getNumberReflnsObsNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("number_reflns_obs_no_cutoff"));
     }
 
     /**
      * R-value (all reflections, 4 sigma cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorAll4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorAll4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("R_factor_all_4sig_cutoff"));
     }
 
     /**
      * R-value (working set, 4 sigma cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorObs4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorObs4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("R_factor_obs_4sig_cutoff"));
     }
 
     /**
      * Free R-value (4 sigma cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRVal4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRVal4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_4sig_cutoff"));
     }
 
     /**
      * Free R-value test set size (in percent, 4 sigma cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRValTestSetSizePerc4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_size_perc_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRValTestSetSizePerc4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_size_perc_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_test_set_size_perc_4sig_cutoff"));
     }
 
     /**
      * Free R-value test set count (4 sigma cutoff)
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRValTestSetCt4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_ct_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRValTestSetCt4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_test_set_ct_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_test_set_ct_4sig_cutoff"));
     }
 
     /**
      * Total number of reflections (4 sigma cutoff).
      * Placeholder for PDB mapping of SHELXL refinement data.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getNumberReflnsObs4sigCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs_4sig_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getNumberReflnsObs4sigCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs_4sig_cutoff", FloatColumn::new) :
                 getBinaryColumn("number_reflns_obs_4sig_cutoff"));
     }
 
     /**
      * Free R-value (no cutoff)
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFreeRValNoCutoff() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_no_cutoff", SingleRowFloatColumn::new) :
+    public FloatColumn getFreeRValNoCutoff() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("free_R_val_no_cutoff", FloatColumn::new) :
                 getBinaryColumn("free_R_val_no_cutoff"));
     }
 }

@@ -26,10 +26,10 @@ public class AtomSites extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -44,10 +44,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][1]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[1][1]"));
     }
 
@@ -62,10 +62,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][2]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[1][2]"));
     }
 
@@ -80,10 +80,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[1][3]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[1][3]"));
     }
 
@@ -98,10 +98,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix21() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix21() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][1]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[2][1]"));
     }
 
@@ -116,10 +116,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][2]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[2][2]"));
     }
 
@@ -134,10 +134,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[2][3]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[2][3]"));
     }
 
@@ -152,10 +152,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix31() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix31() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][1]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[3][1]"));
     }
 
@@ -170,10 +170,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix32() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix32() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][2]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[3][2]"));
     }
 
@@ -188,10 +188,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfMatrix33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfMatrix33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_matrix[3][3]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_matrix[3][3]"));
     }
 
@@ -206,10 +206,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfVector1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[1]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfVector1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[1]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_vector[1]"));
     }
 
@@ -224,10 +224,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfVector2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[2]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfVector2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[2]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_vector[2]"));
     }
 
@@ -242,10 +242,10 @@ public class AtomSites extends BaseCategory {
      * |x'|              |11 12 13| |x|               |1|
      * |y'|~Cartesian~ = |21 22 23| |y|~fractional~ + |2|
      * |z'|              |31 32 33| |z|               |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCartnTransfVector3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[3]", SingleRowFloatColumn::new) :
+    public FloatColumn getCartnTransfVector3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("Cartn_transf_vector[3]", FloatColumn::new) :
                 getBinaryColumn("Cartn_transf_vector[3]"));
     }
 
@@ -253,10 +253,10 @@ public class AtomSites extends BaseCategory {
      * A description of the relative alignment of the crystal cell
      * axes to the Cartesian orthogonal axes as applied in the
      * transformation matrix _atom_sites.Cartn_transf_matrix[][].
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCartnTransformAxes() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("Cartn_transform_axes", SingleRowStrColumn::new) :
+    public StrColumn getCartnTransformAxes() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("Cartn_transform_axes", StrColumn::new) :
                 getBinaryColumn("Cartn_transform_axes"));
     }
 
@@ -271,10 +271,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix11() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix11() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][1]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[1][1]"));
     }
 
@@ -289,10 +289,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix12() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix12() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][2]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[1][2]"));
     }
 
@@ -307,10 +307,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix13() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix13() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[1][3]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[1][3]"));
     }
 
@@ -325,10 +325,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix21() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix21() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][1]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[2][1]"));
     }
 
@@ -343,10 +343,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix22() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix22() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][2]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[2][2]"));
     }
 
@@ -361,10 +361,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix23() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix23() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[2][3]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[2][3]"));
     }
 
@@ -379,10 +379,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix31() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][1]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix31() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][1]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[3][1]"));
     }
 
@@ -397,10 +397,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix32() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][2]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix32() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][2]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[3][2]"));
     }
 
@@ -415,10 +415,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfMatrix33() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][3]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfMatrix33() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_matrix[3][3]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_matrix[3][3]"));
     }
 
@@ -433,10 +433,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfVector1() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[1]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfVector1() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[1]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_vector[1]"));
     }
 
@@ -451,10 +451,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfVector2() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[2]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfVector2() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[2]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_vector[2]"));
     }
 
@@ -469,10 +469,10 @@ public class AtomSites extends BaseCategory {
      * |x'|               |11 12 13| |x|              |1|
      * |y'|~fractional~ = |21 22 23| |y|~Cartesian~ + |2|
      * |z'|               |31 32 33| |z|              |3|
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFractTransfVector3() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[3]", SingleRowFloatColumn::new) :
+    public FloatColumn getFractTransfVector3() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("fract_transf_vector[3]", FloatColumn::new) :
                 getBinaryColumn("fract_transf_vector[3]"));
     }
 
@@ -482,10 +482,10 @@ public class AtomSites extends BaseCategory {
      * 
      * *** This data item would not in general be used in a
      * macromolecular data block. ***
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSolutionPrimary() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("solution_primary", SingleRowStrColumn::new) :
+    public StrColumn getSolutionPrimary() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("solution_primary", StrColumn::new) :
                 getBinaryColumn("solution_primary"));
     }
 
@@ -496,10 +496,10 @@ public class AtomSites extends BaseCategory {
      * 
      * *** This data item would not in general be used in a
      * macromolecular data block. ***
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSolutionSecondary() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("solution_secondary", SingleRowStrColumn::new) :
+    public StrColumn getSolutionSecondary() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("solution_secondary", StrColumn::new) :
                 getBinaryColumn("solution_secondary"));
     }
 
@@ -509,20 +509,20 @@ public class AtomSites extends BaseCategory {
      * 
      * *** This data item would not in general be used in a
      * macromolecular data block. ***
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSolutionHydrogens() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("solution_hydrogens", SingleRowStrColumn::new) :
+    public StrColumn getSolutionHydrogens() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("solution_hydrogens", StrColumn::new) :
                 getBinaryColumn("solution_hydrogens"));
     }
 
     /**
      * Additional information about the atomic coordinates not coded
      * elsewhere in the CIF.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSpecialDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("special_details", SingleRowStrColumn::new) :
+    public StrColumn getSpecialDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("special_details", StrColumn::new) :
                 getBinaryColumn("special_details"));
     }
 }

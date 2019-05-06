@@ -26,56 +26,56 @@ public class EmParticleSelection extends BaseCategory {
 
     /**
      * Any additional details used for selecting particles
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * Ordinal identifier
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * The value of _em_particle_selection.image_processing_id points to
      * the EM_IMAGE_PROCESSING category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getImageProcessingId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", SingleRowStrColumn::new) :
+    public StrColumn getImageProcessingId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("image_processing_id", StrColumn::new) :
                 getBinaryColumn("image_processing_id"));
     }
 
     /**
      * The method used for selecting particles
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The number of particles selected from the projection set of images.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumParticlesSelected() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("num_particles_selected", SingleRowIntColumn::new) :
+    public IntColumn getNumParticlesSelected() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("num_particles_selected", IntColumn::new) :
                 getBinaryColumn("num_particles_selected"));
     }
 
     /**
      * Description of reference model used for particle selection
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReferenceModel() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reference_model", SingleRowStrColumn::new) :
+    public StrColumn getReferenceModel() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reference_model", StrColumn::new) :
                 getBinaryColumn("reference_model"));
     }
 }

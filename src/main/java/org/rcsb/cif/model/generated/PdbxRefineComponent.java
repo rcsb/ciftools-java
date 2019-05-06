@@ -28,10 +28,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_sites_alt.id in the
      * ATOM_SITES_ALT category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelAltId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_alt_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelAltId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_alt_id", StrColumn::new) :
                 getBinaryColumn("label_alt_id"));
     }
 
@@ -40,10 +40,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_asym_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_asym_id", StrColumn::new) :
                 getBinaryColumn("label_asym_id"));
     }
 
@@ -52,10 +52,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_comp_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getLabelCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("label_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getLabelCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("label_comp_id", StrColumn::new) :
                 getBinaryColumn("label_comp_id"));
     }
 
@@ -64,10 +64,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.label_seq_id in the
      * ATOM_SITE category.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getLabelSeqId() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("label_seq_id", SingleRowIntColumn::new) :
+    public IntColumn getLabelSeqId() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("label_seq_id", IntColumn::new) :
                 getBinaryColumn("label_seq_id"));
     }
 
@@ -76,10 +76,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_asym_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthAsymId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthAsymId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_asym_id", StrColumn::new) :
                 getBinaryColumn("auth_asym_id"));
     }
 
@@ -88,10 +88,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthCompId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthCompId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_comp_id", StrColumn::new) :
                 getBinaryColumn("auth_comp_id"));
     }
 
@@ -100,10 +100,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.auth_seq_id in the
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getAuthSeqId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", SingleRowStrColumn::new) :
+    public StrColumn getAuthSeqId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("auth_seq_id", StrColumn::new) :
                 getBinaryColumn("auth_seq_id"));
     }
 
@@ -112,10 +112,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_ins_code
      * ATOM_SITE category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPDBInsCode() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("PDB_ins_code", SingleRowStrColumn::new) :
+    public StrColumn getPDBInsCode() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("PDB_ins_code", StrColumn::new) :
                 getBinaryColumn("PDB_ins_code"));
     }
 
@@ -124,10 +124,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getBIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso", FloatColumn::new) :
                 getBinaryColumn("B_iso"));
     }
 
@@ -136,10 +136,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIsoMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getBIsoMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso_main_chain", FloatColumn::new) :
                 getBinaryColumn("B_iso_main_chain"));
     }
 
@@ -148,10 +148,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getBIsoSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("B_iso_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getBIsoSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("B_iso_side_chain", FloatColumn::new) :
                 getBinaryColumn("B_iso_side_chain"));
     }
 
@@ -166,10 +166,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * the displacement vector is an indicator of the positional error.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getShift() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("shift", SingleRowFloatColumn::new) :
+    public FloatColumn getShift() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("shift", FloatColumn::new) :
                 getBinaryColumn("shift"));
     }
 
@@ -184,10 +184,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * the displacement vector is an indicator of the positional error.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getShiftSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("shift_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getShiftSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("shift_side_chain", FloatColumn::new) :
                 getBinaryColumn("shift_side_chain"));
     }
 
@@ -202,10 +202,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * the displacement vector is an indicator of the positional error.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getShiftMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("shift_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getShiftMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("shift_main_chain", FloatColumn::new) :
                 getBinaryColumn("shift_main_chain"));
     }
 
@@ -240,10 +240,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * For all atoms Radius_limit = 2.5 A.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCorrelation() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("correlation", SingleRowFloatColumn::new) :
+    public FloatColumn getCorrelation() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("correlation", FloatColumn::new) :
                 getBinaryColumn("correlation"));
     }
 
@@ -278,10 +278,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * For all atoms Radius_limit = 2.5 A.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCorrelationSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("correlation_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getCorrelationSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("correlation_side_chain", FloatColumn::new) :
                 getBinaryColumn("correlation_side_chain"));
     }
 
@@ -316,10 +316,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * For all atoms Radius_limit = 2.5 A.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getCorrelationMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("correlation_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getCorrelationMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("correlation_main_chain", FloatColumn::new) :
                 getBinaryColumn("correlation_main_chain"));
     }
 
@@ -338,10 +338,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * summation is for all the grid points
      * 
      * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRealSpaceR() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("real_space_R", SingleRowFloatColumn::new) :
+    public FloatColumn getRealSpaceR() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("real_space_R", FloatColumn::new) :
                 getBinaryColumn("real_space_R"));
     }
 
@@ -360,10 +360,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * summation is for all the grid points
      * 
      * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRealSpaceRSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("real_space_R_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getRealSpaceRSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("real_space_R_side_chain", FloatColumn::new) :
                 getBinaryColumn("real_space_R_side_chain"));
     }
 
@@ -382,10 +382,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * summation is for all the grid points
      * 
      * Ref: Branden, C.I. &amp; Jones, T.A. (1990).  Nature, 343, 687-689
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRealSpaceRMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("real_space_R_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getRealSpaceRMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("real_space_R_main_chain", FloatColumn::new) :
                 getBinaryColumn("real_space_R_main_chain"));
     }
 
@@ -405,10 +405,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The product is for N atoms of group.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getConnect() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("connect", SingleRowFloatColumn::new) :
+    public FloatColumn getConnect() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("connect", FloatColumn::new) :
                 getBinaryColumn("connect"));
     }
 
@@ -427,10 +427,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The product is for N atoms of group.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityIndex() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_index", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityIndex() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_index", FloatColumn::new) :
                 getBinaryColumn("density_index"));
     }
 
@@ -449,10 +449,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The product is for N atoms of group.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityIndexMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_index_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityIndexMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_index_main_chain", FloatColumn::new) :
                 getBinaryColumn("density_index_main_chain"));
     }
 
@@ -471,10 +471,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * The product is for N atoms of group.
      * 
      * Ref: Vaguine, A.A., Richelle, J. &amp; Wodak, S.J. (1999). Acta Cryst. D55,199-205
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityIndexSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_index_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityIndexSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_index_side_chain", FloatColumn::new) :
                 getBinaryColumn("density_index_side_chain"));
     }
 
@@ -496,10 +496,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * D(xi) = (2*Fobs - Fcal)
      * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityRatio() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_ratio", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityRatio() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_ratio", FloatColumn::new) :
                 getBinaryColumn("density_ratio"));
     }
 
@@ -521,10 +521,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * D(xi) = (2*Fobs - Fcal)
      * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityRatioMainChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_ratio_main_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityRatioMainChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_ratio_main_chain", FloatColumn::new) :
                 getBinaryColumn("density_ratio_main_chain"));
     }
 
@@ -546,10 +546,10 @@ public class PdbxRefineComponent extends BaseCategory {
      * D(xi) = (2*Fobs - Fcal)
      * &lt;D&gt;_all is the average value of density for the structure.
      * The summation is for all the atoms of group.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDensityRatioSideChain() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("density_ratio_side_chain", SingleRowFloatColumn::new) :
+    public FloatColumn getDensityRatioSideChain() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("density_ratio_side_chain", FloatColumn::new) :
                 getBinaryColumn("density_ratio_side_chain"));
     }
 }

@@ -32,10 +32,10 @@ public class RefineHist extends BaseCategory {
      * This data item uniquely identifies a refinement within an entry.
      * _refine_hist.pdbx_refine_id can be used to distinguish the results
      * of joint refinements.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxRefineId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", SingleRowStrColumn::new) :
+    public StrColumn getPdbxRefineId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_refine_id", StrColumn::new) :
                 getBinaryColumn("pdbx_refine_id"));
     }
 
@@ -45,20 +45,20 @@ public class RefineHist extends BaseCategory {
      * 
      * Note that this item need not be a number; it can be any unique
      * identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getCycleId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("cycle_id", SingleRowStrColumn::new) :
+    public StrColumn getCycleId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("cycle_id", StrColumn::new) :
                 getBinaryColumn("cycle_id"));
     }
 
     /**
      * A description of special aspects of this cycle of the refinement
      * process.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -66,10 +66,10 @@ public class RefineHist extends BaseCategory {
      * The lowest value for the interplanar spacings for the
      * reflection data for this cycle of refinement. This is called
      * the highest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDResHigh() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("d_res_high", SingleRowFloatColumn::new) :
+    public FloatColumn getDResHigh() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("d_res_high", FloatColumn::new) :
                 getBinaryColumn("d_res_high"));
     }
 
@@ -77,30 +77,30 @@ public class RefineHist extends BaseCategory {
      * The highest value for the interplanar spacings for the
      * reflection data for this cycle of refinement. This is
      * called the lowest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDResLow() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("d_res_low", SingleRowFloatColumn::new) :
+    public FloatColumn getDResLow() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("d_res_low", FloatColumn::new) :
                 getBinaryColumn("d_res_low"));
     }
 
     /**
      * The number of solvent atoms that were included in the model at
      * this cycle of the refinement.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberAtomsSolvent() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_atoms_solvent", SingleRowIntColumn::new) :
+    public IntColumn getNumberAtomsSolvent() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_atoms_solvent", IntColumn::new) :
                 getBinaryColumn("number_atoms_solvent"));
     }
 
     /**
      * The total number of atoms that were included in the model at
      * this cycle of the refinement.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberAtomsTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_atoms_total", SingleRowIntColumn::new) :
+    public IntColumn getNumberAtomsTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_atoms_total", IntColumn::new) :
                 getBinaryColumn("number_atoms_total"));
     }
 
@@ -108,10 +108,10 @@ public class RefineHist extends BaseCategory {
      * The number of reflections that satisfy the resolution limits
      * established by _refine_hist.d_res_high and
      * _refine_hist.d_res_low.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberReflnsAll() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_reflns_all", SingleRowIntColumn::new) :
+    public IntColumn getNumberReflnsAll() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_reflns_all", IntColumn::new) :
                 getBinaryColumn("number_reflns_all"));
     }
 
@@ -120,10 +120,10 @@ public class RefineHist extends BaseCategory {
      * established by _refine_hist.d_res_high and
      * _refine_hist.d_res_low and the observation criterion
      * established by _reflns.observed_criterion.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberReflnsObs() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs", SingleRowIntColumn::new) :
+    public IntColumn getNumberReflnsObs() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_reflns_obs", IntColumn::new) :
                 getBinaryColumn("number_reflns_obs"));
     }
 
@@ -136,10 +136,10 @@ public class RefineHist extends BaseCategory {
      * when the refinement included the calculation of a 'free'
      * R factor. Details of how reflections were assigned to the
      * working and test sets are given in _reflns.R_free_details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberReflnsRFree() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_reflns_R_free", SingleRowIntColumn::new) :
+    public IntColumn getNumberReflnsRFree() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_reflns_R_free", IntColumn::new) :
                 getBinaryColumn("number_reflns_R_free"));
     }
 
@@ -153,10 +153,10 @@ public class RefineHist extends BaseCategory {
      * of a 'free' R factor. Details of how reflections were
      * assigned to the working and test sets are given in
      * _reflns.R_free_details.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getNumberReflnsRWork() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("number_reflns_R_work", SingleRowIntColumn::new) :
+    public IntColumn getNumberReflnsRWork() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("number_reflns_R_work", IntColumn::new) :
                 getBinaryColumn("number_reflns_R_work"));
     }
 
@@ -173,10 +173,10 @@ public class RefineHist extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorAll() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorAll() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_all", FloatColumn::new) :
                 getBinaryColumn("R_factor_all"));
     }
 
@@ -194,10 +194,10 @@ public class RefineHist extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorObs() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorObs() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_obs", FloatColumn::new) :
                 getBinaryColumn("R_factor_obs"));
     }
 
@@ -219,10 +219,10 @@ public class RefineHist extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorRFree() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_R_free", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorRFree() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_R_free", FloatColumn::new) :
                 getBinaryColumn("R_factor_R_free"));
     }
 
@@ -244,109 +244,109 @@ public class RefineHist extends BaseCategory {
      * F~calc~ = the calculated structure-factor amplitudes
      * 
      * sum is taken over the specified reflections
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getRFactorRWork() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("R_factor_R_work", SingleRowFloatColumn::new) :
+    public FloatColumn getRFactorRWork() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("R_factor_R_work", FloatColumn::new) :
                 getBinaryColumn("R_factor_R_work"));
     }
 
     /**
      * Total number of polymer residues included in refinement.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberResiduesTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_residues_total", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberResiduesTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_residues_total", IntColumn::new) :
                 getBinaryColumn("pdbx_number_residues_total"));
     }
 
     /**
      * Mean isotropic B-value for ligand molecules included in refinement.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxBIsoMeanLigand() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_B_iso_mean_ligand", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxBIsoMeanLigand() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_B_iso_mean_ligand", FloatColumn::new) :
                 getBinaryColumn("pdbx_B_iso_mean_ligand"));
     }
 
     /**
      * Mean isotropic B-value for solvent molecules included in refinement.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPdbxBIsoMeanSolvent() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pdbx_B_iso_mean_solvent", SingleRowFloatColumn::new) :
+    public FloatColumn getPdbxBIsoMeanSolvent() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pdbx_B_iso_mean_solvent", FloatColumn::new) :
                 getBinaryColumn("pdbx_B_iso_mean_solvent"));
     }
 
     /**
      * Number of protein atoms included in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsProtein() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_protein", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsProtein() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_protein", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_protein"));
     }
 
     /**
      * Number of nucleic atoms included in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsNucleicAcid() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_nucleic_acid", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsNucleicAcid() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_nucleic_acid", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_nucleic_acid"));
     }
 
     /**
      * Number of ligand atoms included in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsLigand() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_ligand", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsLigand() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_ligand", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_ligand"));
     }
 
     /**
      * Number of lipid atoms included in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsLipid() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_lipid", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsLipid() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_lipid", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_lipid"));
     }
 
     /**
      * Number of carbohydrate atoms included in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsCarb() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_carb", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsCarb() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_carb", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_carb"));
     }
 
     /**
      * Details of pseduo atoms used to model unexplained density
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getPdbxPseudoAtomDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("pdbx_pseudo_atom_details", SingleRowStrColumn::new) :
+    public StrColumn getPdbxPseudoAtomDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("pdbx_pseudo_atom_details", StrColumn::new) :
                 getBinaryColumn("pdbx_pseudo_atom_details"));
     }
 
     /**
      * Number of solvent atoms used in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsSolvent() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_solvent", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsSolvent() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_solvent", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_solvent"));
     }
 
     /**
      * Number of atoms used in refinement
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberAtomsTotal() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_total", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberAtomsTotal() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_atoms_total", IntColumn::new) :
                 getBinaryColumn("pdbx_number_atoms_total"));
     }
 }

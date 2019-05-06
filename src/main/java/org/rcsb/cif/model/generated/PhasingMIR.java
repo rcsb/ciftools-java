@@ -32,10 +32,10 @@ public class PhasingMIR extends BaseCategory {
     /**
      * A description of special aspects of the isomorphous-replacement
      * phasing.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
@@ -43,10 +43,10 @@ public class PhasingMIR extends BaseCategory {
      * The lowest value in angstroms for the interplanar spacings
      * for the reflection data used for the native data set. This is
      * called the highest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDResHigh() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("d_res_high", SingleRowFloatColumn::new) :
+    public FloatColumn getDResHigh() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("d_res_high", FloatColumn::new) :
                 getBinaryColumn("d_res_high"));
     }
 
@@ -54,19 +54,19 @@ public class PhasingMIR extends BaseCategory {
      * The highest value in angstroms for the interplanar spacings
      * for the reflection data used for the native data set. This is
      * called the lowest resolution.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getDResLow() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("d_res_low", SingleRowFloatColumn::new) :
+    public FloatColumn getDResLow() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("d_res_low", FloatColumn::new) :
                 getBinaryColumn("d_res_low"));
     }
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -81,10 +81,10 @@ public class PhasingMIR extends BaseCategory {
      * P~a~ = the probability that the phase angle a is correct
      * 
      * the integral is taken over the range alpha = 0 to 2 pi.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFOM() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("FOM", SingleRowFloatColumn::new) :
+    public FloatColumn getFOM() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("FOM", FloatColumn::new) :
                 getBinaryColumn("FOM"));
     }
 
@@ -99,10 +99,10 @@ public class PhasingMIR extends BaseCategory {
      * P~a~ = the probability that the phase angle a is correct
      * 
      * the integral is taken over the range alpha = 0 to 2 pi.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFOMAcentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("FOM_acentric", SingleRowFloatColumn::new) :
+    public FloatColumn getFOMAcentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("FOM_acentric", FloatColumn::new) :
                 getBinaryColumn("FOM_acentric"));
     }
 
@@ -117,10 +117,10 @@ public class PhasingMIR extends BaseCategory {
      * P~a~ = the probability that the phase angle a is correct
      * 
      * the integral is taken over the range alpha = 0 to 2 pi.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFOMCentric() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("FOM_centric", SingleRowFloatColumn::new) :
+    public FloatColumn getFOMCentric() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("FOM_centric", FloatColumn::new) :
                 getBinaryColumn("FOM_centric"));
     }
 
@@ -134,58 +134,58 @@ public class PhasingMIR extends BaseCategory {
      * 
      * This data item should be used to describe significant
      * methodological options used within the MIR phasing program.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getMethod() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("method", SingleRowStrColumn::new) :
+    public StrColumn getMethod() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("method", StrColumn::new) :
                 getBinaryColumn("method"));
     }
 
     /**
      * The total number of reflections phased in the native data set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflns() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns", SingleRowIntColumn::new) :
+    public IntColumn getReflns() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns", IntColumn::new) :
                 getBinaryColumn("reflns"));
     }
 
     /**
      * The number of acentric reflections phased in the native data
      * set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflnsAcentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns_acentric", SingleRowIntColumn::new) :
+    public IntColumn getReflnsAcentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns_acentric", IntColumn::new) :
                 getBinaryColumn("reflns_acentric"));
     }
 
     /**
      * The number of centric reflections phased in the native data
      * set.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflnsCentric() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns_centric", SingleRowIntColumn::new) :
+    public IntColumn getReflnsCentric() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns_centric", IntColumn::new) :
                 getBinaryColumn("reflns_centric"));
     }
 
     /**
      * Criterion used to limit the reflections used in the phasing
      * calculations.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getReflnsCriterion() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("reflns_criterion", SingleRowStrColumn::new) :
+    public StrColumn getReflnsCriterion() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("reflns_criterion", StrColumn::new) :
                 getBinaryColumn("reflns_criterion"));
     }
 
     /**
      * The number of derivatives used in this phasing experiment.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getPdbxNumberDerivatives() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_derivatives", SingleRowIntColumn::new) :
+    public IntColumn getPdbxNumberDerivatives() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("pdbx_number_derivatives", IntColumn::new) :
                 getBinaryColumn("pdbx_number_derivatives"));
     }
 }

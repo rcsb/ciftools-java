@@ -43,10 +43,10 @@ public class PdbxConstruct extends BaseCategory {
      * a sample consisting of one or more proteins whose structure is
      * to be determined. This is a pointer to _entry.id. This item may
      * be a site dependent bar code.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -56,10 +56,10 @@ public class PdbxConstruct extends BaseCategory {
      * composed of a site-speicific prefix combined with a value that is
      * unique within a given site.Note that this item need not be a
      * number; it can be any unique identifier.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
@@ -67,10 +67,10 @@ public class PdbxConstruct extends BaseCategory {
      * _pdbx_construct.name  provides a placeholder for the local name
      * of the construct, for example the plasmid name if this category
      * is used to list plasmids.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("name", SingleRowStrColumn::new) :
+    public StrColumn getName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("name", StrColumn::new) :
                 getBinaryColumn("name"));
     }
 
@@ -80,10 +80,10 @@ public class PdbxConstruct extends BaseCategory {
      * in which the constrcut originated. It is envisaged that this item
      * will permit a globally unique identifier to be constructed in cases
      * where this is not possible from the _pdbx_construct.id alone.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getOrganisation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("organisation", SingleRowStrColumn::new) :
+    public StrColumn getOrganisation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("organisation", StrColumn::new) :
                 getBinaryColumn("organisation"));
     }
 
@@ -91,10 +91,10 @@ public class PdbxConstruct extends BaseCategory {
      * In cases where the construct IS found in the co-ordinates then this
      * item provides a  pointer to _entity.id in the ENTITY category for
      * the corresponding molecule.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
@@ -102,39 +102,39 @@ public class PdbxConstruct extends BaseCategory {
      * In cases where the sequence has been determined by a robot this
      * data item provides a pointer to pdbx_robot_system.id in the
      * PDBX_ROBOT_SYSTEM category for the robot responsible
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRobotId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("robot_id", SingleRowStrColumn::new) :
+    public StrColumn getRobotId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("robot_id", StrColumn::new) :
                 getBinaryColumn("robot_id"));
     }
 
     /**
      * The date that the sequence was determined.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDate() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("date", SingleRowStrColumn::new) :
+    public StrColumn getDate() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("date", StrColumn::new) :
                 getBinaryColumn("date"));
     }
 
     /**
      * Additional details about the construct that cannot be
      * represented in the category _pdbx_construct_feature.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * The primary function of the construct. This should be considered
      * as a guideline only.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getClazz() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("class", SingleRowStrColumn::new) :
+    public StrColumn getClazz() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("class", StrColumn::new) :
                 getBinaryColumn("class"));
     }
 
@@ -142,10 +142,10 @@ public class PdbxConstruct extends BaseCategory {
      * The type of nucleic acid sequence in the construct. Note that
      * to find all the DNA molecules it is necessary to search for
      * DNA + cDNA and for RNA, RNA + mRNA + tRNA.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getType() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("type", SingleRowStrColumn::new) :
+    public StrColumn getType() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("type", StrColumn::new) :
                 getBinaryColumn("type"));
     }
 
@@ -154,10 +154,10 @@ public class PdbxConstruct extends BaseCategory {
      * letter amino acid codes. Unusual residues may be represented
      * either using the appropriate one letter code wild cards or
      * by the three letter code in parentheses.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSeq() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("seq", SingleRowStrColumn::new) :
+    public StrColumn getSeq() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("seq", StrColumn::new) :
                 getBinaryColumn("seq"));
     }
 }

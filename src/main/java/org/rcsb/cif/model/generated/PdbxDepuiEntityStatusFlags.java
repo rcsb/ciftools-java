@@ -25,37 +25,37 @@ public class PdbxDepuiEntityStatusFlags extends BaseCategory {
 
     /**
      * The internal identifier assigned to each deposition.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDepDatasetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", SingleRowStrColumn::new) :
+    public StrColumn getDepDatasetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("dep_dataset_id", StrColumn::new) :
                 getBinaryColumn("dep_dataset_id"));
     }
 
     /**
      * A reference to the _entity.id in the ENTITY_POLY category
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntityId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entity_id", SingleRowStrColumn::new) :
+    public StrColumn getEntityId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entity_id", StrColumn::new) :
                 getBinaryColumn("entity_id"));
     }
 
     /**
      * A flag to indicate that the entity has a mutation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getHasMutation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("has_mutation", SingleRowStrColumn::new) :
+    public StrColumn getHasMutation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("has_mutation", StrColumn::new) :
                 getBinaryColumn("has_mutation"));
     }
 
     /**
      * A flag to indicate that sample and coordinate sequence alignments is valid for this entity
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSampleXyzSequenceAlignmentsValid() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("sample_xyz_sequence_alignments_valid", SingleRowStrColumn::new) :
+    public StrColumn getSampleXyzSequenceAlignmentsValid() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("sample_xyz_sequence_alignments_valid", StrColumn::new) :
                 getBinaryColumn("sample_xyz_sequence_alignments_valid"));
     }
 }

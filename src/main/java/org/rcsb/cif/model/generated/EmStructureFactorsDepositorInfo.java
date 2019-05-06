@@ -24,37 +24,37 @@ public class EmStructureFactorsDepositorInfo extends BaseCategory {
 
     /**
      * This data item is the unique identifier for the structure factor file.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * This data item is an optional pointer to the EM_EXPERIMENT category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExperimentId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("experiment_id", SingleRowStrColumn::new) :
+    public StrColumn getExperimentId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("experiment_id", StrColumn::new) :
                 getBinaryColumn("experiment_id"));
     }
 
     /**
      * The name of the structure factor file associated with the map entry
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getUploadFileName() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("upload_file_name", SingleRowStrColumn::new) :
+    public StrColumn getUploadFileName() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("upload_file_name", StrColumn::new) :
                 getBinaryColumn("upload_file_name"));
     }
 
     /**
      * Details about the structure factor file.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 }

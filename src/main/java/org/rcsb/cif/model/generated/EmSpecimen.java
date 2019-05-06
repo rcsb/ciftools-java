@@ -26,74 +26,74 @@ public class EmSpecimen extends BaseCategory {
     /**
      * The concentration (in milligrams per milliliter, mg/ml)
      * of the complex in the sample.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getConcentration() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("concentration", SingleRowFloatColumn::new) :
+    public FloatColumn getConcentration() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("concentration", FloatColumn::new) :
                 getBinaryColumn("concentration"));
     }
 
     /**
      * A description of any additional details of the specimen preparation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDetails() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("details", SingleRowStrColumn::new) :
+    public StrColumn getDetails() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("details", StrColumn::new) :
                 getBinaryColumn("details"));
     }
 
     /**
      * 'YES' indicates that the specimen has been embedded.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEmbeddingApplied() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("embedding_applied", SingleRowStrColumn::new) :
+    public StrColumn getEmbeddingApplied() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("embedding_applied", StrColumn::new) :
                 getBinaryColumn("embedding_applied"));
     }
 
     /**
      * Pointer to _em_experiment.id.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getExperimentId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("experiment_id", SingleRowStrColumn::new) :
+    public StrColumn getExperimentId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("experiment_id", StrColumn::new) :
                 getBinaryColumn("experiment_id"));
     }
 
     /**
      * The item  _em_specimen.id uniquely identifies a specimen along with
      * its preparation methods.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("id", SingleRowStrColumn::new) :
+    public StrColumn getId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("id", StrColumn::new) :
                 getBinaryColumn("id"));
     }
 
     /**
      * 'YES' indicates that the specimen has been shadowed.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getShadowingApplied() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("shadowing_applied", SingleRowStrColumn::new) :
+    public StrColumn getShadowingApplied() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("shadowing_applied", StrColumn::new) :
                 getBinaryColumn("shadowing_applied"));
     }
 
     /**
      * 'YES' indicates that the specimen has been stained.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getStainingApplied() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("staining_applied", SingleRowStrColumn::new) :
+    public StrColumn getStainingApplied() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("staining_applied", StrColumn::new) :
                 getBinaryColumn("staining_applied"));
     }
 
     /**
      * 'YES' indicates that the specimen was vitrified by cryopreservation.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getVitrificationApplied() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("vitrification_applied", SingleRowStrColumn::new) :
+    public StrColumn getVitrificationApplied() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("vitrification_applied", StrColumn::new) :
                 getBinaryColumn("vitrification_applied"));
     }
 }

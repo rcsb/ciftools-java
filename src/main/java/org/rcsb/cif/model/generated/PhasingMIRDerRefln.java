@@ -39,70 +39,70 @@ public class PhasingMIRDerRefln extends BaseCategory {
     /**
      * This data item is a pointer to _phasing_MIR_der.id in the
      * PHASING_MIR_DER category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getDerId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("der_id", SingleRowStrColumn::new) :
+    public StrColumn getDerId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("der_id", StrColumn::new) :
                 getBinaryColumn("der_id"));
     }
 
     /**
      * The calculated value of the structure factor for this derivative,
      * in electrons.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFCalc() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_calc", SingleRowFloatColumn::new) :
+    public FloatColumn getFCalc() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_calc", FloatColumn::new) :
                 getBinaryColumn("F_calc"));
     }
 
     /**
      * The calculated value of the structure factor for this derivative,
      * in arbitrary units.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFCalcAu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_calc_au", SingleRowFloatColumn::new) :
+    public FloatColumn getFCalcAu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_calc_au", FloatColumn::new) :
                 getBinaryColumn("F_calc_au"));
     }
 
     /**
      * The measured value of the structure factor for this derivative,
      * in electrons.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeas() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeas() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas", FloatColumn::new) :
                 getBinaryColumn("F_meas"));
     }
 
     /**
      * The measured value of the structure factor for this derivative,
      * in arbitrary units.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasAu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_au", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasAu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_au", FloatColumn::new) :
                 getBinaryColumn("F_meas_au"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _phasing_MIR_der_refln.F_meas, in electrons.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasSigma() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasSigma() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma", FloatColumn::new) :
                 getBinaryColumn("F_meas_sigma"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _phasing_MIR_der_refln.F_meas_au, in arbitrary units.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getFMeasSigmaAu() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma_au", SingleRowFloatColumn::new) :
+    public FloatColumn getFMeasSigmaAu() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("F_meas_sigma_au", FloatColumn::new) :
                 getBinaryColumn("F_meas_sigma_au"));
     }
 
@@ -136,10 +136,10 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * 
      * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHLAIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("HL_A_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getHLAIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("HL_A_iso", FloatColumn::new) :
                 getBinaryColumn("HL_A_iso"));
     }
 
@@ -173,10 +173,10 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * 
      * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHLBIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("HL_B_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getHLBIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("HL_B_iso", FloatColumn::new) :
                 getBinaryColumn("HL_B_iso"));
     }
 
@@ -210,10 +210,10 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * 
      * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHLCIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("HL_C_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getHLCIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("HL_C_iso", FloatColumn::new) :
                 getBinaryColumn("HL_C_iso"));
     }
 
@@ -247,57 +247,57 @@ public class PhasingMIRDerRefln extends BaseCategory {
      * 
      * Ref: Hendrickson, W. A. &amp; Lattman, E. E. (1970). Acta
      * Cryst. B26, 136-143.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getHLDIso() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("HL_D_iso", SingleRowFloatColumn::new) :
+    public FloatColumn getHLDIso() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("HL_D_iso", FloatColumn::new) :
                 getBinaryColumn("HL_D_iso"));
     }
 
     /**
      * Miller index h for this reflection for this derivative.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexH() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_h", SingleRowIntColumn::new) :
+    public IntColumn getIndexH() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_h", IntColumn::new) :
                 getBinaryColumn("index_h"));
     }
 
     /**
      * Miller index k for this reflection for this derivative.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexK() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_k", SingleRowIntColumn::new) :
+    public IntColumn getIndexK() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_k", IntColumn::new) :
                 getBinaryColumn("index_k"));
     }
 
     /**
      * Miller index l for this reflection for this derivative.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getIndexL() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("index_l", SingleRowIntColumn::new) :
+    public IntColumn getIndexL() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("index_l", IntColumn::new) :
                 getBinaryColumn("index_l"));
     }
 
     /**
      * The calculated value of the structure-factor phase based on the
      * heavy-atom model for this derivative in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPhaseCalc() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("phase_calc", SingleRowFloatColumn::new) :
+    public FloatColumn getPhaseCalc() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("phase_calc", FloatColumn::new) :
                 getBinaryColumn("phase_calc"));
     }
 
     /**
      * This data item is a pointer to _phasing_set.id in the
      * PHASING_SET category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getSetId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("set_id", SingleRowStrColumn::new) :
+    public StrColumn getSetId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("set_id", StrColumn::new) :
                 getBinaryColumn("set_id"));
     }
 }

@@ -25,10 +25,10 @@ public class CellMeasurement extends BaseCategory {
 
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getEntryId() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("entry_id", SingleRowStrColumn::new) :
+    public StrColumn getEntryId() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("entry_id", StrColumn::new) :
                 getBinaryColumn("entry_id"));
     }
 
@@ -36,30 +36,30 @@ public class CellMeasurement extends BaseCategory {
      * The pressure in kilopascals at which the unit-cell parameters
      * were measured (not the pressure at which the sample was
      * synthesized).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPressure() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pressure", SingleRowFloatColumn::new) :
+    public FloatColumn getPressure() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pressure", FloatColumn::new) :
                 getBinaryColumn("pressure"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _cell_measurement.pressure.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getPressureEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("pressure_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getPressureEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("pressure_esd", FloatColumn::new) :
                 getBinaryColumn("pressure_esd"));
     }
 
     /**
      * Description of the radiation used to measure the unit-cell data.
      * See also _cell_measurement.wavelength.
-     * @return SingleRowStrColumn
+     * @return StrColumn
      */
-    public SingleRowStrColumn getRadiation() {
-        return (SingleRowStrColumn) (isText ? textFields.computeIfAbsent("radiation", SingleRowStrColumn::new) :
+    public StrColumn getRadiation() {
+        return (StrColumn) (isText ? textFields.computeIfAbsent("radiation", StrColumn::new) :
                 getBinaryColumn("radiation"));
     }
 
@@ -67,50 +67,50 @@ public class CellMeasurement extends BaseCategory {
      * The total number of reflections used to determine the unit cell.
      * These reflections may be specified as CELL_MEASUREMENT_REFLN
      * data items.
-     * @return SingleRowIntColumn
+     * @return IntColumn
      */
-    public SingleRowIntColumn getReflnsUsed() {
-        return (SingleRowIntColumn) (isText ? textFields.computeIfAbsent("reflns_used", SingleRowIntColumn::new) :
+    public IntColumn getReflnsUsed() {
+        return (IntColumn) (isText ? textFields.computeIfAbsent("reflns_used", IntColumn::new) :
                 getBinaryColumn("reflns_used"));
     }
 
     /**
      * The temperature in kelvins at which the unit-cell parameters
      * were measured (not the temperature of synthesis).
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTemp() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp", SingleRowFloatColumn::new) :
+    public FloatColumn getTemp() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp", FloatColumn::new) :
                 getBinaryColumn("temp"));
     }
 
     /**
      * The standard uncertainty (estimated standard deviation)
      * of _cell_measurement.temp.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getTempEsd() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("temp_esd", SingleRowFloatColumn::new) :
+    public FloatColumn getTempEsd() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("temp_esd", FloatColumn::new) :
                 getBinaryColumn("temp_esd"));
     }
 
     /**
      * The maximum theta angle of reflections used to measure
      * the unit cell in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getThetaMax() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("theta_max", SingleRowFloatColumn::new) :
+    public FloatColumn getThetaMax() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("theta_max", FloatColumn::new) :
                 getBinaryColumn("theta_max"));
     }
 
     /**
      * The minimum theta angle of reflections used to measure
      * the unit cell in degrees.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getThetaMin() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("theta_min", SingleRowFloatColumn::new) :
+    public FloatColumn getThetaMin() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("theta_min", FloatColumn::new) :
                 getBinaryColumn("theta_min"));
     }
 
@@ -119,10 +119,10 @@ public class CellMeasurement extends BaseCategory {
      * the unit cell. If this is not specified, the wavelength is
      * assumed to be that specified in the category
      * DIFFRN_RADIATION_WAVELENGTH.
-     * @return SingleRowFloatColumn
+     * @return FloatColumn
      */
-    public SingleRowFloatColumn getWavelength() {
-        return (SingleRowFloatColumn) (isText ? textFields.computeIfAbsent("wavelength", SingleRowFloatColumn::new) :
+    public FloatColumn getWavelength() {
+        return (FloatColumn) (isText ? textFields.computeIfAbsent("wavelength", FloatColumn::new) :
                 getBinaryColumn("wavelength"));
     }
 }
