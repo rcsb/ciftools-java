@@ -229,7 +229,7 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            CLASS_MAP_LOOKUP.add(categoryName + "." + columnName + " " + BASE_PACKAGE + "." + baseClassName);
+            CLASS_MAP_LOOKUP.add(categoryName + "." + columnName + " " + baseClassName);
 
             categoryBuilder.add("");
             categoryBuilder.add("        public " + baseClassName + "Builder<" +
