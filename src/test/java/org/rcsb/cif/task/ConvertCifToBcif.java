@@ -1,21 +1,20 @@
 package org.rcsb.cif.task;
 
 import org.rcsb.cif.CifIO;
+import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.model.CifFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
-import java.util.zip.GZIPInputStream;
 
 public class ConvertCifToBcif {
     private static final Path PDB_DIRECTORY = Paths.get("/var/pdb/");
     private static final Path BCIF_DIRECTORY = Paths.get("/Users/sebastian/bcif/");
-    private static final int CHUNK_SIZE = 100;
+    private static final int CHUNK_SIZE = 250;
     private static final boolean PARALLEL = true;
 
     public static void main(String[] args) throws IOException {
@@ -36,23 +35,19 @@ public class ConvertCifToBcif {
             if (count % CHUNK_SIZE == 0) {
                 long end_chunk = System.nanoTime();
                 System.out.println("[" + count + " / " + target + "] @ " + (((end_chunk - start) /
-                        1_000_000 / count) + " ms per structure"));
+                        1_000 / count) + " µs per structure"));
             }
 
             try {
                 Path subDir = BCIF_DIRECTORY.resolve(path.getParent().toFile().getName());
-                String filename = path.toFile().getName().replace(".cif.gz", ".bcif");
+                String filename = path.toFile().getName().replace(".cif.", ".bcif.");
                 if (!Files.exists(subDir)) {
                     Files.createDirectory(subDir);
                 }
                 Path outputPath = subDir.resolve(filename);
+                CifFile cifFile = CifIO.readFromPath(path);
 
-                InputStream inputStream = new GZIPInputStream(Files.newInputStream(path));
-                CifFile cifFile = CifIO.readFromInputStream(inputStream);
-
-                CifIO.writeBinary(cifFile, outputPath);
-
-                inputStream.close();
+                CifIO.writeBinary(cifFile, outputPath, CifOptions.builder().gzip(true).build());
             } catch (Exception e) {
                 e.printStackTrace();
                 failed.incrementAndGet();
