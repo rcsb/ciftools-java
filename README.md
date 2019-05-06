@@ -35,14 +35,10 @@ class Demo {
         CifFile cifFile;
         if (parseBinary) {
             // parse binary CIF from ModelServer
-            InputStream inputStream = new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/"
-                    + pdbId).openStream();
-            cifFile = CifReader.readBinary(inputStream);
+            cifFile = CifIO.readFromURL(new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId));
         } else {
             // parse CIF from PDB
-            InputStream inputStream = new URL("https://files.rcsb.org/download/" + pdbId
-                    + ".cif").openStream();
-            cifFile = CifReader.readText(inputStream);
+            cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
         }
 
         // get first block of CIF
@@ -53,8 +49,8 @@ class Demo {
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();
 
-        // by definition, some categories can only contain a single row of data
-        String entryId = data.getEntry().getId().get();
+        // obtain entry id
+        String entryId = data.getEntry().getId().get(0);
         System.out.println(entryId);
 
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
