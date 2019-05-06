@@ -5,6 +5,7 @@ import org.rcsb.cif.binary.codec.Codec;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * <p>Allows to set options for CIF writing. Acquire by calling {@link CifOptions#builder()}. Pass into {@link CifIO}
@@ -33,6 +34,14 @@ public class CifOptions {
         this.categoryBlacklist = builder.categoryBlacklist;
         this.columnWhitelist = builder.columnWhitelist;
         this.columnBlacklist = builder.columnBlacklist;
+
+        // ensure that column whitelist to propagated to categories
+        List<String> categoriesToAdd = columnWhitelist.stream()
+                .map(fullColumnName -> fullColumnName.split("\\.")[0])
+                .distinct()
+                .filter(categoryName -> !columnWhitelist.contains(categoryName))
+                .collect(Collectors.toList());
+        categoryWhitelist.addAll(categoriesToAdd);
     }
 
     /**
@@ -94,7 +103,12 @@ public class CifOptions {
         String fullColumnName = categoryName + "." + columnName;
         if (columnBlacklist.contains(fullColumnName)) {
             return false;
-        } else return columnWhitelist.size() <= 0 || categoryWhitelist.contains(fullColumnName);
+        } else if (columnWhitelist.stream().anyMatch(fcn -> fcn.split("\\.")[0].equals(categoryName)) &&
+                !columnWhitelist.contains(fullColumnName)) {
+            return false;
+        } else {
+            return true;
+        }
     }
 
     /**
@@ -112,14 +126,14 @@ public class CifOptions {
         // TODO change once ready
         private static final String FETCH_URL = "https://webchem.ncbr.muni.cz/ModelServer/static/bcif/%s";
 
-        boolean gzip = false;
-        boolean singleRow = false;
-        String encoder = Codec.CODEC_NAME;
-        String fetchUrl = FETCH_URL;
-        List<String> categoryWhitelist = new ArrayList<>();
-        List<String> categoryBlacklist = new ArrayList<>();
-        List<String> columnWhitelist = new ArrayList<>();
-        List<String> columnBlacklist = new ArrayList<>();
+        private boolean gzip = false;
+        private boolean singleRow = false;
+        private String encoder = Codec.CODEC_NAME;
+        private String fetchUrl = FETCH_URL;
+        private List<String> categoryWhitelist = new ArrayList<>();
+        private List<String> categoryBlacklist = new ArrayList<>();
+        private List<String> columnWhitelist = new ArrayList<>();
+        private List<String> columnBlacklist = new ArrayList<>();
 
         /**
          * Allows for downstream GZIP operations.

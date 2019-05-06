@@ -4,10 +4,7 @@ import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.model.*;
 
 import java.nio.charset.StandardCharsets;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -62,17 +59,12 @@ public class TextCifWriter {
     }
 
     private void writeCifSingleRecord(StringBuilder output, Category cifCategory, List<Column> columns) {
-        OptionalInt optionalWidth = columns.stream()
+        int width = columns.stream()
                 .map(Column::getColumnName)
                 .mapToInt(String::length)
-                .max();
-
-        // this means no field from this category is included
-        if (!optionalWidth.isPresent()) {
-            return;
-        }
-
-        int width = optionalWidth.getAsInt() + 6 + cifCategory.getCategoryName().length();
+                .max()
+                .orElseThrow(() -> new NoSuchElementException("not able to determine column width"))
+                + 6 + cifCategory.getCategoryName().length();
 
         for (Column cifField : columns) {
             writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getColumnName(), width);
@@ -88,10 +80,6 @@ public class TextCifWriter {
     }
 
     private void writeCifLoop(StringBuilder output, Category cifCategory, List<Column> columns) {
-        if (columns.size() == 0) {
-            return;
-        }
-
         output.append("loop_")
                 .append("\n");
         for (Column cifField : columns) {

@@ -43,16 +43,18 @@ public class BinaryCifWriter {
             String blockHeader = cifBlock.getBlockHeader();
             String header = blockHeader != null ? blockHeader.replaceAll("[ \n\t]", "").toUpperCase() : "UNKNOWN";
             block.put("header", header);
-            Object[] categories = new Object[cifBlock.getCategoryNames().size()];
+
+            // filter category names
+            List<String> filteredCategoryNames = cifBlock.getCategoryNames()
+                    .stream()
+                    .filter(options::filterCategory)
+                    .collect(Collectors.toList());
+            Object[] categories = new Object[filteredCategoryNames.size()];
             int categoryCount = 0;
             block.put("categories", categories);
             blocks[blockCount++] = block;
 
-            for (String categoryName : cifBlock.getCategoryNames()) {
-                if (!options.filterCategory(categoryName)) {
-                    continue;
-                }
-
+            for (String categoryName : filteredCategoryNames) {
                 Category cifCategory = cifBlock.getCategory(categoryName);
                 int rowCount = cifCategory.getRowCount();
                 if (rowCount == 0) {
