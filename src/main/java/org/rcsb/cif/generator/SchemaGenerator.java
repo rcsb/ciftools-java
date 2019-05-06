@@ -222,7 +222,7 @@ class SchemaGenerator {
             Col column = (Col) entry.getValue();
 
             String columnClassName = toClassName(columnName);
-            String baseClassName = getBaseClass(column.getType(), content.getRepeat() == Repeat.SINGLE);
+            String baseClassName = getBaseClass(column.getType());
 
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
@@ -243,7 +243,7 @@ class SchemaGenerator {
             categoryBuilder.add("");
             categoryBuilder.add("        public " + baseClassName + "Builder<" +
                     categoryClassName + "Builder> enter" + columnClassName + "() {");
-            categoryBuilder.add("            return new " + getBaseClass(column.getType(), false) +
+            categoryBuilder.add("            return new " + getBaseClass(column.getType()) +
                     "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
             categoryBuilder.add("        }");
         }
@@ -273,26 +273,26 @@ class SchemaGenerator {
         Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private String getBaseClass(String type, boolean singleRow) {
+    private String getBaseClass(String type) {
         Class<?> clazz;
         // TODO enums, lists, matrix, and vector would be nice to have
         switch (type) {
             case "coord":
-                clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
+                clazz = FloatColumn.class; break;
             case "enum":
-                clazz = singleRow ? SingleRowStrColumn.class : StrColumn.class; break;
+                clazz = StrColumn.class; break;
             case "float":
-                clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
+                clazz = FloatColumn.class; break;
             case "int":
-                clazz = singleRow ? SingleRowIntColumn.class : IntColumn.class; break;
+                clazz = IntColumn.class; break;
             case "list":
-                clazz = singleRow ? SingleRowStrColumn.class : StrColumn.class; break;
+                clazz = StrColumn.class; break;
             case "matrix":
-                clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
+                clazz = FloatColumn.class; break;
             case "str":
-                clazz = singleRow ? SingleRowStrColumn.class : StrColumn.class; break;
+                clazz = StrColumn.class; break;
             case "vector":
-                clazz = singleRow ? SingleRowFloatColumn.class : FloatColumn.class; break;
+                clazz = FloatColumn.class; break;
             default:
                 throw new IllegalArgumentException("Unknown type " + type);
         }
@@ -514,15 +514,6 @@ class SchemaGenerator {
                         categoryKeyNames.add(cifColumn.getStringData(i));
                     }
 
-                    Repeat repeat;
-                    Column column = saveFrame.getCategory("category_examples")
-                            .getColumn("case");
-                    if (!column.isDefined() || column.getStringData(0).contains("loop_")) {
-                        repeat = Repeat.LOOP;
-                    } else {
-                        repeat = Repeat.SINGLE;
-                    }
-
                     String rawDescription = saveFrame.getCategory("category")
                             .getColumn("description")
                             .getStringData(0);
@@ -533,7 +524,7 @@ class SchemaGenerator {
                             .collect(Collectors.joining("\n"));
 
                     schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames,
-                            new LinkedHashMap<>(), repeat));
+                            new LinkedHashMap<>()));
                 });
     }
 
@@ -541,12 +532,6 @@ class SchemaGenerator {
         return description.replace("&", "&amp;")
                 .replace(">", "&gt;")
                 .replace("<", "&lt;");
-    }
-
-    enum Repeat {
-        SINGLE,
-        LOOP,
-        UNKNOWN
     }
 }
 
