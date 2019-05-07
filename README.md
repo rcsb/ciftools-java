@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.com/rcsb/ciftools-java.svg?branch=master)](https://travis-ci.com/rcsb/ciftools-java)
+[![Changelog](https://img.shields.io/badge/changelog--lightgrey.svg?style=flat)](https://github.com/rcsb/ciftools-java/blob/master/CHANGELOG.md)
 
 # CIFTools
 CIFTools implements reading and writing of CIF files ([specification](http://www.iucr.org/resources/cif/spec/version1.1/cifsyntax))
@@ -18,7 +19,7 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 <dependency>
   <groupId>org.rcsb</groupId>
   <artifactId>ciftools-java</artifactId>
-  <version>0.3.0</version>
+  <version>0.4.0</version>
 </dependency>
 ```
 
