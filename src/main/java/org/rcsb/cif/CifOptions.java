@@ -124,7 +124,7 @@ public class CifOptions {
      */
     public static class CifOptionsBuilder {
         // TODO change once ready
-        private static final String FETCH_URL = "https://webchem.ncbr.muni.cz/ModelServer/static/bcif/%s";
+        private static final String FETCH_URL = "http://webchem.ncbr.muni.cz/ModelServer/static/bcif/%s";
 
         private boolean gzip = false;
         private boolean singleRow = false;

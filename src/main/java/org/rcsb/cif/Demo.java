@@ -28,7 +28,7 @@ public class Demo {
         CifFile cifFile;
         if (parseBinary) {
             // parse binary CIF from ModelServer
-            cifFile = CifIO.readFromURL(new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId));
+            cifFile = CifIO.readFromURL(new URL("http://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId));
         } else {
             // parse CIF from PDB
             cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
