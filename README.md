@@ -7,12 +7,6 @@ as well as their efficiently encoded counterpart, called BinaryCIF. The idea is 
 implementation for the handling of CIF files which does not care about the origin of the data: both conventional 
 text-based and binary files should be handled the same way.
 
-## Performance
-The implementation can read the entire PDB archive in 101 s. This is achieved by lazy decoding and parsing - all columns
-are decoded the first time when they are actually requested. Thus, the parsing overhead is kept minimal.
-
-Plots and details coming soon.
-
 ## Getting Started
 CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 ```xml
@@ -124,6 +118,19 @@ class Demo {
 A step-wise builder is provided for the creation of `CifFile` instances. It is aware of category and column names and 
 the corresponding type described by a column (e.g. the `add` function called above is not overloaded, but rather will 
 only accept `String` values while in `entry.id` and only `double` values in `atom_site.Cartn_x`.
+
+## Performance
+The implementation can read the full PDB archive (151,579 files) in 2 minutes. This is achieved by lazy decoding and 
+parsing - all columns are decoded the first time when they are actually requested. Thus, the parsing overhead is kept 
+minimal.
+
+![alt performance](https://raw.githubusercontent.com/rcsb/ciftools-java/master/img/performance.png)
+
+All files are stored in gzip format. The reduced files are either native MMTF files or contain a similar selection of 
+CIF categories (i.e. they provide primarily atomic coordinates).
+
+Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed in parallel with 8 GB 
+heap. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
 
 ## Contributions
 
