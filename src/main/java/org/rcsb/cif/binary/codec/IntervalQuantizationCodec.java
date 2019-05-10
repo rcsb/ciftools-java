@@ -78,7 +78,7 @@ public class IntervalQuantizationCodec {
         double delta = (max - min) / (numSteps - 1.0);
 
         double[] output = IntStream.of(data.getData())
-                .mapToDouble(i -> min + delta * 1)
+                .mapToDouble(i -> min + delta * i)
                 .toArray();
 
         return srcType == 32 ? EncodedDataFactory.float32Array(output, data.getEncoding()) :
