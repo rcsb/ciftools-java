@@ -1,8 +1,13 @@
 CIFTools Changelog
------------------
+=============
+
+ciftools-java 0.4.1
+-------------
+### Bug fixes
+* fixed bug in IntervalQuantizationCodec
 
 ciftools-java 0.4.0
-=============
+-------------
 ### New features
 * GZIP support
 * automatic file type detection during reading: gzipped or plain, binary or text
@@ -21,7 +26,7 @@ categories only having a single row in the dictionary contain multiple values in
 * typos in documentation
 
 ciftools-java 0.3.0
-=============
+-------------
 
 ### General
 * initial release
