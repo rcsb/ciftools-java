@@ -25,7 +25,7 @@ public class CifIO {
     private static final CifOptions DEFAULT_OPTIONS = CifOptions.builder().build();
 
     /**
-     * Read a {@link CifFile} from web. Refine the address via {@link CifOptions.CifOptionsBuilder#fetchUrl}. Otherwise
+     * Read a {@link CifFile} from web. Refine the address via {@link CifOptions.CifOptionsBuilder#fetchUrl(String)}. Otherwise
      * binaryCIF will be loaded.
      * @param pdbId the <code>pdbId</code> which should be fetched from the web -  the library will determine whether
      *              the file is gzipped or plain information and whether it is in binary format (after resolving GZIP if
@@ -38,7 +38,7 @@ public class CifIO {
     }
 
     /**
-     * Read a {@link CifFile} from web. Refine the address via {@link CifOptions.CifOptionsBuilder#fetchUrl}. Otherwise
+     * Read a {@link CifFile} from web. Refine the address via {@link CifOptions.CifOptionsBuilder#fetchUrl(String)}. Otherwise
      * binaryCIF will be loaded.
      * @param pdbId the <code>pdbId</code> which should be fetched from the web -  the library will determine whether
      *              the file is gzipped or plain information and whether it is in binary format (after resolving GZIP if

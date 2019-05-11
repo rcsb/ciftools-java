@@ -147,14 +147,12 @@ public class TextCifWriter {
 
             switch (c) {
                 case '\t':
+                case ' ':
                     hasWhitespace = true;
                     break;
                 case '\n':
                     writeMultiline(output, val);
                     return true;
-                case ' ':
-                    hasWhitespace = true;
-                    break;
                 case '"':
                     if (hasSingle) {
                         writeMultiline(output, val);

@@ -25,7 +25,7 @@ public class CifOptions {
     private final List<String> columnWhitelist;
     private final List<String> columnBlacklist;
 
-    CifOptions(CifOptionsBuilder builder) {
+    private CifOptions(CifOptionsBuilder builder) {
         this.gzip = builder.gzip;
         this.singleRow = builder.singleRow;
         this.encoder = builder.encoder;
@@ -130,10 +130,10 @@ public class CifOptions {
         private boolean singleRow = false;
         private String encoder = Codec.CODEC_NAME;
         private String fetchUrl = FETCH_URL;
-        private List<String> categoryWhitelist = new ArrayList<>();
-        private List<String> categoryBlacklist = new ArrayList<>();
-        private List<String> columnWhitelist = new ArrayList<>();
-        private List<String> columnBlacklist = new ArrayList<>();
+        private final List<String> categoryWhitelist = new ArrayList<>();
+        private final List<String> categoryBlacklist = new ArrayList<>();
+        private final List<String> columnWhitelist = new ArrayList<>();
+        private final List<String> columnBlacklist = new ArrayList<>();
 
         /**
          * Allows for downstream GZIP operations.
@@ -182,7 +182,7 @@ public class CifOptions {
          * contained for the category to appear in the output.
          * @param categoryWhitelist a collection of String values to explicitly include in the output, all other
          *                          possible entries will be implicitly excluded
-         * @return
+         * @return this builder instance
          */
         public CifOptionsBuilder categoryWhitelist(String... categoryWhitelist) {
             return categoryWhitelist(Arrays.asList(categoryWhitelist));

@@ -69,9 +69,7 @@ public class WriterTest {
                     }
                 })
                 .map(String::trim)
-                .forEach(number -> {
-                    assertEquals(2, number.split("\\.")[1].length());
-                });
+                .forEach(number -> assertEquals(2, number.split("\\.")[1].length()));
     }
 
     @Test
