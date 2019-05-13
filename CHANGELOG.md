@@ -1,6 +1,12 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.5.0
+-------------
+### Breaking API changes
+* addresses flaw in API definition where invoking `build()` on `IntColumnBuilder`, `FloatColumnBuilder`, or 
+`StrColumnBuilder` returned a generic `Column` rather than the concrete implementation
+
 ciftools-java 0.4.1
 -------------
 ### Bug fixes
