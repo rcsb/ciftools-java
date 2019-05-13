@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.ArrayList;
@@ -39,8 +39,8 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
     }
 
     @Override
-    public Column build() {
-        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+    public FloatColumn build() {
+        return (FloatColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override

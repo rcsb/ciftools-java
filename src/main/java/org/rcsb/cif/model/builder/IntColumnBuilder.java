@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.ArrayList;
@@ -38,8 +38,8 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
     }
 
     @Override
-    public Column build() {
-        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+    public IntColumn build() {
+        return (IntColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override

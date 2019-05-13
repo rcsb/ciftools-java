@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.ArrayList;
@@ -37,8 +37,8 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
     }
 
     @Override
-    public Column build() {
-        return CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+    public StrColumn build() {
+        return (StrColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
     }
 
     @Override
