@@ -8,7 +8,14 @@ import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.ValueKind;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -51,7 +58,14 @@ public class BinaryCifWriter {
                     .collect(Collectors.toList());
             Object[] categories = new Object[filteredCategoryNames.size()];
             int categoryCount = 0;
-            block.put("categories", categories);
+
+            // fix for NPE in bcif reading
+            if (categories[0] != null) {
+                block.put("categories", categories);
+            } else {
+                block.put("categories", new Object[] {});
+            }
+
             blocks[blockCount++] = block;
 
             for (String categoryName : filteredCategoryNames) {

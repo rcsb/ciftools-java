@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 import org.rcsb.cif.model.generated.AtomSites;
 import org.rcsb.cif.model.generated.Cell;
@@ -21,6 +22,20 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  * content. For Bcif decoding and encoding should do the same.
  */
 public class IntegrationTest {
+    @Test
+    public void testBehaviorForEmptyFiles() throws IOException {
+        CifFile cifFile = new CifBuilder()
+                .enterBlock("test")
+                .enterAtomSite()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+        byte[] bytes = CifIO.writeBinary(cifFile);
+        CifFile read = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+
+        assertEquals(0, read.getFirstBlock().getCategoryNames().size());
+    }
+
     @Test
     public void testVectorAndMatrixBehavior() throws IOException {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
