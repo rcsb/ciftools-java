@@ -59,13 +59,7 @@ public class BinaryCifWriter {
             Object[] categories = new Object[filteredCategoryNames.size()];
             int categoryCount = 0;
 
-            // fix for NPE in bcif reading
-            if (categories[0] != null) {
-                block.put("categories", categories);
-            } else {
-                block.put("categories", new Object[] {});
-            }
-
+            block.put("categories", categories);
             blocks[blockCount++] = block;
 
             for (String categoryName : filteredCategoryNames) {
