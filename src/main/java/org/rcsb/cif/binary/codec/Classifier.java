@@ -42,7 +42,7 @@ public class Classifier {
      * @return encoded data
      */
     public static ByteArray encode(Int32Array column, String encoding) {
-            switch (encoding) {
+        switch (encoding) {
             case "byte":
                 return column.encode(new ByteArrayEncoding(column.getType()));
             case "pack":

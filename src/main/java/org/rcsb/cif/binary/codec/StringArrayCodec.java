@@ -70,7 +70,7 @@ public class StringArrayCodec {
         ByteArray offsets = Classifier.encode(offsetPlain, offsetHint.getEncoding());
 
         Int32Array outputPlain = EncodedDataFactory.int32Array(outputArray);
-        EncodingStrategyHint outputHint = Classifier.classify(offsetPlain);
+        EncodingStrategyHint outputHint = Classifier.classify(outputPlain);
         ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());

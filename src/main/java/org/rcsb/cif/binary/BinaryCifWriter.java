@@ -125,9 +125,6 @@ public class BinaryCifWriter {
 
     private ByteArray encode(String categoryName, String columnName, Float64Array column) {
         Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
-        if (optional.isPresent()) {
-            System.out.println();
-        }
 
         // if no hint given, auto-classify column
         EncodingStrategyHint hint = optional.orElseGet(column::classify);
