@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.TextFile;
+import org.rcsb.cif.model.generated.AtomSite;
 import org.rcsb.cif.model.generated.Entry;
 
 import java.io.ByteArrayInputStream;
@@ -15,6 +16,51 @@ import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {
+    @Test
+    public void testEncodingBehavior() throws IOException {
+        CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
+
+        byte[] binary1 = CifIO.writeBinary(textCifFile, CifOptions.builder()
+                .encodingStrategyHint(new String(TestHelper.getBytes("encoding-hint/hint1.json")))
+                .build());
+
+        // check that precision was honored
+        CifFile binaryCifFile1 = CifIO.readFromInputStream(new ByteArrayInputStream(binary1));
+        AtomSite atomSite1 = binaryCifFile1.getFirstBlock().getAtomSite();
+        atomSite1.getCartnX()
+                .values()
+                .map(d -> d * 10)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+        atomSite1.getCartnY()
+                .values()
+                .map(d -> d * 100)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+        atomSite1.getCartnZ()
+                .values()
+                .map(d -> d * 1000)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+
+        byte[] binary2 = CifIO.writeBinary(textCifFile, CifOptions.builder()
+                .encodingStrategyHint(new String(TestHelper.getBytes("encoding-hint/hint2.json")))
+                .build());
+
+        // check that precision was honored
+        CifFile binaryCifFile2 = CifIO.readFromInputStream(new ByteArrayInputStream(binary2));
+        AtomSite atomSite2 = binaryCifFile2.getFirstBlock().getAtomSite();
+        atomSite2.getCartnX()
+                .values()
+                .map(d -> d * 10)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+        atomSite2.getCartnY()
+                .values()
+                .map(d -> d * 1000)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+        atomSite2.getCartnZ()
+                .values()
+                .map(d -> d * 100000)
+                .forEach(d -> assertEquals(Math.round(d), d, TestHelper.ERROR_MARGIN));
+    }
+
     @Test
     public void testEncoder() throws IOException {
         // the encoder name should be honored when specified

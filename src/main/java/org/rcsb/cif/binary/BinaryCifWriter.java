@@ -1,11 +1,16 @@
 package org.rcsb.cif.binary;
 
 import org.rcsb.cif.CifOptions;
+import org.rcsb.cif.EncodingStrategyHint;
+import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Float64Array;
+import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import org.rcsb.cif.model.Block;
@@ -21,6 +26,7 @@ import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -80,7 +86,7 @@ public class BinaryCifWriter {
                             .stream()
                             .filter(columnName -> options.filterColumn(categoryName, columnName))
                             .map(cifCategory::getColumn)
-                            .map(this::encodeColumn)
+                            .map(cifColumn -> encodeColumn(categoryName, cifColumn))
                             .toArray();
                     category.put("columns", columns);
                 }
@@ -117,16 +123,56 @@ public class BinaryCifWriter {
         }
     }
 
-    private Map<String, Object> encodeColumn(Column cifColumn) {
+    private ByteArray encode(String categoryName, String columnName, Float64Array column) {
+        Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
+        if (optional.isPresent()) {
+            System.out.println();
+        }
+
+        // if no hint given, auto-classify column
+        EncodingStrategyHint hint = optional.orElseGet(column::classify);
+        // if no encoding given, auto-classify encoding
+        String encoding = hint.getEncoding() != null ? hint.getEncoding() : Classifier.classify(column).getEncoding();
+        // if multiplier/precision not given, auto-classify only precision
+        EncodingStrategyHint precisionClassification = Classifier.classifyPrecision(column);
+        if ("byte".equals(precisionClassification.getEncoding())) {
+            return column.encode(new ByteArrayEncoding(column.getType()));
+        }
+        int multiplier = getMultiplier(hint.getPrecision() != null ? hint.getPrecision() : precisionClassification.getPrecision());
+
+        Int32Array fixedPoint = column.encode(new FixedPointEncoding(multiplier));
+        return Classifier.encode(fixedPoint, encoding);
+    }
+
+    private static int getMultiplier(int mantissaDigits) {
+        int m = 1;
+        for (int i = 0; i < mantissaDigits; i++) {
+            m *= 10;
+        }
+        return m;
+    }
+
+    private ByteArray encode(String categoryName, String columnName, Int32Array column) {
+        Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
+
+        // if no hint given, auto-classify column
+        EncodingStrategyHint hint = optional.orElseGet(column::classify);
+        // if no encoding given, auto-classify encoding
+        String encoding = hint.getEncoding() != null ? hint.getEncoding() : Classifier.classify(column).getEncoding();
+
+        return Classifier.encode(column, encoding);
+    }
+
+    private Map<String, Object> encodeColumn(String categoryName, Column cifColumn) {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             double[] array = floatCol.getBinaryData() != null ? floatCol.getBinaryData() : floatCol.values().toArray();
-            ByteArray byteArray = EncodedDataFactory.float64Array(array).classify();
+            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), EncodedDataFactory.float64Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
             int[] array = intCol.getBinaryData() != null ? intCol.getBinaryData() : intCol.values().toArray();
-            ByteArray byteArray = EncodedDataFactory.int32Array(array).classify();
+            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), EncodedDataFactory.int32Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;

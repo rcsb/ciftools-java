@@ -78,7 +78,7 @@ public abstract class BaseColumn implements Column {
     }
 
     /**
-     * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values the report.
+     * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values they report.
      * @param val the double value
      * @return the formatted String value
      */

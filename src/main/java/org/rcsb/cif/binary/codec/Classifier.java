@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.*;
 
@@ -16,40 +17,53 @@ public class Classifier {
     /**
      * Auto-encodes this {@link Int32Array} by the encoding strategy with the minimal size.
      * @param data the data to encode
-     * @return the {@link EncodedData} instance which wraps a primitive <code>byte[]</code> and provides all information
-     * needed to decode it
+     * @return the {@link EncodingStrategyHint} instance which provides all information needed to encode/decode it
      */
-    public static ByteArray classify(Int32Array data) {
+    public static EncodingStrategyHint classify(Int32Array data) {
+        EncodingStrategyHint hint = new EncodingStrategyHint();
         if (data.getData().length < 2) {
-            return data.encode(new ByteArrayEncoding());
+            hint.setEncoding("byte");
+            return hint;
         }
 
         EncodingSize size = getSize(data);
-
-        switch (size.kind) {
-            case "pack":
-                return data.encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "rle":
-                return data.encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "delta":
-                return data.encode(new DeltaEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "delta-rle":
-                return ((SignedIntArray) data).encode(new DeltaEncoding())
-                        .encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            default:
-                throw new IllegalArgumentException("Determined encoding type is unknown. " + size.kind);
-        }
+        hint.setEncoding(size.kind);
+        return hint;
     }
 
     private static int packSize(int value, int upperLimit) {
         return (int) Math.ceil((value + 1) / (double) (value >= 0 ? upperLimit : -upperLimit - 1));
+    }
+
+    /**
+     * Encode an {@link Int32Array} using the given encoding strategy.
+     * @param column the data to encode
+     * @param encoding how to encode
+     * @return encoded data
+     */
+    public static ByteArray encode(Int32Array column, String encoding) {
+            switch (encoding) {
+            case "byte":
+                return column.encode(new ByteArrayEncoding(column.getType()));
+            case "pack":
+                return column.encode(new IntegerPackingEncoding())
+                        .encode(new ByteArrayEncoding());
+            case "rle":
+                return column.encode(new RunLengthEncoding())
+                        .encode(new IntegerPackingEncoding())
+                        .encode(new ByteArrayEncoding());
+            case "delta":
+                return column.encode(new DeltaEncoding())
+                        .encode(new IntegerPackingEncoding())
+                        .encode(new ByteArrayEncoding());
+            case "delta-rle":
+                return column.encode(new DeltaEncoding())
+                        .encode(new RunLengthEncoding())
+                        .encode(new IntegerPackingEncoding())
+                        .encode(new ByteArrayEncoding());
+            default:
+                throw new IllegalArgumentException("Determined encoding type is unknown. " + encoding);
+        }
     }
 
     static class SizeInfo {
@@ -206,10 +220,31 @@ public class Classifier {
      * Auto-encodes this {@link FloatArray} by the encoding strategy with the minimal size. All {@link Float64Array}
      * instances are encoded as {@link Int32Array} after finding a reasonable {@link FixedPointEncoding}.
      * @param data the data to encode
-     * @return the {@link EncodedData} instance which wraps a primitive <code>byte[]</code> and provides all information
-     * needed to decode it
+     * @return the {@link EncodingStrategyHint} providing all information needed to encode/decode it
      */
-    public static ByteArray classify(Float64Array data) {
+    public static EncodingStrategyHint classify(Float64Array data) {
+        EncodingStrategyHint hint = classifyPrecision(data);
+        if ("byte".equals(hint.getEncoding())) {
+            return hint;
+        }
+
+        int multiplier = getMultiplier(hint.getPrecision());
+
+        int[] intArray = DoubleStream.of(data.getData())
+                .mapToInt(d -> (int) Math.round(multiplier * d))
+                .toArray();
+        EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
+        hint.setEncoding(size.kind);
+        return hint;
+    }
+
+    /**
+     * Determines the precision needed to encode this column in a lossless fashion.
+     * @param data the data to handle
+     * @return an {@link EncodingStrategyHint} instance with the determined precision stored in the precision field
+     */
+    public static EncodingStrategyHint classifyPrecision(Float64Array data) {
+        EncodingStrategyHint hint = new EncodingStrategyHint();
         int maxDigits = 4;
 
         int[] arrayDigitCount = getArrayDigitCount(data.getData(), maxDigits);
@@ -217,41 +252,15 @@ public class Classifier {
         int integerDigits = arrayDigitCount[1];
 
         if (mantissaDigits < 0 || mantissaDigits + integerDigits > 10) {
-            return data.encode(new ByteArrayEncoding(data.getType()));
+            hint.setEncoding("byte");
+            return hint;
         }
-
         if (mantissaDigits == 0) {
             throw new UnsupportedOperationException("cannot handle yet, impl me");
         }
 
-        int multiplier = getMultiplier(mantissaDigits);
-        int[] intArray = DoubleStream.of(data.getData())
-                .mapToInt(d -> (int) Math.round(multiplier * d))
-                .toArray();
-
-        EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
-
-        Int32Array fixedPoint = data.encode(new FixedPointEncoding(multiplier));
-        switch (size.kind) {
-            case "pack":
-                return fixedPoint.encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "rle":
-                return fixedPoint.encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "delta":
-                return fixedPoint.encode(new DeltaEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            case "delta-rle":
-                return fixedPoint.encode(new DeltaEncoding())
-                        .encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
-            default:
-                throw new IllegalArgumentException("Determined encoding type is unknown. " + size.kind);
-        }
+        hint.setPrecision(mantissaDigits);
+        return hint;
     }
 
     private static int getMultiplier(int mantissaDigits) {

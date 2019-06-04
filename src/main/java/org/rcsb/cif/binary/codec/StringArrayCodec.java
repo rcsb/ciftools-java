@@ -1,7 +1,9 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -63,8 +65,13 @@ public class StringArrayCodec {
             }
         }
 
-        ByteArray offsets = Classifier.classify(EncodedDataFactory.int32Array(offsetList.stream().mapToInt(n -> n).toArray()));
-        ByteArray output = Classifier.classify(EncodedDataFactory.int32Array(outputArray));
+        Int32Array offsetPlain = EncodedDataFactory.int32Array(offsetList.stream().mapToInt(n -> n).toArray());
+        EncodingStrategyHint offsetHint = Classifier.classify(offsetPlain);
+        ByteArray offsets = Classifier.encode(offsetPlain, offsetHint.getEncoding());
+
+        Int32Array outputPlain = EncodedDataFactory.int32Array(outputArray);
+        EncodingStrategyHint outputHint = Classifier.classify(offsetPlain);
+        ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
         LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
         encoding.setOffsets(offsets.getData());

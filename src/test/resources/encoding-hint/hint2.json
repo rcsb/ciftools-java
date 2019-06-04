@@ -1,0 +1,19 @@
+[
+  {
+    "categoryName": "atom_site",
+    "columnName": "Cartn_x",
+    "encoding": "rle",
+    "precision": 1
+  },
+  {
+    "categoryName": "atom_site",
+    "columnName": "Cartn_y",
+    "precision": 3
+  },
+  {
+    "categoryName": "atom_site",
+    "columnName": "Cartn_z",
+    "encoding": "pack",
+    "precision": 5
+  }
+]

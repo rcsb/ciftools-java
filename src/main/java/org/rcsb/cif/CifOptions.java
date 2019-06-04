@@ -1,10 +1,19 @@
 package org.rcsb.cif;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import org.rcsb.cif.binary.codec.Codec;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.UncheckedIOException;
+import java.lang.reflect.Type;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +33,7 @@ public class CifOptions {
     private final List<String> categoryBlacklist;
     private final List<String> columnWhitelist;
     private final List<String> columnBlacklist;
+    private final List<EncodingStrategyHint> encodingStrategyHints;
 
     private CifOptions(CifOptionsBuilder builder) {
         this.gzip = builder.gzip;
@@ -42,6 +52,8 @@ public class CifOptions {
                 .filter(categoryName -> !columnWhitelist.contains(categoryName))
                 .collect(Collectors.toList());
         categoryWhitelist.addAll(categoriesToAdd);
+
+        this.encodingStrategyHints = builder.encodingStrategyHints;
     }
 
     /**
@@ -111,6 +123,13 @@ public class CifOptions {
         }
     }
 
+    public Optional<EncodingStrategyHint> getEncodingStrategyHint(String categoryName, String columnName) {
+        return encodingStrategyHints.stream()
+                .filter(encodingStrategyHint -> encodingStrategyHint.getCategoryName().equals(categoryName) &&
+                        encodingStrategyHint.getColumnName().equals(columnName))
+                .findFirst();
+    }
+
     /**
      * Acquire the actual builder instance.
      * @return a {@link CifOptionsBuilder}
@@ -134,6 +153,7 @@ public class CifOptions {
         private final List<String> categoryBlacklist = new ArrayList<>();
         private final List<String> columnWhitelist = new ArrayList<>();
         private final List<String> columnBlacklist = new ArrayList<>();
+        private final List<EncodingStrategyHint> encodingStrategyHints = new ArrayList<>();
 
         /**
          * Allows for downstream GZIP operations.
@@ -147,7 +167,7 @@ public class CifOptions {
 
         /**
          * Experimental flag to encode single row columns natively by MessagePack (rather than wrapping them with
-         * 'empty' encoding information.
+         * 'empty' encoding information).
          * @param singleRow <code>true</code> if single rows should be MessagePacked
          * @return this builder instance
          */
@@ -266,6 +286,36 @@ public class CifOptions {
          */
         public CifOptionsBuilder columnBlacklist(List<String> columnBlacklist) {
             this.columnBlacklist.addAll(columnBlacklist);
+            return this;
+        }
+
+        private static final Gson GSON = new Gson();
+        private static final Type LIST_TYPE = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
+
+        public CifOptionsBuilder encodingStrategyHint(Path path) {
+            try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
+                return encodingStrategyHint(bufferedReader.lines().collect(Collectors.joining()));
+            } catch (IOException e) {
+                throw new UncheckedIOException(e);
+            }
+        }
+
+        public CifOptionsBuilder encodingStrategyHint(String json) {
+            this.encodingStrategyHints.addAll(GSON.fromJson(json, LIST_TYPE));
+            return this;
+        }
+
+        public CifOptionsBuilder encodingStrategyHint(String categoryName, String columnName, String encoding, int precision) {
+            this.encodingStrategyHints.add(new EncodingStrategyHint(categoryName, columnName, encoding, precision));
+            return this;
+        }
+
+        public CifOptionsBuilder encodingStrategyHint(EncodingStrategyHint... encodingStrategyHints) {
+            return encodingStrategyHint(Arrays.asList(encodingStrategyHints));
+        }
+
+        public CifOptionsBuilder encodingStrategyHint(List<EncodingStrategyHint> encodingStrategyHints) {
+            this.encodingStrategyHints.addAll(encodingStrategyHints);
             return this;
         }
 
