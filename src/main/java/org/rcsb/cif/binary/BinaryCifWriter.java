@@ -153,12 +153,10 @@ public class BinaryCifWriter {
     }
 
     private ByteArray encode(String categoryName, String columnName, Int32Array column) {
-        Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
+        Optional<String> optional = options.getEncodingStrategyHint(categoryName, columnName).map(EncodingStrategyHint::getEncoding);
 
         // if no hint given, auto-classify column
-        EncodingStrategyHint hint = optional.orElseGet(column::classify);
-        // if no encoding given, auto-classify encoding
-        String encoding = hint.getEncoding() != null ? hint.getEncoding() : Classifier.classify(column).getEncoding();
+        String encoding = optional.orElseGet(() -> Classifier.classify(column).getEncoding());
 
         return Classifier.encode(column, encoding);
     }

@@ -134,7 +134,7 @@ public class WriterTest {
         // convert to bcif
         byte[] output = CifIO.writeBinary(binary);
 
-        assertEquals(new String(original), new String(output));
+        assertEquals("failed for " + testCase, new String(original), new String(output));
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
