@@ -48,7 +48,7 @@ public class CifIO {
      * @throws IOException thrown when reading fails
      */
     public static CifFile readById(String pdbId, CifOptions options) throws IOException {
-        return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId)), options);
+        return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options);
     }
 
     /**
