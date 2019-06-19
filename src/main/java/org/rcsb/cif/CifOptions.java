@@ -123,6 +123,12 @@ public class CifOptions {
         }
     }
 
+    /**
+     * Reports whether a particular encoding or floating-point precision is specified for this particular column.
+     * @param categoryName the category name to check
+     * @param columnName the column name to check
+     * @return an optional wrapping an {@link EncodingStrategyHint}
+     */
     public Optional<EncodingStrategyHint> getEncodingStrategyHint(String categoryName, String columnName) {
         return encodingStrategyHints.stream()
                 .filter(encodingStrategyHint -> encodingStrategyHint.getCategoryName().equals(categoryName) &&
@@ -292,6 +298,11 @@ public class CifOptions {
         private static final Gson GSON = new Gson();
         private static final Type LIST_TYPE = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
 
+        /**
+         * Read {@link EncodingStrategyHint} data from a JSON file.
+         * @param path the file to read
+         * @return this builder instance
+         */
         public CifOptionsBuilder encodingStrategyHint(Path path) {
             try (BufferedReader bufferedReader = Files.newBufferedReader(path)) {
                 return encodingStrategyHint(bufferedReader.lines().collect(Collectors.joining()));
@@ -300,27 +311,50 @@ public class CifOptions {
             }
         }
 
+        /**
+         * Read {@link EncodingStrategyHint} data from a JSON string.
+         * @param json the string to read
+         * @return this builder instance
+         */
         public CifOptionsBuilder encodingStrategyHint(String json) {
             this.encodingStrategyHints.addAll(GSON.fromJson(json, LIST_TYPE));
             return this;
         }
 
+        /**
+         * Manually specify encoding strategy and precision for a column.
+         * @param categoryName the category name
+         * @param columnName the column name
+         * @param encoding the encoding to employ: "pack" | "rle" | "delta" | "delta-rle"
+         * @param precision the number of decimal places to keep during {@link org.rcsb.cif.binary.encoding.FixedPointEncoding}
+         * @return this builder instance
+         */
         public CifOptionsBuilder encodingStrategyHint(String categoryName, String columnName, String encoding, int precision) {
             this.encodingStrategyHints.add(new EncodingStrategyHint(categoryName, columnName, encoding, precision));
             return this;
         }
 
+        /**
+         * Manually specify encoding strategy and precision for a column.
+         * @param encodingStrategyHints the hints to process
+         * @return this builder instance
+         */
         public CifOptionsBuilder encodingStrategyHint(EncodingStrategyHint... encodingStrategyHints) {
             return encodingStrategyHint(Arrays.asList(encodingStrategyHints));
         }
 
+        /**
+         * Manually specify encoding strategy and precision for a column.
+         * @param encodingStrategyHints the hints to process
+         * @return this builder instance
+         */
         public CifOptionsBuilder encodingStrategyHint(List<EncodingStrategyHint> encodingStrategyHints) {
             this.encodingStrategyHints.addAll(encodingStrategyHints);
             return this;
         }
 
         /**
-         * Exit this builder and retrive the actual, immutable {@link CifOptions} instance.
+         * Exit this builder and retrieve the actual, immutable {@link CifOptions} instance.
          * @return a {@link CifOptions} instance
          */
         public CifOptions build() {
