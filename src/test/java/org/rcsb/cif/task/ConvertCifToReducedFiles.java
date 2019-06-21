@@ -2,24 +2,36 @@ package org.rcsb.cif.task;
 
 import org.rcsb.cif.CifIO;
 import org.rcsb.cif.CifOptions;
+import org.rcsb.cif.TestHelper;
 import org.rcsb.cif.model.CifFile;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Convert to BCIF and CIF files containing similar data as found in MMTF files
  */
 public class ConvertCifToReducedFiles {
-    private static final List<String> CATEGORY_WHITELIST = Stream.of("atom_site", "cell", "citation", "entity", "entry",
-            "exptl", "pdbx_struct_oper_list", "pdbx_database_status", "pdbx_audit_revision_history", "refine",
-            "symmetry").collect(Collectors.toList());
+//    private static final List<String> CATEGORY_WHITELIST = Stream.of("atom_site", "cell", "citation", "entity", "entry",
+//            "exptl", "pdbx_struct_oper_list", "pdbx_database_status", "pdbx_audit_revision_history", "refine",
+//            "symmetry").collect(Collectors.toList());
+    private static final List<String> CATEGORY_WHITELIST = new BufferedReader(new InputStreamReader(TestHelper.getInputStream("mmtf-filter.csv")))
+            .lines()
+            .filter(line -> !line.isEmpty())
+            .filter(line -> !line.contains("."))
+            .collect(Collectors.toList());
+    private static final List<String> COLUMN_WHITELIST = new BufferedReader(new InputStreamReader(TestHelper.getInputStream("mmtf-filter.csv")))
+            .lines()
+            .filter(line -> !line.isEmpty())
+            .filter(line -> line.contains("."))
+            .collect(Collectors.toList());
 
     private static final Path PDB_DIRECTORY = Paths.get("/var/pdb/");
     private static final Path BCIF_DIRECTORY = Paths.get("/Users/sebastian/bcif-reduced/");
@@ -27,6 +39,12 @@ public class ConvertCifToReducedFiles {
     private static final int CHUNK_SIZE = 250;
 
     public static void main(String[] args) throws IOException {
+        System.out.println("whitelisting categories:");
+        System.out.println(CATEGORY_WHITELIST);
+
+        System.out.println("whitelisting columns:");
+        System.out.println(COLUMN_WHITELIST);
+
         AtomicInteger counter = new AtomicInteger(0);
         final int target = (int) Files.walk(PDB_DIRECTORY).filter(path -> !Files.isDirectory(path)).count();
         AtomicInteger failed = new AtomicInteger(0);
@@ -61,8 +79,20 @@ public class ConvertCifToReducedFiles {
 
                         CifFile cifFile = CifIO.readFromPath(path);
 
-                        CifIO.writeBinary(cifFile, bcifOutputPath, CifOptions.builder().categoryWhitelist(CATEGORY_WHITELIST).gzip(true).build());
-                        CifIO.writeText(cifFile, cifOutputPath, CifOptions.builder().categoryWhitelist(CATEGORY_WHITELIST).gzip(true).build());
+                        CifIO.writeBinary(cifFile,
+                                bcifOutputPath,
+                                CifOptions.builder()
+                                        .categoryWhitelist(CATEGORY_WHITELIST)
+                                        .columnWhitelist(COLUMN_WHITELIST)
+                                        .gzip(true)
+                                        .build());
+                        CifIO.writeText(cifFile,
+                                cifOutputPath,
+                                CifOptions.builder()
+                                        .categoryWhitelist(CATEGORY_WHITELIST)
+                                        .columnWhitelist(COLUMN_WHITELIST)
+                                        .gzip(true)
+                                        .build());
                     } catch (Exception e) {
                         e.printStackTrace();
                         failed.incrementAndGet();
