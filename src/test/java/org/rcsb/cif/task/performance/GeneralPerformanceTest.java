@@ -1,4 +1,4 @@
-package org.rcsb.cif.task;
+package org.rcsb.cif.task.performance;
 
 import org.rcsb.cif.CifIO;
 import org.rcsb.cif.model.CifFile;

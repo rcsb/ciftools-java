@@ -1,4 +1,4 @@
-package org.rcsb.cif.task;
+package org.rcsb.cif.task.convert;
 
 import org.rcsb.cif.CifIO;
 import org.rcsb.cif.CifOptions;
