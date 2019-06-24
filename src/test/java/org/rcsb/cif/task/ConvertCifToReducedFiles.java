@@ -19,9 +19,6 @@ import java.util.stream.Collectors;
  * Convert to BCIF and CIF files containing similar data as found in MMTF files
  */
 public class ConvertCifToReducedFiles {
-//    private static final List<String> CATEGORY_WHITELIST = Stream.of("atom_site", "cell", "citation", "entity", "entry",
-//            "exptl", "pdbx_struct_oper_list", "pdbx_database_status", "pdbx_audit_revision_history", "refine",
-//            "symmetry").collect(Collectors.toList());
     private static final List<String> CATEGORY_WHITELIST = new BufferedReader(new InputStreamReader(TestHelper.getInputStream("mmtf-filter.csv")))
             .lines()
             .filter(line -> !line.isEmpty())
@@ -76,6 +73,11 @@ public class ConvertCifToReducedFiles {
                             Files.createDirectory(cifSubDir);
                         }
                         Path cifOutputPath = cifSubDir.resolve(cifFilename);
+
+                        // skip existing files
+                        if (Files.exists(bcifOutputPath) && Files.exists(cifOutputPath)) {
+                            return;
+                        }
 
                         CifFile cifFile = CifIO.readFromPath(path);
 
