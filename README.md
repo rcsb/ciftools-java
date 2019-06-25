@@ -29,10 +29,10 @@ class Demo {
         // to access the data, it does not matter where and in which format the data came from
         CifFile cifFile;
         if (parseBinary) {
-            // parse binary CIF from ModelServer
-            cifFile = CifIO.readFromURL(new URL("https://webchem.ncbr.muni.cz/ModelServer/static/bcif/" + pdbId));
+            // parse binary CIF from PDBe
+            cifFile = CifIO.readFromURL(new URL("http://www.ebi.ac.uk/pdbe/coordinates/" + pdbId + "/full?encoding=bcif"));
         } else {
-            // parse CIF from PDB
+            // parse CIF from RCSB PDB
             cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
         }
 
