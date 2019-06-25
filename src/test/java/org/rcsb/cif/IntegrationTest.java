@@ -86,7 +86,7 @@ public class IntegrationTest {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/0red.cif"));
         testUndefinedColumnBehavior(textCifFile);
 
-        CifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/0red.bcif"));
+        CifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0red.bcif"));
         testUndefinedColumnBehavior(binaryCifFile);
     }
 

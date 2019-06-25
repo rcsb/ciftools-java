@@ -70,7 +70,7 @@ public class ReaderTest {
 
     @Test(expected = ParsingException.class)
     public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/0emp.bcif"));
+        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0emp.bcif"));
     }
 
     @Test(expected = ParsingException.class)
