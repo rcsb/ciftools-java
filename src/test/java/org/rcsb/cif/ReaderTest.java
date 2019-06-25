@@ -25,13 +25,13 @@ public class ReaderTest {
     }
 
     private void testGzipReadingBehavior(String testCase) throws IOException {
-        CifFile binaryGz = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/gz/" + testCase + ".bcif.gz"));
+        CifFile binaryGz = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/" + testCase + ".bcif.gz"));
         assertEquals(testCase.toUpperCase(), binaryGz.getFirstBlock().getEntry().getId().get(0));
 
-        CifFile binary = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        CifFile binary = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
         assertEquals(testCase.toUpperCase(), binary.getFirstBlock().getEntry().getId().get(0));
 
-        CifFile textGz = CifIO.readFromInputStream(TestHelper.getInputStream("cif/gz/" + testCase + ".cif.gz"));
+        CifFile textGz = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif.gz"));
         assertEquals(testCase.toUpperCase(), textGz.getFirstBlock().getEntry().getId().get(0));
 
         CifFile text = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif"));
@@ -41,7 +41,7 @@ public class ReaderTest {
     @Test
     public void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
-            InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase.getKey() + ".bcif");
+            InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
         }
     }

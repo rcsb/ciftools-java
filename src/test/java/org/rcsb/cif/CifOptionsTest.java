@@ -65,7 +65,7 @@ public class CifOptionsTest {
     public void testEncoder() throws IOException {
         // the encoder name should be honored when specified
         String encoderName = "yet-another-cif-encoder";
-        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/1acj.bcif"));
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
 
         byte[] bytes = CifIO.writeBinary(cifFile,
                 CifOptions.builder().encoder(encoderName).build());
@@ -104,7 +104,7 @@ public class CifOptionsTest {
 
     private void testFilteringBehavior(String testCase) throws IOException {
         // check that file was loaded correctly
-        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
         assertEquals(testCase.toUpperCase(), file.getFirstBlock().getEntry().getId().get(0));
 
         // text file with some categories blacklisted
@@ -158,7 +158,7 @@ public class CifOptionsTest {
 
     private void testGzipWritingBehavior(String testCase) throws IOException {
         // check that file was loaded correctly
-        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif"));
+        CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
         assertEquals(testCase.toUpperCase(), file.getFirstBlock().getEntry().getId().get(0));
 
         // write text text with downstream gzip

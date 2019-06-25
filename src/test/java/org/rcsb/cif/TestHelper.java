@@ -45,10 +45,6 @@ public class TestHelper {
      * @param actual the string to test
      */
     public static void assertEqualsLoosely(String expected, String actual) {
-        if (expected.contains("1J59")) {
-            return;
-        }
-
         List<String> exp = Pattern.compile("\\s+").splitAsStream(expected).collect(Collectors.toList());
         List<String> act = Pattern.compile("\\s+").splitAsStream(actual).collect(Collectors.toList());
 
@@ -124,7 +120,7 @@ public class TestHelper {
     @Test
     public void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
-        assertNotNull(EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/molstar/" + id))
+        assertNotNull(EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/" + id))
                 .toUint8Array(null)
                 .getData());
     }

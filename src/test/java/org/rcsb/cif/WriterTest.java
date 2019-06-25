@@ -3,7 +3,6 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
@@ -12,11 +11,11 @@ import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.*;
-
 public class WriterTest {
     @Test
     public void testNumberFormat() throws IOException {
@@ -90,9 +89,9 @@ public class WriterTest {
                 .build();
         assertTrue(atom_site instanceof AtomSite);
 
-        Column cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null)
+        FloatColumn cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null)
                 .build();
-        assertTrue(cartnX instanceof FloatColumn);
+        assertNotNull(cartnX);
     }
 
     @Test
@@ -125,19 +124,57 @@ public class WriterTest {
     private void writeBinary(String testCase) throws ParsingException, IOException {
         // a snapshot of the ciftools output is used - the implementation will not exactly recreate Mol* output
         // this test is to check if some code change breaks
-        byte[] original = TestHelper.getBytes("bcif/ciftools/" + testCase + ".bcif");
+        byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
+        byte[] originalGzip = TestHelper.getBytes("snapshot/" + testCase + ".bcif.gz");
 
         // read from bcif
-        InputStream inputStream = TestHelper.getInputStream("bcif/molstar/" + testCase + ".bcif");
+        InputStream inputStream = TestHelper.getInputStream("snapshot/" + testCase + ".bcif");
         CifFile binary = CifIO.readFromInputStream(inputStream);
 
         // convert to bcif
         byte[] output = CifIO.writeBinary(binary);
+        byte[] outputGzip = CifIO.writeBinary(binary, CifOptions.builder().gzip(true).build());
 
         assertEquals("failed for " + testCase, new String(original), new String(output));
+        assertEquals("failed (gzip) for " + testCase, new String(originalGzip), new String(outputGzip));
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
-                " if so, update snapshot files in bcif/ciftools/", original, output);
+                " if so, update snapshot files in snapshot/", original, output);
+        assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
+                " if so, update snapshot files in snapshot/", originalGzip, outputGzip);
+    }
+
+    public static void main(String[] args) throws IOException {
+        // run to update snapshot files
+        for (String id : TEST_CASES.keySet()) {
+            InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
+            CifFile data = CifIO.readFromInputStream(inputStream);
+
+            CifOptions options = CifOptions.builder()
+                    .categoryBlacklist("coordinate_server_result", "coordinate_server_query_params", "coordinate_server_stats")
+                    .build();
+            CifOptions optionsGzip = CifOptions.builder()
+                    .categoryBlacklist("coordinate_server_result", "coordinate_server_query_params", "coordinate_server_stats")
+                    .gzip(true)
+                    .build();
+
+            // convert to cif/bcif
+            CifIO.writeText(data,
+                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif"),
+                    options);
+
+            CifIO.writeText(data,
+                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif.gz"),
+                    optionsGzip);
+
+            CifIO.writeBinary(data,
+                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif"),
+                    options);
+
+            CifIO.writeBinary(data,
+                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif.gz"),
+                    optionsGzip);
+        }
     }
 }

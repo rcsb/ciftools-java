@@ -1,0 +1,232 @@
+data_5ZMZ
+#
+_entry.id    5ZMZ 
+#
+loop_
+_entity.id
+_entity.type
+_entity.src_method
+_entity.pdbx_description
+_entity.formula_weight
+_entity.pdbx_number_of_molecules
+_entity.details
+_entity.pdbx_mutation
+_entity.pdbx_fragment
+_entity.pdbx_ec
+1 polymer man 'Amyloid core of RIP1' ? ? . ? ? ? 
+2 water nat water ? ? . ? ? ? 
+#
+_exptl.entry_id    5ZMZ 
+_exptl.method      'X-ray diffraction' 
+#
+_pdbx_struct_assembly.id                    1 
+_pdbx_struct_assembly.details               author_defined_assembly 
+_pdbx_struct_assembly.method_details        ? 
+_pdbx_struct_assembly.oligomeric_details    monomeric 
+_pdbx_struct_assembly.oligomeric_count      1 
+#
+_pdbx_struct_assembly_gen.assembly_id        1 
+_pdbx_struct_assembly_gen.oper_expression    1 
+_pdbx_struct_assembly_gen.asym_id_list       A,B 
+#
+_pdbx_struct_oper_list.id                    1 
+_pdbx_struct_oper_list.type                  'identity operation' 
+_pdbx_struct_oper_list.name                  1_555 
+_pdbx_struct_oper_list.symmetry_operation    x,y,z 
+_pdbx_struct_oper_list.matrix[1][1]          1 
+_pdbx_struct_oper_list.matrix[1][2]          0 
+_pdbx_struct_oper_list.matrix[1][3]          0 
+_pdbx_struct_oper_list.vector[1]             0 
+_pdbx_struct_oper_list.matrix[2][1]          0 
+_pdbx_struct_oper_list.matrix[2][2]          1 
+_pdbx_struct_oper_list.matrix[2][3]          0 
+_pdbx_struct_oper_list.vector[2]             0 
+_pdbx_struct_oper_list.matrix[3][1]          0 
+_pdbx_struct_oper_list.matrix[3][2]          0 
+_pdbx_struct_oper_list.matrix[3][3]          1 
+_pdbx_struct_oper_list.vector[3]             0 
+#
+_cell.entry_id            5ZMZ 
+_cell.length_a            29.44 
+_cell.length_b            4.8 
+_cell.length_c            18.94 
+_cell.angle_alpha         90 
+_cell.angle_beta          107.97 
+_cell.angle_gamma         90 
+_cell.Z_PDB               4 
+_cell.pdbx_unique_axis    ? 
+#
+_symmetry.entry_id                          5ZMZ 
+_symmetry.space_group_name_H-M              'C 1 2 1' 
+_symmetry.pdbx_full_space_group_name_H-M    ? 
+_symmetry.cell_setting                      ? 
+_symmetry.Int_Tables_number                 5 
+_symmetry.space_group_name_Hall             ? 
+#
+_entity_poly.entity_id                       1 
+_entity_poly.type                            polypeptide(L) 
+_entity_poly.nstd_linkage                    no 
+_entity_poly.nstd_monomer                    no 
+_entity_poly.pdbx_seq_one_letter_code        IQIG 
+_entity_poly.pdbx_seq_one_letter_code_can    IQIG 
+_entity_poly.pdbx_strand_id                  A 
+#
+loop_
+_entity_poly_seq.entity_id
+_entity_poly_seq.num
+_entity_poly_seq.mon_id
+_entity_poly_seq.hetero
+1 1 ILE n 
+1 2 GLN n 
+1 3 ILE n 
+1 4 GLY n 
+#
+loop_
+_struct_asym.id
+_struct_asym.pdbx_blank_PDB_chainid_flag
+_struct_asym.pdbx_modified
+_struct_asym.entity_id
+_struct_asym.details
+A N Y 1 'Might not contain all original atoms depending on the query used' 
+B N Y 2 'Might not contain all original atoms depending on the query used' 
+#
+loop_
+_chem_comp_bond.comp_id
+_chem_comp_bond.pdbx_stereo_config
+_chem_comp_bond.pdbx_ordinal
+_chem_comp_bond.pdbx_aromatic_flag
+_chem_comp_bond.atom_id_1
+_chem_comp_bond.atom_id_2
+_chem_comp_bond.value_order
+GLN N 1 N N CA SING 
+GLN N 2 N N H SING 
+GLN N 3 N N H2 SING 
+GLN N 4 N CA C SING 
+GLN N 5 N CA CB SING 
+GLN N 6 N CA HA SING 
+GLN N 7 N C O DOUB 
+GLN N 8 N C OXT SING 
+GLN N 9 N CB CG SING 
+GLN N 10 N CB HB2 SING 
+GLN N 11 N CB HB3 SING 
+GLN N 12 N CG CD SING 
+GLN N 13 N CG HG2 SING 
+GLN N 14 N CG HG3 SING 
+GLN N 15 N CD OE1 DOUB 
+GLN N 16 N CD NE2 SING 
+GLN N 17 N NE2 HE21 SING 
+GLN N 18 N NE2 HE22 SING 
+GLN N 19 N OXT HXT SING 
+GLY N 1 N N CA SING 
+GLY N 2 N N H SING 
+GLY N 3 N N H2 SING 
+GLY N 4 N CA C SING 
+GLY N 5 N CA HA2 SING 
+GLY N 6 N CA HA3 SING 
+GLY N 7 N C O DOUB 
+GLY N 8 N C OXT SING 
+GLY N 9 N OXT HXT SING 
+HOH N 1 N O H1 SING 
+HOH N 2 N O H2 SING 
+ILE N 1 N N CA SING 
+ILE N 2 N N H SING 
+ILE N 3 N N H2 SING 
+ILE N 4 N CA C SING 
+ILE N 5 N CA CB SING 
+ILE N 6 N CA HA SING 
+ILE N 7 N C O DOUB 
+ILE N 8 N C OXT SING 
+ILE N 9 N CB CG1 SING 
+ILE N 10 N CB CG2 SING 
+ILE N 11 N CB HB SING 
+ILE N 12 N CG1 CD1 SING 
+ILE N 13 N CG1 HG12 SING 
+ILE N 14 N CG1 HG13 SING 
+ILE N 15 N CG2 HG21 SING 
+ILE N 16 N CG2 HG22 SING 
+ILE N 17 N CG2 HG23 SING 
+ILE N 18 N CD1 HD11 SING 
+ILE N 19 N CD1 HD12 SING 
+ILE N 20 N CD1 HD13 SING 
+ILE N 21 N OXT HXT SING 
+#
+_atom_sites.entry_id                     5ZMZ 
+_atom_sites.fract_transf_matrix[1][1]    0.033967 
+_atom_sites.fract_transf_matrix[1][2]    0 
+_atom_sites.fract_transf_matrix[1][3]    0.011016 
+_atom_sites.fract_transf_vector[1]       0 
+_atom_sites.fract_transf_matrix[2][1]    0 
+_atom_sites.fract_transf_matrix[2][2]    0.208333 
+_atom_sites.fract_transf_matrix[2][3]    0 
+_atom_sites.fract_transf_vector[2]       0 
+_atom_sites.fract_transf_matrix[3][1]    0 
+_atom_sites.fract_transf_matrix[3][2]    0 
+_atom_sites.fract_transf_matrix[3][3]    0.055506 
+_atom_sites.fract_transf_vector[3]       0 
+#
+_pdbx_nonpoly_scheme.asym_id          B 
+_pdbx_nonpoly_scheme.entity_id        2 
+_pdbx_nonpoly_scheme.mon_id           HOH 
+_pdbx_nonpoly_scheme.ndb_seq_num      1 
+_pdbx_nonpoly_scheme.pdb_seq_num      101 
+_pdbx_nonpoly_scheme.auth_seq_num     2 
+_pdbx_nonpoly_scheme.pdb_mon_id       HOH 
+_pdbx_nonpoly_scheme.auth_mon_id      HOH 
+_pdbx_nonpoly_scheme.pdb_strand_id    A 
+_pdbx_nonpoly_scheme.pdb_ins_code     . 
+#
+loop_
+_atom_site.group_PDB
+_atom_site.id
+_atom_site.type_symbol
+_atom_site.label_atom_id
+_atom_site.label_alt_id
+_atom_site.label_comp_id
+_atom_site.label_asym_id
+_atom_site.label_entity_id
+_atom_site.label_seq_id
+_atom_site.pdbx_PDB_ins_code
+_atom_site.Cartn_x
+_atom_site.Cartn_y
+_atom_site.Cartn_z
+_atom_site.occupancy
+_atom_site.B_iso_or_equiv
+_atom_site.pdbx_formal_charge
+_atom_site.auth_atom_id
+_atom_site.auth_comp_id
+_atom_site.auth_asym_id
+_atom_site.auth_seq_id
+_atom_site.pdbx_PDB_model_num
+ATOM 1 N N . ILE A 1 1 . 10.752 0.036 5.972 1.00 9.66 ? N ILE A 1 1 
+ATOM 2 C CA . ILE A 1 1 . 9.668 0.212 5.018 1.00 6.08 ? CA ILE A 1 1 
+ATOM 3 C C . ILE A 1 1 . 8.392 -0.442 5.537 1.00 5.76 ? C ILE A 1 1 
+ATOM 4 O O . ILE A 1 1 . 8.347 -1.652 5.718 1.00 6.17 ? O ILE A 1 1 
+ATOM 5 C CB . ILE A 1 1 . 10.030 -0.385 3.661 1.00 6.46 ? CB ILE A 1 1 
+ATOM 6 C CG1 . ILE A 1 1 . 11.347 0.208 3.171 1.00 6.78 ? CG1 ILE A 1 1 
+ATOM 7 C CG2 . ILE A 1 1 . 8.941 -0.120 2.654 1.00 5.89 ? CG2 ILE A 1 1 
+ATOM 8 C CD1 . ILE A 1 1 . 11.880 -0.479 1.946 1.00 7.84 ? CD1 ILE A 1 1 
+ATOM 9 N N . GLN A 1 2 . 7.375 0.381 5.789 1.00 4.41 ? N GLN A 2 1 
+ATOM 10 C CA . GLN A 1 2 . 6.058 -0.066 6.220 1.00 5.68 ? CA GLN A 2 1 
+ATOM 11 C C . GLN A 1 2 . 5.037 0.503 5.249 1.00 4.66 ? C GLN A 2 1 
+ATOM 12 O O . GLN A 1 2 . 4.997 1.712 5.036 1.00 4.88 ? O GLN A 2 1 
+ATOM 13 C CB . GLN A 1 2 . 5.765 0.395 7.656 1.00 5.23 ? CB GLN A 2 1 
+ATOM 14 C CG . GLN A 1 2 . 6.582 -0.350 8.684 1.00 5.69 ? CG GLN A 2 1 
+ATOM 15 C CD . GLN A 1 2 . 6.574 0.288 10.055 1.00 6.28 ? CD GLN A 2 1 
+ATOM 16 O OE1 . GLN A 1 2 . 6.565 1.507 10.189 1.00 8.77 ? OE1 GLN A 2 1 
+ATOM 17 N NE2 . GLN A 1 2 . 6.590 -0.542 11.083 1.00 7.11 ? NE2 GLN A 2 1 
+ATOM 18 N N . ILE A 1 3 . 4.233 -0.374 4.655 1.00 4.19 ? N ILE A 3 1 
+ATOM 19 C CA . ILE A 1 3 . 3.232 0.025 3.675 1.00 4.67 ? CA ILE A 3 1 
+ATOM 20 C C . ILE A 1 3 . 1.914 -0.634 4.035 1.00 4.64 ? C ILE A 3 1 
+ATOM 21 O O . ILE A 1 3 . 1.869 -1.847 4.188 1.00 5.74 ? O ILE A 3 1 
+ATOM 22 C CB . ILE A 1 3 . 3.622 -0.389 2.234 1.00 4.72 ? CB ILE A 3 1 
+ATOM 23 C CG1 . ILE A 1 3 . 4.984 0.195 1.851 1.00 5.93 ? CG1 ILE A 3 1 
+ATOM 24 C CG2 . ILE A 1 3 . 2.547 0.047 1.265 1.00 6.45 ? CG2 ILE A 3 1 
+ATOM 25 C CD1 . ILE A 1 3 . 5.566 -0.372 0.555 1.00 7.25 ? CD1 ILE A 3 1 
+ATOM 26 N N . GLY A 1 4 . 0.853 0.149 4.188 1.00 5.86 ? N GLY A 4 1 
+ATOM 27 C CA . GLY A 1 4 . -0.445 -0.445 4.467 1.00 9 ? CA GLY A 4 1 
+ATOM 28 C C . GLY A 1 4 . -1.372 0.421 5.287 1.00 12.11 ? C GLY A 4 1 
+ATOM 29 O O . GLY A 1 4 . -2.540 0.069 5.528 1.00 11.37 ? O GLY A 4 1 
+ATOM 30 O OXT . GLY A 1 4 . -0.960 1.489 5.732 1.00 14.07 ? OXT GLY A 4 1 
+HETATM 31 O O . HOH B 2 . . 9.657 2.092 9.206 1.00 20.41 ? O HOH A 101 1 
+#
+

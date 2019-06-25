@@ -186,15 +186,13 @@ public class MessagePackCodecTest {
     @Test
     public void testBackward() throws IOException {
         // obtain example file
-        byte[] bytes = TestHelper.getBytes("bcif/molstar/1pga.bcif");
+        byte[] bytes = TestHelper.getBytes("bcif/1pga.bcif");
 
         // decode
         Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(bytes);
         // encode
         byte[] packed = MESSAGE_PACK_CODEC.encode(unpacked);
 
-//        System.out.println(Arrays.toString(bytes));
-//        System.out.println(Arrays.toString(packed));
         assertArrayEquals(bytes, packed);
     }
 }
