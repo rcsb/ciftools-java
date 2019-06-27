@@ -1,6 +1,17 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.5.1
+-------------
+### New features
+* tweaks to builder
+     * no explicit call to `leaveColumn()` required any more when `Column` was created via `enterColumn()`
+     * binaryCIF now retains types for non-standard columns - text data still handles them as `StrColumn` in any case
+     
+
+### Bug fixes
+* stops leaking of GSON dependency to dependents
+
 ciftools-java 0.5.0
 -------------
 ### Breaking API changes
