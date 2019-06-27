@@ -9,6 +9,7 @@ import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -21,8 +22,8 @@ public class CategoryBuilder {
     private final String categoryName;
     private final LinkedHashMap<String, Column> columns;
     private final BlockBuilder parent;
-    private final Set<ColumnBuilder<?>> pendingDigests;
-    private final Set<ColumnBuilder<?>> finishedDigests;
+    private final List<ColumnBuilder<?>> pendingDigests;
+    private final List<ColumnBuilder<?>> finishedDigests;
 
     /**
      * Create a CategoryBuilder instance.
@@ -34,8 +35,8 @@ public class CategoryBuilder {
         this.categoryName = categoryName;
         this.columns = new LinkedHashMap<>();
         this.parent = parent;
-        this.pendingDigests = new HashSet<>();
-        this.finishedDigests = new HashSet<>();
+        this.pendingDigests = new ArrayList<>();
+        this.finishedDigests = new ArrayList<>();
     }
 
     /**
