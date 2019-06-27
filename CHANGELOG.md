@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.5.2
+-------------
+### Bug fixes
+* category builder keeps order of registered columns
+
 ciftools-java 0.5.1
 -------------
 ### New features
