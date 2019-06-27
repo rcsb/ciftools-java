@@ -29,6 +29,7 @@ public abstract class ColumnBuilder<P extends CategoryBuilder> {
         this.columnName = columnName;
         this.mask = new ArrayList<>();
         this.parent = parent;
+        this.parent.registerChild(this);
     }
 
     /**

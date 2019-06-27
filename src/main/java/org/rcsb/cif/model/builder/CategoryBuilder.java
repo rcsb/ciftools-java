@@ -1,9 +1,16 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.ModelFactory;
+import org.rcsb.cif.model.ValueKind;
 
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Builds a category in a {@link org.rcsb.cif.model.Block}.
@@ -12,6 +19,8 @@ public class CategoryBuilder {
     private final String categoryName;
     private final LinkedHashMap<String, Column> columns;
     private final BlockBuilder parent;
+    private final Set<ColumnBuilder<?>> pendingDigests;
+    private final Set<ColumnBuilder<?>> finishedDigests;
 
     /**
      * Create a CategoryBuilder instance.
@@ -23,6 +32,8 @@ public class CategoryBuilder {
         this.categoryName = categoryName;
         this.columns = new LinkedHashMap<>();
         this.parent = parent;
+        this.pendingDigests = new HashSet<>();
+        this.finishedDigests = new HashSet<>();
     }
 
     /**
@@ -49,6 +60,20 @@ public class CategoryBuilder {
         if (parent == null) {
             throw new IllegalStateException("cannot leave category with undefined parent block");
         }
+
+        // if children are not digested yet (what a sentence), do so
+        pendingDigests.stream()
+                .filter(child -> !finishedDigests.contains(child))
+                .forEach(child -> {
+                    if (child instanceof IntColumnBuilder<?>) {
+                        digest((IntColumnBuilder<?>) child);
+                    } else if (child instanceof FloatColumnBuilder<?>) {
+                        digest((FloatColumnBuilder<?>) child);
+                    } else {
+                        digest((StrColumnBuilder<?>) child);
+                    }
+                });
+
         return parent.digest(this);
     }
 
@@ -111,6 +136,7 @@ public class CategoryBuilder {
     <P extends CategoryBuilder> P digest(IntColumnBuilder<P> intColumnBuilder) {
         columns.put(intColumnBuilder.getColumnName(), createColumnText(categoryName, intColumnBuilder.getColumnName(),
                 intColumnBuilder.getValues(), intColumnBuilder.getMask()));
+        finishedDigests.add(intColumnBuilder);
         return (P) this;
     }
 
@@ -124,6 +150,7 @@ public class CategoryBuilder {
     <P extends CategoryBuilder> P digest(FloatColumnBuilder<P> floatColumnBuilder) {
         columns.put(floatColumnBuilder.getColumnName(), createColumnText(categoryName, floatColumnBuilder.getColumnName(),
                 floatColumnBuilder.getValues(), floatColumnBuilder.getMask()));
+        finishedDigests.add(floatColumnBuilder);
         return (P) this;
     }
 
@@ -137,6 +164,7 @@ public class CategoryBuilder {
     <P extends CategoryBuilder> P digest(StrColumnBuilder<P> strColumnBuilder) {
         columns.put(strColumnBuilder.getColumnName(), createColumnText(categoryName, strColumnBuilder.getColumnName(),
                 strColumnBuilder.getValues(), strColumnBuilder.getMask()));
+        finishedDigests.add(strColumnBuilder);
         return (P) this;
     }
 
@@ -165,6 +193,14 @@ public class CategoryBuilder {
      */
     public StrColumnBuilder enterStrColumn(String columnName) {
         return new StrColumnBuilder<>(getCategoryName(), columnName, this);
+    }
+
+    /**
+     * This allows to automatically digest child column builders upon leaving this category.
+     * @param childColumnBuilder the child to register
+     */
+    void registerChild(ColumnBuilder<?> childColumnBuilder) {
+        pendingDigests.add(childColumnBuilder);
     }
 
     // generated builder functions

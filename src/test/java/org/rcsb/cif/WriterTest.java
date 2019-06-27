@@ -4,11 +4,14 @@ import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
+import org.rcsb.cif.model.builder.IntColumnBuilder;
 import org.rcsb.cif.model.generated.AtomSite;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Paths;
@@ -69,6 +72,41 @@ public class WriterTest {
                 })
                 .map(String::trim)
                 .forEach(number -> assertEquals(2, number.split("\\.")[1].length()));
+    }
+
+    @Test
+    public void shouldReturnIntAndFloatColumn() throws IOException {
+        // upon serialization int and double types were lost for built files
+        CategoryBuilder categoryBuilder = new CifBuilder().enterBlock("test")
+                .enterCategory("test");
+
+        IntColumnBuilder ints = categoryBuilder.enterIntColumn("ints");
+        FloatColumnBuilder floats = categoryBuilder.enterFloatColumn("floats");
+
+        ints.add(1, 2, 3);
+        floats.add(-1.234, 3.1415, 42);
+
+        CifFile cifFile = categoryBuilder.leaveCategory().leaveBlock().leaveFile();
+
+        byte[] binary = CifIO.writeBinary(cifFile);
+        byte[] text = CifIO.writeText(cifFile);
+
+        CifFile binaryFile = CifIO.readFromInputStream(new ByteArrayInputStream(binary));
+        CifFile textFile = CifIO.readFromInputStream(new ByteArrayInputStream(text));
+
+        Category binaryCategory = binaryFile.getFirstBlock().getCategory("test");
+        Category textCategory = textFile.getFirstBlock().getCategory("test");
+
+        IntColumn binaryIntColumn = (IntColumn) binaryCategory.getColumn("ints");
+        FloatColumn binaryFloatColumn = (FloatColumn) binaryCategory.getColumn("floats");
+
+        IntColumn textIntColumn = (IntColumn) textCategory.getColumn("ints");
+        FloatColumn textFloatColumn = (FloatColumn) textCategory.getColumn("floats");
+
+        assertNotNull(binaryIntColumn);
+        assertNotNull(binaryFloatColumn);
+        assertNotNull(textIntColumn);
+        assertNotNull(textFloatColumn);
     }
 
     @Test
