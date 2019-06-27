@@ -5,6 +5,7 @@ import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
@@ -97,11 +98,13 @@ public class WriterTest {
         Category binaryCategory = binaryFile.getFirstBlock().getCategory("test");
         Category textCategory = textFile.getFirstBlock().getCategory("test");
 
+        // binary data should have retained type
         IntColumn binaryIntColumn = (IntColumn) binaryCategory.getColumn("ints");
         FloatColumn binaryFloatColumn = (FloatColumn) binaryCategory.getColumn("floats");
 
-        IntColumn textIntColumn = (IntColumn) textCategory.getColumn("ints");
-        FloatColumn textFloatColumn = (FloatColumn) textCategory.getColumn("floats");
+        // in text impl we cant be sure without meta information that this is not string data
+        StrColumn textIntColumn = (StrColumn) textCategory.getColumn("ints");
+        StrColumn textFloatColumn = (StrColumn) textCategory.getColumn("floats");
 
         assertNotNull(binaryIntColumn);
         assertNotNull(binaryFloatColumn);

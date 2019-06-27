@@ -39,7 +39,7 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
 
     @Override
     public IntColumn build() {
-        return (IntColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask);
+        return (IntColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask, IntColumn.class);
     }
 
     @Override

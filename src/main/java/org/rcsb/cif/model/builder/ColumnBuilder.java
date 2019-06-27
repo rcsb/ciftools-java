@@ -29,7 +29,10 @@ public abstract class ColumnBuilder<P extends CategoryBuilder> {
         this.columnName = columnName;
         this.mask = new ArrayList<>();
         this.parent = parent;
-        this.parent.registerChild(this);
+        if (parent != null) {
+            // make parent aware of its child, so that when parent category is closed, all child information can be collected
+            this.parent.registerChild(this);
+        }
     }
 
     /**

@@ -155,6 +155,27 @@ public class ModelFactory {
                                           String data,
                                           int[] startToken,
                                           int[] endToken) {
+        // if we cannot rely on schema, we could parse/digest data until we can make an elaborate guess about the type -
+        // however this would be really slow - so everyone is a String now
+        return createColumnText(categoryName, columnName, data, startToken, endToken, StrColumn.class);
+    }
+
+    /**
+     * The creation method for a {@link Column} based on text data which is not yet parsed.
+     * @param categoryName the category to retrieve this class from
+     * @param columnName the column name to create
+     * @param data the raw string data to parse
+     * @param startToken the collection of start indices which will be used to extract data
+     * @param endToken the collection of end indices which will be used to extract data
+     * @param columnType the column type to enforce when not in dictionary
+     * @return the text column, ready to parse particular rows
+     */
+    public static Column createColumnText(String categoryName,
+                                          String columnName,
+                                          String data,
+                                          int[] startToken,
+                                          int[] endToken,
+                                          Class<? extends Column> columnType) {
         int rowCount = startToken.length;
         Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
         if (columnClass != null) {
@@ -166,9 +187,13 @@ public class ModelFactory {
                 throw new RuntimeException(e);
             }
         } else {
-            // cannot rely on schema, we could parse/digest data until we can make an elaborate guess about the type -
-            // however this would be really slow
-            return new StrColumn(columnName, rowCount, data, startToken, endToken);
+            if (columnType.equals(IntColumn.class)) {
+                return new IntColumn(columnName, rowCount, data, startToken, endToken);
+            } else if (columnType.equals(FloatColumn.class)) {
+                return new FloatColumn(columnName, rowCount, data, startToken, endToken);
+            } else {
+                return new StrColumn(columnName, rowCount, data, startToken, endToken);
+            }
         }
     }
 
