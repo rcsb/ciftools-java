@@ -11,6 +11,7 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ModelFactory;
 
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,19 +55,20 @@ public class BinaryCifReader {
                     String header = (String) map.get("header");
                     Map<String, Category> categories = new LinkedHashMap<>();
 
-//                    try {
-                    for (Object o : (Object[]) map.get("categories")) {
-                        if (o != null) {
+                    try {
+                        for (Object o : (Object[]) map.get("categories")) {
+    //                        if (o != null) {
                             Map<String, Object> cat = (Map<String, Object>) o;
                             String name = (String) cat.get("name");
                             categories.put(name.substring(1), createBinaryCategory(cat));
+    //                        }
                         }
-                    }
 
-                    return new BaseBlock(categories, header);
-//                    } catch (NullPointerException e) {
-//                        return new BaseBlock(Collections.emptyMap(), header);
-//                    }
+                        return new BaseBlock(categories, header);
+                    } catch (NullPointerException e) {
+                        // don't really need this but for malformed files the parser may be tricked into exploring data and dying with NPE
+                        return new BaseBlock(Collections.emptyMap(), header);
+                    }
                 })
                 .collect(Collectors.toList());
 
