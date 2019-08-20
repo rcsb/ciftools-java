@@ -1,10 +1,17 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifOptions;
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.ValueKind;
 
 import java.nio.charset.StandardCharsets;
-import java.util.*;
+import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -235,9 +242,20 @@ public class TextCifWriter {
         whitespace(output, padding);
     }
 
-    private static final Map<Integer, String> PADDING_SPACES = new HashMap<>();
+    private static final List<String> PADDING_SPACES = IntStream.range(0, 80)
+        .mapToObj(TextCifWriter::whitespaceString)
+        .collect(Collectors.toList());
+
+    private static String whitespaceString(int width) {
+        return IntStream.range(0, width).mapToObj(i -> " ").collect(Collectors.joining());
+    }
+
     private static String getPaddingSpaces(int width) {
-        return PADDING_SPACES.computeIfAbsent(width, w -> IntStream.range(0, w).mapToObj(i -> " ").collect(Collectors.joining()));
+        try {
+            return PADDING_SPACES.get(width);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            return whitespaceString(width);
+        }
     }
 
     private void whitespace(StringBuilder output, int width) {
