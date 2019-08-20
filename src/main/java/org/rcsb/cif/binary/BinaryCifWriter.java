@@ -243,9 +243,9 @@ public class BinaryCifWriter {
         try {
             Map<String, Object> out = new LinkedHashMap<>();
             for (Field field : object.getClass().getDeclaredFields()) {
-                if (!field.isAccessible()) {
+//                if (!field.canAccess(object)) {
                     field.setAccessible(true);
-                }
+//                }
                 Object content = field.get(object);
                 if (content instanceof Map) {
                     content = wrap(content);
