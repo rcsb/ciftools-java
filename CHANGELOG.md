@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.5.3
+-------------
+### General
+* moving to Java 11 for development - build is still targeting Java 8
+
 ciftools-java 0.5.2
 -------------
 ### Bug fixes
