@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.5.4
+-------------
+### Bug fixes
+* writing of text CIF is now thread-safe
+
 ciftools-java 0.5.3
 -------------
 ### General
