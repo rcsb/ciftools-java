@@ -132,9 +132,11 @@ CIF categories (i.e. they provide primarily atomic coordinates).
 Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed in parallel with 8 GB 
 heap. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
 
-## Contributions
+## Contributions & Related Projects
 
-This implementation is based on a number of other projects, namely:
+- [molstar/ciftools](https://github.com/molstar/ciftools) a TypeScript/JavaScript implementation
+
+These implementations are based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
 - [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
 - [MMTF](https://mmtf.rcsb.org/) by RCSB
