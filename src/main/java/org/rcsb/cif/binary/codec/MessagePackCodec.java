@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -182,33 +181,7 @@ public class MessagePackCodec {
     }
 
     private void writeUTF(String data, DataOutputStream stream) throws IOException {
-        byte[] bytes = data.getBytes(StandardCharsets.UTF_8);
-        stream.write(bytes);
-//        for (int i = 0; i < data.length(); i++) {
-//            int codePoint = Character.codePointAt(data, i);
-//
-//            // one byte of UTF-8
-//            if (codePoint < 0x80) {
-//                stream.writeByte(codePoint & 0x7F);
-//            // two bytes of UTF-8
-//            } else if (codePoint < 0x800) {
-//                stream.writeByte(codePoint >>> 6 & 0x1F | 0xC0);
-//                stream.writeByte(codePoint & 0x3F | 0x80);
-//            // three bytes of UTF-8
-//            } else if (codePoint < 0x10000) {
-//                stream.writeByte(codePoint >>> 12 & 0x0F | 0xE0);
-//                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
-//                stream.writeByte(codePoint & 0x3F | 0x80);
-//            // four bytes of UTF-8
-//            } else if (codePoint < 0x110000) {
-//                stream.writeByte(codePoint >>> 18 & 0x07 | 0xF0);
-//                stream.writeByte(codePoint >>> 12 & 0x3F | 0x80);
-//                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
-//                stream.writeByte(codePoint & 0x3F | 0x80);
-//            } else {
-//                throw new IllegalArgumentException("Bad codepoint " + codePoint);
-//            }
-//        }
+        stream.write(data.getBytes(StandardCharsets.UTF_8));
     }
 
     private int determineUTFSize(String data) {
@@ -350,29 +323,19 @@ public class MessagePackCodec {
     private Map<String, Object> map(DataInputStream inputStream, int length) throws IOException {
         Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
-            Object r = decodeInternal(inputStream);
-            System.out.println("key: " + r);
-            String k = (String) r;
-            Object v = decodeInternal(inputStream);
-            System.out.println("value: " + v);
-            value.put(k, v);
+            value.put((String) decodeInternal(inputStream), decodeInternal(inputStream));
         }
         return value;
     }
 
-    @SuppressWarnings("ResultOfMethodCallIgnored")
     private byte[] bin(DataInputStream inputStream, int length) throws IOException {
         byte[] tmp = new byte[length];
-        inputStream.read(tmp, 0, length);
+        inputStream.readFully(tmp);
         return tmp;
     }
 
     private String str(DataInputStream inputStream, int length) throws IOException {
-        byte[] r = bin(inputStream, length);
-        System.out.println(Arrays.toString(r));
-        String s = new String(r, StandardCharsets.UTF_8);
-        System.out.println(s);
-        return s;
+        return new String(bin(inputStream, length), StandardCharsets.UTF_8);
     }
 
     private Object[] array(DataInputStream inputStream, int length) throws IOException {
