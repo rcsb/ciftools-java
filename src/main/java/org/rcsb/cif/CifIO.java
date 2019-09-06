@@ -139,24 +139,14 @@ public class CifIO {
             magicNumber = readMagicNumber(inputStream);
         }
 
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        int bytesRead;
-        byte[] buffer = new byte[BUFFER_SIZE];
-        while ((bytesRead = inputStream.read(buffer, 0, buffer.length)) != -1) {
-            byteArrayOutputStream.write(buffer, 0, bytesRead);
-        }
-
-        byteArrayOutputStream.flush();
-        byte[] byteArray = byteArrayOutputStream.toByteArray();
-        byteArrayOutputStream.close();
-        inputStream.close();
-
+        // TODO close stream!
         // determine binary or text
         if (magicNumber == BINARY_MAGIC) {
-            return new BinaryCifReader(options).read(byteArray);
+            return new BinaryCifReader(options).read(null);
         } else if (magicNumber == TEXT_MAGIC) {
-            return new TextCifReader(options).read(byteArray);
+            return new TextCifReader(options).read(inputStream);
         } else {
+            inputStream.close();
             throw new ParsingException("unable to determine encoding - magic number was " + magicNumber + " - neither gzip, nor BinaryCIF, nor mmCIF");
         }
     }

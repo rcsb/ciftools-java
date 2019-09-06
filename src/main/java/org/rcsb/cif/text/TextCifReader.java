@@ -6,9 +6,12 @@ import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
 
-import java.nio.charset.StandardCharsets;
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class TextCifReader {
     private final CifOptions options;
@@ -17,9 +20,11 @@ public class TextCifReader {
         this.options = options;
     }
 
-    public TextFile read(byte[] bytes) throws ParsingException {
-        String string = new String(bytes, StandardCharsets.UTF_8);
-        return readText(string);
+    public TextFile read(InputStream inputStream) throws ParsingException {
+        String content = new BufferedReader(new InputStreamReader(inputStream))
+                .lines()
+                .collect(Collectors.joining("\n"));
+        return readText(content);
     }
 
     public TextFile readText(String data) throws ParsingException {
