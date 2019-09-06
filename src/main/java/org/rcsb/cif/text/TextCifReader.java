@@ -7,6 +7,7 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
@@ -20,10 +21,11 @@ public class TextCifReader {
         this.options = options;
     }
 
-    public TextFile read(InputStream inputStream) throws ParsingException {
+    public TextFile read(InputStream inputStream) throws ParsingException, IOException {
         String content = new BufferedReader(new InputStreamReader(inputStream))
                 .lines()
                 .collect(Collectors.joining("\n"));
+        inputStream.close();
         return readText(content);
     }
 
