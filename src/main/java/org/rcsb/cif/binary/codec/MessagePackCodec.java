@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -181,31 +182,33 @@ public class MessagePackCodec {
     }
 
     private void writeUTF(String data, DataOutputStream stream) throws IOException {
-        for (int i = 0; i < data.length(); i++) {
-            int codePoint = Character.codePointAt(data, i);
-
-            // one byte of UTF-8
-            if (codePoint < 0x80) {
-                stream.writeByte(codePoint & 0x7F);
-            // two bytes of UTF-8
-            } else if (codePoint < 0x800) {
-                stream.writeByte(codePoint >>> 6 & 0x1F | 0xC0);
-                stream.writeByte(codePoint & 0x3F | 0x80);
-            // three bytes of UTF-8
-            } else if (codePoint < 0x10000) {
-                stream.writeByte(codePoint >>> 12 & 0x0F | 0xE0);
-                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
-                stream.writeByte(codePoint & 0x3F | 0x80);
-            // four bytes of UTF-8
-            } else if (codePoint < 0x110000) {
-                stream.writeByte(codePoint >>> 18 & 0x07 | 0xF0);
-                stream.writeByte(codePoint >>> 12 & 0x3F | 0x80);
-                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
-                stream.writeByte(codePoint & 0x3F | 0x80);
-            } else {
-                throw new IllegalArgumentException("Bad codepoint " + codePoint);
-            }
-        }
+        byte[] bytes = data.getBytes(StandardCharsets.UTF_8);
+        stream.write(bytes);
+//        for (int i = 0; i < data.length(); i++) {
+//            int codePoint = Character.codePointAt(data, i);
+//
+//            // one byte of UTF-8
+//            if (codePoint < 0x80) {
+//                stream.writeByte(codePoint & 0x7F);
+//            // two bytes of UTF-8
+//            } else if (codePoint < 0x800) {
+//                stream.writeByte(codePoint >>> 6 & 0x1F | 0xC0);
+//                stream.writeByte(codePoint & 0x3F | 0x80);
+//            // three bytes of UTF-8
+//            } else if (codePoint < 0x10000) {
+//                stream.writeByte(codePoint >>> 12 & 0x0F | 0xE0);
+//                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
+//                stream.writeByte(codePoint & 0x3F | 0x80);
+//            // four bytes of UTF-8
+//            } else if (codePoint < 0x110000) {
+//                stream.writeByte(codePoint >>> 18 & 0x07 | 0xF0);
+//                stream.writeByte(codePoint >>> 12 & 0x3F | 0x80);
+//                stream.writeByte(codePoint >>> 6 & 0x3F | 0x80);
+//                stream.writeByte(codePoint & 0x3F | 0x80);
+//            } else {
+//                throw new IllegalArgumentException("Bad codepoint " + codePoint);
+//            }
+//        }
     }
 
     private int determineUTFSize(String data) {
@@ -283,55 +286,55 @@ public class MessagePackCodec {
                 return true;
             // bin8
             case 0xC4:
-                return bin(inputStream, inputStream.readUnsignedByte());
+                return bin(inputStream, inputStream.read() & 0xFF);
             // bin16
             case 0xC5:
-                return bin(inputStream, inputStream.readUnsignedShort());
+                return bin(inputStream, inputStream.readShort() & 0xFFFF);
             // bin32
             case 0xC6:
                 return bin(inputStream, readUnsignedInt(inputStream));
             // float32
             case 0xCA:
-                return inputStream.readFloat();
+                return (double) inputStream.readFloat();
             // float64
             case 0xCB:
                 return inputStream.readDouble();
             // uint8
             case 0xCC:
-                return inputStream.readUnsignedByte();
+                return inputStream.readByte() & 0xFF;
             // uint16
             case 0xCD:
-                return inputStream.readUnsignedShort();
+                return inputStream.readShort() & 0xFFFF;
             // uint32
             case 0xCE:
                 return readUnsignedInt(inputStream);
             // int8
             case 0xD0:
-                return inputStream.readByte();
+                return (int) inputStream.readByte();
             // int16
             case 0xD1:
-                return inputStream.readShort();
+                return (int) inputStream.readShort();
             // int32
             case 0xD2:
                 return inputStream.readInt();
             // str8
             case 0xD9:
-                return str(inputStream, inputStream.readUnsignedByte());
+                return str(inputStream, inputStream.readByte() & 0xFF);
             // str16
             case 0xDA:
-                return str(inputStream, inputStream.readUnsignedShort());
+                return str(inputStream, inputStream.readShort() & 0xFFFF);
             // str32
             case 0xDB:
                 return str(inputStream, readUnsignedInt(inputStream));
             // array16
             case 0xDC:
-                return array(inputStream, inputStream.readUnsignedShort());
+                return array(inputStream, inputStream.readShort() & 0xFFFF);
             // array32
             case 0xDD:
                 return array(inputStream, readUnsignedInt(inputStream));
             // map16
             case 0xDE:
-                return map(inputStream, inputStream.readUnsignedShort());
+                return map(inputStream, inputStream.readShort() & 0xFFFF);
             // map32
             case 0xDF:
                 return map(inputStream, readUnsignedInt(inputStream));
@@ -365,7 +368,11 @@ public class MessagePackCodec {
     }
 
     private String str(DataInputStream inputStream, int length) throws IOException {
-        return new String(bin(inputStream, length), StandardCharsets.UTF_8);
+        byte[] r = bin(inputStream, length);
+        System.out.println(Arrays.toString(r));
+        String s = new String(r, StandardCharsets.UTF_8);
+        System.out.println(s);
+        return s;
     }
 
     private Object[] array(DataInputStream inputStream, int length) throws IOException {

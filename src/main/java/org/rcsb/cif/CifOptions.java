@@ -26,7 +26,6 @@ import java.util.stream.Collectors;
  */
 public class CifOptions {
     private final boolean gzip;
-    private final boolean singleRow;
     private final String encoder;
     private final String fetchUrl;
     private final List<String> categoryWhitelist;
@@ -37,7 +36,6 @@ public class CifOptions {
 
     private CifOptions(CifOptionsBuilder builder) {
         this.gzip = builder.gzip;
-        this.singleRow = builder.singleRow;
         this.encoder = builder.encoder;
         this.fetchUrl = builder.fetchUrl;
         this.categoryWhitelist = builder.categoryWhitelist;
@@ -62,15 +60,6 @@ public class CifOptions {
      */
     public boolean isGzip() {
         return gzip;
-    }
-
-    /**
-     * Experimental flag to encode single row columns natively by MessagePack (rather than wrapping them with 'empty'
-     * encoding information.
-     * @return <code>true</code> if single rows should be MessagePacked
-     */
-    public boolean isSingleRow() {
-        return singleRow;
     }
 
     /**
@@ -152,7 +141,6 @@ public class CifOptions {
         private static final String FETCH_URL = "http://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif";
 
         private boolean gzip = false;
-        private boolean singleRow = false;
         private String encoder = Codec.CODEC_NAME;
         private String fetchUrl = FETCH_URL;
         private final List<String> categoryWhitelist = new ArrayList<>();
@@ -168,17 +156,6 @@ public class CifOptions {
          */
         public CifOptionsBuilder gzip(boolean gzip) {
             this.gzip = gzip;
-            return this;
-        }
-
-        /**
-         * Experimental flag to encode single row columns natively by MessagePack (rather than wrapping them with
-         * 'empty' encoding information).
-         * @param singleRow <code>true</code> if single rows should be MessagePacked
-         * @return this builder instance
-         */
-        public CifOptionsBuilder singleRow(boolean singleRow) {
-            this.singleRow = singleRow;
             return this;
         }
 

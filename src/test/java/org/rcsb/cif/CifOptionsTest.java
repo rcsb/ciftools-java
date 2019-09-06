@@ -5,7 +5,6 @@ import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.AtomSite;
-import org.rcsb.cif.model.generated.Entry;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -181,29 +180,4 @@ public class CifOptionsTest {
         // magic number must not be gzip
         assertNotEquals(GZIPInputStream.GZIP_MAGIC, (text[0] & 0xff | ((text[1] << 8) & 0xff00)));
     }
-
-
-    @Test
-    public void testSingleRowStraightMessagePack() throws IOException {
-        String expected = "0RED";
-
-        // from conventional WriterTest: should report 1 row with value 0RED
-        CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/0red.cif"));
-        Entry textEntry = textCifFile.getFirstBlock().getEntry();
-        assertEquals("id", textEntry.getId().getColumnName());
-        assertEquals(1, textEntry.getRowCount());
-        assertEquals(expected, textEntry.getId().get(0));
-
-        // convert to binary representation
-        CifOptions options = CifOptions.builder().singleRow(true).build();
-        byte[] binary = CifIO.writeBinary(textCifFile, options);
-
-        // decode binary
-        CifFile binaryCifFile = CifIO.readFromInputStream(new ByteArrayInputStream(binary));
-        Entry binaryEntry = binaryCifFile.getFirstBlock().getEntry();
-        assertEquals("id", binaryEntry.getId().getColumnName());
-        assertEquals(1, binaryEntry.getRowCount());
-        assertEquals(expected, binaryEntry.getId().get(0));
-    }
-
 }

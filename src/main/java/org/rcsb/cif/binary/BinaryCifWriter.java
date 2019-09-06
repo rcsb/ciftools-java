@@ -42,7 +42,7 @@ public class BinaryCifWriter {
         return Codec.MESSAGE_PACK_CODEC.encode(file);
     }
 
-    public Map<String, Object> encodeFile(CifFile cifFile) {
+    private Map<String, Object> encodeFile(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", options.getEncoder());
@@ -78,49 +78,20 @@ public class BinaryCifWriter {
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getCategoryName());
 
-                // single row
-                if (options.isSingleRow() && rowCount == 1) {
-                    category.put("columns", encodeSingleRowCategory(cifCategory));
-                } else {
-                    Object[] columns = cifCategory.getColumnNames()
-                            .stream()
-                            .filter(columnName -> options.filterColumn(categoryName, columnName))
-                            .map(cifCategory::getColumn)
-                            .map(cifColumn -> encodeColumn(categoryName, cifColumn))
-                            .toArray();
-                    category.put("columns", columns);
-                }
+                Object[] columns = cifCategory.getColumnNames()
+                        .stream()
+                        .filter(columnName -> options.filterColumn(categoryName, columnName))
+                        .map(cifCategory::getColumn)
+                        .map(cifColumn -> encodeColumn(categoryName, cifColumn))
+                        .toArray();
+                category.put("columns", columns);
+
                 category.put("rowCount", rowCount);
                 categories[categoryCount++] = category;
             }
         }
 
         return file;
-    }
-
-    private byte[] encodeSingleRowCategory(Category category) {
-        Map<String, Object> map = category.getColumnNames()
-                .stream()
-                .filter(columnName -> options.filterColumn(category.getCategoryName(), columnName))
-                .map(category::getColumn)
-                .collect(Collectors.toMap(Column::getColumnName,
-                        this::extractStringData,
-                        (u, v) -> {
-                            throw new IllegalStateException("Duplicate key " + u);
-                        },
-                        LinkedHashMap::new));
-        return Codec.MESSAGE_PACK_CODEC.encode(map);
-    }
-
-    private String extractStringData(Column column) {
-        ValueKind valueKind = column.getValueKind(0);
-        if (valueKind == ValueKind.NOT_PRESENT) {
-            return ".";
-        } else if (valueKind == ValueKind.UNKNOWN) {
-            return "?";
-        } else {
-            return column.getStringData(0);
-        }
     }
 
     private ByteArray encode(String categoryName, String columnName, Float64Array column) {
@@ -243,9 +214,7 @@ public class BinaryCifWriter {
         try {
             Map<String, Object> out = new LinkedHashMap<>();
             for (Field field : object.getClass().getDeclaredFields()) {
-//                if (!field.canAccess(object)) {
-                    field.setAccessible(true);
-//                }
+                field.setAccessible(true);
                 Object content = field.get(object);
                 if (content instanceof Map) {
                     content = wrap(content);
