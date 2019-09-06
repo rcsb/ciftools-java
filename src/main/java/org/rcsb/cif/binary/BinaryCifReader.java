@@ -28,7 +28,7 @@ public class BinaryCifReader {
     @SuppressWarnings("unchecked")
     public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
-        try {
+        try (inputStream) {
             unpacked = Codec.MESSAGE_PACK_CODEC.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
@@ -74,7 +74,6 @@ public class BinaryCifReader {
         Object rawColumns = encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
 
-        // TODO remove single-row behavior
         // it is a conventional category with multiple rows
         Object[] encodedFields = (Object[]) rawColumns;
         return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);

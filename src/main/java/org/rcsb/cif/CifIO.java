@@ -139,7 +139,6 @@ public class CifIO {
             magicNumber = readMagicNumber(inputStream);
         }
 
-        // TODO close stream!
         // determine binary or text
         if (magicNumber == BINARY_MAGIC) {
             return new BinaryCifReader(options).read(inputStream);
