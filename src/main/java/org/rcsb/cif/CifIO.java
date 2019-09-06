@@ -13,7 +13,6 @@ import java.io.InputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.Arrays;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
@@ -113,8 +112,8 @@ public class CifIO {
         return readFromInputStream(inputStream, DEFAULT_OPTIONS);
     }
 
-//    private static final byte[] TEXT_MAGIC = new byte[] { 0x64, 0x61, 0x74, 0x61 };
-    private static final byte[] BINARY_MAGIC = new byte[] { -0x7D, -0x59, 0x65, 0x6E };
+    private static final int TEXT_MAGIC = 24932;
+    private static final int BINARY_MAGIC = 42883;
 
     /**
      * Read a {@link CifFile} from a given {@link InputStream}.
@@ -130,14 +129,14 @@ public class CifIO {
         inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
 
         // check if gzipped - mark this position - the mark will become invalid after 2 bytes were read
-        inputStream.mark(2);
-        boolean gzipped = GZIPInputStream.GZIP_MAGIC == (inputStream.read() & 0xff | ((inputStream.read() << 8) & 0xff00));
-        // move back to start of stream
-        inputStream.reset();
+        int magicNumber = readMagicNumber(inputStream);
+        boolean gzipped = GZIPInputStream.GZIP_MAGIC == magicNumber;
 
         // if gzipped, wrap stream to inflater
         if (gzipped) {
-            inputStream = new GZIPInputStream(inputStream, BUFFER_SIZE);
+            inputStream = new BufferedInputStream(new GZIPInputStream(inputStream, BUFFER_SIZE), BUFFER_SIZE);
+            // reread magic number
+            magicNumber = readMagicNumber(inputStream);
         }
 
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -153,10 +152,21 @@ public class CifIO {
         inputStream.close();
 
         // determine binary or text
-        byte[] probe = Arrays.copyOf(byteArray, BINARY_MAGIC.length);
-        boolean binary = Arrays.equals(BINARY_MAGIC, probe);
+        if (magicNumber == BINARY_MAGIC) {
+            return new BinaryCifReader(options).read(byteArray);
+        } else if (magicNumber == TEXT_MAGIC) {
+            return new TextCifReader(options).read(byteArray);
+        } else {
+            throw new ParsingException("unable to determine encoding - magic number was " + magicNumber + " - neither gzip, nor BinaryCIF, nor mmCIF");
+        }
+    }
 
-        return binary ? new BinaryCifReader(options).read(byteArray) : new TextCifReader(options).read(byteArray);
+    private static int readMagicNumber(InputStream inputStream) throws IOException {
+        inputStream.mark(2);
+        int magicNumber = (inputStream.read() & 0xff | ((inputStream.read() << 8) & 0xff00));
+        // move back to start of stream
+        inputStream.reset();
+        return magicNumber;
     }
 
     /**
