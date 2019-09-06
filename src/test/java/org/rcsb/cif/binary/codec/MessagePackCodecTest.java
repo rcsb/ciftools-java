@@ -3,6 +3,7 @@ package org.rcsb.cif.binary.codec;
 import org.junit.Test;
 import org.rcsb.cif.TestHelper;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
@@ -138,7 +139,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testForward() {
+    public void testForward() throws IOException {
         // create test case
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("S1", "Lorem");
@@ -163,13 +164,13 @@ public class MessagePackCodecTest {
         byte[] packed = MESSAGE_PACK_CODEC.encode(originalMap);
 
         // decode by MessagePack
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(packed);
+        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(packed));
 
         assertEquals(originalMap, unpacked);
     }
 
     @Test
-    public void testNegFixInt() {
+    public void testNegFixInt() throws IOException {
         // there was a strange case when negative int values with length of 1 byte where horribly misinterpreted as 4
         // bytes of information
         Map<String, Object> originalMap = new LinkedHashMap<>();
@@ -177,7 +178,7 @@ public class MessagePackCodecTest {
 
         byte[] packed = MESSAGE_PACK_CODEC.encode(originalMap);
 
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(packed);
+        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(packed));
 
         assertEquals(originalMap, unpacked);
         assertEquals(-5, unpacked.get("entry"));
@@ -189,7 +190,7 @@ public class MessagePackCodecTest {
         byte[] bytes = TestHelper.getBytes("bcif/1pga.bcif");
 
         // decode
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(bytes);
+        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(bytes));
         // encode
         byte[] packed = MESSAGE_PACK_CODEC.encode(unpacked);
 

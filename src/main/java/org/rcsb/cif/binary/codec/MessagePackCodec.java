@@ -1,11 +1,11 @@
 package org.rcsb.cif.binary.codec;
 
 import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UncheckedIOException;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -235,13 +235,15 @@ public class MessagePackCodec {
     /* decoding */
 
     @SuppressWarnings("unchecked")
-    public Map<String, Object> decode(byte[] input) {
-        ByteBuffer buffer = ByteBuffer.wrap(input).order(ByteOrder.BIG_ENDIAN);
-        return (Map<String, Object>) decodeInternal(buffer);
+    public Map<String, Object> decode(InputStream inputStream) throws IOException {
+        DataInputStream dataInputStream = new DataInputStream(inputStream);
+        Map<String, Object> map = (Map<String, Object>) decodeInternal(dataInputStream);
+        dataInputStream.close();
+        return map;
     }
 
-    private Object decodeInternal(ByteBuffer buffer) {
-        final int int8 = buffer.get();
+    private Object decodeInternal(DataInputStream inputStream) throws IOException {
+        final int int8 = inputStream.readByte();
         final int type = int8 & 0xFF;
 
         // positive FixInt
@@ -251,17 +253,17 @@ public class MessagePackCodec {
 
         // FixMap
         if ((type & 0xF0) == 0x80) {
-            return map(buffer, type & 0x0F);
+            return map(inputStream, type & 0x0F);
         }
 
         // FixArray
         if ((type & 0xF0) == 0x90) {
-            return array(buffer, type & 0x0F);
+            return array(inputStream, type & 0x0F);
         }
 
         // FixStr
         if ((type & 0xE0) == 0xA0) {
-            return str(buffer, type & 0x1F);
+            return str(inputStream, type & 0x1F);
         }
 
         // negative FixInt
@@ -281,87 +283,95 @@ public class MessagePackCodec {
                 return true;
             // bin8
             case 0xC4:
-                return bin(buffer, buffer.get() & 0xFF);
+                return bin(inputStream, inputStream.readUnsignedByte());
             // bin16
             case 0xC5:
-                return bin(buffer, buffer.getShort() & 0xFFFF);
+                return bin(inputStream, inputStream.readUnsignedShort());
             // bin32
             case 0xC6:
-                return bin(buffer, (int) (buffer.getInt() & 0xFFFFFFFFL));
+                return bin(inputStream, readUnsignedInt(inputStream));
             // float32
             case 0xCA:
-                return (double) buffer.getFloat();
+                return inputStream.readFloat();
             // float64
             case 0xCB:
-                return buffer.getDouble();
+                return inputStream.readDouble();
             // uint8
             case 0xCC:
-                return (int) buffer.get() & 0xFF;
+                return inputStream.readUnsignedByte();
             // uint16
             case 0xCD:
-                return buffer.getShort() & 0xFFFF;
+                return inputStream.readUnsignedShort();
             // uint32
             case 0xCE:
-                return (int) (buffer.getInt() & 0xFFFFFFFFL);
+                return readUnsignedInt(inputStream);
             // int8
             case 0xD0:
-                return (int) buffer.get();
+                return inputStream.readByte();
             // int16
             case 0xD1:
-                return (int) buffer.getShort();
+                return inputStream.readShort();
             // int32
             case 0xD2:
-                return buffer.getInt();
+                return inputStream.readInt();
             // str8
             case 0xD9:
-                return str(buffer, buffer.get() & 0xFF);
+                return str(inputStream, inputStream.readUnsignedByte());
             // str16
             case 0xDA:
-                return str(buffer, buffer.getShort() & 0xFFFF);
+                return str(inputStream, inputStream.readUnsignedShort());
             // str32
             case 0xDB:
-                return str(buffer, (int) (buffer.getInt() & 0xFFFFFFFFL));
+                return str(inputStream, readUnsignedInt(inputStream));
             // array16
             case 0xDC:
-                return array(buffer, buffer.getShort() & 0xFFFF);
+                return array(inputStream, inputStream.readUnsignedShort());
             // array32
             case 0xDD:
-                return array(buffer, (int) (buffer.getInt() & 0xFFFFFFFFL));
+                return array(inputStream, readUnsignedInt(inputStream));
             // map16
             case 0xDE:
-                return map(buffer, buffer.getShort() & 0xFFFF);
+                return map(inputStream, inputStream.readUnsignedShort());
             // map32
             case 0xDF:
-                return map(buffer, (int) (buffer.getInt() & 0xFFFFFFFFL));
+                return map(inputStream, readUnsignedInt(inputStream));
         }
 
         throw new IllegalArgumentException("Unknown MessagePack type 0x" + type);
     }
 
-    private Map<String, Object> map(ByteBuffer buffer, int length) {
+    private int readUnsignedInt(DataInputStream inputStream) throws IOException {
+        return (int) (inputStream.readInt() & 0xFFFFFFFFL);
+    }
+
+    private Map<String, Object> map(DataInputStream inputStream, int length) throws IOException {
         Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
-            String k = (String) decodeInternal(buffer);
-            Object v = decodeInternal(buffer);
+            Object r = decodeInternal(inputStream);
+            System.out.println("key: " + r);
+            String k = (String) r;
+            Object v = decodeInternal(inputStream);
+            System.out.println("value: " + v);
             value.put(k, v);
         }
         return value;
     }
 
-    private byte[] bin(ByteBuffer buffer, int length) {
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    private byte[] bin(DataInputStream inputStream, int length) throws IOException {
         byte[] tmp = new byte[length];
-        buffer.get(tmp, 0, length);
+        inputStream.read(tmp, 0, length);
         return tmp;
     }
 
-    private String str(ByteBuffer buffer, int length) {
-        return new String(bin(buffer, length), StandardCharsets.UTF_8);
+    private String str(DataInputStream inputStream, int length) throws IOException {
+        return new String(bin(inputStream, length), StandardCharsets.UTF_8);
     }
 
-    private Object[] array(ByteBuffer buffer, int length) {
+    private Object[] array(DataInputStream inputStream, int length) throws IOException {
         final Object[] value = new Object[length];
         for (int i = 0; i < length; i++) {
-            value[i] = decodeInternal(buffer);
+            value[i] = decodeInternal(inputStream);
         }
         return value;
     }

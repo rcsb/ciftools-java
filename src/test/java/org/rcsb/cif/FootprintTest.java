@@ -3,6 +3,7 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -25,10 +26,10 @@ public class FootprintTest {
     }
 
     @SuppressWarnings("unchecked")
-    private Map<String, String> getFootprint(byte[] content) {
+    private Map<String, String> getFootprint(byte[] content) throws IOException {
         Map<String, String> footprint = new LinkedHashMap<>();
         MessagePackCodec messagePackCodec = new MessagePackCodec();
-        Object[] file = (Object[]) messagePackCodec.decode(content).get("dataBlocks");
+        Object[] file = (Object[]) messagePackCodec.decode(new ByteArrayInputStream(content)).get("dataBlocks");
         Map<String, Object> firstBlock = (Map<String, Object>) file[0];
         Object[] categories = (Object[]) firstBlock.get("categories");
         for (Object cat : categories) {

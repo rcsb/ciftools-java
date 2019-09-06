@@ -142,7 +142,7 @@ public class CifIO {
         // TODO close stream!
         // determine binary or text
         if (magicNumber == BINARY_MAGIC) {
-            return new BinaryCifReader(options).read(null);
+            return new BinaryCifReader(options).read(inputStream);
         } else if (magicNumber == TEXT_MAGIC) {
             return new TextCifReader(options).read(inputStream);
         } else {

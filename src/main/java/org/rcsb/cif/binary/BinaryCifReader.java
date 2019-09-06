@@ -8,14 +8,13 @@ import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ModelFactory;
 
+import java.io.InputStream;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -27,14 +26,10 @@ public class BinaryCifReader {
     }
 
     @SuppressWarnings("unchecked")
-    public CifFile read(byte[] data) throws ParsingException {
-        if (data.length == 0) {
-            throw new ParsingException("Cannot parse empty file.");
-        }
-
+    public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
         try {
-            unpacked = Codec.MESSAGE_PACK_CODEC.decode(data);
+            unpacked = Codec.MESSAGE_PACK_CODEC.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
@@ -57,16 +52,14 @@ public class BinaryCifReader {
 
                     try {
                         for (Object o : (Object[]) map.get("categories")) {
-    //                        if (o != null) {
                             Map<String, Object> cat = (Map<String, Object>) o;
                             String name = (String) cat.get("name");
                             categories.put(name.substring(1), createBinaryCategory(cat));
-    //                        }
                         }
 
                         return new BaseBlock(categories, header);
                     } catch (NullPointerException e) {
-                        // don't really need this but for malformed files the parser may be tricked into exploring data and dying with NPE
+                        // don't really need this but the parser may be tricked by malformed files into exploring data and dying with NPE
                         return new BaseBlock(Collections.emptyMap(), header);
                     }
                 })
@@ -81,27 +74,9 @@ public class BinaryCifReader {
         Object rawColumns = encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
 
-        if (rawColumns instanceof Object[]) {
-            // it is a conventional category with multiple rows
-            Object[] encodedFields = (Object[]) rawColumns;
-            return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
-        } else {
-            // it is a single row category and is packed by MessagePack
-            Map<String, Column> columns = Codec.MESSAGE_PACK_CODEC.decode((byte[]) rawColumns)
-                    .entrySet()
-                    .stream()
-                    .map(entry -> {
-                        String value = (String) entry.getValue();
-                        return ModelFactory.createColumnText(name, entry.getKey(), value, 0, value.length());
-                    })
-                    .collect(Collectors.toMap(Column::getColumnName,
-                            Function.identity(),
-                            (u, v) -> {
-                                throw new IllegalStateException("Duplicate key " + u);
-                            },
-                            LinkedHashMap::new));
-            // somewhat hacky, single row categories originating from MessagePack are represented like text columns
-            return ModelFactory.createCategoryText(name, columns);
-        }
+        // TODO remove single-row behavior
+        // it is a conventional category with multiple rows
+        Object[] encodedFields = (Object[]) rawColumns;
+        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
     }
 }
