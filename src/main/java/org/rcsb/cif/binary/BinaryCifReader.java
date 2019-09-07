@@ -10,6 +10,7 @@ import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ModelFactory;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.Collections;
 import java.util.LinkedHashMap;
@@ -26,14 +27,16 @@ public class BinaryCifReader {
     }
 
     @SuppressWarnings("unchecked")
-    public CifFile read(InputStream inputStream) throws ParsingException {
+    public CifFile read(InputStream inputStream) throws ParsingException, IOException {
         Map<String, Object> unpacked;
-        try (inputStream) {
+        try {
             unpacked = Codec.MESSAGE_PACK_CODEC.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
             throw new ParsingException("Parsing failed.", e);
+        } finally {
+            inputStream.close();
         }
 
         String versionString = (String) unpacked.get("version");

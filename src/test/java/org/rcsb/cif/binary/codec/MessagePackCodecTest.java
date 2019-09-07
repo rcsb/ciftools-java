@@ -5,6 +5,7 @@ import org.rcsb.cif.TestHelper;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -187,13 +188,13 @@ public class MessagePackCodecTest {
     @Test
     public void testBackward() throws IOException {
         // obtain example file
-        byte[] bytes = TestHelper.getBytes("bcif/1pga.bcif");
+        InputStream inputStream = TestHelper.getInputStream("bcif/1pga.bcif");
 
         // decode
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(bytes));
+        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(inputStream);
         // encode
         byte[] packed = MESSAGE_PACK_CODEC.encode(unpacked);
 
-        assertArrayEquals(bytes, packed);
+        assertArrayEquals(TestHelper.getBytes("bcif/1pga.bcif"), packed);
     }
 }

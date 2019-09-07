@@ -112,8 +112,9 @@ public class CifIO {
         return readFromInputStream(inputStream, DEFAULT_OPTIONS);
     }
 
-    private static final int TEXT_MAGIC = 24932;
-    private static final int BINARY_MAGIC = 42883;
+    private static final int TEXT_MAGIC = 100;
+    private static final int BINARY_MAGIC = 131;
+    private static final int GZIP_MAGIC = 31;
 
     /**
      * Read a {@link CifFile} from a given {@link InputStream}.
@@ -126,17 +127,17 @@ public class CifIO {
      */
     public static CifFile readFromInputStream(InputStream inputStream, CifOptions options) throws IOException {
         // performance: explicitly buffer stream, increases performance drastically
-        inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
+        if (!(inputStream instanceof BufferedInputStream)) {
+            inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
+        }
 
         // check if gzipped - mark this position - the mark will become invalid after 2 bytes were read
         int magicNumber = readMagicNumber(inputStream);
-        boolean gzipped = GZIPInputStream.GZIP_MAGIC == magicNumber;
+        boolean gzipped = GZIP_MAGIC == magicNumber;
 
         // if gzipped, wrap stream to inflater
         if (gzipped) {
-            inputStream = new BufferedInputStream(new GZIPInputStream(inputStream, BUFFER_SIZE), BUFFER_SIZE);
-            // reread magic number
-            magicNumber = readMagicNumber(inputStream);
+            return readFromInputStream(new GZIPInputStream(inputStream, BUFFER_SIZE), options);
         }
 
         // determine binary or text
@@ -151,8 +152,8 @@ public class CifIO {
     }
 
     private static int readMagicNumber(InputStream inputStream) throws IOException {
-        inputStream.mark(2);
-        int magicNumber = (inputStream.read() & 0xff | ((inputStream.read() << 8) & 0xff00));
+        inputStream.mark(1);
+        int magicNumber = inputStream.read() & 0xFF;
         // move back to start of stream
         inputStream.reset();
         return magicNumber;
