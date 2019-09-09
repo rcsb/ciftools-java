@@ -1,6 +1,16 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.6.0
+-------------
+### New features
+* binaryCIF reading is now no-copy (i.e. the `InputStream` is directly consumed by readers/decoders rather than copied 
+into a `byte[]`)
+
+### Breaking API changes
+* changes (internal) reader classes to work on an `InputStream` rather than on `byte[]`
+* removes single-row encoding capabilities (performance was same but code complexity increased)
+
 ciftools-java 0.5.4
 -------------
 ### Bug fixes
