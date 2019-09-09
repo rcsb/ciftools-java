@@ -131,6 +131,30 @@ public class CifIO {
             inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
         }
 
+        CifOptions.CifOptionsBuilder.FileFormat fileFormat = options.getFileFormat();
+        if (fileFormat == null) {
+            return readFromInputStreamByGuessingFileFormat(inputStream, options);
+        } else {
+            return readFromInputStreamWithSpecifiedFileFormat(inputStream, options, fileFormat);
+        }
+    }
+
+    private static CifFile readFromInputStreamWithSpecifiedFileFormat(InputStream inputStream,
+                                                                      CifOptions options,
+                                                                      CifOptions.CifOptionsBuilder.FileFormat fileFormat) throws IOException {
+        // handle compression if present
+        if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED || fileFormat == CifOptions.CifOptionsBuilder.FileFormat.CIF_GZIPPED) {
+            inputStream = new GZIPInputStream(inputStream, BUFFER_SIZE);
+        }
+
+        if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED) {
+            return new BinaryCifReader(options).read(inputStream);
+        } else {
+            return new TextCifReader(options).read(inputStream);
+        }
+    }
+
+    private static CifFile readFromInputStreamByGuessingFileFormat(InputStream inputStream, CifOptions options) throws IOException {
         // check if gzipped - mark this position - the mark will become invalid after 2 bytes were read
         int magicNumber = readMagicNumber(inputStream);
         boolean gzipped = GZIP_MAGIC == magicNumber;

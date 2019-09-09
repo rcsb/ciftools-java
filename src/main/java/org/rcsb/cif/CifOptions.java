@@ -128,6 +128,14 @@ public class CifOptions {
     }
 
     /**
+     * Reports if the input file format was specified for reading.
+     * @return the {@link CifOptionsBuilder.FileFormat} if set and <code>null</code> otherwise
+     */
+    public CifOptionsBuilder.FileFormat getFileFormat() {
+        return fileFormat;
+    }
+
+    /**
      * Acquire the actual builder instance.
      * @return a {@link CifOptionsBuilder}
      */
