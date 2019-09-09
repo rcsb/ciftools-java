@@ -148,7 +148,7 @@ public class CifOptions {
      */
     public static class CifOptionsBuilder {
         // TODO change once ready
-        private static final String FETCH_URL = "http://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif";
+        private static final String FETCH_URL = "https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif";
 
         private boolean gzip = false;
         private String encoder = Codec.CODEC_NAME;
