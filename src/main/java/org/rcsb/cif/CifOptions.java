@@ -33,6 +33,7 @@ public class CifOptions {
     private final List<String> columnWhitelist;
     private final List<String> columnBlacklist;
     private final List<EncodingStrategyHint> encodingStrategyHints;
+    private final CifOptionsBuilder.FileFormat fileFormat;
 
     private CifOptions(CifOptionsBuilder builder) {
         this.gzip = builder.gzip;
@@ -42,6 +43,7 @@ public class CifOptions {
         this.categoryBlacklist = builder.categoryBlacklist;
         this.columnWhitelist = builder.columnWhitelist;
         this.columnBlacklist = builder.columnBlacklist;
+        this.fileFormat = builder.fileFormat;
 
         // ensure that column whitelist to propagated to categories
         List<String> categoriesToAdd = columnWhitelist.stream()
@@ -148,6 +150,7 @@ public class CifOptions {
         private final List<String> columnWhitelist = new ArrayList<>();
         private final List<String> columnBlacklist = new ArrayList<>();
         private final List<EncodingStrategyHint> encodingStrategyHints = new ArrayList<>();
+        private FileFormat fileFormat;
 
         /**
          * Allows for downstream GZIP operations.
@@ -327,6 +330,40 @@ public class CifOptions {
          */
         public CifOptionsBuilder encodingStrategyHint(List<EncodingStrategyHint> encodingStrategyHints) {
             this.encodingStrategyHints.addAll(encodingStrategyHints);
+            return this;
+        }
+
+        /**
+         * Supported file formats.
+         */
+        public enum FileFormat {
+            /**
+             * <code>.bcif</code>
+             */
+            BCIF_PLAIN,
+            /**
+             * <code>.bcif.gz</code>
+             */
+            BCIF_GZIPPED,
+            /**
+             * <code>.cif</code>
+             */
+            CIF_PLAIN,
+            /**
+             * <code>.cif.gz</code>
+             */
+            CIF_GZIPPED
+        }
+
+        /**
+         * The library can automatically detect compression and file format. This involves some guessing and can be
+         * omitted by specifying the format explicitly. This may increase performance and will improve safety when
+         * malformed or unexpected files are handled.
+         * @param fileFormat an instance of the supported file formats
+         * @return this builder instance
+         */
+        public CifOptionsBuilder fileFormatHint(FileFormat fileFormat) {
+            this.fileFormat = fileFormat;
             return this;
         }
 
