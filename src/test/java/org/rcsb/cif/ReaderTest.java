@@ -77,4 +77,16 @@ public class ReaderTest {
     public void shouldReportExceptionForEmptyTextFile() throws ParsingException, IOException {
         CifIO.readFromInputStream(TestHelper.getInputStream("cif/0emp.cif"));
     }
+
+    @Test(expected = ParsingException.class)
+    public void shouldHonorFileFormatAndFailWhenMismatching1() throws ParsingException, IOException {
+        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
+                CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED).build());
+    }
+
+    @Test(expected = ParsingException.class)
+    public void shouldHonorFileFormatAndFailWhenMismatching2() throws ParsingException, IOException {
+        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
+                CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build());
+    }
 }

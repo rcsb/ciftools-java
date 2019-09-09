@@ -15,6 +15,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
+import java.util.zip.ZipException;
 
 /**
  * Collection of IO operations to retrieve, process, and write CIF files.
@@ -142,9 +143,14 @@ public class CifIO {
     private static CifFile readFromInputStreamWithSpecifiedFileFormat(InputStream inputStream,
                                                                       CifOptions options,
                                                                       CifOptions.CifOptionsBuilder.FileFormat fileFormat) throws IOException {
-        // handle compression if present
-        if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED || fileFormat == CifOptions.CifOptionsBuilder.FileFormat.CIF_GZIPPED) {
-            inputStream = new GZIPInputStream(inputStream, BUFFER_SIZE);
+        try {
+            // handle compression if present
+            if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED || fileFormat == CifOptions.CifOptionsBuilder.FileFormat.CIF_GZIPPED) {
+                inputStream = new GZIPInputStream(inputStream, BUFFER_SIZE);
+            }
+        } catch (ZipException e) {
+            inputStream.close();
+            throw new ParsingException("Not in GZIP format", e);
         }
 
         if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED) {
