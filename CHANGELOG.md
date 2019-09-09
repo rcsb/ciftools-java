@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.6.1
+-------------
+### Bug fixes
+* file format specification during reading is now honored correctly
+
 ciftools-java 0.6.0
 -------------
 ### New features
@@ -33,7 +38,6 @@ ciftools-java 0.5.1
      * no explicit call to `leaveColumn()` required any more when `Column` was created via `enterColumn()`
      * binaryCIF now retains types for non-standard columns - text data still handles them as `StrColumn` in any case
      
-
 ### Bug fixes
 * stops leaking of GSON dependency to dependents
 

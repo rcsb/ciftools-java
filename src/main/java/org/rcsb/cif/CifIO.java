@@ -153,7 +153,7 @@ public class CifIO {
             throw new ParsingException("Not in GZIP format", e);
         }
 
-        if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED) {
+        if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED || fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_PLAIN) {
             return new BinaryCifReader(options).read(inputStream);
         } else {
             return new TextCifReader(options).read(inputStream);
