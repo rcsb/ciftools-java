@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.rcsb</groupId>
     <artifactId>ciftools-java</artifactId>
-    <version>0.6.1-SNAPSHOT</version>
+    <version>0.6.1</version>
     <packaging>jar</packaging>
     <description>
         A Java library for handling text and binary CIF files.
@@ -35,7 +35,7 @@
         <connection>scm:git:git://github.com/rcsb/ciftools-java.git</connection>
         <developerConnection>scm:git:https://github.com/rcsb/ciftools-java.git</developerConnection>
         <url>http://github.com/rcsb/ciftools-java</url>
-      <tag>HEAD</tag>
+      <tag>ciftools-java-0.6.1</tag>
   </scm>
 
     <dependencies>
