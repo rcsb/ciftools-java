@@ -283,8 +283,17 @@ public class CifOptions {
             return this;
         }
 
-        private static final Gson GSON = new Gson();
-        private static final Type LIST_TYPE = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
+        // Lazy initialization if no JSON is desired
+        
+        private static Gson GSON;
+        private static Gson getGson() {
+        	return (GSON == null ? GSON = new Gson() : GSON);
+        }
+        
+        private static Type LIST_TYPE;        
+        private static Type getListType() {
+        	return (LIST_TYPE == null ? LIST_TYPE = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType() : LIST_TYPE);
+        }
 
         /**
          * Read {@link EncodingStrategyHint} data from a JSON file.
@@ -305,7 +314,7 @@ public class CifOptions {
          * @return this builder instance
          */
         public CifOptionsBuilder encodingStrategyHint(String json) {
-            this.encodingStrategyHints.addAll(GSON.fromJson(json, LIST_TYPE));
+            this.encodingStrategyHints.addAll(getGson().fromJson(json, getListType()));
             return this;
         }
 
