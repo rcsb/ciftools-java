@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.AtomSite;
@@ -74,11 +75,19 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testFetchUrl() throws IOException {
+    public void testFetchUrlText() throws IOException {
         // by switching to RCSB cif files, the implementation type should be text
         CifFile cifFile = CifIO.readById("1acj", CifOptions.builder()
                 .fetchUrl("https://files.rcsb.org/download/%s.cif").build());
         assertTrue(cifFile instanceof TextFile);
+    }
+
+    @Test
+    public void testFetchUrlBinary() throws IOException {
+        // by switching to RCSB bcif files, the implementation type should be binary
+        CifFile cifFile = CifIO.readById("1acj", CifOptions.builder()
+                .fetchUrl("https://models.rcsb.org/%s.bcif").build());
+        assertTrue(cifFile instanceof BinaryFile);
     }
 
     @Test
