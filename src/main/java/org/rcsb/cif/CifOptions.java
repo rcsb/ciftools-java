@@ -147,8 +147,7 @@ public class CifOptions {
      * Internal class to handle the option building process.
      */
     public static class CifOptionsBuilder {
-        // TODO change once ready
-        private static final String FETCH_URL = "https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif";
+        private static final String FETCH_URL = "https://models.rcsb.org/%s.bcif";
 
         private boolean gzip = false;
         private String encoder = Codec.CODEC_NAME;

@@ -13,7 +13,7 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 <dependency>
   <groupId>org.rcsb</groupId>
   <artifactId>ciftools-java</artifactId>
-  <version>0.6.1</version>
+  <version>0.6.3</version>
 </dependency>
 ```
 
@@ -29,8 +29,8 @@ class Demo {
         // to access the data, it does not matter where and in which format the data came from
         CifFile cifFile;
         if (parseBinary) {
-            // parse binary CIF from PDBe
-            cifFile = CifIO.readFromURL(new URL("https://www.ebi.ac.uk/pdbe/coordinates/" + pdbId + "/full?encoding=bcif"));
+            // parse binary CIF from RCSB PDB
+            cifFile = CifIO.readFromURL(new URL("https://models.rcsb.org/" + pdbId + ".bcif"));
         } else {
             // parse CIF from RCSB PDB
             cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));

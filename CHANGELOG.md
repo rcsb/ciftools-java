@@ -1,6 +1,16 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.6.3
+-------------
+### General
+* change BinaryCIF URL to RCSB resources
+
+ciftools-java 0.6.2
+-------------
+### Bug fixes
+* avoids construction of `Gson` instance in `CifOptions` - thanks @BobHanson
+
 ciftools-java 0.6.1
 -------------
 ### Bug fixes
