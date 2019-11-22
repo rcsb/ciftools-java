@@ -147,8 +147,7 @@ public class CifOptions {
      * Internal class to handle the option building process.
      */
     public static class CifOptionsBuilder {
-        // TODO change once ready
-        private static final String FETCH_URL = "https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif";
+        private static final String FETCH_URL = "https://models.rcsb.org/%s.bcif";
 
         private boolean gzip = false;
         private String encoder = Codec.CODEC_NAME;
@@ -284,15 +283,12 @@ public class CifOptions {
         }
 
         // Lazy initialization if no JSON is desired
-        
-        private static Gson GSON;
-        private static Gson getGson() {
-        	return (GSON == null ? GSON = new Gson() : GSON);
+        static class GsonHolder {
+            static Gson instance = new Gson();
         }
-        
-        private static Type LIST_TYPE;        
-        private static Type getListType() {
-        	return (LIST_TYPE == null ? LIST_TYPE = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType() : LIST_TYPE);
+
+        static class ListTypeHolder {
+            static Type instance = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
         }
 
         /**
@@ -314,7 +310,7 @@ public class CifOptions {
          * @return this builder instance
          */
         public CifOptionsBuilder encodingStrategyHint(String json) {
-            this.encodingStrategyHints.addAll(getGson().fromJson(json, getListType()));
+            this.encodingStrategyHints.addAll(GsonHolder.instance.fromJson(json, ListTypeHolder.instance));
             return this;
         }
 
