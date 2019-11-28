@@ -9,6 +9,7 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.ModelFactory;
+import org.rcsb.cif.model.ProxyCategory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,7 +58,7 @@ public class BinaryCifReader {
                         for (Object o : (Object[]) map.get("categories")) {
                             Map<String, Object> cat = (Map<String, Object>) o;
                             String name = (String) cat.get("name");
-                            categories.put(name.substring(1), createBinaryCategory(cat));
+                            categories.put(name.substring(1), createProxyCategory(cat));
                         }
 
                         return new BaseBlock(categories, header);
@@ -81,4 +82,17 @@ public class BinaryCifReader {
         Object[] encodedFields = (Object[]) rawColumns;
         return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
     }
+    
+    private Category createProxyCategory(Map<String, Object> encodedCategory) {
+        // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
+        String name = ((String) encodedCategory.get("name")).substring(1);
+        Object rawColumns = encodedCategory.get("columns");
+        int rowCount = (int) encodedCategory.get("rowCount");
+
+        // it is a conventional category with multiple rows
+        Object[] encodedFields = (Object[]) rawColumns;
+        
+        return new ProxyCategory(name, rowCount, encodedFields);
+    }
+
 }

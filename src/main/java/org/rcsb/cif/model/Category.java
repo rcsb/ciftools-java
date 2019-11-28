@@ -48,6 +48,9 @@ public interface Category {
         return columnNames().map(this::getColumn);
     }
 
+    default Category get() {
+    	return this;
+    }
     /**
      * States whether this {@link Category} is defined.
      * @return <code>true</code> if this {@link Category} contains data
