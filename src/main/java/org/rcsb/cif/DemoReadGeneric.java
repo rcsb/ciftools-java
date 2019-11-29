@@ -73,7 +73,7 @@ public class DemoReadGeneric {
 //			parse(pdbId, MODE_READ_BYTE_STREAM | MODE_OPTION_GET_ALL_DATA);
 //			parse(pdbId, MODE_READ_FILE | MODE_OPTION_GET_ALL_DATA);
 			
-			parse(pdbId, MODE_READ_BYTE_STREAM | MODE_OPTION_PROCESS | MODE_LOCAL);
+			parse(pdbId, MODE_READ_BYTE_STREAM | MODE_OPTION_PROCESS);// | MODE_LOCAL);
 //			parse(pdbId, MODE_READ_FILE | MODE_OPTION_PROCESS);
 
 			
