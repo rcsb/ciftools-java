@@ -36,6 +36,10 @@ public interface Category {
      * Traverse all names of present columns.
      * @return a {@link Stream} of present {@link Column} names
      */
+    default Stream<String> columnNamesEncoded() {
+        return getColumnNamesEncoded().stream();
+    }
+
     default Stream<String> columnNames() {
         return getColumnNames().stream();
     }
@@ -56,4 +60,6 @@ public interface Category {
      * @return <code>true</code> if this {@link Category} contains data
      */
     boolean isDefined();
+
+	List<String> getColumnNamesEncoded();
 }

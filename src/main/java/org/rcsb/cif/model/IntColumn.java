@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -61,7 +62,7 @@ public class IntColumn extends BaseColumn {
     protected String getBinaryStringData(int row) {
         return String.valueOf(binaryData[row]);
     }
-
+    
     /**
      * For internal use. Returns the decoded binary data which this column wraps. Returns <code>null</code> for text
      * columns.
@@ -70,4 +71,52 @@ public class IntColumn extends BaseColumn {
     public int[] getBinaryData() {
         return binaryData;
     }
+    
+    /**
+     * Uses Integer.MIN_VALUE for not present and Integer.MAX_VALUE for unknown
+     */
+	@Override
+	public Object getUnmaskedData() {
+		int[] unmasked = new int[rowCount];
+		if (isText) {
+			for (int i = rowCount; --i >= 0;) {
+				String val = getRawTextData(i);
+				switch (val) {
+				case ".":
+				case "":
+					unmasked[i] = Integer.MIN_VALUE;
+					break;
+				case "?":
+					unmasked[i] = Integer.MAX_VALUE;
+					break;
+				default:
+					unmasked[i] = Integer.parseInt(val);
+				}
+			}
+		} else {
+			if (!hasMask)
+				return binaryData;
+			for (int i = rowCount; --i >= 0;) {
+				switch (mask[i]) {
+				case 0: // present
+					unmasked[i] = binaryData[i];
+					break;
+				case 1: // not present, .
+					unmasked[i] = Integer.MIN_VALUE;
+					break;
+				case 2: // unknown ?
+					unmasked[i] = Integer.MAX_VALUE;
+					break;
+				}
+			}
+		}
+		return unmasked;
+	}
+
+
+	public String toString() {
+		return Arrays.toString((int[])getUnmaskedData());
+	}
+
+
 }

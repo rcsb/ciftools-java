@@ -78,7 +78,7 @@ public class BinaryCifWriter {
                 Map<String, Object> category = new LinkedHashMap<>();
                 category.put("name", "_" + cifCategory.getCategoryName());
 
-                Object[] columns = cifCategory.getColumnNames()
+                Object[] columns = cifCategory.getColumnNamesEncoded()
                         .stream()
                         .filter(columnName -> options.filterColumn(categoryName, columnName))
                         .map(cifCategory::getColumn)

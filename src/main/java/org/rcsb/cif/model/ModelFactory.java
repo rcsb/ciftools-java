@@ -72,8 +72,8 @@ public class ModelFactory {
 //    }
 
 	/**
-	 * Retrieve the class name from a primary-key (before the first "_") property file
-	 * created from Excel (docs/field-name-class-map.xlsx)
+	 * Retrieve the class name from a primary-key (before the first "_") property
+	 * file created from Excel (docs/field-name-class-map.xlsx)
 	 * 
 	 * @param categoryName
 	 * @return a class, hopefully!
@@ -84,15 +84,13 @@ public class ModelFactory {
 	private static Class<? extends BaseCategory> getCategory(String categoryName) {
 		Class<? extends BaseCategory> c = CATEGORY_MAP.get(categoryName);
 		if (c == null) {
-			String className = CATEGORY_NAME_MAP.get(categoryName);
 			try {
-				if (className == null) {
-					loadCategoryProperties(categoryName);
-					className = CATEGORY_NAME_MAP.get(categoryName);
+				String className = ensureModelPropertiesLoaded(categoryName);
+				if (className != null && className.length() > 0) {
+					c = (Class<? extends BaseCategory>) Class.forName(className);
 				}
-				c = (Class<? extends BaseCategory>) Class.forName(className);
-			} catch (ClassNotFoundException | IOException e) {
-				System.err.println("Could not add category "+ categoryName + " " + e);
+			} catch (ClassNotFoundException e) {
+				System.err.println("ModelFactory could not add category " + categoryName + " " + e);
 				// that's fine -- leave it null
 			}
 			CATEGORY_MAP.put(categoryName, c == null ? BaseCategory.class : c);
@@ -133,11 +131,11 @@ public class ModelFactory {
 //    	
 //    	_=.Symmetry,Sentry_id,Scell_setting,IInt_Tables_number,Sspace_group_name_Hall,Sspace_group_name_H-M,Spdbx_full_space_group_name_H-M
 //    	equiv=.SymmetryEquiv,Sid,Spos_as_xyz
-
     	int pt = catName.indexOf("_");
-    	String primary = (pt < 0 ? catName : catName.substring(0, pt));
-		InputStream inputStream = ModelFactory.class.getResourceAsStream("properties/" + primary + ".properties");
-        Objects.requireNonNull(inputStream, "could not load all.txt");
+    	String primary = (pt < 0 ? catName : catName.substring(0, pt)).toLowerCase();
+    	String fname = "properties/" + primary + ".properties";
+		InputStream inputStream = ModelFactory.class.getResourceAsStream(fname);
+        Objects.requireNonNull(inputStream, "could not load " + fname);
         BufferedReader lookupReader = new BufferedReader(new InputStreamReader(inputStream));
         List<String[]> lines = lookupReader.lines().map(line -> line.split("=")).collect(Collectors.toList());	
 		lookupReader.close();
@@ -147,13 +145,18 @@ public class ModelFactory {
 			String line = prop[1];
 			catName = primary + (name.equals("_") ? "" : "_" + name);
 			String[] info = line.split(",");
-			String className = "org.rcsb.cif.model.generated" + info[0];
+			String className = (info[0].length() == 0 ? "" : "org.rcsb.cif.model.generated" + info[0]);
 			CATEGORY_NAME_MAP.put(catName, className);
+			if (!catName.toLowerCase().equals(catName))
+				CATEGORY_NAME_MAP.put(catName.toLowerCase(), className);
 			for (int c = info.length; --c >= 1;) {
 				String type = info[c].substring(0, 1);
+				Class<? extends BaseColumn> colClass = forColumnName(type);
 				String col = catName + "." + info[c].substring(1);
-				COLUMN_MAP.put(col, forColumnName(type));
-				System.out.println("adding column " + type + " " + col);
+				COLUMN_MAP.put(col, colClass);
+				if (!col.equals(col.toLowerCase()))
+					COLUMN_MAP.put(col.toLowerCase(), colClass);
+//				System.out.println("adding column " + type + " " + col.toLowerCase());
 			}
 			
 		}
@@ -280,7 +283,9 @@ public class ModelFactory {
                                           int[] endToken) {
         // if we cannot rely on schema, we could parse/digest data until we can make an elaborate guess about the type -
         // however this would be really slow - so everyone is a String now
-        return createColumnText(categoryName, columnName, data, startToken, endToken, StrColumn.class);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
+ 
+        return createColumnText(categoryName, columnName, data, startToken, endToken, columnClass == null ? StrColumn.class : columnClass);
     }
 
     /**
@@ -300,7 +305,7 @@ public class ModelFactory {
                                           int[] endToken,
                                           Class<? extends Column> columnType) {
         int rowCount = startToken.length;
-        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get((categoryName + "." + columnName).toLowerCase());
         if (columnClass == null) {
             if (columnType == IntColumn.class) {
                 return new IntColumn(columnName, rowCount, data, startToken, endToken);
@@ -374,4 +379,27 @@ public class ModelFactory {
             return new StrColumn(columnName);
         }
     }
+
+	/**
+	 * Ensure that category class names and column types have been loaded from
+	 * property files.
+	 * 
+	 * @param categoryName
+	 * @return registered class name for this property
+	 */
+	public static String ensureModelPropertiesLoaded(String categoryName) {
+		categoryName = categoryName.toLowerCase();
+		String className = CATEGORY_NAME_MAP.get(categoryName);
+		if (className == null) {
+			try {
+				loadCategoryProperties(categoryName);
+				className = CATEGORY_NAME_MAP.get(categoryName);
+			} catch (IOException | NullPointerException e) {
+				System.err.println("ModelFactory could not add category " + categoryName + " " + e);
+				// that's fine -- leave it null
+			}
+		}
+		return className;
+	}
+	
 }

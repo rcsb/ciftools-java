@@ -1,6 +1,7 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ModelFactory;
 
@@ -338,76 +339,95 @@ class TokenizerState {
      * @throws ParsingException throws when file is malformed
      */
     void handleSingle(FrameContext ctx) throws ParsingException {
-        final int nsStart = tokenStart;
-        final int nsEnd = getNamespaceEnd();
-        final String name = getNamespace(nsEnd);
-        final Map<String, Column> fields = new LinkedHashMap<>();
-        final String categoryName = name.substring(1);
-
-        while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
-            String columnName = getTokenString().substring(name.length() + 1);
-            moveNext();
-            if (tokenType != CifTokenType.VALUE) {
-                throw new ParsingException("Expected value.", lineNumber);
-            }
-
-            Column cifColumn = ModelFactory.createColumnText(categoryName, columnName, data, tokenStart, tokenEnd);
-            fields.put(columnName, cifColumn);
-            moveNext();
-        }
-
-        ctx.getCategories().put(categoryName, ModelFactory.createCategoryText(categoryName, fields));
+    	handleSingle(ctx, false);
     }
+
+	void handleSingle(FrameContext ctx, boolean isGeneric) throws ParsingException {
+
+		final int nsStart = tokenStart;
+		final int nsEnd = getNamespaceEnd();
+		final String name = getNamespace(nsEnd);
+		final Map<String, Column> fields = new LinkedHashMap<>();
+		final String categoryName = name.substring(1);
+		ModelFactory.ensureModelPropertiesLoaded(categoryName);
+		while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
+			String columnName = getTokenString().substring(name.length() + 1);
+			moveNext();
+			if (tokenType != CifTokenType.VALUE) {
+				throw new ParsingException("Expected value.", lineNumber);
+			}
+			Column cifColumn = ModelFactory.createColumnText(categoryName, columnName, data, tokenStart, tokenEnd);
+			fields.put(columnName.toLowerCase(), cifColumn);
+			moveNext();
+		}
+		ctx.getCategories().put(categoryName.toLowerCase(), 				
+				isGeneric ? new BaseCategory(categoryName, fields)
+						:
+				ModelFactory.createCategoryText(categoryName, fields));
+	}
 
     /**
      * Reads a loop.
      * @param ctx the context values will be assigned to
      */
     void handleLoop(FrameContext ctx) {
-        final int loopLine = lineNumber;
-
-        moveNext();
-        final String name = getNamespace(getNamespaceEnd());
-        // performance 1.2: resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
-        int columnCountEstimate = 32;
-        int rowCountEstimate = "_atom_site".equals(name) ? data.length() / 100 : 32;
-        final List<String> columnNames = new ArrayList<>(columnCountEstimate);
-        final List<List<Integer>> start = new ArrayList<>(columnCountEstimate);
-        final List<List<Integer>> end = new ArrayList<>(columnCountEstimate);
-        int tokenCount = 0;
-
-        while (tokenType == CifTokenType.COLUMN_NAME) {
-            columnNames.add(getTokenString().substring(name.length() + 1));
-            moveNext();
-            start.add(new ArrayList<>(rowCountEstimate));
-            end.add(new ArrayList<>(rowCountEstimate));
-        }
-
-        while (tokenType == CifTokenType.VALUE) {
-            int i = tokenCount % columnNames.size();
-            start.get(i).add(tokenStart);
-            end.get(i).add(tokenEnd);
-            moveNext();
-            tokenCount++;
-        }
-
-        if (start.size() % columnNames.size() != 0) {
-            throw new ParsingException("The number of values for loop starting at line " + loopLine +
-                    " is not a multiple of the number of columns.");
-        }
-
-        String categoryName = name.substring(1);
-
-        Map<String, Column> columns = new LinkedHashMap<>();
-        for (int i = 0; i < start.size(); i++) {
-            Column cifColumn = ModelFactory.createColumnText(categoryName,
-                    columnNames.get(i),
-                    data,
-                    start.get(i).stream().mapToInt(j -> j).toArray(),
-                    end.get(i).stream().mapToInt(j -> j).toArray());
-            columns.put(columnNames.get(i), cifColumn);
-        }
-
-        ctx.getCategories().put(categoryName, ModelFactory.createCategoryText(categoryName, columns));
+    	handleLoop(ctx, false);
     }
+    
+	void handleLoop(FrameContext ctx, boolean isGeneric) {
+		final int loopLine = lineNumber;
+
+		moveNext();
+		final String name = getNamespace(getNamespaceEnd());
+
+		// performance 1.2: resizing of token lists is pronounced - provide initial
+		// guess to avoid excessive resizing
+		int columnCountEstimate = 32;
+		int rowCountEstimate = "_atom_site".equals(name) ? data.length() / 100 : 32;
+		final List<String> columnNamesEncoded = new ArrayList<>(columnCountEstimate);
+		final List<String> columnNamesLC = new ArrayList<>(columnCountEstimate);
+		final List<List<Integer>> start = new ArrayList<>(columnCountEstimate);
+		final List<List<Integer>> end = new ArrayList<>(columnCountEstimate);
+		
+		String categoryName = name.substring(1);
+		ModelFactory.ensureModelPropertiesLoaded(categoryName);
+
+		int tokenCount = 0;
+		while (tokenType == CifTokenType.COLUMN_NAME) {
+			String colName = getTokenString().substring(name.length() + 1);
+			columnNamesEncoded.add(colName);
+			columnNamesLC.add(colName.toLowerCase());
+			moveNext();
+			start.add(new ArrayList<>(rowCountEstimate));
+			end.add(new ArrayList<>(rowCountEstimate));
+		}
+
+		while (tokenType == CifTokenType.VALUE) {
+			int i = tokenCount % columnNamesLC.size();
+			start.get(i).add(tokenStart);
+			end.get(i).add(tokenEnd);
+			moveNext();
+			tokenCount++;
+		}
+
+		if (start.size() % columnNamesLC.size() != 0) {
+			throw new ParsingException("The number of values for loop starting at line " + loopLine
+					+ " is not a multiple of the number of columns.");
+		}
+
+		Map<String, Column> columns = new LinkedHashMap<>();
+		for (int i = 0; i < start.size(); i++) {
+			Column cifColumn = ModelFactory.createColumnText(categoryName, columnNamesEncoded.get(i), data,
+					start.get(i).stream().mapToInt(j -> j).toArray(), end.get(i).stream().mapToInt(j -> j).toArray());
+			columns.put(columnNamesLC.get(i), cifColumn);
+		}
+
+		ctx.getCategories().put(categoryName.toLowerCase(), isGeneric ?
+
+				new BaseCategory(categoryName, columns) :
+
+				ModelFactory.createCategoryText(categoryName.toLowerCase(), columns));
+	}
+    
+
 }

@@ -72,17 +72,17 @@ public class BinaryCifReader {
         return new BinaryFile(dataBlocks, versionString, encoder);
     }
 
-    private Category createBinaryCategory(Map<String, Object> encodedCategory) {
-        // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
-        String name = ((String) encodedCategory.get("name")).substring(1);
-        Object rawColumns = encodedCategory.get("columns");
-        int rowCount = (int) encodedCategory.get("rowCount");
-
-        // it is a conventional category with multiple rows
-        Object[] encodedFields = (Object[]) rawColumns;
-        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
-    }
-    
+//    private Category createBinaryCategory(Map<String, Object> encodedCategory) {
+//        // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
+//        String name = ((String) encodedCategory.get("name")).substring(1);
+//        Object rawColumns = encodedCategory.get("columns");
+//        int rowCount = (int) encodedCategory.get("rowCount");
+//
+//        // it is a conventional category with multiple rows
+//        Object[] encodedFields = (Object[]) rawColumns;
+//        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+//    }
+//    
     private Category createProxyCategory(Map<String, Object> encodedCategory) {
         // if rowCount ever throws NPEs again: the problem is a wrongly parsed map length in MessagePackCodec
         String name = ((String) encodedCategory.get("name")).substring(1);

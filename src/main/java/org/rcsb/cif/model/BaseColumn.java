@@ -5,16 +5,23 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public abstract class BaseColumn implements Column {
-    private final String name;
-    final int rowCount;
+
+	public final static int COLUMN_TYPE_INT = 0;
+	public final static int COLUMN_TYPE_FLOAT = 1;
+	public final static int COLUMN_TYPE_STRING = 2;
+
+	protected int type = COLUMN_TYPE_STRING;
+	
+	private final String name;
+    protected final int rowCount;
 
     final boolean isText;
     private final String textData;
     private final int[] startToken;
     private final int[] endToken;
 
-    private final boolean hasMask;
-    private final int[] mask;
+    protected final boolean hasMask;
+    protected final int[] mask;
     private final boolean defined;
 
     BaseColumn(String name) {
@@ -137,4 +144,11 @@ public abstract class BaseColumn implements Column {
     public boolean isDefined() {
         return defined;
     }
+
+    abstract public Object getUnmaskedData();
+
+	protected String getRawTextData(int i) {
+		return textData.substring(startToken[i], endToken[i]);
+	}
+
 }

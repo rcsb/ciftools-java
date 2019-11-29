@@ -7,19 +7,21 @@ import java.util.stream.Stream;
 public class BaseCategory implements Category {
     private final String name;
     private final int rowCount;
-    private final List<String> columnNames;
+    private final List<String> columnNamesEncoded;
+    private final List<String> columnNamesLC;
 
     protected final boolean isText;
     protected final Map<String, Column> textFields;
 
-    private final Object[] encodedColumns;
+    protected Object[] encodedColumns;
     private final Map<String, Column> decodedColumns;
     private final boolean defined;
 
     public BaseCategory(String name) {
         this.name = name;
         this.rowCount = 0;
-        this.columnNames = Collections.emptyList();
+        this.columnNamesEncoded = Collections.emptyList();
+        this.columnNamesLC = Collections.emptyList();
 
         this.isText = false;
         this.textFields = Collections.emptyMap();
@@ -36,7 +38,8 @@ public class BaseCategory implements Category {
                 .findFirst()
                 .map(Column::getRowCount)
                 .orElse(0);
-        this.columnNames = new ArrayList<>(textColumns.keySet());
+        this.columnNamesEncoded = new ArrayList<>(textColumns.keySet());
+        this.columnNamesLC = new ArrayList<>(textColumns.keySet());
 
         this.isText = true;
         this.textFields = textColumns;
@@ -55,8 +58,12 @@ public class BaseCategory implements Category {
         this.encodedColumns = encodedColumns;
         this.decodedColumns = new LinkedHashMap<>();
         try {
-            this.columnNames = Stream.of(encodedColumns)
+            this.columnNamesEncoded = Stream.of(encodedColumns)
                     .map(map -> ((Map<String, Object>) map).get("name"))
+                    .map(String.class::cast)
+                    .collect(Collectors.toList());
+            this.columnNamesLC = Stream.of(encodedColumns)
+                    .map(map -> ((String) ((Map<String, Object>) map).get("name")).toLowerCase())
                     .map(String.class::cast)
                     .collect(Collectors.toList());
         } catch(Exception e) {
@@ -79,6 +86,7 @@ public class BaseCategory implements Category {
 
     @Override
     public Column getColumn(String name) {
+    	name = name.toLowerCase();
         return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
@@ -104,17 +112,23 @@ public class BaseCategory implements Category {
     private Optional<Map<String, Object>> find(String name) {
         return Stream.of(encodedColumns)
                 .map(m -> (Map<String, Object>) m)
-                .filter(m -> name.equals(m.get("name")))
+                .filter(m -> name.equalsIgnoreCase((String)m.get("name")))
                 .findFirst();
     }
 
     @Override
+    public List<String> getColumnNamesEncoded() {
+        return columnNamesEncoded;
+    }
+
+    @Override
     public List<String> getColumnNames() {
-        return columnNames;
+        return columnNamesLC;
     }
 
     @Override
     public boolean isDefined() {
         return defined;
     }
+
 }

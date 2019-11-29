@@ -43,7 +43,7 @@ public class TextCifWriter {
                     continue;
                 }
 
-                List<Column> columns = cifCategory.getColumnNames()
+                List<Column> columns = cifCategory.getColumnNamesEncoded()
                         .stream()
                         .filter(columnName -> options.filterColumn(categoryName, columnName))
                         .map(cifCategory::getColumn)

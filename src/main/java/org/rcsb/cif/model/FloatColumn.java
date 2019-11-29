@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -17,19 +18,16 @@ public class FloatColumn extends BaseColumn {
 
     public FloatColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        double[] tmpData;
-        try {
-            tmpData = (double[]) data;
-        } catch (ClassCastException e) {
-            // try to recover when data was parsed to greedily (e.g. 1.0,2.0,3.0 interpreted as int, even though the field should really be double)
-            tmpData = data instanceof String[] ? Stream.of((String[]) data).mapToDouble(this::parseFloat).toArray() :
-                    IntStream.of((int[]) data).mapToDouble(i -> i).toArray();
-        }
-        this.binaryData = tmpData;
+        type = COLUMN_TYPE_FLOAT;
+        binaryData = (
+        		data instanceof double[] ? (double[]) data
+        		: data instanceof String[] ? Stream.of((String[]) data).mapToDouble(this::parseFloat).toArray()
+        		: IntStream.of((int[]) data).mapToDouble(i -> i).toArray());
     }
 
     public FloatColumn(String name) {
         super(name);
+        type = COLUMN_TYPE_FLOAT;
         this.binaryData = new double[0];
     }
 
@@ -70,4 +68,51 @@ public class FloatColumn extends BaseColumn {
     public double[] getBinaryData() {
         return binaryData;
     }
+
+    /**
+     * Uses Double.MIN_VALUE for not present and Double.MAX_VALUE for unknown
+     */
+	@Override
+	public Object getUnmaskedData() {
+		int n = rowCount;
+		double[] unmasked = new double[n];
+		if (isText) {
+			for (int i = rowCount; --i >= 0;) {
+				String val = getRawTextData(i);
+				switch (val) {
+				case ".":
+				case "":
+					unmasked[i] = Double.MIN_VALUE;
+					break;
+				case "?":
+					unmasked[i] = Double.MAX_VALUE;
+					break;
+				default:
+					unmasked[i] = Double.parseDouble(val);
+				}
+			}
+		} else {
+			if (!hasMask)
+				return binaryData;
+			for (int i = n; --i >= 0;) {
+				switch (mask[i]) {
+				case 0: // present
+					unmasked[i] = binaryData[i];
+					break;
+				case 1: // not present
+					unmasked[i] = Double.MIN_VALUE;
+					break;
+				case 2: // unknown
+					unmasked[i] = Double.MAX_VALUE;
+					break;
+				}
+			}
+		}
+		return unmasked;
+	}
+
+	public String toString() {
+		return Arrays.toString((double[])getUnmaskedData());
+	}
+
 }

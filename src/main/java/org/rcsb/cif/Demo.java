@@ -16,7 +16,7 @@ public class Demo {
     public static void main(String[] args) throws IOException {
         parseFile();
         System.out.println();
-        buildModel();
+ //       buildModel();
     }
 
     private static void parseFile() throws IOException {

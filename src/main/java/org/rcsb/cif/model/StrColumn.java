@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -12,11 +13,13 @@ public class StrColumn extends BaseColumn {
 
     public StrColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         super(name, rowCount, data, startToken, endToken);
+        type = COLUMN_TYPE_STRING;
         this.binaryData = null;
     }
 
     public StrColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
+        type = COLUMN_TYPE_STRING;
         String[] tmpData;
         try {
             tmpData = (String[]) data;
@@ -30,6 +33,7 @@ public class StrColumn extends BaseColumn {
 
     public StrColumn(String name) {
         super(name);
+        type = COLUMN_TYPE_STRING;
         this.binaryData = new String[0];
     }
 
@@ -64,4 +68,25 @@ public class StrColumn extends BaseColumn {
     public String[] getBinaryData() {
         return binaryData;
     }
+    
+	/**
+	 * Uses "." for not present and "?" for unknown
+	 */
+	public Object getUnmaskedData() {
+		if (isText) {
+			String[] unmasked = new String[rowCount];
+			for (int i = rowCount; --i >= 0;) {
+				unmasked[i] = getRawTextData(i);
+			}
+ 			return unmasked;
+		} else {
+			return binaryData;
+		}
+	}
+
+	public String toString() {
+		return Arrays.toString((String[])getUnmaskedData());
+	}
+
+
 }
