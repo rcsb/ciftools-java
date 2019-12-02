@@ -29,7 +29,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BinaryCifWriter {
     private final CifOptions options;
@@ -228,13 +227,19 @@ public class BinaryCifWriter {
                 if (content instanceof Map) {
                     content = wrap(content);
                 } else if (content instanceof List) {
-                    content = ((List<?>) content).stream()
-                            .map(this::wrap)
-                            .toArray(Object[]::new);
+                    List<?> list = (List<?>) content;
+                    Object[] contentArray = new Object[list.size()];
+                    for (int i = 0; i < list.size(); i++) {
+                        contentArray[i] = wrap(list.get(i));
+                    }
+                    content = contentArray;
                 } else if (isObjectArray(content)) {
-                    content = Stream.of((Object[]) content)
-                            .map(this::wrap)
-                            .toArray(Object[]::new);
+                    Object[] array = (Object[]) content;
+                    Object[] contentArray = new Object[array.length];
+                    for (int i = 0; i < array.length; i++) {
+                        contentArray[i] = wrap(array[i]);
+                    }
+                    content = contentArray;
                 }
                 out.put(field.getName(), content);
             }

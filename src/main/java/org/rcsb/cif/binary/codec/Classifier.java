@@ -12,9 +12,9 @@ import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
-import java.util.ArrayList;
 import java.util.Comparator;
-import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Stream;
 
 /**
  * Classifies {@link Int32Array} and {@link Float64Array} instances, i.e. for the given information find the most
@@ -212,13 +212,9 @@ public class Classifier {
     }
 
     private static EncodingSize getSize(int[] array, IntColumnInfo info) {
-        List<EncodingSize> sizes = new ArrayList<>();
-        sizes.add(packingSize(array, info));
-        sizes.add(rleSize(array, info));
-        sizes.add(deltaSize(array));
-        sizes.add(deltaRleSize(array));
-        sizes.sort(Comparator.comparingInt(encodingSize -> encodingSize.length));
-        return sizes.get(0);
+        return Stream.of(packingSize(array, info), rleSize(array, info), deltaSize(array), deltaRleSize(array))
+                .min(Comparator.comparingInt(encoding -> encoding.length))
+                .orElseThrow(NoSuchElementException::new);
     }
 
     private static final double DELTA = 1e-6;

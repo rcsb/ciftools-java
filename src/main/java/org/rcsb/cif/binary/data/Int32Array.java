@@ -12,7 +12,6 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
@@ -44,7 +43,9 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
     static byte[] int32ToByteArray(int[] data) {
         ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        IntStream.of(data).forEach(buffer::putInt);
+        for (int i : data) {
+            buffer.putInt(i);
+        }
         return buffer.array();
     }
 

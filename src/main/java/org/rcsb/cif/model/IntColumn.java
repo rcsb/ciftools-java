@@ -1,6 +1,5 @@
 package org.rcsb.cif.model;
 
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -21,8 +20,19 @@ public class IntColumn extends BaseColumn {
         try {
             tmpData = (int[]) data;
         } catch (ClassCastException e) {
-            tmpData = data instanceof String[] ? Stream.of((String[]) data).mapToInt(this::parseInt).toArray() :
-                    DoubleStream.of((double[]) data).mapToInt(d -> (int) d).toArray();
+            if (data instanceof String[]) {
+                String[] stringData = (String[]) data;
+                tmpData = new int[stringData.length];
+                for (int i = 0; i < stringData.length; i++) {
+                    tmpData[i] = parseInt(stringData[i]);
+                }
+            } else {
+                double[] doubleData = (double[]) data;
+                tmpData = new int[doubleData.length];
+                for (int i = 0; i < doubleData.length; i++) {
+                    tmpData[i] = (int) doubleData[i];
+                }
+            }
         }
         this.binaryData = tmpData;
     }

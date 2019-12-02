@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.stream.DoubleStream;
 
 public class Float64Array extends AbstractEncodedData<double[]> implements FloatArray {
     private static final int NUMBER_OF_BYTES = 8;
@@ -35,7 +34,9 @@ public class Float64Array extends AbstractEncodedData<double[]> implements Float
     public byte[] toByteArray() {
         ByteBuffer buffer = ByteBuffer.allocate(length() * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        DoubleStream.of(getData()).forEach(buffer::putDouble);
+        for (double d : getData()) {
+            buffer.putDouble(d);
+        }
         return buffer.array();
     }
 

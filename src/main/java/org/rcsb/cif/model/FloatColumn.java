@@ -22,8 +22,19 @@ public class FloatColumn extends BaseColumn {
             tmpData = (double[]) data;
         } catch (ClassCastException e) {
             // try to recover when data was parsed to greedily (e.g. 1.0,2.0,3.0 interpreted as int, even though the field should really be double)
-            tmpData = data instanceof String[] ? Stream.of((String[]) data).mapToDouble(this::parseFloat).toArray() :
-                    IntStream.of((int[]) data).mapToDouble(i -> i).toArray();
+            if (data instanceof String[]) {
+                String[] stringData = (String[]) data;
+                tmpData = new double[stringData.length];
+                for (int i = 0; i < stringData.length; i++) {
+                    tmpData[i] = parseFloat(stringData[i]);
+                }
+            } else {
+                int[] intData = (int[]) data;
+                tmpData = new double[intData.length];
+                for (int i = 0; i < intData.length; i++) {
+                    tmpData[i] = intData[i];
+                }
+            }
         }
         this.binaryData = tmpData;
     }

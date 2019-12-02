@@ -12,12 +12,11 @@ import org.rcsb.cif.model.ModelFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class BinaryCifReader {
     private final CifOptions options;
@@ -46,27 +45,27 @@ public class BinaryCifReader {
         }
 
         String encoder = (String) unpacked.get("encoder");
+        Object[] rawBlocks = (Object[]) unpacked.get("dataBlocks");
+        List<Block> dataBlocks = new ArrayList<>(rawBlocks.length);
 
-        List<Block> dataBlocks = Stream.of((Object[]) (unpacked.get("dataBlocks")))
-                .map(entry -> {
-                    Map<String, Object> map = (Map<String, Object>) entry;
-                    String header = (String) map.get("header");
-                    Map<String, Category> categories = new LinkedHashMap<>();
+        for (Object rawBlock : rawBlocks) {
+            Map<String, Object> map = (Map<String, Object>) rawBlock;
+            String header = (String) map.get("header");
+            Map<String, Category> categories = new LinkedHashMap<>();
 
-                    try {
-                        for (Object o : (Object[]) map.get("categories")) {
-                            Map<String, Object> cat = (Map<String, Object>) o;
-                            String name = (String) cat.get("name");
-                            categories.put(name.substring(1), createBinaryCategory(cat));
-                        }
+            try {
+                for (Object o : (Object[]) map.get("categories")) {
+                    Map<String, Object> cat = (Map<String, Object>) o;
+                    String name = (String) cat.get("name");
+                    categories.put(name.substring(1), createBinaryCategory(cat));
+                }
 
-                        return new BaseBlock(categories, header);
-                    } catch (NullPointerException e) {
-                        // don't really need this but the parser may be tricked by malformed files into exploring data and dying with NPE
-                        return new BaseBlock(Collections.emptyMap(), header);
-                    }
-                })
-                .collect(Collectors.toList());
+                dataBlocks.add(new BaseBlock(categories, header));
+            } catch (NullPointerException e) {
+                // don't really need this but the parser may be tricked by malformed files into exploring data and dying with NPE
+                dataBlocks.add(new BaseBlock(Collections.emptyMap(), header));
+            }
+        }
 
         return new BinaryFile(dataBlocks, versionString, encoder);
     }

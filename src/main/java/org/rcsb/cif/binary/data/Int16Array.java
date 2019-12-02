@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
@@ -39,7 +38,9 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
     static byte[] int16ToByteArray(int[] data) {
         ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
-        IntStream.of(data).forEach(i -> buffer.putShort((short) i));
+        for (int i : data) {
+            buffer.putShort((short) i);
+        }
         return buffer.array();
     }
 

@@ -7,8 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 
 import java.util.Arrays;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} multiplied by a given factor.</p>
@@ -30,9 +28,11 @@ public class FixedPointCodec {
         int srcType = data.getType();
         int factor = encoding.getFactor();
 
-        int[] outputArray = DoubleStream.of(data.getData())
-                .mapToInt(d -> (int) Math.round(d * factor))
-                .toArray();
+        double[] floatData = data.getData();
+        int[] outputArray = new int[floatData.length];
+        for (int i = 0; i < floatData.length; i++) {
+            outputArray[i] = (int) Math.round(floatData[i] * factor);
+        }
 
         Encoding[] dataEncoding = data.getEncoding();
         Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
@@ -43,14 +43,14 @@ public class FixedPointCodec {
     }
 
     public FloatArray decode(Int32Array data, FixedPointEncoding encoding) {
-        int[] input = data.getData();
         int srcType = encoding.getSrcType();
-
         double f = 1.0 / encoding.getFactor();
 
-        double[] outputArray = IntStream.of(input)
-                .mapToDouble(i -> f * i)
-                .toArray();
+        int[] intData = data.getData();
+        double[] outputArray = new double[intData.length];
+        for (int i = 0; i < intData.length; i++) {
+            outputArray[i] = intData[i] * f;
+        }
 
         return srcType == 32 ? EncodedDataFactory.float32Array(outputArray, data.getEncoding()) :
                 EncodedDataFactory.float64Array(outputArray, data.getEncoding());

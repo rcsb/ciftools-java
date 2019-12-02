@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} where the values are quantized within a
@@ -81,9 +80,11 @@ public class IntervalQuantizationCodec {
 
         double delta = (max - min) / (numSteps - 1.0);
 
-        double[] output = IntStream.of(data.getData())
-                .mapToDouble(i -> min + delta * i)
-                .toArray();
+        int[] intData = data.getData();
+        double[] output = new double[intData.length];
+        for (int i = 0; i < intData.length; i++) {
+            output[i] = min + delta * intData[i];
+        }
 
         return srcType == 32 ? EncodedDataFactory.float32Array(output, data.getEncoding()) :
                 EncodedDataFactory.float64Array(output, data.getEncoding());

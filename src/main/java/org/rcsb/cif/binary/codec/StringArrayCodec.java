@@ -65,7 +65,12 @@ public class StringArrayCodec {
             }
         }
 
-        Int32Array offsetPlain = EncodedDataFactory.int32Array(offsetList.stream().mapToInt(n -> n).toArray());
+        int[] offsetArray = new int[offsetList.size()];
+        for (int j = 0; j < offsetList.size(); j++) {
+            offsetArray[j] = offsetList.get(j);
+        }
+
+        Int32Array offsetPlain = EncodedDataFactory.int32Array(offsetArray);
         EncodingStrategyHint offsetHint = Classifier.classify(offsetPlain);
         ByteArray offsets = Classifier.encode(offsetPlain, offsetHint.getEncoding());
 

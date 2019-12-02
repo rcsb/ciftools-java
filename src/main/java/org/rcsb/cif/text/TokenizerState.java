@@ -403,11 +403,19 @@ class TokenizerState {
             Column cifColumn = ModelFactory.createColumnText(categoryName,
                     columnNames.get(i),
                     data,
-                    start.get(i).stream().mapToInt(j -> j).toArray(),
-                    end.get(i).stream().mapToInt(j -> j).toArray());
+                    toArray(start.get(i)),
+                    toArray(end.get(i)));
             columns.put(columnNames.get(i), cifColumn);
         }
 
         ctx.getCategories().put(categoryName, ModelFactory.createCategoryText(categoryName, columns));
+    }
+
+    private int[] toArray(List<Integer> list) {
+        int[] array = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            array[i] = list.get(i);
+        }
+        return array;
     }
 }
