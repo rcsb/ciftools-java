@@ -6,7 +6,7 @@ import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -32,11 +32,12 @@ public class IntegerPackingCodec {
 
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+            Encoding[] dataEncoding = data.getEncoding();
+            Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
             encoding.setByteCount(4);
             encoding.setUnsigned(false);
             encoding.setSrcSize(input.length);
-            enc.add(encoding);
+            enc[dataEncoding.length] = encoding;
             return EncodedDataFactory.int32Array(input, enc);
         }
 
@@ -81,17 +82,18 @@ public class IntegerPackingCodec {
             }
         }
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
         encoding.setByteCount(packing.bytesPerElement);
         encoding.setUnsigned(!packing.signed);
         encoding.setSrcSize(data.length());
-        enc.add(encoding);
+        enc[dataEncoding.length] = encoding;
         output.setEncoding(enc);
 
         return output;
     }
 
-    class Packing {
+    static class Packing {
         final boolean signed;
         final int size;
         final int bytesPerElement;

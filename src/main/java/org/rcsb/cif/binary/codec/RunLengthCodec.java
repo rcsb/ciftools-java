@@ -6,7 +6,7 @@ import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
-import java.util.LinkedList;
+import java.util.Arrays;
 
 /**
  * <p>Represents each integer value in the input as a pair of (value, number of repeats) and stores the result
@@ -29,10 +29,7 @@ public class RunLengthCodec {
     public Int32Array encode(IntArray data, RunLengthEncoding encoding) {
         int[] input = data.getData();
         if (input.length == 0) {
-            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
-            encoding.setSrcType(3);
-            encoding.setSrcSize(0);
-            enc.add(encoding);
+            Encoding[] enc = getEncodings(data, encoding, 0);
             return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
@@ -61,13 +58,20 @@ public class RunLengthCodec {
         output[offset] = input[input.length - 1];
         output[offset + 1] = runLength;
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
-        encoding.setSrcType(3);
-        encoding.setSrcSize(input.length);
-        enc.add(encoding);
+        Encoding[] enc = getEncodings(data, encoding, input.length);
 
         return EncodedDataFactory.int32Array(output, enc);
     }
+
+    private Encoding[] getEncodings(IntArray data, RunLengthEncoding encoding, int length) {
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+        encoding.setSrcType(3);
+        encoding.setSrcSize(length);
+        enc[dataEncoding.length] = encoding;
+        return enc;
+    }
+
 
     public IntArray decode(Int32Array data, RunLengthEncoding encoding) {
         int srcType = encoding.getSrcType();

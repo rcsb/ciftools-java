@@ -10,6 +10,7 @@ import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -169,7 +170,7 @@ public class BinaryCifWriter {
 
         // default encoding
         Map<String, Object> encodedMap = new LinkedHashMap<>();
-        encodedMap.put("encoding", byteArray.getEncoding().stream().map(this::wrap).toArray(Object[]::new));
+        encodedMap.put("encoding", toArray(byteArray.getEncoding()));
         encodedMap.put("data", byteArray.getData());
 
         // encode mask
@@ -178,7 +179,7 @@ public class BinaryCifWriter {
             ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode(new ByteArrayEncoding());
 
             if (maskRLE.getData().length < mask.getData().length) {
-                RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().get(0);
+                RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding()[0];
 
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
                 encoding1.put("kind", "RunLength");
@@ -208,6 +209,14 @@ public class BinaryCifWriter {
         map.put("mask", maskData);
 
         return map;
+    }
+
+    private Object[] toArray(Encoding[] encoding) {
+        Map[] array = new Map[encoding.length];
+        for (int i = 0; i < encoding.length; i++) {
+            array[i] = wrap(encoding[i]);
+        }
+        return array;
     }
 
     private Map<String, Object> wrap(Object object) {

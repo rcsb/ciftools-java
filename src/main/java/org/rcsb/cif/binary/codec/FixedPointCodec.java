@@ -1,10 +1,12 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
@@ -32,9 +34,10 @@ public class FixedPointCodec {
                 .mapToInt(d -> (int) Math.round(d * factor))
                 .toArray();
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
         encoding.setSrcType(srcType);
-        enc.add(encoding);
+        enc[dataEncoding.length] = encoding;
 
         return EncodedDataFactory.int32Array(outputArray, enc);
     }

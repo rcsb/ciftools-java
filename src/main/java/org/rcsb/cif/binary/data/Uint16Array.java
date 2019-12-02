@@ -3,17 +3,16 @@ package org.rcsb.cif.binary.data;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
 public class Uint16Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 5;
 
     Uint16Array(int[] data) {
-        this(data, new LinkedList<>());
+        this(data, Encoding.EMPTY_ENCODING_ARRAY);
     }
 
-    Uint16Array(int[] data, LinkedList<Encoding> encoding) {
+    Uint16Array(int[] data, Encoding[] encoding) {
         super(data, encoding);
     }
 

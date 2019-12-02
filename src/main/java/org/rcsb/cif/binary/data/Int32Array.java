@@ -3,12 +3,15 @@ package org.rcsb.cif.binary.data;
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.codec.Codec;
-import org.rcsb.cif.binary.encoding.*;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.FixedPointEncoding;
+import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
+import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
@@ -16,10 +19,10 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
     static final int TYPE = 3;
 
     Int32Array(int[] data) {
-        this(data, new LinkedList<>());
+        this(data, Encoding.EMPTY_ENCODING_ARRAY);
     }
 
-    Int32Array(int[] data, LinkedList<Encoding> encoding) {
+    Int32Array(int[] data, Encoding[] encoding) {
         super(data, encoding);
     }
 

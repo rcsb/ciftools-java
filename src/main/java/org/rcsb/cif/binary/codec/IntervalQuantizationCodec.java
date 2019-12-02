@@ -1,10 +1,12 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -36,9 +38,10 @@ public class IntervalQuantizationCodec {
         int srcType = data.getType();
 
         if (input.length == 0) {
-            LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
-            enc.add(encoding);
+            Encoding[] dataEncoding = data.getEncoding();
+            Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
             encoding.setSrcType(3);
+            enc[dataEncoding.length] = encoding;
             return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
@@ -62,9 +65,10 @@ public class IntervalQuantizationCodec {
             }
         }
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
         encoding.setSrcType(srcType);
-        enc.add(encoding);
+        enc[dataEncoding.length] = encoding;
 
         return EncodedDataFactory.int32Array(output, enc);
     }

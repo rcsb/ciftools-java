@@ -73,12 +73,14 @@ public class StringArrayCodec {
         EncodingStrategyHint outputHint = Classifier.classify(outputPlain);
         ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+
         encoding.setOffsets(offsets.getData());
         encoding.setOffsetEncoding(offsets.getEncoding());
         encoding.setStringData(String.join("", strings));
         encoding.setDataEncoding(output.getEncoding());
-        enc.add(encoding);
+        enc[dataEncoding.length] = encoding;
 
         return EncodedDataFactory.byteArray(output.getData(), enc);
     }

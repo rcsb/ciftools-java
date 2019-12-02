@@ -2,29 +2,27 @@ package org.rcsb.cif.binary.data;
 
 import org.rcsb.cif.binary.encoding.Encoding;
 
-import java.util.LinkedList;
-
 public abstract class AbstractEncodedData<D> implements EncodedData<D> {
     final Object data;
-    private LinkedList<Encoding> encoding;
+    private Encoding[] encoding;
 
-    AbstractEncodedData(Object data, LinkedList<Encoding> encoding) {
+    AbstractEncodedData(Object data, Encoding[] encoding) {
         this.data = data;
         this.encoding = encoding;
     }
 
     @Override
-    public LinkedList<Encoding> getEncoding() {
+    public Encoding[] getEncoding() {
         return encoding;
     }
 
     @Override
-    public void setEncoding(LinkedList<Encoding> encoding) {
+    public void setEncoding(Encoding[] encoding) {
         this.encoding = encoding;
     }
 
     @Override
     public boolean hasNextDecodingStep() {
-        return getEncoding().size() > 0;
+        return getEncoding().length > 0;
     }
 }

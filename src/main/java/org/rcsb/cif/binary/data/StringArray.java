@@ -5,18 +5,17 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 
 public class StringArray extends AbstractEncodedData<String[]> {
-    public StringArray(Object data, LinkedList<Encoding> encoding) {
+    public StringArray(Object data, Encoding[] encoding) {
         super(data, encoding);
     }
 
     StringArray(String[] data) {
-        this(data, new LinkedList<>());
+        this(data, Encoding.EMPTY_ENCODING_ARRAY);
     }
 
-    StringArray(String[] data, LinkedList<Encoding> encoding) {
+    StringArray(String[] data, Encoding[] encoding) {
         super(data, encoding);
     }
 

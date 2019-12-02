@@ -1,13 +1,20 @@
 package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.EncodingStrategyHint;
-import org.rcsb.cif.binary.data.*;
-import org.rcsb.cif.binary.encoding.*;
+import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.Float64Array;
+import org.rcsb.cif.binary.data.FloatArray;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.IntArray;
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.FixedPointEncoding;
+import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
+import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.stream.DoubleStream;
 
 /**
  * Classifies {@link Int32Array} and {@link Float64Array} instances, i.e. for the given information find the most
@@ -230,9 +237,12 @@ public class Classifier {
 
         int multiplier = getMultiplier(hint.getPrecision());
 
-        int[] intArray = DoubleStream.of(data.getData())
-                .mapToInt(d -> (int) Math.round(multiplier * d))
-                .toArray();
+        double[] doubles = data.getData();
+        int[] intArray = new int[doubles.length];
+        for (int i = 0; i < doubles.length; i++) {
+            intArray[i] = (int) Math.round(doubles[i] * multiplier);
+        }
+
         EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
         hint.setEncoding(size.kind);
         return hint;

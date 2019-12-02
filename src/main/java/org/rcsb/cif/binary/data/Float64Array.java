@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.stream.DoubleStream;
 
 public class Float64Array extends AbstractEncodedData<double[]> implements FloatArray {
@@ -15,10 +14,10 @@ public class Float64Array extends AbstractEncodedData<double[]> implements Float
     private static final int TYPE = 33;
 
     Float64Array(double[] data) {
-        this(data, new LinkedList<>());
+        this(data, Encoding.EMPTY_ENCODING_ARRAY);
     }
 
-    Float64Array(double[] data, LinkedList<Encoding> encoding) {
+    Float64Array(double[] data, Encoding[] encoding) {
         super(data, encoding);
     }
 

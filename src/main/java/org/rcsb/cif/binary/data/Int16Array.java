@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.encoding.Encoding;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.stream.IntStream;
 
 public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
@@ -15,10 +14,10 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
     static final int TYPE = 2;
 
     Int16Array(int[] data) {
-        this(data, new LinkedList<>());
+        this(data, Encoding.EMPTY_ENCODING_ARRAY);
     }
 
-    Int16Array(int[] data, LinkedList<Encoding> encoding) {
+    Int16Array(int[] data, Encoding[] encoding) {
         super(data, encoding);
     }
 

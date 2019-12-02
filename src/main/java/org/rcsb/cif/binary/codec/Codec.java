@@ -2,13 +2,17 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.EncodedData;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
-import org.rcsb.cif.binary.encoding.*;
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.DeltaEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
+import org.rcsb.cif.binary.encoding.FixedPointEncoding;
+import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
+import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
+import org.rcsb.cif.binary.encoding.RunLengthEncoding;
+import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
-import java.util.Collections;
-import java.util.LinkedList;
+import java.util.Arrays;
 import java.util.Map;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * A library of codec implementations and provider to codec-specific constants such as encoder name, version, and
@@ -40,7 +44,10 @@ public class Codec {
 
         while (current.hasNextDecodingStep()) {
             // pop the last element of this encoding chain, do so until chain is completely resolved
-            Encoding encoding = (Encoding) current.getEncoding().removeLast();
+            Encoding[] encodings = current.getEncoding();
+            Encoding encoding = encodings[encodings.length - 1];
+            // update encodings of current
+            current.setEncoding(Arrays.copyOf(encodings, encodings.length - 1));
             current = encoding.decode(current);
         }
 
@@ -56,13 +63,9 @@ public class Codec {
     public static Object decode(Map<String, Object> encodedData) {
         EncodedData current = EncodedDataFactory.byteArray((byte[]) encodedData.get("data"));
         Object[] encodingMaps = (Object[]) encodedData.get("encoding");
-        LinkedList<Encoding> encodings = Stream.of(encodingMaps)
-                .map(Map.class::cast)
-                .map(Codec::wrap)
-                .collect(Collectors.toCollection(LinkedList::new));
-        Collections.reverse(encodings);
-
-        for (Encoding encoding : encodings) {
+        for (int i = encodingMaps.length - 1; i >= 0; i--) {
+            Map map = (Map) encodingMaps[i];
+            Encoding encoding = wrap(map);
             current = encoding.decode(current);
         }
 
@@ -74,7 +77,6 @@ public class Codec {
      * @param encoding map representation of encoding
      * @return the concrete Encoding instance
      */
-    @SuppressWarnings("unchecked")
     private static Encoding wrap(Map encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
@@ -91,15 +93,20 @@ public class Codec {
             case "IntegerPacking":
                 return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                LinkedList<Encoding> outputEncoding = Stream.of((Object[]) encoding.get("dataEncoding"))
-                        .map(map -> wrap((Map<String, Object>) map))
-                        .collect(Collectors.toCollection(LinkedList::new));
-                LinkedList<Encoding> offsetEncoding = Stream.of((Object[]) encoding.get("offsetEncoding"))
-                                .map(map -> wrap((Map<String, Object>) map))
-                                .collect(Collectors.toCollection(LinkedList::new));
+                Encoding[] outputEncoding = wrap(encoding.get("dataEncoding"));
+                Encoding[] offsetEncoding = wrap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
         }
+    }
+
+    private static Encoding[] wrap(Object rawEncodingMap) {
+        Object[] encodingMap = (Object[]) rawEncodingMap;
+        Encoding[] encodings = new Encoding[encodingMap.length];
+        for (int i = 0; i < encodings.length; i++) {
+            encodings[i] = wrap((Map) encodingMap[i]);
+        }
+        return encodings;
     }
 }

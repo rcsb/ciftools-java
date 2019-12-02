@@ -2,8 +2,6 @@ package org.rcsb.cif.binary.data;
 
 import org.rcsb.cif.binary.encoding.Encoding;
 
-import java.util.LinkedList;
-
 /**
  * Factory class for the instantiation of {@link EncodedData} instances.
  */
@@ -48,104 +46,84 @@ public class EncodedDataFactory {
         return new StringArray(strings);
     }
 
-    public static ByteArray byteArray(byte[] bytes, LinkedList<Encoding> encoding) {
+    public static ByteArray byteArray(byte[] bytes, Encoding[] encoding) {
         return new ByteArray(bytes, encoding);
     }
 
-    public static Float32Array float32Array(double[] floats, LinkedList<Encoding> encoding) {
+    public static Float32Array float32Array(double[] floats, Encoding[] encoding) {
         return new Float32Array(floats, encoding);
     }
 
-    public static Float64Array float64Array(double[] floats, LinkedList<Encoding> encoding) {
+    public static Float64Array float64Array(double[] floats, Encoding[] encoding) {
         return new Float64Array(floats, encoding);
     }
 
-    public static Int8Array int8Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Int8Array int8Array(int[] ints, Encoding[] encoding) {
         return new Int8Array(ints, encoding);
     }
 
-    public static Int16Array int16Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Int16Array int16Array(int[] ints, Encoding[] encoding) {
         return new Int16Array(ints, encoding);
     }
 
-    public static Int32Array int32Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Int32Array int32Array(int[] ints, Encoding[] encoding) {
         return new Int32Array(ints, encoding);
     }
 
-    public static Uint8Array uint8Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Uint8Array uint8Array(int[] ints, Encoding[] encoding) {
         return new Uint8Array(ints, encoding);
     }
 
-    public static Uint16Array uint16Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Uint16Array uint16Array(int[] ints, Encoding[] encoding) {
         return new Uint16Array(ints, encoding);
     }
 
-    public static Uint32Array uint32Array(int[] ints, LinkedList<Encoding> encoding) {
+    public static Uint32Array uint32Array(int[] ints, Encoding[] encoding) {
         return new Uint32Array(ints, encoding);
     }
 
-    public static StringArray stringArray(String[] strings, LinkedList<Encoding> encoding) {
+    public static StringArray stringArray(String[] strings, Encoding[] encoding) {
         return new StringArray(strings, encoding);
     }
 
     public static ByteArray byteArray(byte[] bytes, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new ByteArray(bytes, encoding);
+        return new ByteArray(bytes, new Encoding[] { enc });
     }
 
     public static Float32Array float32Array(double[] floats, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Float32Array(floats, encoding);
+        return new Float32Array(floats, new Encoding[] { enc });
     }
 
     public static Float64Array float64Array(double[] floats, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Float64Array(floats, encoding);
+        return new Float64Array(floats, new Encoding[] { enc });
     }
 
     public static Int8Array int8Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Int8Array(ints, encoding);
+        return new Int8Array(ints, new Encoding[] { enc });
     }
 
     public static Int16Array int16Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Int16Array(ints, encoding);
+        return new Int16Array(ints, new Encoding[] { enc });
     }
 
     public static Int32Array int32Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Int32Array(ints, encoding);
+        return new Int32Array(ints, new Encoding[] { enc });
     }
 
     public static Uint8Array uint8Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Uint8Array(ints, encoding);
+        return new Uint8Array(ints, new Encoding[] { enc });
     }
 
     public static Uint16Array uint16Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Uint16Array(ints, encoding);
+        return new Uint16Array(ints, new Encoding[] { enc });
     }
 
     public static Uint32Array uint32Array(int[] ints, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new Uint32Array(ints, encoding);
+        return new Uint32Array(ints, new Encoding[] { enc });
     }
 
     public static StringArray stringArray(String[] strings, Encoding enc) {
-        LinkedList<Encoding> encoding = new LinkedList<>();
-        encoding.add(enc);
-        return new StringArray(strings, encoding);
+        return new StringArray(strings, new Encoding[] { enc });
     }
 
     public static FloatArray floatArray(int type, int size) {

@@ -1,11 +1,20 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.*;
+import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Float32Array;
+import org.rcsb.cif.binary.data.Int16Array;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.Int8Array;
+import org.rcsb.cif.binary.data.NumberArray;
+import org.rcsb.cif.binary.data.Uint16Array;
+import org.rcsb.cif.binary.data.Uint32Array;
+import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteOrder;
-import java.util.LinkedList;
+import java.util.Arrays;
 
 /**
  * <p>Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
@@ -24,9 +33,10 @@ public class ByteArrayCodec {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        LinkedList<Encoding> enc = new LinkedList<>(data.getEncoding());
+        Encoding[] dataEncoding = data.getEncoding();
+        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
         encoding.setType(type);
-        enc.add(encoding);
+        enc[dataEncoding.length] = encoding;
 
         return EncodedDataFactory.byteArray(bytes, enc);
     }
