@@ -2,8 +2,14 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.BinaryFile;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.AtomSite;
 
@@ -16,6 +22,62 @@ import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {
+    @Test
+    public void shouldGenericallyReadTextFiles() throws IOException {
+        // no types
+        CifFile genericCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"),
+                new CifOptions.CifOptionsBuilder().generic(true).build());
+        // 'normal behavior' - types are inferred
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
+
+        assertGenericParsing(genericCifFile, cifFile);
+    }
+
+    private void assertGenericParsing(CifFile genericCifFile, CifFile cifFile) {
+        Block genericCifBlock = genericCifFile.getFirstBlock();
+
+        // we expect all categories to be generic/untyped BaseColumns
+        genericCifBlock.categories()
+                .map(Category::getClass)
+                .forEach(categoryClass -> assertEquals(BaseCategory.class, categoryClass));
+
+        // we expect all columns to be 'generic' StrColumns - you can't go wrong with Strings!
+        genericCifBlock.categories()
+                .flatMap(Category::columns)
+                .map(Column::getClass)
+                .forEach(columnClass -> assertEquals(StrColumn.class, columnClass));
+
+        // access to categories and columns should fail
+        try {
+            genericCifBlock.getAtomSite();
+            fail("did not observe expected ClassCastException");
+        } catch (ClassCastException e) {
+            System.out.println("observed expected ClassCastException");
+        }
+        Column genericCartnx = genericCifBlock.getCategory("atom_site").getColumn("Cartn_x");
+        assertTrue(genericCartnx.isDefined());
+        Class<? extends Column> cartnxClass = genericCartnx.getClass();
+        assertNotEquals(FloatColumn.class, cartnxClass);
+
+        Block cifBlock = cifFile.getFirstBlock();
+
+        // we expect not all categories to be generic/untyped BaseColumns
+        assertFalse(cifBlock.categories()
+                .map(Category::getClass)
+                .allMatch(BaseCategory.class::equals));
+
+        // we expect not all columns to be 'generic' StrColumns
+        assertFalse(cifBlock.categories()
+                .flatMap(Category::columns)
+                .map(Column::getClass)
+                .allMatch(StrColumn.class::equals));
+
+        // access to categories and columns should be given
+        assertEquals(AtomSite.class, cifBlock.getAtomSite().getClass());
+        assertEquals(FloatColumn.class, cifBlock.getAtomSite().getCartnX().getClass());
+    }
+
+
     @Test
     public void testEncodingBehavior() throws IOException {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));

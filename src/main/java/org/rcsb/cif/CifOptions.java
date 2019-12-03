@@ -3,6 +3,7 @@ package org.rcsb.cif;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.model.Block;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -172,7 +173,9 @@ public class CifOptions {
 
         /**
          * Allow for 'generic' reading: no types will be inferred and all categories and columns will be the untyped,
-         * 'generic' base implementations of categories and columns.
+         * 'generic' base implementations of categories and columns. Be careful: this will cause any previously
+         * type-safe method (e.g. {@link Block#getAtomSite()} to now throw a {@link ClassCastException}. The only way to
+         * access categories/column is by getting them explicitly by name.
          * @param generic <code>true</code> will omit type-safe access to categories and columns
          * @return this builder instance
          */
