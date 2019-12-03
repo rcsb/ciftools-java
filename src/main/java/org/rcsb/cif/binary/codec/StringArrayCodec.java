@@ -8,7 +8,12 @@ import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
-import java.util.*;
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * <p>Stores an array of strings as a concatenation of all unique strings, an array of offsets describing substrings,
@@ -78,14 +83,12 @@ public class StringArrayCodec {
         EncodingStrategyHint outputHint = Classifier.classify(outputPlain);
         ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
-        Encoding[] dataEncoding = data.getEncoding();
-        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
-
+        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setOffsets(offsets.getData());
         encoding.setOffsetEncoding(offsets.getEncoding());
         encoding.setStringData(String.join("", strings));
         encoding.setDataEncoding(output.getEncoding());
-        enc[dataEncoding.length] = encoding;
+        enc.add(encoding);
 
         return EncodedDataFactory.byteArray(output.getData(), enc);
     }

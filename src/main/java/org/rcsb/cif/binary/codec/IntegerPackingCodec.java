@@ -6,7 +6,8 @@ import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.stream.IntStream;
 
 /**
@@ -32,12 +33,11 @@ public class IntegerPackingCodec {
 
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            Encoding[] dataEncoding = data.getEncoding();
-            Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
             encoding.setByteCount(4);
             encoding.setUnsigned(false);
             encoding.setSrcSize(input.length);
-            enc[dataEncoding.length] = encoding;
+            enc.add(encoding);
             return EncodedDataFactory.int32Array(input, enc);
         }
 
@@ -82,12 +82,11 @@ public class IntegerPackingCodec {
             }
         }
 
-        Encoding[] dataEncoding = data.getEncoding();
-        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setByteCount(packing.bytesPerElement);
         encoding.setUnsigned(!packing.signed);
         encoding.setSrcSize(data.length());
-        enc[dataEncoding.length] = encoding;
+        enc.add(encoding);
         output.setEncoding(enc);
 
         return output;

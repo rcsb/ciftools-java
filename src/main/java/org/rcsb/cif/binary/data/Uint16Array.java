@@ -2,17 +2,19 @@ package org.rcsb.cif.binary.data;
 
 import org.rcsb.cif.binary.encoding.Encoding;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class Uint16Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 5;
 
     Uint16Array(int[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    Uint16Array(int[] data, Encoding[] encoding) {
+    Uint16Array(int[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 

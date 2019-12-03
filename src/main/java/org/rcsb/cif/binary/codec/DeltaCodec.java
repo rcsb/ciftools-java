@@ -5,7 +5,8 @@ import org.rcsb.cif.binary.data.SignedIntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * <p>Stores the input integer array as an array of consecutive differences.</p>
@@ -26,7 +27,12 @@ public class DeltaCodec {
         if (inputArray.length == 0) {
             T output = (T) EncodedDataFactory.intArray(srcType, 0);
 
-            return getEncoding(data, encoding, srcType, output, 0);
+            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+            encoding.setOrigin(0);
+            encoding.setSrcType(srcType);
+            enc.add(encoding);
+            output.setEncoding(enc);
+            return output;
         }
 
         T output = (T) EncodedDataFactory.intArray(srcType, inputArray.length);
@@ -38,15 +44,10 @@ public class DeltaCodec {
         }
         outputArray[0] = 0;
 
-        return getEncoding(data, encoding, srcType, output, origin);
-    }
-
-    private <T extends SignedIntArray> T getEncoding(T data, DeltaEncoding encoding, int srcType, T output, int origin) {
-        Encoding[] dataEncoding = data.getEncoding();
-        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setOrigin(origin);
         encoding.setSrcType(srcType);
-        enc[dataEncoding.length] = encoding;
+        enc.add(encoding);
         output.setEncoding(enc);
         return output;
     }

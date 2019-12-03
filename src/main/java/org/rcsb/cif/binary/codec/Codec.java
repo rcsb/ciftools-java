@@ -11,7 +11,8 @@ import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Map;
 
 /**
@@ -44,10 +45,7 @@ public class Codec {
 
         while (current.hasNextDecodingStep()) {
             // pop the last element of this encoding chain, do so until chain is completely resolved
-            Encoding[] encodings = current.getEncoding();
-            Encoding encoding = encodings[encodings.length - 1];
-            // update encodings of current
-            current.setEncoding(Arrays.copyOf(encodings, encodings.length - 1));
+            Encoding encoding = (Encoding) current.getEncoding().removeLast();
             current = encoding.decode(current);
         }
 
@@ -93,19 +91,19 @@ public class Codec {
             case "IntegerPacking":
                 return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                Encoding[] outputEncoding = wrap(encoding.get("dataEncoding"));
-                Encoding[] offsetEncoding = wrap(encoding.get("offsetEncoding"));
+                Deque<Encoding> outputEncoding = wrap(encoding.get("dataEncoding"));
+                Deque<Encoding> offsetEncoding = wrap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
         }
     }
 
-    private static Encoding[] wrap(Object rawEncodingMap) {
+    private static Deque<Encoding> wrap(Object rawEncodingMap) {
         Object[] encodingMap = (Object[]) rawEncodingMap;
-        Encoding[] encodings = new Encoding[encodingMap.length];
-        for (int i = 0; i < encodings.length; i++) {
-            encodings[i] = wrap((Map) encodingMap[i]);
+        Deque<Encoding> encodings = new ArrayDeque<>();
+        for (Object o : encodingMap) {
+            encodings.add(wrap((Map) o));
         }
         return encodings;
     }

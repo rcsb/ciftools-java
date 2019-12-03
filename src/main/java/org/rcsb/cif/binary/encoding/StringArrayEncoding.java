@@ -5,31 +5,32 @@ import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.StringArray;
 
 import java.util.Arrays;
+import java.util.Deque;
 import java.util.Map;
 
 public class StringArrayEncoding implements Encoding<ByteArray> {
     private static final String kind = "StringArray";
-    private Encoding[] dataEncoding;
+    private Deque<Encoding> dataEncoding;
     private String stringData;
-    private Encoding[] offsetEncoding;
+    private Deque<Encoding> offsetEncoding;
     private byte[] offsets;
 
     public StringArrayEncoding() {
 
     }
 
-    public StringArrayEncoding(String stringData, byte[] offsets, Encoding[] outputEncoding, Encoding[] offsetEncoding) {
+    public StringArrayEncoding(String stringData, byte[] offsets, Deque<Encoding> outputEncoding, Deque<Encoding> offsetEncoding) {
         this.dataEncoding = outputEncoding;
         this.stringData = stringData;
         this.offsetEncoding = offsetEncoding;
         this.offsets = offsets;
     }
 
-    public StringArrayEncoding(Map encoding, Encoding[] outputEncoding, Encoding[] offsetEncoding) {
+    public StringArrayEncoding(Map encoding, Deque<Encoding> outputEncoding, Deque<Encoding> offsetEncoding) {
         this((String) encoding.get("stringData"), (byte[]) encoding.get("offsets"), outputEncoding, offsetEncoding);
     }
 
-    public Encoding[] getDataEncoding() {
+    public Deque<Encoding> getDataEncoding() {
         return dataEncoding;
     }
 
@@ -37,7 +38,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         return stringData;
     }
 
-    public Encoding[] getOffsetEncoding() {
+    public Deque<Encoding> getOffsetEncoding() {
         return offsetEncoding;
     }
 
@@ -45,7 +46,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         return offsets;
     }
 
-    public void setDataEncoding(Encoding[] dataEncoding) {
+    public void setDataEncoding(Deque<Encoding> dataEncoding) {
         this.dataEncoding = dataEncoding;
     }
 
@@ -53,7 +54,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         this.stringData = stringData;
     }
 
-    public void setOffsetEncoding(Encoding[] offsetEncoding) {
+    public void setOffsetEncoding(Deque<Encoding> offsetEncoding) {
         this.offsetEncoding = offsetEncoding;
     }
 
@@ -74,9 +75,9 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
     @Override
     public String toString() {
         return "StringArrayEncoding{" +
-                "dataEncoding=" + Arrays.toString(dataEncoding) +
+                "dataEncoding=" + dataEncoding +
                 ", stringData='" + stringData + '\'' +
-                ", offsetEncoding=" + Arrays.toString(offsetEncoding) +
+                ", offsetEncoding=" + offsetEncoding +
                 ", offsets=" + Arrays.toString(offsets) +
                 '}';
     }

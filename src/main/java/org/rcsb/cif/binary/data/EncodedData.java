@@ -3,6 +3,8 @@ package org.rcsb.cif.binary.data;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.Encoding;
 
+import java.util.Deque;
+
 /**
  * Data is always bundled with encoding information to handle de- and encoding.
  * @param <D> the array type this class wraps
@@ -26,7 +28,7 @@ public interface EncodedData<D> {
      * all fields of the requested Encoding to allow for decoding.
      * @return all associated Encoding instances
      */
-    Encoding[] getEncoding();
+    Deque<Encoding> getEncoding();
 
     /**
      * Request decoding of this EncodedData instance. Will automatically resolve its decoding chain, starting from a
@@ -42,7 +44,7 @@ public interface EncodedData<D> {
      * Replace this encoding chain with a different one.
      * @param encoding the new encoding chain for this instance
      */
-    void setEncoding(Encoding[] encoding);
+    void setEncoding(Deque<Encoding> encoding);
 
     /**
      * Convenience method to state whether the List returned by {@link #getEncoding()} is not empty.

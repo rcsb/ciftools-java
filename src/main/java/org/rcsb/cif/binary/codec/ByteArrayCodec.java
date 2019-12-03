@@ -14,7 +14,8 @@ import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteOrder;
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * <p>Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
@@ -33,10 +34,9 @@ public class ByteArrayCodec {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        Encoding[] dataEncoding = data.getEncoding();
-        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setType(type);
-        enc[dataEncoding.length] = encoding;
+        enc.add(encoding);
 
         return EncodedDataFactory.byteArray(bytes, enc);
     }

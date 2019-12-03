@@ -7,14 +7,16 @@ import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class ByteArray extends AbstractEncodedData<byte[]> {
     ByteArray(byte[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    ByteArray(byte[] data, Encoding[] encoding) {
+    ByteArray(byte[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 
@@ -41,7 +43,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return Codec.STRING_ARRAY_CODEC.decode(this, encoding);
     }
 
-    public Int8Array toInt8Array(Encoding[] encoding) {
+    public Int8Array toInt8Array(Deque<Encoding> encoding) {
         int[] ints = new int[length()];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
         for (int i = 0; i < ints.length; i++) {
@@ -50,7 +52,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int8Array(ints, encoding);
     }
 
-    public Int16Array toInt16Array(Encoding[] encoding) {
+    public Int16Array toInt16Array(Deque<Encoding> encoding) {
         int[] ints = new int[length() / 2];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -59,7 +61,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int16Array(ints, encoding);
     }
 
-    public Int32Array toInt32Array(Encoding[] encoding) {
+    public Int32Array toInt32Array(Deque<Encoding> encoding) {
         int[] ints = new int[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -68,7 +70,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int32Array(ints, encoding);
     }
 
-    public Uint8Array toUint8Array(Encoding[] encoding) {
+    public Uint8Array toUint8Array(Deque<Encoding> encoding) {
         int[] ints = new int[length()];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
         for (int i = 0; i < ints.length; i++) {
@@ -77,7 +79,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint8Array(ints, encoding);
     }
 
-    public Uint16Array toUint16Array(Encoding[] encoding) {
+    public Uint16Array toUint16Array(Deque<Encoding> encoding) {
         int[] ints = new int[length() / 2];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -86,7 +88,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint16Array(ints, encoding);
     }
 
-    public Uint32Array toUint32Array(Encoding[] encoding) {
+    public Uint32Array toUint32Array(Deque<Encoding> encoding) {
         int[] ints = new int[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -95,7 +97,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint32Array(ints, encoding);
     }
 
-    public Float32Array toFloat32Array(Encoding[] encoding) {
+    public Float32Array toFloat32Array(Deque<Encoding> encoding) {
         double[] doubles = new double[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < doubles.length; i++) {
@@ -104,7 +106,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Float32Array(doubles, encoding);
     }
 
-    public Float64Array toFloat64Array(Encoding[] encoding) {
+    public Float64Array toFloat64Array(Deque<Encoding> encoding) {
         double[] doubles = new double[length() / 8];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < doubles.length; i++) {

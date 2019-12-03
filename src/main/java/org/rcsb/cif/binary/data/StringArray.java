@@ -4,18 +4,20 @@ import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class StringArray extends AbstractEncodedData<String[]> {
-    public StringArray(Object data, Encoding[] encoding) {
+    public StringArray(Object data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 
     StringArray(String[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    StringArray(String[] data, Encoding[] encoding) {
+    StringArray(String[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 

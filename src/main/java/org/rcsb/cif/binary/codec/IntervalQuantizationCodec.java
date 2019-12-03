@@ -1,12 +1,11 @@
 package org.rcsb.cif.binary.codec;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
-import org.rcsb.cif.binary.data.FloatArray;
-import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} where the values are quantized within a
@@ -37,10 +36,9 @@ public class IntervalQuantizationCodec {
         int srcType = data.getType();
 
         if (input.length == 0) {
-            Encoding[] dataEncoding = data.getEncoding();
-            Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+            enc.add(encoding);
             encoding.setSrcType(3);
-            enc[dataEncoding.length] = encoding;
             return EncodedDataFactory.int32Array(new int[0], enc);
         }
 
@@ -64,10 +62,9 @@ public class IntervalQuantizationCodec {
             }
         }
 
-        Encoding[] dataEncoding = data.getEncoding();
-        Encoding[] enc = Arrays.copyOf(dataEncoding, dataEncoding.length + 1);
+        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setSrcType(srcType);
-        enc[dataEncoding.length] = encoding;
+        enc.add(encoding);
 
         return EncodedDataFactory.int32Array(output, enc);
     }

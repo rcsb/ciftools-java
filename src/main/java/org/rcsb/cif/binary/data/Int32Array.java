@@ -11,17 +11,19 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
     static final int TYPE = 3;
 
     Int32Array(int[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    Int32Array(int[] data, Encoding[] encoding) {
+    Int32Array(int[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 

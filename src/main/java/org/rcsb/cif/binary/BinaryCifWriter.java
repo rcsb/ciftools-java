@@ -10,7 +10,6 @@ import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
-import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -24,6 +23,7 @@ import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.lang.reflect.Field;
+import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -169,7 +169,10 @@ public class BinaryCifWriter {
 
         // default encoding
         Map<String, Object> encodedMap = new LinkedHashMap<>();
-        encodedMap.put("encoding", toArray(byteArray.getEncoding()));
+        encodedMap.put("encoding", byteArray.getEncoding()
+                .stream()
+                .map(this::wrap)
+                .toArray(Map[]::new));
         encodedMap.put("data", byteArray.getData());
 
         // encode mask
@@ -178,7 +181,7 @@ public class BinaryCifWriter {
             ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode(new ByteArrayEncoding());
 
             if (maskRLE.getData().length < mask.getData().length) {
-                RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding()[0];
+                RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().getFirst();
 
                 Map<String, Object> encoding1 = new LinkedHashMap<>();
                 encoding1.put("kind", "RunLength");
@@ -189,14 +192,14 @@ public class BinaryCifWriter {
                 encoding2.put("kind", "ByteArray");
                 encoding2.put("type", 3);
 
-                maskData.put("encoding", new Object[] { encoding1, encoding2 });
+                maskData.put("encoding", new Object[]{encoding1, encoding2});
                 maskData.put("data", maskRLE.getData());
             } else {
                 ByteArray encodedMask = mask.encode(new ByteArrayEncoding(4));
                 Map<String, Object> encoding = new LinkedHashMap<>();
                 encoding.put("kind", "ByteArray");
                 encoding.put("type", 4);
-                maskData.put("encoding", new Object[] { encoding });
+                maskData.put("encoding", new Object[]{encoding});
                 maskData.put("data", encodedMask.getData());
             }
         }
@@ -210,14 +213,6 @@ public class BinaryCifWriter {
         return map;
     }
 
-    private Object[] toArray(Encoding[] encoding) {
-        Map[] array = new Map[encoding.length];
-        for (int i = 0; i < encoding.length; i++) {
-            array[i] = wrap(encoding[i]);
-        }
-        return array;
-    }
-
     private Map<String, Object> wrap(Object object) {
         try {
             Map<String, Object> out = new LinkedHashMap<>();
@@ -226,13 +221,12 @@ public class BinaryCifWriter {
                 Object content = field.get(object);
                 if (content instanceof Map) {
                     content = wrap(content);
-                } else if (content instanceof List) {
-                    List<?> list = (List<?>) content;
-                    Object[] contentArray = new Object[list.size()];
-                    for (int i = 0; i < list.size(); i++) {
-                        contentArray[i] = wrap(list.get(i));
-                    }
-                    content = contentArray;
+                } else if (content instanceof Collection) {
+                    // handles Deque instances passed here - and basically any non-map collection
+                    Collection<?> list = (Collection<?>) content;
+                    content = list.stream()
+                            .map(this::wrap)
+                            .toArray();
                 } else if (isObjectArray(content)) {
                     Object[] array = (Object[]) content;
                     Object[] contentArray = new Object[array.length];

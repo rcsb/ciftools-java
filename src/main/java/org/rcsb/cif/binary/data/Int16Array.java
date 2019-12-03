@@ -6,17 +6,19 @@ import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 2;
 
     Int16Array(int[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    Int16Array(int[] data, Encoding[] encoding) {
+    Int16Array(int[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 

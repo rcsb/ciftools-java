@@ -7,8 +7,6 @@ import org.rcsb.cif.binary.data.EncodedData;
  * Represents a single encoding or decoding step for a column.
  */
 public interface Encoding<E extends EncodedData> {
-    Encoding[] EMPTY_ENCODING_ARRAY = new Encoding[0];
-
     /**
      * The name of this encoding. Used for serialization and to retrieve the necessary {@link Codec} implementations.
      * @return a String representing the name of this encoding

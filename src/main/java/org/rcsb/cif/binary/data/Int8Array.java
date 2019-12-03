@@ -5,17 +5,19 @@ import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteBuffer;
+import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.Deque;
 
 public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     static final int TYPE = 1;
 
     Int8Array(int[] data) {
-        this(data, Encoding.EMPTY_ENCODING_ARRAY);
+        this(data, new ArrayDeque<>());
     }
 
-    Int8Array(int[] data, Encoding[] encoding) {
+    Int8Array(int[] data, Deque<Encoding> encoding) {
         super(data, encoding);
     }
 
