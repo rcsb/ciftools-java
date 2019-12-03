@@ -21,14 +21,13 @@ public class ProxyCategory extends BaseCategory {
 
     public Category get() {
         if (realizedCategory == null) {
-            realizedCategory = ModelFactory.createCategoryBinary(super.name, super.rowCount, super.encodedColumns);
+            realizedCategory = ModelFactory.createCategoryBinary(name, rowCount, encodedColumns);
         }
         return realizedCategory;
     }
 
     @Override
     public Column getColumn(String name) {
-        name = name.toLowerCase();
         return (isGeneric ? super.getColumn(name) : get().getColumn(name));
     }
 
