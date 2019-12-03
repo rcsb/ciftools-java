@@ -25,6 +25,7 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -46,7 +47,6 @@ import java.util.function.Function;
  * @since 3.0
  * @param <V> the value type
  */
-@SuppressWarnings("serial")
 public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable, Cloneable {
     private final LinkedHashMap<String, V> targetMap;
     private final HashMap<String, String> caseInsensitiveKeys;
@@ -258,13 +258,21 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
     @Override
-    public boolean equals(Object obj) {
-        return this.targetMap.equals(obj);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        LinkedCaseInsensitiveMap<?> that = (LinkedCaseInsensitiveMap<?>) o;
+        return Objects.equals(targetMap, that.targetMap) &&
+                Objects.equals(caseInsensitiveKeys, that.caseInsensitiveKeys) &&
+                Objects.equals(locale, that.locale) &&
+                Objects.equals(keySet, that.keySet) &&
+                Objects.equals(values, that.values) &&
+                Objects.equals(entrySet, that.entrySet);
     }
 
     @Override
     public int hashCode() {
-        return this.targetMap.hashCode();
+        return Objects.hash(targetMap, caseInsensitiveKeys, locale, keySet, values, entrySet);
     }
 
     @Override
@@ -293,7 +301,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
      * @return the key to use for storing
      * @see String#toLowerCase(Locale)
      */
-    protected String convertKey(String key) {
+    private String convertKey(String key) {
         return key.toLowerCase(getLocale());
     }
 
@@ -302,7 +310,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
      * @param eldest the candidate entry
      * @return {@code true} for removing it, {@code false} for keeping it
      */
-    protected boolean removeEldestEntry(Map.Entry<String, V> eldest) {
+    private boolean removeEldestEntry(Map.Entry<String, V> eldest) {
         return false;
     }
 
@@ -394,7 +402,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     class EntrySet extends AbstractSet<Entry<String, V>> {
         private final Set<Entry<String, V>> delegate;
 
-        public EntrySet(Set<Entry<String, V>> delegate) {
+        EntrySet(Set<Entry<String, V>> delegate) {
             this.delegate = delegate;
         }
 
@@ -446,11 +454,11 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
 
         private Entry<String, V> last;
 
-        public EntryIterator() {
+        EntryIterator() {
             this.delegate = targetMap.entrySet().iterator();
         }
 
-        protected Entry<String, V> nextEntry() {
+        Entry<String, V> nextEntry() {
             Entry<String, V> entry = this.delegate.next();
             this.last = entry;
             return entry;
