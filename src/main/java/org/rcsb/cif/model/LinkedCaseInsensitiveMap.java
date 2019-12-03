@@ -253,11 +253,6 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
     @Override
-    public LinkedCaseInsensitiveMap<V> clone() {
-        return new LinkedCaseInsensitiveMap<>(this);
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
