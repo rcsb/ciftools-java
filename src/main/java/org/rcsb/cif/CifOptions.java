@@ -25,6 +25,7 @@ import java.util.stream.Collectors;
  * there are currently no relevant options for CIF reading.</p>
  */
 public class CifOptions {
+    private final boolean generic;
     private final boolean gzip;
     private final String encoder;
     private final String fetchUrl;
@@ -36,6 +37,7 @@ public class CifOptions {
     private final CifOptionsBuilder.FileFormat fileFormat;
 
     private CifOptions(CifOptionsBuilder builder) {
+        this.generic = builder.generic;
         this.gzip = builder.gzip;
         this.encoder = builder.encoder;
         this.fetchUrl = builder.fetchUrl;
@@ -54,6 +56,14 @@ public class CifOptions {
         categoryWhitelist.addAll(categoriesToAdd);
 
         this.encodingStrategyHints = builder.encodingStrategyHints;
+    }
+
+    /**
+     * Reading should not care about category and column types.
+     * @return <code>true</code> if reading should be untyped
+     */
+    public boolean isGeneric() {
+        return generic;
     }
 
     /**
@@ -149,6 +159,7 @@ public class CifOptions {
     public static class CifOptionsBuilder {
         private static final String FETCH_URL = "https://models.rcsb.org/%s.bcif";
 
+        private boolean generic = false;
         private boolean gzip = false;
         private String encoder = Codec.CODEC_NAME;
         private String fetchUrl = FETCH_URL;
@@ -158,6 +169,17 @@ public class CifOptions {
         private final List<String> columnBlacklist = new ArrayList<>();
         private final List<EncodingStrategyHint> encodingStrategyHints = new ArrayList<>();
         private FileFormat fileFormat;
+
+        /**
+         * Allow for 'generic' reading: no types will be inferred and all categories and columns will be the untyped,
+         * 'generic' base implementations of categories and columns.
+         * @param generic <code>true</code> will omit type-safe access to categories and columns
+         * @return this builder instance
+         */
+        public CifOptionsBuilder generic(boolean generic) {
+            this.generic = generic;
+            return this;
+        }
 
         /**
          * Allows for downstream GZIP operations.
