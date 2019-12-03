@@ -8,6 +8,7 @@ import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
 import org.rcsb.cif.model.ModelFactory;
 
 import java.io.IOException;
@@ -16,7 +17,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
-import java.util.TreeMap;
 
 public class BinaryCifReader {
     private final CifOptions options;
@@ -51,7 +51,7 @@ public class BinaryCifReader {
         for (Object rawBlock : rawBlocks) {
             Map<String, Object> map = (Map<String, Object>) rawBlock;
             String header = (String) map.get("header");
-            Map<String, Category> categories = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            Map<String, Category> categories = new LinkedCaseInsensitiveMap<>();
 
             try {
                 for (Object o : (Object[]) map.get("categories")) {

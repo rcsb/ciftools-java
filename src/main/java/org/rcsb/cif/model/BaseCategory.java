@@ -1,6 +1,10 @@
 package org.rcsb.cif.model;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -53,7 +57,7 @@ public class BaseCategory implements Category {
 
         this.isText = false;
         this.encodedColumns = encodedColumns;
-        this.decodedColumns = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+        this.decodedColumns = new LinkedCaseInsensitiveMap<>();
         try {
             this.columnNames = Stream.of(encodedColumns)
                     .map(map -> ((Map<String, Object>) map).get("name"))
