@@ -2,3 +2,17 @@
 target/
 *.iml
 .DS_Store
+site/
+/bin/
+.classpath
+.project
+.metadata
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
