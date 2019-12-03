@@ -33,6 +33,17 @@ public class CifOptionsTest {
         assertGenericParsing(genericCifFile, cifFile);
     }
 
+    @Test
+    public void shouldGenericallyReadBinaryFiles() throws IOException {
+        // no types
+        CifFile genericCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"),
+                new CifOptions.CifOptionsBuilder().generic(true).build());
+        // 'normal behavior' - types are inferred
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
+
+        assertGenericParsing(genericCifFile, cifFile);
+    }
+
     private void assertGenericParsing(CifFile genericCifFile, CifFile cifFile) {
         Block genericCifBlock = genericCifFile.getFirstBlock();
 
