@@ -96,6 +96,16 @@ public class ModelFactory {
     }
 
     /**
+     * Create a {@link Category} from text data. Make no effort to determine the type and roll with {@link BaseCategory}.
+     * @param categoryName the category name
+     * @param textColumns the text data to provide within this category
+     * @return the created instance
+     */
+    public static Category createCategoryTextGeneric(String categoryName, Map<String, Column> textColumns) {
+        return new BaseCategory(categoryName, textColumns);
+    }
+
+    /**
      * Create a {@link Category} from binary data. Tries to find a strict (i.e. concrete implementation by reflection
      * using the  internal) instance of the requested {@link Category}.
      * @param categoryName the category name
@@ -128,24 +138,6 @@ public class ModelFactory {
      */
     public static Category createEmptyCategory(String name) {
         return new BaseCategory(name);
-    }
-
-    /**
-     * Create a single row {@link Column} based on text data.
-     * @param categoryName the category to retrieve this class from
-     * @param columnName the column name to create
-     * @param data the raw string data to parse
-     * @param startToken the start index which will be used to extract data
-     * @param endToken the end index which will be used to extract data
-     * @return the text column
-     * @see ModelFactory#createColumnText(String, String, String, int[], int[])
-     */
-    public static Column createColumnText(String categoryName,
-                                          String columnName,
-                                          String data,
-                                          int startToken,
-                                          int endToken) {
-        return createColumnText(categoryName, columnName, data, new int[] { startToken }, new int[] { endToken });
     }
 
     /**
@@ -202,6 +194,22 @@ public class ModelFactory {
                 return new StrColumn(columnName, rowCount, data, startToken, endToken);
             }
         }
+    }
+
+    /**
+     * The creation method for a {@link Column} based on text data which is not yet parsed. Don't make any attempt at
+     * determining the type. It's a String!
+     * @param columnName the column name to create
+     * @param data the raw string data to parse
+     * @param startToken the collection of start indices which will be used to extract data
+     * @param endToken the collection of end indices which will be used to extract data
+     * @return the StrColumn, ready to parse particular rows
+     */
+    public static Column createColumnTextGeneric(String columnName,
+                                                 String data,
+                                                 int[] startToken,
+                                                 int[] endToken) {
+        return new StrColumn(columnName, startToken.length, data, startToken, endToken);
     }
 
     /**
