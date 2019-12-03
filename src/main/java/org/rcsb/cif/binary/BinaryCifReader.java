@@ -14,9 +14,9 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class BinaryCifReader {
     private final CifOptions options;
@@ -51,7 +51,7 @@ public class BinaryCifReader {
         for (Object rawBlock : rawBlocks) {
             Map<String, Object> map = (Map<String, Object>) rawBlock;
             String header = (String) map.get("header");
-            Map<String, Category> categories = new LinkedHashMap<>();
+            Map<String, Category> categories = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 
             try {
                 for (Object o : (Object[]) map.get("categories")) {

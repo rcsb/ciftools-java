@@ -10,17 +10,17 @@ import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Builds a category in a {@link org.rcsb.cif.model.Block}.
  */
 public class CategoryBuilder {
     private final String categoryName;
-    private final LinkedHashMap<String, Column> columns;
+    private final Map<String, Column> columns;
     private final BlockBuilder parent;
     private final List<ColumnBuilder<?>> pendingDigests;
     private final List<ColumnBuilder<?>> finishedDigests;
@@ -51,7 +51,7 @@ public class CategoryBuilder {
      * Associated columns.
      * @return the column map
      */
-    LinkedHashMap<String, Column> getColumns() {
+    Map<String, Column> getColumns() {
         return columns;
     }
 
@@ -107,7 +107,6 @@ public class CategoryBuilder {
      * @param values a list of int, double, or String values
      * @param mask a list of equal size, specifying ValueKinds
      * @param hint the class the column to create resembles
-     * @param <C> the class the column to create resembles
      * @return the create Column
      */
     static Column createColumnText(String categoryName,

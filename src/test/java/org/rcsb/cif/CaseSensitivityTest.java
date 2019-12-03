@@ -12,8 +12,9 @@ import org.rcsb.cif.model.generated.AtomSite;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.stream.IntStream;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.fail;
 
 /**
  * CIF specification states that case does not matter. This test defines the behavior of the implementation: case should
@@ -41,19 +42,61 @@ public class CaseSensitivityTest {
 
         AtomSite originalAtomSite = firstBlock.getAtomSite();
         Category atom_site = firstBlock.getCategory("atom_site");
-        assertEquals("good luck if these do not match", originalAtomSite, atom_site);
+        assertCategoryEquals("good luck if these do not match", originalAtomSite, atom_site);
         Category atom_Site = firstBlock.getCategory("atom_Site");
-        assertEquals("case insensitivity not honored for categories", originalAtomSite, atom_Site);
+        assertCategoryEquals("case insensitivity not honored for categories", originalAtomSite, atom_Site);
         Category ATOM_SITE = firstBlock.getCategory("ATOM_SITE");
-        assertEquals("case insensitivity not honored for categories", originalAtomSite, ATOM_SITE);
+        assertCategoryEquals("case insensitivity not honored for categories", originalAtomSite, ATOM_SITE);
 
         FloatColumn originalCartnX = originalAtomSite.getCartnX();
         Column Cartn_x = atom_site.getColumn("Cartn_x");
-        assertEquals("good luck if these do not match", originalCartnX, Cartn_x);
-        Column cartn_x = atom_site.getColumn("cartn_x");
-        assertEquals("case insensitivity not honored for categories", originalCartnX, cartn_x);
+        assertColumnEquals("good luck if these do not match", originalCartnX, Cartn_x);
+        Column cartn_x = atom_Site.getColumn("cartn_x");
+        assertColumnEquals("case insensitivity not honored for columns", originalCartnX, cartn_x);
         Column CARTN_X = ATOM_SITE.getColumn("CARTN_X");
-        assertEquals("case insensitivity not honored for categories", originalCartnX, CARTN_X);
+        assertColumnEquals("case insensitivity not honored for columns", originalCartnX, CARTN_X);
+    }
+
+    private void assertColumnEquals(String msg, Column expected, Column actual) {
+        if (expected == actual) {
+            return;
+        }
+
+        if (expected.equals(actual)) {
+            return;
+        }
+
+        if (!expected.getColumnName().equalsIgnoreCase(actual.getColumnName())) {
+            fail("column names mismatch " + expected.getColumnName() + " vs " + actual.getColumnName());
+        }
+
+        if (expected.getRowCount() != actual.getRowCount()) {
+            fail("row counts mismatch " + expected.getRowCount() + " vs " + actual.getRowCount() + " for column " + expected.getColumnName());
+        }
+
+        if(!IntStream.range(0, expected.getRowCount())
+                        .allMatch(i -> expected.getStringData(i).equals(actual.getStringData(i)))) {
+            fail("column content mismatch for column " + expected.getColumnName());
+        }
+
+        fail(msg);
+    }
+
+    private void assertCategoryEquals(String msg, Category expected, Category actual) {
+        if (expected == actual) {
+            return;
+        }
+
+        if (expected.equals(actual)) {
+            return;
+        }
+
+        if (expected.getCategoryName().equalsIgnoreCase(actual.getCategoryName()) &&
+                expected.getRowCount() == actual.getRowCount()) {
+            return;
+        }
+
+        fail(msg);
     }
 
     @Test

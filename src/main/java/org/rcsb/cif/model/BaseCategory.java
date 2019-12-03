@@ -53,7 +53,7 @@ public class BaseCategory implements Category {
 
         this.isText = false;
         this.encodedColumns = encodedColumns;
-        this.decodedColumns = new LinkedHashMap<>();
+        this.decodedColumns = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         try {
             this.columnNames = Stream.of(encodedColumns)
                     .map(map -> ((Map<String, Object>) map).get("name"))
@@ -104,7 +104,7 @@ public class BaseCategory implements Category {
     private Optional<Map<String, Object>> find(String name) {
         return Stream.of(encodedColumns)
                 .map(m -> (Map<String, Object>) m)
-                .filter(m -> name.equals(m.get("name")))
+                .filter(m -> name.equalsIgnoreCase((String) m.get("name")))
                 .findFirst();
     }
 

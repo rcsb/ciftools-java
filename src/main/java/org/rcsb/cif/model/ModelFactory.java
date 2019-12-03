@@ -27,17 +27,17 @@ public class ModelFactory {
                     .collect(Collectors.toMap(split -> split[0], split -> split[1]));
             lookupReader.close();
 
-            CATEGORY_MAP = rawMap.entrySet()
+            CATEGORY_MAP = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            rawMap.entrySet()
                     .stream()
                     .filter(entry -> !entry.getKey().contains("."))
-                    .collect(Collectors.toMap(Map.Entry::getKey,
-                            (Map.Entry<String, String> entry) -> forCategoryName(entry.getValue())));
+                    .forEach(entry -> CATEGORY_MAP.put(entry.getKey(), forCategoryName(entry.getValue())));
 
-            COLUMN_MAP = rawMap.entrySet()
+            COLUMN_MAP = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            rawMap.entrySet()
                     .stream()
                     .filter(entry -> entry.getKey().contains("."))
-                    .collect(Collectors.toMap(Map.Entry::getKey,
-                            (Map.Entry<String, String> entry) -> forColumnName(entry.getValue())));
+                    .forEach(entry -> COLUMN_MAP.put(entry.getKey(), forColumnName(entry.getValue())));
         } catch (IOException e) {
             throw new UncheckedIOException("could not load class name map", e);
         }

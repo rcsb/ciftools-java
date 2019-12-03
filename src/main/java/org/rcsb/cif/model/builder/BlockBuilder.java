@@ -1,12 +1,13 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.ModelFactory;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * Builds a block in a {@link org.rcsb.cif.model.CifFile}, in most cases there is 1 block which contains all categories
@@ -14,7 +15,7 @@ import java.util.LinkedHashMap;
  */
 public class BlockBuilder {
     private final String blockName;
-    private final LinkedHashMap<String, Category> categories;
+    private final Map<String, Category> categories;
     private final CifBuilder parent;
 
     /**
@@ -41,7 +42,7 @@ public class BlockBuilder {
      * Associated categories.
      * @return the category map
      */
-    LinkedHashMap<String, Category> getCategories() {
+    Map<String, Category> getCategories() {
         return categories;
     }
 

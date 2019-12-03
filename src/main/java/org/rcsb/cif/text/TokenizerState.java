@@ -5,9 +5,9 @@ import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ModelFactory;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.TreeMap;
 
 class TokenizerState {
     private final String data;
@@ -341,7 +341,7 @@ class TokenizerState {
         final int nsStart = tokenStart;
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
-        final Map<String, Column> fields = new LinkedHashMap<>();
+        final Map<String, Column> fields = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         final String categoryName = name.substring(1);
 
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
@@ -398,7 +398,7 @@ class TokenizerState {
 
         String categoryName = name.substring(1);
 
-        Map<String, Column> columns = new LinkedHashMap<>();
+        Map<String, Column> columns = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
         for (int i = 0; i < start.size(); i++) {
             Column cifColumn = ModelFactory.createColumnText(categoryName,
                     columnNames.get(i),
