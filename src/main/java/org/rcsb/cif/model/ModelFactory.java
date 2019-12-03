@@ -2,9 +2,16 @@ package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
+import java.lang.reflect.Array;
 import java.lang.reflect.InvocationTargetException;
-import java.util.*;
+import java.util.Map;
+import java.util.Objects;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 /**
@@ -207,13 +214,9 @@ public class ModelFactory {
     @SuppressWarnings("unchecked")
     public static Column createColumnBinary(String categoryName, String columnName, Map<String, Object> encodedColumn) {
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
-        boolean isIntArray = binaryData instanceof int[];
-        boolean isDoubleArray = binaryData instanceof double[];
-        int rowCount = isIntArray ? ((int[]) binaryData).length :
-                isDoubleArray ? ((double[]) binaryData).length : ((String[]) binaryData).length;
-        boolean hasMask = encodedColumn.containsKey("mask") && encodedColumn.get("mask") != null &&
-                !((Map) encodedColumn.get("mask")).isEmpty();
-        int[] mask = hasMask ? (int[]) Codec.decode((Map<String, Object>) encodedColumn.get("mask")) : null;
+        int rowCount = Array.getLength(binaryData);
+        Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
+        int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) Codec.decode(maskMap));
 
         Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
         if (columnClass != null) {
@@ -226,9 +229,9 @@ public class ModelFactory {
             }
         } else {
             // binary columns can be readily be packed into their appropriate data type
-            if (isIntArray) {
+            if (binaryData instanceof int[]) {
                 return new IntColumn(columnName, rowCount, binaryData, mask);
-            } else if (isDoubleArray) {
+            } else if (binaryData instanceof double[]) {
                 return new FloatColumn(columnName, rowCount, binaryData, mask);
             } else {
                 return new StrColumn(columnName, rowCount, binaryData, mask);
