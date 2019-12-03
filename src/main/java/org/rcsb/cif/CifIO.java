@@ -7,6 +7,7 @@ import org.rcsb.cif.text.TextCifReader;
 import org.rcsb.cif.text.TextCifWriter;
 
 import java.io.BufferedInputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -128,7 +129,7 @@ public class CifIO {
      */
     public static CifFile readFromInputStream(InputStream inputStream, CifOptions options) throws IOException {
         // performance: explicitly buffer stream, increases performance drastically
-        if (!(inputStream instanceof BufferedInputStream)) {
+        if (!(inputStream instanceof BufferedInputStream) && !(inputStream instanceof ByteArrayInputStream)) {
             inputStream = new BufferedInputStream(inputStream, BUFFER_SIZE);
         }
 
