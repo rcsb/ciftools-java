@@ -30,7 +30,7 @@ public class CifOptionsTest {
         // 'normal behavior' - types are inferred
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
 
-        assertGenericParsing(genericCifFile, cifFile);
+        assertGenericParsing(genericCifFile, cifFile, true);
     }
 
     @Test
@@ -41,10 +41,10 @@ public class CifOptionsTest {
         // 'normal behavior' - types are inferred
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
 
-        assertGenericParsing(genericCifFile, cifFile);
+        assertGenericParsing(genericCifFile, cifFile, false);
     }
 
-    private void assertGenericParsing(CifFile genericCifFile, CifFile cifFile) {
+    private void assertGenericParsing(CifFile genericCifFile, CifFile cifFile, boolean textMode) {
         Block genericCifBlock = genericCifFile.getFirstBlock();
 
         // we expect all categories to be generic/untyped BaseColumns
@@ -52,11 +52,13 @@ public class CifOptionsTest {
                 .map(Category::getClass)
                 .forEach(categoryClass -> assertEquals(BaseCategory.class, categoryClass));
 
-        // we expect all columns to be 'generic' StrColumns - you can't go wrong with Strings!
-        genericCifBlock.categories()
-                .flatMap(Category::columns)
-                .map(Column::getClass)
-                .forEach(columnClass -> assertEquals(StrColumn.class, columnClass));
+        if (textMode) {
+            // in text mode: we expect all columns to be 'generic' StrColumns - you can't go wrong with Strings!
+            genericCifBlock.categories()
+                    .flatMap(Category::columns)
+                    .map(Column::getClass)
+                    .forEach(columnClass -> assertEquals(StrColumn.class, columnClass));
+        }
 
         // access to categories and columns should fail
         try {
@@ -68,7 +70,11 @@ public class CifOptionsTest {
         Column genericCartnx = genericCifBlock.getCategory("atom_site").getColumn("Cartn_x");
         assertTrue(genericCartnx.isDefined());
         Class<? extends Column> cartnxClass = genericCartnx.getClass();
-        assertNotEquals(FloatColumn.class, cartnxClass);
+        if (textMode) {
+            assertNotEquals(FloatColumn.class, cartnxClass);
+        } else {
+            assertEquals(FloatColumn.class, cartnxClass);
+        }
 
         Block cifBlock = cifFile.getFirstBlock();
 
@@ -87,7 +93,6 @@ public class CifOptionsTest {
         assertEquals(AtomSite.class, cifBlock.getAtomSite().getClass());
         assertEquals(FloatColumn.class, cifBlock.getAtomSite().getCartnX().getClass());
     }
-
 
     @Test
     public void testEncodingBehavior() throws IOException {

@@ -130,6 +130,18 @@ public class ModelFactory {
     }
 
     /**
+     * Create a {@link Category} from binary data. No efforts to find a concrete implementation of the requested
+     * {@link Category}.
+     * @param categoryName the category name
+     * @param rowCount the row count
+     * @param encodedColumns the data, still encoded, to be decoded once requested
+     * @return the created instance
+     */
+    public static Category createCategoryBinaryGeneric(String categoryName, int rowCount, Object[] encodedColumns) {
+        return new BaseCategory(categoryName, rowCount, encodedColumns);
+    }
+
+    /**
      * Create an empty {@link Category}, void of data. Used, so that the data model does not throw a
      * {@link NullPointerException} ungracefully. Rather the consumer should enquire whether the {@link Category}
      * present (see {@link Category#isDefined()}. Has row count 0 and can report its name.
@@ -214,39 +226,26 @@ public class ModelFactory {
 
     /**
      * The creation method for a {@link Column} based on binary (still encoded) data.
-     * @param categoryName the category to retrieve this class from
      * @param columnName the column name to create
      * @param encodedColumn a map encompassing all information needed to create this column
      * @return the decoded column
      */
-    @SuppressWarnings("unchecked")
-    public static Column createColumnBinary(String categoryName, String columnName, Map<String, Object> encodedColumn) {
+    @SuppressWarnings({"unchecked"})
+    public static Column createColumnBinary(String columnName, Map<String, Object> encodedColumn) {
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
         int rowCount = Array.getLength(binaryData);
         Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
         int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) Codec.decode(maskMap));
 
-        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
-        if (columnClass != null) {
-            try {
-                return columnClass.getConstructor(String.class, int.class, Object.class, int[].class)
-                        .newInstance(columnName, rowCount, binaryData, mask);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException("could not instantiate column class", e);
-            }
+        // binary columns can be readily be packed into their appropriate data type
+        if (binaryData instanceof int[]) {
+            return new IntColumn(columnName, rowCount, binaryData, mask);
+        } else if (binaryData instanceof double[]) {
+            return new FloatColumn(columnName, rowCount, binaryData, mask);
         } else {
-            // binary columns can be readily be packed into their appropriate data type
-            if (binaryData instanceof int[]) {
-                return new IntColumn(columnName, rowCount, binaryData, mask);
-            } else if (binaryData instanceof double[]) {
-                return new FloatColumn(columnName, rowCount, binaryData, mask);
-            } else {
-                return new StrColumn(columnName, rowCount, binaryData, mask);
-            }
+            return new StrColumn(columnName, rowCount, binaryData, mask);
         }
     }
-
     /**
      * The creation method for a {@link Column} which is absent.
      * @param categoryName the category to retrieve this class from

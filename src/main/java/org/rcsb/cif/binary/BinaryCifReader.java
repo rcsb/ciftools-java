@@ -78,6 +78,10 @@ public class BinaryCifReader {
 
         // it is a conventional category with multiple rows
         Object[] encodedFields = (Object[]) rawColumns;
-        return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+        if (options.isGeneric()) {
+            return ModelFactory.createCategoryBinaryGeneric(name, rowCount, encodedFields);
+        } else {
+            return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+        }
     }
 }
