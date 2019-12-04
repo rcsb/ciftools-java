@@ -77,6 +77,10 @@ public class CifOptionsTest {
             assertEquals(FloatColumn.class, cartnxClass);
         }
 
+        // non-existent category/field should be handled correctly
+        IntColumn genericDatasetListId = genericCifFile.getFirstBlock().getIhmGeometricObjectDistanceRestraint().getDatasetListId();
+        assertEquals(IntColumn.class, genericDatasetListId.getClass());
+
         Block cifBlock = cifFile.getFirstBlock();
 
         // we expect not all categories to be generic/untyped BaseColumns
