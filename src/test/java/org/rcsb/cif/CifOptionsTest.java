@@ -9,6 +9,7 @@ import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.generated.AtomSite;
@@ -92,6 +93,10 @@ public class CifOptionsTest {
         // access to categories and columns should be given
         assertEquals(AtomSite.class, cifBlock.getAtomSite().getClass());
         assertEquals(FloatColumn.class, cifBlock.getAtomSite().getCartnX().getClass());
+
+        // non-existent category/field should be handled correctly
+        IntColumn datasetListId = cifFile.getFirstBlock().getIhmGeometricObjectDistanceRestraint().getDatasetListId();
+        assertEquals(IntColumn.class, datasetListId.getClass());
     }
 
     @Test
