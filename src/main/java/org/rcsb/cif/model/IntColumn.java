@@ -16,25 +16,7 @@ public class IntColumn extends BaseColumn {
 
     public IntColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        int[] tmpData;
-        try {
-            tmpData = (int[]) data;
-        } catch (ClassCastException e) {
-            if (data instanceof String[]) {
-                String[] stringData = (String[]) data;
-                tmpData = new int[stringData.length];
-                for (int i = 0; i < stringData.length; i++) {
-                    tmpData[i] = parseInt(stringData[i]);
-                }
-            } else {
-                double[] doubleData = (double[]) data;
-                tmpData = new int[doubleData.length];
-                for (int i = 0; i < doubleData.length; i++) {
-                    tmpData[i] = (int) doubleData[i];
-                }
-            }
-        }
-        this.binaryData = tmpData;
+        this.binaryData = (int[]) data;
     }
 
     public IntColumn(String name) {

@@ -17,26 +17,7 @@ public class FloatColumn extends BaseColumn {
 
     public FloatColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        double[] tmpData;
-        try {
-            tmpData = (double[]) data;
-        } catch (ClassCastException e) {
-            // try to recover when data was parsed to greedily (e.g. 1.0,2.0,3.0 interpreted as int, even though the field should really be double)
-            if (data instanceof String[]) {
-                String[] stringData = (String[]) data;
-                tmpData = new double[stringData.length];
-                for (int i = 0; i < stringData.length; i++) {
-                    tmpData[i] = parseFloat(stringData[i]);
-                }
-            } else {
-                int[] intData = (int[]) data;
-                tmpData = new double[intData.length];
-                for (int i = 0; i < intData.length; i++) {
-                    tmpData[i] = intData[i];
-                }
-            }
-        }
-        this.binaryData = tmpData;
+        this.binaryData = (double[]) data;
     }
 
     public FloatColumn(String name) {
