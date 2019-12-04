@@ -6,19 +6,19 @@ import java.util.List;
  * Provides lazy initialization of Category classes that, in "generic" mode, can completely bypass that initialization.
  * @author hansonr
  */
-public class ProxyCategory extends BaseCategory {
+public class ProxyCategory implements Category {
+    private final String name;
+    private final int rowCount;
+    private final Object[] encodedColumns;
     private Category realizedCategory;
-    private boolean isGeneric;
 
-    public ProxyCategory(String name, int rowCount, Object[] encodedFields) {
-        this(name, rowCount, encodedFields, false);
+    public ProxyCategory(String name, int rowCount, Object[] encodedColumns) {
+        this.name = name;
+        this.rowCount = rowCount;
+        this.encodedColumns = encodedColumns;
     }
 
-    public ProxyCategory(String name, int rowCount, Object[] encodedColumns, boolean isGeneric) {
-        super(name, rowCount, encodedColumns);
-        this.isGeneric = isGeneric;
-    }
-
+    @Override
     public Category get() {
         if (realizedCategory == null) {
             realizedCategory = ModelFactory.createCategoryBinary(name, rowCount, encodedColumns);
@@ -27,13 +27,23 @@ public class ProxyCategory extends BaseCategory {
     }
 
     @Override
+    public String getCategoryName() {
+        return name;
+    }
+
+    @Override
+    public int getRowCount() {
+        return rowCount;
+    }
+
+    @Override
     public Column getColumn(String name) {
-        return (isGeneric ? super.getColumn(name) : get().getColumn(name));
+        return get().getColumn(name);
     }
 
     @Override
     public List<String> getColumnNames() {
-        return (isGeneric ? super.getColumnNames() : get().getColumnNames());
+        return get().getColumnNames();
     }
 
     @Override

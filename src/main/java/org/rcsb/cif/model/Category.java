@@ -53,4 +53,12 @@ public interface Category {
      * @return <code>true</code> if this {@link Category} contains data
      */
     boolean isDefined();
+
+    /**
+     * A hook to explicitly request this category (it may be wrapped as {@link ProxyCategory}).
+     * @return the resolved category which the correct type
+     */
+    default Category get() {
+        return this;
+    }
 }

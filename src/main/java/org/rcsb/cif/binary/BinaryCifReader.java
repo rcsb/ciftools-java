@@ -10,6 +10,7 @@ import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
 import org.rcsb.cif.model.ModelFactory;
+import org.rcsb.cif.model.ProxyCategory;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -81,7 +82,9 @@ public class BinaryCifReader {
         if (options.isGeneric()) {
             return ModelFactory.createCategoryBinaryGeneric(name, rowCount, encodedFields);
         } else {
-            return ModelFactory.createCategoryBinary(name, rowCount, encodedFields);
+            // a proxy category delays the determination of the concrete class until we actually request it
+            return new ProxyCategory(name, rowCount, encodedFields);
         }
+//        return new ProxyCategory(name, rowCount, encodedFields);
     }
 }

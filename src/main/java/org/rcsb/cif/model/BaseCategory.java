@@ -92,10 +92,10 @@ public class BaseCategory implements Category {
 
     protected Column getBinaryColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
-        // cache decoded fields to reuse them if applicable
         if (!optional.isPresent()) {
             return ModelFactory.createEmptyColumn(this.name, name);
         }
+        // cache decoded fields to reuse them if applicable
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
         }
