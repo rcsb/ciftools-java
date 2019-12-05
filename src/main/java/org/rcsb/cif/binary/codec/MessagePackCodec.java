@@ -37,7 +37,7 @@ public class MessagePackCodec {
         // string bytes
         if (input instanceof String) {
             String value = (String) input;
-            int length = determineUTFSize(value);
+            int length = value.length();
             // fix str
             if (length < 0x20) {
                 stream.writeByte(length | 0xA0);
@@ -181,31 +181,7 @@ public class MessagePackCodec {
     }
 
     private void writeUTF(String data, DataOutputStream stream) throws IOException {
-        stream.write(data.getBytes(StandardCharsets.UTF_8));
-    }
-
-    private int determineUTFSize(String data) {
-        int bytes = 0;
-        for (int i = 0; i < data.length(); i++) {
-            int codePoint = Character.codePointAt(data, i);
-
-            // one byte of UTF-8
-            if (codePoint < 0x80) {
-                bytes += 1;
-                // two bytes of UTF-8
-            } else if (codePoint < 0x800) {
-                bytes += 2;
-                // three bytes of UTF-8
-            } else if (codePoint < 0x10000) {
-                bytes += 3;
-                // four bytes of UTF-8
-            } else if (codePoint < 0x110000) {
-                bytes += 4;
-            } else {
-                throw new IllegalArgumentException("Bad codepoint " + codePoint);
-            }
-        }
-        return bytes;
+        stream.write(data.getBytes(StandardCharsets.US_ASCII));
     }
 
     /* decoding */
@@ -335,7 +311,7 @@ public class MessagePackCodec {
     }
 
     private String str(DataInputStream inputStream, int length) throws IOException {
-        return new String(bin(inputStream, length), StandardCharsets.UTF_8);
+        return new String(bin(inputStream, length), StandardCharsets.US_ASCII);
     }
 
     private Object[] array(DataInputStream inputStream, int length) throws IOException {
