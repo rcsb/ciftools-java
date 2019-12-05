@@ -51,7 +51,7 @@ public class IntColumn extends BaseColumn {
 
     @Override
     protected String getBinaryStringData(int row) {
-        return String.valueOf(binaryData[row]);
+        return Integer.toString(binaryData[row]);
     }
 
     /**

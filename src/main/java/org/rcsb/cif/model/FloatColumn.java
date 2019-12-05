@@ -52,7 +52,7 @@ public class FloatColumn extends BaseColumn {
 
     @Override
     protected String getBinaryStringData(int row) {
-        return String.valueOf(binaryData[row]);
+        return Double.toString(binaryData[row]);
     }
 
     /**
