@@ -54,7 +54,7 @@ public class MessagePackCodec {
                 stream.writeByte(0xDB);
                 stream.writeInt(length);
             }
-            writeUTF(value, stream);
+            stream.write(value.getBytes(StandardCharsets.US_ASCII));
             return;
         }
 
@@ -178,10 +178,6 @@ public class MessagePackCodec {
                 encodeInternal(value.get(key), stream);
             }
         }
-    }
-
-    private void writeUTF(String data, DataOutputStream stream) throws IOException {
-        stream.write(data.getBytes(StandardCharsets.US_ASCII));
     }
 
     /* decoding */
