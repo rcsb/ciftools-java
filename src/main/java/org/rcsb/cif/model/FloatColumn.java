@@ -17,7 +17,22 @@ public class FloatColumn extends BaseColumn {
 
     public FloatColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        this.binaryData = (double[]) data;
+        // usually, we can assign data directly - when schema isn't honored by source file, we have to convert data
+        if (data instanceof double[]) {
+            this.binaryData = (double[]) data;
+        } else if (data instanceof int[]) {
+            int[] intData = (int[]) data;
+            this.binaryData = new double[intData.length];
+            for (int i = 0; i < intData.length; i++) {
+                binaryData[i] = intData[i];
+            }
+        } else {
+            String[] stringData = (String[]) data;
+            this.binaryData = new double[stringData.length];
+            for (int i = 0; i < stringData.length; i++) {
+                binaryData[i] = parseFloat(stringData[i]);
+            }
+        }
     }
 
     public FloatColumn(String name) {

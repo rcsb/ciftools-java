@@ -16,7 +16,22 @@ public class IntColumn extends BaseColumn {
 
     public IntColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        this.binaryData = (int[]) data;
+        // usually, we can assign data directly - when schema isn't honored by source file, we have to convert data
+        if (data instanceof int[]) {
+            this.binaryData = (int[]) data;
+        } else if (data instanceof double[]) {
+            double[] intData = (double[]) data;
+            this.binaryData = new int[intData.length];
+            for (int i = 0; i < intData.length; i++) {
+                binaryData[i] = (int) intData[i];
+            }
+        } else {
+            String[] stringData = (String[]) data;
+            this.binaryData = new int[stringData.length];
+            for (int i = 0; i < stringData.length; i++) {
+                binaryData[i] = parseInt(stringData[i]);
+            }
+        }
     }
 
     public IntColumn(String name) {

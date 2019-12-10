@@ -16,7 +16,22 @@ public class StrColumn extends BaseColumn {
 
     public StrColumn(String name, int rowCount, Object data, int[] mask) {
         super(name, rowCount, mask);
-        this.binaryData = (String[]) data;
+        // usually, we can assign data directly - when schema isn't honored by source file, we have to convert data
+        if (data instanceof String[]) {
+            this.binaryData = (String[]) data;
+        } else if (data instanceof int[]) {
+            int[] intData = (int[]) data;
+            this.binaryData = new String[intData.length];
+            for (int i = 0; i < intData.length; i++) {
+                binaryData[i] = Integer.toString(intData[i]);
+            }
+        } else {
+            double[] doubleData = (double[]) data;
+            this.binaryData = new String[doubleData.length];
+            for (int i = 0; i < doubleData.length; i++) {
+                binaryData[i] = Double.toString(doubleData[i]);
+            }
+        }
     }
 
     public StrColumn(String name) {
