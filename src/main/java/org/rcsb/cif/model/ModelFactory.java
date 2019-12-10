@@ -226,24 +226,36 @@ public class ModelFactory {
 
     /**
      * The creation method for a {@link Column} based on binary (still encoded) data.
+     * @param categoryName the category name to create
      * @param columnName the column name to create
      * @param encodedColumn a map encompassing all information needed to create this column
      * @return the decoded column
      */
     @SuppressWarnings({"unchecked"})
-    public static Column createColumnBinary(String columnName, Map<String, Object> encodedColumn) {
+    public static Column createColumnBinary(String categoryName, String columnName, Map<String, Object> encodedColumn) {
         Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
         int rowCount = Array.getLength(binaryData);
         Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
         int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) Codec.decode(maskMap));
 
-        // binary columns can be readily be packed into their appropriate data type
-        if (binaryData instanceof int[]) {
-            return new IntColumn(columnName, rowCount, binaryData, mask);
-        } else if (binaryData instanceof double[]) {
-            return new FloatColumn(columnName, rowCount, binaryData, mask);
+        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
+        if (columnClass != null) {
+            try {
+                return columnClass.getConstructor(String.class, int.class, Object.class, int[].class)
+                        .newInstance(columnName, rowCount, binaryData, mask);
+            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
+                    InvocationTargetException e) {
+                throw new RuntimeException("could not instantiate column class", e);
+            }
         } else {
-            return new StrColumn(columnName, rowCount, binaryData, mask);
+            // binary columns can be readily be packed into their appropriate data type
+            if (binaryData instanceof int[]) {
+                return new IntColumn(columnName, rowCount, binaryData, mask);
+            } else if (binaryData instanceof double[]) {
+                return new FloatColumn(columnName, rowCount, binaryData, mask);
+            } else {
+                return new StrColumn(columnName, rowCount, binaryData, mask);
+            }
         }
     }
     /**

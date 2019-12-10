@@ -52,7 +52,11 @@ public class CifIO {
      * @throws IOException thrown when reading fails
      */
     public static CifFile readById(String pdbId, CifOptions options) throws IOException {
-        return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options);
+        try {
+            return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options);
+        } catch (ParsingException e) {
+            throw new ParsingException("parsing failed - potentially wrong URL", e);
+        }
     }
 
     /**
@@ -117,10 +121,6 @@ public class CifIO {
         return readFromInputStream(inputStream, DEFAULT_OPTIONS);
     }
 
-    private static final int TEXT_MAGIC = 100;
-    private static final int BINARY_MAGIC = 131;
-    private static final int GZIP_MAGIC = 31;
-
     /**
      * Read a {@link CifFile} from a given {@link InputStream}.
      * @param inputStream the {@link InputStream} to process - the library will determine whether the file is gzipped or
@@ -164,12 +164,16 @@ public class CifIO {
         }
     }
 
+    private static final int GZIP_MAGIC = 31;
+    private static final int TEXT_MAGIC = 100;
+    private static final int BINARY_MAGIC = 131;
+
     private static CifFile readFromInputStreamByGuessingFileFormat(InputStream inputStream, CifOptions options) throws IOException {
-        // check if gzipped - mark this position - the mark will become invalid after 2 bytes were read
+        // check if gzipped - mark this position - the mark will become invalid after 1 byte was read
         int magicNumber = readMagicNumber(inputStream);
         boolean gzipped = GZIP_MAGIC == magicNumber;
 
-        // if gzipped, wrap stream to inflater
+        // if gzipped, wrap stream in inflater
         if (gzipped) {
             return readFromInputStream(new GZIPInputStream(inputStream, BUFFER_SIZE), options);
         }

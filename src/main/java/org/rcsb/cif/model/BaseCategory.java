@@ -99,7 +99,7 @@ public class BaseCategory implements Category {
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
         }
-        Column decodedColumn = ModelFactory.createColumnBinary(name, optional.get());
+        Column decodedColumn = ModelFactory.createColumnBinary(this.name, name, optional.get());
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;
     }
