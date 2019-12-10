@@ -181,11 +181,8 @@ public class CifIO {
         // determine binary or text
         if (magicNumber == BINARY_MAGIC) {
             return new BinaryCifReader(options).read(inputStream);
-        } else if (magicNumber == TEXT_MAGIC) {
-            return new TextCifReader(options).read(inputStream);
         } else {
-            inputStream.close();
-            throw new ParsingException("unable to determine encoding - magic number was " + magicNumber + " - neither gzip, nor BinaryCIF, nor mmCIF");
+            return new TextCifReader(options).read(inputStream);
         }
     }
 

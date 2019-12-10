@@ -1,6 +1,7 @@
 package org.rcsb.cif.generator;
 
 import org.rcsb.cif.CifIO;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.*;
 
 import java.io.IOException;
@@ -54,12 +55,16 @@ class SchemaGenerator {
         return name;
     }
 
-    private static final StringJoiner CLASS_MAP_LOOKUP = new StringJoiner("\n");
+    private static final Map<String, Map<String, Object>> CLASS_MAP_LOOKUP = new HashMap<>();
+    private static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     private void writeClasses() throws IOException {
         writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
         writeBlockImpl(BaseBlock.class.getSimpleName(), schema, OUTPUT_PATH);
-        Files.write(OUTPUT_PATH.resolve("field-name-class-map.csv"), CLASS_MAP_LOOKUP.toString().getBytes());
+
+        for (Map.Entry<String, Map<String, Object>> entry : CLASS_MAP_LOOKUP.entrySet()) {
+            Files.write(OUTPUT_PATH.resolve(entry.getKey() + ".bin"), MESSAGE_PACK_CODEC.encode((Map<String, Object>) entry.getValue()));
+        }
     }
 
     private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
@@ -179,7 +184,16 @@ class SchemaGenerator {
             Files.createDirectory(generatedPath);
         }
 
-        CLASS_MAP_LOOKUP.add(categoryName + " " + GENERATED_PACKAGE + "." + className);
+        // categories are grouped by the first word
+        Map<String, Object> wordMap = CLASS_MAP_LOOKUP.computeIfAbsent(categoryName.split("_")[0], k -> new HashMap<>());
+        // categories are described by 4 values (className, int fields, double fields, str fields)
+        Object categoryInfoRaw = wordMap.computeIfAbsent(categoryName, k -> new Object[4]);
+        Object[] categoryInfo = (Object[]) categoryInfoRaw;
+        // first entry: class reference
+        categoryInfo[0] = GENERATED_PACKAGE + "." + className;
+        List<String> intFields = new ArrayList<>();
+        List<String> floatFields = new ArrayList<>();
+        List<String> strFields = new ArrayList<>();
 
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + ".generated;");
@@ -213,7 +227,8 @@ class SchemaGenerator {
             Col column = (Col) entry.getValue();
 
             String columnClassName = toClassName(columnName);
-            String baseClassName = getBaseClass(column.getType());
+            Class<? extends Column> baseClass = getBaseClass(column.getType());
+            String baseClassName = baseClass.getSimpleName();
 
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
@@ -229,7 +244,13 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            CLASS_MAP_LOOKUP.add(categoryName + "." + columnName + " " + baseClassName);
+            if (baseClass.equals(IntColumn.class)) {
+                intFields.add(columnName);
+            } else if (baseClass.equals(FloatColumn.class)) {
+                floatFields.add(columnName);
+            } else {
+                strFields.add(columnName);
+            }
 
             categoryBuilder.add("");
             categoryBuilder.add("        public " + baseClassName + "Builder<" +
@@ -261,33 +282,36 @@ class SchemaGenerator {
 
         categoryBuilder.add("    }");
 
+        // handle category/column lookup
+        categoryInfo[1] = intFields.toArray(new String[0]);
+        categoryInfo[2] = floatFields.toArray(new String[0]);
+        categoryInfo[3] = strFields.toArray(new String[0]);
+
         Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private String getBaseClass(String type) {
-        Class<?> clazz;
+    private Class<? extends Column> getBaseClass(String type) {
         // TODO enums, lists, matrix, and vector would be nice to have
         switch (type) {
             case "coord":
-                clazz = FloatColumn.class; break;
+                return FloatColumn.class;
             case "enum":
-                clazz = StrColumn.class; break;
+                return StrColumn.class;
             case "float":
-                clazz = FloatColumn.class; break;
+                return FloatColumn.class;
             case "int":
-                clazz = IntColumn.class; break;
+                return IntColumn.class;
             case "list":
-                clazz = StrColumn.class; break;
+                return StrColumn.class;
             case "matrix":
-                clazz = FloatColumn.class; break;
+                return FloatColumn.class;
             case "str":
-                clazz = StrColumn.class; break;
+                return StrColumn.class;
             case "vector":
-                clazz = FloatColumn.class; break;
+                return FloatColumn.class;
             default:
                 throw new IllegalArgumentException("Unknown type " + type);
         }
-        return clazz.getSimpleName();
     }
 
     private SchemaGenerator(String... resource) throws IOException {
