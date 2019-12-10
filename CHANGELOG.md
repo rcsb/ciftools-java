@@ -1,6 +1,22 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.7.0
+-------------
+### New features
+* support for case insensitive handling of category and column names
+* `ProxyCategory` to delay class lookup for as long as possible
+* generic parsing option (`new CifOptions.CifOptionsBuilder().generic(true).build()`) that completely bypasses the 
+schema
+
+### Breaking API changes
+* internal: use `Deque` to handle encoding chain - make @celebrecht proud
+* removes exposure of `LinkedHashMap`
+* removes UTF-8 support, CIF is assumed to be plain ASCII
+
+### Bug fixes
+* updates fetch URL to RCSB
+
 ciftools-java 0.6.3
 -------------
 ### General
