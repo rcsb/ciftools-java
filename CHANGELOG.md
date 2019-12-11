@@ -8,6 +8,7 @@ ciftools-java 0.7.0
 * `ProxyCategory` to delay class lookup for as long as possible
 * generic parsing option (`new CifOptions.CifOptionsBuilder().generic(true).build()`) that completely bypasses the 
 schema
+* employs lazy loading of the class map used to instantiate categories and columns
 
 ### Breaking API changes
 * internal: use `Deque` to handle encoding chain - make @celebrecht proud
