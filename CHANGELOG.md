@@ -11,7 +11,7 @@ schema
 * employs lazy loading of the class map used to instantiate categories and columns
 
 ### Breaking API changes
-* internal: use `Deque` to handle encoding chain - make @celebrecht proud
+* internal: use `Deque` to handle encoding chain - make @cleberecht proud
 * removes exposure of `LinkedHashMap`
 * removes UTF-8 support, CIF is assumed to be plain ASCII
 
