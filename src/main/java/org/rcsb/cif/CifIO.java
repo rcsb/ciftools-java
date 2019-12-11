@@ -19,7 +19,7 @@ import java.util.zip.GZIPOutputStream;
 import java.util.zip.ZipException;
 
 /**
- * Collection of IO operations to retrieve, process, and write CIF files. All read & write operations are thread-safe.
+ * Collection of IO operations to retrieve, process, and write CIF files. All read and write operations are thread-safe.
  * The data model (i.e. {@link CifFile}, {@link org.rcsb.cif.model.Block}, {@link org.rcsb.cif.model.Category}, and
  * {@link org.rcsb.cif.model.Column}) is immutable to the user but maintains some internal state to improve performance.
  * Therefore, multi-threaded access to data of one {@link CifFile} is not safe and should be avoided.
