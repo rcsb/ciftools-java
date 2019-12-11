@@ -1,74 +1,125 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.Collections;
 import java.util.Map;
-import java.util.Objects;
+import java.util.Set;
 import java.util.TreeMap;
-import java.util.stream.Collectors;
+import java.util.TreeSet;
 
 /**
  * The factory for model instances for cases when they are somewhat difficult or ambiguously to obtain.
  */
 public class ModelFactory {
-    private static final Map<String, Class<? extends BaseCategory>> CATEGORY_MAP;
-    private static final Map<String, Class<? extends BaseColumn>> COLUMN_MAP;
-    static {
-        // create class name lookup for reflection
-        try {
-            InputStream inputStream = Thread.currentThread()
-                    .getContextClassLoader()
-                    .getResourceAsStream("field-name-class-map.csv");
-            Objects.requireNonNull(inputStream, "could not load class name map");
-            BufferedReader lookupReader = new BufferedReader(new InputStreamReader(inputStream));
+    private static final Map<String, SchemaHandler> SCHEMA_MAP = Collections.synchronizedMap(new TreeMap<>(String.CASE_INSENSITIVE_ORDER));
+    private static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
-            Map<String, String> rawMap = lookupReader.lines()
-                    .map(line -> line.split(" "))
-                    .collect(Collectors.toMap(split -> split[0], split -> split[1]));
-            lookupReader.close();
+    static class SchemaHandler {
+        private final Map<String, Constructor<? extends BaseCategory>> textCategory;
+        private final Map<String, Constructor<? extends BaseCategory>> binaryCategory;
+        private final Set<String> intColumns;
+        private final Set<String> floatColumns;
+        private final Set<String> strColumns;
 
-            CATEGORY_MAP = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-            rawMap.entrySet()
-                    .stream()
-                    .filter(entry -> !entry.getKey().contains("."))
-                    .forEach(entry -> CATEGORY_MAP.put(entry.getKey(), forCategoryName(entry.getValue())));
+        public SchemaHandler(Map<String, Constructor<? extends BaseCategory>> textCategory, Map<String, Constructor<? extends BaseCategory>> binaryCategory, Set<String> intColumns, Set<String> floatColumns, Set<String> strColumns) {
+            this.textCategory = textCategory;
+            this.binaryCategory = binaryCategory;
+            this.intColumns = intColumns;
+            this.floatColumns = floatColumns;
+            this.strColumns = strColumns;
+        }
 
-            COLUMN_MAP = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
-            rawMap.entrySet()
-                    .stream()
-                    .filter(entry -> entry.getKey().contains("."))
-                    .forEach(entry -> COLUMN_MAP.put(entry.getKey(), forColumnName(entry.getValue())));
-        } catch (IOException e) {
-            throw new UncheckedIOException("could not load class name map", e);
+        Category construct(String categoryName, Map<String, Column> textColumns) {
+            Constructor<? extends BaseCategory> constructor = textCategory.get(categoryName);
+            // no constructor
+            if (constructor == null) {
+                return new BaseCategory(categoryName, textColumns);
+            }
+            // we can delegate
+            try {
+                return textCategory.get(categoryName).newInstance(categoryName, textColumns);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException("could not instantiate category class", e);
+            }
+        }
+
+        Category construct(String categoryName, int rowCount, Object[] encodedColumns) {
+            Constructor<? extends BaseCategory> constructor = binaryCategory.get(categoryName);
+            // no constructor
+            if (constructor == null) {
+                return new BaseCategory(categoryName, rowCount, encodedColumns);
+            }
+            // we can delegate
+            try {
+                return binaryCategory.get(categoryName).newInstance(categoryName, rowCount, encodedColumns);
+            } catch (InstantiationException | IllegalAccessException | InvocationTargetException e) {
+                throw new RuntimeException("could not instantiate category class", e);
+            }
+        }
+
+        Column construct(String categoryName, String columnName, int rowCount, String data, int[] startToken, int[] endToken, Class<? extends Column> columnType) {
+            String name = categoryName + "." + columnName;
+            if (intColumns.contains(name)) {
+                return new IntColumn(columnName, rowCount, data, startToken, endToken);
+            } else if (floatColumns.contains(name)) {
+                return new FloatColumn(columnName, rowCount, data, startToken, endToken);
+            } else if (strColumns.contains(name)) {
+                return new StrColumn(columnName, rowCount, data, startToken, endToken);
+            } else {
+                return fallbackToTextByType(columnName, rowCount, data, startToken, endToken, columnType);
+            }
+        }
+
+        Column construct(String categoryName, String columnName, int rowCount, Object binaryData, int[] mask) {
+            String name = categoryName + "." + columnName;
+            if (intColumns.contains(name)) {
+                return new IntColumn(columnName, rowCount, binaryData, mask);
+            } else if (floatColumns.contains(name)) {
+                return new FloatColumn(columnName, rowCount, binaryData, mask);
+            } else if (strColumns.contains(name)) {
+                return new StrColumn(columnName, rowCount, binaryData, mask);
+            } else {
+                return fallbackToBinaryByData(columnName, rowCount, binaryData, mask);
+            }
+        }
+
+        Column construct(String categoryName, String columnName) {
+            String name = categoryName + "." + columnName;
+            if (intColumns.contains(name)) {
+                return new IntColumn(columnName);
+            } else if (floatColumns.contains(name)) {
+                return new FloatColumn(columnName);
+            } else {
+                return new StrColumn(columnName);
+            }
         }
     }
 
-    @SuppressWarnings("unchecked")
-    private static Class<? extends BaseCategory> forCategoryName(String categoryName) {
-        try {
-            return (Class<? extends BaseCategory>) Class.forName(categoryName);
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException("could not acquire category class with name: " + categoryName, e);
+    private static Column fallbackToTextByType(String columnName, int rowCount, String data, int[] startToken, int[] endToken, Class<? extends Column> columnType) {
+        if (columnType.equals(IntColumn.class)) {
+            return new IntColumn(columnName, rowCount, data, startToken, endToken);
+        } else if (columnType.equals(FloatColumn.class)) {
+            return new FloatColumn(columnName, rowCount, data, startToken, endToken);
+        } else {
+            return new StrColumn(columnName, rowCount, data, startToken, endToken);
         }
     }
 
-    private static Class<? extends BaseColumn> forColumnName(String columnName) {
-        switch (columnName) {
-            case "FloatColumn":
-                return FloatColumn.class;
-            case "IntColumn":
-                return IntColumn.class;
-            case "StrColumn":
-                return StrColumn.class;
-            default:
-                throw new IllegalArgumentException(columnName + " is not known - cannot acquire prototype");
+    private static Column fallbackToBinaryByData(String columnName, int rowCount, Object binaryData, int[] mask) {
+        if (binaryData instanceof int[]) {
+            return new IntColumn(columnName, rowCount, binaryData, mask);
+        } else if (binaryData instanceof double[]) {
+            return new FloatColumn(columnName, rowCount, binaryData, mask);
+        } else {
+            return new StrColumn(columnName, rowCount, binaryData, mask);
         }
     }
 
@@ -81,17 +132,63 @@ public class ModelFactory {
      */
     public static Category createCategoryText(String categoryName, Map<String, Column> textColumns) {
         // retrieve category class
-        Class<? extends BaseCategory> categoryClass = CATEGORY_MAP.get(categoryName);
-        if (categoryClass != null) {
-            try {
-                return categoryClass.getConstructor(String.class, Map.class)
-                        .newInstance(categoryName, textColumns);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException("could not instantiate category class", e);
-            }
+        String topLevel = toTopLevel(categoryName);
+        SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);
+        if (schemaHandler != null) {
+            return schemaHandler.construct(categoryName, textColumns);
         } else {
             return new BaseCategory(categoryName, textColumns);
+        }
+    }
+
+    private static String toTopLevel(String categoryName) {
+        int index = categoryName.indexOf("_");
+        return index != -1 ? categoryName.substring(0, index) : categoryName;
+    }
+
+    @SuppressWarnings("unchecked")
+    private static SchemaHandler ensureProperties(String topLevel) {
+        // acquire property file
+        InputStream inputStream = Thread.currentThread()
+                .getContextClassLoader()
+                .getResourceAsStream("class-map/" + topLevel + ".bin");
+
+        // top-level is not 'known' - need to return map to populate map correctly (null values are needed to avoid further tries on failed operations)
+        if (inputStream == null) {
+            return null;
+        }
+
+        try {
+            Map<String, Object> schemaMap = MESSAGE_PACK_CODEC.decode(inputStream);
+            Map<String, Constructor<? extends BaseCategory>> textConstructors = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            Map<String, Constructor<? extends BaseCategory>> binaryConstructors = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
+            Set<String> intColumns = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+            Set<String> floatColumns = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+            Set<String> strColumns = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+
+            for (Map.Entry<String, Object> entry : schemaMap.entrySet()) {
+                String categoryName = entry.getKey();
+                Object[] value = (Object[]) entry.getValue();
+                String categoryConstructorName = (String) value[0];
+                Class<? extends BaseCategory> clazz = (Class<? extends BaseCategory>) Class.forName(categoryConstructorName);
+                textConstructors.put(categoryName, clazz.getConstructor(String.class, Map.class));
+                binaryConstructors.put(categoryName, clazz.getConstructor(String.class, int.class, Object[].class));
+                for (Object i : (Object[]) value[1]) {
+                    intColumns.add(categoryName + "." + i);
+                }
+                for (Object f : (Object[]) value[2]) {
+                    floatColumns.add(categoryName + "." + f);
+                }
+                for (Object s : (Object[]) value[3]) {
+                    strColumns.add(categoryName + "." + s);
+                }
+            }
+
+            return new SchemaHandler(textConstructors, binaryConstructors, intColumns, floatColumns, strColumns);
+        } catch (IOException e) {
+            throw new UncheckedIOException(e);
+        } catch (ClassNotFoundException | NoSuchMethodException e) {
+            throw new RuntimeException(e);
         }
     }
 
@@ -115,15 +212,10 @@ public class ModelFactory {
      */
     public static Category createCategoryBinary(String categoryName, int rowCount, Object[] encodedColumns) {
         // retrieve category class
-        Class<? extends BaseCategory> categoryClass = CATEGORY_MAP.get(categoryName);
-        if (categoryClass != null) {
-            try {
-                return categoryClass.getConstructor(String.class, int.class, Object[].class)
-                        .newInstance(categoryName, rowCount, encodedColumns);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException("could not instantiate category class", e);
-            }
+        String topLevel = toTopLevel(categoryName);
+        SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);
+        if (schemaHandler != null) {
+            return schemaHandler.construct(categoryName, rowCount, encodedColumns);
         } else {
             return new BaseCategory(categoryName, rowCount, encodedColumns);
         }
@@ -187,24 +279,13 @@ public class ModelFactory {
                                           int[] startToken,
                                           int[] endToken,
                                           Class<? extends Column> columnType) {
+        String topLevel = toTopLevel(categoryName);
+        SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);
         int rowCount = startToken.length;
-        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
-        if (columnClass != null) {
-            try {
-                return columnClass.getConstructor(String.class, int.class, String.class, int[].class, int[].class)
-                        .newInstance(columnName, rowCount, data, startToken, endToken);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
+        if (schemaHandler != null) {
+            return schemaHandler.construct(categoryName, columnName, rowCount, data, startToken, endToken, columnType);
         } else {
-            if (columnType.equals(IntColumn.class)) {
-                return new IntColumn(columnName, rowCount, data, startToken, endToken);
-            } else if (columnType.equals(FloatColumn.class)) {
-                return new FloatColumn(columnName, rowCount, data, startToken, endToken);
-            } else {
-                return new StrColumn(columnName, rowCount, data, startToken, endToken);
-            }
+            return fallbackToTextByType(columnName, rowCount, data, startToken, endToken, columnType);
         }
     }
 
@@ -238,24 +319,13 @@ public class ModelFactory {
         Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
         int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) Codec.decode(maskMap));
 
-        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
-        if (columnClass != null) {
-            try {
-                return columnClass.getConstructor(String.class, int.class, Object.class, int[].class)
-                        .newInstance(columnName, rowCount, binaryData, mask);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException("could not instantiate column class", e);
-            }
+        String topLevel = toTopLevel(categoryName);
+        SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);
+        if (schemaHandler != null) {
+            return schemaHandler.construct(categoryName, columnName, rowCount, binaryData, mask);
         } else {
             // binary columns can be readily be packed into their appropriate data type
-            if (binaryData instanceof int[]) {
-                return new IntColumn(columnName, rowCount, binaryData, mask);
-            } else if (binaryData instanceof double[]) {
-                return new FloatColumn(columnName, rowCount, binaryData, mask);
-            } else {
-                return new StrColumn(columnName, rowCount, binaryData, mask);
-            }
+            return fallbackToBinaryByData(columnName, rowCount, binaryData, mask);
         }
     }
     /**
@@ -265,15 +335,10 @@ public class ModelFactory {
      * @return an empty instance of this column
      */
     public static Column createEmptyColumn(String categoryName, String columnName) {
-        Class<? extends BaseColumn> columnClass = COLUMN_MAP.get(categoryName + "." + columnName);
-        if (columnClass != null) {
-            try {
-                return columnClass.getConstructor(String.class)
-                        .newInstance(columnName);
-            } catch (NoSuchMethodException | InstantiationException | IllegalAccessException |
-                    InvocationTargetException e) {
-                throw new RuntimeException(e);
-            }
+        String topLevel = toTopLevel(categoryName);
+        SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);
+        if (schemaHandler != null) {
+            return schemaHandler.construct(categoryName, columnName);
         } else {
             return new StrColumn(columnName);
         }
