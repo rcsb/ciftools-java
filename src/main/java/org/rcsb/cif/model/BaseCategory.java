@@ -9,14 +9,14 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class BaseCategory implements Category {
-    protected final String name;
-    protected final int rowCount;
+    private final String name;
+    private final int rowCount;
     private final List<String> columnNames;
 
     protected final boolean isText;
     protected final Map<String, Column> textFields;
 
-    protected final Object[] encodedColumns;
+    private final Object[] encodedColumns;
     private final Map<String, Column> decodedColumns;
     private final boolean defined;
 

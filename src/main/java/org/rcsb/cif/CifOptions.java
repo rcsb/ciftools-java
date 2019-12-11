@@ -309,11 +309,11 @@ public class CifOptions {
 
         // Lazy initialization if no JSON is desired
         static class GsonHolder {
-            static Gson instance = new Gson();
+            static final Gson instance = new Gson();
         }
 
         static class ListTypeHolder {
-            static Type instance = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
+            static final Type instance = new TypeToken<ArrayList<EncodingStrategyHint>>(){}.getType();
         }
 
         /**

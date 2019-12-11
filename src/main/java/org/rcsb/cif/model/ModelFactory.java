@@ -29,7 +29,7 @@ public class ModelFactory {
         private final Set<String> floatColumns;
         private final Set<String> strColumns;
 
-        public SchemaHandler(Map<String, Constructor<? extends BaseCategory>> textCategory, Map<String, Constructor<? extends BaseCategory>> binaryCategory, Set<String> intColumns, Set<String> floatColumns, Set<String> strColumns) {
+        SchemaHandler(Map<String, Constructor<? extends BaseCategory>> textCategory, Map<String, Constructor<? extends BaseCategory>> binaryCategory, Set<String> intColumns, Set<String> floatColumns, Set<String> strColumns) {
             this.textCategory = textCategory;
             this.binaryCategory = binaryCategory;
             this.intColumns = intColumns;
