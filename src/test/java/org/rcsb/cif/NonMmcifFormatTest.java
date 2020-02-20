@@ -34,7 +34,16 @@ public class NonMmcifFormatTest {
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
         Block firstBlock = cifFile.getFirstBlock();
 
+        // single
+        assertEquals("10.5517/ccy42jn", firstBlock.getColumn("audit_block_doi").getStringData(0));
+        assertEquals("CCDC 867861", firstBlock.getColumn("database_code_depnum_ccdc_archive").getStringData(0));
+
+        // loop
+        assertEquals("1", firstBlock.getColumn("citation_id").getStringData(0));
+        assertEquals("10.1002/chem.201202070", firstBlock.getColumn("citation_doi").getStringData(0));
+        assertEquals("2012", firstBlock.getColumn("citation_year").getStringData(0));
+
+        // a 'number'
         assertEquals("11.0829(8)", firstBlock.getColumn("cell_length_a").getStringData(0));
-        assertEquals("11.0829(8)", firstBlock.getCell().getLengthA().get(0));
     }
 }

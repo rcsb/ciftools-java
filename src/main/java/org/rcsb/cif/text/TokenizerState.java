@@ -7,6 +7,7 @@ import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
 import org.rcsb.cif.model.ModelFactory;
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -418,7 +419,9 @@ class TokenizerState {
                         data,
                         toArray(start.get(i)),
                         toArray(end.get(i)));
-                ctx.getCategories().put(flatName, createCategory(flatName, Map.of("", cifColumn)));
+                Map<String, Column> columnMap = new LinkedHashMap<>(1);
+                columnMap.put("", cifColumn);
+                ctx.getCategories().put(flatName, createCategory(flatName, columnMap));
             }
         } else {
             String categoryName = name.substring(1);
