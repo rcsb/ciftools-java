@@ -31,6 +31,15 @@ public class BaseBlock implements Block {
     }
 
     @Override
+    public Column getColumn(String name) {
+        if (categories.containsKey(name)) {
+            return categories.get(name).getColumn("");
+        } else {
+            return ModelFactory.createEmptyColumn(name, "");
+        }
+    }
+
+    @Override
     public List<String> getCategoryNames() {
         return new ArrayList<>(categories.keySet());
     }

@@ -22,6 +22,14 @@ public interface Block {
     Category getCategory(String name);
 
     /**
+     * Retrieve a {@link Column} by name. This is relevant for CCDC files that identify columns by 'flat' names such as
+     * "cell_length_a"
+     * @param name the category name and column name, joined by an underscore
+     * @return the corresponding {@link Column}, if none exists a instance of {@link BaseColumn} is returned as proxy
+     */
+    Column getColumn(String name);
+
+    /**
      * The names of all {@link Category} instances which will not return an empty {@link Category} when queried.
      * @return collection of all {@link Category} names
      */

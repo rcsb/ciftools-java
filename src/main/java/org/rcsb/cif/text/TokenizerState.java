@@ -222,6 +222,13 @@ class TokenizerState {
         return "loop".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 4));
     }
 
+    private boolean isImportGet() {
+        if (tokenEnd - tokenStart != 11) {
+            return false;
+        }
+        return "import.get".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 10));
+    }
+
     /**
      * Checks if the current token shares the namespace with string at <start,end).
      */
@@ -251,7 +258,8 @@ class TokenizerState {
      * Returns the index of '.' in the current token. If no '.' is present, returns currentTokenEnd.
      */
     private int getNamespaceEnd() {
-        return data.substring(tokenStart, tokenEnd).indexOf(".") + tokenStart;
+        int index = data.substring(tokenStart, tokenEnd).indexOf(".");
+        return index != -1 ? index + tokenStart : tokenEnd;
     }
 
     /**
@@ -344,11 +352,12 @@ class TokenizerState {
         final int nsStart = tokenStart;
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
+        final boolean isFlat = isFlatNamespace();
         final Map<String, Column> fields = new LinkedCaseInsensitiveMap<>();
         final String categoryName = name.substring(1);
 
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
-            String columnName = getTokenString().substring(name.length() + 1);
+            String columnName = isFlat ? "" : getTokenString().substring(name.length() + 1);
             moveNext();
             if (tokenType != CifTokenType.VALUE) {
                 throw new ParsingException("Expected value.", lineNumber);
@@ -371,6 +380,7 @@ class TokenizerState {
 
         moveNext();
         final String name = getNamespace(getNamespaceEnd());
+        final boolean isFlat = isFlatNamespace();
         // performance 1.2: resizing of token lists is pronounced - provide initial guess to avoid excessive resizing
         int columnCountEstimate = 32;
         int rowCountEstimate = "_atom_site".equals(name) ? data.length() / 100 : 32;
@@ -380,7 +390,8 @@ class TokenizerState {
         int tokenCount = 0;
 
         while (tokenType == CifTokenType.COLUMN_NAME) {
-            columnNames.add(getTokenString().substring(name.length() + 1));
+            String columnName = isFlat ? getTokenString() : getTokenString().substring(name.length() + 1);
+            columnNames.add(columnName);
             moveNext();
             start.add(new ArrayList<>(rowCountEstimate));
             end.add(new ArrayList<>(rowCountEstimate));
@@ -399,19 +410,33 @@ class TokenizerState {
                     " is not a multiple of the number of columns.");
         }
 
-        String categoryName = name.substring(1);
-
-        Map<String, Column> columns = new LinkedCaseInsensitiveMap<>();
-        for (int i = 0; i < start.size(); i++) {
-            Column cifColumn = createColumn(categoryName,
-                    columnNames.get(i),
-                    data,
-                    toArray(start.get(i)),
-                    toArray(end.get(i)));
-            columns.put(columnNames.get(i), cifColumn);
+        if (isFlat) {
+            for (int i = 0; i < start.size(); i++) {
+                String flatName = columnNames.get(i).substring(1);
+                Column cifColumn = createColumn(flatName,
+                        "",
+                        data,
+                        toArray(start.get(i)),
+                        toArray(end.get(i)));
+                ctx.getCategories().put(flatName, createCategory(flatName, Map.of("", cifColumn)));
+            }
+        } else {
+            String categoryName = name.substring(1);
+            Map<String, Column> columns = new LinkedCaseInsensitiveMap<>();
+            for (int i = 0; i < start.size(); i++) {
+                Column cifColumn = createColumn(categoryName,
+                        columnNames.get(i),
+                        data,
+                        toArray(start.get(i)),
+                        toArray(end.get(i)));
+                columns.put(columnNames.get(i), cifColumn);
+            }
+            ctx.getCategories().put(categoryName, createCategory(categoryName, columns));
         }
+    }
 
-        ctx.getCategories().put(categoryName, createCategory(categoryName, columns));
+    private boolean isFlatNamespace() {
+        return !data.substring(tokenStart, tokenEnd).contains(".");
     }
 
     private int[] toArray(List<Integer> list) {
