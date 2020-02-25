@@ -81,8 +81,8 @@ public class WriterTest {
         CategoryBuilder categoryBuilder = new CifBuilder().enterBlock("test")
                 .enterCategory("test");
 
-        IntColumnBuilder ints = categoryBuilder.enterIntColumn("ints");
-        FloatColumnBuilder floats = categoryBuilder.enterFloatColumn("floats");
+        IntColumnBuilder<CategoryBuilder> ints = categoryBuilder.enterIntColumn("ints");
+        FloatColumnBuilder<CategoryBuilder> floats = categoryBuilder.enterFloatColumn("floats");
 
         ints.add(1, 2, 3);
         floats.add(-1.234, 3.1415, 42);
