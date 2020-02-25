@@ -4,7 +4,11 @@ import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.Deque;
 
-public abstract class AbstractEncodedData<D> implements EncodedData<D> {
+/**
+ * Shared functionality between {@link EncodedData} implementations.
+ * @param <D> the data array wrapped
+ */
+abstract class AbstractEncodedData<D> implements EncodedData<D> {
     final Object data;
     private Deque<Encoding<?>> encoding;
 

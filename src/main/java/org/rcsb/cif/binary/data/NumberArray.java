@@ -3,6 +3,9 @@ package org.rcsb.cif.binary.data;
 import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 
+/**
+ * An array of numbers.
+ */
 public interface NumberArray<D> extends EncodedData<D> {
     byte[] toByteArray();
 

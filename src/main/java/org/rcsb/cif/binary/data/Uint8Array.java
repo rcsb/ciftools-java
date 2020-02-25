@@ -6,6 +6,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * An array of unsigned integer numbers using 8 bit to store each value.
+ */
 public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 1;
     static final int TYPE = 4;

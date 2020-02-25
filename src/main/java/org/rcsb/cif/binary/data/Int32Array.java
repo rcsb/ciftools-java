@@ -15,6 +15,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * An array of (signed) integer numbers using 32 bit to store each value.
+ */
 public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 4;
     static final int TYPE = 3;

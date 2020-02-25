@@ -10,6 +10,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * An array of (signed) integer numbers using 16 bit to store each value.
+ */
 public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 2;

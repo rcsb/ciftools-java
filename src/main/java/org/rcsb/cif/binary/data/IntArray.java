@@ -4,6 +4,9 @@ import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
+/**
+ * An array of integer numbers.
+ */
 public interface IntArray extends NumberArray<int[]> {
     int[] getData();
 

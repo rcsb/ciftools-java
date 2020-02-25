@@ -6,6 +6,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * An array of unsigned integer numbers using 16 bit to store each value.
+ */
 public class Uint16Array extends AbstractEncodedData<int[]> implements UnsignedIntArray {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 5;

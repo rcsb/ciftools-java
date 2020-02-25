@@ -8,6 +8,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * An array of String values.
+ */
 public class StringArray extends AbstractEncodedData<String[]> {
     public StringArray(Object data, Deque<Encoding<?>> encoding) {
         super(data, encoding);

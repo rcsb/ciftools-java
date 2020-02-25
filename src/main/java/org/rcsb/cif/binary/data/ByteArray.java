@@ -11,6 +11,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+/**
+ * The abstraction of binary data.
+ */
 public class ByteArray extends AbstractEncodedData<byte[]> {
     ByteArray(byte[] data) {
         this(data, new ArrayDeque<>());
