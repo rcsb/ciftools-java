@@ -9,7 +9,6 @@ import org.rcsb.cif.binary.data.Uint8Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
@@ -42,10 +41,6 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         this.byteCount = byteCount;
         this.isUnsigned = isUnsigned;
         this.srcSize = srcSize;
-    }
-
-    public IntegerPackingEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("byteCount"), (boolean) encoding.get("isUnsigned"), (int) encoding.get("srcSize"));
     }
 
     public int getByteCount() {

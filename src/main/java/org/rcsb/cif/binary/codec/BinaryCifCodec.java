@@ -68,19 +68,34 @@ public class BinaryCifCodec {
      */
     private static Encoding<?, ?> deserializeEncodingMap(Map<String, Object> encoding) {
         String kind = (String) encoding.get("kind");
+        int srcType, srcSize;
         switch (kind) {
             case "ByteArray":
-                return new ByteArrayEncoding(encoding);
+                int type = (int) encoding.get("type");
+                return new ByteArrayEncoding(type);
             case "FixedPoint":
-                return new FixedPointEncoding(encoding);
+                int factor = (int) encoding.get("factor");
+                srcType = (int) encoding.get("srcType");
+                return new FixedPointEncoding(factor, srcType);
             case "IntervalQuantization":
-                return new IntervalQuantizationEncoding(encoding);
+                int min = (int) encoding.get("min");
+                int max = (int) encoding.get("max");
+                int numSteps = (int) encoding.get("numSteps");
+                srcType = (int) encoding.get("srcType");
+                return new IntervalQuantizationEncoding(min, max, numSteps, srcType);
             case "RunLength":
-                return new RunLengthEncoding(encoding);
+                srcType = (int) encoding.get("srcType");
+                srcSize = (int) encoding.get("srcSize");
+                return new RunLengthEncoding(srcType, srcSize);
             case "Delta":
-                return new DeltaEncoding(encoding);
+                int origin = (int) encoding.get("origin");
+                srcType = (int) encoding.get("srcType");
+                return new DeltaEncoding(origin, srcType);
             case "IntegerPacking":
-                return new IntegerPackingEncoding(encoding);
+                 int byteCount = (int) encoding.get("byteCount");
+                 boolean isUnsigned = (boolean) encoding.get("isUnsigned");
+                 srcSize = (int) encoding.get("srcSize");
+                return new IntegerPackingEncoding(byteCount, isUnsigned, srcSize);
             case "StringArray":
                 Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingMap(encoding.get("dataEncoding"));
                 Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingMap(encoding.get("offsetEncoding"));

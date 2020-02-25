@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.data.Int32Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} where the values are quantized within a
@@ -44,11 +43,6 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
         this.max = max;
         this.numSteps = numSteps;
         this.srcType = srcType;
-    }
-
-    public IntervalQuantizationEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("min"), (int) encoding.get("max"), (int) encoding.get("numSteps"),
-                (int) encoding.get("srcType"));
     }
 
     public int getMin() {

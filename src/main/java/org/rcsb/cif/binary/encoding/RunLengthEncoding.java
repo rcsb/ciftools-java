@@ -5,7 +5,6 @@ import org.rcsb.cif.binary.data.IntArray;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 /**
  * <p>Represents each integer value in the input as a pair of (value, number of repeats) and stores the result
@@ -35,10 +34,6 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
     public RunLengthEncoding(int srcType, int srcSize) {
         this.srcType = srcType;
         this.srcSize = srcSize;
-    }
-
-    public RunLengthEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("srcType"), (int) encoding.get("srcSize"));
     }
 
     public int getSrcType() {

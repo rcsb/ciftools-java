@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.data.Int32Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} multiplied by a given factor.</p>
@@ -36,10 +35,6 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
     public FixedPointEncoding(int factor, int srcType) {
         this.factor = factor;
         this.srcType = srcType;
-    }
-
-    public FixedPointEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("factor"), (int) encoding.get("srcType"));
     }
 
     public int getFactor() {

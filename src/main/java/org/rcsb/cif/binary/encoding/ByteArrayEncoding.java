@@ -13,7 +13,6 @@ import org.rcsb.cif.binary.data.Uint8Array;
 import java.nio.ByteOrder;
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 /**
  * <p>Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
@@ -36,10 +35,6 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
 
     public ByteArrayEncoding(int type) {
         this.type = type;
-    }
-
-    public ByteArrayEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("type"));
     }
 
     public int getType() {

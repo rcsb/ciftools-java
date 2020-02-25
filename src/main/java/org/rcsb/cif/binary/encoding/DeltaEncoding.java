@@ -5,7 +5,6 @@ import org.rcsb.cif.binary.data.SignedIntArray;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Map;
 
 /**
  * <p>Stores the input integer array as an array of consecutive differences.</p>
@@ -29,10 +28,6 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     public DeltaEncoding(int origin, int srcType) {
         this.origin = origin;
         this.srcType = srcType;
-    }
-
-    public DeltaEncoding(Map<String, Object> encoding) {
-        this((int) encoding.get("origin"), (int) encoding.get("srcType"));
     }
 
     public int getOrigin() {
