@@ -2,12 +2,12 @@ package org.rcsb.cif.binary;
 
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.EncodingStrategyHint;
-import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
+import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.data.ByteArray;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
@@ -133,17 +133,17 @@ public class BinaryCifWriter {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             double[] array = floatCol.getBinaryData() != null ? floatCol.getBinaryData() : floatCol.values().toArray();
-            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), EncodedDataFactory.float64Array(array));
+            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Float64Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
             int[] array = intCol.getBinaryData() != null ? intCol.getBinaryData() : intCol.values().toArray();
-            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), EncodedDataFactory.int32Array(array));
+            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Int32Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;
             String[] array = strCol.getBinaryData() != null ? strCol.getBinaryData() : strCol.values().toArray(String[]::new);
-            ByteArray byteArray = EncodedDataFactory.stringArray(array).encode(new StringArrayEncoding());
+            ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }
     }
@@ -153,7 +153,7 @@ public class BinaryCifWriter {
 
         // handle ValueKind and if needed create mask
         int[] maskArray = new int[cifField.getRowCount()];
-        Uint8Array mask = EncodedDataFactory.uint8Array(maskArray);
+        Uint8Array mask = new Uint8Array(maskArray);
         boolean allPresent = true;
 
         for (int row = 0; row < maskArray.length; row++) {

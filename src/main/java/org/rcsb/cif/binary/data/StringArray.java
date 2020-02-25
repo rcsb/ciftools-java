@@ -15,7 +15,7 @@ public class StringArray extends AbstractEncodedData<String[]> {
         super(data, encoding);
     }
 
-    StringArray(String[] data) {
+    public StringArray(String[] data) {
         this(data, new ArrayDeque<>());
     }
 

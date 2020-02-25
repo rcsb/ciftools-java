@@ -3,7 +3,6 @@ package org.rcsb.cif.binary.encoding;
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.data.ByteArray;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
 
@@ -94,7 +93,7 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
 
     @Override
     public StringArray decode(ByteArray data) {
-        int[] offsets = (int[]) EncodedDataFactory.byteArray(this.offsets, offsetEncoding)
+        int[] offsets = (int[]) new ByteArray(this.offsets, offsetEncoding)
                 .decode()
                 .getData();
         data.setEncoding(dataEncoding);
@@ -112,7 +111,7 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
             result[offset++] = strings[index + 1];
         }
 
-        return EncodedDataFactory.stringArray(result, data.getEncoding());
+        return new StringArray(result, data.getEncoding());
     }
 
     public ByteArray encode(StringArray data) {
@@ -156,11 +155,11 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
             offsetArray[j] = offsetList.get(j);
         }
 
-        Int32Array offsetPlain = EncodedDataFactory.int32Array(offsetArray);
+        Int32Array offsetPlain = new Int32Array(offsetArray);
         EncodingStrategyHint offsetHint = Classifier.classify(offsetPlain);
         ByteArray offsets = Classifier.encode(offsetPlain, offsetHint.getEncoding());
 
-        Int32Array outputPlain = EncodedDataFactory.int32Array(outputArray);
+        Int32Array outputPlain = new Int32Array(outputArray);
         EncodingStrategyHint outputHint = Classifier.classify(outputPlain);
         ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
@@ -171,7 +170,7 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         this.dataEncoding = output.getEncoding();
         enc.add(this);
 
-        return EncodedDataFactory.byteArray(output.getData(), enc);
+        return new ByteArray(output.getData(), enc);
     }
 
     @Override

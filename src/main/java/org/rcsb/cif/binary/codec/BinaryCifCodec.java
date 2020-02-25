@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedData;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
@@ -50,11 +50,11 @@ public class BinaryCifCodec {
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
     public static Object decode(Map<String, Object> encodedData) {
-        EncodedData current = EncodedDataFactory.byteArray((byte[]) encodedData.get("data"));
+        EncodedData current = new ByteArray((byte[]) encodedData.get("data"));
         Object[] encodingMaps = (Object[]) encodedData.get("encoding");
         for (int i = encodingMaps.length - 1; i >= 0; i--) {
             Map<String, Object> map = (Map<String, Object>) encodingMaps[i];
-            Encoding encoding = wrap(map);
+            Encoding encoding = deserializeEncodingMap(map);
             current = encoding.decode(current);
         }
 
@@ -66,7 +66,7 @@ public class BinaryCifCodec {
      * @param encoding map representation of encoding
      * @return the concrete Encoding instance
      */
-    private static Encoding<?, ?> wrap(Map<String, Object> encoding) {
+    private static Encoding<?, ?> deserializeEncodingMap(Map<String, Object> encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":
@@ -82,8 +82,8 @@ public class BinaryCifCodec {
             case "IntegerPacking":
                 return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                Deque<Encoding<?, ?>> outputEncoding = wrap(encoding.get("dataEncoding"));
-                Deque<Encoding<?, ?>> offsetEncoding = wrap(encoding.get("offsetEncoding"));
+                Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingMap(encoding.get("dataEncoding"));
+                Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingMap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
@@ -91,11 +91,11 @@ public class BinaryCifCodec {
     }
 
     @SuppressWarnings("unchecked")
-    private static Deque<Encoding<?, ?>> wrap(Object rawEncodingMap) {
+    private static Deque<Encoding<?, ?>> deserializeEncodingMap(Object rawEncodingMap) {
         Object[] encodingMap = (Object[]) rawEncodingMap;
         Deque<Encoding<?, ?>> encodings = new ArrayDeque<>();
         for (Object o : encodingMap) {
-            encodings.add(wrap((Map<String, Object>) o));
+            encodings.add(deserializeEncodingMap((Map<String, Object>) o));
         }
         return encodings;
     }

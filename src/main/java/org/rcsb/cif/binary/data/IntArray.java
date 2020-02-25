@@ -22,5 +22,25 @@ public interface IntArray extends NumberArray<int[]> {
     default Int32Array decode(IntegerPackingEncoding encoding) {
         return encoding.decode(this);
     }
+
+    static IntArray create(int type, int size) {
+        int[] data = new int[size];
+        switch (type) {
+            case Int8Array.TYPE:
+                return new Int8Array(data);
+            case Int16Array.TYPE:
+                return new Int16Array(data);
+            case Int32Array.TYPE:
+                return new Int32Array(data);
+            case Uint8Array.TYPE:
+                return new Uint8Array(data);
+            case Uint16Array.TYPE:
+                return new Uint16Array(data);
+            case Uint32Array.TYPE:
+                return new Uint32Array(data);
+            default:
+                throw new IllegalArgumentException("Unknown IntArray type " + type);
+        }
+    }
 }
 

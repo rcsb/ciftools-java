@@ -16,7 +16,7 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 2;
 
-    Int16Array(int[] data) {
+    public Int16Array(int[] data) {
         this(data, new ArrayDeque<>());
     }
 

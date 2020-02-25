@@ -1,8 +1,11 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Int16Array;
 import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.Int8Array;
 import org.rcsb.cif.binary.data.IntArray;
+import org.rcsb.cif.binary.data.Uint16Array;
+import org.rcsb.cif.binary.data.Uint8Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -80,7 +83,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         boolean unsigned = isUnsigned();
 
         if (input.length == srcSize && byteCount == 4) {
-            Int32Array output = EncodedDataFactory.int32Array(input, data.getEncoding());
+            Int32Array output = new Int32Array(input, data.getEncoding());
             output.setEncoding(data.getEncoding());
             return output;
         }
@@ -112,7 +115,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
             j++;
         }
 
-        return EncodedDataFactory.int32Array(output, data.getEncoding());
+        return new Int32Array(output, data.getEncoding());
     }
 
     public IntArray encode(Int32Array data) {
@@ -125,7 +128,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
             this.isUnsigned = false;
             this.srcSize = input.length;
             enc.add(this);
-            return EncodedDataFactory.int32Array(input, enc);
+            return new Int32Array(input, enc);
         }
 
         int upperLimit = packing.signed ? packing.bytesPerElement == 1 ? 0x7F : 0x7FFF :
@@ -157,15 +160,15 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         IntArray output;
         if (packing.signed) {
             if (packing.bytesPerElement == 1) {
-                output = EncodedDataFactory.int8Array(outputArray);
+                output = new Int8Array(outputArray);
             } else {
-                output = EncodedDataFactory.int16Array(outputArray);
+                output = new Int16Array(outputArray);
             }
         } else {
             if (packing.bytesPerElement == 1) {
-                output = EncodedDataFactory.uint8Array(outputArray);
+                output = new Uint8Array(outputArray);
             } else {
-                output = EncodedDataFactory.uint16Array(outputArray);
+                output = new Uint16Array(outputArray);
             }
         }
 

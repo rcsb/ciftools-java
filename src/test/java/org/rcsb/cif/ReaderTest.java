@@ -39,22 +39,25 @@ public class ReaderTest {
     }
 
     @Test
+    @SuppressWarnings("rawtypes")
     public void parseBinary() throws IOException, ParsingException {
-        for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
+        for (Map.Entry<String, List> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
         }
     }
 
     @Test
+    @SuppressWarnings("rawtypes")
     public void parseText() throws ParsingException, IOException {
-        for (Map.Entry<String, List<Object>> testCase : TEST_CASES.entrySet()) {
+        for (Map.Entry<String, List> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
             checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
         }
     }
 
-    private void checkParsedEntity(CifFile cifFile, List<Object> testData) throws ParsingException {
+    @SuppressWarnings("rawtypes")
+    private void checkParsedEntity(CifFile cifFile, List testData) throws ParsingException {
         Block data = cifFile.getFirstBlock();
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);

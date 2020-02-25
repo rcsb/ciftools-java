@@ -13,7 +13,7 @@ public class Uint32Array extends AbstractEncodedData<int[]> implements UnsignedI
     private static final int NUMBER_OF_BYTES = 4;
     static final int TYPE = 6;
 
-    Uint32Array(int[] data) {
+    public Uint32Array(int[] data) {
         this(data, new ArrayDeque<>());
     }
 

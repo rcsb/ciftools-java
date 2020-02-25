@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.data.SignedIntArray;
 
@@ -63,7 +62,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     public SignedIntArray decode(SignedIntArray data) {
         int[] input = data.getData();
 //        T output = (T) EncodedDataFactory.intArray(srcType, input.length);
-        SignedIntArray output = (SignedIntArray) EncodedDataFactory.intArray(srcType, input.length);
+        SignedIntArray output = (SignedIntArray) IntArray.create(srcType, input.length);
         output.setEncoding(data.getEncoding());
 
         int n = input.length;
@@ -84,12 +83,12 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
         int srcType = data.getType();
         int[] inputArray = data.getData();
         if (inputArray.length == 0) {
-            IntArray output = EncodedDataFactory.intArray(srcType, 0);
+            IntArray output = IntArray.create(srcType, 0);
 
             return create(data, srcType, output, 0);
         }
 
-        IntArray output = EncodedDataFactory.intArray(srcType, inputArray.length);
+        IntArray output = IntArray.create(srcType, inputArray.length);
         int[] outputArray = output.getData();
         int origin = inputArray[0];
         outputArray[0] = inputArray[0];

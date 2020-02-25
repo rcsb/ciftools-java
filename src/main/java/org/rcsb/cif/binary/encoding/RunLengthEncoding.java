@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
 
@@ -71,7 +70,7 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
         }
 
         int dataOffset = 0;
-        IntArray output = EncodedDataFactory.intArray(srcType, srcSize);
+        IntArray output = IntArray.create(srcType, srcSize);
 
         output.setEncoding(data.getEncoding());
         int[] outputArray = output.getData();
@@ -94,7 +93,7 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
             this.srcType = 3;
             this.srcSize = 0;
             enc.add(this);
-            return EncodedDataFactory.int32Array(new int[0], enc);
+            return new Int32Array(new int[0], enc);
         }
 
         // calculate output size
@@ -127,7 +126,7 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
         this.srcSize = input.length;
         enc.add(this);
 
-        return EncodedDataFactory.int32Array(output, enc);
+        return new Int32Array(output, enc);
     }
 
     @Override

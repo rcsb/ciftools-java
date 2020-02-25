@@ -14,11 +14,11 @@ import java.util.Deque;
  * The abstraction of binary data.
  */
 public class ByteArray extends AbstractEncodedData<byte[]> {
-    ByteArray(byte[] data) {
+    public ByteArray(byte[] data) {
         this(data, new ArrayDeque<>());
     }
 
-    ByteArray(byte[] data, Deque<Encoding<?, ?>> encoding) {
+    public ByteArray(byte[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

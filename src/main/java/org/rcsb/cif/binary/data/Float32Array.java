@@ -15,11 +15,11 @@ public class Float32Array extends AbstractEncodedData<double[]> implements Float
     private static final int NUMBER_OF_BYTES = 4;
     private static final int TYPE = 32;
 
-    Float32Array(double[] data) {
+    public Float32Array(double[] data) {
         this(data, new ArrayDeque<>());
     }
 
-    Float32Array(double[] data, Deque<Encoding<?, ?>> encoding) {
+    public Float32Array(double[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

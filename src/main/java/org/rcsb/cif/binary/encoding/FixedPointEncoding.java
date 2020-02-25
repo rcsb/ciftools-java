@@ -1,6 +1,7 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Float32Array;
+import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 
@@ -68,8 +69,8 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
             outputArray[i] = intData[i] * f;
         }
 
-        return srcType == 32 ? EncodedDataFactory.float32Array(outputArray, data.getEncoding()) :
-                EncodedDataFactory.float64Array(outputArray, data.getEncoding());
+        return srcType == 32 ? new Float32Array(outputArray, data.getEncoding()) :
+                new Float64Array(outputArray, data.getEncoding());
     }
 
     public Int32Array encode(FloatArray data) {
@@ -84,7 +85,7 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
         Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
-        return EncodedDataFactory.int32Array(outputArray, enc);
+        return new Int32Array(outputArray, enc);
     }
 
     @Override

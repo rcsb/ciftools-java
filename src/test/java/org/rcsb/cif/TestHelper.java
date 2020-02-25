@@ -1,7 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.ByteArray;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -27,14 +27,14 @@ import static org.junit.Assert.assertNotNull;
 public class TestHelper {
     public static final double ERROR_MARGIN = 0.001;
 
-    @SuppressWarnings("unchecked")
-    public static final Map<String, List<Object>> TEST_CASES = Stream.of(
+    @SuppressWarnings("rawtypes")
+    public static final Map<String, List> TEST_CASES = Stream.of(
             Stream.of("1acj", -12.503, 535, "1ACJ").collect(Collectors.toList()),
             Stream.of("1j59", -5.513, 207, "1J59").collect(Collectors.toList()),
             Stream.of("1pga", 26.778, 56, "1PGA").collect(Collectors.toList()),
             Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
             Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
-    ).collect(Collectors.toMap((List l) -> (String) l.get(0), (List l) -> (List<Object>) l.subList(1, l.size())));
+    ).collect(Collectors.toMap(l -> (String) l.get(0), l -> l.subList(1, l.size())));
 
     /**
      * Tests strings for equality with drastically reduced strictness. Ignores:
@@ -120,7 +120,7 @@ public class TestHelper {
     @Test
     public void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
-        assertNotNull(EncodedDataFactory.byteArray(TestHelper.getBytes("bcif/" + id))
+        assertNotNull(new ByteArray(TestHelper.getBytes("bcif/" + id))
                 .toUint8Array(null)
                 .getData());
     }

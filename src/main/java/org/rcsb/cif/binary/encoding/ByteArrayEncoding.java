@@ -1,7 +1,6 @@
 package org.rcsb.cif.binary.encoding;
 
 import org.rcsb.cif.binary.data.ByteArray;
-import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Float32Array;
 import org.rcsb.cif.binary.data.Int16Array;
 import org.rcsb.cif.binary.data.Int32Array;
@@ -87,7 +86,7 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         Deque<Encoding</*NumberArray<?>, ByteArray*/?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
-        return EncodedDataFactory.byteArray(bytes, enc);
+        return new ByteArray(bytes, enc);
     }
 
     private int determineType(NumberArray<?> data) {

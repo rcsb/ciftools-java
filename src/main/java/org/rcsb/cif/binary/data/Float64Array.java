@@ -17,11 +17,11 @@ public class Float64Array extends AbstractEncodedData<double[]> implements Float
     private static final int NUMBER_OF_BYTES = 8;
     private static final int TYPE = 33;
 
-    Float64Array(double[] data) {
+    public Float64Array(double[] data) {
         this(data, new ArrayDeque<>());
     }
 
-    Float64Array(double[] data, Deque<Encoding<?, ?>> encoding) {
+    public Float64Array(double[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

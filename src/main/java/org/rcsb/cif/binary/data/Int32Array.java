@@ -21,11 +21,11 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
     private static final int NUMBER_OF_BYTES = 4;
     static final int TYPE = 3;
 
-    Int32Array(int[] data) {
+    public Int32Array(int[] data) {
         this(data, new ArrayDeque<>());
     }
 
-    Int32Array(int[] data, Deque<Encoding<?, ?>> encoding) {
+    public Int32Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

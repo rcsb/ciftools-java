@@ -1,6 +1,7 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.Float32Array;
+import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 
@@ -85,8 +86,8 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
             output[i] = min + delta * intData[i];
         }
 
-        return srcType == 32 ? EncodedDataFactory.float32Array(output, data.getEncoding()) :
-                EncodedDataFactory.float64Array(output, data.getEncoding());
+        return srcType == 32 ? new Float32Array(output, data.getEncoding()) :
+                new Float64Array(output, data.getEncoding());
     }
 
     public Int32Array encode(FloatArray data) {
@@ -97,7 +98,7 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
             Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
             this.srcType = 3;
             enc.add(this);
-            return EncodedDataFactory.int32Array(new int[0], enc);
+            return new Int32Array(new int[0], enc);
         }
 
         if (max < min) {
@@ -123,7 +124,7 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
         Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
-        return EncodedDataFactory.int32Array(output, enc);
+        return new Int32Array(output, enc);
     }
 
     @Override

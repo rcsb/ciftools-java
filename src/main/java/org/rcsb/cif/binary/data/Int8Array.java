@@ -15,7 +15,7 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
     private static final int NUMBER_OF_BYTES = 1;
     static final int TYPE = 1;
 
-    Int8Array(int[] data) {
+    public Int8Array(int[] data) {
         this(data, new ArrayDeque<>());
     }
 

@@ -13,7 +13,7 @@ public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIn
     private static final int NUMBER_OF_BYTES = 1;
     static final int TYPE = 4;
 
-    Uint8Array(int[] data) {
+    public Uint8Array(int[] data) {
         this(data, new ArrayDeque<>());
     }
 
