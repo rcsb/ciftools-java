@@ -10,6 +10,7 @@ import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
+import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -213,43 +214,26 @@ public class BinaryCifWriter {
         return map;
     }
 
-    private Map<String, Object> wrap(Object object) {
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> wrap(Encoding<?, ?> object) {
         try {
             Map<String, Object> out = new LinkedHashMap<>();
             for (Field field : object.getClass().getDeclaredFields()) {
+                System.out.println(field);
                 field.setAccessible(true);
                 Object content = field.get(object);
-                if (content instanceof Map) {
-                    content = wrap(content);
-                } else if (content instanceof Collection) {
+                if (content instanceof Collection) {
                     // handles Deque instances passed here - and basically any non-map collection
-                    Collection<?> list = (Collection<?>) content;
+                    Collection<Encoding<?, ?>> list = (Collection<Encoding<?, ?>>) content;
                     content = list.stream()
                             .map(this::wrap)
                             .toArray();
-                } else if (isObjectArray(content)) {
-                    Object[] array = (Object[]) content;
-                    Object[] contentArray = new Object[array.length];
-                    for (int i = 0; i < array.length; i++) {
-                        contentArray[i] = wrap(array[i]);
-                    }
-                    content = contentArray;
                 }
                 out.put(field.getName(), content);
             }
             return out;
         } catch (IllegalAccessException e) {
             throw new IllegalArgumentException("Could not convert Encoding to Map representation", e);
-        }
-    }
-
-    private boolean isObjectArray(Object content) {
-        if (content == null) {
-            return false;
-        } else if (!content.getClass().isArray()) {
-            return false;
-        } else {
-            return !(content instanceof int[] || content instanceof double[] || content instanceof byte[] || content instanceof char[]);
         }
     }
 }
