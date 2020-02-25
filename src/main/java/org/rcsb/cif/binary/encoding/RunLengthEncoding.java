@@ -44,14 +44,6 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
         return srcSize;
     }
 
-    public void setSrcType(int srcType) {
-        this.srcType = srcType;
-    }
-
-    public void setSrcSize(int srcSize) {
-        this.srcSize = srcSize;
-    }
-
     @Override
     public String getKind() {
         return kind;

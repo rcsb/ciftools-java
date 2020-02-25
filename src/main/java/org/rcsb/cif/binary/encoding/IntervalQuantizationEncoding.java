@@ -61,10 +61,6 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
         return srcType;
     }
 
-    public void setSrcType(int srcType) {
-        this.srcType = srcType;
-    }
-
     @Override
     public String getKind() {
         return kind;

@@ -35,10 +35,6 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         return type;
     }
 
-    public void setType(int type) {
-        this.type = type;
-    }
-
     @Override
     public String getKind() {
         return kind;

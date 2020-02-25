@@ -55,18 +55,6 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         return srcSize;
     }
 
-    public void setByteCount(int byteCount) {
-        this.byteCount = byteCount;
-    }
-
-    public void setUnsigned(boolean unsigned) {
-        this.isUnsigned = unsigned;
-    }
-
-    public void setSrcSize(int srcSize) {
-        this.srcSize = srcSize;
-    }
-
     @Override
     public String getKind() {
         return kind;

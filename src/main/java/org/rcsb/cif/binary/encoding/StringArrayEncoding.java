@@ -70,22 +70,6 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         return offsets;
     }
 
-    public void setDataEncoding(Deque<Encoding<?, ?>> dataEncoding) {
-        this.dataEncoding = dataEncoding;
-    }
-
-    public void setStringData(String stringData) {
-        this.stringData = stringData;
-    }
-
-    public void setOffsetEncoding(Deque<Encoding<?, ?>> offsetEncoding) {
-        this.offsetEncoding = offsetEncoding;
-    }
-
-    public void setOffsets(byte[] offsets) {
-        this.offsets = offsets;
-    }
-
     @Override
     public String getKind() {
         return kind;

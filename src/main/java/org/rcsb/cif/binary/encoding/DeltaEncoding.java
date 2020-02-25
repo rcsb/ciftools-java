@@ -38,14 +38,6 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
         return srcType;
     }
 
-    public void setOrigin(int origin) {
-        this.origin = origin;
-    }
-
-    public void setSrcType(int srcType) {
-        this.srcType = srcType;
-    }
-
     @Override
     public String getKind() {
         return kind;

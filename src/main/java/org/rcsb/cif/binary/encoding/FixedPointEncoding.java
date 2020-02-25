@@ -45,10 +45,6 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
         return srcType;
     }
 
-    public void setSrcType(int srcType) {
-        this.srcType = srcType;
-    }
-
     @Override
     public String getKind() {
         return kind;
