@@ -65,7 +65,7 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     @Override
     public Int16Array encode(DeltaEncoding encoding) {
-        return (Int16Array) encoding.encode(this);
+        return encoding.encode(this);
     }
 
     @Override

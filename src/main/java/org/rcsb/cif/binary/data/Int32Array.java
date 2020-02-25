@@ -74,7 +74,7 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     @Override
     public Int32Array encode(DeltaEncoding encoding) {
-        return (Int32Array) encoding.encode(this);
+        return encoding.encode(this);
     }
 
     @Override

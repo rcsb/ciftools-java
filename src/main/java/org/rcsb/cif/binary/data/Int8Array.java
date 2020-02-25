@@ -63,7 +63,7 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
 
     @Override
     public Int8Array encode(DeltaEncoding encoding) {
-        return (Int8Array) encoding.encode(this);
+        return encoding.encode(this);
     }
 
     @Override
