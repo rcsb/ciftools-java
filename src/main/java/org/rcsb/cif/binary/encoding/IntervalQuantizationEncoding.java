@@ -7,6 +7,8 @@ import org.rcsb.cif.binary.data.Int32Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} where the values are quantized within a
@@ -28,7 +30,6 @@ import java.util.Deque;
  * </pre>
  */
 public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32Array> {
-    private static final String kind = "IntervalQuantization";
     private int min;
     private int max;
     private int numSteps;
@@ -45,25 +46,15 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
         this.srcType = srcType;
     }
 
-    public int getMin() {
-        return min;
-    }
-
-    public int getMax() {
-        return max;
-    }
-
-    public int getNumSteps() {
-        return numSteps;
-    }
-
-    public int getSrcType() {
-        return srcType;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "IntervalQuantization");
+        map.put("min", min);
+        map.put("max", max);
+        map.put("numSteps", numSteps);
+        map.put("srcType", srcType);
+        return map;
     }
 
     @Override

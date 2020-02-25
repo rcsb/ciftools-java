@@ -7,6 +7,8 @@ import org.rcsb.cif.binary.data.Uint8Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Encodes an array of numbers of specified types as raw bytes. E.g. values in the range from 0...255 (i.e. an
@@ -21,7 +23,6 @@ import java.util.Deque;
  * </pre>
  */
 public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
-    private static final String kind = "ByteArray";
     private int type;
 
     public ByteArrayEncoding() {
@@ -31,13 +32,13 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         this.type = type;
     }
 
-    public int getType() {
-        return type;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        // TODO preconstruct maps
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "ByteArray");
+        map.put("type", type);
+        return map;
     }
 
     @Override
@@ -64,6 +65,7 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         }
     }
 
+    @Override
     public ByteArray encode(NumberArray<?> data) {
         this.type = data.getType();
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());

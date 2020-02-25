@@ -5,6 +5,8 @@ import org.rcsb.cif.binary.data.IntArray;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Represents each integer value in the input as a pair of (value, number of repeats) and stores the result
@@ -24,7 +26,6 @@ import java.util.Deque;
  * </pre>
  */
 public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
-    private static final String kind = "RunLength";
     private int srcType;
     private int srcSize;
 
@@ -36,17 +37,13 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
         this.srcSize = srcSize;
     }
 
-    public int getSrcType() {
-        return srcType;
-    }
-
-    public int getSrcSize() {
-        return srcSize;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "RunLength");
+        map.put("srcType", srcType);
+        map.put("srcSize", srcSize);
+        return map;
     }
 
     @Override

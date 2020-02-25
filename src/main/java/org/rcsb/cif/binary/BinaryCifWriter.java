@@ -23,8 +23,6 @@ import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -172,7 +170,7 @@ public class BinaryCifWriter {
         Map<String, Object> encodedMap = new LinkedHashMap<>();
         encodedMap.put("encoding", byteArray.getEncoding()
                 .stream()
-                .map(this::wrap)
+                .map(Encoding::getMapRepresentation)
                 .toArray(Map[]::new));
         encodedMap.put("data", byteArray.getData());
 
@@ -184,56 +182,28 @@ public class BinaryCifWriter {
             if (maskRLE.getData().length < mask.getData().length) {
                 RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().getFirst();
 
-                Map<String, Object> encoding1 = new LinkedHashMap<>();
-                encoding1.put("kind", "RunLength");
-                encoding1.put("srcType", rle.getSrcType());
-                encoding1.put("srcSize", rle.getSrcSize());
-
+                // TODO move to preconstructed ByteArray encoding
                 Map<String, Object> encoding2 = new LinkedHashMap<>();
                 encoding2.put("kind", "ByteArray");
                 encoding2.put("type", 3);
 
-                maskData.put("encoding", new Object[]{encoding1, encoding2});
+                maskData.put("encoding", new Object[] { rle.getMapRepresentation(), encoding2 });
                 maskData.put("data", maskRLE.getData());
             } else {
                 ByteArray encodedMask = mask.encode(new ByteArrayEncoding(4));
                 Map<String, Object> encoding = new LinkedHashMap<>();
+                // TODO move to preconstructed ByteArray encoding
                 encoding.put("kind", "ByteArray");
                 encoding.put("type", 4);
-                maskData.put("encoding", new Object[]{encoding});
+                maskData.put("encoding", new Object[] { encoding });
                 maskData.put("data", encodedMask.getData());
             }
         }
 
-        // create map
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("name", name);
         map.put("data", encodedMap);
         map.put("mask", maskData);
-
         return map;
-    }
-
-    @SuppressWarnings("unchecked")
-    private Map<String, Object> wrap(Encoding<?, ?> object) {
-        try {
-            Map<String, Object> out = new LinkedHashMap<>();
-            for (Field field : object.getClass().getDeclaredFields()) {
-                System.out.println(field);
-                field.setAccessible(true);
-                Object content = field.get(object);
-                if (content instanceof Collection) {
-                    // handles Deque instances passed here - and basically any non-map collection
-                    Collection<Encoding<?, ?>> list = (Collection<Encoding<?, ?>>) content;
-                    content = list.stream()
-                            .map(this::wrap)
-                            .toArray();
-                }
-                out.put(field.getName(), content);
-            }
-            return out;
-        } catch (IllegalAccessException e) {
-            throw new IllegalArgumentException("Could not convert Encoding to Map representation", e);
-        }
     }
 }

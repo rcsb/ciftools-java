@@ -9,6 +9,8 @@ import org.rcsb.cif.binary.data.Uint8Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.stream.IntStream;
 
 /**
@@ -29,7 +31,6 @@ import java.util.stream.IntStream;
  * </pre>
  */
 public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
-    private static final String kind = "IntegerPacking";
     private int byteCount;
     private boolean isUnsigned;
     private int srcSize;
@@ -43,27 +44,20 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         this.srcSize = srcSize;
     }
 
-    public int getByteCount() {
-        return byteCount;
-    }
-
-    public boolean isUnsigned() {
-        return isUnsigned;
-    }
-
-    public int getSrcSize() {
-        return srcSize;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "IntegerPacking");
+        map.put("byteCount", byteCount);
+        map.put("isUnsigned", isUnsigned);
+        map.put("srcSize", srcSize);
+        return map;
     }
 
     @Override
     public Int32Array decode(IntArray data) {
         int[] input = data.getData();
-        boolean unsigned = isUnsigned();
+        boolean unsigned = this.isUnsigned;
 
         if (input.length == srcSize && byteCount == 4) {
             Int32Array output = new Int32Array(input, data.getEncoding());

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Deque;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,6 @@ import java.util.Map;
  * </pre>
  */
 public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
-    private static final String kind = "StringArray";
     private Deque<Encoding<?, ?>> dataEncoding;
     private String stringData;
     private Deque<Encoding<?, ?>> offsetEncoding;
@@ -50,25 +50,21 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         this.offsets = offsets;
     }
 
-    public Deque<Encoding<?, ?>> getDataEncoding() {
-        return dataEncoding;
-    }
-
-    public String getStringData() {
-        return stringData;
-    }
-
-    public Deque<Encoding<?, ?>> getOffsetEncoding() {
-        return offsetEncoding;
-    }
-
-    public byte[] getOffsets() {
-        return offsets;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "StringArray");
+        map.put("dataEncoding", toArray(dataEncoding));
+        map.put("stringData", stringData);
+        map.put("offsetEncoding", toArray(offsetEncoding));
+        map.put("offsets", offsets);
+        return map;
+    }
+
+    private Map<?, ?>[] toArray(Deque<Encoding<?, ?>> deque) {
+        return deque.stream()
+                .map(Encoding::getMapRepresentation)
+                .toArray(Map[]::new);
     }
 
     @Override

@@ -7,6 +7,8 @@ import org.rcsb.cif.binary.data.Int32Array;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Converts an array of floating point numbers to a {@link Int32Array} multiplied by a given factor.</p>
@@ -24,7 +26,6 @@ import java.util.Deque;
  * </pre>
  */
 public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
-    private static final String kind = "FixedPoint";
     private final int factor;
     private int srcType;
 
@@ -37,17 +38,13 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
         this.srcType = srcType;
     }
 
-    public int getFactor() {
-        return factor;
-    }
-
-    public int getSrcType() {
-        return srcType;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "FixedPoint");
+        map.put("factor", factor);
+        map.put("srcType", srcType);
+        return map;
     }
 
     @Override

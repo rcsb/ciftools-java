@@ -5,6 +5,8 @@ import org.rcsb.cif.binary.data.SignedIntArray;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  * <p>Stores the input integer array as an array of consecutive differences.</p>
@@ -18,7 +20,6 @@ import java.util.Deque;
  * </pre>
  */
 public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
-    private static final String kind = "Delta";
     private int origin;
     private int srcType;
 
@@ -30,17 +31,13 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
         this.srcType = srcType;
     }
 
-    public int getOrigin() {
-        return origin;
-    }
-
-    public int getSrcType() {
-        return srcType;
-    }
-
     @Override
-    public String getKind() {
-        return kind;
+    public Map<String, Object> getMapRepresentation() {
+        Map<String, Object> map = new LinkedHashMap<>();
+        map.put("kind", "Delta");
+        map.put("origin", origin);
+        map.put("srcType", srcType);
+        return map;
     }
 
     @Override
