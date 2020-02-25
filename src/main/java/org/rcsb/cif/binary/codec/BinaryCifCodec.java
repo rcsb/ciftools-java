@@ -19,19 +19,10 @@ import java.util.Map;
  * A library of codec implementations and provider to codec-specific constants such as encoder name, version, and
  * minimal version of the data to decode.
  */
-public class Codec {
+public class BinaryCifCodec {
     public static final String CODEC_NAME = "ciftools-java";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
-
-    public static final ByteArrayCodec BYTE_ARRAY_CODEC = new ByteArrayCodec();
-    public static final DeltaCodec DELTA_CODEC = new DeltaCodec();
-    public static final FixedPointCodec FIXED_POINT_CODEC = new FixedPointCodec();
-    public static final IntegerPackingCodec INTEGER_PACKING_CODEC = new IntegerPackingCodec();
-    public static final IntervalQuantizationCodec INTERVAL_QUANTIZATION_CODEC = new IntervalQuantizationCodec();
-    public static final RunLengthCodec RUN_LENGTH_CODEC = new RunLengthCodec();
-    public static final StringArrayCodec STRING_ARRAY_CODEC = new StringArrayCodec();
-
     public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     /**

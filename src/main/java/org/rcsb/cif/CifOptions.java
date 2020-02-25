@@ -2,7 +2,7 @@ package org.rcsb.cif;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.model.Block;
 
 import java.io.BufferedReader;
@@ -162,7 +162,7 @@ public class CifOptions {
 
         private boolean generic = false;
         private boolean gzip = false;
-        private String encoder = Codec.CODEC_NAME;
+        private String encoder = BinaryCifCodec.CODEC_NAME;
         private String fetchUrl = FETCH_URL;
         private final List<String> categoryWhitelist = new ArrayList<>();
         private final List<String> categoryBlacklist = new ArrayList<>();

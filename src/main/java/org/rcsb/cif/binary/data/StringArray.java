@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
@@ -40,6 +39,6 @@ public class StringArray extends AbstractEncodedData<String[]> {
     }
 
     public ByteArray encode(StringArrayEncoding encoding) {
-        return Codec.STRING_ARRAY_CODEC.encode(this, encoding);
+        return encoding.encode(this);
     }
 }

@@ -7,7 +7,6 @@ import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
 import static org.junit.Assert.assertArrayEquals;
-import static org.rcsb.cif.binary.codec.Codec.INTERVAL_QUANTIZATION_CODEC;
 
 public class IntervalQuantizationCodecTest {
     @Test
@@ -17,7 +16,7 @@ public class IntervalQuantizationCodecTest {
         Int32Array expected = EncodedDataFactory.int32Array( new int[] { 0, 0, 1, 2, 2, 1 });
 
         // encode
-        Int32Array encodedData = INTERVAL_QUANTIZATION_CODEC.encode(plainArray, new IntervalQuantizationEncoding(1, 2, 3, 32));
+        Int32Array encodedData = new IntervalQuantizationEncoding(1, 2, 3, 32).encode(plainArray);
 
 //        System.out.println(encodedData);
 //        System.out.println(expected);

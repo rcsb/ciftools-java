@@ -3,7 +3,7 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.codec.Classifier;
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.Float64Array;
@@ -39,14 +39,14 @@ public class BinaryCifWriter {
 
     public byte[] write(CifFile cifFile) {
         Map<String, Object> file = encodeFile(cifFile);
-        return Codec.MESSAGE_PACK_CODEC.encode(file);
+        return BinaryCifCodec.MESSAGE_PACK_CODEC.encode(file);
     }
 
     private Map<String, Object> encodeFile(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", options.getEncoder());
-        file.put("version", Codec.VERSION);
+        file.put("version", BinaryCifCodec.VERSION);
         Object[] blocks = new Object[cifFile.getBlocks().size()];
         int blockCount = 0;
         file.put("dataBlocks", blocks);

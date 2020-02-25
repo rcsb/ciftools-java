@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.binary.codec.Codec;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -39,11 +38,11 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
     }
 
     public NumberArray<?> decode(ByteArrayEncoding encoding) {
-        return Codec.BYTE_ARRAY_CODEC.decode(this, encoding);
+        return encoding.decode(this);
     }
 
     public StringArray decode(StringArrayEncoding encoding) {
-        return Codec.STRING_ARRAY_CODEC.decode(this, encoding);
+        return encoding.decode(this);
     }
 
     public Int8Array toInt8Array(Deque<Encoding<?>> encoding) {

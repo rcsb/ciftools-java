@@ -2,7 +2,7 @@ package org.rcsb.cif.binary;
 
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
@@ -30,7 +30,7 @@ public class BinaryCifReader {
     public CifFile read(InputStream inputStream) throws ParsingException, IOException {
         Map<String, Object> unpacked;
         try {
-            unpacked = Codec.MESSAGE_PACK_CODEC.decode(inputStream);
+            unpacked = BinaryCifCodec.MESSAGE_PACK_CODEC.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
@@ -40,9 +40,9 @@ public class BinaryCifReader {
         }
 
         String versionString = (String) unpacked.get("version");
-        if (!versionString.startsWith(Codec.MIN_VERSION)) {
+        if (!versionString.startsWith(BinaryCifCodec.MIN_VERSION)) {
             throw new ParsingException("Unsupported format version. Current " + versionString +
-                    ", required " + Codec.MIN_VERSION + ".");
+                    ", required " + BinaryCifCodec.MIN_VERSION + ".");
         }
 
         String encoder = (String) unpacked.get("encoder");

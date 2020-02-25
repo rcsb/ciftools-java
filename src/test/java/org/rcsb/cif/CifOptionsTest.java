@@ -1,7 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
@@ -157,7 +157,7 @@ public class CifOptionsTest {
         byte[] bytes = CifIO.writeBinary(cifFile,
                 CifOptions.builder().encoder(encoderName).build());
 
-        Map<String, Object> map = Codec.MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(bytes));
+        Map<String, Object> map = BinaryCifCodec.MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(bytes));
         assertEquals(encoderName, map.get("encoder"));
     }
 

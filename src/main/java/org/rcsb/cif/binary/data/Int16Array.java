@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
@@ -66,11 +66,11 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     @Override
     public Int16Array encode(DeltaEncoding encoding) {
-        return Codec.DELTA_CODEC.encode(this, encoding);
+        return encoding.encode(this);
     }
 
     @Override
     public Int16Array decode(DeltaEncoding encoding) {
-        return Codec.DELTA_CODEC.decode(this, encoding);
+        return (Int16Array) encoding.decode(this);
     }
 }

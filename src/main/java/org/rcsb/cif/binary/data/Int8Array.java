@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
@@ -64,11 +64,11 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
 
     @Override
     public Int8Array encode(DeltaEncoding encoding) {
-        return Codec.DELTA_CODEC.encode(this, encoding);
+        return encoding.encode(this);
     }
 
     @Override
     public Int8Array decode(DeltaEncoding encoding) {
-        return Codec.DELTA_CODEC.decode(this, encoding);
+        return (Int8Array) encoding.decode(this);
     }
 }

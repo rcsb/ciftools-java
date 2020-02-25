@@ -1,6 +1,6 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
 
 import java.io.IOException;
@@ -314,10 +314,10 @@ public class ModelFactory {
      */
     @SuppressWarnings({"unchecked"})
     public static Column createColumnBinary(String categoryName, String columnName, Map<String, Object> encodedColumn) {
-        Object binaryData = Codec.decode((Map<String, Object>) encodedColumn.get("data"));
+        Object binaryData = BinaryCifCodec.decode((Map<String, Object>) encodedColumn.get("data"));
         int rowCount = Array.getLength(binaryData);
         Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
-        int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) Codec.decode(maskMap));
+        int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) BinaryCifCodec.decode(maskMap));
 
         String topLevel = toTopLevel(categoryName);
         SchemaHandler schemaHandler = SCHEMA_MAP.computeIfAbsent(topLevel, ModelFactory::ensureProperties);

@@ -1,11 +1,28 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.data.EncodedDataFactory;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.Map;
 
+/**
+ * <p>Converts an array of floating point numbers to a {@link Int32Array} multiplied by a given factor.</p>
+ *
+ * <pre>
+ * FixedPoint {
+ *     kind = "FixedPoint"
+ *     factor: number
+ *     srcType: Float32 | Float64
+ * }
+ * Example
+ * [1.2, 1.23, 0.123]
+ * ---FixedPoint---&gt;
+ * { factor = 100 } [120, 123, 12]
+ * </pre>
+ */
 public class FixedPointEncoding implements Encoding<Int32Array> {
     private static final String kind = "FixedPoint";
     private final int factor;
@@ -42,8 +59,32 @@ public class FixedPointEncoding implements Encoding<Int32Array> {
     }
 
     @Override
-    public FloatArray decode(Int32Array current) {
-        return Codec.FIXED_POINT_CODEC.decode(current, this);
+    public FloatArray decode(Int32Array data) {
+        double f = 1.0 / factor;
+
+        int[] intData = data.getData();
+        double[] outputArray = new double[intData.length];
+        for (int i = 0; i < intData.length; i++) {
+            outputArray[i] = intData[i] * f;
+        }
+
+        return srcType == 32 ? EncodedDataFactory.float32Array(outputArray, data.getEncoding()) :
+                EncodedDataFactory.float64Array(outputArray, data.getEncoding());
+    }
+
+    public Int32Array encode(FloatArray data) {
+        this.srcType = data.getType();
+
+        double[] floatData = data.getData();
+        int[] outputArray = new int[floatData.length];
+        for (int i = 0; i < floatData.length; i++) {
+            outputArray[i] = (int) Math.round(floatData[i] * factor);
+        }
+
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        enc.add(this);
+
+        return EncodedDataFactory.int32Array(outputArray, enc);
     }
 
     @Override

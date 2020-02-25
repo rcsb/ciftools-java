@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.binary.codec.Codec;
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.util.Deque;
@@ -37,7 +37,7 @@ public interface EncodedData<D> {
      * @return the decoded data
      */
     default EncodedData<?> decode() {
-        return Codec.decode(this);
+        return BinaryCifCodec.decode(this);
     }
 
     /**

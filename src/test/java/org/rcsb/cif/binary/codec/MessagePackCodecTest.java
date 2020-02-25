@@ -13,7 +13,7 @@ import java.util.Map;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.convertToIntArray;
-import static org.rcsb.cif.binary.codec.Codec.MESSAGE_PACK_CODEC;
+import static org.rcsb.cif.binary.codec.BinaryCifCodec.MESSAGE_PACK_CODEC;
 
 /**
  * - Obtain MessagePacked data at: https://msgpack.org/
