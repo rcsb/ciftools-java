@@ -12,7 +12,6 @@ import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
 import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.ProxyCategory;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -27,16 +26,14 @@ public class BinaryCifReader {
     }
 
     @SuppressWarnings("unchecked")
-    public CifFile read(InputStream inputStream) throws ParsingException, IOException {
+    public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
-        try {
+        try (inputStream) {
             unpacked = BinaryCifCodec.MESSAGE_PACK_CODEC.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
             throw new ParsingException("Parsing failed.", e);
-        } finally {
-            inputStream.close();
         }
 
         String versionString = (String) unpacked.get("version");
@@ -77,7 +74,6 @@ public class BinaryCifReader {
         Object rawColumns = encodedCategory.get("columns");
         int rowCount = (int) encodedCategory.get("rowCount");
 
-        // it is a conventional category with multiple rows
         Object[] encodedFields = (Object[]) rawColumns;
         if (options.isGeneric()) {
             return ModelFactory.createCategoryBinaryGeneric(name, rowCount, encodedFields);
@@ -85,6 +81,5 @@ public class BinaryCifReader {
             // a proxy category delays the determination of the concrete class until we actually request it
             return new ProxyCategory(name, rowCount, encodedFields);
         }
-//        return new ProxyCategory(name, rowCount, encodedFields);
     }
 }

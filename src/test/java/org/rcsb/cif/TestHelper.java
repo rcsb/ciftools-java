@@ -121,7 +121,7 @@ public class TestHelper {
     public void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
         assertNotNull(new ByteArray(TestHelper.getBytes("bcif/" + id))
-                .toUint8Array(null)
+                .decode()
                 .getData());
     }
 }

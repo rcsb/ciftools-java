@@ -17,7 +17,7 @@ public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIn
         this(data, new ArrayDeque<>());
     }
 
-    Uint8Array(int[] data, Deque<Encoding<?, ?>> encoding) {
+    public Uint8Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

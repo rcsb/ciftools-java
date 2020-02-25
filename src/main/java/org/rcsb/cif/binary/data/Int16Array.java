@@ -20,7 +20,7 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
         this(data, new ArrayDeque<>());
     }
 
-    Int16Array(int[] data, Deque<Encoding<?, ?>> encoding) {
+    public Int16Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 

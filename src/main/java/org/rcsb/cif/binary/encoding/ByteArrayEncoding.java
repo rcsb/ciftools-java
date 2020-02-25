@@ -2,9 +2,18 @@ package org.rcsb.cif.binary.encoding;
 
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.data.ByteArray;
+import org.rcsb.cif.binary.data.Float32Array;
+import org.rcsb.cif.binary.data.Float64Array;
+import org.rcsb.cif.binary.data.Int16Array;
+import org.rcsb.cif.binary.data.Int32Array;
+import org.rcsb.cif.binary.data.Int8Array;
 import org.rcsb.cif.binary.data.NumberArray;
+import org.rcsb.cif.binary.data.Uint16Array;
+import org.rcsb.cif.binary.data.Uint32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedHashMap;
@@ -45,24 +54,96 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
     public NumberArray<?> decode(ByteArray data) {
         switch (type) {
             case 1:
-                return data.toInt8Array(data.getEncoding());
+                return toInt8Array(data);
             case 2:
-                return data.toInt16Array(data.getEncoding());
+                return toInt16Array(data);
             case 3:
-                return data.toInt32Array(data.getEncoding());
+                return toInt32Array(data);
             case 4:
-                return data.toUint8Array(data.getEncoding());
+                return toUint8Array(data);
             case 5:
-                return data.toUint16Array(data.getEncoding());
+                return toUint16Array(data);
             case 6:
-                return data.toUint32Array(data.getEncoding());
+                return toUint32Array(data);
             case 32:
-                return data.toFloat32Array(data.getEncoding());
+                return toFloat32Array(data);
             case 33:
-                return data.toFloat64Array(data.getEncoding());
+                return toFloat64Array(data);
             default:
                 throw new IllegalArgumentException("Unsupported byte type " + type);
         }
+    }
+
+    private Int8Array toInt8Array(ByteArray array) {
+        int[] ints = new int[array.length()];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData());
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.get();
+        }
+        return new Int8Array(ints, array.getEncoding());
+    }
+
+    private Int16Array toInt16Array(ByteArray array) {
+        int[] ints = new int[array.length() / 2];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getShort();
+        }
+        return new Int16Array(ints, array.getEncoding());
+    }
+
+    private Int32Array toInt32Array(ByteArray array) {
+        int[] ints = new int[array.length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getInt();
+        }
+        return new Int32Array(ints, array.getEncoding());
+    }
+
+    private Uint8Array toUint8Array(ByteArray array) {
+        int[] ints = new int[array.length()];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData());
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.get() & 0xFF;
+        }
+        return new Uint8Array(ints, array.getEncoding());
+    }
+
+    private Uint16Array toUint16Array(ByteArray array) {
+        int[] ints = new int[array.length() / 2];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getShort() & 0xFFFF;
+        }
+        return new Uint16Array(ints, array.getEncoding());
+    }
+
+    private Uint32Array toUint32Array(ByteArray array) {
+        int[] ints = new int[array.length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = (int) (byteBuffer.getInt() & 0xFFFFFFFFL);
+        }
+        return new Uint32Array(ints, array.getEncoding());
+    }
+
+    private Float32Array toFloat32Array(ByteArray array) {
+        double[] doubles = new double[array.length() / 4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < doubles.length; i++) {
+            doubles[i] = byteBuffer.getFloat();
+        }
+        return new Float32Array(doubles, array.getEncoding());
+    }
+
+    private Float64Array toFloat64Array(ByteArray array) {
+        double[] doubles = new double[array.length() / 8];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < doubles.length; i++) {
+            doubles[i] = byteBuffer.getDouble();
+        }
+        return new Float64Array(doubles, array.getEncoding());
     }
 
     @Override
