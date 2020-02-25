@@ -223,13 +223,6 @@ class TokenizerState {
         return "loop".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 4));
     }
 
-    private boolean isImportGet() {
-        if (tokenEnd - tokenStart != 11) {
-            return false;
-        }
-        return "import.get".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 10));
-    }
-
     /**
      * Checks if the current token shares the namespace with string at <start,end).
      */
