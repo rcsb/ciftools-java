@@ -1,7 +1,5 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.EncodingStrategyHint;
-import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
@@ -88,9 +86,5 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     public IntArray decode(RunLengthEncoding encoding) {
         return encoding.decode(this);
-    }
-
-    public EncodingStrategyHint classify() {
-        return Classifier.classify(this);
     }
 }
