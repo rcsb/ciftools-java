@@ -2,13 +2,7 @@ package org.rcsb.cif.binary.encoding;
 
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.data.ByteArray;
-import org.rcsb.cif.binary.data.Float32Array;
-import org.rcsb.cif.binary.data.Int16Array;
-import org.rcsb.cif.binary.data.Int32Array;
-import org.rcsb.cif.binary.data.Int8Array;
 import org.rcsb.cif.binary.data.NumberArray;
-import org.rcsb.cif.binary.data.Uint16Array;
-import org.rcsb.cif.binary.data.Uint32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 
 import java.util.ArrayDeque;
@@ -75,33 +69,13 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
     }
 
     public ByteArray encode(NumberArray<?> data) {
-        this.type = determineType(data);
+        this.type = data.getType();
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        Deque<Encoding</*NumberArray<?>, ByteArray*/?, ?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
         return new ByteArray(bytes, enc);
-    }
-
-    private int determineType(NumberArray<?> data) {
-        if (data instanceof Int8Array) {
-            return 1;
-        } else if (data instanceof Int16Array) {
-            return 2;
-        } else if (data instanceof Int32Array) {
-            return 3;
-        } else if (data instanceof Uint8Array) {
-            return 4;
-        } else if (data instanceof Uint16Array) {
-            return 5;
-        } else if (data instanceof Uint32Array) {
-            return 6;
-        } else if (data instanceof Float32Array) {
-            return 32;
-        } else {
-            return 33;
-        }
     }
 
     private static byte[] flipByteOrder(byte[] data, int bytes) {
