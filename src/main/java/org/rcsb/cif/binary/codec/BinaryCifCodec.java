@@ -11,6 +11,7 @@ import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 
+import java.nio.ByteOrder;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Map;
@@ -24,6 +25,7 @@ public class BinaryCifCodec {
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
     public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
+    public static final boolean IS_NATIVE_LITTLE_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN);
 
     /**
      * Decode an instance of {@link EncodedData} by traversing its encoding chain until the original data is restored.

@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.encoding;
 
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float32Array;
 import org.rcsb.cif.binary.data.Int16Array;
@@ -10,7 +11,6 @@ import org.rcsb.cif.binary.data.Uint16Array;
 import org.rcsb.cif.binary.data.Uint32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 
-import java.nio.ByteOrder;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -104,8 +104,6 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         }
     }
 
-//    private static final boolean IS_NATIVE_LITTLE_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN);
-
     private static byte[] flipByteOrder(byte[] data, int bytes) {
         byte[] buffer = new byte[data.length];
         for (int i = 0, n = data.length; i < n; i += bytes) {
@@ -117,8 +115,7 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
     }
 
     private static byte[] ensureOrder(byte[] bytes, int numberOfBytes) {
-//        if (!IS_NATIVE_LITTLE_ENDIAN) {
-        if (!ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN)) {
+        if (!BinaryCifCodec.IS_NATIVE_LITTLE_ENDIAN) {
             bytes = flipByteOrder(bytes, numberOfBytes);
         }
         return bytes;
