@@ -122,7 +122,7 @@ public class Classifier {
         @Override
         public String toString() {
             return "{" +
-                    "kind='" + kind + "\', " +
+                    "kind='" + kind + "', " +
                     "length=" + length +
                     '}';
         }

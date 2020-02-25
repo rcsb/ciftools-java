@@ -30,7 +30,7 @@ public class RunLengthCodec {
     public Int32Array encode(IntArray data, RunLengthEncoding encoding) {
         int[] input = data.getData();
         if (input.length == 0) {
-            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
             encoding.setSrcType(3);
             encoding.setSrcSize(0);
             enc.add(encoding);
@@ -62,7 +62,7 @@ public class RunLengthCodec {
         output[offset] = input[input.length - 1];
         output[offset + 1] = runLength;
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setSrcType(3);
         encoding.setSrcSize(input.length);
         enc.add(encoding);

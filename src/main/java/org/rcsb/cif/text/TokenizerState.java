@@ -107,15 +107,14 @@ class TokenizerState {
                     return;
                 }
 
-                position++;
             } else {
                 // handle 'xxxNEWLINE => 'xxx
                 if (c == '\r' || c == '\n') {
                     tokenEnd = position;
                     return;
                 }
-                position++;
             }
+            position++;
         }
 
         tokenEnd = position;

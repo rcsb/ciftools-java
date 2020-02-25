@@ -35,7 +35,7 @@ public class FixedPointCodec {
             outputArray[i] = (int) Math.round(floatData[i] * factor);
         }
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setSrcType(srcType);
         enc.add(encoding);
 

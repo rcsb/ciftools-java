@@ -19,7 +19,7 @@ public class RunLengthEncoding implements Encoding<Int32Array> {
         this.srcSize = srcSize;
     }
 
-    public RunLengthEncoding(Map encoding) {
+    public RunLengthEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("srcType"), (int) encoding.get("srcSize"));
     }
 

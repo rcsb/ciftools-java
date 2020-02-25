@@ -36,7 +36,7 @@ public class IntervalQuantizationCodec {
         int srcType = data.getType();
 
         if (input.length == 0) {
-            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
             enc.add(encoding);
             encoding.setSrcType(3);
             return EncodedDataFactory.int32Array(new int[0], enc);
@@ -62,7 +62,7 @@ public class IntervalQuantizationCodec {
             }
         }
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setSrcType(srcType);
         enc.add(encoding);
 

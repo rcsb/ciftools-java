@@ -14,7 +14,7 @@ public class Uint32Array extends AbstractEncodedData<int[]> implements UnsignedI
         this(data, new ArrayDeque<>());
     }
 
-    Uint32Array(int[] data, Deque<Encoding> encoding) {
+    Uint32Array(int[] data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 

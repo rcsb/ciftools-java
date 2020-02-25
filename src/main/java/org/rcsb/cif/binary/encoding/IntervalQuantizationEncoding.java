@@ -24,7 +24,7 @@ public class IntervalQuantizationEncoding implements Encoding<Int32Array> {
         this.srcType = srcType;
     }
 
-    public IntervalQuantizationEncoding(Map encoding) {
+    public IntervalQuantizationEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("min"), (int) encoding.get("max"), (int) encoding.get("numSteps"),
                 (int) encoding.get("srcType"));
     }

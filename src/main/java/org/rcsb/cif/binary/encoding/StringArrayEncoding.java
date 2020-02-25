@@ -10,27 +10,27 @@ import java.util.Map;
 
 public class StringArrayEncoding implements Encoding<ByteArray> {
     private static final String kind = "StringArray";
-    private Deque<Encoding> dataEncoding;
+    private Deque<Encoding<?>> dataEncoding;
     private String stringData;
-    private Deque<Encoding> offsetEncoding;
+    private Deque<Encoding<?>> offsetEncoding;
     private byte[] offsets;
 
     public StringArrayEncoding() {
 
     }
 
-    public StringArrayEncoding(String stringData, byte[] offsets, Deque<Encoding> outputEncoding, Deque<Encoding> offsetEncoding) {
+    public StringArrayEncoding(String stringData, byte[] offsets, Deque<Encoding<?>> outputEncoding, Deque<Encoding<?>> offsetEncoding) {
         this.dataEncoding = outputEncoding;
         this.stringData = stringData;
         this.offsetEncoding = offsetEncoding;
         this.offsets = offsets;
     }
 
-    public StringArrayEncoding(Map encoding, Deque<Encoding> outputEncoding, Deque<Encoding> offsetEncoding) {
+    public StringArrayEncoding(Map<String, Object> encoding, Deque<Encoding<?>> outputEncoding, Deque<Encoding<?>> offsetEncoding) {
         this((String) encoding.get("stringData"), (byte[]) encoding.get("offsets"), outputEncoding, offsetEncoding);
     }
 
-    public Deque<Encoding> getDataEncoding() {
+    public Deque<Encoding<?>> getDataEncoding() {
         return dataEncoding;
     }
 
@@ -38,7 +38,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         return stringData;
     }
 
-    public Deque<Encoding> getOffsetEncoding() {
+    public Deque<Encoding<?>> getOffsetEncoding() {
         return offsetEncoding;
     }
 
@@ -46,7 +46,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         return offsets;
     }
 
-    public void setDataEncoding(Deque<Encoding> dataEncoding) {
+    public void setDataEncoding(Deque<Encoding<?>> dataEncoding) {
         this.dataEncoding = dataEncoding;
     }
 
@@ -54,7 +54,7 @@ public class StringArrayEncoding implements Encoding<ByteArray> {
         this.stringData = stringData;
     }
 
-    public void setOffsetEncoding(Deque<Encoding> offsetEncoding) {
+    public void setOffsetEncoding(Deque<Encoding<?>> offsetEncoding) {
         this.offsetEncoding = offsetEncoding;
     }
 

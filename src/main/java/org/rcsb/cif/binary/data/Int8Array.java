@@ -17,7 +17,7 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
         this(data, new ArrayDeque<>());
     }
 
-    Int8Array(int[] data, Deque<Encoding> encoding) {
+    Int8Array(int[] data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 

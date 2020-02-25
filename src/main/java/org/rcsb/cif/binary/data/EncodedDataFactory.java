@@ -49,102 +49,102 @@ public class EncodedDataFactory {
         return new StringArray(strings);
     }
 
-    public static ByteArray byteArray(byte[] bytes, Deque<Encoding> encoding) {
+    public static ByteArray byteArray(byte[] bytes, Deque<Encoding<?>> encoding) {
         return new ByteArray(bytes, encoding);
     }
 
-    public static Float32Array float32Array(double[] floats, Deque<Encoding> encoding) {
+    public static Float32Array float32Array(double[] floats, Deque<Encoding<?>> encoding) {
         return new Float32Array(floats, encoding);
     }
 
-    public static Float64Array float64Array(double[] floats, Deque<Encoding> encoding) {
+    public static Float64Array float64Array(double[] floats, Deque<Encoding<?>> encoding) {
         return new Float64Array(floats, encoding);
     }
 
-    public static Int8Array int8Array(int[] ints, Deque<Encoding> encoding) {
+    public static Int8Array int8Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Int8Array(ints, encoding);
     }
 
-    public static Int16Array int16Array(int[] ints, Deque<Encoding> encoding) {
+    public static Int16Array int16Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Int16Array(ints, encoding);
     }
 
-    public static Int32Array int32Array(int[] ints, Deque<Encoding> encoding) {
+    public static Int32Array int32Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Int32Array(ints, encoding);
     }
 
-    public static Uint8Array uint8Array(int[] ints, Deque<Encoding> encoding) {
+    public static Uint8Array uint8Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Uint8Array(ints, encoding);
     }
 
-    public static Uint16Array uint16Array(int[] ints, Deque<Encoding> encoding) {
+    public static Uint16Array uint16Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Uint16Array(ints, encoding);
     }
 
-    public static Uint32Array uint32Array(int[] ints, Deque<Encoding> encoding) {
+    public static Uint32Array uint32Array(int[] ints, Deque<Encoding<?>> encoding) {
         return new Uint32Array(ints, encoding);
     }
 
-    public static StringArray stringArray(String[] strings, Deque<Encoding> encoding) {
+    public static StringArray stringArray(String[] strings, Deque<Encoding<?>> encoding) {
         return new StringArray(strings, encoding);
     }
 
-    public static ByteArray byteArray(byte[] bytes, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static ByteArray byteArray(byte[] bytes, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new ByteArray(bytes, encoding);
     }
 
-    public static Float32Array float32Array(double[] floats, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Float32Array float32Array(double[] floats, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Float32Array(floats, encoding);
     }
 
-    public static Float64Array float64Array(double[] floats, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Float64Array float64Array(double[] floats, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Float64Array(floats, encoding);
     }
 
-    public static Int8Array int8Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Int8Array int8Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Int8Array(ints, encoding);
     }
 
-    public static Int16Array int16Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Int16Array int16Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Int16Array(ints, encoding);
     }
 
-    public static Int32Array int32Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Int32Array int32Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Int32Array(ints, encoding);
     }
 
-    public static Uint8Array uint8Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Uint8Array uint8Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Uint8Array(ints, encoding);
     }
 
-    public static Uint16Array uint16Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Uint16Array uint16Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Uint16Array(ints, encoding);
     }
 
-    public static Uint32Array uint32Array(int[] ints, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static Uint32Array uint32Array(int[] ints, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new Uint32Array(ints, encoding);
     }
 
-    public static StringArray stringArray(String[] strings, Encoding enc) {
-        Deque<Encoding> encoding = new ArrayDeque<>();
+    public static StringArray stringArray(String[] strings, Encoding<?> enc) {
+        Deque<Encoding<?>> encoding = new ArrayDeque<>();
         encoding.add(enc);
         return new StringArray(strings, encoding);
     }

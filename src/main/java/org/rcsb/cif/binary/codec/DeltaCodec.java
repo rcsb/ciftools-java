@@ -1,6 +1,7 @@
 package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.binary.data.EncodedDataFactory;
+import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.data.SignedIntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
@@ -20,22 +21,16 @@ import java.util.Deque;
  * </pre>
  */
 public class DeltaCodec {
-    @SuppressWarnings("unchecked")
     public <T extends SignedIntArray> T encode(T data, DeltaEncoding encoding) {
         int srcType = data.getType();
         int[] inputArray = data.getData();
         if (inputArray.length == 0) {
-            T output = (T) EncodedDataFactory.intArray(srcType, 0);
+            IntArray output = EncodedDataFactory.intArray(srcType, 0);
 
-            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
-            encoding.setOrigin(0);
-            encoding.setSrcType(srcType);
-            enc.add(encoding);
-            output.setEncoding(enc);
-            return output;
+            return create(data, encoding, srcType, output, 0);
         }
 
-        T output = (T) EncodedDataFactory.intArray(srcType, inputArray.length);
+        IntArray output = EncodedDataFactory.intArray(srcType, inputArray.length);
         int[] outputArray = output.getData();
         int origin = inputArray[0];
         outputArray[0] = inputArray[0];
@@ -44,12 +39,17 @@ public class DeltaCodec {
         }
         outputArray[0] = 0;
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
-        encoding.setOrigin(origin);
+        return create(data, encoding, srcType, output, origin);
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T extends SignedIntArray> T create(T data, DeltaEncoding encoding, int srcType, IntArray output, int i2) {
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        encoding.setOrigin(i2);
         encoding.setSrcType(srcType);
         enc.add(encoding);
         output.setEncoding(enc);
-        return output;
+        return (T) output;
     }
 
     @SuppressWarnings("unchecked")

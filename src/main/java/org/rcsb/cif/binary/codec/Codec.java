@@ -39,13 +39,13 @@ public class Codec {
      * @param encodedData the data to decode
      * @return the decoded data
      */
-    @SuppressWarnings("unchecked")
-    public static EncodedData decode(EncodedData encodedData) {
-        EncodedData current = encodedData;
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static EncodedData<?> decode(EncodedData<?> encodedData) {
+        EncodedData<?> current = encodedData;
 
         while (current.hasNextDecodingStep()) {
             // pop the last element of this encoding chain, do so until chain is completely resolved
-            Encoding encoding = (Encoding) current.getEncoding().removeLast();
+            Encoding encoding = current.getEncoding().removeLast();
             current = encoding.decode(current);
         }
 
@@ -57,12 +57,12 @@ public class Codec {
      * @param encodedData the map of data to decode
      * @return the decoded data
      */
-    @SuppressWarnings("unchecked")
+    @SuppressWarnings({"unchecked", "rawtypes"})
     public static Object decode(Map<String, Object> encodedData) {
         EncodedData current = EncodedDataFactory.byteArray((byte[]) encodedData.get("data"));
         Object[] encodingMaps = (Object[]) encodedData.get("encoding");
         for (int i = encodingMaps.length - 1; i >= 0; i--) {
-            Map map = (Map) encodingMaps[i];
+            Map<String, Object> map = (Map<String, Object>) encodingMaps[i];
             Encoding encoding = wrap(map);
             current = encoding.decode(current);
         }
@@ -75,7 +75,7 @@ public class Codec {
      * @param encoding map representation of encoding
      * @return the concrete Encoding instance
      */
-    private static Encoding wrap(Map encoding) {
+    private static Encoding<?> wrap(Map<String, Object> encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":
@@ -91,19 +91,20 @@ public class Codec {
             case "IntegerPacking":
                 return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                Deque<Encoding> outputEncoding = wrap(encoding.get("dataEncoding"));
-                Deque<Encoding> offsetEncoding = wrap(encoding.get("offsetEncoding"));
+                Deque<Encoding<?>> outputEncoding = wrap(encoding.get("dataEncoding"));
+                Deque<Encoding<?>> offsetEncoding = wrap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
         }
     }
 
-    private static Deque<Encoding> wrap(Object rawEncodingMap) {
+    @SuppressWarnings("unchecked")
+    private static Deque<Encoding<?>> wrap(Object rawEncodingMap) {
         Object[] encodingMap = (Object[]) rawEncodingMap;
-        Deque<Encoding> encodings = new ArrayDeque<>();
+        Deque<Encoding<?>> encodings = new ArrayDeque<>();
         for (Object o : encodingMap) {
-            encodings.add(wrap((Map) o));
+            encodings.add(wrap((Map<String, Object>) o));
         }
         return encodings;
     }

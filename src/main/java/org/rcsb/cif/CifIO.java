@@ -165,7 +165,6 @@ public class CifIO {
     }
 
     private static final int GZIP_MAGIC = 31;
-    private static final int TEXT_MAGIC = 100;
     private static final int BINARY_MAGIC = 131;
 
     private static CifFile readFromInputStreamByGuessingFileFormat(InputStream inputStream, CifOptions options) throws IOException {

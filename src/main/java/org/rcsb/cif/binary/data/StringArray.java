@@ -9,7 +9,7 @@ import java.util.Arrays;
 import java.util.Deque;
 
 public class StringArray extends AbstractEncodedData<String[]> {
-    public StringArray(Object data, Deque<Encoding> encoding) {
+    public StringArray(Object data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 
@@ -17,7 +17,7 @@ public class StringArray extends AbstractEncodedData<String[]> {
         this(data, new ArrayDeque<>());
     }
 
-    StringArray(String[] data, Deque<Encoding> encoding) {
+    StringArray(String[] data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 

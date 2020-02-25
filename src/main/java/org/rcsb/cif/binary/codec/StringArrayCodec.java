@@ -83,7 +83,7 @@ public class StringArrayCodec {
         EncodingStrategyHint outputHint = Classifier.classify(outputPlain);
         ByteArray output = Classifier.encode(outputPlain, outputHint.getEncoding());
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setOffsets(offsets.getData());
         encoding.setOffsetEncoding(offsets.getEncoding());
         encoding.setStringData(String.join("", strings));

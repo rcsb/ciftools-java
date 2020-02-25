@@ -21,7 +21,7 @@ public class IntegerPackingEncoding implements Encoding<IntArray> {
         this.srcSize = srcSize;
     }
 
-    public IntegerPackingEncoding(Map encoding) {
+    public IntegerPackingEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("byteCount"), (boolean) encoding.get("isUnsigned"), (int) encoding.get("srcSize"));
     }
 

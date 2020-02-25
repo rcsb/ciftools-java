@@ -34,14 +34,14 @@ public class ByteArrayCodec {
         int type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setType(type);
         enc.add(encoding);
 
         return EncodedDataFactory.byteArray(bytes, enc);
     }
 
-    private int determineType(NumberArray data) {
+    private int determineType(NumberArray<?> data) {
         if (data instanceof Int8Array) {
             return 1;
         } else if (data instanceof Int16Array) {
@@ -80,7 +80,7 @@ public class ByteArrayCodec {
         return bytes;
     }
 
-    public NumberArray decode(ByteArray data, ByteArrayEncoding encoding) {
+    public NumberArray<?> decode(ByteArray data, ByteArrayEncoding encoding) {
         int type = encoding.getType();
 
         switch (type) {

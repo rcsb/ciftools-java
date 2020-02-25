@@ -33,7 +33,7 @@ public class IntegerPackingCodec {
 
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
             encoding.setByteCount(4);
             encoding.setUnsigned(false);
             encoding.setSrcSize(input.length);
@@ -82,7 +82,7 @@ public class IntegerPackingCodec {
             }
         }
 
-        Deque<Encoding> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
         encoding.setByteCount(packing.bytesPerElement);
         encoding.setUnsigned(!packing.signed);
         encoding.setSrcSize(data.length());

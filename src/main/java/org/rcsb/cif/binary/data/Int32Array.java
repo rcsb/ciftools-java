@@ -23,7 +23,7 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
         this(data, new ArrayDeque<>());
     }
 
-    Int32Array(int[] data, Deque<Encoding> encoding) {
+    Int32Array(int[] data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 

@@ -18,7 +18,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray> {
         this.srcType = srcType;
     }
 
-    public DeltaEncoding(Map encoding) {
+    public DeltaEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("origin"), (int) encoding.get("srcType"));
     }
 

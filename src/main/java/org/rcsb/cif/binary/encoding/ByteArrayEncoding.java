@@ -17,7 +17,7 @@ public class ByteArrayEncoding implements Encoding<ByteArray> {
         this.type = type;
     }
 
-    public ByteArrayEncoding(Map encoding) {
+    public ByteArrayEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("type"));
     }
 
@@ -35,7 +35,7 @@ public class ByteArrayEncoding implements Encoding<ByteArray> {
     }
 
     @Override
-    public NumberArray decode(ByteArray current) {
+    public NumberArray<?> decode(ByteArray current) {
         return Codec.BYTE_ARRAY_CODEC.decode(current, this);
     }
 

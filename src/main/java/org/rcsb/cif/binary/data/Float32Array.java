@@ -16,7 +16,7 @@ public class Float32Array extends AbstractEncodedData<double[]> implements Float
         this(data, new ArrayDeque<>());
     }
 
-    Float32Array(double[] data, Deque<Encoding> encoding) {
+    Float32Array(double[] data, Deque<Encoding<?>> encoding) {
         super(data, encoding);
     }
 

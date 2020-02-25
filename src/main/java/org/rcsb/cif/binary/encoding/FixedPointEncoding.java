@@ -20,7 +20,7 @@ public class FixedPointEncoding implements Encoding<Int32Array> {
         this.srcType = srcType;
     }
 
-    public FixedPointEncoding(Map encoding) {
+    public FixedPointEncoding(Map<String, Object> encoding) {
         this((int) encoding.get("factor"), (int) encoding.get("srcType"));
     }
 
