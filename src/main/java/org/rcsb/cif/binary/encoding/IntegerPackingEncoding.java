@@ -36,6 +36,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
     private int srcSize;
 
     public IntegerPackingEncoding() {
+
     }
 
     public IntegerPackingEncoding(int byteCount, boolean isUnsigned, int srcSize) {
@@ -95,6 +96,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         return new Int32Array(output, data.getEncoding());
     }
 
+    @Override
     public IntArray encode(Int32Array data) {
         int[] input = data.getData();
 

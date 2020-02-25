@@ -1,4 +1,4 @@
-package org.rcsb.cif.binary.codec;
+package org.rcsb.cif.binary;
 
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.data.ByteArray;

@@ -1,7 +1,7 @@
 package org.rcsb.cif.binary.encoding;
 
 import org.rcsb.cif.EncodingStrategyHint;
-import org.rcsb.cif.binary.codec.Classifier;
+import org.rcsb.cif.binary.Classifier;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
@@ -90,6 +90,7 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         return new StringArray(result, data.getEncoding());
     }
 
+    @Override
     public ByteArray encode(StringArray data) {
         String[] input = data.getData();
 

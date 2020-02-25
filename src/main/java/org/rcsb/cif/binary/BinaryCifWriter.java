@@ -3,7 +3,6 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
-import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
@@ -97,7 +96,7 @@ public class BinaryCifWriter {
         Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
 
         // if no hint given, auto-classify column
-        EncodingStrategyHint hint = optional.orElseGet(column::classify);
+        EncodingStrategyHint hint = optional.orElseGet(() -> Classifier.classify(column));
         // if no encoding given, auto-classify encoding
         String encoding = hint.getEncoding() != null ? hint.getEncoding() : Classifier.classify(column).getEncoding();
         // if multiplier/precision not given, auto-classify only precision

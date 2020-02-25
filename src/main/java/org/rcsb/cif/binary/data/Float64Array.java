@@ -1,7 +1,5 @@
 package org.rcsb.cif.binary.data;
 
-import org.rcsb.cif.EncodingStrategyHint;
-import org.rcsb.cif.binary.codec.Classifier;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteBuffer;
@@ -58,9 +56,5 @@ public class Float64Array extends AbstractEncodedData<double[]> implements Float
     @Override
     public String toString() {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
-    }
-
-    public EncodingStrategyHint classify() {
-        return Classifier.classify(this);
     }
 }

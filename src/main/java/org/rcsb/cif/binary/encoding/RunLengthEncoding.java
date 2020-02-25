@@ -30,6 +30,7 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
     private int srcSize;
 
     public RunLengthEncoding() {
+
     }
 
     public RunLengthEncoding(int srcType, int srcSize) {
@@ -70,6 +71,7 @@ public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
         return output;
     }
 
+    @Override
     public Int32Array encode(IntArray data) {
         int[] input = data.getData();
         if (input.length == 0) {

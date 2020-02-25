@@ -35,8 +35,8 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
     private int numSteps;
     private int srcType;
 
-    public IntervalQuantizationEncoding(int min, int max, int numSteps) {
-        this(min, max, numSteps, 0);
+    public IntervalQuantizationEncoding() {
+
     }
 
     public IntervalQuantizationEncoding(int min, int max, int numSteps, int srcType) {
@@ -71,6 +71,7 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
                 new Float64Array(output, data.getEncoding());
     }
 
+    @Override
     public Int32Array encode(FloatArray data) {
         double[] input = data.getData();
         this.srcType = data.getType();

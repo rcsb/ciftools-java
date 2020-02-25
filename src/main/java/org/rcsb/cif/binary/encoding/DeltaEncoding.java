@@ -24,6 +24,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     private int srcType;
 
     public DeltaEncoding() {
+
     }
 
     public DeltaEncoding(int origin, int srcType) {
@@ -41,11 +42,8 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     }
 
     @Override
-//    @SuppressWarnings("unchecked")
-//    public <T extends SignedIntArray> T decode(T data) {
     public SignedIntArray decode(SignedIntArray data) {
         int[] input = data.getData();
-//        T output = (T) EncodedDataFactory.intArray(srcType, input.length);
         SignedIntArray output = (SignedIntArray) IntArray.create(srcType, input.length);
         output.setEncoding(data.getEncoding());
 
@@ -63,6 +61,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
         return output;
     }
 
+    @Override
     public SignedIntArray encode(SignedIntArray data) {
         int srcType = data.getType();
         int[] inputArray = data.getData();

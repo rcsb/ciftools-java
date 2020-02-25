@@ -61,6 +61,7 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
                 new Float64Array(outputArray, data.getEncoding());
     }
 
+    @Override
     public Int32Array encode(FloatArray data) {
         this.srcType = data.getType();
 
