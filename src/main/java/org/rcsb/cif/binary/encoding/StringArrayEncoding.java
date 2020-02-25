@@ -50,10 +50,6 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         this.offsets = offsets;
     }
 
-    public StringArrayEncoding(Map<String, Object> encoding, Deque<Encoding<?, ?>> outputEncoding, Deque<Encoding<?, ?>> offsetEncoding) {
-        this((String) encoding.get("stringData"), (byte[]) encoding.get("offsets"), outputEncoding, offsetEncoding);
-    }
-
     public Deque<Encoding<?, ?>> getDataEncoding() {
         return dataEncoding;
     }

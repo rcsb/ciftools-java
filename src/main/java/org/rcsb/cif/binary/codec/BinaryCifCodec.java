@@ -99,9 +99,11 @@ public class BinaryCifCodec {
                  srcSize = (int) encoding.get("srcSize");
                 return new IntegerPackingEncoding(byteCount, isUnsigned, srcSize);
             case "StringArray":
+                String stringData = (String) encoding.get("stringData");
+                byte[] offsets = (byte[]) encoding.get("offsets");
                 Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingMap(encoding.get("dataEncoding"));
                 Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingMap(encoding.get("offsetEncoding"));
-                return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
+                return new StringArrayEncoding(stringData, offsets, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
         }
