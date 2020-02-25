@@ -18,7 +18,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         this(data, new ArrayDeque<>());
     }
 
-    ByteArray(byte[] data, Deque<Encoding<?>> encoding) {
+    ByteArray(byte[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 
@@ -45,7 +45,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return encoding.decode(this);
     }
 
-    public Int8Array toInt8Array(Deque<Encoding<?>> encoding) {
+    public Int8Array toInt8Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length()];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
         for (int i = 0; i < ints.length; i++) {
@@ -54,7 +54,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int8Array(ints, encoding);
     }
 
-    public Int16Array toInt16Array(Deque<Encoding<?>> encoding) {
+    public Int16Array toInt16Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length() / 2];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -63,7 +63,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int16Array(ints, encoding);
     }
 
-    public Int32Array toInt32Array(Deque<Encoding<?>> encoding) {
+    public Int32Array toInt32Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -72,7 +72,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Int32Array(ints, encoding);
     }
 
-    public Uint8Array toUint8Array(Deque<Encoding<?>> encoding) {
+    public Uint8Array toUint8Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length()];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData());
         for (int i = 0; i < ints.length; i++) {
@@ -81,7 +81,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint8Array(ints, encoding);
     }
 
-    public Uint16Array toUint16Array(Deque<Encoding<?>> encoding) {
+    public Uint16Array toUint16Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length() / 2];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -90,7 +90,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint16Array(ints, encoding);
     }
 
-    public Uint32Array toUint32Array(Deque<Encoding<?>> encoding) {
+    public Uint32Array toUint32Array(Deque<Encoding<?, ?>> encoding) {
         int[] ints = new int[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < ints.length; i++) {
@@ -99,7 +99,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Uint32Array(ints, encoding);
     }
 
-    public Float32Array toFloat32Array(Deque<Encoding<?>> encoding) {
+    public Float32Array toFloat32Array(Deque<Encoding<?, ?>> encoding) {
         double[] doubles = new double[length() / 4];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < doubles.length; i++) {
@@ -108,7 +108,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return new Float32Array(doubles, encoding);
     }
 
-    public Float64Array toFloat64Array(Deque<Encoding<?>> encoding) {
+    public Float64Array toFloat64Array(Deque<Encoding<?, ?>> encoding) {
         double[] doubles = new double[length() / 8];
         ByteBuffer byteBuffer = ByteBuffer.wrap(getData()).order(ByteOrder.LITTLE_ENDIAN);
         for (int i = 0; i < doubles.length; i++) {

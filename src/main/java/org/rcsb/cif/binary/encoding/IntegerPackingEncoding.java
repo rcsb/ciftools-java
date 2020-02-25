@@ -26,7 +26,7 @@ import java.util.stream.IntStream;
  * { byteCount = 1, srcSize = 4, isUnsigned = false } [1, 2, -3, 127, 1]
  * </pre>
  */
-public class IntegerPackingEncoding implements Encoding<IntArray> {
+public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
     private static final String kind = "IntegerPacking";
     private int byteCount;
     private boolean isUnsigned;
@@ -120,7 +120,7 @@ public class IntegerPackingEncoding implements Encoding<IntArray> {
 
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
-            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
             this.byteCount = 4;
             this.isUnsigned = false;
             this.srcSize = input.length;
@@ -169,7 +169,7 @@ public class IntegerPackingEncoding implements Encoding<IntArray> {
             }
         }
 
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         this.byteCount = packing.bytesPerElement;
         this.isUnsigned = !packing.signed;
         this.srcSize = data.length();

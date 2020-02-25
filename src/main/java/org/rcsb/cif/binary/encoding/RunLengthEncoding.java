@@ -25,7 +25,7 @@ import java.util.Map;
  * { srcSize = 6 } [1, 3, 2, 1, 3, 2]
  * </pre>
  */
-public class RunLengthEncoding implements Encoding<Int32Array> {
+public class RunLengthEncoding implements Encoding<IntArray, Int32Array> {
     private static final String kind = "RunLength";
     private int srcType;
     private int srcSize;
@@ -90,7 +90,7 @@ public class RunLengthEncoding implements Encoding<Int32Array> {
     public Int32Array encode(IntArray data) {
         int[] input = data.getData();
         if (input.length == 0) {
-            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
             this.srcType = 3;
             this.srcSize = 0;
             enc.add(this);
@@ -122,7 +122,7 @@ public class RunLengthEncoding implements Encoding<Int32Array> {
         output[offset] = input[input.length - 1];
         output[offset + 1] = runLength;
 
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         this.srcType = 3;
         this.srcSize = input.length;
         enc.add(this);

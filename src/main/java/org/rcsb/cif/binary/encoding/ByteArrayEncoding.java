@@ -28,7 +28,7 @@ import java.util.Map;
  * }
  * </pre>
  */
-public class ByteArrayEncoding implements Encoding<ByteArray> {
+public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
     private static final String kind = "ByteArray";
     private int type;
 
@@ -80,11 +80,11 @@ public class ByteArrayEncoding implements Encoding<ByteArray> {
         }
     }
 
-    public <D> ByteArray encode(NumberArray<D> data) {
+    public ByteArray encode(NumberArray<?> data) {
         this.type = determineType(data);
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding</*NumberArray<?>, ByteArray*/?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
         return EncodedDataFactory.byteArray(bytes, enc);

@@ -25,7 +25,7 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
         this(data, new ArrayDeque<>());
     }
 
-    Int32Array(int[] data, Deque<Encoding<?>> encoding) {
+    Int32Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 
@@ -74,7 +74,7 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     @Override
     public Int32Array encode(DeltaEncoding encoding) {
-        return encoding.encode(this);
+        return (Int32Array) encoding.encode(this);
     }
 
     @Override

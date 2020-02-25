@@ -19,7 +19,7 @@ import java.util.Map;
  * }
  * </pre>
  */
-public class DeltaEncoding implements Encoding<SignedIntArray> {
+public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     private static final String kind = "Delta";
     private int origin;
     private int srcType;
@@ -80,7 +80,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray> {
         return output;
     }
 
-    public <T extends SignedIntArray> T encode(T data) {
+    public SignedIntArray encode(SignedIntArray data) {
         int srcType = data.getType();
         int[] inputArray = data.getData();
         if (inputArray.length == 0) {
@@ -103,7 +103,7 @@ public class DeltaEncoding implements Encoding<SignedIntArray> {
 
     @SuppressWarnings("unchecked")
     private <T extends SignedIntArray> T create(T data, int srcType, IntArray output, int origin) {
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         this.origin = origin;
         this.srcType = srcType;
         enc.add(this);

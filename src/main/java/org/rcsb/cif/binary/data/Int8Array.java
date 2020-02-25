@@ -19,7 +19,7 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
         this(data, new ArrayDeque<>());
     }
 
-    Int8Array(int[] data, Deque<Encoding<?>> encoding) {
+    Int8Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
     }
 
@@ -63,7 +63,7 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
 
     @Override
     public Int8Array encode(DeltaEncoding encoding) {
-        return encoding.encode(this);
+        return (Int8Array) encoding.encode(this);
     }
 
     @Override

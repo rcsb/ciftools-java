@@ -27,7 +27,7 @@ import java.util.Map;
  * { min = 1, max = 2, numSteps = 3 } [0, 0, 1, 2, 2, 1]
  * </pre>
  */
-public class IntervalQuantizationEncoding implements Encoding<Int32Array> {
+public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32Array> {
     private static final String kind = "IntervalQuantization";
     private int min;
     private int max;
@@ -94,7 +94,7 @@ public class IntervalQuantizationEncoding implements Encoding<Int32Array> {
         this.srcType = data.getType();
 
         if (input.length == 0) {
-            Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+            Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
             this.srcType = 3;
             enc.add(this);
             return EncodedDataFactory.int32Array(new int[0], enc);
@@ -120,7 +120,7 @@ public class IntervalQuantizationEncoding implements Encoding<Int32Array> {
             }
         }
 
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
         return EncodedDataFactory.int32Array(output, enc);

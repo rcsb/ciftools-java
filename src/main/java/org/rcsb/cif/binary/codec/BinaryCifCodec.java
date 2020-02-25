@@ -66,7 +66,7 @@ public class BinaryCifCodec {
      * @param encoding map representation of encoding
      * @return the concrete Encoding instance
      */
-    private static Encoding<?> wrap(Map<String, Object> encoding) {
+    private static Encoding<?, ?> wrap(Map<String, Object> encoding) {
         String kind = (String) encoding.get("kind");
         switch (kind) {
             case "ByteArray":
@@ -82,8 +82,8 @@ public class BinaryCifCodec {
             case "IntegerPacking":
                 return new IntegerPackingEncoding(encoding);
             case "StringArray":
-                Deque<Encoding<?>> outputEncoding = wrap(encoding.get("dataEncoding"));
-                Deque<Encoding<?>> offsetEncoding = wrap(encoding.get("offsetEncoding"));
+                Deque<Encoding<?, ?>> outputEncoding = wrap(encoding.get("dataEncoding"));
+                Deque<Encoding<?, ?>> offsetEncoding = wrap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(encoding, outputEncoding, offsetEncoding);
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
@@ -91,9 +91,9 @@ public class BinaryCifCodec {
     }
 
     @SuppressWarnings("unchecked")
-    private static Deque<Encoding<?>> wrap(Object rawEncodingMap) {
+    private static Deque<Encoding<?, ?>> wrap(Object rawEncodingMap) {
         Object[] encodingMap = (Object[]) rawEncodingMap;
-        Deque<Encoding<?>> encodings = new ArrayDeque<>();
+        Deque<Encoding<?, ?>> encodings = new ArrayDeque<>();
         for (Object o : encodingMap) {
             encodings.add(wrap((Map<String, Object>) o));
         }

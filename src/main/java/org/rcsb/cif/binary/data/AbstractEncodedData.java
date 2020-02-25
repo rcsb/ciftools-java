@@ -10,20 +10,20 @@ import java.util.Deque;
  */
 abstract class AbstractEncodedData<D> implements EncodedData<D> {
     final Object data;
-    private Deque<Encoding<?>> encoding;
+    private Deque<Encoding<?, ?>> encoding;
 
-    AbstractEncodedData(Object data, Deque<Encoding<?>> encoding) {
+    AbstractEncodedData(Object data, Deque<Encoding<?, ?>> encoding) {
         this.data = data;
         this.encoding = encoding;
     }
 
     @Override
-    public Deque<Encoding<?>> getEncoding() {
+    public Deque<Encoding<?, ?>> getEncoding() {
         return encoding;
     }
 
     @Override
-    public void setEncoding(Deque<Encoding<?>> encoding) {
+    public void setEncoding(Deque<Encoding<?, ?>> encoding) {
         this.encoding = encoding;
     }
 

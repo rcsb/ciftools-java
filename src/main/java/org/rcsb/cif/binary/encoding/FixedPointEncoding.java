@@ -23,7 +23,7 @@ import java.util.Map;
  * { factor = 100 } [120, 123, 12]
  * </pre>
  */
-public class FixedPointEncoding implements Encoding<Int32Array> {
+public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
     private static final String kind = "FixedPoint";
     private final int factor;
     private int srcType;
@@ -81,7 +81,7 @@ public class FixedPointEncoding implements Encoding<Int32Array> {
             outputArray[i] = (int) Math.round(floatData[i] * factor);
         }
 
-        Deque<Encoding<?>> enc = new ArrayDeque<>(data.getEncoding());
+        Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
 
         return EncodedDataFactory.int32Array(outputArray, enc);
