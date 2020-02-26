@@ -236,7 +236,8 @@ public class IntegrationTest {
                 match++;
             }
         }
-        assertTrue("unexpected differences in files", match >= 3);
+        System.out.println(match);
+        assertTrue("unexpected differences in files", match >= 4);
     }
 
     private boolean roundTripViaText(String testCase) throws IOException {
@@ -263,7 +264,7 @@ public class IntegrationTest {
                 match++;
             }
         }
-        assertTrue("unexpected differences in files", match >= 3);
+        assertTrue("unexpected differences in files", match >= 4);
     }
 
     private boolean readCifWriteBcif(String testCase) throws IOException {

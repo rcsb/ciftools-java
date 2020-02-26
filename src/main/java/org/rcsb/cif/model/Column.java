@@ -21,8 +21,8 @@ public interface Column {
 
     /**
      * Access to entries of this {@link Column} without any assumptions about the content type. No checks about the
-     * validity of the row argument are made. However, values smaller than 0 or larger or equal to the row count will
-     * raise exceptions.
+     * validity of the row argument are made. Values smaller than 0 or larger or equal to the row count will raise
+     * exceptions.
      * @param row index of the element to retrieve
      * @return the <code>String</code> representation of the corresponding row
      */
