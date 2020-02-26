@@ -15,7 +15,7 @@ import java.util.Deque;
 /**
  * An array of (signed) integer numbers using 32 bit to store each value.
  */
-public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray {
+public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntArray<Int32Array> {
     private static final int NUMBER_OF_BYTES = 4;
     static final int TYPE = 3;
 
@@ -71,13 +71,13 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
     }
 
     @Override
-    public Int32Array encode(DeltaEncoding encoding) {
-        return (Int32Array) encoding.encode(this);
+    public Int32Array encode(DeltaEncoding<Int32Array> encoding) {
+        return encoding.encode(this);
     }
 
     @Override
-    public Int32Array decode(DeltaEncoding encoding) {
-        return (Int32Array) encoding.decode(this);
+    public Int32Array decode(DeltaEncoding<Int32Array> encoding) {
+        return encoding.decode(this);
     }
 
     public FloatArray decode(FixedPointEncoding encoding) {

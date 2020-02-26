@@ -19,7 +19,7 @@ import java.util.Map;
  * }
  * </pre>
  */
-public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
+public class DeltaEncoding<T extends SignedIntArray<?>> implements Encoding<T, T> {
     private int origin;
     private int srcType;
 
@@ -42,9 +42,10 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     }
 
     @Override
-    public SignedIntArray decode(SignedIntArray data) {
+    @SuppressWarnings("unchecked")
+    public T decode(T data) {
         int[] input = data.getData();
-        SignedIntArray output = (SignedIntArray) IntArray.create(srcType, input.length);
+        T output = (T) IntArray.create(data.getType(), input.length);
         output.setEncoding(data.getEncoding());
 
         int n = input.length;
@@ -62,16 +63,17 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
     }
 
     @Override
-    public SignedIntArray encode(SignedIntArray data) {
+    @SuppressWarnings("unchecked")
+    public T encode(T data) {
         int srcType = data.getType();
         int[] inputArray = data.getData();
         if (inputArray.length == 0) {
-            IntArray output = IntArray.create(srcType, 0);
+            T output = (T) IntArray.create(srcType, 0);
 
             return create(data, srcType, output, 0);
         }
 
-        IntArray output = IntArray.create(srcType, inputArray.length);
+        T output = (T) IntArray.create(srcType, inputArray.length);
         int[] outputArray = output.getData();
         int origin = inputArray[0];
         outputArray[0] = inputArray[0];
@@ -83,14 +85,13 @@ public class DeltaEncoding implements Encoding<SignedIntArray, SignedIntArray> {
         return create(data, srcType, output, origin);
     }
 
-    @SuppressWarnings("unchecked")
-    private <T extends SignedIntArray> T create(T data, int srcType, IntArray output, int origin) {
+    private T create(T data, int srcType, T output, int origin) {
         Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         this.origin = origin;
         this.srcType = srcType;
         enc.add(this);
         output.setEncoding(enc);
-        return (T) output;
+        return output;
     }
 
     @Override

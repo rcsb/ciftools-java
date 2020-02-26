@@ -12,7 +12,7 @@ import java.util.Deque;
 /**
  * An array of (signed) integer numbers using 16 bit to store each value.
  */
-public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray {
+public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntArray<Int16Array> {
     private static final int NUMBER_OF_BYTES = 2;
     static final int TYPE = 2;
 
@@ -64,12 +64,12 @@ public class Int16Array extends AbstractEncodedData<int[]> implements SignedIntA
     }
 
     @Override
-    public Int16Array encode(DeltaEncoding encoding) {
-        return (Int16Array) encoding.encode(this);
+    public Int16Array encode(DeltaEncoding<Int16Array> encoding) {
+        return encoding.encode(this);
     }
 
     @Override
-    public Int16Array decode(DeltaEncoding encoding) {
-        return (Int16Array) encoding.decode(this);
+    public Int16Array decode(DeltaEncoding<Int16Array> encoding) {
+        return encoding.decode(this);
     }
 }

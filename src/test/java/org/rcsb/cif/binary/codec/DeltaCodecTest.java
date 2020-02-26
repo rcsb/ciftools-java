@@ -2,7 +2,6 @@ package org.rcsb.cif.binary.codec;
 
 import org.junit.Test;
 import org.rcsb.cif.binary.data.Int8Array;
-import org.rcsb.cif.binary.data.SignedIntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 
 import static org.junit.Assert.*;
@@ -14,11 +13,11 @@ public class DeltaCodecTest {
         Int8Array plainArray = new Int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
 
         // encode
-        DeltaEncoding deltaEncoding = new DeltaEncoding();
-        SignedIntArray encodedData = plainArray.encode(deltaEncoding);
+        DeltaEncoding<Int8Array> deltaEncoding = new DeltaEncoding<>();
+        Int8Array encodedData = plainArray.encode(deltaEncoding);
 
         // decode
-        SignedIntArray decodedArray = encodedData.decode(deltaEncoding);
+        Int8Array decodedArray = encodedData.decode(deltaEncoding);
 
         assertArrayEquals(plainArray.getData(), decodedArray.getData());
     }
@@ -29,11 +28,11 @@ public class DeltaCodecTest {
         Int8Array plainArray = new Int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
 
         // encode
-        DeltaEncoding deltaEncoding = new DeltaEncoding();
-        SignedIntArray encodedData = plainArray.encode(deltaEncoding);
+        DeltaEncoding<Int8Array> deltaEncoding = new DeltaEncoding<>();
+        Int8Array encodedData = plainArray.encode(deltaEncoding);
 
         // decode
-        SignedIntArray decodedArray = encodedData.decode(deltaEncoding);
+        Int8Array decodedArray = encodedData.decode(deltaEncoding);
 
         assertNotNull(decodedArray);
     }
@@ -43,13 +42,13 @@ public class DeltaCodecTest {
         Int8Array plainArray = new Int8Array(new int[0]);
 
         // encode
-        DeltaEncoding deltaEncoding = new DeltaEncoding();
-        SignedIntArray encodedData = plainArray.encode(deltaEncoding);
+        DeltaEncoding<Int8Array> deltaEncoding = new DeltaEncoding<>();
+        Int8Array encodedData = plainArray.encode(deltaEncoding);
 
         assertEquals(0, encodedData.length());
 
         // decode
-        SignedIntArray decodedArray = encodedData.decode(deltaEncoding);
+        Int8Array decodedArray = encodedData.decode(deltaEncoding);
 
         assertEquals(0, decodedArray.length());
     }

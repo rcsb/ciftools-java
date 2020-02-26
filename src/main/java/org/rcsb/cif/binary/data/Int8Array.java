@@ -11,7 +11,7 @@ import java.util.Deque;
 /**
  * An array of (signed) integer numbers using 8 bit to store each value.
  */
-public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntArray {
+public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntArray<Int8Array> {
     private static final int NUMBER_OF_BYTES = 1;
     static final int TYPE = 1;
 
@@ -62,12 +62,12 @@ public class Int8Array extends AbstractEncodedData<int[]> implements SignedIntAr
     }
 
     @Override
-    public Int8Array encode(DeltaEncoding encoding) {
-        return (Int8Array) encoding.encode(this);
+    public Int8Array encode(DeltaEncoding<Int8Array> encoding) {
+        return encoding.encode(this);
     }
 
     @Override
-    public Int8Array decode(DeltaEncoding encoding) {
-        return (Int8Array) encoding.decode(this);
+    public Int8Array decode(DeltaEncoding<Int8Array> encoding) {
+        return encoding.decode(this);
     }
 }

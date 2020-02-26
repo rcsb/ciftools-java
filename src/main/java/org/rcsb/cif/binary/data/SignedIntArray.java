@@ -5,12 +5,12 @@ import org.rcsb.cif.binary.encoding.DeltaEncoding;
 /**
  * An array of signed integer numbers.
  */
-public interface SignedIntArray extends IntArray {
+public interface SignedIntArray<T extends SignedIntArray<?>> extends IntArray {
     default boolean isSigned() {
         return true;
     }
 
-    SignedIntArray encode(DeltaEncoding encoding);
+    T encode(DeltaEncoding<T> encoding);
 
-    SignedIntArray decode(DeltaEncoding encoding);
+    T decode(DeltaEncoding<T> encoding);
 }
