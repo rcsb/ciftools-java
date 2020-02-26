@@ -74,7 +74,26 @@ public class BinaryCifCodec {
         switch (kind) {
             case "ByteArray":
                 int type = (int) encoding.get("type");
-                return new ByteArrayEncoding(type);
+                switch (type) {
+                    case 1:
+                        return ByteArrayEncoding.INT8;
+                    case 2:
+                        return ByteArrayEncoding.INT16;
+                    case 3:
+                        return ByteArrayEncoding.INT32;
+                    case 4:
+                        return ByteArrayEncoding.UINT8;
+                    case 5:
+                        return ByteArrayEncoding.UINT16;
+                    case 6:
+                        return ByteArrayEncoding.UINT32;
+                    case 32:
+                        return ByteArrayEncoding.FLOAT32;
+                    case 33:
+                        return ByteArrayEncoding.FLOAT64;
+                    default:
+                        throw new UnsupportedOperationException("cannot handle byte array encoding type " + type);
+                }
             case "FixedPoint":
                 int factor = (int) encoding.get("factor");
                 srcType = (int) encoding.get("srcType");

@@ -102,7 +102,7 @@ public class BinaryCifWriter {
         // if multiplier/precision not given, auto-classify only precision
         EncodingStrategyHint precisionClassification = Classifier.classifyPrecision(column);
         if ("byte".equals(precisionClassification.getEncoding())) {
-            return column.encode(new ByteArrayEncoding(column.getType()));
+            return column.encode();
         }
         int multiplier = getMultiplier(hint.getPrecision() != null ? hint.getPrecision() : precisionClassification.getPrecision());
 
@@ -176,25 +176,15 @@ public class BinaryCifWriter {
         // encode mask
         Map<String, Object> maskData = new LinkedHashMap<>();
         if (!allPresent) {
-            ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode(new ByteArrayEncoding());
+            ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode();
 
             if (maskRLE.getData().length < mask.getData().length) {
                 RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().getFirst();
-
-                // TODO move to preconstructed ByteArray encoding
-                Map<String, Object> encoding2 = new LinkedHashMap<>();
-                encoding2.put("kind", "ByteArray");
-                encoding2.put("type", 3);
-
-                maskData.put("encoding", new Object[] { rle.getMapRepresentation(), encoding2 });
+                maskData.put("encoding", new Object[] { rle.getMapRepresentation(), ByteArrayEncoding.INT32.getMapRepresentation() });
                 maskData.put("data", maskRLE.getData());
             } else {
-                ByteArray encodedMask = mask.encode(new ByteArrayEncoding(4));
-                Map<String, Object> encoding = new LinkedHashMap<>();
-                // TODO move to preconstructed ByteArray encoding
-                encoding.put("kind", "ByteArray");
-                encoding.put("type", 4);
-                maskData.put("encoding", new Object[] { encoding });
+                ByteArray encodedMask = mask.encode();
+                maskData.put("encoding", new Object[] { ByteArrayEncoding.UINT8.getMapRepresentation() });
                 maskData.put("data", encodedMask.getData());
             }
         }

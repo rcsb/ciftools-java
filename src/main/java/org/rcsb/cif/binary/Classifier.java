@@ -6,7 +6,6 @@ import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
-import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
@@ -51,23 +50,23 @@ public class Classifier {
     public static ByteArray encode(Int32Array column, String encoding) {
         switch (encoding) {
             case "byte":
-                return column.encode(new ByteArrayEncoding(column.getType()));
+                return column.encode();
             case "pack":
                 return column.encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
+                        .encode();
             case "rle":
                 return column.encode(new RunLengthEncoding())
                         .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
+                        .encode();
             case "delta":
                 return column.encode(new DeltaEncoding<>())
                         .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
+                        .encode();
             case "delta-rle":
                 return column.encode(new DeltaEncoding<>())
                         .encode(new RunLengthEncoding())
                         .encode(new IntegerPackingEncoding())
-                        .encode(new ByteArrayEncoding());
+                        .encode();
             default:
                 throw new IllegalArgumentException("Determined encoding type is unknown. " + encoding);
         }

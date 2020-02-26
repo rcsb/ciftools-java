@@ -12,8 +12,6 @@ import org.rcsb.cif.binary.data.Uint16Array;
 import org.rcsb.cif.binary.data.Uint32Array;
 import org.rcsb.cif.binary.data.Uint8Array;
 
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedHashMap;
@@ -31,123 +29,79 @@ import java.util.Map;
  * }
  * </pre>
  */
-public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
+public abstract class ByteArrayEncoding<T extends NumberArray<?>> implements Encoding<T, ByteArray> {
+    private final Map<String, Object> map;
     private int type;
 
-    public ByteArrayEncoding() {
+    ByteArrayEncoding(Map<String, Object> map) {
+        this.map = map;
     }
 
-    public ByteArrayEncoding(int type) {
-        this.type = type;
-    }
-
-    @Override
-    public Map<String, Object> getMapRepresentation() {
-        // TODO preconstruct maps
+    private static Map<String, Object> createMap(int type) {
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("kind", "ByteArray");
         map.put("type", type);
         return map;
     }
 
-    @Override
-    public NumberArray<?> decode(ByteArray data) {
-        switch (type) {
-            case 1:
-                return toInt8Array(data);
-            case 2:
-                return toInt16Array(data);
-            case 3:
-                return toInt32Array(data);
-            case 4:
-                return toUint8Array(data);
-            case 5:
-                return toUint16Array(data);
-            case 6:
-                return toUint32Array(data);
-            case 32:
-                return toFloat32Array(data);
-            case 33:
-                return toFloat64Array(data);
-            default:
-                throw new IllegalArgumentException("Unsupported byte type " + type);
+    public static final ByteArrayEncoding<Int8Array> INT8 = new ByteArrayEncoding<>(createMap(1)) {
+        @Override
+        public Int8Array decode(ByteArray data) {
+            return new Int8Array(data);
         }
-    }
+    };
 
-    private Int8Array toInt8Array(ByteArray array) {
-        int[] ints = new int[array.length()];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData());
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.get();
+    public static final ByteArrayEncoding<Int16Array> INT16 = new ByteArrayEncoding<>(createMap(2)) {
+        @Override
+        public Int16Array decode(ByteArray data) {
+            return new Int16Array(data);
         }
-        return new Int8Array(ints, array.getEncoding());
-    }
+    };
 
-    private Int16Array toInt16Array(ByteArray array) {
-        int[] ints = new int[array.length() / 2];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.getShort();
+    public static final ByteArrayEncoding<Int32Array> INT32 = new ByteArrayEncoding<>(createMap(3)) {
+        @Override
+        public Int32Array decode(ByteArray data) {
+            return new Int32Array(data);
         }
-        return new Int16Array(ints, array.getEncoding());
-    }
+    };
 
-    private Int32Array toInt32Array(ByteArray array) {
-        int[] ints = new int[array.length() / 4];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.getInt();
+    public static final ByteArrayEncoding<Uint8Array> UINT8 = new ByteArrayEncoding<>(createMap(4)) {
+        @Override
+        public Uint8Array decode(ByteArray data) {
+            return new Uint8Array(data);
         }
-        return new Int32Array(ints, array.getEncoding());
-    }
+    };
 
-    private Uint8Array toUint8Array(ByteArray array) {
-        int[] ints = new int[array.length()];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData());
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.get() & 0xFF;
+    public static final ByteArrayEncoding<Uint16Array> UINT16 = new ByteArrayEncoding<>(createMap(5)) {
+        @Override
+        public Uint16Array decode(ByteArray data) {
+            return new Uint16Array(data);
         }
-        return new Uint8Array(ints, array.getEncoding());
-    }
+    };
 
-    private Uint16Array toUint16Array(ByteArray array) {
-        int[] ints = new int[array.length() / 2];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = byteBuffer.getShort() & 0xFFFF;
+    public static final ByteArrayEncoding<Uint32Array> UINT32 = new ByteArrayEncoding<>(createMap(6)) {
+        @Override
+        public Uint32Array decode(ByteArray data) {
+            return new Uint32Array(data);
         }
-        return new Uint16Array(ints, array.getEncoding());
-    }
+    };
 
-    private Uint32Array toUint32Array(ByteArray array) {
-        int[] ints = new int[array.length() / 4];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < ints.length; i++) {
-            ints[i] = (int) (byteBuffer.getInt() & 0xFFFFFFFFL);
+    public static final ByteArrayEncoding<Float32Array> FLOAT32 = new ByteArrayEncoding<>(createMap(32)) {
+        @Override
+        public Float32Array decode(ByteArray data) {
+            return new Float32Array(data);
         }
-        return new Uint32Array(ints, array.getEncoding());
-    }
+    };
 
-    private Float32Array toFloat32Array(ByteArray array) {
-        double[] doubles = new double[array.length() / 4];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < doubles.length; i++) {
-            doubles[i] = byteBuffer.getFloat();
+    public static final ByteArrayEncoding<Float64Array> FLOAT64 = new ByteArrayEncoding<>(createMap(33)) {
+        @Override
+        public Float64Array decode(ByteArray data) {
+            return new Float64Array(data);
         }
-        return new Float32Array(doubles, array.getEncoding());
-    }
-
-    private Float64Array toFloat64Array(ByteArray array) {
-        double[] doubles = new double[array.length() / 8];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(array.getData()).order(ByteOrder.LITTLE_ENDIAN);
-        for (int i = 0; i < doubles.length; i++) {
-            doubles[i] = byteBuffer.getDouble();
-        }
-        return new Float64Array(doubles, array.getEncoding());
-    }
+    };
 
     @Override
-    public ByteArray encode(NumberArray<?> data) {
+    public ByteArray encode(T data) {
         this.type = data.getType();
         byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
 
@@ -155,6 +109,11 @@ public class ByteArrayEncoding implements Encoding<NumberArray<?>, ByteArray> {
         enc.add(this);
 
         return new ByteArray(bytes, enc);
+    }
+
+    @Override
+    public Map<String, Object> getMapRepresentation() {
+        return map;
     }
 
     private static byte[] flipByteOrder(byte[] data, int bytes) {

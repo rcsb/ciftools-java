@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
@@ -25,6 +26,19 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     public Int32Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
+    }
+
+    public Int32Array(ByteArray array) {
+        super(formArray(array.getData()), array.getEncoding());
+    }
+
+    private static int[] formArray(byte[] array) {
+        int[] ints = new int[array.length / NUMBER_OF_BYTES];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.getInt();
+        }
+        return ints;
     }
 
     @Override
@@ -73,6 +87,11 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
     @Override
     public Int32Array encode(DeltaEncoding<Int32Array> encoding) {
         return encoding.encode(this);
+    }
+
+    @Override
+    public ByteArray encode() {
+        return ByteArrayEncoding.INT32.encode(this);
     }
 
     @Override

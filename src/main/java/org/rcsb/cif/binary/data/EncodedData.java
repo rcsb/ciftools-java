@@ -39,6 +39,18 @@ public interface EncodedData<D> {
     default EncodedData<?> decode() {
         return BinaryCifCodec.decode(this);
     }
+//    @SuppressWarnings({"unchecked", "rawtypes"})
+//    default EncodedData<?> decode() {
+//        EncodedData<?> current = this;
+//
+//        while (current.hasNextDecodingStep()) {
+//            // pop the last element of this encoding chain, do so until chain is completely resolved
+//            Encoding encoding = current.getEncoding().removeLast();
+//            current = encoding.decode(current);
+//        }
+//
+//        return current;
+//    }
 
     /**
      * Replace this encoding chain with a different one.

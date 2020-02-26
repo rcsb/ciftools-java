@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
 import java.nio.ByteBuffer;
@@ -21,6 +22,19 @@ public class Float32Array extends AbstractEncodedData<double[]> implements Float
 
     public Float32Array(double[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
+    }
+
+    public Float32Array(ByteArray array) {
+        super(formArray(array.getData()), array.getEncoding());
+    }
+
+    private static double[] formArray(byte[] array) {
+        double[] doubles = new double[array.length / NUMBER_OF_BYTES];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array).order(ByteOrder.LITTLE_ENDIAN);
+        for (int i = 0; i < doubles.length; i++) {
+            doubles[i] = byteBuffer.getFloat();
+        }
+        return doubles;
     }
 
     @Override
@@ -51,6 +65,11 @@ public class Float32Array extends AbstractEncodedData<double[]> implements Float
     @Override
     public int getType() {
         return TYPE;
+    }
+
+    @Override
+    public ByteArray encode() {
+        return ByteArrayEncoding.FLOAT32.encode(this);
     }
 
     @Override

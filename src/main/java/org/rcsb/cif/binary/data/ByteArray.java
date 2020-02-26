@@ -35,7 +35,7 @@ public class ByteArray extends AbstractEncodedData<byte[]> {
         return getClass().getSimpleName() + ": " + Arrays.toString(getData());
     }
 
-    public NumberArray<?> decode(ByteArrayEncoding encoding) {
+    public <T extends NumberArray<?>> T decode(ByteArrayEncoding<T> encoding) {
         return encoding.decode(this);
     }
 

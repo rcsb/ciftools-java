@@ -1,7 +1,9 @@
 package org.rcsb.cif.binary.data;
 
+import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
@@ -19,6 +21,19 @@ public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIn
 
     public Uint8Array(int[] data, Deque<Encoding<?, ?>> encoding) {
         super(data, encoding);
+    }
+
+    public Uint8Array(ByteArray array) {
+        super(formArray(array.getData()), array.getEncoding());
+    }
+
+    private static int[] formArray(byte[] array) {
+        int[] ints = new int[array.length];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(array);
+        for (int i = 0; i < ints.length; i++) {
+            ints[i] = byteBuffer.get() & 0xFF;
+        }
+        return ints;
     }
 
     @Override
@@ -44,6 +59,11 @@ public class Uint8Array extends AbstractEncodedData<int[]> implements UnsignedIn
     @Override
     public int getType() {
         return TYPE;
+    }
+
+    @Override
+    public ByteArray encode() {
+        return ByteArrayEncoding.UINT8.encode(this);
     }
 
     @Override
