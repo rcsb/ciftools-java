@@ -45,7 +45,7 @@ public abstract class BaseColumn implements Column {
         this.defined = true;
     }
 
-    BaseColumn(String name, int rowCount, int[] mask) {
+    protected BaseColumn(String name, int rowCount, int[] mask) {
         this.name = name;
         this.rowCount = rowCount;
 

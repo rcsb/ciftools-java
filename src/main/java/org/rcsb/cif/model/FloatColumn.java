@@ -8,6 +8,7 @@ import java.util.stream.Stream;
  * Type-safe column which contains <code>float</code> values as entries.
  */
 public class FloatColumn extends BaseColumn {
+    private static final double[] EMPTY = new double[0];
     private final double[] binaryData;
 
     public FloatColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
@@ -37,7 +38,7 @@ public class FloatColumn extends BaseColumn {
 
     public FloatColumn(String name) {
         super(name);
-        this.binaryData = new double[0];
+        this.binaryData = EMPTY;
     }
 
     /**

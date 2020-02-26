@@ -7,6 +7,7 @@ import java.util.stream.Stream;
  * Type-safe column which contains <code>String</code> values as entries.
  */
 public class StrColumn extends BaseColumn {
+    private static final String[] EMPTY = new String[0];
     private final String[] binaryData;
 
     public StrColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
@@ -36,7 +37,7 @@ public class StrColumn extends BaseColumn {
 
     public StrColumn(String name) {
         super(name);
-        this.binaryData = new String[0];
+        this.binaryData = EMPTY;
     }
 
     /**

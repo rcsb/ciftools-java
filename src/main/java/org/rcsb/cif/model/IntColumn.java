@@ -7,6 +7,7 @@ import java.util.stream.Stream;
  * Type-safe {@link Column} which contains <code>int</code> values as entries.
  */
 public class IntColumn extends BaseColumn {
+    private static final int[] EMPTY = new int[0];
     private final int[] binaryData;
 
     public IntColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
@@ -36,7 +37,7 @@ public class IntColumn extends BaseColumn {
 
     public IntColumn(String name) {
         super(name);
-        this.binaryData = new int[0];
+        this.binaryData =  EMPTY;
     }
 
     /**
