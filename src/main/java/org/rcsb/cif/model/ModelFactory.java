@@ -20,7 +20,6 @@ import java.util.TreeSet;
  */
 public class ModelFactory {
     private static final Map<String, SchemaHandler> SCHEMA_MAP = Collections.synchronizedMap(new TreeMap<>(String.CASE_INSENSITIVE_ORDER));
-    private static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     static class SchemaHandler {
         private final Map<String, Constructor<? extends BaseCategory>> textCategory;
@@ -159,7 +158,7 @@ public class ModelFactory {
         }
 
         try {
-            Map<String, Object> schemaMap = MESSAGE_PACK_CODEC.decode(inputStream);
+            Map<String, Object> schemaMap = MessagePackCodec.decode(inputStream);
             Map<String, Constructor<? extends BaseCategory>> textConstructors = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
             Map<String, Constructor<? extends BaseCategory>> binaryConstructors = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
             Set<String> intColumns = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);

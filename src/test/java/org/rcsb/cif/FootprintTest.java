@@ -28,8 +28,7 @@ public class FootprintTest {
     @SuppressWarnings("unchecked")
     private Map<String, String> getFootprint(byte[] content) throws IOException {
         Map<String, String> footprint = new LinkedHashMap<>();
-        MessagePackCodec messagePackCodec = new MessagePackCodec();
-        Object[] file = (Object[]) messagePackCodec.decode(new ByteArrayInputStream(content)).get("dataBlocks");
+        Object[] file = (Object[]) MessagePackCodec.decode(new ByteArrayInputStream(content)).get("dataBlocks");
         Map<String, Object> firstBlock = (Map<String, Object>) file[0];
         Object[] categories = (Object[]) firstBlock.get("categories");
         for (Object cat : categories) {

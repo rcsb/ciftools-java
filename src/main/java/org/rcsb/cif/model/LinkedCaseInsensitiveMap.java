@@ -96,11 +96,12 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
      * @see #convertKey(String)
      */
     public LinkedCaseInsensitiveMap(int initialCapacity, Locale locale) {
-        this.targetMap = new LinkedHashMap<String, V>(initialCapacity) {
+        this.targetMap = new LinkedHashMap<>(initialCapacity) {
             @Override
             public boolean containsKey(Object key) {
                 return LinkedCaseInsensitiveMap.this.containsKey(key);
             }
+
             @Override
             protected boolean removeEldestEntry(Map.Entry<String, V> eldest) {
                 boolean doRemove = LinkedCaseInsensitiveMap.this.removeEldestEntry(eldest);

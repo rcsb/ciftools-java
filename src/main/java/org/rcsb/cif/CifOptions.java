@@ -117,12 +117,8 @@ public class CifOptions {
         String fullColumnName = categoryName + "." + columnName;
         if (columnBlacklist.contains(fullColumnName)) {
             return false;
-        } else if (columnWhitelist.stream().anyMatch(fcn -> fcn.split("\\.")[0].equals(categoryName)) &&
-                !columnWhitelist.contains(fullColumnName)) {
-            return false;
-        } else {
-            return true;
-        }
+        } else return columnWhitelist.stream().noneMatch(fcn -> fcn.split("\\.")[0].equals(categoryName)) ||
+                columnWhitelist.contains(fullColumnName);
     }
 
     /**
