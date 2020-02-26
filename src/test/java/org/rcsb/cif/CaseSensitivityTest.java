@@ -5,9 +5,7 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
-import org.rcsb.cif.model.generated.AtomSite;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -40,7 +38,7 @@ public class CaseSensitivityTest {
     private void assertRetrievalBehavior(CifFile cifFile) {
         Block firstBlock = cifFile.getFirstBlock();
 
-        AtomSite originalAtomSite = firstBlock.getAtomSite();
+        Category originalAtomSite = firstBlock.getCategory("atom_site");
         Category atom_site = firstBlock.getCategory("atom_site");
         assertCategoryEquals("good luck if these do not match", originalAtomSite, atom_site);
         Category atom_Site = firstBlock.getCategory("atom_Site");
@@ -48,7 +46,7 @@ public class CaseSensitivityTest {
         Category ATOM_SITE = firstBlock.getCategory("ATOM_SITE");
         assertCategoryEquals("case insensitivity not honored for categories", originalAtomSite, ATOM_SITE);
 
-        FloatColumn originalCartnX = originalAtomSite.getCartnX();
+        Column originalCartnX = originalAtomSite.getColumn("Cartn_x");
         Column Cartn_x = atom_site.getColumn("Cartn_x");
         assertColumnEquals("good luck if these do not match", originalCartnX, Cartn_x);
         Column cartn_x = atom_Site.getColumn("cartn_x");

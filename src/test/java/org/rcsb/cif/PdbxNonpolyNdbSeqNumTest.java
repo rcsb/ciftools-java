@@ -2,7 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.Column;
 
 import java.io.IOException;
 
@@ -15,16 +15,16 @@ public class PdbxNonpolyNdbSeqNumTest {
     @Test
     public void test() throws IOException {
         CifFile rcsb = CifIO.readById("1acj");
-        StrColumn rcsbNdbSeqNum = rcsb.getFirstBlock()
-                .getPdbxNonpolyScheme()
-                .getNdbSeqNum();
+        Column rcsbNdbSeqNum = rcsb.getFirstBlock()
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
         CifFile ebi = CifIO.readById("1acj",
                 new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
-        StrColumn ebiNdbSeqNum = ebi.getFirstBlock()
-                .getPdbxNonpolyScheme()
-                .getNdbSeqNum();
+        Column ebiNdbSeqNum = ebi.getFirstBlock()
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
         assertEquals(83, ebiNdbSeqNum.getRowCount());
     }
 }
