@@ -53,7 +53,9 @@ public class FloatColumn extends BaseColumn {
         if (text.isEmpty() || ".".equals(text) || "?".equals(text)) {
             return 0;
         }
-        return Double.parseDouble(text);
+        // some formats specify uncertain decimal places like: 0.00012(3) - ignore them (in agreement with Mol*)
+        int index = text.indexOf('(');
+        return Double.parseDouble(index == -1 ? text : text.substring(0, index));
     }
 
     /**
