@@ -23,6 +23,7 @@ import java.util.stream.Stream;
  * https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic
  * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic
  * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic
+ * https://www.iucr.org/resources/cif/dictionaries/cif_core
  */
 @SuppressWarnings("ALL")
 class SchemaGenerator {
