@@ -3,6 +3,7 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.BaseBlock;
 import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
@@ -29,7 +30,7 @@ public class BinaryCifReader {
     public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
         try (inputStream) {
-            unpacked = BinaryCifCodec.MESSAGE_PACK_CODEC.decode(inputStream);
+            unpacked = MessagePackCodec.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {

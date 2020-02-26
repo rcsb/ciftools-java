@@ -19,7 +19,7 @@ import java.util.Map;
 public class MessagePackCodec {
     /* encoding */
 
-    public byte[] encode(Map<String, Object> input) {
+    public static byte[] encode(Map<String, Object> input) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
@@ -33,7 +33,7 @@ public class MessagePackCodec {
         }
     }
 
-    private void encodeInternal(Object input, DataOutputStream stream) throws IOException {
+    private static void encodeInternal(Object input, DataOutputStream stream) throws IOException {
         // string bytes
         if (input instanceof String) {
             String value = (String) input;
@@ -183,14 +183,14 @@ public class MessagePackCodec {
     /* decoding */
 
     @SuppressWarnings("unchecked")
-    public Map<String, Object> decode(InputStream inputStream) throws IOException {
+    public static Map<String, Object> decode(InputStream inputStream) throws IOException {
         DataInputStream dataInputStream = new DataInputStream(inputStream);
         Map<String, Object> map = (Map<String, Object>) decodeInternal(dataInputStream);
         dataInputStream.close();
         return map;
     }
 
-    private Object decodeInternal(DataInputStream inputStream) throws IOException {
+    private static Object decodeInternal(DataInputStream inputStream) throws IOException {
         final int int8 = inputStream.readByte();
         final int type = int8 & 0xFF;
 
@@ -288,11 +288,11 @@ public class MessagePackCodec {
         throw new IllegalArgumentException("Unknown MessagePack type 0x" + type);
     }
 
-    private int readUnsignedInt(DataInputStream inputStream) throws IOException {
+    private static int readUnsignedInt(DataInputStream inputStream) throws IOException {
         return (int) (inputStream.readInt() & 0xFFFFFFFFL);
     }
 
-    private Map<String, Object> map(DataInputStream inputStream, int length) throws IOException {
+    private static Map<String, Object> map(DataInputStream inputStream, int length) throws IOException {
         Map<String, Object> value = new LinkedHashMap<>();
         for (int i = 0; i < length; i++) {
             value.put((String) decodeInternal(inputStream), decodeInternal(inputStream));
@@ -300,17 +300,17 @@ public class MessagePackCodec {
         return value;
     }
 
-    private byte[] bin(DataInputStream inputStream, int length) throws IOException {
+    private static byte[] bin(DataInputStream inputStream, int length) throws IOException {
         byte[] tmp = new byte[length];
         inputStream.readFully(tmp);
         return tmp;
     }
 
-    private String str(DataInputStream inputStream, int length) throws IOException {
+    private static String str(DataInputStream inputStream, int length) throws IOException {
         return new String(bin(inputStream, length), StandardCharsets.US_ASCII);
     }
 
-    private Object[] array(DataInputStream inputStream, int length) throws IOException {
+    private static Object[] array(DataInputStream inputStream, int length) throws IOException {
         final Object[] value = new Object[length];
         for (int i = 0; i < length; i++) {
             value[i] = decodeInternal(inputStream);

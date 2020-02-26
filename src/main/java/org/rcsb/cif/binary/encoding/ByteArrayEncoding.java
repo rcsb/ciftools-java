@@ -33,7 +33,7 @@ public abstract class ByteArrayEncoding<T extends NumberArray<?>> implements Enc
     private final Map<String, Object> map;
     private int type;
 
-    ByteArrayEncoding(Map<String, Object> map) {
+    private ByteArrayEncoding(Map<String, Object> map) {
         this.map = map;
     }
 

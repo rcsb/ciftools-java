@@ -24,17 +24,17 @@ public class BinaryCifCodec {
     public static final String CODEC_NAME = "ciftools-java";
     public static final String VERSION = "0.3.0";
     public static final String MIN_VERSION = "0.3";
-    public static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
     public static final boolean IS_NATIVE_LITTLE_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN);
 
     /**
-     * Decode an instance of {@link EncodedData} by traversing its encoding chain until the original data is restored.
-     * @param encodedData the data to decode
+     * Request decoding of this EncodedData instance. Will automatically resolve its decoding chain, starting from a
+     * ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved which is
+     * then ready to use.
      * @return the decoded data
      */
     @SuppressWarnings({"unchecked", "rawtypes"})
-    public static EncodedData<?> decode(EncodedData<?> encodedData) {
-        EncodedData<?> current = encodedData;
+    public static EncodedData<?> decode(EncodedData<?> data) {
+        EncodedData<?> current = data;
 
         while (current.hasNextDecodingStep()) {
             // pop the last element of this encoding chain, do so until chain is completely resolved
@@ -124,8 +124,8 @@ public class BinaryCifCodec {
             case "StringArray": {
                 String stringData = (String) encoding.get("stringData");
                 byte[] offsets = (byte[]) encoding.get("offsets");
-                Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingMap(encoding.get("dataEncoding"));
-                Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingMap(encoding.get("offsetEncoding"));
+                Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingDeque(encoding.get("dataEncoding"));
+                Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingDeque(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(stringData, offsets, outputEncoding, offsetEncoding);
             }
             default:
@@ -133,11 +133,16 @@ public class BinaryCifCodec {
         }
     }
 
+    /**
+     * Convert a array representation of an encoding chain to a Java object.
+     * @param encoding array representation of encoding chain
+     * @return a deque representing the encoding chain
+     */
     @SuppressWarnings("unchecked")
-    private static Deque<Encoding<?, ?>> deserializeEncodingMap(Object rawEncodingMap) {
-        Object[] encodingMap = (Object[]) rawEncodingMap;
+    private static Deque<Encoding<?, ?>> deserializeEncodingDeque(Object encoding) {
+        Object[] encodingArray = (Object[]) encoding;
         Deque<Encoding<?, ?>> encodings = new ArrayDeque<>();
-        for (Object o : encodingMap) {
+        for (Object o : encodingArray) {
             encodings.add(deserializeEncodingMap((Map<String, Object>) o));
         }
         return encodings;

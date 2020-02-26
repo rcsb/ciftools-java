@@ -13,7 +13,6 @@ import java.util.Map;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 import static org.rcsb.cif.TestHelper.convertToIntArray;
-import static org.rcsb.cif.binary.codec.BinaryCifCodec.MESSAGE_PACK_CODEC;
 
 /**
  * - Obtain MessagePacked data at: https://msgpack.org/
@@ -29,10 +28,7 @@ public class MessagePackCodecTest {
         originalMap.put("S1", "");
         originalMap.put("S2", "Lorem ipsum");
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -46,10 +42,7 @@ public class MessagePackCodecTest {
         originalMap.put("I1", 17);
         originalMap.put("D1", -65.7);
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -62,10 +55,7 @@ public class MessagePackCodecTest {
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("null", null);
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -79,10 +69,7 @@ public class MessagePackCodecTest {
         originalMap.put("true", true);
         originalMap.put("false", false);
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -95,10 +82,7 @@ public class MessagePackCodecTest {
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("obj", new LinkedHashMap<>());
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -115,10 +99,7 @@ public class MessagePackCodecTest {
         internal.put("D1", 127.3233);
         originalMap.put("obj", internal);
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -131,10 +112,7 @@ public class MessagePackCodecTest {
         Map<String, Object> originalMap = new HashMap<>();
         originalMap.put("arr", new Object[0]);
 
-        int[] actual = convertToIntArray(MESSAGE_PACK_CODEC.encode(originalMap));
-
-//        System.out.println(Arrays.toString(expected));
-//        System.out.println(Arrays.toString(actual));
+        int[] actual = convertToIntArray(MessagePackCodec.encode(originalMap));
 
         assertArrayEquals(expected, actual);
     }
@@ -162,10 +140,10 @@ public class MessagePackCodecTest {
         originalMap.put("null", null);
 
         // encode by MessagePack
-        byte[] packed = MESSAGE_PACK_CODEC.encode(originalMap);
+        byte[] packed = MessagePackCodec.encode(originalMap);
 
         // decode by MessagePack
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(packed));
+        Map<String, Object> unpacked = MessagePackCodec.decode(new ByteArrayInputStream(packed));
 
         assertEquals(originalMap, unpacked);
     }
@@ -177,9 +155,9 @@ public class MessagePackCodecTest {
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("entry", -5);
 
-        byte[] packed = MESSAGE_PACK_CODEC.encode(originalMap);
+        byte[] packed = MessagePackCodec.encode(originalMap);
 
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(new ByteArrayInputStream(packed));
+        Map<String, Object> unpacked = MessagePackCodec.decode(new ByteArrayInputStream(packed));
 
         assertEquals(originalMap, unpacked);
         assertEquals(-5, unpacked.get("entry"));
@@ -191,9 +169,9 @@ public class MessagePackCodecTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/1pga.bcif");
 
         // decode
-        Map<String, Object> unpacked = MESSAGE_PACK_CODEC.decode(inputStream);
+        Map<String, Object> unpacked = MessagePackCodec.decode(inputStream);
         // encode
-        byte[] packed = MESSAGE_PACK_CODEC.encode(unpacked);
+        byte[] packed = MessagePackCodec.encode(unpacked);
 
         assertArrayEquals(TestHelper.getBytes("bcif/1pga.bcif"), packed);
     }

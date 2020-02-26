@@ -30,27 +30,9 @@ public interface EncodedData<D> {
      */
     Deque<Encoding<?, ?>> getEncoding();
 
-    /**
-     * Request decoding of this EncodedData instance. Will automatically resolve its decoding chain, starting from a
-     * ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved which is
-     * then ready to use.
-     * @return the decoded data
-     */
     default EncodedData<?> decode() {
         return BinaryCifCodec.decode(this);
     }
-//    @SuppressWarnings({"unchecked", "rawtypes"})
-//    default EncodedData<?> decode() {
-//        EncodedData<?> current = this;
-//
-//        while (current.hasNextDecodingStep()) {
-//            // pop the last element of this encoding chain, do so until chain is completely resolved
-//            Encoding encoding = current.getEncoding().removeLast();
-//            current = encoding.decode(current);
-//        }
-//
-//        return current;
-//    }
 
     /**
      * Replace this encoding chain with a different one.

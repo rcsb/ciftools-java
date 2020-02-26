@@ -36,7 +36,7 @@ public class IntervalQuantizationEncoding implements Encoding<FloatArray, Int32A
     private int srcType;
 
     public IntervalQuantizationEncoding() {
-
+        // need to constructor for future support
     }
 
     public IntervalQuantizationEncoding(int min, int max, int numSteps, int srcType) {

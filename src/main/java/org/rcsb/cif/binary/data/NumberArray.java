@@ -34,5 +34,10 @@ public interface NumberArray<D> extends EncodedData<D> {
      */
     int getType();
 
+    /**
+     * Encode this array of numbers directly as binary data (useful for single values that won't benefit from more
+     * elaborate encoding chains).
+     * @return a {@link ByteArray} with a single encoding step
+     */
     ByteArray encode();
 }

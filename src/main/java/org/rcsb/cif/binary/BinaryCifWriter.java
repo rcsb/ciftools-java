@@ -3,6 +3,7 @@ package org.rcsb.cif.binary;
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.EncodingStrategyHint;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
@@ -37,7 +38,7 @@ public class BinaryCifWriter {
 
     public byte[] write(CifFile cifFile) {
         Map<String, Object> file = encodeFile(cifFile);
-        return BinaryCifCodec.MESSAGE_PACK_CODEC.encode(file);
+        return MessagePackCodec.encode(file);
     }
 
     private Map<String, Object> encodeFile(CifFile cifFile) {
