@@ -92,7 +92,7 @@ public class BinaryCifCodec {
             case "Delta":
                 int origin = (int) encoding.get("origin");
                 srcType = (int) encoding.get("srcType");
-                return new DeltaEncoding(origin, srcType);
+                return new DeltaEncoding<>(origin, srcType);
             case "IntegerPacking":
                  int byteCount = (int) encoding.get("byteCount");
                  boolean isUnsigned = (boolean) encoding.get("isUnsigned");

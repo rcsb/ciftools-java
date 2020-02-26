@@ -60,11 +60,11 @@ public class Classifier {
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
             case "delta":
-                return column.encode(new DeltaEncoding())
+                return column.encode(new DeltaEncoding<>())
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
             case "delta-rle":
-                return column.encode(new DeltaEncoding())
+                return column.encode(new DeltaEncoding<>())
                         .encode(new RunLengthEncoding())
                         .encode(new IntegerPackingEncoding())
                         .encode(new ByteArrayEncoding());
