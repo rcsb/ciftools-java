@@ -70,7 +70,6 @@ public class BinaryCifCodec {
      */
     private static Encoding<?, ?> deserializeEncodingMap(Map<String, Object> encoding) {
         String kind = (String) encoding.get("kind");
-        int srcType, srcSize;
         switch (kind) {
             case "ByteArray":
                 int type = (int) encoding.get("type");
@@ -94,35 +93,41 @@ public class BinaryCifCodec {
                     default:
                         throw new UnsupportedOperationException("cannot handle byte array encoding type " + type);
                 }
-            case "FixedPoint":
+            case "FixedPoint": {
                 int factor = (int) encoding.get("factor");
-                srcType = (int) encoding.get("srcType");
+                int srcType = (int) encoding.get("srcType");
                 return new FixedPointEncoding(factor, srcType);
-            case "IntervalQuantization":
+            }
+            case "IntervalQuantization": {
                 int min = (int) encoding.get("min");
                 int max = (int) encoding.get("max");
                 int numSteps = (int) encoding.get("numSteps");
-                srcType = (int) encoding.get("srcType");
+                int srcType = (int) encoding.get("srcType");
                 return new IntervalQuantizationEncoding(min, max, numSteps, srcType);
-            case "RunLength":
-                srcType = (int) encoding.get("srcType");
-                srcSize = (int) encoding.get("srcSize");
+            }
+            case "RunLength": {
+                int srcType = (int) encoding.get("srcType");
+                int srcSize = (int) encoding.get("srcSize");
                 return new RunLengthEncoding(srcType, srcSize);
-            case "Delta":
+            }
+            case "Delta": {
                 int origin = (int) encoding.get("origin");
-                srcType = (int) encoding.get("srcType");
+                int srcType = (int) encoding.get("srcType");
                 return new DeltaEncoding<>(origin, srcType);
-            case "IntegerPacking":
-                 int byteCount = (int) encoding.get("byteCount");
-                 boolean isUnsigned = (boolean) encoding.get("isUnsigned");
-                 srcSize = (int) encoding.get("srcSize");
+            }
+            case "IntegerPacking": {
+                int byteCount = (int) encoding.get("byteCount");
+                boolean isUnsigned = (boolean) encoding.get("isUnsigned");
+                int srcSize = (int) encoding.get("srcSize");
                 return new IntegerPackingEncoding(byteCount, isUnsigned, srcSize);
-            case "StringArray":
+            }
+            case "StringArray": {
                 String stringData = (String) encoding.get("stringData");
                 byte[] offsets = (byte[]) encoding.get("offsets");
                 Deque<Encoding<?, ?>> outputEncoding = deserializeEncodingMap(encoding.get("dataEncoding"));
                 Deque<Encoding<?, ?>> offsetEncoding = deserializeEncodingMap(encoding.get("offsetEncoding"));
                 return new StringArrayEncoding(stringData, offsets, outputEncoding, offsetEncoding);
+            }
             default:
                 throw new IllegalArgumentException("Unsupported Encoding kind: " + kind);
         }
