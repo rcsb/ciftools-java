@@ -3,13 +3,14 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.retired.FloatColumn;
-import org.rcsb.cif.model.retired.IntColumn;
-import org.rcsb.cif.model.retired.StrColumn;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.IntColumnBuilder;
+import org.rcsb.cif.model.text.TextColumn;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -102,8 +103,8 @@ public class WriterTest {
         FloatColumn binaryFloatColumn = (FloatColumn) binaryCategory.getColumn("floats");
 
         // in text impl we cant be sure without meta information that this is not string data
-        StrColumn textIntColumn = (StrColumn) textCategory.getColumn("ints");
-        StrColumn textFloatColumn = (StrColumn) textCategory.getColumn("floats");
+        Column textIntColumn = (TextColumn) textCategory.getColumn("ints");
+        Column textFloatColumn = (TextColumn) textCategory.getColumn("floats");
 
         assertNotNull(binaryIntColumn);
         assertNotNull(binaryFloatColumn);

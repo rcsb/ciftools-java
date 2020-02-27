@@ -4,8 +4,10 @@ import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.retired.FloatColumn;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.text.TextColumn;
+import org.rcsb.cif.schema.DelegatingFloatColumn;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -127,9 +129,9 @@ public class IntegrationTest {
         int[] end = new int[] { 3, 4, data.length() };
 
         // coord columns print with 3 decimal digits
-        FloatColumn cartnX = new FloatColumn("Cartn_x", text.length, data, start, end);
-        FloatColumn cartnY = new FloatColumn("Cartn_y", text.length, data, start, end);
-        FloatColumn cartnZ = new FloatColumn("Cartn_z", text.length, data, start, end);
+        FloatColumn cartnX = new DelegatingFloatColumn(new TextColumn("Cartn_x", text.length, data, start, end));
+        FloatColumn cartnY = new DelegatingFloatColumn(new TextColumn("Cartn_y", text.length, data, start, end));
+        FloatColumn cartnZ = new DelegatingFloatColumn(new TextColumn("Cartn_z", text.length, data, start, end));
 
         Stream.of(cartnX, cartnY, cartnZ).forEach(coordColumn -> {
             assertEquals("1.000", coordColumn.getStringData(0));
@@ -138,13 +140,13 @@ public class IntegrationTest {
         });
 
         // occupancy uses 2 decimal digits
-        FloatColumn occupancy = new FloatColumn("occupancy", text.length, data, start, end);
+        FloatColumn occupancy = new DelegatingFloatColumn(new TextColumn("occupancy", text.length, data, start, end));
         assertEquals("1.00", occupancy.getStringData(0));
         assertEquals("2.00", occupancy.getStringData(1));
         assertEquals("-1.57", occupancy.getStringData(2));
 
         // all other should fallback to default behavior
-        FloatColumn bIsoOrEquiv = new FloatColumn("iso", text.length, data, start, end);
+        FloatColumn bIsoOrEquiv = new DelegatingFloatColumn(new TextColumn("iso", text.length, data, start, end));
         // truncate float which perfectly round to integers
         assertEquals("1", bIsoOrEquiv.getStringData(0));
         assertEquals("2", bIsoOrEquiv.getStringData(1));

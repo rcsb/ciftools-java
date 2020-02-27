@@ -20,7 +20,11 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
+import org.rcsb.cif.model.binary.BinaryFloatColumn;
+import org.rcsb.cif.model.binary.BinaryIntColumn;
+import org.rcsb.cif.model.binary.BinaryStrColumn;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -130,17 +134,17 @@ public class BinaryCifWriter {
     private Map<String, Object> encodeColumn(String categoryName, Column cifColumn) {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
-            double[] array = floatCol.getBinaryData() != null ? floatCol.getBinaryData() : floatCol.values().toArray();
+            double[] array = floatCol instanceof BinaryFloatColumn ? ((BinaryFloatColumn) floatCol).getBinaryDataUnsafe() : floatCol.values().toArray();
             ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Float64Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
-            int[] array = intCol.getBinaryData() != null ? intCol.getBinaryData() : intCol.values().toArray();
+            int[] array = intCol instanceof BinaryIntColumn ? ((BinaryIntColumn) intCol).getBinaryDataUnsafe() : intCol.values().toArray();
             ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Int32Array(array));
             return encodeColumn(cifColumn, byteArray);
         } else {
             StrColumn strCol = (StrColumn) cifColumn;
-            String[] array = strCol.getBinaryData() != null ? strCol.getBinaryData() : strCol.values().toArray(String[]::new);
+            String[] array = strCol instanceof BinaryStrColumn ? ((BinaryStrColumn) strCol).getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }

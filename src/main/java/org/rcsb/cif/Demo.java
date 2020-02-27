@@ -19,7 +19,7 @@ public class Demo {
 
     private static void parseFile() throws IOException {
         String pdbId = "1acj";
-        boolean parseBinary = false;
+        boolean parseBinary = true;
 
         // CIF and BinaryCIF are stored in the same data structure
         // to access the data, it does not matter where and in which format the data came from

@@ -3,6 +3,7 @@ package org.rcsb.cif.schema.mm.generated;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.DelegatingCategory;
+import org.rcsb.cif.schema.DelegatingFloatColumn;
 
 import javax.annotation.Generated;
 
@@ -46,6 +47,6 @@ public class AtomSite extends DelegatingCategory {
      * @return FloatColumn
      */
     public FloatColumn getCartnX() {
-        return getColumn("Cartn_x", FloatColumn::new);
+        return getColumn("Cartn_x", DelegatingFloatColumn::new);
     }
 }

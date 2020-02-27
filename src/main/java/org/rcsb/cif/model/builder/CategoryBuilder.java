@@ -3,8 +3,15 @@ package org.rcsb.cif.model.builder;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.text.TextCategory;
+import org.rcsb.cif.model.text.TextColumn;
+import org.rcsb.cif.schema.DelegatingFloatColumn;
+import org.rcsb.cif.schema.DelegatingIntColumn;
+import org.rcsb.cif.schema.DelegatingStrColumn;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -128,12 +135,13 @@ public class CategoryBuilder {
 
         String data = builder.toString();
         int rowCount = startToken.length;
+        TextColumn column = new TextColumn(columnName, rowCount, data, startToken, endToken);
         if (hint.equals(IntColumn.class)) {
-            return (C) new IntColumn(columnName, rowCount, data, startToken, endToken);
+            return (C) new DelegatingIntColumn(column);
         } else if (hint.equals(FloatColumn.class)) {
-            return (C) new FloatColumn(columnName, rowCount, data, startToken, endToken);
+            return (C) new DelegatingFloatColumn(column);
         } else {
-            return (C) new StrColumn(columnName, rowCount, data, startToken, endToken);
+            return (C) new DelegatingStrColumn(column);
         }
     }
 
