@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.retired.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.ArrayList;

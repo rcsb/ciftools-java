@@ -20,7 +20,6 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.util.LinkedHashMap;

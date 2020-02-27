@@ -2,9 +2,9 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
-import org.rcsb.cif.model.BinaryFile;
+import org.rcsb.cif.model.binary.BinaryFile;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.TextFile;
+import org.rcsb.cif.model.text.TextFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

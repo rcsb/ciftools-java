@@ -21,10 +21,9 @@ import java.util.stream.Stream;
  *  <li>1 Column contains 1...n rows of raw values (int, double, or String)</li>
  * </ul>
  *
- * <p>Prominent Categories and Columns are provided in a type-safe manner based on the mmCIF dictionary. Missing categories
- * and columns will still be accessible, though the report being undefined and have a row count of 0. Most values in the
- * data structure will be available, but some are missing or unknown. This property of individual values is reported by
- * the {@link ValueKind} property of a {@link Column}.</p>
+ * <p>Missing categories and columns will still be accessible, though the report being undefined and have a row count of
+ * 0. Most values in the data structure will be available, but some are missing or unknown. This property of individual
+ * values is reported by the {@link ValueKind} property of a {@link Column}.</p>
  */
 public interface CifFile {
     /**

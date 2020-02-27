@@ -1,12 +1,14 @@
-package org.rcsb.cif.model;
+package org.rcsb.cif.schema;
+
+import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.Column;
 
 import java.util.List;
-import java.util.function.Function;
 
-public class SchemaSupportingCategory implements Category {
+public class DelegatingCategory implements Category {
     private final Category delegate;
 
-    public SchemaSupportingCategory(Category delegate) {
+    public DelegatingCategory(Category delegate) {
         this.delegate = delegate;
     }
 
@@ -23,11 +25,6 @@ public class SchemaSupportingCategory implements Category {
     @Override
     public Column getColumn(String name) {
         return delegate.getColumn(name);
-    }
-
-    @Override
-    public <C extends Column> C getColumn(String name, Function<Column, C> wrapper) {
-        return wrapper.apply(delegate.getColumn(name));
     }
 
     @Override

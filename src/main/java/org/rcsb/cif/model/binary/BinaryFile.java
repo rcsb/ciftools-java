@@ -1,4 +1,7 @@
-package org.rcsb.cif.model;
+package org.rcsb.cif.model.binary;
+
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.CifFile;
 
 import java.util.List;
 

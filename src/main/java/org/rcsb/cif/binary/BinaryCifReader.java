@@ -4,13 +4,13 @@ import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
-import org.rcsb.cif.model.GenericBlock;
-import org.rcsb.cif.model.GenericCategory;
-import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
+import org.rcsb.cif.model.binary.BinaryBlock;
+import org.rcsb.cif.model.binary.BinaryCategory;
+import org.rcsb.cif.model.binary.BinaryFile;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -58,10 +58,10 @@ public class BinaryCifReader {
                     categories.put(name.substring(1), createBinaryCategory(cat));
                 }
 
-                dataBlocks.add(new GenericBlock(categories, header));
+                dataBlocks.add(new BinaryBlock(categories, header));
             } catch (NullPointerException e) {
                 // don't really need this but the parser may be tricked by malformed files into exploring data and dying with NPE
-                dataBlocks.add(new GenericBlock(Collections.emptyMap(), header));
+                dataBlocks.add(new BinaryBlock(Collections.emptyMap(), header));
             }
         }
 
@@ -75,6 +75,6 @@ public class BinaryCifReader {
         int rowCount = (int) encodedCategory.get("rowCount");
 
         Object[] encodedFields = (Object[]) rawColumns;
-        return new GenericCategory(name, rowCount, encodedFields);
+        return new BinaryCategory(name, rowCount, encodedFields);
     }
 }

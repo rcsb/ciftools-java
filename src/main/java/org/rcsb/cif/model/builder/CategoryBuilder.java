@@ -1,13 +1,10 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.GenericCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.FloatColumn;
-import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
+import org.rcsb.cif.model.text.TextCategory;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -86,7 +83,7 @@ public class CategoryBuilder {
      * @return the created Category
      */
     public Category build() {
-        return new GenericCategory(categoryName, columns);
+        return new TextCategory(categoryName, columns);
     }
 
     /**

@@ -4,7 +4,7 @@ import org.junit.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.retired.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
 
 import java.io.ByteArrayInputStream;

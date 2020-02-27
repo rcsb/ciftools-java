@@ -1,7 +1,6 @@
 package org.rcsb.cif.model;
 
 import java.util.List;
-import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -15,12 +14,10 @@ public interface Block {
      */
     String getBlockHeader();
 
-    Map<String, Category> getCategories();
-
     /**
      * Retrieve a particular {@link Category} by name.
      * @param name the category name
-     * @return the corresponding {@link Category}, if none exists a instance of {@link GenericCategory} is returned as
+     * @return the corresponding {@link Category}, if none exists a instance of {@link Category} is returned as
      * proxy
      */
     Category getCategory(String name);
@@ -31,7 +28,15 @@ public interface Block {
      * @param name the category name and column name, joined by an underscore
      * @return the corresponding {@link Column}, if none exists a instance of {@link GenericColumn} is returned as proxy
      */
-    Column getColumn(String name);
+//    default Column getColumn(String name) {
+//        Map<String, Category> categories = getCategories();
+        // TODO rework
+//        if (categories.containsKey(name)) {
+//            return categories.get(name).getColumn("");
+//        } else {
+//            return new Column.EmptyColumn("");
+//        }
+//    }
 
     /**
      * The names of all {@link Category} instances which will not return an empty {@link Category} when queried.
@@ -69,5 +74,7 @@ public interface Block {
         return getSaveFrames().stream();
     }
 
-    <C extends Category> C getCategory(String name, Function<Category, C> f);
+    default <C extends Category> C getCategory(String name, Function<Category, C> wrapper) {
+        return wrapper.apply(getCategory(name));
+    }
 }

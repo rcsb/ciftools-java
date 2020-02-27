@@ -1,11 +1,11 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.GenericCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
-import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.text.TextCategory;
+import org.rcsb.cif.model.text.TextColumn;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -440,10 +440,10 @@ class TokenizerState {
     }
 
     private Column createColumn(String columnName, String data, int[] startToken, int[] endToken) {
-        return new StrColumn(columnName, startToken.length, data, startToken, endToken);
+        return new TextColumn(columnName, startToken.length, data, startToken, endToken);
     }
 
     private Category createCategory(String categoryName, Map<String, Column> textColumns) {
-        return new GenericCategory(categoryName, textColumns);
+        return new TextCategory(categoryName, textColumns);
     }
 }

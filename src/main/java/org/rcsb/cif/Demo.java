@@ -3,8 +3,8 @@ package org.rcsb.cif;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
 import org.rcsb.cif.schema.mm.generated.AtomSite;
+import org.rcsb.cif.schema.mm.generated.MmCifBlock;
 
 import java.io.IOException;
 import java.net.URL;

@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -23,11 +24,13 @@ public interface Category {
     /**
      * Retrieve a specific {@link Column} by name.
      * @param name the column name
-     * @return the {@link Column}, empty {@link GenericColumn} if no column of that name exists
+     * @return the {@link Column}, empty column if no column of that name exists
      */
     Column getColumn(String name);
 
-    <C extends Column> C getColumn(String name, Function<Column, C> wrapper);
+    default <C extends Column> C getColumn(String name, Function<Column, C> wrapper) {
+        return wrapper.apply(getColumn(name));
+    }
 
     /**
      * Names of all present columns.
@@ -56,4 +59,37 @@ public interface Category {
      * @return <code>true</code> if this {@link Category} contains data
      */
     boolean isDefined();
+
+    class EmptyCategory implements Category {
+        private final String name;
+
+        public EmptyCategory(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String getCategoryName() {
+            return name;
+        }
+
+        @Override
+        public int getRowCount() {
+            return 0;
+        }
+
+        @Override
+        public Column getColumn(String name) {
+            return new Column.EmptyColumn(name);
+        }
+
+        @Override
+        public List<String> getColumnNames() {
+            return Collections.emptyList();
+        }
+
+        @Override
+        public boolean isDefined() {
+            return false;
+        }
+    }
 }

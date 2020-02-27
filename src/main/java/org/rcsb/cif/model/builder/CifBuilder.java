@@ -1,6 +1,10 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.text.TextBlock;
+import org.rcsb.cif.model.text.TextFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +52,7 @@ public class CifBuilder {
      * @return this CifBuilder instance
      */
     CifBuilder digest(BlockBuilder blockBuilder) {
-        Block block = new GenericBlock(blockBuilder.getCategories(), blockBuilder.getBlockName());
+        Block block = new TextBlock(blockBuilder.getCategories(), blockBuilder.getBlockName());
         blocks.add(block);
         return this;
     }

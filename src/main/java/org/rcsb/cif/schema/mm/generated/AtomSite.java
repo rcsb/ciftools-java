@@ -1,8 +1,8 @@
 package org.rcsb.cif.schema.mm.generated;
 
-import org.rcsb.cif.model.SchemaSupportingCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.schema.DelegatingCategory;
 
 import javax.annotation.Generated;
 
@@ -17,7 +17,7 @@ import javax.annotation.Generated;
  * are not given in the ATOM_SITE_ANISOTROP category.
  */
 @Generated("org.rcsb.cif.generator.SchemaGenerator")
-public class AtomSite extends SchemaSupportingCategory {
+public class AtomSite extends DelegatingCategory {
     public AtomSite(Category delegate) {
         super(delegate);
     }

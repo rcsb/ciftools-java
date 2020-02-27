@@ -49,7 +49,10 @@ public interface Column {
      * {@link Stream} of all {@link ValueKind} annotations.
      * @return a {@link Stream} with a number of ValueKinds equal to row count
      */
-    Stream<ValueKind> valueKinds();
+    default Stream<ValueKind> valueKinds() {
+        return IntStream.range(0, getRowCount())
+                .mapToObj(this::getValueKind);
+    }
 
     /**
      * Queries this column whether it is defined. To avoid {@link NullPointerException} being thrown left, right, and
@@ -57,4 +60,42 @@ public interface Column {
      * @return <code>false</code> if this {@link Column} has row count 0 and no data in it
      */
     boolean isDefined();
+
+    class EmptyColumn implements Column {
+        private final String name;
+
+        public EmptyColumn(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public String getColumnName() {
+            return name;
+        }
+
+        @Override
+        public int getRowCount() {
+            return 0;
+        }
+
+        @Override
+        public String getStringData(int row) {
+            return null; // TODO
+        }
+
+        @Override
+        public ValueKind getValueKind(int row) {
+            return null; // TODO
+        }
+
+        @Override
+        public Stream<ValueKind> valueKinds() {
+            return Stream.empty();
+        }
+
+        @Override
+        public boolean isDefined() {
+            return false;
+        }
+    }
 }
