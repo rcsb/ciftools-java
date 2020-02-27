@@ -15,28 +15,6 @@ import static org.junit.Assert.assertTrue;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {
-    @Test
-    public void shouldGenericallyReadTextFiles() throws IOException {
-        // no types
-        CifFile genericCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"),
-                new CifOptions.CifOptionsBuilder().generic(true).build());
-        // 'normal behavior' - types are inferred
-        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
-
-        assertGenericParsing(genericCifFile, cifFile, true);
-    }
-
-    @Test
-    public void shouldGenericallyReadBinaryFiles() throws IOException {
-        // no types
-        CifFile genericCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"),
-                new CifOptions.CifOptionsBuilder().generic(true).build());
-        // 'normal behavior' - types are inferred
-        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
-
-        assertGenericParsing(genericCifFile, cifFile, false);
-    }
-
     private void assertGenericParsing(CifFile genericCifFile, CifFile cifFile, boolean textMode) {
 //        Block genericCifBlock = genericCifFile.getFirstBlock();
 //

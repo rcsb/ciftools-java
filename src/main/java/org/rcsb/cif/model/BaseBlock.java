@@ -3,6 +3,7 @@ package org.rcsb.cif.model;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
 public class BaseBlock implements Block {
     private final Map<String, Category> categories;
@@ -33,6 +34,11 @@ public class BaseBlock implements Block {
     public Category getCategory(String name) {
         // try to return category, if unknown and not present, return empty category
         return categories.computeIfAbsent(name, BaseCategory::new);
+    }
+
+    @Override
+    public <C extends Category> C getCategory(String name, Function<Category, C> wrapper) {
+        return wrapper.apply(getCategory(name));
     }
 
     @Override

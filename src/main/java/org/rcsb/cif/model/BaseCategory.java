@@ -16,8 +16,8 @@ public class BaseCategory implements Category {
     private final int rowCount;
     private final List<String> columnNames;
 
-    protected final boolean isText;
-    protected final Map<String, Column> textFields;
+    private final boolean isText;
+    private final Map<String, Column> textFields;
 
     private final Object[] encodedColumns;
     private final Map<String, Column> decodedColumns;
@@ -89,12 +89,27 @@ public class BaseCategory implements Category {
         return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
+    @Override
+    public <T extends BaseColumn> T getColumn(String name, Class<T> type) {
+        return null;
+    }
+
     private Column getTextColumn(String name) {
         return textFields.computeIfAbsent(name, StrColumn::new);
     }
 
+    @Override
+    public List<String> getColumnNames() {
+        return columnNames;
+    }
+
+    @Override
+    public boolean isDefined() {
+        return defined;
+    }
+
     @SuppressWarnings("unchecked")
-    protected Column getBinaryColumn(String name) {
+    Column getBinaryColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
         if (optional.isEmpty()) {
             return new StrColumn(name);
@@ -128,15 +143,5 @@ public class BaseCategory implements Category {
                 .map(m -> (Map<String, Object>) m)
                 .filter(m -> name.equalsIgnoreCase((String) m.get("name")))
                 .findFirst();
-    }
-
-    @Override
-    public List<String> getColumnNames() {
-        return columnNames;
-    }
-
-    @Override
-    public boolean isDefined() {
-        return defined;
     }
 }

@@ -37,7 +37,7 @@ public class IntColumn extends BaseColumn {
 
     public IntColumn(String name) {
         super(name);
-        this.binaryData =  EMPTY;
+        this.binaryData = EMPTY;
     }
 
     /**

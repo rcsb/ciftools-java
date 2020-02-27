@@ -1,6 +1,7 @@
 package org.rcsb.cif.model;
 
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
@@ -25,6 +26,8 @@ public interface Category {
      * @return the {@link Column}, empty {@link BaseColumn} if no column of that name exists
      */
     Column getColumn(String name);
+
+    <C extends Column> C getColumn(String name, Function<Column, C> wrapper);
 
     /**
      * Names of all present columns.

@@ -2,6 +2,7 @@ package org.rcsb.cif.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.stream.Stream;
 
 /**
@@ -67,4 +68,6 @@ public interface Block {
     default Stream<Block> saveFrames() {
         return getSaveFrames().stream();
     }
+
+    <C extends Category> C getCategory(String name, Function<Category, C> f);
 }

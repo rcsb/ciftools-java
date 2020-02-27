@@ -3,14 +3,12 @@ package org.rcsb.cif;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.mm.MmCifBlock;
+import org.rcsb.cif.schema.mm.generated.MmCifBlock;
 import org.rcsb.cif.schema.mm.generated.AtomSite;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.OptionalDouble;
-import java.util.OptionalInt;
 
 public class Demo {
     public static void main(String[] args) throws IOException {
@@ -21,7 +19,7 @@ public class Demo {
 
     private static void parseFile() throws IOException {
         String pdbId = "1acj";
-        boolean parseBinary = true;
+        boolean parseBinary = false;
 
         // CIF and BinaryCIF are stored in the same data structure
         // to access the data, it does not matter where and in which format the data came from
@@ -41,23 +39,23 @@ public class Demo {
         // are inferred from the CIF schema
         AtomSite atomSite = data.getAtomSite();
         FloatColumn cartnX = atomSite.getCartnX();
-
-        // obtain entry id
-        String entryId = data.getEntry().getId().get(0);
-        System.out.println(entryId);
-
+//
+//        // obtain entry id
+//        String entryId = data.getEntry().getId().get(0);
+//        System.out.println(entryId);
+//
         // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
         // schema for column 'Cartn_x'
         OptionalDouble averageCartnX = cartnX.values().average();
         averageCartnX.ifPresent(System.out::println);
-
-        // print the last residue sequence id - this time #values() returns an IntStream
-        OptionalInt lastLabelSeqId = atomSite.getLabelSeqId().values().max();
-        lastLabelSeqId.ifPresent(System.out::println);
-
-        // print record type - or #values() may be text
-        Optional<String> groupPdb = data.getAtomSite().getGroupPDB().values().findFirst();
-        groupPdb.ifPresent(System.out::println);
+//
+//        // print the last residue sequence id - this time #values() returns an IntStream
+//        OptionalInt lastLabelSeqId = atomSite.getLabelSeqId().values().max();
+//        lastLabelSeqId.ifPresent(System.out::println);
+//
+//        // print record type - or #values() may be text
+//        Optional<String> groupPdb = data.getAtomSite().getGroupPDB().values().findFirst();
+//        groupPdb.ifPresent(System.out::println);
     }
 
     private static void buildModel() throws IOException {
