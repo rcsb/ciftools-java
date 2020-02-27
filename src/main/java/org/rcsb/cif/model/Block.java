@@ -1,6 +1,7 @@
 package org.rcsb.cif.model;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Stream;
 
 /**
@@ -12,6 +13,8 @@ public interface Block {
      * @return <code>String</code> of the header
      */
     String getBlockHeader();
+
+    Map<String, Category> getCategories();
 
     /**
      * Retrieve a particular {@link Category} by name.

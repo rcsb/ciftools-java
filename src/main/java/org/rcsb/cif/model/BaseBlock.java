@@ -25,6 +25,11 @@ public class BaseBlock implements Block {
     }
 
     @Override
+    public Map<String, Category> getCategories() {
+        return categories;
+    }
+
+    @Override
     public Category getCategory(String name) {
         // try to return category, if unknown and not present, return empty category
         return categories.computeIfAbsent(name, BaseCategory::new);
