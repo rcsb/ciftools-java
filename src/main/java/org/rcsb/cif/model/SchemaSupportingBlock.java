@@ -2,11 +2,12 @@ package org.rcsb.cif.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 
-public class AbstractBlock implements Block {
+public class SchemaSupportingBlock implements Block {
     protected final Block delegate;
 
-    protected AbstractBlock(Block block) {
+    protected SchemaSupportingBlock(Block block) {
         this.delegate = block;
     }
 
@@ -23,6 +24,11 @@ public class AbstractBlock implements Block {
     @Override
     public Column getColumn(String name) {
         return delegate.getColumn(name);
+    }
+
+    @Override
+    public <C extends Category> C getCategory(String name, Function<Category, C> wrapper) {
+        return delegate.getCategory(name, wrapper);
     }
 
     @Override

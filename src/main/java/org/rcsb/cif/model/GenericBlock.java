@@ -5,18 +5,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class BaseBlock implements Block {
+public class GenericBlock implements Block {
     private final Map<String, Category> categories;
     private final List<Block> saveFrames;
     private final String header;
 
-    public BaseBlock(Map<String, Category> categories, String header, List<Block> saveFrames) {
+    public GenericBlock(Map<String, Category> categories, String header, List<Block> saveFrames) {
         this.categories = categories;
         this.saveFrames = saveFrames;
         this.header = header;
     }
 
-    public BaseBlock(Map<String, Category> categories, String header) {
+    public GenericBlock(Map<String, Category> categories, String header) {
         this(categories, header, new ArrayList<>());
     }
 
@@ -33,7 +33,7 @@ public class BaseBlock implements Block {
     @Override
     public Category getCategory(String name) {
         // try to return category, if unknown and not present, return empty category
-        return categories.computeIfAbsent(name, BaseCategory::new);
+        return categories.computeIfAbsent(name, GenericCategory::new);
     }
 
     @Override

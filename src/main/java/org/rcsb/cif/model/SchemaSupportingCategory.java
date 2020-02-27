@@ -3,10 +3,10 @@ package org.rcsb.cif.model;
 import java.util.List;
 import java.util.function.Function;
 
-public class AbstractCategory implements Category {
+public class SchemaSupportingCategory implements Category {
     private final Category delegate;
 
-    public AbstractCategory(Category delegate) {
+    public SchemaSupportingCategory(Category delegate) {
         this.delegate = delegate;
     }
 

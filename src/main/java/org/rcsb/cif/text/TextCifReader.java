@@ -2,7 +2,7 @@ package org.rcsb.cif.text;
 
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.BaseBlock;
+import org.rcsb.cif.model.GenericBlock;
 import org.rcsb.cif.model.TextFile;
 import org.rcsb.cif.model.Block;
 
@@ -45,7 +45,7 @@ public class TextCifReader {
         // the next three initial values are never used in valid files
         List<Block> saveFrames = new ArrayList<>();
         FrameContext saveCtx = new FrameContext();
-        Block saveFrame = new BaseBlock(saveCtx.getCategories(), "");
+        Block saveFrame = new GenericBlock(saveCtx.getCategories(), "");
 
         tokenizer.moveNext();
         while (tokenizer.getTokenType() != CifTokenType.END) {
@@ -57,7 +57,7 @@ public class TextCifReader {
                     throw new ParsingException("Unexpected data block inside a save frame.", tokenizer.getLineNumber());
                 }
                 if (blockCtx.getCategories().size() > 0) {
-                    BaseBlock block = new BaseBlock(blockCtx.getCategories(), blockHeader);
+                    GenericBlock block = new GenericBlock(blockCtx.getCategories(), blockHeader);
                     dataBlocks.add(block);
                     block.getSaveFrames().addAll(saveFrames);
                 }
@@ -80,7 +80,7 @@ public class TextCifReader {
                     inSaveFrame = true;
                     final String safeHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                     saveCtx = new FrameContext();
-                    saveFrame = new BaseBlock(saveCtx.getCategories(), safeHeader);
+                    saveFrame = new GenericBlock(saveCtx.getCategories(), safeHeader);
                 }
                 tokenizer.moveNext();
                 // loop
@@ -101,7 +101,7 @@ public class TextCifReader {
         }
 
         if (blockCtx.getCategories().size() > 0 || saveFrames.size() > 0) {
-            BaseBlock block = new BaseBlock(blockCtx.getCategories(), blockHeader);
+            GenericBlock block = new GenericBlock(blockCtx.getCategories(), blockHeader);
             dataBlocks.add(block);
             block.getSaveFrames().addAll(saveFrames);
         }

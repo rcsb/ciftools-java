@@ -1,6 +1,6 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.GenericCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
@@ -86,7 +86,7 @@ public class CategoryBuilder {
      * @return the created Category
      */
     public Category build() {
-        return new BaseCategory(categoryName, columns);
+        return new GenericCategory(categoryName, columns);
     }
 
     /**

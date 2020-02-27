@@ -23,7 +23,7 @@ public interface Category {
     /**
      * Retrieve a specific {@link Column} by name.
      * @param name the column name
-     * @return the {@link Column}, empty {@link BaseColumn} if no column of that name exists
+     * @return the {@link Column}, empty {@link GenericColumn} if no column of that name exists
      */
     Column getColumn(String name);
 

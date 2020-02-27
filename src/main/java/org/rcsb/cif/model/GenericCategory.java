@@ -8,10 +8,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class BaseCategory implements Category {
+public class GenericCategory implements Category {
     private final String name;
     private final int rowCount;
     private final List<String> columnNames;
@@ -23,7 +24,7 @@ public class BaseCategory implements Category {
     private final Map<String, Column> decodedColumns;
     private final boolean defined;
 
-    public BaseCategory(String name) {
+    public GenericCategory(String name) {
         this.name = name;
         this.rowCount = 0;
         this.columnNames = Collections.emptyList();
@@ -36,7 +37,7 @@ public class BaseCategory implements Category {
         this.defined = false;
     }
 
-    public BaseCategory(String name, Map<String, Column> textColumns) {
+    public GenericCategory(String name, Map<String, Column> textColumns) {
         this.name = name;
         this.rowCount = textColumns.values()
                 .stream()
@@ -54,7 +55,7 @@ public class BaseCategory implements Category {
     }
 
     @SuppressWarnings("unchecked")
-    public BaseCategory(String name, int rowCount, Object[] encodedColumns) {
+    public GenericCategory(String name, int rowCount, Object[] encodedColumns) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -89,13 +90,13 @@ public class BaseCategory implements Category {
         return isText ? getTextColumn(name) : getBinaryColumn(name);
     }
 
-    @Override
-    public <T extends BaseColumn> T getColumn(String name, Class<T> type) {
-        return null;
-    }
-
     private Column getTextColumn(String name) {
         return textFields.computeIfAbsent(name, StrColumn::new);
+    }
+
+    @Override
+    public <C extends Column> C getColumn(String name, Function<Column, C> wrapper) {
+        return wrapper.apply(getColumn(name));
     }
 
     @Override

@@ -4,7 +4,7 @@ import java.text.DecimalFormat;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-public abstract class BaseColumn implements Column {
+public abstract class GenericColumn implements Column {
     private final String name;
     final int rowCount;
 
@@ -17,7 +17,7 @@ public abstract class BaseColumn implements Column {
     private final int[] mask;
     private final boolean defined;
 
-    BaseColumn(String name) {
+    GenericColumn(String name) {
         this.name = name;
         this.rowCount = 0;
 
@@ -31,7 +31,7 @@ public abstract class BaseColumn implements Column {
         this.defined = false;
     }
 
-    BaseColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
+    GenericColumn(String name, int rowCount, String data, int[] startToken, int[] endToken) {
         this.name = name;
         this.rowCount = rowCount;
 
@@ -45,7 +45,7 @@ public abstract class BaseColumn implements Column {
         this.defined = true;
     }
 
-    protected BaseColumn(String name, int rowCount, int[] mask) {
+    protected GenericColumn(String name, int rowCount, int[] mask) {
         this.name = name;
         this.rowCount = rowCount;
 

@@ -1,7 +1,7 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
-import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.GenericCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
@@ -444,6 +444,6 @@ class TokenizerState {
     }
 
     private Category createCategory(String categoryName, Map<String, Column> textColumns) {
-        return new BaseCategory(categoryName, textColumns);
+        return new GenericCategory(categoryName, textColumns);
     }
 }

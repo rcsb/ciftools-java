@@ -7,7 +7,7 @@ import java.util.stream.Stream;
 /**
  * Type-safe column which contains <code>float</code> values as entries.
  */
-public class FloatColumn extends BaseColumn {
+public class FloatColumn extends GenericColumn {
     private static final double[] EMPTY = new double[0];
     private final double[] binaryData;
 

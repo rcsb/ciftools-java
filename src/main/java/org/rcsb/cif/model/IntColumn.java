@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 /**
  * Type-safe {@link Column} which contains <code>int</code> values as entries.
  */
-public class IntColumn extends BaseColumn {
+public class IntColumn extends GenericColumn {
     private static final int[] EMPTY = new int[0];
     private final int[] binaryData;
 

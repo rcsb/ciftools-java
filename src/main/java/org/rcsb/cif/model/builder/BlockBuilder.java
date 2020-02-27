@@ -1,7 +1,7 @@
 package org.rcsb.cif.model.builder;
 
-import org.rcsb.cif.model.BaseBlock;
-import org.rcsb.cif.model.BaseCategory;
+import org.rcsb.cif.model.GenericBlock;
+import org.rcsb.cif.model.GenericCategory;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
@@ -62,7 +62,7 @@ public class BlockBuilder {
      * @return this BlockBuilder instance
      */
     BlockBuilder digest(CategoryBuilder categoryBuilder) {
-        Category category = new BaseCategory(categoryBuilder.getCategoryName(), categoryBuilder.getColumns());
+        Category category = new GenericCategory(categoryBuilder.getCategoryName(), categoryBuilder.getColumns());
         categories.put(categoryBuilder.getCategoryName(), category);
         return this;
     }
@@ -84,7 +84,7 @@ public class BlockBuilder {
      * @return the created Block
      */
     public Block build() {
-        return new BaseBlock(categories, "unknown");
+        return new GenericBlock(categories, "unknown");
     }
 
     /**

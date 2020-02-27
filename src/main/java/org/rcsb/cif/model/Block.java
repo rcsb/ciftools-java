@@ -20,7 +20,7 @@ public interface Block {
     /**
      * Retrieve a particular {@link Category} by name.
      * @param name the category name
-     * @return the corresponding {@link Category}, if none exists a instance of {@link BaseCategory} is returned as
+     * @return the corresponding {@link Category}, if none exists a instance of {@link GenericCategory} is returned as
      * proxy
      */
     Category getCategory(String name);
@@ -29,7 +29,7 @@ public interface Block {
      * Retrieve a {@link Column} by name. This is relevant for CCDC files that identify columns by 'flat' names such as
      * "cell_length_a"
      * @param name the category name and column name, joined by an underscore
-     * @return the corresponding {@link Column}, if none exists a instance of {@link BaseColumn} is returned as proxy
+     * @return the corresponding {@link Column}, if none exists a instance of {@link GenericColumn} is returned as proxy
      */
     Column getColumn(String name);
 

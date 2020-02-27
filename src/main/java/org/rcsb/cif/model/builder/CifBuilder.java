@@ -48,7 +48,7 @@ public class CifBuilder {
      * @return this CifBuilder instance
      */
     CifBuilder digest(BlockBuilder blockBuilder) {
-        Block block = new BaseBlock(blockBuilder.getCategories(), blockBuilder.getBlockName());
+        Block block = new GenericBlock(blockBuilder.getCategories(), blockBuilder.getBlockName());
         blocks.add(block);
         return this;
     }
