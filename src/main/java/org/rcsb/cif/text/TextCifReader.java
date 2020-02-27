@@ -3,6 +3,7 @@ package org.rcsb.cif.text;
 import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.model.BaseBlock;
+import org.rcsb.cif.model.BaseTextFile;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.TextFile;
 
@@ -106,6 +107,6 @@ public class TextCifReader {
             block.getSaveFrames().addAll(saveFrames);
         }
 
-        return new TextFile(dataBlocks);
+        return new BaseTextFile(dataBlocks);
     }
 }

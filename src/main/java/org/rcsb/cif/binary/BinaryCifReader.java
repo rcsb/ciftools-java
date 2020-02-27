@@ -4,8 +4,8 @@ import org.rcsb.cif.CifOptions;
 import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
+import org.rcsb.cif.model.BaseBinaryFile;
 import org.rcsb.cif.model.BaseBlock;
-import org.rcsb.cif.model.BinaryFile;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
@@ -66,7 +66,7 @@ public class BinaryCifReader {
             }
         }
 
-        return new BinaryFile(dataBlocks, versionString, encoder);
+        return new BaseBinaryFile(dataBlocks, versionString, encoder);
     }
 
     private Category createBinaryCategory(Map<String, Object> encodedCategory) {

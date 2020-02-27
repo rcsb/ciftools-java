@@ -23,18 +23,18 @@ import java.util.stream.Stream;
  * data structure will be available, but some are missing or unknown. This property of individual values is reported by
  * the {@link ValueKind} property of a {@link Column}.</p>
  */
-public interface CifFile {
+public interface CifFile<B extends Block> {
     /**
      * Access to all blocks of this file.
      * @return a list of present blocks
      */
-    List<Block> getBlocks();
+    List<B> getBlocks();
 
     /**
      * Convenience method to access the first block.
      * @return the first block of this file
      */
-    default Block getFirstBlock() {
+    default B getFirstBlock() {
         return getBlocks().get(0);
     }
 
@@ -42,7 +42,7 @@ public interface CifFile {
      * Convenience method to access all blocks as Stream.
      * @return a Stream of all blocks
      */
-    default Stream<Block> blocks() {
+    default Stream<B> blocks() {
         return getBlocks().stream();
     }
 }

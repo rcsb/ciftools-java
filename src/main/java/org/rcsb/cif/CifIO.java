@@ -53,7 +53,7 @@ public class CifIO {
      */
     public static CifFile readById(String pdbId, CifOptions options) throws IOException {
         try {
-            return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options);
+            return /*StandardSchemas.MMCIF.wrap(*/readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options)/*)*/;
         } catch (ParsingException e) {
             throw new ParsingException("parsing failed - potentially wrong URL", e);
         }
@@ -144,9 +144,7 @@ public class CifIO {
         }
     }
 
-    private static CifFile readFromInputStreamWithSpecifiedFileFormat(InputStream inputStream,
-                                                                      CifOptions options,
-                                                                      CifOptions.CifOptionsBuilder.FileFormat fileFormat) throws IOException {
+    private static CifFile readFromInputStreamWithSpecifiedFileFormat(InputStream inputStream, CifOptions options, CifOptions.CifOptionsBuilder.FileFormat fileFormat) throws IOException {
         try {
             // handle compression if present
             if (fileFormat == CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED || fileFormat == CifOptions.CifOptionsBuilder.FileFormat.CIF_GZIPPED) {

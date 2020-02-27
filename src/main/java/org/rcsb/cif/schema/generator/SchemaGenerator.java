@@ -1,4 +1,4 @@
-package org.rcsb.cif.generator;
+package org.rcsb.cif.schema.generator;
 
 import org.rcsb.cif.CifIO;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
@@ -107,7 +107,7 @@ class SchemaGenerator {
         output.add("import javax.annotation.Generated;");
         output.add("import java.util.List;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public interface " + className + " {");
 
         // getters
@@ -157,7 +157,7 @@ class SchemaGenerator {
         output.add("import java.util.ArrayList;");
         output.add("import java.util.Map;");
         output.add("");
-        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
 
         // constructor
@@ -210,7 +210,7 @@ class SchemaGenerator {
                 .collect(Collectors.joining("\n"));
         output.add(categoryDescription);
         output.add(" */");
-        output.add("@Generated(\"org.rcsb.cif.generator.SchemaGenerator\")");
+        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
@@ -498,7 +498,7 @@ class SchemaGenerator {
         }
     }
 
-    private void buildListOfLinksBetweenCategories(CifFile cifFile) {
+    private void buildListOfLinksBetweenCategories(CifFile<Block> cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()
@@ -523,7 +523,7 @@ class SchemaGenerator {
                 });
     }
 
-    private void getCategoryMetadata(CifFile cifFile) {
+    private void getCategoryMetadata(CifFile<Block> cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()

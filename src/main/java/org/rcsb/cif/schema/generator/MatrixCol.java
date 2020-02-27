@@ -1,4 +1,4 @@
-package org.rcsb.cif.generator;
+package org.rcsb.cif.schema.generator;
 
 class MatrixCol extends Col {
     MatrixCol(String description) {

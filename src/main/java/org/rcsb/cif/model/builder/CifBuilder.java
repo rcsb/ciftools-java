@@ -30,7 +30,7 @@ public class CifBuilder {
      */
     public CifBuilder() {
         this.blocks = new ArrayList<>();
-        this.cifFile = new TextFile(blocks);
+        this.cifFile = new BaseTextFile(blocks);
     }
 
     /**

@@ -1,4 +1,4 @@
-package org.rcsb.cif.generator;
+package org.rcsb.cif.schema.generator;
 
 class VectorCol extends Col {
     VectorCol(String description) {
