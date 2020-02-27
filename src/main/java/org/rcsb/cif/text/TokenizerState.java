@@ -1,10 +1,11 @@
 package org.rcsb.cif.text;
 
 import org.rcsb.cif.ParsingException;
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
-import org.rcsb.cif.model.ModelFactory;
+import org.rcsb.cif.model.StrColumn;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -14,7 +15,6 @@ import java.util.Map;
 class TokenizerState {
     private final String data;
     private final int length;
-    private final boolean generic;
 
     private int position;
     private boolean isEscaped;
@@ -24,9 +24,8 @@ class TokenizerState {
     private int tokenStart;
     private int tokenEnd;
 
-    TokenizerState(String data, boolean generic) {
+    TokenizerState(String data) {
         this.data = data;
-        this.generic = generic;
 
         this.position = 0;
         this.length = data.length();
@@ -356,7 +355,7 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            Column cifColumn = createColumn(categoryName, columnName, data, new int[] { tokenStart }, new int[] { tokenEnd });
+            Column cifColumn = createColumn(columnName, data, new int[] { tokenStart }, new int[] { tokenEnd });
             fields.put(columnName, cifColumn);
             moveNext();
         }
@@ -406,8 +405,7 @@ class TokenizerState {
         if (isFlat) {
             for (int i = 0; i < start.size(); i++) {
                 String flatName = columnNames.get(i).substring(1);
-                Column cifColumn = createColumn(flatName,
-                        "",
+                Column cifColumn = createColumn("",
                         data,
                         toArray(start.get(i)),
                         toArray(end.get(i)));
@@ -419,8 +417,7 @@ class TokenizerState {
             String categoryName = name.substring(1);
             Map<String, Column> columns = new LinkedCaseInsensitiveMap<>();
             for (int i = 0; i < start.size(); i++) {
-                Column cifColumn = createColumn(categoryName,
-                        columnNames.get(i),
+                Column cifColumn = createColumn(columnNames.get(i),
                         data,
                         toArray(start.get(i)),
                         toArray(end.get(i)));
@@ -442,19 +439,11 @@ class TokenizerState {
         return array;
     }
 
-    private Column createColumn(String categoryName, String columnName, String data, int[] startToken, int[] endToken) {
-        if (generic) {
-            return ModelFactory.createColumnTextGeneric(columnName, data, startToken, endToken);
-        } else {
-            return ModelFactory.createColumnText(categoryName, columnName, data, startToken, endToken);
-        }
+    private Column createColumn(String columnName, String data, int[] startToken, int[] endToken) {
+        return new StrColumn(columnName, startToken.length, data, startToken, endToken);
     }
 
     private Category createCategory(String categoryName, Map<String, Column> textColumns) {
-        if (generic) {
-            return ModelFactory.createCategoryTextGeneric(categoryName, textColumns);
-        } else {
-            return ModelFactory.createCategoryText(categoryName, textColumns);
-        }
+        return new BaseCategory(categoryName, textColumns);
     }
 }

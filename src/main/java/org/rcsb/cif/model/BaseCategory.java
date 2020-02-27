@@ -1,5 +1,8 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.binary.codec.BinaryCifCodec;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -87,19 +90,34 @@ public class BaseCategory implements Category {
     }
 
     private Column getTextColumn(String name) {
-        return textFields.computeIfAbsent(name, n -> ModelFactory.createEmptyColumn(this.name, n));
+        return textFields.computeIfAbsent(name, StrColumn::new);
     }
 
+    @SuppressWarnings("unchecked")
     protected Column getBinaryColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
         if (optional.isEmpty()) {
-            return ModelFactory.createEmptyColumn(this.name, name);
+            return new StrColumn(name);
         }
         // cache decoded fields to reuse them if applicable
         if (decodedColumns.containsKey(name)) {
             return decodedColumns.get(name);
         }
-        Column decodedColumn = ModelFactory.createColumnBinary(this.name, name, optional.get());
+
+        Map<String, Object> encodedColumn = optional.get();
+        Object binaryData = BinaryCifCodec.decode((Map<String, Object>) encodedColumn.get("data"));
+        int rowCount = Array.getLength(binaryData);
+        Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
+        int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) BinaryCifCodec.decode(maskMap));
+
+        Column decodedColumn;
+        if (binaryData instanceof int[]) {
+            decodedColumn = new IntColumn(name, rowCount, binaryData, mask);
+        } else if (binaryData instanceof double[]) {
+            decodedColumn = new FloatColumn(name, rowCount, binaryData, mask);
+        } else {
+            decodedColumn = new StrColumn(name, rowCount, binaryData, mask);
+        }
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;
     }

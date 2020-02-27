@@ -1,11 +1,11 @@
 package org.rcsb.cif.model.builder;
 
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
@@ -86,7 +86,7 @@ public class CategoryBuilder {
      * @return the created Category
      */
     public Category build() {
-        return ModelFactory.createCategoryText(categoryName, columns);
+        return new BaseCategory(categoryName, columns);
     }
 
     /**
@@ -101,18 +101,17 @@ public class CategoryBuilder {
 
     /**
      * Convenience function to create column instances.
-     * @param categoryName the category name
      * @param columnName the column name
      * @param values a list of int, double, or String values
      * @param mask a list of equal size, specifying ValueKinds
      * @param hint the class the column to create resembles
      * @return the create Column
      */
-    static Column createColumnText(String categoryName,
-                                   String columnName,
+    @SuppressWarnings("unchecked")
+    static <C extends Column> C createColumnText(String columnName,
                                    List<?> values,
                                    List<ValueKind> mask,
-                                   Class<? extends Column> hint) {
+                                   Class<C> hint) {
         int length = values.size();
         int[] startToken = new int[length];
         int[] endToken = new int[length];
@@ -130,7 +129,15 @@ public class CategoryBuilder {
             endToken[i] = builder.length();
         }
 
-        return ModelFactory.createColumnText(categoryName, columnName, builder.toString(), startToken, endToken, hint);
+        String data = builder.toString();
+        int rowCount = startToken.length;
+        if (hint.equals(IntColumn.class)) {
+            return (C) new IntColumn(columnName, rowCount, data, startToken, endToken);
+        } else if (hint.equals(FloatColumn.class)) {
+            return (C) new FloatColumn(columnName, rowCount, data, startToken, endToken);
+        } else {
+            return (C) new StrColumn(columnName, rowCount, data, startToken, endToken);
+        }
     }
 
     /**
@@ -142,8 +149,7 @@ public class CategoryBuilder {
     @SuppressWarnings("unchecked")
     <P extends CategoryBuilder> P digest(IntColumnBuilder<P> intColumnBuilder) {
         columns.put(intColumnBuilder.getColumnName(),
-                createColumnText(categoryName,
-                        intColumnBuilder.getColumnName(),
+                createColumnText(intColumnBuilder.getColumnName(),
                         intColumnBuilder.getValues(),
                         intColumnBuilder.getMask(),
                         IntColumn.class));
@@ -160,8 +166,7 @@ public class CategoryBuilder {
     @SuppressWarnings("unchecked")
     <P extends CategoryBuilder> P digest(FloatColumnBuilder<P> floatColumnBuilder) {
         columns.put(floatColumnBuilder.getColumnName(),
-                createColumnText(categoryName,
-                        floatColumnBuilder.getColumnName(),
+                createColumnText(floatColumnBuilder.getColumnName(),
                         floatColumnBuilder.getValues(),
                         floatColumnBuilder.getMask(),
                         FloatColumn.class));
@@ -178,8 +183,7 @@ public class CategoryBuilder {
     @SuppressWarnings("unchecked")
     <P extends CategoryBuilder> P digest(StrColumnBuilder<P> strColumnBuilder) {
         columns.put(strColumnBuilder.getColumnName(),
-                createColumnText(categoryName,
-                        strColumnBuilder.getColumnName(),
+                createColumnText(strColumnBuilder.getColumnName(),
                         strColumnBuilder.getValues(),
                         strColumnBuilder.getMask(),
                         StrColumn.class));

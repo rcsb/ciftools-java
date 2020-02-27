@@ -21,7 +21,7 @@ public class ProxyCategory implements Category {
     @Override
     public Category get() {
         if (realizedCategory == null) {
-            realizedCategory = ModelFactory.createCategoryBinary(name, rowCount, encodedColumns);
+            realizedCategory = new BaseCategory(name, rowCount, encodedColumns);
         }
         return realizedCategory;
     }

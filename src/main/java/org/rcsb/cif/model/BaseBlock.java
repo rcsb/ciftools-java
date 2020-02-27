@@ -27,7 +27,7 @@ public class BaseBlock implements Block {
     @Override
     public Category getCategory(String name) {
         // try to return category, if unknown and not present, return empty category
-        return categories.computeIfAbsent(name, ModelFactory::createEmptyCategory);
+        return categories.computeIfAbsent(name, BaseCategory::new);
     }
 
     @Override
@@ -35,7 +35,7 @@ public class BaseBlock implements Block {
         if (categories.containsKey(name)) {
             return categories.get(name).getColumn("");
         } else {
-            return ModelFactory.createEmptyColumn(name, "");
+            return new StrColumn("");
         }
     }
 

@@ -38,7 +38,7 @@ public class StrColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
 
     @Override
     public StrColumn build() {
-        return (StrColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask, StrColumn.class);
+        return CategoryBuilder.createColumnText(getColumnName(), values, mask, StrColumn.class);
     }
 
     @Override

@@ -1,10 +1,10 @@
 package org.rcsb.cif.model.builder;
 
 import org.rcsb.cif.model.BaseBlock;
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.ModelFactory;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -62,7 +62,7 @@ public class BlockBuilder {
      * @return this BlockBuilder instance
      */
     BlockBuilder digest(CategoryBuilder categoryBuilder) {
-        Category category = ModelFactory.createCategoryText(categoryBuilder.getCategoryName(), categoryBuilder.getColumns());
+        Category category = new BaseCategory(categoryBuilder.getCategoryName(), categoryBuilder.getColumns());
         categories.put(categoryBuilder.getCategoryName(), category);
         return this;
     }

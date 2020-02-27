@@ -6,11 +6,11 @@ import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.BaseBinaryFile;
 import org.rcsb.cif.model.BaseBlock;
+import org.rcsb.cif.model.BaseCategory;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.LinkedCaseInsensitiveMap;
-import org.rcsb.cif.model.ModelFactory;
 import org.rcsb.cif.model.ProxyCategory;
 
 import java.io.InputStream;
@@ -77,7 +77,7 @@ public class BinaryCifReader {
 
         Object[] encodedFields = (Object[]) rawColumns;
         if (options.isGeneric()) {
-            return ModelFactory.createCategoryBinaryGeneric(name, rowCount, encodedFields);
+            return new BaseCategory(name, rowCount, encodedFields);
         } else {
             // a proxy category delays the determination of the concrete class until we actually request it
             return new ProxyCategory(name, rowCount, encodedFields);

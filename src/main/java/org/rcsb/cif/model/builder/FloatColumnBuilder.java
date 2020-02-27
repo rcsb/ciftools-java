@@ -40,7 +40,7 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
 
     @Override
     public FloatColumn build() {
-        return (FloatColumn) CategoryBuilder.createColumnText(getCategoryName(), getColumnName(), values, mask, FloatColumn.class);
+        return CategoryBuilder.createColumnText(getColumnName(), values, mask, FloatColumn.class);
     }
 
     @Override

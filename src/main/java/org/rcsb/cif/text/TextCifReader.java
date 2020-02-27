@@ -36,7 +36,7 @@ public class TextCifReader {
         }
 
         final List<Block> dataBlocks = new ArrayList<>();
-        final TokenizerState tokenizer = new TokenizerState(data, options.isGeneric());
+        final TokenizerState tokenizer = new TokenizerState(data);
         String blockHeader = "";
 
         FrameContext blockCtx = new FrameContext();
