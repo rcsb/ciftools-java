@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import java.util.List;
 
 public class DelegatingCategory implements Category {
-    private final Category delegate;
+    protected final Category delegate;
 
     public DelegatingCategory(Category delegate) {
         this.delegate = delegate;

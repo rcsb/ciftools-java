@@ -1,0 +1,123 @@
+package org.rcsb.cif.schema.generated.mm;
+
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.*;
+
+import javax.annotation.Generated;
+
+/**
+ * Data items in the IHM_GEOMETRIC_OBJECT_TRANSFORMATION category records the
+ * details of the rotation matrix and translation vector applied for transforming
+ * the geometric object.
+ * If no transformation is provide, identity transformation is assumed.
+ */
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+public class IhmGeometricObjectTransformation extends DelegatingCategory {
+    public IhmGeometricObjectTransformation(Category delegate) {
+        super(delegate);
+    }
+
+    /**
+     * A unique identifier for the transformation.
+     * @return IntColumn
+     */
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix11() {
+        return delegate.getColumn("rot_matrix[1][1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix21() {
+        return delegate.getColumn("rot_matrix[2][1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix31() {
+        return delegate.getColumn("rot_matrix[3][1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix12() {
+        return delegate.getColumn("rot_matrix[1][2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix22() {
+        return delegate.getColumn("rot_matrix[2][2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix32() {
+        return delegate.getColumn("rot_matrix[3][2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix13() {
+        return delegate.getColumn("rot_matrix[1][3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix23() {
+        return delegate.getColumn("rot_matrix[2][3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the rotation matrix used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getRotMatrix33() {
+        return delegate.getColumn("rot_matrix[3][3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the translation vector used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getTrVector1() {
+        return delegate.getColumn("tr_vector[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the translation vector used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getTrVector2() {
+        return delegate.getColumn("tr_vector[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Data item  of the translation vector used in the transformation.
+     * @return FloatColumn
+     */
+    public FloatColumn getTrVector3() {
+        return delegate.getColumn("tr_vector[3]", DelegatingFloatColumn::new);
+    }
+}

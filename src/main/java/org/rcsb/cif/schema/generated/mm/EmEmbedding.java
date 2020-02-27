@@ -1,0 +1,48 @@
+package org.rcsb.cif.schema.generated.mm;
+
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.*;
+
+import javax.annotation.Generated;
+
+/**
+ * Sugar embedding category
+ */
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+public class EmEmbedding extends DelegatingCategory {
+    public EmEmbedding(Category delegate) {
+        super(delegate);
+    }
+
+    /**
+     * Staining procedure used in the specimen preparation.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item is the primary key of the category.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return delegate.getColumn("id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The embedding  material.
+     * @return StrColumn
+     */
+    public StrColumn getMaterial() {
+        return delegate.getColumn("material", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Foreign key relationship to the EMD SPECIMEN category
+     * @return StrColumn
+     */
+    public StrColumn getSpecimenId() {
+        return delegate.getColumn("specimen_id", DelegatingStrColumn::new);
+    }
+}

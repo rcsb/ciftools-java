@@ -1,0 +1,106 @@
+package org.rcsb.cif.schema.generated.mm;
+
+import org.rcsb.cif.model.*;
+import org.rcsb.cif.schema.*;
+
+import javax.annotation.Generated;
+
+/**
+ * Data items in the STRUCT category record details about the
+ * description of the crystallographic structure.
+ */
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
+public class Struct extends DelegatingCategory {
+    public Struct(Category delegate) {
+        super(delegate);
+    }
+
+    /**
+     * This data item is a pointer to _entry.id in the ENTRY category.
+     * @return StrColumn
+     */
+    public StrColumn getEntryId() {
+        return delegate.getColumn("entry_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A title for the data block. The author should attempt to convey
+     * the essence of the structure archived in the CIF in the title,
+     * and to distinguish this structural result from others.
+     * @return StrColumn
+     */
+    public StrColumn getTitle() {
+        return delegate.getColumn("title", DelegatingStrColumn::new);
+    }
+
+    /**
+     * An automatically generated descriptor for an NDB structure or
+     * the unstructured content of the PDB COMPND record.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxDescriptor() {
+        return delegate.getColumn("pdbx_descriptor", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Text description of the methodology which produced this
+     * model structure.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxModelDetails() {
+        return delegate.getColumn("pdbx_model_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Estimated formula mass in daltons of the
+     * deposited structure assembly.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxFormulaWeight() {
+        return delegate.getColumn("pdbx_formula_weight", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Method used to determine _struct.pdbx_formula_weight.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxFormulaWeightMethod() {
+        return delegate.getColumn("pdbx_formula_weight_method", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A description of the type of structure model.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxModelTypeDetails() {
+        return delegate.getColumn("pdbx_model_type_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The item indicates whether the entry is a CASP target, a CASD-NMR target,
+     * or similar target participating in methods development experiments.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxCASPFlag() {
+        return delegate.getColumn("pdbx_CASP_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * 
+     * Additional remarks related to this structure deposition that have not
+     * been included in details data items elsewhere.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxDetails() {
+        return delegate.getColumn("pdbx_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A title for the experiment or analysis that is represented in
+     * the entry.  The default value is the primary citation of the entry.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxTitleText() {
+        return delegate.getColumn("pdbx_title_text", DelegatingStrColumn::new);
+    }
+}

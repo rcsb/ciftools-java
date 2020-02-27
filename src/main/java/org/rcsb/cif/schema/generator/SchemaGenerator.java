@@ -175,7 +175,7 @@ class SchemaGenerator {
         output.add("public class " + className + " extends " + DelegatingBlock.class.getSimpleName() + " {");
 
         // constructor
-        output.add("    public " + className + "(Category delegate) {");
+        output.add("    public " + className + "(Block delegate) {");
         output.add("        super(delegate);");
         output.add("    }");
         output.add("");
