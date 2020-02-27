@@ -15,14 +15,14 @@ public class PdbxNonpolyNdbSeqNumTest {
     @Test
     public void test() throws IOException {
         CifFile rcsb = CifIO.readById("1acj");
-        Column rcsbNdbSeqNum = rcsb.getFirstBlock()
+        Column rcsbNdbSeqNum = rcsb.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
         CifFile ebi = CifIO.readById("1acj",
                 new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
-        Column ebiNdbSeqNum = ebi.getFirstBlock()
+        Column ebiNdbSeqNum = ebi.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
         assertEquals(83, ebiNdbSeqNum.getRowCount());

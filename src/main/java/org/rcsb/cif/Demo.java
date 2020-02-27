@@ -95,7 +95,7 @@ public class Demo {
 //                .leaveFile();
 //
 //        System.out.println(new String(CifIO.writeText(cifFile)));
-
+//
 //        System.out.println(cifFile.getFirstBlock().getEntry().getId().get(0));
 //        cifFile.getFirstBlock()
 //                .getAtomSite()

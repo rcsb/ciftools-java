@@ -3,6 +3,9 @@ package org.rcsb.cif.model.text;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
+import java.util.stream.IntStream;
+import java.util.stream.Stream;
+
 public class TextColumn implements Column {
     private final String name;
     private final int rowCount;
@@ -47,6 +50,11 @@ public class TextColumn implements Column {
         } else {
             return ValueKind.PRESENT;
         }
+    }
+
+    public Stream<String> values() {
+        return IntStream.range(0, rowCount)
+                .mapToObj(this::getStringData);
     }
 
     @Override

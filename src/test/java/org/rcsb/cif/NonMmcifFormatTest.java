@@ -1,8 +1,9 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.mm.generated.MmCifBlock;
 
 import java.io.IOException;
 
@@ -11,7 +12,7 @@ public class NonMmcifFormatTest {
     public void shouldHandleLigandCif() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/atp.cif"));
-        Block firstBlock = cifFile.getFirstBlock();
+        MmCifBlock firstBlock = cifFile.getFirstBlock(StandardSchemas.MMCIF);
 
         // TODO update
 //        ChemComp chemComp = firstBlock.getChemComp();
@@ -29,7 +30,7 @@ public class NonMmcifFormatTest {
     public void shouldHandleCcdcFile() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
-        Block firstBlock = cifFile.getFirstBlock();
+        MmCifBlock firstBlock = cifFile.getFirstBlock(StandardSchemas.MMCIF);
 
         // TODO update
         // single

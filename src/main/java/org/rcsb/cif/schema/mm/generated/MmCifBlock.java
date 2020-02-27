@@ -11,4 +11,8 @@ public class MmCifBlock extends DelegatingBlock {
     public AtomSite getAtomSite() {
         return delegate.getCategory("atom_site", AtomSite::new);
     }
+
+    public Entry getEntry() {
+        return delegate.getCategory("entry", Entry::new);
+    }
 }

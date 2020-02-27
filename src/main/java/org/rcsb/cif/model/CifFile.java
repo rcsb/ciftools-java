@@ -32,11 +32,6 @@ public interface CifFile {
      */
     List<Block> getBlocks();
 
-    @Deprecated
-    default Block getFirstBlock() {
-        return getBlocks().get(0);
-    }
-
     /**
      * Convenience method to access the first block wrapped in a given schema.
      * @param schemaProvider the schema provider to enforce on this block

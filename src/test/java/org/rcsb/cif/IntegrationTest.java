@@ -1,13 +1,15 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
-import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.text.TextColumn;
 import org.rcsb.cif.schema.DelegatingFloatColumn;
+import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.mm.generated.AtomSite;
+import org.rcsb.cif.schema.mm.generated.MmCifBlock;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -36,7 +38,7 @@ public class IntegrationTest {
         byte[] bytes = CifIO.writeBinary(cifFile);
         CifFile read = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
 
-        assertEquals(0, read.getFirstBlock().getCategoryNames().size());
+        assertEquals(0, read.getBlocks().get(0).getCategoryNames().size());
     }
 
     @Test
@@ -96,29 +98,28 @@ public class IntegrationTest {
     }
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
-        Block block = cifFile.getFirstBlock();
+        MmCifBlock block = cifFile.getFirstBlock(StandardSchemas.MMCIF);
         assertNotNull("header is corrupted", block.getBlockHeader());
 
-        // TODO update
-//        assertTrue(block.getEntry().isDefined());
-//
-//        String entryId = block.getEntry().getId().get(0);
-//        assertEquals("0RED", entryId);
-//
-//        // atom site should be obtainable
-//        AtomSite atomSite = block.getAtomSite();
-//        // and return its name
-//        assertEquals("atom_site", atomSite.getCategoryName());
-//        // though not be present
-//        assertFalse(atomSite.isDefined());
-//        // report 0 rows
-//        assertEquals(0, atomSite.getRowCount());
-//
-//        // columns still should be accessible
-//        FloatColumn cartnX = atomSite.getCartnX();
-//        assertEquals("Cartn_x", cartnX.getColumnName());
-//        assertEquals(0, cartnX.getRowCount());
-//        assertFalse(cartnX.isDefined());
+        assertTrue(block.getEntry().isDefined());
+
+        String entryId = block.getEntry().getId().get(0);
+        assertEquals("0RED", entryId);
+
+        // atom site should be obtainable
+        AtomSite atomSite = block.getAtomSite();
+        // and return its name
+        assertEquals("atom_site", atomSite.getCategoryName());
+        // though not be present
+        assertFalse(atomSite.isDefined());
+        // report 0 rows
+        assertEquals(0, atomSite.getRowCount());
+
+        // columns still should be accessible
+        FloatColumn cartnX = atomSite.getCartnX();
+        assertEquals("Cartn_x", cartnX.getColumnName());
+        assertEquals(0, cartnX.getRowCount());
+        assertFalse(cartnX.isDefined());
     }
 
     @Test

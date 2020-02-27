@@ -36,7 +36,7 @@ public class CaseSensitivityTest {
     }
 
     private void assertRetrievalBehavior(CifFile cifFile) {
-        Block firstBlock = cifFile.getFirstBlock();
+        Block firstBlock = cifFile.getBlocks().get(0);
 
         Category originalAtomSite = firstBlock.getCategory("atom_site");
         Category atom_site = firstBlock.getCategory("atom_site");

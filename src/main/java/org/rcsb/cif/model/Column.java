@@ -80,12 +80,12 @@ public interface Column {
 
         @Override
         public String getStringData(int row) {
-            return null; // TODO
+            throw new ArrayIndexOutOfBoundsException(row);
         }
 
         @Override
         public ValueKind getValueKind(int row) {
-            return null; // TODO
+            throw new ArrayIndexOutOfBoundsException(row);
         }
 
         @Override
