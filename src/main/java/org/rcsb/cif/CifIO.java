@@ -53,7 +53,7 @@ public class CifIO {
      */
     public static CifFile readById(String pdbId, CifOptions options) throws IOException {
         try {
-            return /*StandardSchemas.MMCIF.wrap(*/readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options)/*)*/;
+            return readFromURL(new URL(String.format(options.getFetchUrl(), pdbId.toLowerCase())), options);
         } catch (ParsingException e) {
             throw new ParsingException("parsing failed - potentially wrong URL", e);
         }

@@ -22,7 +22,7 @@ public class TextCifWriter {
         this.options = options;
     }
 
-    public byte[] write(CifFile<Block> cifFile) {
+    public byte[] write(CifFile cifFile) {
         StringBuilder output = new StringBuilder();
 
         for (Block block : cifFile.getBlocks()) {

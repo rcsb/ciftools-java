@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.mm;
+package org.rcsb.cif.s;
 
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
@@ -6,10 +6,7 @@ import org.rcsb.cif.model.Column;
 
 import java.util.List;
 
-public class MmCifBlock implements Block {
-    public MmCifBlock(Block block) {
-    }
-
+public class AbstractBlock implements Block {
     @Override
     public String getBlockHeader() {
         return null;

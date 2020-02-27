@@ -41,7 +41,7 @@ public class BinaryCifWriter {
         return MessagePackCodec.encode(file);
     }
 
-    private Map<String, Object> encodeFile(CifFile<Block> cifFile) {
+    private Map<String, Object> encodeFile(CifFile cifFile) {
         // naming: uses cifEntity for original model and entity for the map representation ready for MessagePack
         Map<String, Object> file = new LinkedHashMap<>();
         file.put("encoder", options.getEncoder());
