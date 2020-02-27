@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.mm.generated;
+package org.rcsb.cif.schema.generated.mm;
 
 import org.rcsb.cif.schema.DelegatingBlock;
 import org.rcsb.cif.model.Block;

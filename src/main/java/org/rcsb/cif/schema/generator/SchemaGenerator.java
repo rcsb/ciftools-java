@@ -2,13 +2,31 @@ package org.rcsb.cif.schema.generator;
 
 import org.rcsb.cif.CifIO;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
-import org.rcsb.cif.model.*;
+import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.schema.DelegatingBlock;
+import org.rcsb.cif.schema.DelegatingCategory;
+import org.rcsb.cif.schema.DelegatingColumn;
+import org.rcsb.cif.schema.DelegatingFloatColumn;
+import org.rcsb.cif.schema.DelegatingIntColumn;
+import org.rcsb.cif.schema.DelegatingStrColumn;
 
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringJoiner;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -28,12 +46,11 @@ import java.util.stream.Stream;
 @SuppressWarnings("ALL")
 class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
-    private static final String BASE_PACKAGE = "org.rcsb.cif.model";
+    private static final String BASE_PACKAGE = "org.rcsb.cif.schema.generated.";
     private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("mmcif_pdbx_v50.dic", "chem_comp-extension.dic", "entity_branch-extension.dic",
-                "ihm-extension.dic");
+        new SchemaGenerator("MmCif", "mm", "mmcif_pdbx_v50.dic", "chem_comp-extension.dic", "entity_branch-extension.dic", "ihm-extension.dic");
     }
 
     static String toClassName(String rawName) {
@@ -56,36 +73,70 @@ class SchemaGenerator {
         return name;
     }
 
-    private static final Map<String, Map<String, Object>> CLASS_MAP_LOOKUP = new HashMap<>();
     private static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     private void writeClasses() throws IOException {
-        writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
-        writeBlockImpl(BaseBlock.class.getSimpleName(), schema, OUTPUT_PATH);
-
-        for (Map.Entry<String, Map<String, Object>> entry : CLASS_MAP_LOOKUP.entrySet()) {
-            Files.write(OUTPUT_PATH.resolve(entry.getKey() + ".bin"), MESSAGE_PACK_CODEC.encode((Map<String, Object>) entry.getValue()));
-        }
+//        writeBlockInterface(Block.class.getSimpleName(), schema, OUTPUT_PATH);
+        writeBlockImpl(name + "Block", schema, OUTPUT_PATH);
     }
 
-    private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
+//    private void writeBlockInterface(String className, Map<String, Table> content, Path path) throws IOException {
+//        StringJoiner output = new StringJoiner("\n");
+//        output.add("package " + BASE_PACKAGE + ";");
+//        output.add("");
+//
+//        StringJoiner getters = new StringJoiner("\n");
+//
+//        getters.add("    String getBlockHeader();");
+//        getters.add("");
+//
+//        getters.add("    " + Category.class.getSimpleName() + " getCategory(String name);");
+//        getters.add("");
+//
+//        getters.add("    List<String> getCategoryNames();");
+//        getters.add("");
+//
+//        getters.add("    List<" + Block.class.getSimpleName() + "> getSaveFrames();");
+//        getters.add("");
+//
+//        for (Map.Entry<String, Table> entry : content.entrySet()) {
+//            String categoryName = entry.getKey();
+//            Table category = entry.getValue();
+//
+//            String categoryClassName = toClassName(categoryName);
+//
+//            getters.add("    /**");
+//            String description = Pattern.compile("\n").splitAsStream(category.getDescription())
+//                    .map(s -> "     * " + s)
+//                    .collect(Collectors.joining("\n"));
+//            getters.add(description);
+//            getters.add("     * @return " + categoryClassName);
+//            getters.add("     */");
+//            getters.add("    " + BASE_PACKAGE + ".generated." + categoryClassName + " get" + categoryClassName + "();");
+//            getters.add("");
+//        }
+//
+//        output.add("import javax.annotation.Generated;");
+//        output.add("import java.util.List;");
+//        output.add("");
+//        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
+//        output.add("public interface " + className + " {");
+//
+//        // getters
+//        output.add(getters.toString() + "}");
+//        output.add("");
+//
+//        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
+//    }
+
+    private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
         StringJoiner output = new StringJoiner("\n");
-        output.add("package " + BASE_PACKAGE + ";");
+        output.add("package " + BASE_PACKAGE + pkg + ";");
         output.add("");
 
         StringJoiner getters = new StringJoiner("\n");
-
-        getters.add("    String getBlockHeader();");
-        getters.add("");
-
-        getters.add("    " + Category.class.getSimpleName() + " getCategory(String name);");
-        getters.add("");
-
-        getters.add("    List<String> getCategoryNames();");
-        getters.add("");
-
-        getters.add("    List<" + Block.class.getSimpleName() + "> getSaveFrames();");
-        getters.add("");
+        StringJoiner builder = new StringJoiner("\n");
+//        StringJoiner categoryBuilder = new StringJoiner("\n");
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
@@ -100,69 +151,32 @@ class SchemaGenerator {
             getters.add(description);
             getters.add("     * @return " + categoryClassName);
             getters.add("     */");
-            getters.add("    " + BASE_PACKAGE + ".generated." + categoryClassName + " get" + categoryClassName + "();");
-            getters.add("");
-        }
-
-        output.add("import javax.annotation.Generated;");
-        output.add("import java.util.List;");
-        output.add("");
-        output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
-        output.add("public interface " + className + " {");
-
-        // getters
-        output.add(getters.toString() + "}");
-        output.add("");
-
-        Files.write(path.resolve(className + ".java"), output.toString().getBytes());
-    }
-
-    private void writeBlockImpl(String className, Map<String, Table> content, Path path) throws IOException {
-        StringJoiner output = new StringJoiner("\n");
-        output.add("package " + BASE_PACKAGE + ";");
-        output.add("");
-
-        StringJoiner getters = new StringJoiner("\n");
-        StringJoiner builder = new StringJoiner("\n");
-        StringJoiner categoryBuilder = new StringJoiner("\n");
-
-        for (Map.Entry<String, Table> entry : content.entrySet()) {
-            String categoryName = entry.getKey();
-            Table category = entry.getValue();
-
-            String categoryClassName = toClassName(categoryName);
-
-            getters.add("    public " + BASE_PACKAGE + ".generated." + categoryClassName +
-                    " get" + categoryClassName + "() {");
-            getters.add("        return (" + BASE_PACKAGE + ".generated." + categoryClassName + ") categories.computeIfAbsent(\"" + categoryName + "\",");
-            getters.add("                " + BASE_PACKAGE + ".generated." + categoryClassName + "::new);");
+            getters.add("    public " + categoryClassName + " get" + categoryClassName + "() {");
+            getters.add("        return delegate.getCategory(\"" + categoryName + "\", " + categoryClassName + "::new);");
             getters.add("    }");
             getters.add("");
 
-            writeCategory(category.getDescription(), categoryClassName, entry.getValue(), path, categoryName,
-                    categoryClassName, categoryBuilder);
+            writeCategory(category.getDescription(), categoryClassName, entry.getValue(), path, categoryName, categoryClassName/*, categoryBuilder*/);
 
             // builder
-            builder.add("    public CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
-                    + "() {");
-            builder.add("        return new CategoryBuilder." + categoryClassName + "Builder(this);");
-            builder.add("    }");
-            builder.add("");
+//            builder.add("    public CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName
+//                    + "() {");
+//            builder.add("        return new CategoryBuilder." + categoryClassName + "Builder(this);");
+//            builder.add("    }");
+//            builder.add("");
         }
 
-        output.add("import org.rcsb.cif.model.BaseCifBlock;");
-        output.add("import org.rcsb.cif.model.Category;");
+        output.add("import org.rcsb.cif.schema.DelegatingBlock;");
+        output.add("import org.rcsb.cif.model.Block;");
         output.add("");
         output.add("import javax.annotation.Generated;");
-        output.add("import java.util.ArrayList;");
-        output.add("import java.util.Map;");
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
-        output.add("public class " + className + " implements " + Block.class.getSimpleName() + " {");
+        output.add("public class " + className + " extends " + DelegatingBlock.class.getSimpleName() + " {");
 
         // constructor
-        output.add("    public " + className + "(Map<String, Category> categories, String header) {");
-        output.add("        super(categories, header, new ArrayList<>());");
+        output.add("    public " + className + "(Category delegate) {");
+        output.add("        super(delegate);");
         output.add("    }");
         output.add("");
 
@@ -170,13 +184,13 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        Files.write(path.resolve("BlockBuilder.java"), builder.toString().getBytes());
-        Files.write(path.resolve("CategoryBuilder.java"), categoryBuilder.toString().getBytes());
+//        Files.write(path.resolve("BlockBuilder.java"), builder.toString().getBytes());
+//        Files.write(path.resolve("CategoryBuilder.java"), categoryBuilder.toString().getBytes());
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
     private void writeCategory(String categoryDescription, String className, Table content, Path path, String categoryName,
-                               String categoryClassName, StringJoiner categoryBuilder) throws IOException {
+                               String categoryClassName/*, StringJoiner categoryBuilder*/) throws IOException {
         if (!Files.exists(path)) {
             Files.createDirectory(path);
         }
@@ -185,24 +199,13 @@ class SchemaGenerator {
             Files.createDirectory(generatedPath);
         }
 
-        // categories are grouped by the first word
-        Map<String, Object> wordMap = CLASS_MAP_LOOKUP.computeIfAbsent(categoryName.split("_")[0], k -> new HashMap<>());
-        // categories are described by 4 values (className, int fields, double fields, str fields)
-        Object categoryInfoRaw = wordMap.computeIfAbsent(categoryName, k -> new Object[4]);
-        Object[] categoryInfo = (Object[]) categoryInfoRaw;
-        // first entry: class reference
-        categoryInfo[0] = GENERATED_PACKAGE + "." + className;
-        List<String> intFields = new ArrayList<>();
-        List<String> floatFields = new ArrayList<>();
-        List<String> strFields = new ArrayList<>();
-
         StringJoiner output = new StringJoiner("\n");
-        output.add("package " + BASE_PACKAGE + ".generated;");
+        output.add("package " + BASE_PACKAGE + pkg + ";");
         output.add("");
-        output.add("import org.rcsb.cif.model.*;"); // import greedily from model package
+        output.add("import org.rcsb.cif.model.*;");
+        output.add("import org.rcsb.cif.schema.*;");
         output.add("");
         output.add("import javax.annotation.Generated;");
-        output.add("import java.util.Map;");
         output.add("");
         output.add("/**");
         categoryDescription = Pattern.compile("\n").splitAsStream(categoryDescription)
@@ -211,17 +214,17 @@ class SchemaGenerator {
         output.add(categoryDescription);
         output.add(" */");
         output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
-        output.add("public class " + className + " extends " + BaseCategory.class.getSimpleName() + " {");
+        output.add("public class " + className + " extends " + DelegatingCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
 
-        categoryBuilder.add("");
-        categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
-        categoryBuilder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
-        categoryBuilder.add("");
-        categoryBuilder.add("        public " + categoryClassName + "Builder(BlockBuilder parent) {");
-        categoryBuilder.add("            super(CATEGORY_NAME, parent);");
-        categoryBuilder.add("        }");
+//        categoryBuilder.add("");
+//        categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
+//        categoryBuilder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
+//        categoryBuilder.add("");
+//        categoryBuilder.add("        public " + categoryClassName + "Builder(BlockBuilder parent) {");
+//        categoryBuilder.add("            super(CATEGORY_NAME, parent);");
+//        categoryBuilder.add("        }");
 
         for (Map.Entry<String, Object> entry : content.getColumns().entrySet()) {
             String columnName = entry.getKey();
@@ -229,7 +232,9 @@ class SchemaGenerator {
 
             String columnClassName = toClassName(columnName);
             Class<? extends Column> baseClass = getBaseClass(column.getType());
+            Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
             String baseClassName = baseClass.getSimpleName();
+            String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
@@ -239,41 +244,21 @@ class SchemaGenerator {
             getters.add("     * @return " + baseClassName);
             getters.add("     */");
             getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
-            getters.add("        return (" + baseClassName + ") (isText ? textFields.computeIfAbsent(\"" + columnName
-                    + "\", " + baseClassName + "::new) :");
-            getters.add("                getBinaryColumn(\"" + columnName + "\"));");
+            getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
             getters.add("    }");
             getters.add("");
 
-            if (baseClass.equals(IntColumn.class)) {
-                intFields.add(columnName);
-            } else if (baseClass.equals(FloatColumn.class)) {
-                floatFields.add(columnName);
-            } else {
-                strFields.add(columnName);
-            }
-
-            categoryBuilder.add("");
-            categoryBuilder.add("        public " + baseClassName + "Builder<" +
-                    categoryClassName + "Builder> enter" + columnClassName + "() {");
-            categoryBuilder.add("            return new " + getBaseClass(column.getType()) +
-                    "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
-            categoryBuilder.add("        }");
+//            categoryBuilder.add("");
+//            categoryBuilder.add("        public " + baseClassName + "Builder<" +
+//                    categoryClassName + "Builder> enter" + columnClassName + "() {");
+//            categoryBuilder.add("            return new " + getBaseClass(column.getType()) +
+//                    "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
+//            categoryBuilder.add("        }");
         }
 
         // constructor
-        output.add("    public " + className + "(String name, Map<String, Column> columns) {");
-        output.add("        super(name, columns);");
-        output.add("    }");
-        output.add("");
-
-        output.add("    public " + className + "(String name, int rowCount, Object[] encodedColumns) {");
-        output.add("        super(name, rowCount, encodedColumns);");
-        output.add("    }");
-        output.add("");
-
-        output.add("    public " + className + "(String name) {");
-        output.add("        super(name);");
+        output.add("    public " + className + "(Category delegate) {");
+        output.add("        super(delegate);");
         output.add("    }");
         output.add("");
 
@@ -281,12 +266,7 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        categoryBuilder.add("    }");
-
-        // handle category/column lookup
-        categoryInfo[1] = intFields.toArray(new String[0]);
-        categoryInfo[2] = floatFields.toArray(new String[0]);
-        categoryInfo[3] = strFields.toArray(new String[0]);
+//        categoryBuilder.add("    }");
 
         Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
@@ -315,7 +295,33 @@ class SchemaGenerator {
         }
     }
 
-    private SchemaGenerator(String... resource) throws IOException {
+    private Class<? extends DelegatingColumn> getDelegatingBaseClass(String type) {
+        // TODO enums, lists, matrix, and vector would be nice to have
+        switch (type) {
+            case "coord":
+                return DelegatingFloatColumn.class;
+            case "enum":
+                return DelegatingStrColumn.class;
+            case "float":
+                return DelegatingFloatColumn.class;
+            case "int":
+                return DelegatingIntColumn.class;
+            case "list":
+                return DelegatingStrColumn.class;
+            case "matrix":
+                return DelegatingFloatColumn.class;
+            case "str":
+                return DelegatingStrColumn.class;
+            case "vector":
+                return DelegatingFloatColumn.class;
+            default:
+                throw new IllegalArgumentException("Unknown type " + type);
+        }
+    }
+
+    private SchemaGenerator(String name, String pkg, String... resource) throws IOException {
+        this.name = name;
+        this.pkg = pkg;
         this.schema = new LinkedHashMap<>();
         this.categories = new LinkedHashMap<>();
         this.links = new LinkedHashMap<>();
@@ -346,6 +352,8 @@ class SchemaGenerator {
             "_struct_sheet_range.end_auth_seq_id"
     ).collect(Collectors.toList());
 
+    private final String name;
+    private final String pkg;
     private final Map<String, Table> schema;
     private final Map<String, Block> categories;
     private final Map<String, String> links;
@@ -498,7 +506,7 @@ class SchemaGenerator {
         }
     }
 
-    private void buildListOfLinksBetweenCategories(CifFile<Block> cifFile) {
+    private void buildListOfLinksBetweenCategories(CifFile cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()
@@ -523,7 +531,7 @@ class SchemaGenerator {
                 });
     }
 
-    private void getCategoryMetadata(CifFile<Block> cifFile) {
+    private void getCategoryMetadata(CifFile cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()

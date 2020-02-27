@@ -1,8 +1,7 @@
-package org.rcsb.cif.schema.mm;
+package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.Block;
-import org.rcsb.cif.schema.SchemaProvider;
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 public class MmCifSchemaProvider implements SchemaProvider<MmCifBlock> {
     @Override

@@ -1,7 +1,6 @@
 package org.rcsb.cif.schema;
 
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
-import org.rcsb.cif.schema.mm.MmCifSchemaProvider;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 public enum StandardSchemas {
 //    BIRD(),

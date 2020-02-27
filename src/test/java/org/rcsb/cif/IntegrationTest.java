@@ -8,8 +8,8 @@ import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.text.TextColumn;
 import org.rcsb.cif.schema.DelegatingFloatColumn;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.mm.generated.AtomSite;
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
+import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

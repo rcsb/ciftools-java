@@ -1,4 +1,4 @@
-package org.rcsb.cif.schema.mm.generated;
+package org.rcsb.cif.schema.generated.mm;
 
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.FloatColumn;

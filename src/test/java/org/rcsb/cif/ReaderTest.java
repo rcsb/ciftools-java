@@ -4,8 +4,8 @@ import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.mm.generated.AtomSite;
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
+import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.IOException;
 import java.io.InputStream;

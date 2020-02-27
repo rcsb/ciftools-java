@@ -3,7 +3,7 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.mm.generated.MmCifBlock;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.IOException;
 
