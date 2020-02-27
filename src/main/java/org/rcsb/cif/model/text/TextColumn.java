@@ -1,12 +1,9 @@
 package org.rcsb.cif.model.text;
 
-import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
-
-public class TextColumn implements Column {
+public class TextColumn implements StrColumn {
     private final String name;
     private final int rowCount;
     private final String textData;
@@ -52,9 +49,9 @@ public class TextColumn implements Column {
         }
     }
 
-    public Stream<String> values() {
-        return IntStream.range(0, rowCount)
-                .mapToObj(this::getStringData);
+    @Override
+    public String get(int row) {
+        return getStringData(row);
     }
 
     @Override
