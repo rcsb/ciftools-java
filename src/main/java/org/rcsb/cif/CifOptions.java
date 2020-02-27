@@ -3,7 +3,6 @@ package org.rcsb.cif;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import org.rcsb.cif.binary.codec.BinaryCifCodec;
-import org.rcsb.cif.model.Block;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -26,7 +25,6 @@ import java.util.stream.Collectors;
  * there are currently no relevant options for CIF reading.</p>
  */
 public class CifOptions {
-    private final boolean generic;
     private final boolean gzip;
     private final String encoder;
     private final String fetchUrl;
@@ -38,7 +36,6 @@ public class CifOptions {
     private final CifOptionsBuilder.FileFormat fileFormat;
 
     private CifOptions(CifOptionsBuilder builder) {
-        this.generic = builder.generic;
         this.gzip = builder.gzip;
         this.encoder = builder.encoder;
         this.fetchUrl = builder.fetchUrl;
@@ -57,14 +54,6 @@ public class CifOptions {
         categoryWhitelist.addAll(categoriesToAdd);
 
         this.encodingStrategyHints = builder.encodingStrategyHints;
-    }
-
-    /**
-     * Reading should not care about category and column types.
-     * @return <code>true</code> if reading should be untyped
-     */
-    public boolean isGeneric() {
-        return generic;
     }
 
     /**
@@ -166,19 +155,6 @@ public class CifOptions {
         private final List<String> columnBlacklist = new ArrayList<>();
         private final List<EncodingStrategyHint> encodingStrategyHints = new ArrayList<>();
         private FileFormat fileFormat;
-
-        /**
-         * Allow for 'generic' reading: no types will be inferred and all categories and columns will be the untyped,
-         * 'generic' base implementations of categories and columns. Be careful: this will cause any previously
-         * type-safe method (e.g. {@link Block#getAtomSite()} to now throw a {@link ClassCastException}. The only way to
-         * access categories/column is by getting them explicitly by name.
-         * @param generic <code>true</code> will omit type-safe access to categories and columns
-         * @return this builder instance
-         */
-        public CifOptionsBuilder generic(boolean generic) {
-            this.generic = generic;
-            return this;
-        }
 
         /**
          * Allows for downstream GZIP operations.
