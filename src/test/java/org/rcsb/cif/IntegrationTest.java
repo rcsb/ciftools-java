@@ -7,6 +7,7 @@ import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.schema.DelegatingCategory;
 import org.rcsb.cif.schema.StandardSchemas;
 import org.rcsb.cif.schema.generated.mm.AtomSite;
 import org.rcsb.cif.schema.generated.mm.AtomSites;
@@ -31,20 +32,16 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
 public class IntegrationTest {
     @Test
     public void testDelegationBehavior() throws IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
-                .getBlocks()
-                .get(0);
-
         // blocks and categories should report typed categories and columns respectively
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).with(StandardSchemas.MMCIF);
         textCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> System.out.println(category.getClass().getSimpleName()));
+                .forEach(category -> assertTrue("no delegation for text after schema was imposed", category instanceof DelegatingCategory));
 
         MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).with(StandardSchemas.MMCIF);
         binaryCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> System.out.println(category.getClass().getSimpleName()));
+                .forEach(category -> assertTrue("no delegation for binary after schema was imposed", category instanceof DelegatingCategory));
     }
 
     @Test
