@@ -10,6 +10,7 @@ import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.ValueKind;
 
 import java.nio.charset.StandardCharsets;
+import java.text.DecimalFormat;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -109,8 +110,8 @@ public class TextCifWriter {
         output.append("#\n");
     }
 
-    private boolean writeValue(StringBuilder output, Column cifField, int row) {
-        ValueKind kind = cifField.getValueKind(row);
+    private boolean writeValue(StringBuilder output, Column column, int row) {
+        ValueKind kind = column.getValueKind(row);
 
         if (kind != ValueKind.PRESENT) {
             if (kind == ValueKind.NOT_PRESENT) {
@@ -119,12 +120,12 @@ public class TextCifWriter {
                 writeUnknown(output);
             }
         } else {
-            if (cifField instanceof IntColumn) {
-                writeInteger(output, ((IntColumn) cifField).get(row));
-            } else if (cifField instanceof FloatColumn) {
-                writeFloat(output, cifField.getStringData(row));
+            if (column instanceof IntColumn) {
+                writeInteger(output, ((IntColumn) column).get(row));
+            } else if (column instanceof FloatColumn) {
+                writeFloat(output, format(((FloatColumn) column).get(row), column.getColumnName()));
             } else {
-                String val = cifField.getStringData(row);
+                String val = column.getStringData(row);
                 if (isMultiline(val)) {
                     writeMultiline(output, val);
                     return true;
@@ -135,6 +136,25 @@ public class TextCifWriter {
         }
 
         return false;
+    }
+
+    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
+    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
+    private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
+    /**
+     * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values they report.
+     * @param val the double value
+     * @param name this column name
+     * @return the formatted String value
+     */
+    private String format(double val, String name) {
+        if ("Cartn_x".equals(name) || "Cartn_y".equals(name) || "Cartn_z".equals(name)) {
+            return FLOAT_3.format(val);
+        } else if ("occupancy".equals(name)) {
+            return FLOAT_2.format(val);
+        }
+
+        return FLOAT_6.format(val);
     }
 
     private boolean writeChecked(StringBuilder output, String val) {

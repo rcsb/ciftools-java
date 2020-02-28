@@ -34,10 +34,5 @@ public abstract class BinaryColumn<T> implements Column {
         return ValueKind.values()[mask[row]];
     }
 
-    @Override
-    public boolean isDefined() {
-        return true;
-    }
-
     public abstract T getBinaryDataUnsafe();
 }

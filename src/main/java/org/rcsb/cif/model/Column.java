@@ -59,7 +59,9 @@ public interface Column {
      * center, categories and columns not present in a parsed file will be presented by an undefined state.
      * @return <code>false</code> if this {@link Column} has row count 0 and no data in it
      */
-    boolean isDefined();
+    default boolean isDefined() {
+        return getRowCount() > 0;
+    }
 
     class EmptyColumn implements Column {
         private final String name;
@@ -91,11 +93,6 @@ public interface Column {
         @Override
         public Stream<ValueKind> valueKinds() {
             return Stream.empty();
-        }
-
-        @Override
-        public boolean isDefined() {
-            return false;
         }
     }
 }

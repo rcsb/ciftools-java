@@ -29,9 +29,4 @@ public class DelegatingColumn implements Column {
     public ValueKind getValueKind(int row) {
         return delegate.getValueKind(row);
     }
-
-    @Override
-    public boolean isDefined() {
-        return true;
-    }
 }

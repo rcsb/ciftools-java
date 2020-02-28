@@ -53,9 +53,4 @@ public class TextColumn implements StrColumn {
     public String get(int row) {
         return getStringData(row);
     }
-
-    @Override
-    public boolean isDefined() {
-        return true;
-    }
 }

@@ -10,7 +10,6 @@ import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.IntColumnBuilder;
-import org.rcsb.cif.schema.StandardSchemas;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -19,36 +18,9 @@ import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
-import static org.rcsb.cif.TestHelper.*;
+import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
 public class WriterTest {
-    @Test
-    public void testNumberFormat() throws IOException {
-        // read and write cif file
-        InputStream inputStream = getInputStream("cif/1a2c.cif");
-        CifFile cifFile = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
-        String output = new String(CifIO.writeText(cifFile));
-
-        Pattern.compile("\n")
-                .splitAsStream(output)
-                // look for atom site records
-                .filter(line -> line.startsWith("ATOM"))
-                .map(line -> line.split("\\s+"))
-                .forEach(split -> {
-                    // x, y, z have 3 decimal digits
-                    assertEquals(3, split[10].split("\\.")[1].length());
-                    assertEquals(3, split[11].split("\\.")[1].length());
-                    assertEquals(3, split[12].split("\\.")[1].length());
-
-                    // occupancy have 2
-                    assertEquals(2, split[13].split("\\.")[1].length());
-
-                    // bfactor have at max 6 (default behavior)
-                    if (split[14].contains(".")) {
-                        assertTrue(split[14].split("\\.")[1].length() <= 6);
-                    }
-                });
-    }
-
     @Test
     public void testNumberFormatOfBuiltCifFile() throws IOException {
         CifFile cifFile = new CifBuilder()
