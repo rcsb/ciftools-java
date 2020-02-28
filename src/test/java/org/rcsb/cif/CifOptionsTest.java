@@ -113,7 +113,6 @@ public class CifOptionsTest {
             .build();
 
     private void testFilteringBehavior(String testCase) throws IOException {
-        // TODO update
         // check that file was loaded correctly
         CifFile file = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/" + testCase + ".bcif"));
         assertEquals(testCase.toUpperCase(), file.with(StandardSchemas.MMCIF).getFirstBlock().getEntry().getId().get(0));

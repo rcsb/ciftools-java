@@ -10,6 +10,7 @@ import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.IntColumnBuilder;
+import org.rcsb.cif.schema.StandardSchemas;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -19,7 +20,6 @@ import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
 public class WriterTest {
     @Test
     public void testNumberFormatOfBuiltCifFile() throws IOException {
@@ -125,7 +125,7 @@ public class WriterTest {
         // convert to cif
         String copy = new String(CifIO.writeText(text));
 
-        assertEqualsLoosely(original, copy);
+        assertEquals(original, copy);
     }
 
     @Test
@@ -163,15 +163,10 @@ public class WriterTest {
         // run to update snapshot files
         for (String id : TEST_CASES.keySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-            CifFile data = CifIO.readFromInputStream(inputStream);
+            CifFile data = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
 
-            CifOptions options = CifOptions.builder()
-                    .categoryBlacklist("coordinate_server_result", "coordinate_server_query_params", "coordinate_server_stats")
-                    .build();
-            CifOptions optionsGzip = CifOptions.builder()
-                    .categoryBlacklist("coordinate_server_result", "coordinate_server_query_params", "coordinate_server_stats")
-                    .gzip(true)
-                    .build();
+            CifOptions options = CifOptions.builder().build();
+            CifOptions optionsGzip = CifOptions.builder().gzip(true).build();
 
             // convert to cif/bcif
             CifIO.writeText(data,

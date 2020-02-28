@@ -13,7 +13,6 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -35,43 +34,6 @@ public class TestHelper {
             Stream.of("4cxl", -13.933, 29, "4CXL").collect(Collectors.toList()),
             Stream.of("5zmz", 10.752, 4, "5ZMZ").collect(Collectors.toList())
     ).collect(Collectors.toMap(l -> (String) l.get(0), l -> l.subList(1, l.size())));
-
-    /**
-     * Tests strings for equality with drastically reduced strictness. Ignores:
-     * - white spaces, tabs, and line breaks
-     * - number format
-     * - quoting characters
-     * @param expected the expected string
-     * @param actual the string to test
-     */
-    public static void assertEqualsLoosely(String expected, String actual) {
-        List<String> exp = Pattern.compile("\\s+").splitAsStream(expected).collect(Collectors.toList());
-        List<String> act = Pattern.compile("\\s+").splitAsStream(actual).collect(Collectors.toList());
-
-        if (exp.size() != act.size()) {
-            assertEquals(String.join("\n", exp), String.join("\n", act));
-        }
-
-        for (int i = 0; i < exp.size(); i++) {
-            String e = exp.get(i);
-            String a = act.get(i);
-
-            try {
-                int i1 = Integer.parseInt(e);
-                int i2 = Integer.parseInt(a);
-                assertEquals(i1, i2);
-            } catch (NumberFormatException exp1) {
-                try {
-                    double d1 = Double.parseDouble(e);
-                    double d2 = Double.parseDouble(a);
-                    assertEquals(d1, d2, TestHelper.ERROR_MARGIN);
-                } catch (NumberFormatException exp2) {
-                    assertEquals(e.replace("'", "").replace("\"", ""),
-                            a.replace("'", "").replace("\"", ""));
-                }
-            }
-        }
-    }
 
     public static InputStream getInputStream(String localPath) {
         InputStream inputStream = Thread.currentThread().getContextClassLoader().getResourceAsStream(localPath);

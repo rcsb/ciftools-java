@@ -22,7 +22,6 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -209,7 +208,7 @@ public class IntegrationTest {
         byte[] copyBytes = CifIO.writeText(bcifFile);
         String copyContent = new String(copyBytes);
 
-        assertEqualsLoosely(originalContent, copyContent);
+        assertEquals(originalContent, copyContent);
     }
 
     @Test
@@ -221,10 +220,10 @@ public class IntegrationTest {
 
     private void roundTripViaText(String testCase) throws IOException {
         byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
-        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif"));
+        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).with(StandardSchemas.MMCIF);
 
         byte[] cifBytes = CifIO.writeText(originalFile);
-        CifFile cifFile = CifIO.readFromInputStream(new ByteArrayInputStream(cifBytes));
+        CifFile cifFile = CifIO.readFromInputStream(new ByteArrayInputStream(cifBytes)).with(StandardSchemas.MMCIF);
 
         byte[] output = CifIO.writeBinary(cifFile);
 
@@ -242,7 +241,7 @@ public class IntegrationTest {
 
     private void readCifWriteBcif(String testCase) throws IOException {
         byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
-        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".cif"));
+        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif")).with(StandardSchemas.MMCIF);
 
         byte[] output = CifIO.writeBinary(originalFile);
 

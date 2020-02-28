@@ -129,7 +129,6 @@ public class BinaryCifWriter {
     }
 
     private Map<String, Object> encodeColumn(String categoryName, Column cifColumn) {
-        System.out.println(cifColumn.getClass().getSimpleName());
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             double[] array = floatCol instanceof BinaryFloatColumn ? ((BinaryFloatColumn) floatCol).getBinaryDataUnsafe() : floatCol.values().toArray();
@@ -140,9 +139,14 @@ public class BinaryCifWriter {
             int[] array = intCol instanceof BinaryIntColumn ? ((BinaryIntColumn) intCol).getBinaryDataUnsafe() : intCol.values().toArray();
             ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Int32Array(array));
             return encodeColumn(cifColumn, byteArray);
-        } else {
+        } else if (cifColumn instanceof StrColumn) {
             StrColumn strCol = (StrColumn) cifColumn;
             String[] array = strCol instanceof BinaryStrColumn ? ((BinaryStrColumn) strCol).getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
+            ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
+            return encodeColumn(cifColumn, byteArray);
+        } else {
+            // column is typed but unknown
+            String[] array = cifColumn.stringData().toArray(String[]::new);
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
             return encodeColumn(cifColumn, byteArray);
         }
