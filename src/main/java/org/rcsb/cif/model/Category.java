@@ -29,7 +29,8 @@ public interface Category {
     Column getColumn(String name);
 
     default <C extends Column> C getColumn(String name, Function<Column, C> wrapper) {
-        return wrapper.apply(getColumn(name));
+        Column column = getColumn(name);
+        return wrapper.apply(column != null ? column : new Column.EmptyColumn(name));
     }
 
     Map<String, Column> getColumns();

@@ -64,6 +64,7 @@ public interface Block {
     }
 
     default <C extends Category> C getCategory(String name, Function<Category, C> wrapper) {
-        return wrapper.apply(getCategory(name));
+        Category category = getCategory(name);
+        return wrapper.apply(category != null ? category : new Category.EmptyCategory(name));
     }
 }
