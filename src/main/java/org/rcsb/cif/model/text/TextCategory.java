@@ -3,15 +3,12 @@ package org.rcsb.cif.model.text;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class TextCategory implements Category {
     private final String name;
     private final int rowCount;
     private final Map<String, Column> textFields;
-    private final List<String> columnNames;
 
     public TextCategory(String name, Map<String, Column> textColumns) {
         this.name = name;
@@ -21,7 +18,6 @@ public class TextCategory implements Category {
                 .map(Column::getRowCount)
                 .orElse(0);
         this.textFields = textColumns;
-        this.columnNames = new ArrayList<>(textColumns.keySet());
     }
 
     @Override
@@ -40,8 +36,8 @@ public class TextCategory implements Category {
     }
 
     @Override
-    public List<String> getColumnNames() {
-        return columnNames;
+    public Map<String, Column> getColumns() {
+        return textFields;
     }
 
     @Override

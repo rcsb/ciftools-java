@@ -4,6 +4,7 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 
 import java.util.List;
+import java.util.Map;
 
 public class DelegatingBlock implements Block {
     protected final Block delegate;
@@ -23,8 +24,8 @@ public class DelegatingBlock implements Block {
     }
 
     @Override
-    public List<String> getCategoryNames() {
-        return delegate.getCategoryNames();
+    public Map<String, Category> getCategories() {
+        return delegate.getCategories();
     }
 
     @Override

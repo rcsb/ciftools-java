@@ -3,7 +3,7 @@ package org.rcsb.cif.schema;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 
-import java.util.List;
+import java.util.Map;
 
 public class DelegatingCategory implements Category {
     protected final Category delegate;
@@ -28,8 +28,8 @@ public class DelegatingCategory implements Category {
     }
 
     @Override
-    public List<String> getColumnNames() {
-        return delegate.getColumnNames();
+    public Map<String, Column> getColumns() {
+        return delegate.getColumns();
     }
 
     @Override

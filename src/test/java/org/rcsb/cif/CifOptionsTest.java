@@ -120,7 +120,7 @@ public class CifOptionsTest {
 
         // text file with some categories blacklisted
         CifFile blacklistTextFile = CifIO.readFromInputStream(new ByteArrayInputStream(CifIO.writeText(file, BLACKLIST_OPTIONS)));
-        assertTrue(blacklistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategoryNames().size() > 0);
+        assertTrue(blacklistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategories().size() > 0);
         assertFalse(blacklistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getEntry().isDefined());
         assertTrue(blacklistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().isDefined());
         assertTrue(blacklistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().getGroupPDB().isDefined());
@@ -130,7 +130,7 @@ public class CifOptionsTest {
 
         // text file with only some categories whitelisted
         CifFile whitelistTextFile = CifIO.readFromInputStream(new ByteArrayInputStream(CifIO.writeText(file, WHITELIST_OPTIONS)));
-        assertTrue(whitelistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategoryNames().size() > 0);
+        assertTrue(whitelistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategories().size() > 0);
         assertTrue(whitelistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getEntry().isDefined());
         assertTrue(whitelistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().isDefined());
         assertFalse(whitelistTextFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().getGroupPDB().isDefined());
@@ -140,7 +140,7 @@ public class CifOptionsTest {
 
         // binary file with some categories blacklisted
         CifFile blacklistBinaryFile = CifIO.readFromInputStream(new ByteArrayInputStream(CifIO.writeBinary(file, BLACKLIST_OPTIONS)));
-        assertTrue(blacklistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategoryNames().size() > 0);
+        assertTrue(blacklistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategories().size() > 0);
         assertFalse(blacklistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getEntry().isDefined());
         assertTrue(blacklistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().isDefined());
         assertTrue(blacklistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().getGroupPDB().isDefined());
@@ -150,7 +150,7 @@ public class CifOptionsTest {
 
         // binary file with only some categories whitelisted
         CifFile whitelistBinaryFile = CifIO.readFromInputStream(new ByteArrayInputStream(CifIO.writeBinary(file, WHITELIST_OPTIONS)));
-        assertTrue(whitelistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategoryNames().size() > 0);
+        assertTrue(whitelistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getCategories().size() > 0);
         assertTrue(whitelistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getEntry().isDefined());
         assertTrue(whitelistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().isDefined());
         assertFalse(whitelistBinaryFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSite().getGroupPDB().isDefined());

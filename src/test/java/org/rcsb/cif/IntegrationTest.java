@@ -30,6 +30,24 @@ import static org.rcsb.cif.TestHelper.assertEqualsLoosely;
  */
 public class IntegrationTest {
     @Test
+    public void testDelegationBehavior() throws IOException {
+        CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
+                .getBlocks()
+                .get(0);
+
+        // blocks and categories should report typed categories and columns respectively
+        MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).with(StandardSchemas.MMCIF);
+        textCifFile.getFirstBlock()
+                .categories()
+                .forEach(category -> System.out.println(category.getClass().getSimpleName()));
+
+        MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).with(StandardSchemas.MMCIF);
+        binaryCifFile.getFirstBlock()
+                .categories()
+                .forEach(category -> System.out.println(category.getClass().getSimpleName()));
+    }
+
+    @Test
     public void testBehaviorForEmptyFiles() throws IOException {
         CifFile cifFile = new CifBuilder()
                 .enterBlock("test")
@@ -40,7 +58,7 @@ public class IntegrationTest {
         byte[] bytes = CifIO.writeBinary(cifFile);
         CifFile read = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
 
-        assertEquals(0, read.getBlocks().get(0).getCategoryNames().size());
+        assertEquals(0, read.getBlocks().get(0).getCategories().size());
     }
 
     @Test

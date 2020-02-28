@@ -33,8 +33,8 @@ public class TextBlock implements Block {
     }
 
     @Override
-    public List<String> getCategoryNames() {
-        return new ArrayList<>(categories.keySet());
+    public Map<String, Category> getCategories() {
+        return categories;
     }
 
     @Override

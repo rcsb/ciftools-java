@@ -1,7 +1,7 @@
 package org.rcsb.cif.model;
 
 import java.util.Collections;
-import java.util.List;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Stream;
 
@@ -32,26 +32,14 @@ public interface Category {
         return wrapper.apply(getColumn(name));
     }
 
-    /**
-     * Names of all present columns.
-     * @return a collection of {@link Column} names
-     */
-    List<String> getColumnNames();
-
-    /**
-     * Traverse all names of present columns.
-     * @return a {@link Stream} of present {@link Column} names
-     */
-    default Stream<String> columnNames() {
-        return getColumnNames().stream();
-    }
+    Map<String, Column> getColumns();
 
     /**
      * Traverse all present columns.
      * @return a {@link Stream} of all present columns
      */
     default Stream<Column> columns() {
-        return columnNames().map(this::getColumn);
+        return getColumns().values().stream();
     }
 
     /**
@@ -83,8 +71,8 @@ public interface Category {
         }
 
         @Override
-        public List<String> getColumnNames() {
-            return Collections.emptyList();
+        public Map<String, Column> getColumns() {
+            return Collections.emptyMap();
         }
 
         @Override

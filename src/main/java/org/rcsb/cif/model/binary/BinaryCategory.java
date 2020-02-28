@@ -80,8 +80,10 @@ public class BinaryCategory implements Category {
     }
 
     @Override
-    public List<String> getColumnNames() {
-        return columnNames;
+    public Map<String, Column> getColumns() {
+        // touch every column to ensure decoding
+        columnNames.forEach(this::getColumn);
+        return decodedColumns;
     }
 
     @Override

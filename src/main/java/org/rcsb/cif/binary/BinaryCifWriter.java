@@ -60,36 +60,33 @@ public class BinaryCifWriter {
             block.put("header", header);
 
             // filter category names
-            List<String> filteredCategoryNames = cifBlock.getCategoryNames()
-                    .stream()
-                    .filter(options::filterCategory)
+            List<Category> filteredCategories = cifBlock.categories()
+                    .filter(category -> options.filterCategory(category.getCategoryName()))
                     .collect(Collectors.toList());
-            Object[] categories = new Object[filteredCategoryNames.size()];
+            Object[] categories = new Object[filteredCategories.size()];
             int categoryCount = 0;
 
             block.put("categories", categories);
             blocks[blockCount++] = block;
 
-            for (String categoryName : filteredCategoryNames) {
-                Category cifCategory = cifBlock.getCategory(categoryName);
-                int rowCount = cifCategory.getRowCount();
+            for (Category category : filteredCategories) {
+                String categoryName = category.getCategoryName();
+                int rowCount = category.getRowCount();
                 if (rowCount == 0) {
                     continue;
                 }
 
-                Map<String, Object> category = new LinkedHashMap<>();
-                category.put("name", "_" + cifCategory.getCategoryName());
+                Map<String, Object> categoryMap = new LinkedHashMap<>();
+                categoryMap.put("name", "_" + category.getCategoryName());
 
-                Object[] columns = cifCategory.getColumnNames()
-                        .stream()
-                        .filter(columnName -> options.filterColumn(categoryName, columnName))
-                        .map(cifCategory::getColumn)
-                        .map(cifColumn -> encodeColumn(categoryName, cifColumn))
+                Object[] columns = category.columns()
+                        .filter(column -> options.filterColumn(categoryName, column.getColumnName()))
+                        .map(column -> encodeColumn(categoryName, column))
                         .toArray();
-                category.put("columns", columns);
+                categoryMap.put("columns", columns);
 
-                category.put("rowCount", rowCount);
-                categories[categoryCount++] = category;
+                categoryMap.put("rowCount", rowCount);
+                categories[categoryCount++] = categoryMap;
             }
         }
 

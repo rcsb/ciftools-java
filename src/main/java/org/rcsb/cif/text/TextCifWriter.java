@@ -33,7 +33,8 @@ public class TextCifWriter {
                     .append(header)
                     .append("\n#\n");
 
-            for (String categoryName : block.getCategoryNames()) {
+            for (Category category : block.getCategories().values()) {
+                String categoryName = category.getCategoryName();
                 if (!options.filterCategory(categoryName)) {
                     continue;
                 }
@@ -44,10 +45,8 @@ public class TextCifWriter {
                     continue;
                 }
 
-                List<Column> columns = cifCategory.getColumnNames()
-                        .stream()
-                        .filter(columnName -> options.filterColumn(categoryName, columnName))
-                        .map(cifCategory::getColumn)
+                List<Column> columns = cifCategory.columns()
+                        .filter(column -> options.filterColumn(categoryName, column.getColumnName()))
                         .collect(Collectors.toList());
 
                 if (columns.isEmpty()) {
