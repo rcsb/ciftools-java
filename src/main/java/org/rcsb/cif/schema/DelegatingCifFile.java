@@ -5,7 +5,6 @@ import org.rcsb.cif.model.CifFile;
 
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public abstract class DelegatingCifFile<B extends DelegatingBlock> implements CifFile {
     protected final CifFile delegate;
@@ -22,11 +21,6 @@ public abstract class DelegatingCifFile<B extends DelegatingBlock> implements Ci
     @Override
     public List<B> getBlocks() {
         return blocks;
-    }
-
-    @Override
-    public Stream<B> blocks() {
-        return blocks.stream();
     }
 
     public B getFirstBlock() {

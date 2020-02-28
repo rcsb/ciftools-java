@@ -10,7 +10,10 @@ import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.IntColumnBuilder;
+import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -88,26 +91,25 @@ public class WriterTest {
 
     @Test
     public void testClassInferenceOfBuiltCifFile() {
-        // TODO update
-//        CifFile cifFile = new CifBuilder()
-//                .enterBlock("test")
-//                .enterAtomSite()
-//                .enterBIsoOrEquiv()
-//                .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
-//                .leaveColumn()
-//                .leaveCategory()
-//                .leaveBlock()
-//                .leaveFile();
-//        assertTrue(cifFile.getFirstBlock().getCategory("atom_site") instanceof AtomSite);
-//        assertTrue(cifFile.getFirstBlock().getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
-//
-//        Category atom_site = new CategoryBuilder("atom_site", null)
-//                .build();
-//        assertTrue(atom_site instanceof AtomSite);
-//
-//        FloatColumn cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null)
-//                .build();
-//        assertNotNull(cartnX);
+        CifFile cifFile = new CifBuilder()
+                .with(StandardSchemas.MMCIF)
+                .enterBlock("test")
+                .enterAtomSite()
+                .enterBIsoOrEquiv()
+                .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+        MmCifBlock block = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
+        assertTrue(block.getCategory("atom_site") instanceof AtomSite);
+        assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
+
+        Category atom_site = new CategoryBuilder("atom_site", null).build();
+        assertTrue(atom_site instanceof TextCategory);
+
+        FloatColumn cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null).build();
+        assertNotNull(cartnX);
     }
 
     @Test

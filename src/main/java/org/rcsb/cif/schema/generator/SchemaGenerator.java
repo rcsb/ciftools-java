@@ -87,8 +87,33 @@ class SchemaGenerator {
 
         StringJoiner getters = new StringJoiner("\n");
         StringJoiner delegator = new StringJoiner("\n");
-        StringJoiner builder = new StringJoiner("\n");
+        StringJoiner blockBuilder = new StringJoiner("\n");
         StringJoiner categoryBuilder = new StringJoiner("\n");
+
+        blockBuilder.add("package " + BASE_PACKAGE + pkg + ";");
+        blockBuilder.add("");
+        blockBuilder.add("import org.rcsb.cif.model.builder.BlockBuilder;");
+        blockBuilder.add("import org.rcsb.cif.model.builder.CategoryBuilder;");
+        blockBuilder.add("import org.rcsb.cif.model.builder.CifBuilder;");
+        blockBuilder.add("");
+        blockBuilder.add("public class " + name + "BlockBuilder extends BlockBuilder {");
+        blockBuilder.add("    public " + name + "BlockBuilder(String blockName, CifBuilder parent) {");
+        blockBuilder.add("        super(blockName, parent);");
+        blockBuilder.add("    }");
+        blockBuilder.add("");
+
+        categoryBuilder.add("package " + BASE_PACKAGE + pkg + ";");
+        categoryBuilder.add("");
+        categoryBuilder.add("import org.rcsb.cif.model.builder.BlockBuilder;");
+        categoryBuilder.add("import org.rcsb.cif.model.builder.CategoryBuilder;");
+        categoryBuilder.add("import org.rcsb.cif.model.builder.FloatColumnBuilder;");
+        categoryBuilder.add("import org.rcsb.cif.model.builder.IntColumnBuilder;");
+        categoryBuilder.add("import org.rcsb.cif.model.builder.StrColumnBuilder;");
+        categoryBuilder.add("");
+        categoryBuilder.add("public class " + name + "CategoryBuilder extends CategoryBuilder {");
+        categoryBuilder.add("    public " + name + "CategoryBuilder(String blockName, BlockBuilder parent) {");
+        categoryBuilder.add("        super(blockName, parent);");
+        categoryBuilder.add("    }");
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
@@ -108,17 +133,17 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
-            writeCategory(category.getDescription(), categoryClassName, entry.getValue(), path, categoryName, categoryClassName, categoryBuilder);
+            writeCategory(name, category.getDescription(), categoryClassName, entry.getValue(), path, categoryName, categoryClassName, categoryBuilder);
 
             // delegation function
             delegator.add("            case \"" + categoryName + "\":");
             delegator.add("                return get" + categoryClassName + "();");
 
             // builder
-            builder.add("    public CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName  + "() {");
-            builder.add("        return new " + name + "CategoryBuilder." + categoryClassName + "Builder(this);");
-            builder.add("    }");
-            builder.add("");
+            blockBuilder.add("    public " + name + "CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName  + "() {");
+            blockBuilder.add("        return new " + name + "CategoryBuilder." + categoryClassName + "Builder(this);");
+            blockBuilder.add("    }");
+            blockBuilder.add("");
         }
 
         output.add("import org.rcsb.cif.model.Block;");
@@ -150,12 +175,15 @@ class SchemaGenerator {
         output.add(getters.toString() + "}");
         output.add("");
 
-        Files.write(path.resolve(name + "BlockBuilder.java"), builder.toString().getBytes());
+        blockBuilder.add("}");
+        categoryBuilder.add("}");
+
+        Files.write(path.resolve(name + "BlockBuilder.java"), blockBuilder.toString().getBytes());
         Files.write(path.resolve(name + "CategoryBuilder.java"), categoryBuilder.toString().getBytes());
         Files.write(path.resolve(className + ".java"), output.toString().getBytes());
     }
 
-    private void writeCategory(String categoryDescription, String className, Table content, Path path, String categoryName,
+    private void writeCategory(String name, String categoryDescription, String className, Table content, Path path, String categoryName,
                                String categoryClassName, StringJoiner categoryBuilder) throws IOException {
         if (!Files.exists(path)) {
             Files.createDirectory(path);
@@ -186,7 +214,7 @@ class SchemaGenerator {
         StringJoiner delegator = new StringJoiner("\n");
 
         categoryBuilder.add("");
-        categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
+        categoryBuilder.add("    public static class " + categoryClassName + "Builder extends " + name + "CategoryBuilder {");
         categoryBuilder.add("        private static final String CATEGORY_NAME = \"" + categoryName + "\";");
         categoryBuilder.add("");
         categoryBuilder.add("        public " + categoryClassName + "Builder(BlockBuilder parent) {");
@@ -220,10 +248,8 @@ class SchemaGenerator {
             delegator.add("                return get" + columnClassName + "();");
 
             categoryBuilder.add("");
-            categoryBuilder.add("        public " + baseClassName + "Builder<" +
-                    categoryClassName + "Builder> enter" + columnClassName + "() {");
-            categoryBuilder.add("            return new " + getBaseClass(column.getType()) +
-                    "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
+            categoryBuilder.add("        public " + baseClassName + "Builder<" + categoryClassName + "Builder> enter" + columnClassName + "() {");
+            categoryBuilder.add("            return new " + getBaseClass(column.getType()).getSimpleName() + "Builder<>(CATEGORY_NAME, \"" + columnName + "\", this);");
             categoryBuilder.add("        }");
         }
 
@@ -241,7 +267,6 @@ class SchemaGenerator {
         output.add("        }");
         output.add("    }");
         output.add("");
-
 
         // getters
         output.add(getters.toString() + "}");

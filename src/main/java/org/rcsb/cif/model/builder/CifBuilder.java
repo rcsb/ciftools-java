@@ -5,6 +5,7 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.text.TextBlock;
 import org.rcsb.cif.model.text.TextFile;
+import org.rcsb.cif.schema.SchemaProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,10 @@ public class CifBuilder {
     public CifBuilder() {
         this.blocks = new ArrayList<>();
         this.cifFile = new TextFile(blocks);
+    }
+
+    public <F extends CifFile, B extends CifBuilder> B with(SchemaProvider<F, B> schemaProvider) {
+        return schemaProvider.handle(this);
     }
 
     /**
