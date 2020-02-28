@@ -225,7 +225,7 @@ public class TextCifWriter {
     private void writeMultiline(StringBuilder output, String val) {
         output.append("\n;")
                 .append(val)
-                .append("\n;\n");
+                .append("\n; \n\n");
     }
 
     private boolean isMultiline(String val) {
