@@ -13,6 +13,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static junit.framework.TestCase.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
@@ -57,6 +58,10 @@ public class TestHelper {
         inputStream.close();
 
         return byteArray;
+    }
+
+    public static void assertEqualsIgnoringWhitespaces(String expected, String actual) {
+        assertEquals(expected.replaceAll("[\\s\"]+", ""), actual.replaceAll("[\\s\"]+", ""));
     }
 
     public static int[] convertToIntArray(byte[] bytes) {

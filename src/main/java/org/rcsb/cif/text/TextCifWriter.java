@@ -60,7 +60,7 @@ public class TextCifWriter {
                 }
             }
         }
-        output.append("\n");
+//        output.append("\n");
 
         return output.toString().getBytes(StandardCharsets.UTF_8);
     }
@@ -225,7 +225,7 @@ public class TextCifWriter {
     private void writeMultiline(StringBuilder output, String val) {
         output.append("\n;")
                 .append(val)
-                .append("\n; \n\n");
+                .append("\n;\n");
     }
 
     private boolean isMultiline(String val) {

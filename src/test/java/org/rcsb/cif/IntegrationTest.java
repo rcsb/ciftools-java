@@ -22,6 +22,7 @@ import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -208,7 +209,7 @@ public class IntegrationTest {
         byte[] copyBytes = CifIO.writeText(bcifFile);
         String copyContent = new String(copyBytes);
 
-        assertEquals(originalContent, copyContent);
+        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
     }
 
     @Test
@@ -263,6 +264,6 @@ public class IntegrationTest {
 
         String copyContent = new String(CifIO.writeText(originalFile));
 
-        assertEquals(originalContent, copyContent);
+        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
     }
 }

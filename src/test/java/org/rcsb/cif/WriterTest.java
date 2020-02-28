@@ -20,6 +20,8 @@ import java.util.regex.Pattern;
 
 import static org.junit.Assert.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
+
 public class WriterTest {
     @Test
     public void testNumberFormatOfBuiltCifFile() throws IOException {
@@ -125,7 +127,7 @@ public class WriterTest {
         // convert to cif
         String copy = new String(CifIO.writeText(text));
 
-        assertEquals(original, copy);
+        assertEqualsIgnoringWhitespaces(original, copy);
     }
 
     @Test
