@@ -10,6 +10,7 @@ import org.rcsb.cif.model.builder.CategoryBuilder;
 import org.rcsb.cif.model.builder.CifBuilder;
 import org.rcsb.cif.model.builder.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.IntColumnBuilder;
+import org.rcsb.cif.schema.StandardSchemas;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class WriterTest {
     public void testNumberFormat() throws IOException {
         // read and write cif file
         InputStream inputStream = getInputStream("cif/1a2c.cif");
-        CifFile cifFile = CifIO.readFromInputStream(inputStream);
+        CifFile cifFile = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
         String output = new String(CifIO.writeText(cifFile));
 
         Pattern.compile("\n")

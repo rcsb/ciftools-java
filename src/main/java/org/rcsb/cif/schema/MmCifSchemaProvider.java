@@ -1,11 +1,11 @@
 package org.rcsb.cif.schema;
 
-import org.rcsb.cif.model.Block;
-import org.rcsb.cif.schema.generated.mm.MmCifBlock;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.schema.generated.mm.MmCifFile;
 
-public class MmCifSchemaProvider implements SchemaProvider<MmCifBlock> {
+public class MmCifSchemaProvider implements SchemaProvider<MmCifFile> {
     @Override
-    public MmCifBlock handle(Block block) {
-        return new MmCifBlock(block);
+    public MmCifFile handle(CifFile cifFile) {
+        return new MmCifFile(cifFile);
     }
 }

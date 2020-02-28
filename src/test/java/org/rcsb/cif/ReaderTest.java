@@ -59,7 +59,7 @@ public class ReaderTest {
 
     @SuppressWarnings("rawtypes")
     private void checkParsedEntity(CifFile cifFile, List testData) throws ParsingException {
-        MmCifBlock data = cifFile.getFirstBlock(StandardSchemas.MMCIF);
+        MmCifBlock data = cifFile.typed(StandardSchemas.MMCIF).getTypedBlock();
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);

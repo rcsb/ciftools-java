@@ -1,7 +1,6 @@
 package org.rcsb.cif.model;
 
 import org.rcsb.cif.schema.SchemaProvider;
-import org.rcsb.cif.schema.StandardSchemas;
 
 import java.util.List;
 import java.util.stream.Stream;
@@ -33,31 +32,20 @@ public interface CifFile {
     List<Block> getBlocks();
 
     /**
-     * Convenience method to access the first block wrapped in a given schema.
-     * @param schemaProvider the schema provider to enforce on this block
-     * @param <B> the block type
-     * @return the first block of this file, honoring a given schema
-     */
-    default <B extends Block> B getFirstBlock(SchemaProvider<B> schemaProvider) {
-        return schemaProvider.handle(getBlocks().get(0));
-    }
-
-    /**
-     * Convenience method to access the first block wrapped in a given schema.
-     * @param schema the schema to enforce on this block
-     * @param <B> the block type
-     * @return the first block of this file, honoring a given schema
-     */
-    @SuppressWarnings("unchecked")
-    default <B extends Block> B getFirstBlock(StandardSchemas schema) {
-        return (B) getFirstBlock(schema.getSchemaProvider());
-    }
-
-    /**
      * Convenience method to access all blocks as Stream.
      * @return a Stream of all blocks
      */
     default Stream<Block> blocks() {
         return getBlocks().stream();
+    }
+
+    /**
+     * Convenience method to access this file wrapped by a given schema.
+     * @param schemaProvider the schema provider to enforce on this file
+     * @param <F> the file type
+     * @return this file, honoring a given schema
+     */
+    default <F extends CifFile> F typed(SchemaProvider<F> schemaProvider) {
+        return schemaProvider.handle(this);
     }
 }

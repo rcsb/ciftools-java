@@ -9,6 +9,7 @@ import org.rcsb.cif.model.text.TextColumn;
 import org.rcsb.cif.schema.DelegatingFloatColumn;
 import org.rcsb.cif.schema.StandardSchemas;
 import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.mm.AtomSites;
 import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.ByteArrayInputStream;
@@ -51,35 +52,34 @@ public class IntegrationTest {
     }
 
     private void testVectorAndMatrixBehavior(CifFile cifFile) {
-        // TODO update
         // TODO matrix/vector/enum support
-//        AtomSites atomSites = cifFile.getBlocks().get(0).getAtomSites();
-//
-//        assertDefined(atomSites.getFractTransfMatrix11());
-//        assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix12());
-//        assertEquals(0.005078, atomSites.getFractTransfMatrix12().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix13());
-//        assertEquals(0.0, atomSites.getFractTransfMatrix13().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix21());
-//        assertEquals(0.0, atomSites.getFractTransfMatrix21().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix22());
-//        assertEquals(0.010156, atomSites.getFractTransfMatrix22().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix23());
-//        assertEquals(0.0, atomSites.getFractTransfMatrix23().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix31());
-//        assertEquals(0.0, atomSites.getFractTransfMatrix31().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix32());
-//        assertEquals(0.0, atomSites.getFractTransfMatrix32().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfMatrix33());
-//        assertEquals(0.007241, atomSites.getFractTransfMatrix33().get(0), TestHelper.ERROR_MARGIN);
-//
-//        assertDefined(atomSites.getFractTransfVector1());
-//        assertEquals(0.0, atomSites.getFractTransfVector1().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfVector2());
-//        assertEquals(0.0, atomSites.getFractTransfVector2().get(0), TestHelper.ERROR_MARGIN);
-//        assertDefined(atomSites.getFractTransfVector3());
-//        assertEquals(0.0, atomSites.getFractTransfVector3().get(0), TestHelper.ERROR_MARGIN);
+        AtomSites atomSites = cifFile.typed(StandardSchemas.MMCIF).getTypedBlock().getAtomSites();
+
+        assertDefined(atomSites.getFractTransfMatrix11());
+        assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix12());
+        assertEquals(0.005078, atomSites.getFractTransfMatrix12().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix13());
+        assertEquals(0.0, atomSites.getFractTransfMatrix13().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix21());
+        assertEquals(0.0, atomSites.getFractTransfMatrix21().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix22());
+        assertEquals(0.010156, atomSites.getFractTransfMatrix22().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix23());
+        assertEquals(0.0, atomSites.getFractTransfMatrix23().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix31());
+        assertEquals(0.0, atomSites.getFractTransfMatrix31().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix32());
+        assertEquals(0.0, atomSites.getFractTransfMatrix32().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfMatrix33());
+        assertEquals(0.007241, atomSites.getFractTransfMatrix33().get(0), TestHelper.ERROR_MARGIN);
+
+        assertDefined(atomSites.getFractTransfVector1());
+        assertEquals(0.0, atomSites.getFractTransfVector1().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfVector2());
+        assertEquals(0.0, atomSites.getFractTransfVector2().get(0), TestHelper.ERROR_MARGIN);
+        assertDefined(atomSites.getFractTransfVector3());
+        assertEquals(0.0, atomSites.getFractTransfVector3().get(0), TestHelper.ERROR_MARGIN);
     }
 
     private void assertDefined(Column column) {
@@ -98,7 +98,7 @@ public class IntegrationTest {
     }
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
-        MmCifBlock block = cifFile.getFirstBlock(StandardSchemas.MMCIF);
+        MmCifBlock block = cifFile.typed(StandardSchemas.MMCIF).getTypedBlock();
         assertNotNull("header is corrupted", block.getBlockHeader());
 
         assertTrue(block.getEntry().isDefined());
