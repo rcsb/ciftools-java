@@ -54,7 +54,7 @@ public class IntegrationTest {
 
     private void testVectorAndMatrixBehavior(CifFile cifFile) {
         // TODO matrix/vector/enum support
-        AtomSites atomSites = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock().getAtomSites();
+        AtomSites atomSites = cifFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSites();
 
         assertDefined(atomSites.getFractTransfMatrix11());
         assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
@@ -99,7 +99,7 @@ public class IntegrationTest {
     }
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
-        MmCifBlock block = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock block = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
         assertNotNull("header is corrupted", block.getBlockHeader());
 
         assertTrue(block.getEntry().isDefined());
@@ -127,7 +127,7 @@ public class IntegrationTest {
     public void testUnknownFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
 
         Cell cell = text.getFirstBlock().getCell();
 
@@ -141,7 +141,7 @@ public class IntegrationTest {
     public void testNotPresentFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
 
         StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
@@ -153,7 +153,7 @@ public class IntegrationTest {
     public void testUnknownFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
 
         Cell cell = text.getFirstBlock().getCell();
 
@@ -167,7 +167,7 @@ public class IntegrationTest {
     public void testNotPresentFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
 
         StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
@@ -245,7 +245,7 @@ public class IntegrationTest {
 
     private void readBcifWriteCif(String testCase) throws IOException {
         String originalContent = new String(TestHelper.getBytes("snapshot/" + testCase + ".cif"));
-        MmCifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).typed(StandardSchemas.MMCIF);
+        MmCifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).with(StandardSchemas.MMCIF);
 
         String copyContent = new String(CifIO.writeText(originalFile));
 

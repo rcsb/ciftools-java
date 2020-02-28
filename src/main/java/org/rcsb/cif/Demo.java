@@ -35,7 +35,7 @@ public class Demo {
         }
 
         // get first block of CIF
-        MmCifBlock data = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock data = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
 
         // get category with name '_atom_site' from first block - access is type-safe, all categories
         // are inferred from the CIF schema

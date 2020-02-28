@@ -16,7 +16,7 @@ public class NonMmcifFormatTest {
     public void shouldHandleLigandCif() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/atp.cif"));
-        MmCifBlock firstBlock = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock firstBlock = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
 
         ChemComp chemComp = firstBlock.getChemComp();
         assertEquals("ADENOSINE-5'-TRIPHOSPHATE", chemComp.getName().get(0));
@@ -33,7 +33,7 @@ public class NonMmcifFormatTest {
     public void shouldHandleCcdcFile() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
-        MmCifBlock firstBlock = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock firstBlock = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
 
         // TODO update
         // single

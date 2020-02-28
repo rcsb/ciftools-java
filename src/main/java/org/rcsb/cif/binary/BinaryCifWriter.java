@@ -132,6 +132,7 @@ public class BinaryCifWriter {
     }
 
     private Map<String, Object> encodeColumn(String categoryName, Column cifColumn) {
+        System.out.println(cifColumn.getClass().getSimpleName());
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             double[] array = floatCol instanceof BinaryFloatColumn ? ((BinaryFloatColumn) floatCol).getBinaryDataUnsafe() : floatCol.values().toArray();

@@ -45,7 +45,7 @@ public interface CifFile {
      * @param <F> the file type
      * @return this file, honoring a given schema
      */
-    default <F extends CifFile> F typed(SchemaProvider<F> schemaProvider) {
+    default <F extends CifFile> F with(SchemaProvider<F> schemaProvider) {
         return schemaProvider.handle(this);
     }
 }

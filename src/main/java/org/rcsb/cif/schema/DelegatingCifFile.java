@@ -8,20 +8,22 @@ import java.util.stream.Collectors;
 
 public abstract class DelegatingCifFile<B extends DelegatingBlock> implements CifFile {
     protected final CifFile delegate;
+    private final List<B> blocks;
 
     public DelegatingCifFile(CifFile delegate) {
         this.delegate = delegate;
-    }
-
-    public List<B> getBlocks() {
-        return delegate.getBlocks()
+        this.blocks = delegate.getBlocks()
                 .stream()
                 .map(this::getTypedBlock)
                 .collect(Collectors.toList());
     }
 
+    public List<B> getBlocks() {
+        return blocks;
+    }
+
     public B getFirstBlock() {
-        return getTypedBlock(getBlocks().get(0));
+        return getTypedBlock(blocks.get(0));
     }
 
     abstract protected B getTypedBlock(Block block);
