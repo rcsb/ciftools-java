@@ -213,27 +213,6 @@ public class IntegrationTest {
     }
 
     @Test
-    public void roundTripViaText() throws IOException {
-        for (String id : TEST_CASES.keySet()) {
-            roundTripViaText(id);
-        }
-    }
-
-    private void roundTripViaText(String testCase) throws IOException {
-        byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
-        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).with(StandardSchemas.MMCIF);
-
-        byte[] cifBytes = CifIO.writeText(originalFile);
-        CifFile cifFile = CifIO.readFromInputStream(new ByteArrayInputStream(cifBytes)).with(StandardSchemas.MMCIF);
-
-        byte[] output = CifIO.writeBinary(cifFile);
-
-        assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
-        assertArrayEquals("binary write output does not match snapshot of output for " + testCase +
-                " - did the implementation change? if so, update snapshot files in snapshot/", original, output);
-    }
-
-    @Test
     public void readCifWriteBcif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
             readCifWriteBcif(id);
