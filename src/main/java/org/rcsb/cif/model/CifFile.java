@@ -29,13 +29,13 @@ public interface CifFile {
      * Access to all blocks of this file.
      * @return a list of present blocks
      */
-    List<Block> getBlocks();
+    List<? extends Block> getBlocks();
 
     /**
      * Convenience method to access all blocks as Stream.
      * @return a Stream of all blocks
      */
-    default Stream<Block> blocks() {
+    default Stream<? extends Block> blocks() {
         return getBlocks().stream();
     }
 

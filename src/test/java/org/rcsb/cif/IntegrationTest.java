@@ -54,7 +54,7 @@ public class IntegrationTest {
 
     private void testVectorAndMatrixBehavior(CifFile cifFile) {
         // TODO matrix/vector/enum support
-        AtomSites atomSites = cifFile.typed(StandardSchemas.MMCIF).getTypedBlock().getAtomSites();
+        AtomSites atomSites = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock().getAtomSites();
 
         assertDefined(atomSites.getFractTransfMatrix11());
         assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
@@ -99,7 +99,7 @@ public class IntegrationTest {
     }
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
-        MmCifBlock block = cifFile.typed(StandardSchemas.MMCIF).getTypedBlock();
+        MmCifBlock block = cifFile.typed(StandardSchemas.MMCIF).getFirstBlock();
         assertNotNull("header is corrupted", block.getBlockHeader());
 
         assertTrue(block.getEntry().isDefined());
@@ -129,7 +129,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
 
-        Cell cell = text.getTypedBlock().getCell();
+        Cell cell = text.getFirstBlock().getCell();
 
         StrColumn pdbxUniqueAxis = cell.getPdbxUniqueAxis();
 
@@ -143,7 +143,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
 
-        StrColumn labelAltId = text.getTypedBlock().getAtomSite().getLabelAltId();
+        StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
         assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
         assertEquals("", labelAltId.get(0));
@@ -155,7 +155,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
 
-        Cell cell = text.getTypedBlock().getCell();
+        Cell cell = text.getFirstBlock().getCell();
 
         StrColumn pdbxUniqueAxis = cell.getPdbxUniqueAxis();
 
@@ -169,7 +169,7 @@ public class IntegrationTest {
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).typed(StandardSchemas.MMCIF);
 
-        StrColumn labelAltId = text.getTypedBlock().getAtomSite().getLabelAltId();
+        StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
         assertEquals(ValueKind.NOT_PRESENT, labelAltId.getValueKind(0));
         assertEquals("", labelAltId.get(0));

@@ -1,5 +1,6 @@
 package org.rcsb.cif.schema.generated.mm;
 
+import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.schema.DelegatingCifFile;
 
@@ -9,7 +10,7 @@ public class MmCifFile extends DelegatingCifFile<MmCifBlock> {
     }
 
     @Override
-    public MmCifBlock getTypedBlock() {
-        return new MmCifBlock(delegate.getBlocks().get(0));
+    protected MmCifBlock getTypedBlock(Block block) {
+        return new MmCifBlock(block);
     }
 }
