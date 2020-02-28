@@ -20,6 +20,64 @@ public class StructMonProt extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "chi1":
+                return getChi1();
+            case "chi2":
+                return getChi2();
+            case "chi3":
+                return getChi3();
+            case "chi4":
+                return getChi4();
+            case "chi5":
+                return getChi5();
+            case "details":
+                return getDetails();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "RSCC_all":
+                return getRSCCAll();
+            case "RSCC_main":
+                return getRSCCMain();
+            case "RSCC_side":
+                return getRSCCSide();
+            case "RSR_all":
+                return getRSRAll();
+            case "RSR_main":
+                return getRSRMain();
+            case "RSR_side":
+                return getRSRSide();
+            case "mean_B_all":
+                return getMeanBAll();
+            case "mean_B_main":
+                return getMeanBMain();
+            case "mean_B_side":
+                return getMeanBSide();
+            case "omega":
+                return getOmega();
+            case "phi":
+                return getPhi();
+            case "psi":
+                return getPsi();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value in degrees of the side-chain torsion angle chi1, for
      * those residues containing such an angle.

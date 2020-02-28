@@ -14,6 +14,28 @@ public class PdbxTableinfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "tablename":
+                return getTablename();
+            case "description":
+                return getDescription();
+            case "type":
+                return getType();
+            case "table_serial_no":
+                return getTableSerialNo();
+            case "group_name":
+                return getGroupName();
+            case "WWW_Selection_Criteria":
+                return getWWWSelectionCriteria();
+            case "WWW_Report_Criteria":
+                return getWWWReportCriteria();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * SQL table name.
      * @return StrColumn

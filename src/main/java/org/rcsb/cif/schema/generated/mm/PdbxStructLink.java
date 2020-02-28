@@ -15,6 +15,50 @@ public class PdbxStructLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "type":
+                return getType();
+            case "ptnr1_label_alt_id":
+                return getPtnr1LabelAltId();
+            case "ptnr1_label_asym_id":
+                return getPtnr1LabelAsymId();
+            case "ptnr1_label_atom_id":
+                return getPtnr1LabelAtomId();
+            case "ptnr1_label_comp_id":
+                return getPtnr1LabelCompId();
+            case "ptnr1_label_seq_id":
+                return getPtnr1LabelSeqId();
+            case "ptnr1_label_ins_code":
+                return getPtnr1LabelInsCode();
+            case "ptnr1_symmetry":
+                return getPtnr1Symmetry();
+            case "ptnr2_label_alt_id":
+                return getPtnr2LabelAltId();
+            case "ptnr2_label_asym_id":
+                return getPtnr2LabelAsymId();
+            case "ptnr2_label_atom_id":
+                return getPtnr2LabelAtomId();
+            case "ptnr2_label_comp_id":
+                return getPtnr2LabelCompId();
+            case "ptnr2_label_seq_id":
+                return getPtnr2LabelSeqId();
+            case "ptnr2_label_ins_code":
+                return getPtnr2LabelInsCode();
+            case "ptnr2_symmetry":
+                return getPtnr2Symmetry();
+            case "details":
+                return getDetails();
+            case "pdbx_dist_value":
+                return getPdbxDistValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_struct_link.id must uniquely identify a record in
      * the PDBX_STRUCT_LINK list.

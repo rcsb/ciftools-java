@@ -18,6 +18,20 @@ public class StructNcsEns extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "point_group":
+                return getPointGroup();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the ensemble.
      * @return StrColumn

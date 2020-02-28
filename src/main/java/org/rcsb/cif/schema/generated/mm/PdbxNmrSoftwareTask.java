@@ -15,6 +15,20 @@ public class PdbxNmrSoftwareTask extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "software_ordinal":
+                return getSoftwareOrdinal();
+            case "task":
+                return getTask();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Pointer to '_entry.id'

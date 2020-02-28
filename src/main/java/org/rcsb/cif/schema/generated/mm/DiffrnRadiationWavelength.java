@@ -18,6 +18,20 @@ public class DiffrnRadiationWavelength extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "wavelength":
+                return getWavelength();
+            case "wt":
+                return getWt();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The code identifying each value of
      * _diffrn_radiation_wavelength.wavelength.

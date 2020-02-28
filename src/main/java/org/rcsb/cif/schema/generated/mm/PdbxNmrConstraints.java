@@ -14,6 +14,62 @@ public class PdbxNmrConstraints extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "NOE_constraints_total":
+                return getNOEConstraintsTotal();
+            case "NOE_intraresidue_total_count":
+                return getNOEIntraresidueTotalCount();
+            case "NOE_interentity_total_count":
+                return getNOEInterentityTotalCount();
+            case "NOE_sequential_total_count":
+                return getNOESequentialTotalCount();
+            case "NOE_medium_range_total_count":
+                return getNOEMediumRangeTotalCount();
+            case "NOE_long_range_total_count":
+                return getNOELongRangeTotalCount();
+            case "protein_phi_angle_constraints_total_count":
+                return getProteinPhiAngleConstraintsTotalCount();
+            case "protein_psi_angle_constraints_total_count":
+                return getProteinPsiAngleConstraintsTotalCount();
+            case "protein_chi_angle_constraints_total_count":
+                return getProteinChiAngleConstraintsTotalCount();
+            case "protein_other_angle_constraints_total_count":
+                return getProteinOtherAngleConstraintsTotalCount();
+            case "NOE_interproton_distance_evaluation":
+                return getNOEInterprotonDistanceEvaluation();
+            case "NOE_pseudoatom_corrections":
+                return getNOEPseudoatomCorrections();
+            case "NOE_motional_averaging_correction":
+                return getNOEMotionalAveragingCorrection();
+            case "hydrogen_bond_constraints_total_count":
+                return getHydrogenBondConstraintsTotalCount();
+            case "disulfide_bond_constraints_total_count":
+                return getDisulfideBondConstraintsTotalCount();
+            case "NA_alpha-angle_constraints_total_count":
+                return getNAAlpha_angleConstraintsTotalCount();
+            case "NA_beta-angle_constraints_total_count":
+                return getNABeta_angleConstraintsTotalCount();
+            case "NA_gamma-angle_constraints_total_count":
+                return getNAGamma_angleConstraintsTotalCount();
+            case "NA_delta-angle_constraints_total_count":
+                return getNADelta_angleConstraintsTotalCount();
+            case "NA_epsilon-angle_constraints_total_count":
+                return getNAEpsilon_angleConstraintsTotalCount();
+            case "NA_chi-angle_constraints_total_count":
+                return getNAChi_angleConstraintsTotalCount();
+            case "NA_other-angle_constraints_total_count":
+                return getNAOther_angleConstraintsTotalCount();
+            case "NA_sugar_pucker_constraints_total_count":
+                return getNASugarPuckerConstraintsTotalCount();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * You can leave this blank as an ID will be assigned by the MSD
      * to the constraint file.

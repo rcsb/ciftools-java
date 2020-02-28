@@ -16,6 +16,34 @@ public class PdbxDepuiEntryDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dep_dataset_id":
+                return getDepDatasetId();
+            case "wwpdb_site_id":
+                return getWwpdbSiteId();
+            case "experimental_methods":
+                return getExperimentalMethods();
+            case "requested_accession_types":
+                return getRequestedAccessionTypes();
+            case "validated_contact_email":
+                return getValidatedContactEmail();
+            case "country":
+                return getCountry();
+            case "structural_genomics_flag":
+                return getStructuralGenomicsFlag();
+            case "related_database_name":
+                return getRelatedDatabaseName();
+            case "related_database_code":
+                return getRelatedDatabaseCode();
+            case "replace_pdb_id":
+                return getReplacePdbId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The internal identifier assigned to each deposition.
      * @return StrColumn

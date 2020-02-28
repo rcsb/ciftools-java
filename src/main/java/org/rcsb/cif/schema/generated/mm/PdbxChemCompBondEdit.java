@@ -16,6 +16,26 @@ public class PdbxChemCompBondEdit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "comp_id":
+                return getCompId();
+            case "edit_op":
+                return getEditOp();
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "edit_bond_value":
+                return getEditBondValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies and orders each bond edit instruction.
      * @return IntColumn

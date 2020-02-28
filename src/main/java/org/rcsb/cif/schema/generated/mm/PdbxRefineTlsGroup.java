@@ -17,6 +17,40 @@ public class PdbxRefineTlsGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "refine_tls_id":
+                return getRefineTlsId();
+            case "beg_label_asym_id":
+                return getBegLabelAsymId();
+            case "beg_label_seq_id":
+                return getBegLabelSeqId();
+            case "beg_auth_asym_id":
+                return getBegAuthAsymId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "end_label_asym_id":
+                return getEndLabelAsymId();
+            case "end_label_seq_id":
+                return getEndLabelSeqId();
+            case "end_auth_asym_id":
+                return getEndAuthAsymId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            case "selection":
+                return getSelection();
+            case "selection_details":
+                return getSelectionDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_refine_tls_group.id must uniquely identify
      * a record in the REFINE_TLS_GROUP list for a particular refinement.

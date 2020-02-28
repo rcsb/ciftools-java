@@ -20,6 +20,24 @@ public class DatabasePDBTvect extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "vector[1]":
+                return getVector1();
+            case "vector[2]":
+                return getVector2();
+            case "vector[3]":
+                return getVector3();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of this TVECT.
      * @return StrColumn

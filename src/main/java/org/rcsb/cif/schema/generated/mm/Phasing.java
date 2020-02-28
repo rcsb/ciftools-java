@@ -17,6 +17,16 @@ public class Phasing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "method":
+                return getMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A listing of the method or methods used to phase this
      * structure.

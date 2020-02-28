@@ -16,6 +16,22 @@ public class PdbxAuditRevisionGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "revision_ordinal":
+                return getRevisionOrdinal();
+            case "data_content_type":
+                return getDataContentType();
+            case "group":
+                return getGroup();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the pdbx_audit_revision_group record.
      * @return IntColumn

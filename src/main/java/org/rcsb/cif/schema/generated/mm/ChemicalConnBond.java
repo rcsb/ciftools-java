@@ -27,6 +27,20 @@ public class ChemicalConnBond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_1":
+                return getAtom1();
+            case "atom_2":
+                return getAtom2();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chemical_conn_atom.number in the
      * CHEMICAL_CONN_ATOM category.

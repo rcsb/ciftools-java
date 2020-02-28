@@ -15,6 +15,48 @@ public class PdbxReferenceEntityLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "link_id":
+                return getLinkId();
+            case "prd_id":
+                return getPrdId();
+            case "details":
+                return getDetails();
+            case "ref_entity_id_1":
+                return getRefEntityId1();
+            case "ref_entity_id_2":
+                return getRefEntityId2();
+            case "entity_seq_num_1":
+                return getEntitySeqNum1();
+            case "entity_seq_num_2":
+                return getEntitySeqNum2();
+            case "comp_id_1":
+                return getCompId1();
+            case "comp_id_2":
+                return getCompId2();
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "value_order":
+                return getValueOrder();
+            case "component_1":
+                return getComponent1();
+            case "component_2":
+                return getComponent2();
+            case "nonpoly_res_num_1":
+                return getNonpolyResNum1();
+            case "nonpoly_res_num_2":
+                return getNonpolyResNum2();
+            case "link_class":
+                return getLinkClass();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_link.link_id uniquely identifies
      * linkages between entities with a molecule.

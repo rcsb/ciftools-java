@@ -16,6 +16,28 @@ public class PdbxStructAssemblyDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "method_details":
+                return getMethodDetails();
+            case "oligomeric_details":
+                return getOligomericDetails();
+            case "oligomeric_count":
+                return getOligomericCount();
+            case "matrix_flag":
+                return getMatrixFlag();
+            case "upload_file_name":
+                return getUploadFileName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the macromolecular assembly.
      * @return StrColumn

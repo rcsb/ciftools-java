@@ -15,6 +15,22 @@ public class ChemCompLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "link_id":
+                return getLinkId();
+            case "details":
+                return getDetails();
+            case "type_comp_1":
+                return getTypeComp1();
+            case "type_comp_2":
+                return getTypeComp2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_link.id in the
      * CHEM_LINK category.

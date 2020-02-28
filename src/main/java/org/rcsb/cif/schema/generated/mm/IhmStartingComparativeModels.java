@@ -16,6 +16,38 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "starting_model_id":
+                return getStartingModelId();
+            case "starting_model_auth_asym_id":
+                return getStartingModelAuthAsymId();
+            case "starting_model_seq_id_begin":
+                return getStartingModelSeqIdBegin();
+            case "starting_model_seq_id_end":
+                return getStartingModelSeqIdEnd();
+            case "template_auth_asym_id":
+                return getTemplateAuthAsymId();
+            case "template_seq_id_begin":
+                return getTemplateSeqIdBegin();
+            case "template_seq_id_end":
+                return getTemplateSeqIdEnd();
+            case "template_sequence_identity":
+                return getTemplateSequenceIdentity();
+            case "template_sequence_identity_denominator":
+                return getTemplateSequenceIdentityDenominator();
+            case "template_dataset_list_id":
+                return getTemplateDatasetListId();
+            case "alignment_file_id":
+                return getAlignmentFileId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the starting comparative model.
      * @return IntColumn

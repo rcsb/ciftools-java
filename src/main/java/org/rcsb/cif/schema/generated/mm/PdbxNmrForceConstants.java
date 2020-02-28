@@ -17,6 +17,68 @@ public class PdbxNmrForceConstants extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "exptl_distance_term":
+                return getExptlDistanceTerm();
+            case "exptl_distance_term_units":
+                return getExptlDistanceTermUnits();
+            case "exptl_torsion_angles_term":
+                return getExptlTorsionAnglesTerm();
+            case "exptl_torsion_angles_term_units":
+                return getExptlTorsionAnglesTermUnits();
+            case "exptl_J_coupling_term":
+                return getExptlJCouplingTerm();
+            case "exptl_J_coupling_term_units":
+                return getExptlJCouplingTermUnits();
+            case "exptl_13C_shift_term":
+                return getExptl13CShiftTerm();
+            case "exptl_13C_shift_term_units":
+                return getExptl13CShiftTermUnits();
+            case "exptl_1H_shift_term":
+                return getExptl1HShiftTerm();
+            case "exptl_1H_shift_term_units":
+                return getExptl1HShiftTermUnits();
+            case "exptl_dipolar_coupling_term":
+                return getExptlDipolarCouplingTerm();
+            case "exptl_dipolar_coupling_term_units":
+                return getExptlDipolarCouplingTermUnits();
+            case "exptl_D_isotope_shift_term":
+                return getExptlDIsotopeShiftTerm();
+            case "exptl_D_isotope_shift_term_units":
+                return getExptlDIsotopeShiftTermUnits();
+            case "covalent_geom_bond_term":
+                return getCovalentGeomBondTerm();
+            case "covalent_geom_bond_term_units":
+                return getCovalentGeomBondTermUnits();
+            case "covalent_geom_angles_term":
+                return getCovalentGeomAnglesTerm();
+            case "covalent_geom_angles_term_units":
+                return getCovalentGeomAnglesTermUnits();
+            case "covalent_geom_impropers_term":
+                return getCovalentGeomImpropersTerm();
+            case "covalent_geom_impropers_term_units":
+                return getCovalentGeomImpropersTermUnits();
+            case "non-bonded_inter_van_der_Waals_term_type":
+                return getNon_bondedInterVanDerWaalsTermType();
+            case "non-bonded_inter_van_der_Waals_term":
+                return getNon_bondedInterVanDerWaalsTerm();
+            case "non-bonded_inter_van_der_Waals_term_units":
+                return getNon_bondedInterVanDerWaalsTermUnits();
+            case "non-bonded_inter_conf_db_potential_term":
+                return getNon_bondedInterConfDbPotentialTerm();
+            case "non-bonded_inter_radius_of_gyration_term":
+                return getNon_bondedInterRadiusOfGyrationTerm();
+            case "non-bonded_inter_radius_of_gyration_term_units":
+                return getNon_bondedInterRadiusOfGyrationTermUnits();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * You can leave this blank as an ID will be assigned by the RCSB.
      * @return StrColumn

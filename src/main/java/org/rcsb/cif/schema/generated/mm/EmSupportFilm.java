@@ -14,6 +14,24 @@ public class EmSupportFilm extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "material":
+                return getMaterial();
+            case "sample_support_id":
+                return getSampleSupportId();
+            case "thickness":
+                return getThickness();
+            case "topology":
+                return getTopology();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is the primary key of the category.
      * @return StrColumn

@@ -15,6 +15,22 @@ public class PdbxChemCompUploadDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "comp_id":
+                return getCompId();
+            case "upload_file_type":
+                return getUploadFileType();
+            case "upload_file_name":
+                return getUploadFileName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for this category.
      * @return IntColumn

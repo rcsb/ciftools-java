@@ -14,6 +14,24 @@ public class PdbxChemCompFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "type":
+                return getType();
+            case "support":
+                return getSupport();
+            case "value":
+                return getValue();
+            case "source":
+                return getSource();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The component identifier for this feature.
      * @return StrColumn

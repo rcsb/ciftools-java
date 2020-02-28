@@ -14,6 +14,18 @@ public class PdbxCoordinateModel extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "asym_id":
+                return getAsymId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A reference to _struct_asym.id.
      * @return StrColumn

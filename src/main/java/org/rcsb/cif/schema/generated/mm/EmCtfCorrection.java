@@ -14,6 +14,36 @@ public class EmCtfCorrection extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "amplitude_correction":
+                return getAmplitudeCorrection();
+            case "amplitude_correction_factor":
+                return getAmplitudeCorrectionFactor();
+            case "amplitude_correction_space":
+                return getAmplitudeCorrectionSpace();
+            case "correction_operation":
+                return getCorrectionOperation();
+            case "details":
+                return getDetails();
+            case "em_image_processing_id":
+                return getEmImageProcessingId();
+            case "id":
+                return getId();
+            case "phase_reversal":
+                return getPhaseReversal();
+            case "phase_reversal_anisotropic":
+                return getPhaseReversalAnisotropic();
+            case "phase_reversal_correction_space":
+                return getPhaseReversalCorrectionSpace();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Yes if CTF amplitude correction was performed
      * @return StrColumn

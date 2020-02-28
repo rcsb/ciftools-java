@@ -26,6 +26,28 @@ public class StructBiol extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "pdbx_parent_biol_id":
+                return getPdbxParentBiolId();
+            case "pdbx_formula_weight":
+                return getPdbxFormulaWeight();
+            case "pdbx_formula_weight_method":
+                return getPdbxFormulaWeightMethod();
+            case "pdbx_aggregation_state":
+                return getPdbxAggregationState();
+            case "pdbx_assembly_method":
+                return getPdbxAssemblyMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the biological unit.
      * @return StrColumn

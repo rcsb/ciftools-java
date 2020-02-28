@@ -18,6 +18,20 @@ public class JournalIndex extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "subterm":
+                return getSubterm();
+            case "term":
+                return getTerm();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Journal index data items are defined by the journal staff.
      * @return StrColumn

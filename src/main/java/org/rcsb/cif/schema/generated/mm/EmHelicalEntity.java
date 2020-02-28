@@ -15,6 +15,32 @@ public class EmHelicalEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "details":
+                return getDetails();
+            case "dyad":
+                return getDyad();
+            case "axial_symmetry":
+                return getAxialSymmetry();
+            case "angular_rotation_per_subunit":
+                return getAngularRotationPerSubunit();
+            case "axial_rise_per_subunit":
+                return getAxialRisePerSubunit();
+            case "hand":
+                return getHand();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _em_helical_entity.id must uniquely identify
      * a set of the filament parameters for this assembly component.

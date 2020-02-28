@@ -15,6 +15,22 @@ public class PdbxNmrRefine extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "method":
+                return getMethod();
+            case "details":
+                return getDetails();
+            case "software_ordinal":
+                return getSoftwareOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * You can leave this blank as an ID will be assigned by the RCSB
      * to the constraint file.

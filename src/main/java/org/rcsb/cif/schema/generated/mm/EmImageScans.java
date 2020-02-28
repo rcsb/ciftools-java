@@ -16,6 +16,42 @@ public class EmImageScans extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "number_digital_images":
+                return getNumberDigitalImages();
+            case "details":
+                return getDetails();
+            case "scanner_model":
+                return getScannerModel();
+            case "sampling_size":
+                return getSamplingSize();
+            case "od_range":
+                return getOdRange();
+            case "quant_bit_size":
+                return getQuantBitSize();
+            case "citation_id":
+                return getCitationId();
+            case "dimension_height":
+                return getDimensionHeight();
+            case "dimension_width":
+                return getDimensionWidth();
+            case "frames_per_image":
+                return getFramesPerImage();
+            case "image_recording_id":
+                return getImageRecordingId();
+            case "used_frames_per_image":
+                return getUsedFramesPerImage();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the
      * ENTRY category.

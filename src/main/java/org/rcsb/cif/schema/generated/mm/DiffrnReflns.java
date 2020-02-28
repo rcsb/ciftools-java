@@ -21,6 +21,80 @@ public class DiffrnReflns extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "av_R_equivalents":
+                return getAvREquivalents();
+            case "av_sigmaI_over_netI":
+                return getAvSigmaIOverNetI();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "limit_h_max":
+                return getLimitHMax();
+            case "limit_h_min":
+                return getLimitHMin();
+            case "limit_k_max":
+                return getLimitKMax();
+            case "limit_k_min":
+                return getLimitKMin();
+            case "limit_l_max":
+                return getLimitLMax();
+            case "limit_l_min":
+                return getLimitLMin();
+            case "number":
+                return getNumber();
+            case "reduction_process":
+                return getReductionProcess();
+            case "theta_max":
+                return getThetaMax();
+            case "theta_min":
+                return getThetaMin();
+            case "transf_matrix[1][1]":
+                return getTransfMatrix11();
+            case "transf_matrix[1][2]":
+                return getTransfMatrix12();
+            case "transf_matrix[1][3]":
+                return getTransfMatrix13();
+            case "transf_matrix[2][1]":
+                return getTransfMatrix21();
+            case "transf_matrix[2][2]":
+                return getTransfMatrix22();
+            case "transf_matrix[2][3]":
+                return getTransfMatrix23();
+            case "transf_matrix[3][1]":
+                return getTransfMatrix31();
+            case "transf_matrix[3][2]":
+                return getTransfMatrix32();
+            case "transf_matrix[3][3]":
+                return getTransfMatrix33();
+            case "av_unetI/netI":
+                return getAvUnetI_netI();
+            case "pdbx_d_res_low":
+                return getPdbxDResLow();
+            case "pdbx_d_res_high":
+                return getPdbxDResHigh();
+            case "pdbx_percent_possible_obs":
+                return getPdbxPercentPossibleObs();
+            case "pdbx_Rmerge_I_obs":
+                return getPdbxRmergeIObs();
+            case "pdbx_Rsym_value":
+                return getPdbxRsymValue();
+            case "pdbx_chi_squared":
+                return getPdbxChiSquared();
+            case "pdbx_redundancy":
+                return getPdbxRedundancy();
+            case "pdbx_rejects":
+                return getPdbxRejects();
+            case "pdbx_observed_criterion":
+                return getPdbxObservedCriterion();
+            case "pdbx_number_obs":
+                return getPdbxNumberObs();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The residual [sum|avdel(I)| / sum|av(I)|] for symmetry-equivalent
      * reflections used to calculate the average intensity av(I). The

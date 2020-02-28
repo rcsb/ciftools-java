@@ -15,6 +15,36 @@ public class PdbxSerialCrystallographyMeasurement extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "pulse_energy":
+                return getPulseEnergy();
+            case "pulse_duration":
+                return getPulseDuration();
+            case "xfel_pulse_repetition_rate":
+                return getXfelPulseRepetitionRate();
+            case "pulse_photon_energy":
+                return getPulsePhotonEnergy();
+            case "photons_per_pulse":
+                return getPhotonsPerPulse();
+            case "source_size":
+                return getSourceSize();
+            case "source_distance":
+                return getSourceDistance();
+            case "focal_spot_size":
+                return getFocalSpotSize();
+            case "collimation":
+                return getCollimation();
+            case "collection_time_total":
+                return getCollectionTimeTotal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.

@@ -15,6 +15,58 @@ public class PdbxCrystalAlignment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "crystal_id":
+                return getCrystalId();
+            case "oscillation_range":
+                return getOscillationRange();
+            case "oscillation_start":
+                return getOscillationStart();
+            case "oscillation_end":
+                return getOscillationEnd();
+            case "xbeam":
+                return getXbeam();
+            case "xbeam_esd":
+                return getXbeamEsd();
+            case "ybeam":
+                return getYbeam();
+            case "ybeam_esd":
+                return getYbeamEsd();
+            case "crysx_spindle":
+                return getCrysxSpindle();
+            case "crysx_spindle_esd":
+                return getCrysxSpindleEsd();
+            case "crysy_vertical":
+                return getCrysyVertical();
+            case "crysy_vertical_esd":
+                return getCrysyVerticalEsd();
+            case "crysz_beam":
+                return getCryszBeam();
+            case "crysz_beam_esd":
+                return getCryszBeamEsd();
+            case "crystal_to_detector_distance":
+                return getCrystalToDetectorDistance();
+            case "crystal_to_detector_distance_esd":
+                return getCrystalToDetectorDistanceEsd();
+            case "crossfire_x":
+                return getCrossfireX();
+            case "crossfire_x_esd":
+                return getCrossfireXEsd();
+            case "crossfire_y":
+                return getCrossfireY();
+            case "crossfire_y_esd":
+                return getCrossfireYEsd();
+            case "crossfire_xy":
+                return getCrossfireXy();
+            case "crossfire_xy_esd":
+                return getCrossfireXyEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifer of the crystal.
      * @return StrColumn

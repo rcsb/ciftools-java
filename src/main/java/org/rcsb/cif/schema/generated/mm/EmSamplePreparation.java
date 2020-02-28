@@ -16,6 +16,32 @@ public class EmSamplePreparation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "ph":
+                return getPh();
+            case "buffer_id":
+                return getBufferId();
+            case "sample_concentration":
+                return getSampleConcentration();
+            case "2d_crystal_grow_id":
+                return get_2dCrystalGrowId();
+            case "support_id":
+                return getSupportId();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

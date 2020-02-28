@@ -16,6 +16,62 @@ public class AtomType extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "analytical_mass_percent":
+                return getAnalyticalMassPercent();
+            case "description":
+                return getDescription();
+            case "number_in_cell":
+                return getNumberInCell();
+            case "oxidation_number":
+                return getOxidationNumber();
+            case "radius_bond":
+                return getRadiusBond();
+            case "radius_contact":
+                return getRadiusContact();
+            case "scat_Cromer_Mann_a1":
+                return getScatCromerMannA1();
+            case "scat_Cromer_Mann_a2":
+                return getScatCromerMannA2();
+            case "scat_Cromer_Mann_a3":
+                return getScatCromerMannA3();
+            case "scat_Cromer_Mann_a4":
+                return getScatCromerMannA4();
+            case "scat_Cromer_Mann_b1":
+                return getScatCromerMannB1();
+            case "scat_Cromer_Mann_b2":
+                return getScatCromerMannB2();
+            case "scat_Cromer_Mann_b3":
+                return getScatCromerMannB3();
+            case "scat_Cromer_Mann_b4":
+                return getScatCromerMannB4();
+            case "scat_Cromer_Mann_c":
+                return getScatCromerMannC();
+            case "scat_dispersion_imag":
+                return getScatDispersionImag();
+            case "scat_dispersion_real":
+                return getScatDispersionReal();
+            case "scat_length_neutron":
+                return getScatLengthNeutron();
+            case "scat_source":
+                return getScatSource();
+            case "scat_versus_stol_list":
+                return getScatVersusStolList();
+            case "symbol":
+                return getSymbol();
+            case "scat_dispersion_source":
+                return getScatDispersionSource();
+            case "pdbx_scat_Cromer_Mann_a5":
+                return getPdbxScatCromerMannA5();
+            case "pdbx_scat_Cromer_Mann_b5":
+                return getPdbxScatCromerMannB5();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Mass percentage of this atom type derived from chemical analysis.
      * @return FloatColumn

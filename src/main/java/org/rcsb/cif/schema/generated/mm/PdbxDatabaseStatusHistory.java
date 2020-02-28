@@ -15,6 +15,26 @@ public class PdbxDatabaseStatusHistory extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "ordinal":
+                return getOrdinal();
+            case "date_begin":
+                return getDateBegin();
+            case "date_end":
+                return getDateEnd();
+            case "status_code":
+                return getStatusCode();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_database_status_history.entry_id identifies the entry data block.
      * @return StrColumn

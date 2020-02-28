@@ -15,6 +15,22 @@ public class IhmGeometricObjectCenter extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "xcoord":
+                return getXcoord();
+            case "ycoord":
+                return getYcoord();
+            case "zcoord":
+                return getZcoord();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the center.
      * @return IntColumn

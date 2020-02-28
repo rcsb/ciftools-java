@@ -20,6 +20,94 @@ public class StructMonNucl extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "alpha":
+                return getAlpha();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "beta":
+                return getBeta();
+            case "chi1":
+                return getChi1();
+            case "chi2":
+                return getChi2();
+            case "delta":
+                return getDelta();
+            case "details":
+                return getDetails();
+            case "epsilon":
+                return getEpsilon();
+            case "gamma":
+                return getGamma();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "mean_B_all":
+                return getMeanBAll();
+            case "mean_B_base":
+                return getMeanBBase();
+            case "mean_B_phos":
+                return getMeanBPhos();
+            case "mean_B_sugar":
+                return getMeanBSugar();
+            case "nu0":
+                return getNu0();
+            case "nu1":
+                return getNu1();
+            case "nu2":
+                return getNu2();
+            case "nu3":
+                return getNu3();
+            case "nu4":
+                return getNu4();
+            case "P":
+                return getP();
+            case "RSCC_all":
+                return getRSCCAll();
+            case "RSCC_base":
+                return getRSCCBase();
+            case "RSCC_phos":
+                return getRSCCPhos();
+            case "RSCC_sugar":
+                return getRSCCSugar();
+            case "RSR_all":
+                return getRSRAll();
+            case "RSR_base":
+                return getRSRBase();
+            case "RSR_phos":
+                return getRSRPhos();
+            case "RSR_sugar":
+                return getRSRSugar();
+            case "tau0":
+                return getTau0();
+            case "tau1":
+                return getTau1();
+            case "tau2":
+                return getTau2();
+            case "tau3":
+                return getTau3();
+            case "tau4":
+                return getTau4();
+            case "taum":
+                return getTaum();
+            case "zeta":
+                return getZeta();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value in degrees of the backbone torsion angle alpha
      * (O3'-P-O5'-C5').

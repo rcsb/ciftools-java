@@ -16,6 +16,20 @@ public class PdbxInhibitorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "num_per_asym_unit":
+                return getNumPerAsymUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return IntColumn

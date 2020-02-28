@@ -15,6 +15,44 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "chem_shift_13C_err":
+                return getChemShift13CErr();
+            case "chem_shift_15N_err":
+                return getChemShift15NErr();
+            case "chem_shift_19F_err":
+                return getChemShift19FErr();
+            case "chem_shift_1H_err":
+                return getChemShift1HErr();
+            case "chem_shift_2H_err":
+                return getChemShift2HErr();
+            case "chem_shift_31P_err":
+                return getChemShift31PErr();
+            case "chem_shift_reference_id":
+                return getChemShiftReferenceId();
+            case "conditions_id":
+                return getConditionsId();
+            case "data_file_name":
+                return getDataFileName();
+            case "details":
+                return getDetails();
+            case "entry_id":
+                return getEntryId();
+            case "error_derivation_method":
+                return getErrorDerivationMethod();
+            case "id":
+                return getId();
+            case "label":
+                return getLabel();
+            case "conditions_label":
+                return getConditionsLabel();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * The value assigned as the error for all 13C chemical shifts reported in

@@ -17,6 +17,32 @@ public class IhmOrderedEnsemble extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "process_id":
+                return getProcessId();
+            case "process_description":
+                return getProcessDescription();
+            case "edge_id":
+                return getEdgeId();
+            case "edge_description":
+                return getEdgeDescription();
+            case "step_id":
+                return getStepId();
+            case "step_description":
+                return getStepDescription();
+            case "ordered_by":
+                return getOrderedBy();
+            case "model_group_id_begin":
+                return getModelGroupIdBegin();
+            case "model_group_id_end":
+                return getModelGroupIdEnd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An identifier for the ordered process.
      * Forms the category key together with _ihm_ordered_ensemble.edge_id.

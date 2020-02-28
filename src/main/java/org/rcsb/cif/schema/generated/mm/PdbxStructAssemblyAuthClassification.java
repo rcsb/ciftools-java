@@ -15,6 +15,18 @@ public class PdbxStructAssemblyAuthClassification extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "assembly_id":
+                return getAssemblyId();
+            case "reason_for_interest":
+                return getReasonForInterest();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This item references an assembly in pdbx_struct_assembly
      * @return StrColumn

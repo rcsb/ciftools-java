@@ -32,6 +32,24 @@ public class SpaceGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "crystal_system":
+                return getCrystalSystem();
+            case "id":
+                return getId();
+            case "IT_number":
+                return getITNumber();
+            case "name_Hall":
+                return getNameHall();
+            case "name_H-M_alt":
+                return getNameH_MAlt();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The name of the system of geometric crystal classes of space
      * groups (crystal system) to which the space group belongs.

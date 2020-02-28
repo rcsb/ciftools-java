@@ -15,6 +15,32 @@ public class Em2dCrystalEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_gamma":
+                return getAngleGamma();
+            case "c_sampling_length":
+                return getCSamplingLength();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "id":
+                return getId();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "length_a":
+                return getLengthA();
+            case "length_b":
+                return getLengthB();
+            case "length_c":
+                return getLengthC();
+            case "space_group_name_H-M":
+                return getSpaceGroupNameH_M();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unit-cell angle gamma in degrees.
      * @return FloatColumn

@@ -16,6 +16,20 @@ public class IhmStartingComputationalModels extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "starting_model_id":
+                return getStartingModelId();
+            case "script_file_id":
+                return getScriptFileId();
+            case "software_id":
+                return getSoftwareId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier for the starting structural model.
      * This data item is a pointer to _ihm_starting_model_details.starting_model_id

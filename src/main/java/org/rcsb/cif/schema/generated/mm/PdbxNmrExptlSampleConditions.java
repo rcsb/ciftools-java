@@ -16,6 +16,44 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "conditions_id":
+                return getConditionsId();
+            case "temperature":
+                return getTemperature();
+            case "pressure_units":
+                return getPressureUnits();
+            case "pressure":
+                return getPressure();
+            case "pH":
+                return getPH();
+            case "ionic_strength":
+                return getIonicStrength();
+            case "details":
+                return getDetails();
+            case "ionic_strength_err":
+                return getIonicStrengthErr();
+            case "ionic_strength_units":
+                return getIonicStrengthUnits();
+            case "label":
+                return getLabel();
+            case "pH_err":
+                return getPHErr();
+            case "pH_units":
+                return getPHUnits();
+            case "pressure_err":
+                return getPressureErr();
+            case "temperature_err":
+                return getTemperatureErr();
+            case "temperature_units":
+                return getTemperatureUnits();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The condition number as defined above.
      * @return StrColumn

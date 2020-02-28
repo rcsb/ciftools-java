@@ -17,6 +17,30 @@ public class StructSite extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "pdbx_num_residues":
+                return getPdbxNumResidues();
+            case "pdbx_evidence_code":
+                return getPdbxEvidenceCode();
+            case "pdbx_auth_asym_id":
+                return getPdbxAuthAsymId();
+            case "pdbx_auth_comp_id":
+                return getPdbxAuthCompId();
+            case "pdbx_auth_seq_id":
+                return getPdbxAuthSeqId();
+            case "pdbx_auth_ins_code":
+                return getPdbxAuthInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the site.
      * @return StrColumn

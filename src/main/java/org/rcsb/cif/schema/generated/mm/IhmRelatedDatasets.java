@@ -14,6 +14,20 @@ public class IhmRelatedDatasets extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "dataset_list_id_derived":
+                return getDatasetListIdDerived();
+            case "dataset_list_id_primary":
+                return getDatasetListIdPrimary();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the entry.
      * @return IntColumn

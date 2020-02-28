@@ -16,6 +16,34 @@ public class Ihm3demRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "model_id":
+                return getModelId();
+            case "struct_assembly_id":
+                return getStructAssemblyId();
+            case "fitting_method":
+                return getFittingMethod();
+            case "number_of_gaussians":
+                return getNumberOfGaussians();
+            case "map_segment_flag":
+                return getMapSegmentFlag();
+            case "cross_correlation_coefficient":
+                return getCrossCorrelationCoefficient();
+            case "fitting_method_citation_id":
+                return getFittingMethodCitationId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the 3DEM restraint description.
      * @return IntColumn

@@ -14,6 +14,54 @@ public class PdbxPhasingMADSetSite extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "atom_type_symbol":
+                return getAtomTypeSymbol();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_z":
+                return getCartnZ();
+            case "Cartn_x_esd":
+                return getCartnXEsd();
+            case "Cartn_y_esd":
+                return getCartnYEsd();
+            case "Cartn_z_esd":
+                return getCartnZEsd();
+            case "fract_x":
+                return getFractX();
+            case "fract_y":
+                return getFractY();
+            case "fract_z":
+                return getFractZ();
+            case "fract_x_esd":
+                return getFractXEsd();
+            case "fract_y_esd":
+                return getFractYEsd();
+            case "fract_z_esd":
+                return getFractZEsd();
+            case "b_iso":
+                return getBIso();
+            case "b_iso_esd":
+                return getBIsoEsd();
+            case "occupancy":
+                return getOccupancy();
+            case "occupancy_esd":
+                return getOccupancyEsd();
+            case "set_id":
+                return getSetId();
+            case "occupancy_iso":
+                return getOccupancyIso();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * _pdbx_phasing_MAD_set_site.id records the number of site
      * obtained from MAD phasing.

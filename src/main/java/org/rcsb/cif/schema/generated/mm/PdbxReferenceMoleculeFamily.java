@@ -15,6 +15,24 @@ public class PdbxReferenceMoleculeFamily extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "family_prd_id":
+                return getFamilyPrdId();
+            case "name":
+                return getName();
+            case "release_status":
+                return getReleaseStatus();
+            case "replaces":
+                return getReplaces();
+            case "replaced_by":
+                return getReplacedBy();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity.family_prd_id must uniquely identify a record in the
      * PDBX_REFERENCE_MOLECULE_FAMILY list.

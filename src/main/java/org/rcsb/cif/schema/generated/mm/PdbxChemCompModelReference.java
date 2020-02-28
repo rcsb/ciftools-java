@@ -14,6 +14,20 @@ public class PdbxChemCompModelReference extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "model_id":
+                return getModelId();
+            case "db_name":
+                return getDbName();
+            case "db_code":
+                return getDbCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The component model identifier for this feature.
      * @return StrColumn

@@ -15,6 +15,18 @@ public class StructSiteKeywords extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "site_id":
+                return getSiteId();
+            case "text":
+                return getText();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_site.id in the STRUCT_SITE
      * category.

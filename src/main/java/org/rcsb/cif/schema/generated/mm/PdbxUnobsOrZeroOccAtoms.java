@@ -15,6 +15,42 @@ public class PdbxUnobsOrZeroOccAtoms extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "polymer_flag":
+                return getPolymerFlag();
+            case "occupancy_flag":
+                return getOccupancyFlag();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_unobs_or_zero_occ_atoms.id must uniquely identify
      * each item in the PDBX_UNOBS_OR_ZERO_OCC_ATOMS list.

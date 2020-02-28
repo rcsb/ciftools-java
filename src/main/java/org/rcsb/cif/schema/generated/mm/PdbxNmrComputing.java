@@ -17,6 +17,40 @@ public class PdbxNmrComputing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "collection":
+                return getCollection();
+            case "collection_version":
+                return getCollectionVersion();
+            case "processing":
+                return getProcessing();
+            case "processing_version":
+                return getProcessingVersion();
+            case "data_analysis":
+                return getDataAnalysis();
+            case "data_analysis_version":
+                return getDataAnalysisVersion();
+            case "structure_solution":
+                return getStructureSolution();
+            case "structure_solution_version":
+                return getStructureSolutionVersion();
+            case "refinement":
+                return getRefinement();
+            case "refinement_version":
+                return getRefinementVersion();
+            case "iterative_relaxation_matrix":
+                return getIterativeRelaxationMatrix();
+            case "iterative_relaxation_matrix_version":
+                return getIterativeRelaxationMatrixVersion();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The entry ID for the structure determination.
      * @return StrColumn

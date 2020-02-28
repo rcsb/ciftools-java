@@ -16,6 +16,26 @@ public class PdbxChemCompAtomEdit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "comp_id":
+                return getCompId();
+            case "edit_op":
+                return getEditOp();
+            case "atom_id":
+                return getAtomId();
+            case "edit_atom_id":
+                return getEditAtomId();
+            case "edit_atom_value":
+                return getEditAtomValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies and orders each  atom edit instruction.
      * @return IntColumn

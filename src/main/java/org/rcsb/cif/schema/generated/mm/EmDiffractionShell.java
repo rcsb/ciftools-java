@@ -15,6 +15,30 @@ public class EmDiffractionShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "em_diffraction_stats_id":
+                return getEmDiffractionStatsId();
+            case "fourier_space_coverage":
+                return getFourierSpaceCoverage();
+            case "high_resolution":
+                return getHighResolution();
+            case "id":
+                return getId();
+            case "low_resolution":
+                return getLowResolution();
+            case "multiplicity":
+                return getMultiplicity();
+            case "num_structure_factors":
+                return getNumStructureFactors();
+            case "phase_residual":
+                return getPhaseResidual();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Pointer to EM CRYSTALLOGRAPHY STATS
      * @return StrColumn

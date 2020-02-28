@@ -14,6 +14,28 @@ public class EmTomographySpecimen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "cryo_protectant":
+                return getCryoProtectant();
+            case "details":
+                return getDetails();
+            case "fiducial_markers":
+                return getFiducialMarkers();
+            case "high_pressure_freezing":
+                return getHighPressureFreezing();
+            case "id":
+                return getId();
+            case "sectioning":
+                return getSectioning();
+            case "specimen_id":
+                return getSpecimenId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The type of cryo-protectant used during specimen preparation.
      * @return StrColumn

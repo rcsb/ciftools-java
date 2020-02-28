@@ -15,6 +15,46 @@ public class PdbxDatabaseMessage extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "message_id":
+                return getMessageId();
+            case "date":
+                return getDate();
+            case "content_type":
+                return getContentType();
+            case "message_type":
+                return getMessageType();
+            case "sender":
+                return getSender();
+            case "sender_address_fax":
+                return getSenderAddressFax();
+            case "sender_address_phone":
+                return getSenderAddressPhone();
+            case "sender_address_email":
+                return getSenderAddressEmail();
+            case "sender_address_mail":
+                return getSenderAddressMail();
+            case "receiver":
+                return getReceiver();
+            case "receiver_address_fax":
+                return getReceiverAddressFax();
+            case "receiver_address_phone":
+                return getReceiverAddressPhone();
+            case "receiver_address_email":
+                return getReceiverAddressEmail();
+            case "receiver_address_mail":
+                return getReceiverAddressMail();
+            case "message":
+                return getMessage();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_database_message.entry_id identifies the data block.
      * @return StrColumn

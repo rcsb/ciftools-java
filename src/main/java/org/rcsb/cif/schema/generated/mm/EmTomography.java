@@ -14,6 +14,32 @@ public class EmTomography extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "axis1_angle_increment":
+                return getAxis1AngleIncrement();
+            case "axis1_max_angle":
+                return getAxis1MaxAngle();
+            case "axis1_min_angle":
+                return getAxis1MinAngle();
+            case "axis2_angle_increment":
+                return getAxis2AngleIncrement();
+            case "axis2_max_angle":
+                return getAxis2MaxAngle();
+            case "axis2_min_angle":
+                return getAxis2MinAngle();
+            case "dual_tilt_axis_rotation":
+                return getDualTiltAxisRotation();
+            case "id":
+                return getId();
+            case "imaging_id":
+                return getImagingId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The angle increment of specimen tilting to obtain the
      * recorded images (axis 1).

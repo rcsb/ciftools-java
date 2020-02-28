@@ -15,6 +15,22 @@ public class PdbxStructAssemblyAuthEvidence extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "assembly_id":
+                return getAssemblyId();
+            case "experimental_support":
+                return getExperimentalSupport();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Identifies a unique record in pdbx_struct_assembly_auth_evidence.
      * @return StrColumn

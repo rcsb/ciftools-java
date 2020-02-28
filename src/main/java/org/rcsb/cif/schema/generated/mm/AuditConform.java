@@ -16,6 +16,20 @@ public class AuditConform extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dict_location":
+                return getDictLocation();
+            case "dict_name":
+                return getDictName();
+            case "dict_version":
+                return getDictVersion();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A file name or uniform resource locator (URL) for the
      * dictionary to which the current data block conforms.

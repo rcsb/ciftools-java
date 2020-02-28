@@ -15,6 +15,68 @@ public class PdbxRefineComponent extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "B_iso":
+                return getBIso();
+            case "B_iso_main_chain":
+                return getBIsoMainChain();
+            case "B_iso_side_chain":
+                return getBIsoSideChain();
+            case "shift":
+                return getShift();
+            case "shift_side_chain":
+                return getShiftSideChain();
+            case "shift_main_chain":
+                return getShiftMainChain();
+            case "correlation":
+                return getCorrelation();
+            case "correlation_side_chain":
+                return getCorrelationSideChain();
+            case "correlation_main_chain":
+                return getCorrelationMainChain();
+            case "real_space_R":
+                return getRealSpaceR();
+            case "real_space_R_side_chain":
+                return getRealSpaceRSideChain();
+            case "real_space_R_main_chain":
+                return getRealSpaceRMainChain();
+            case "connect":
+                return getConnect();
+            case "density_index":
+                return getDensityIndex();
+            case "density_index_main_chain":
+                return getDensityIndexMainChain();
+            case "density_index_side_chain":
+                return getDensityIndexSideChain();
+            case "density_ratio":
+                return getDensityRatio();
+            case "density_ratio_main_chain":
+                return getDensityRatioMainChain();
+            case "density_ratio_side_chain":
+                return getDensityRatioSideChain();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the component.
      * 

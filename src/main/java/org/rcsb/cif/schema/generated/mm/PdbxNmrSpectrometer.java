@@ -16,6 +16,28 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "spectrometer_id":
+                return getSpectrometerId();
+            case "model":
+                return getModel();
+            case "type":
+                return getType();
+            case "manufacturer":
+                return getManufacturer();
+            case "field_strength":
+                return getFieldStrength();
+            case "details":
+                return getDetails();
+            case "name":
+                return getName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Assign a numerical ID to each instrument.

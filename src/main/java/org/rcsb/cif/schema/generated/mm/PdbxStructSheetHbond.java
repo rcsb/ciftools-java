@@ -19,6 +19,56 @@ public class PdbxStructSheetHbond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "range_id_1":
+                return getRangeId1();
+            case "range_id_2":
+                return getRangeId2();
+            case "sheet_id":
+                return getSheetId();
+            case "range_1_label_atom_id":
+                return getRange1LabelAtomId();
+            case "range_1_label_seq_id":
+                return getRange1LabelSeqId();
+            case "range_1_label_comp_id":
+                return getRange1LabelCompId();
+            case "range_1_label_asym_id":
+                return getRange1LabelAsymId();
+            case "range_1_auth_atom_id":
+                return getRange1AuthAtomId();
+            case "range_1_auth_seq_id":
+                return getRange1AuthSeqId();
+            case "range_1_auth_comp_id":
+                return getRange1AuthCompId();
+            case "range_1_auth_asym_id":
+                return getRange1AuthAsymId();
+            case "range_1_PDB_ins_code":
+                return getRange1PDBInsCode();
+            case "range_2_label_atom_id":
+                return getRange2LabelAtomId();
+            case "range_2_label_seq_id":
+                return getRange2LabelSeqId();
+            case "range_2_label_comp_id":
+                return getRange2LabelCompId();
+            case "range_2_label_asym_id":
+                return getRange2LabelAsymId();
+            case "range_2_auth_atom_id":
+                return getRange2AuthAtomId();
+            case "range_2_auth_seq_id":
+                return getRange2AuthSeqId();
+            case "range_2_auth_comp_id":
+                return getRange2AuthCompId();
+            case "range_2_auth_asym_id":
+                return getRange2AuthAsymId();
+            case "range_2_PDB_ins_code":
+                return getRange2PDBInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_sheet_range.id in
      * the STRUCT_SHEET_RANGE category.

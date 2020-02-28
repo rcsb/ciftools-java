@@ -15,6 +15,20 @@ public class PdbxChemCompAtomFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "atom_id":
+                return getAtomId();
+            case "feature_type":
+                return getFeatureType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_chem_comp_import.comp_id in the CHEM_COMP
      * category.

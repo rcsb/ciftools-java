@@ -17,6 +17,26 @@ public class PdbxNmrExptl extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "experiment_id":
+                return getExperimentId();
+            case "conditions_id":
+                return getConditionsId();
+            case "solution_id":
+                return getSolutionId();
+            case "type":
+                return getType();
+            case "spectrometer_id":
+                return getSpectrometerId();
+            case "sample_state":
+                return getSampleState();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A numerical ID for each experiment.
      * @return StrColumn

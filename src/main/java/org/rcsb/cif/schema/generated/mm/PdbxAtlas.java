@@ -15,6 +15,20 @@ public class PdbxAtlas extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "page_id":
+                return getPageId();
+            case "page_name":
+                return getPageName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Entry ID.
      * @return StrColumn

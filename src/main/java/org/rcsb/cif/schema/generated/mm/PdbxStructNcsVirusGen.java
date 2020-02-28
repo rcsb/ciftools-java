@@ -15,6 +15,22 @@ public class PdbxStructNcsVirusGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "oper_id":
+                return getOperId();
+            case "asym_id":
+                return getAsymId();
+            case "pdb_chain_id":
+                return getPdbChainId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique id for generator.
      * @return StrColumn

@@ -15,6 +15,26 @@ public class PdbxChemCompAudit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "date":
+                return getDate();
+            case "annotator":
+                return getAnnotator();
+            case "processing_site":
+                return getProcessingSite();
+            case "details":
+                return getDetails();
+            case "action_type":
+                return getActionType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.

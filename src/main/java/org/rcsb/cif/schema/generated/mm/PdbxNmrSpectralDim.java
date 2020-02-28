@@ -15,6 +15,40 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "atom_type":
+                return getAtomType();
+            case "atom_isotope_number":
+                return getAtomIsotopeNumber();
+            case "spectral_region":
+                return getSpectralRegion();
+            case "magnetization_linkage_id":
+                return getMagnetizationLinkageId();
+            case "sweep_width":
+                return getSweepWidth();
+            case "encoding_code":
+                return getEncodingCode();
+            case "encoded_source_dimension_id":
+                return getEncodedSourceDimensionId();
+            case "entry_id":
+                return getEntryId();
+            case "spectral_peak_list_id":
+                return getSpectralPeakListId();
+            case "sweep_width_units":
+                return getSweepWidthUnits();
+            case "center_frequency_offset":
+                return getCenterFrequencyOffset();
+            case "under_sampling_type":
+                return getUnderSamplingType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * An integer value that specifies the dimension of a multidimensional NMR

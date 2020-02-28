@@ -16,6 +16,22 @@ public class PdbxSGProject extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "project_name":
+                return getProjectName();
+            case "full_name_of_center":
+                return getFullNameOfCenter();
+            case "initial_of_center":
+                return getInitialOfCenter();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique integer identifier for this center
      * @return StrColumn

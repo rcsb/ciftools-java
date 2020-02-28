@@ -16,6 +16,26 @@ public class Em3dFittingList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "3d_fitting_id":
+                return get_3dFittingId();
+            case "pdb_entry_id":
+                return getPdbEntryId();
+            case "pdb_chain_id":
+                return getPdbChainId();
+            case "pdb_chain_residue_range":
+                return getPdbChainResidueRange();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a unique identifier.
      * @return StrColumn

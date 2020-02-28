@@ -16,6 +16,44 @@ public class PdbxDccRsccMapman extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "pdb_id":
+                return getPdbId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_ins_code":
+                return getLabelInsCode();
+            case "correlation":
+                return getCorrelation();
+            case "real_space_R":
+                return getRealSpaceR();
+            case "weighted_real_space_R":
+                return getWeightedRealSpaceR();
+            case "real_space_Zscore":
+                return getRealSpaceZscore();
+            case "Biso_mean":
+                return getBisoMean();
+            case "occupancy_mean":
+                return getOccupancyMean();
+            case "flag":
+                return getFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ordered number in the output list.
      * @return IntColumn

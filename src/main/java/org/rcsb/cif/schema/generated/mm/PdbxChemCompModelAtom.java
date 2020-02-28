@@ -15,6 +15,30 @@ public class PdbxChemCompModelAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id":
+                return getAtomId();
+            case "ordinal_id":
+                return getOrdinalId();
+            case "model_id":
+                return getModelId();
+            case "charge":
+                return getCharge();
+            case "model_Cartn_x":
+                return getModelCartnX();
+            case "model_Cartn_y":
+                return getModelCartnY();
+            case "model_Cartn_z":
+                return getModelCartnZ();
+            case "type_symbol":
+                return getTypeSymbol();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_chem_comp_model_atom.atom_id uniquely identifies
      * each atom in the PDBX_CHEM_COMP_MODEL_ATOM list.

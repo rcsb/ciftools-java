@@ -15,6 +15,32 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "carbon_shifts_flag":
+                return getCarbonShiftsFlag();
+            case "details":
+                return getDetails();
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "label":
+                return getLabel();
+            case "nitrogen_shifts_flag":
+                return getNitrogenShiftsFlag();
+            case "other_shifts_flag":
+                return getOtherShiftsFlag();
+            case "phosphorus_shifts_flag":
+                return getPhosphorusShiftsFlag();
+            case "proton_shifts_flag":
+                return getProtonShiftsFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * A value indicating if 13C chemical shifts are being deposited and if IUPAC chemical shift referencing was used. This item

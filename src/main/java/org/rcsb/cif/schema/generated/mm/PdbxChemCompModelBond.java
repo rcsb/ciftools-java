@@ -15,6 +15,24 @@ public class PdbxChemCompModelBond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "model_id":
+                return getModelId();
+            case "value_order":
+                return getValueOrder();
+            case "ordinal_id":
+                return getOrdinalId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of the first of the two atoms that define the bond.
      * 

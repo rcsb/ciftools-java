@@ -17,6 +17,30 @@ public class PhasingMADExpt extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "delta_delta_phi":
+                return getDeltaDeltaPhi();
+            case "delta_phi":
+                return getDeltaPhi();
+            case "delta_phi_sigma":
+                return getDeltaPhiSigma();
+            case "id":
+                return getId();
+            case "mean_fom":
+                return getMeanFom();
+            case "number_clust":
+                return getNumberClust();
+            case "R_normal_all":
+                return getRNormalAll();
+            case "R_normal_anom_scat":
+                return getRNormalAnomScat();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The difference between two independent determinations of
      * _phasing_MAD_expt.delta_phi.

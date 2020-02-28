@@ -15,6 +15,40 @@ public class EmStartModel extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "emdb_id":
+                return getEmdbId();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "insilico_model":
+                return getInsilicoModel();
+            case "orthogonal_tilt_angle1":
+                return getOrthogonalTiltAngle1();
+            case "orthogonal_tilt_angle2":
+                return getOrthogonalTiltAngle2();
+            case "orthogonal_tilt_num_images":
+                return getOrthogonalTiltNumImages();
+            case "other":
+                return getOther();
+            case "pdb_id":
+                return getPdbId();
+            case "random_conical_tilt_angle":
+                return getRandomConicalTiltAngle();
+            case "random_conical_tilt_num_images":
+                return getRandomConicalTiltNumImages();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Any additional details about generating the startup model
      * @return StrColumn

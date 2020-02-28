@@ -15,6 +15,34 @@ public class PdbxNonpolyScheme extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "asym_id":
+                return getAsymId();
+            case "entity_id":
+                return getEntityId();
+            case "mon_id":
+                return getMonId();
+            case "pdb_strand_id":
+                return getPdbStrandId();
+            case "ndb_seq_num":
+                return getNdbSeqNum();
+            case "pdb_seq_num":
+                return getPdbSeqNum();
+            case "auth_seq_num":
+                return getAuthSeqNum();
+            case "pdb_mon_id":
+                return getPdbMonId();
+            case "auth_mon_id":
+                return getAuthMonId();
+            case "pdb_ins_code":
+                return getPdbInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Pointer to _atom_site.label_asym_id.
      * @return StrColumn

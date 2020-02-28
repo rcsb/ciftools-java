@@ -15,6 +15,18 @@ public class AuditLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "block_code":
+                return getBlockCode();
+            case "block_description":
+                return getBlockDescription();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _audit_block.code associated with a data block
      * in the current file related to the current data block. The

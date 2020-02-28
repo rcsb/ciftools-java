@@ -19,6 +19,84 @@ public class StructSheetHbond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "range_1_beg_label_atom_id":
+                return getRange1BegLabelAtomId();
+            case "range_1_beg_label_seq_id":
+                return getRange1BegLabelSeqId();
+            case "range_1_end_label_atom_id":
+                return getRange1EndLabelAtomId();
+            case "range_1_end_label_seq_id":
+                return getRange1EndLabelSeqId();
+            case "range_2_beg_label_atom_id":
+                return getRange2BegLabelAtomId();
+            case "range_2_beg_label_seq_id":
+                return getRange2BegLabelSeqId();
+            case "range_2_end_label_atom_id":
+                return getRange2EndLabelAtomId();
+            case "range_2_end_label_seq_id":
+                return getRange2EndLabelSeqId();
+            case "range_1_beg_auth_atom_id":
+                return getRange1BegAuthAtomId();
+            case "range_1_beg_auth_seq_id":
+                return getRange1BegAuthSeqId();
+            case "range_1_end_auth_atom_id":
+                return getRange1EndAuthAtomId();
+            case "range_1_end_auth_seq_id":
+                return getRange1EndAuthSeqId();
+            case "range_2_beg_auth_atom_id":
+                return getRange2BegAuthAtomId();
+            case "range_2_beg_auth_seq_id":
+                return getRange2BegAuthSeqId();
+            case "range_2_end_auth_atom_id":
+                return getRange2EndAuthAtomId();
+            case "range_2_end_auth_seq_id":
+                return getRange2EndAuthSeqId();
+            case "range_id_1":
+                return getRangeId1();
+            case "range_id_2":
+                return getRangeId2();
+            case "sheet_id":
+                return getSheetId();
+            case "pdbx_range_1_beg_auth_comp_id":
+                return getPdbxRange1BegAuthCompId();
+            case "pdbx_range_1_beg_auth_asym_id":
+                return getPdbxRange1BegAuthAsymId();
+            case "pdbx_range_1_end_auth_comp_id":
+                return getPdbxRange1EndAuthCompId();
+            case "pdbx_range_1_end_auth_asym_id":
+                return getPdbxRange1EndAuthAsymId();
+            case "pdbx_range_1_beg_label_comp_id":
+                return getPdbxRange1BegLabelCompId();
+            case "pdbx_range_1_beg_label_asym_id":
+                return getPdbxRange1BegLabelAsymId();
+            case "pdbx_range_1_beg_PDB_ins_code":
+                return getPdbxRange1BegPDBInsCode();
+            case "pdbx_range_1_end_label_comp_id":
+                return getPdbxRange1EndLabelCompId();
+            case "pdbx_range_1_end_label_asym_id":
+                return getPdbxRange1EndLabelAsymId();
+            case "pdbx_range_1_end_PDB_ins_code":
+                return getPdbxRange1EndPDBInsCode();
+            case "pdbx_range_2_beg_label_comp_id":
+                return getPdbxRange2BegLabelCompId();
+            case "pdbx_range_2_beg_label_asym_id":
+                return getPdbxRange2BegLabelAsymId();
+            case "pdbx_range_2_beg_PDB_ins_code":
+                return getPdbxRange2BegPDBInsCode();
+            case "pdbx_range_2_end_label_comp_id":
+                return getPdbxRange2EndLabelCompId();
+            case "pdbx_range_2_end_label_asym_id":
+                return getPdbxRange2EndLabelAsymId();
+            case "pdbx_range_2_end_label_ins_code":
+                return getPdbxRange2EndLabelInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the residue for the first
      * partner of the first hydrogen bond between two residue ranges

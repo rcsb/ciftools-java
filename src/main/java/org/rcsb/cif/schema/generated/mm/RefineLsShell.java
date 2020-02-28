@@ -16,6 +16,62 @@ public class RefineLsShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "number_reflns_all":
+                return getNumberReflnsAll();
+            case "number_reflns_obs":
+                return getNumberReflnsObs();
+            case "number_reflns_R_free":
+                return getNumberReflnsRFree();
+            case "number_reflns_R_work":
+                return getNumberReflnsRWork();
+            case "percent_reflns_obs":
+                return getPercentReflnsObs();
+            case "percent_reflns_R_free":
+                return getPercentReflnsRFree();
+            case "R_factor_all":
+                return getRFactorAll();
+            case "R_factor_obs":
+                return getRFactorObs();
+            case "R_factor_R_free":
+                return getRFactorRFree();
+            case "R_factor_R_free_error":
+                return getRFactorRFreeError();
+            case "R_factor_R_work":
+                return getRFactorRWork();
+            case "redundancy_reflns_all":
+                return getRedundancyReflnsAll();
+            case "redundancy_reflns_obs":
+                return getRedundancyReflnsObs();
+            case "wR_factor_all":
+                return getWRFactorAll();
+            case "wR_factor_obs":
+                return getWRFactorObs();
+            case "wR_factor_R_free":
+                return getWRFactorRFree();
+            case "wR_factor_R_work":
+                return getWRFactorRWork();
+            case "pdbx_total_number_of_bins_used":
+                return getPdbxTotalNumberOfBinsUsed();
+            case "pdbx_phase_error":
+                return getPdbxPhaseError();
+            case "pdbx_fsc_work":
+                return getPdbxFscWork();
+            case "pdbx_fsc_free":
+                return getPdbxFscFree();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_ls_shell.pdbx_refine_id can be used to distinguish the results

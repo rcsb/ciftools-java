@@ -16,6 +16,34 @@ public class EmImageRecording extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "average_exposure_time":
+                return getAverageExposureTime();
+            case "avg_electron_dose_per_image":
+                return getAvgElectronDosePerImage();
+            case "details":
+                return getDetails();
+            case "detector_mode":
+                return getDetectorMode();
+            case "film_or_detector_model":
+                return getFilmOrDetectorModel();
+            case "id":
+                return getId();
+            case "imaging_id":
+                return getImagingId();
+            case "num_diffraction_images":
+                return getNumDiffractionImages();
+            case "num_grids_imaged":
+                return getNumGridsImaged();
+            case "num_real_images":
+                return getNumRealImages();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The average exposure time for each image.
      * @return FloatColumn

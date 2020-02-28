@@ -16,6 +16,36 @@ public class IhmPolyResidueFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "feature_id":
+                return getFeatureId();
+            case "entity_id":
+                return getEntityId();
+            case "asym_id":
+                return getAsymId();
+            case "comp_id_begin":
+                return getCompIdBegin();
+            case "comp_id_end":
+                return getCompIdEnd();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "residue_range_granularity":
+                return getResidueRangeGranularity();
+            case "rep_atom":
+                return getRepAtom();
+            case "interface_residue_flag":
+                return getInterfaceResidueFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the category.
      * @return IntColumn

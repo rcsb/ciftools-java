@@ -26,6 +26,70 @@ public class PhasingMIRDer extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "der_set_id":
+                return getDerSetId();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "native_set_id":
+                return getNativeSetId();
+            case "number_of_sites":
+                return getNumberOfSites();
+            case "power_acentric":
+                return getPowerAcentric();
+            case "power_centric":
+                return getPowerCentric();
+            case "R_cullis_acentric":
+                return getRCullisAcentric();
+            case "R_cullis_anomalous":
+                return getRCullisAnomalous();
+            case "R_cullis_centric":
+                return getRCullisCentric();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_anomalous":
+                return getReflnsAnomalous();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "reflns_criteria":
+                return getReflnsCriteria();
+            case "pdbx_R_kraut_centric":
+                return getPdbxRKrautCentric();
+            case "pdbx_R_kraut_acentric":
+                return getPdbxRKrautAcentric();
+            case "pdbx_R_kraut":
+                return getPdbxRKraut();
+            case "pdbx_loc_centric":
+                return getPdbxLocCentric();
+            case "pdbx_loc_acentric":
+                return getPdbxLocAcentric();
+            case "pdbx_loc":
+                return getPdbxLoc();
+            case "pdbx_fom_centric":
+                return getPdbxFomCentric();
+            case "pdbx_fom_acentric":
+                return getPdbxFomAcentric();
+            case "pdbx_fom":
+                return getPdbxFom();
+            case "pdbx_power":
+                return getPdbxPower();
+            case "pdbx_R_cullis":
+                return getPdbxRCullis();
+            case "pdbx_reflns":
+                return getPdbxReflns();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The lowest value for the interplanar spacings for the
      * reflection data used for this derivative. This is called the

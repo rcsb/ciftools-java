@@ -15,6 +15,20 @@ public class PdbxEntityNameTaxonomy extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "name_type":
+                return getNameType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item holds an node identifier in the
      * entity name taxonomy tree.

@@ -15,6 +15,28 @@ public class PdbxReferenceEntityPolySeq extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "ref_entity_id":
+                return getRefEntityId();
+            case "mon_id":
+                return getMonId();
+            case "parent_mon_id":
+                return getParentMonId();
+            case "num":
+                return getNum();
+            case "observed":
+                return getObserved();
+            case "hetero":
+                return getHetero();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_poly_seq.prd_id is a reference
      * _pdbx_reference_entity_poly.prd_id in the  PDBX_REFERENCE_ENTITY_POLY category.

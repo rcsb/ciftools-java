@@ -14,6 +14,26 @@ public class EmGridPretreatment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atmosphere":
+                return getAtmosphere();
+            case "id":
+                return getId();
+            case "pressure":
+                return getPressure();
+            case "sample_support_id":
+                return getSampleSupportId();
+            case "time":
+                return getTime();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The atmosphere used for glow discharge of the em grid.
      * @return StrColumn

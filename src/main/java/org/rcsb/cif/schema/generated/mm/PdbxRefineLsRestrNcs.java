@@ -15,6 +15,24 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dom_id":
+                return getDomId();
+            case "type":
+                return getType();
+            case "number":
+                return getNumber();
+            case "rms_dev":
+                return getRmsDev();
+            case "weight":
+                return getWeight();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_ncs_dom.id in the
      * STRUCT_NCS_DOM category.

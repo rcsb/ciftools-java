@@ -15,6 +15,20 @@ public class PdbxReRefinement extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "citation_id":
+                return getCitationId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier for entry where the experimental data was obtained.
      * @return StrColumn

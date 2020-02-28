@@ -16,6 +16,24 @@ public class PdbxDccRsccMapmanOverall extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbid":
+                return getPdbid();
+            case "correlation":
+                return getCorrelation();
+            case "correlation_sigma":
+                return getCorrelationSigma();
+            case "real_space_R":
+                return getRealSpaceR();
+            case "real_space_R_sigma":
+                return getRealSpaceRSigma();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The PDB id code.
      * @return StrColumn

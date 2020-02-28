@@ -15,6 +15,36 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "data_file_name":
+                return getDataFileName();
+            case "solution_id":
+                return getSolutionId();
+            case "conditions_id":
+                return getConditionsId();
+            case "experiment_id":
+                return getExperimentId();
+            case "number_of_spectral_dimensions":
+                return getNumberOfSpectralDimensions();
+            case "details":
+                return getDetails();
+            case "text_data_format":
+                return getTextDataFormat();
+            case "label":
+                return getLabel();
+            case "conditions_label":
+                return getConditionsLabel();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Pointer to '_entry.id'

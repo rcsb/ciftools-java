@@ -16,6 +16,38 @@ public class PhasingMADSet extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "clust_id":
+                return getClustId();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "expt_id":
+                return getExptId();
+            case "f_double_prime":
+                return getFDoublePrime();
+            case "f_prime":
+                return getFPrime();
+            case "set_id":
+                return getSetId();
+            case "wavelength":
+                return getWavelength();
+            case "wavelength_details":
+                return getWavelengthDetails();
+            case "pdbx_atom_type":
+                return getPdbxAtomType();
+            case "pdbx_f_prime_refined":
+                return getPdbxFPrimeRefined();
+            case "pdbx_f_double_prime_refined":
+                return getPdbxFDoublePrimeRefined();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _phasing_MAD_clust.id in
      * the PHASING_MAD_CLUST category.

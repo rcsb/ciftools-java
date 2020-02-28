@@ -20,6 +20,122 @@ public class EntitySrcGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "gene_src_common_name":
+                return getGeneSrcCommonName();
+            case "gene_src_details":
+                return getGeneSrcDetails();
+            case "gene_src_genus":
+                return getGeneSrcGenus();
+            case "gene_src_species":
+                return getGeneSrcSpecies();
+            case "gene_src_strain":
+                return getGeneSrcStrain();
+            case "gene_src_tissue":
+                return getGeneSrcTissue();
+            case "gene_src_tissue_fraction":
+                return getGeneSrcTissueFraction();
+            case "host_org_genus":
+                return getHostOrgGenus();
+            case "host_org_species":
+                return getHostOrgSpecies();
+            case "pdbx_gene_src_fragment":
+                return getPdbxGeneSrcFragment();
+            case "pdbx_gene_src_gene":
+                return getPdbxGeneSrcGene();
+            case "pdbx_gene_src_scientific_name":
+                return getPdbxGeneSrcScientificName();
+            case "pdbx_gene_src_variant":
+                return getPdbxGeneSrcVariant();
+            case "pdbx_gene_src_cell_line":
+                return getPdbxGeneSrcCellLine();
+            case "pdbx_gene_src_atcc":
+                return getPdbxGeneSrcAtcc();
+            case "pdbx_gene_src_organ":
+                return getPdbxGeneSrcOrgan();
+            case "pdbx_gene_src_organelle":
+                return getPdbxGeneSrcOrganelle();
+            case "pdbx_gene_src_plasmid":
+                return getPdbxGeneSrcPlasmid();
+            case "pdbx_gene_src_plasmid_name":
+                return getPdbxGeneSrcPlasmidName();
+            case "pdbx_gene_src_cell":
+                return getPdbxGeneSrcCell();
+            case "pdbx_gene_src_cellular_location":
+                return getPdbxGeneSrcCellularLocation();
+            case "pdbx_host_org_gene":
+                return getPdbxHostOrgGene();
+            case "pdbx_host_org_organ":
+                return getPdbxHostOrgOrgan();
+            case "pdbx_host_org_organelle":
+                return getPdbxHostOrgOrganelle();
+            case "pdbx_host_org_cellular_location":
+                return getPdbxHostOrgCellularLocation();
+            case "pdbx_host_org_strain":
+                return getPdbxHostOrgStrain();
+            case "pdbx_host_org_tissue_fraction":
+                return getPdbxHostOrgTissueFraction();
+            case "pdbx_description":
+                return getPdbxDescription();
+            case "host_org_common_name":
+                return getHostOrgCommonName();
+            case "host_org_details":
+                return getHostOrgDetails();
+            case "host_org_strain":
+                return getHostOrgStrain();
+            case "plasmid_details":
+                return getPlasmidDetails();
+            case "plasmid_name":
+                return getPlasmidName();
+            case "pdbx_host_org_variant":
+                return getPdbxHostOrgVariant();
+            case "pdbx_host_org_cell_line":
+                return getPdbxHostOrgCellLine();
+            case "pdbx_host_org_atcc":
+                return getPdbxHostOrgAtcc();
+            case "pdbx_host_org_culture_collection":
+                return getPdbxHostOrgCultureCollection();
+            case "pdbx_host_org_cell":
+                return getPdbxHostOrgCell();
+            case "pdbx_host_org_scientific_name":
+                return getPdbxHostOrgScientificName();
+            case "pdbx_host_org_tissue":
+                return getPdbxHostOrgTissue();
+            case "pdbx_host_org_vector":
+                return getPdbxHostOrgVector();
+            case "pdbx_host_org_vector_type":
+                return getPdbxHostOrgVectorType();
+            case "expression_system_id":
+                return getExpressionSystemId();
+            case "gene_src_dev_stage":
+                return getGeneSrcDevStage();
+            case "start_construct_id":
+                return getStartConstructId();
+            case "pdbx_gene_src_ncbi_taxonomy_id":
+                return getPdbxGeneSrcNcbiTaxonomyId();
+            case "pdbx_host_org_ncbi_taxonomy_id":
+                return getPdbxHostOrgNcbiTaxonomyId();
+            case "pdbx_src_id":
+                return getPdbxSrcId();
+            case "pdbx_alt_source_flag":
+                return getPdbxAltSourceFlag();
+            case "pdbx_seq_type":
+                return getPdbxSeqType();
+            case "pdbx_beg_seq_num":
+                return getPdbxBegSeqNum();
+            case "pdbx_end_seq_num":
+                return getPdbxEndSeqNum();
+            case "pdbx_gene_src_culture_collection":
+                return getPdbxGeneSrcCultureCollection();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

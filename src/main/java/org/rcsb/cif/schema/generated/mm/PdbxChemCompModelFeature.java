@@ -14,6 +14,20 @@ public class PdbxChemCompModelFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "model_id":
+                return getModelId();
+            case "feature_name":
+                return getFeatureName();
+            case "feature_value":
+                return getFeatureValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The component model identifier for this feature.
      * @return StrColumn

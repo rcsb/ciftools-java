@@ -19,6 +19,44 @@ public class StructNcsOper extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "code":
+                return getCode();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "matrix[1][1]":
+                return getMatrix11();
+            case "matrix[1][2]":
+                return getMatrix12();
+            case "matrix[1][3]":
+                return getMatrix13();
+            case "matrix[2][1]":
+                return getMatrix21();
+            case "matrix[2][2]":
+                return getMatrix22();
+            case "matrix[2][3]":
+                return getMatrix23();
+            case "matrix[3][1]":
+                return getMatrix31();
+            case "matrix[3][2]":
+                return getMatrix32();
+            case "matrix[3][3]":
+                return getMatrix33();
+            case "vector[1]":
+                return getVector1();
+            case "vector[2]":
+                return getVector2();
+            case "vector[3]":
+                return getVector3();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A code to indicate whether this operator describes a
      * relationship between coordinates all of which are given in the

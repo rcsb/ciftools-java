@@ -16,6 +16,30 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "constraint_filename":
+                return getConstraintFilename();
+            case "constraint_number":
+                return getConstraintNumber();
+            case "constraint_subtype":
+                return getConstraintSubtype();
+            case "constraint_type":
+                return getConstraintType();
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "software_name":
+                return getSoftwareName();
+            case "software_ordinal":
+                return getSoftwareOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Name of the uploaded file that contains the constraint data.

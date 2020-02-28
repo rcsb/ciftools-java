@@ -15,6 +15,48 @@ public class IhmModelingProtocol extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "protocol_id":
+                return getProtocolId();
+            case "step_id":
+                return getStepId();
+            case "struct_assembly_id":
+                return getStructAssemblyId();
+            case "dataset_group_id":
+                return getDatasetGroupId();
+            case "struct_assembly_description":
+                return getStructAssemblyDescription();
+            case "protocol_name":
+                return getProtocolName();
+            case "step_name":
+                return getStepName();
+            case "step_method":
+                return getStepMethod();
+            case "num_models_begin":
+                return getNumModelsBegin();
+            case "num_models_end":
+                return getNumModelsEnd();
+            case "multi_scale_flag":
+                return getMultiScaleFlag();
+            case "multi_state_flag":
+                return getMultiStateFlag();
+            case "ordered_flag":
+                return getOrderedFlag();
+            case "ensemble_flag":
+                return getEnsembleFlag();
+            case "script_file_id":
+                return getScriptFileId();
+            case "software_id":
+                return getSoftwareId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the modeling protocol/step combination.
      * @return IntColumn

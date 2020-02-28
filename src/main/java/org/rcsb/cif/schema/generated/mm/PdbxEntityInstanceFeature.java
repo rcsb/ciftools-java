@@ -15,6 +15,32 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "feature_type":
+                return getFeatureType();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "asym_id":
+                return getAsymId();
+            case "auth_seq_num":
+                return getAuthSeqNum();
+            case "seq_num":
+                return getSeqNum();
+            case "comp_id":
+                return getCompId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Special structural details about this entity instance.
      * @return StrColumn

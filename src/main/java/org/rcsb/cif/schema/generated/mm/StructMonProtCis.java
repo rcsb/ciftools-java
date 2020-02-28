@@ -18,6 +18,54 @@ public class StructMonProtCis extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "pdbx_auth_asym_id_2":
+                return getPdbxAuthAsymId2();
+            case "pdbx_auth_comp_id_2":
+                return getPdbxAuthCompId2();
+            case "pdbx_auth_seq_id_2":
+                return getPdbxAuthSeqId2();
+            case "pdbx_label_asym_id_2":
+                return getPdbxLabelAsymId2();
+            case "pdbx_label_comp_id_2":
+                return getPdbxLabelCompId2();
+            case "pdbx_label_seq_id_2":
+                return getPdbxLabelSeqId2();
+            case "pdbx_PDB_ins_code":
+                return getPdbxPDBInsCode();
+            case "pdbx_PDB_ins_code_2":
+                return getPdbxPDBInsCode2();
+            case "pdbx_PDB_model_num":
+                return getPdbxPDBModelNum();
+            case "pdbx_omega_angle":
+                return getPdbxOmegaAngle();
+            case "pdbx_id":
+                return getPdbxId();
+            case "pdbx_auth_ins_code":
+                return getPdbxAuthInsCode();
+            case "pdbx_auth_ins_code_2":
+                return getPdbxAuthInsCode2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the monomer.
      * 

@@ -16,6 +16,58 @@ public class EntityPoly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "nstd_chirality":
+                return getNstdChirality();
+            case "nstd_linkage":
+                return getNstdLinkage();
+            case "nstd_monomer":
+                return getNstdMonomer();
+            case "number_of_monomers":
+                return getNumberOfMonomers();
+            case "type":
+                return getType();
+            case "type_details":
+                return getTypeDetails();
+            case "pdbx_strand_id":
+                return getPdbxStrandId();
+            case "pdbx_seq_one_letter_code":
+                return getPdbxSeqOneLetterCode();
+            case "pdbx_seq_one_letter_code_can":
+                return getPdbxSeqOneLetterCodeCan();
+            case "pdbx_target_identifier":
+                return getPdbxTargetIdentifier();
+            case "pdbx_seq_one_letter_code_sample":
+                return getPdbxSeqOneLetterCodeSample();
+            case "pdbx_explicit_linking_flag":
+                return getPdbxExplicitLinkingFlag();
+            case "pdbx_sequence_evidence_code":
+                return getPdbxSequenceEvidenceCode();
+            case "pdbx_build_self_reference":
+                return getPdbxBuildSelfReference();
+            case "pdbx_N_terminal_seq_one_letter_code":
+                return getPdbxNTerminalSeqOneLetterCode();
+            case "pdbx_C_terminal_seq_one_letter_code":
+                return getPdbxCTerminalSeqOneLetterCode();
+            case "pdbx_seq_three_letter_code":
+                return getPdbxSeqThreeLetterCode();
+            case "pdbx_seq_db_name":
+                return getPdbxSeqDbName();
+            case "pdbx_seq_db_id":
+                return getPdbxSeqDbId();
+            case "pdbx_seq_align_begin":
+                return getPdbxSeqAlignBegin();
+            case "pdbx_seq_align_end":
+                return getPdbxSeqAlignEnd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

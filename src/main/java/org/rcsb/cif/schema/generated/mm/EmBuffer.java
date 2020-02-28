@@ -15,6 +15,24 @@ public class EmBuffer extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "specimen_id":
+                return getSpecimenId();
+            case "name":
+                return getName();
+            case "details":
+                return getDetails();
+            case "pH":
+                return getPH();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _em_buffer.id must
      * uniquely identify the sample buffer.

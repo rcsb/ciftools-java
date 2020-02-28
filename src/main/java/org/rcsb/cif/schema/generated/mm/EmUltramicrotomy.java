@@ -14,6 +14,26 @@ public class EmUltramicrotomy extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "em_tomography_specimen_id":
+                return getEmTomographySpecimenId();
+            case "final_thickness":
+                return getFinalThickness();
+            case "id":
+                return getId();
+            case "instrument":
+                return getInstrument();
+            case "temperature":
+                return getTemperature();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Additional details about the ultramicrotomy sample preparation
      * @return StrColumn

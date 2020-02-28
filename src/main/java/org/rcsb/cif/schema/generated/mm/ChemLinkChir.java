@@ -17,6 +17,34 @@ public class ChemLinkChir extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_comp_id":
+                return getAtomCompId();
+            case "atom_id":
+                return getAtomId();
+            case "atom_config":
+                return getAtomConfig();
+            case "id":
+                return getId();
+            case "link_id":
+                return getLinkId();
+            case "number_atoms_all":
+                return getNumberAtomsAll();
+            case "number_atoms_nh":
+                return getNumberAtomsNh();
+            case "volume_flag":
+                return getVolumeFlag();
+            case "volume_three":
+                return getVolumeThree();
+            case "volume_three_esd":
+                return getVolumeThreeEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item indicates whether the chiral atom is found in the
      * first or the second of the two components connected by the

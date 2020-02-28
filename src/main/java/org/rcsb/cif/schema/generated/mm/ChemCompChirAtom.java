@@ -15,6 +15,22 @@ public class ChemCompChirAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id":
+                return getAtomId();
+            case "chir_id":
+                return getChirId();
+            case "comp_id":
+                return getCompId();
+            case "dev":
+                return getDev();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of an atom bonded to the chiral atom.
      * 

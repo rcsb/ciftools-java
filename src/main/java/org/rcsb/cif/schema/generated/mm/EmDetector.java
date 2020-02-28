@@ -15,6 +15,26 @@ public class EmDetector extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "details":
+                return getDetails();
+            case "type":
+                return getType();
+            case "detective_quantum_efficiency":
+                return getDetectiveQuantumEfficiency();
+            case "mode":
+                return getMode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

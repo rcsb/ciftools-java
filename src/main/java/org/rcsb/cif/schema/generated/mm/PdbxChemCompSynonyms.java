@@ -14,6 +14,20 @@ public class PdbxChemCompSynonyms extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "name":
+                return getName();
+            case "comp_id":
+                return getCompId();
+            case "provenance":
+                return getProvenance();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The synonym of this particular chemical component.
      * @return StrColumn

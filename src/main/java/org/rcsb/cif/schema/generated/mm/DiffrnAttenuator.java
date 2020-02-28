@@ -15,6 +15,20 @@ public class DiffrnAttenuator extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "code":
+                return getCode();
+            case "scale":
+                return getScale();
+            case "material":
+                return getMaterial();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A code associated with a particular attenuator setting. This
      * code is referenced by the _diffrn_refln.attenuator_code which is

@@ -16,6 +16,26 @@ public class IhmDatasetRelatedDbReference extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "db_name":
+                return getDbName();
+            case "accession_code":
+                return getAccessionCode();
+            case "version":
+                return getVersion();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the related database entry.
      * @return IntColumn

@@ -20,6 +20,104 @@ public class ChemComp extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "formula":
+                return getFormula();
+            case "formula_weight":
+                return getFormulaWeight();
+            case "id":
+                return getId();
+            case "model_details":
+                return getModelDetails();
+            case "model_erf":
+                return getModelErf();
+            case "model_source":
+                return getModelSource();
+            case "mon_nstd_class":
+                return getMonNstdClass();
+            case "mon_nstd_details":
+                return getMonNstdDetails();
+            case "mon_nstd_flag":
+                return getMonNstdFlag();
+            case "mon_nstd_parent":
+                return getMonNstdParent();
+            case "mon_nstd_parent_comp_id":
+                return getMonNstdParentCompId();
+            case "name":
+                return getName();
+            case "number_atoms_all":
+                return getNumberAtomsAll();
+            case "number_atoms_nh":
+                return getNumberAtomsNh();
+            case "one_letter_code":
+                return getOneLetterCode();
+            case "three_letter_code":
+                return getThreeLetterCode();
+            case "type":
+                return getType();
+            case "pdbx_synonyms":
+                return getPdbxSynonyms();
+            case "pdbx_modification_details":
+                return getPdbxModificationDetails();
+            case "pdbx_component_no":
+                return getPdbxComponentNo();
+            case "pdbx_type":
+                return getPdbxType();
+            case "pdbx_ambiguous_flag":
+                return getPdbxAmbiguousFlag();
+            case "pdbx_replaced_by":
+                return getPdbxReplacedBy();
+            case "pdbx_replaces":
+                return getPdbxReplaces();
+            case "pdbx_formal_charge":
+                return getPdbxFormalCharge();
+            case "pdbx_subcomponent_list":
+                return getPdbxSubcomponentList();
+            case "pdbx_model_coordinates_details":
+                return getPdbxModelCoordinatesDetails();
+            case "pdbx_model_coordinates_db_code":
+                return getPdbxModelCoordinatesDbCode();
+            case "pdbx_ideal_coordinates_details":
+                return getPdbxIdealCoordinatesDetails();
+            case "pdbx_ideal_coordinates_missing_flag":
+                return getPdbxIdealCoordinatesMissingFlag();
+            case "pdbx_model_coordinates_missing_flag":
+                return getPdbxModelCoordinatesMissingFlag();
+            case "pdbx_initial_date":
+                return getPdbxInitialDate();
+            case "pdbx_modified_date":
+                return getPdbxModifiedDate();
+            case "pdbx_release_status":
+                return getPdbxReleaseStatus();
+            case "pdbx_processing_site":
+                return getPdbxProcessingSite();
+            case "pdbx_number_subcomponents":
+                return getPdbxNumberSubcomponents();
+            case "pdbx_class_1":
+                return getPdbxClass1();
+            case "pdbx_class_2":
+                return getPdbxClass2();
+            case "pdbx_comp_type":
+                return getPdbxCompType();
+            case "pdbx_reserved_name":
+                return getPdbxReservedName();
+            case "pdbx_status":
+                return getPdbxStatus();
+            case "pdbx_type_modified":
+                return getPdbxTypeModified();
+            case "pdbx_casnum":
+                return getPdbxCasnum();
+            case "pdbx_smiles":
+                return getPdbxSmiles();
+            case "pdbx_nscnum":
+                return getPdbxNscnum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The formula for the chemical component. Formulae are written
      * according to the following rules:

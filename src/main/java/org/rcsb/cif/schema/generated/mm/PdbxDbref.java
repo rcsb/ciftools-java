@@ -15,6 +15,40 @@ public class PdbxDbref extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdb_id_code":
+                return getPdbIdCode();
+            case "chain_id":
+                return getChainId();
+            case "begin_res_number":
+                return getBeginResNumber();
+            case "begin_ins_code":
+                return getBeginInsCode();
+            case "end_res_number":
+                return getEndResNumber();
+            case "end_ins_code":
+                return getEndInsCode();
+            case "database_name":
+                return getDatabaseName();
+            case "database_accession":
+                return getDatabaseAccession();
+            case "database_id_code":
+                return getDatabaseIdCode();
+            case "database_begin_res_number":
+                return getDatabaseBeginResNumber();
+            case "database_begin_ins_code":
+                return getDatabaseBeginInsCode();
+            case "database_end_res_number":
+                return getDatabaseEndResNumber();
+            case "database_end_ins_code":
+                return getDatabaseEndInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * PDB id code.
      * @return StrColumn

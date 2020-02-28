@@ -15,6 +15,26 @@ public class PdbxReferenceMoleculeDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "family_prd_id":
+                return getFamilyPrdId();
+            case "prd_id":
+                return getPrdId();
+            case "ordinal":
+                return getOrdinal();
+            case "source":
+                return getSource();
+            case "source_id":
+                return getSourceId();
+            case "text":
+                return getText();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_molecule_details.family_prd_id is a reference to
      * _pdbx_reference_molecule_list.family_prd_id' in category PDBX_REFERENCE_MOLECULE_FAMILY.

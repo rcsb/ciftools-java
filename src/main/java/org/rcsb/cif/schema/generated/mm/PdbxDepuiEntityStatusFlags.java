@@ -15,6 +15,22 @@ public class PdbxDepuiEntityStatusFlags extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dep_dataset_id":
+                return getDepDatasetId();
+            case "entity_id":
+                return getEntityId();
+            case "has_mutation":
+                return getHasMutation();
+            case "sample_xyz_sequence_alignments_valid":
+                return getSampleXyzSequenceAlignmentsValid();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The internal identifier assigned to each deposition.
      * @return StrColumn

@@ -15,6 +15,20 @@ public class EmDbReferenceAuxiliary extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "link":
+                return getLink();
+            case "link_type":
+                return getLinkType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique identifier for a provided link.
      * @return StrColumn

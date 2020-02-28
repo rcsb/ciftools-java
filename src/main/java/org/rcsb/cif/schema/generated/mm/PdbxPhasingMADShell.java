@@ -17,6 +17,54 @@ public class PdbxPhasingMADShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_low":
+                return getDResLow();
+            case "d_res_high":
+                return getDResHigh();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "reflns":
+                return getReflns();
+            case "fom_acentric":
+                return getFomAcentric();
+            case "fom_centric":
+                return getFomCentric();
+            case "fom":
+                return getFom();
+            case "R_cullis_centric":
+                return getRCullisCentric();
+            case "R_cullis_acentric":
+                return getRCullisAcentric();
+            case "R_cullis":
+                return getRCullis();
+            case "R_kraut_centric":
+                return getRKrautCentric();
+            case "R_kraut_acentric":
+                return getRKrautAcentric();
+            case "R_kraut":
+                return getRKraut();
+            case "loc_centric":
+                return getLocCentric();
+            case "loc_acentric":
+                return getLocAcentric();
+            case "loc":
+                return getLoc();
+            case "power_centric":
+                return getPowerCentric();
+            case "power_acentric":
+                return getPowerAcentric();
+            case "power":
+                return getPower();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * _pdbx_phasing_MAD_shell.d_res_low records the lower resolution
      * for the shell.

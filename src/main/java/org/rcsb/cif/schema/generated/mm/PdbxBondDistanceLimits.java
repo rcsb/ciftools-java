@@ -16,6 +16,22 @@ public class PdbxBondDistanceLimits extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_type_1":
+                return getAtomType1();
+            case "atom_type_2":
+                return getAtomType2();
+            case "lower_limit":
+                return getLowerLimit();
+            case "upper_limit":
+                return getUpperLimit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The first atom type defining the bond
      * @return StrColumn

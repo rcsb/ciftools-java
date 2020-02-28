@@ -19,6 +19,32 @@ public class IhmResiduesNotModeled extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "model_id":
+                return getModelId();
+            case "entity_description":
+                return getEntityDescription();
+            case "entity_id":
+                return getEntityId();
+            case "asym_id":
+                return getAsymId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "reason":
+                return getReason();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the category.
      * @return IntColumn

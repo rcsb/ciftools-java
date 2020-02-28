@@ -14,6 +14,30 @@ public class PdbxBufferComponents extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "buffer_id":
+                return getBufferId();
+            case "name":
+                return getName();
+            case "volume":
+                return getVolume();
+            case "conc":
+                return getConc();
+            case "details":
+                return getDetails();
+            case "conc_units":
+                return getConcUnits();
+            case "isotopic_labeling":
+                return getIsotopicLabeling();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_buffer_components.id must
      * uniquely identify a component of the buffer.

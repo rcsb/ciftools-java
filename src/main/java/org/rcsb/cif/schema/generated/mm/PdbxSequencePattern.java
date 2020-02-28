@@ -16,6 +16,22 @@ public class PdbxSequencePattern extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "pattern_count":
+                return getPatternCount();
+            case "sequence_pattern":
+                return getSequencePattern();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier of the asym_id of the strand containing
      * the sequence pattern.

@@ -15,6 +15,18 @@ public class PdbxConnectModification extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "res_name":
+                return getResName();
+            case "modification":
+                return getModification();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique (typically 3-letter code) identifier for chemical group.
      * @return StrColumn

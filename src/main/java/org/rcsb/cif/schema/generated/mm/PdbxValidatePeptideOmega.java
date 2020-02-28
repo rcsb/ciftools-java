@@ -19,6 +19,40 @@ public class PdbxValidatePeptideOmega extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id_1":
+                return getAuthAsymId1();
+            case "auth_asym_id_2":
+                return getAuthAsymId2();
+            case "auth_comp_id_1":
+                return getAuthCompId1();
+            case "auth_comp_id_2":
+                return getAuthCompId2();
+            case "auth_seq_id_1":
+                return getAuthSeqId1();
+            case "auth_seq_id_2":
+                return getAuthSeqId2();
+            case "PDB_ins_code_1":
+                return getPDBInsCode1();
+            case "PDB_ins_code_2":
+                return getPDBInsCode2();
+            case "label_alt_id_1":
+                return getLabelAltId1();
+            case "label_alt_id_2":
+                return getLabelAltId2();
+            case "omega":
+                return getOmega();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_validate_peptide_omega.id must
      * uniquely identify each item in the PDBX_VALIDATE_PEPTIDE_OMEGA list.

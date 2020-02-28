@@ -15,6 +15,20 @@ public class EmFscCurve extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "file":
+                return getFile();
+            case "id":
+                return getId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Details about the FSC file.
      * @return StrColumn

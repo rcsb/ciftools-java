@@ -15,6 +15,40 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends Delegating
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "description":
+                return getDescription();
+            case "injector_diameter":
+                return getInjectorDiameter();
+            case "injector_temperature":
+                return getInjectorTemperature();
+            case "injector_pressure":
+                return getInjectorPressure();
+            case "flow_rate":
+                return getFlowRate();
+            case "carrier_solvent":
+                return getCarrierSolvent();
+            case "crystal_concentration":
+                return getCrystalConcentration();
+            case "preparation":
+                return getPreparation();
+            case "power_by":
+                return getPowerBy();
+            case "injector_nozzle":
+                return getInjectorNozzle();
+            case "jet_diameter":
+                return getJetDiameter();
+            case "filter_size":
+                return getFilterSize();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.

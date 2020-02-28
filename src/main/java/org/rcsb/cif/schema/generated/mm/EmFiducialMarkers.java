@@ -14,6 +14,22 @@ public class EmFiducialMarkers extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diameter":
+                return getDiameter();
+            case "em_tomography_specimen_id":
+                return getEmTomographySpecimenId();
+            case "id":
+                return getId();
+            case "manufacturer":
+                return getManufacturer();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Diameter of the fiducial markers
      * @return FloatColumn

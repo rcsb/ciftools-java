@@ -15,6 +15,18 @@ public class PdbxDccMapman extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbid":
+                return getPdbid();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The PDB id code.
      * @return StrColumn

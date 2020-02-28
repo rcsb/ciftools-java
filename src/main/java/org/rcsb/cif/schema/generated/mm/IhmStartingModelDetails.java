@@ -16,6 +16,34 @@ public class IhmStartingModelDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "starting_model_id":
+                return getStartingModelId();
+            case "entity_id":
+                return getEntityId();
+            case "entity_description":
+                return getEntityDescription();
+            case "asym_id":
+                return getAsymId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "starting_model_source":
+                return getStartingModelSource();
+            case "starting_model_auth_asym_id":
+                return getStartingModelAuthAsymId();
+            case "starting_model_sequence_offset":
+                return getStartingModelSequenceOffset();
+            case "dataset_list_id":
+                return getDatasetListId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the starting structural model.
      * @return StrColumn

@@ -17,6 +17,22 @@ public class ChemLinkPlane extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "link_id":
+                return getLinkId();
+            case "number_atoms_all":
+                return getNumberAtomsAll();
+            case "number_atoms_nh":
+                return getNumberAtomsNh();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _chem_link_plane.id must uniquely identify a record
      * in the CHEM_LINK_PLANE list.

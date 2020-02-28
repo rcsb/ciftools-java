@@ -15,6 +15,22 @@ public class PdbxChemCompSubcomponentEntityList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "parent_comp_id":
+                return getParentCompId();
+            case "type":
+                return getType();
+            case "class":
+                return getClazz();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for the entities listed in this category.
      * @return IntColumn

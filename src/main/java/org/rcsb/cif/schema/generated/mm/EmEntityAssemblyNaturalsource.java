@@ -15,6 +15,34 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "cell":
+                return getCell();
+            case "cellular_location":
+                return getCellularLocation();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "id":
+                return getId();
+            case "ncbi_tax_id":
+                return getNcbiTaxId();
+            case "organism":
+                return getOrganism();
+            case "organelle":
+                return getOrganelle();
+            case "organ":
+                return getOrgan();
+            case "strain":
+                return getStrain();
+            case "tissue":
+                return getTissue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The cell type from which the component was obtained.
      * @return StrColumn

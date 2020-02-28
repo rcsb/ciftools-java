@@ -15,6 +15,20 @@ public class IhmGeometricObjectHalfTorus extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "object_id":
+                return getObjectId();
+            case "thickness_th":
+                return getThicknessTh();
+            case "section":
+                return getSection();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Identifier to the geometric object.
      * This data item is a pointer to the _ihm_geometric_object_torus.object_id in the

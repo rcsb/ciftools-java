@@ -17,6 +17,26 @@ public class PdbxEntityNameInstance extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "name":
+                return getName();
+            case "pdb_id":
+                return getPdbId();
+            case "rcsb_id":
+                return getRcsbId();
+            case "entity_id":
+                return getEntityId();
+            case "pdb_chain_id":
+                return getPdbChainId();
+            case "pdb_mol_id":
+                return getPdbMolId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item holds an entity name.
      * @return StrColumn

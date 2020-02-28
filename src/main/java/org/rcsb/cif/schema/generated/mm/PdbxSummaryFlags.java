@@ -15,6 +15,20 @@ public class PdbxSummaryFlags extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "flag_id":
+                return getFlagId();
+            case "flag_value":
+                return getFlagValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Entry ID.
      * @return StrColumn

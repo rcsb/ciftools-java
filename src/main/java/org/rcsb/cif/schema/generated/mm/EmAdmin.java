@@ -14,6 +14,38 @@ public class EmAdmin extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "current_status":
+                return getCurrentStatus();
+            case "deposition_date":
+                return getDepositionDate();
+            case "deposition_site":
+                return getDepositionSite();
+            case "details":
+                return getDetails();
+            case "entry_id":
+                return getEntryId();
+            case "last_update":
+                return getLastUpdate();
+            case "map_release_date":
+                return getMapReleaseDate();
+            case "map_hold_date":
+                return getMapHoldDate();
+            case "header_release_date":
+                return getHeaderReleaseDate();
+            case "obsoleted_date":
+                return getObsoletedDate();
+            case "replace_existing_entry_flag":
+                return getReplaceExistingEntryFlag();
+            case "title":
+                return getTitle();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item indicates the current status of the EMDB entry.
      * @return StrColumn

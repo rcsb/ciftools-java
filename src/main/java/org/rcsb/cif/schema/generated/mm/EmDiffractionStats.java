@@ -14,6 +14,38 @@ public class EmDiffractionStats extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "fourier_space_coverage":
+                return getFourierSpaceCoverage();
+            case "high_resolution":
+                return getHighResolution();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "num_intensities_measured":
+                return getNumIntensitiesMeasured();
+            case "num_structure_factors":
+                return getNumStructureFactors();
+            case "overall_phase_error":
+                return getOverallPhaseError();
+            case "overall_phase_residual":
+                return getOverallPhaseResidual();
+            case "phase_error_rejection_criteria":
+                return getPhaseErrorRejectionCriteria();
+            case "r_merge":
+                return getRMerge();
+            case "r_sym":
+                return getRSym();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Any addition details about the structure factor measurements
      * @return StrColumn

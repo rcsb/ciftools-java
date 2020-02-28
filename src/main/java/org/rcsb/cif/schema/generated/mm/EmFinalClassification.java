@@ -14,6 +14,26 @@ public class EmFinalClassification extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "avg_num_images_per_class":
+                return getAvgNumImagesPerClass();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "num_classes":
+                return getNumClasses();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The average number of images per class in the final 2D classification
      * @return IntColumn

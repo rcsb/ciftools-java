@@ -15,6 +15,22 @@ public class PdbxDepositGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "group_id":
+                return getGroupId();
+            case "group_title":
+                return getGroupTitle();
+            case "group_description":
+                return getGroupDescription();
+            case "group_type":
+                return getGroupType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for a group of entries deposited as a collection.
      * @return StrColumn

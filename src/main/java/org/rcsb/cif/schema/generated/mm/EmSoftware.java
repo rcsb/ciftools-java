@@ -17,6 +17,30 @@ public class EmSoftware extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "category":
+                return getCategory();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "fitting_id":
+                return getFittingId();
+            case "imaging_id":
+                return getImagingId();
+            case "name":
+                return getName();
+            case "version":
+                return getVersion();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The purpose of the software.
      * @return StrColumn

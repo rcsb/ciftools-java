@@ -15,6 +15,24 @@ public class PdbxDatabasePDBObsSpr extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "date":
+                return getDate();
+            case "pdb_id":
+                return getPdbId();
+            case "replace_pdb_id":
+                return getReplacePdbId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Identifier for the type of obsolete entry to be added to this entry.
      * @return StrColumn

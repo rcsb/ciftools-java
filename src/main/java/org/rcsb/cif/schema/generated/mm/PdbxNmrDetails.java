@@ -16,6 +16,18 @@ public class PdbxNmrDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "text":
+                return getText();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The entry ID for the structure determination.
      * @return StrColumn

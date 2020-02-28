@@ -15,6 +15,28 @@ public class PdbxStructGroupList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "struct_group_id":
+                return getStructGroupId();
+            case "name":
+                return getName();
+            case "type":
+                return getType();
+            case "group_enumeration_type":
+                return getGroupEnumerationType();
+            case "description":
+                return getDescription();
+            case "selection":
+                return getSelection();
+            case "selection_details":
+                return getSelectionDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The unique identifier for the group.
      * @return StrColumn

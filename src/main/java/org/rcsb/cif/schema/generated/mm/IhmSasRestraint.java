@@ -16,6 +16,36 @@ public class IhmSasRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "model_id":
+                return getModelId();
+            case "struct_assembly_id":
+                return getStructAssemblyId();
+            case "profile_segment_flag":
+                return getProfileSegmentFlag();
+            case "fitting_atom_type":
+                return getFittingAtomType();
+            case "fitting_method":
+                return getFittingMethod();
+            case "fitting_state":
+                return getFittingState();
+            case "radius_of_gyration":
+                return getRadiusOfGyration();
+            case "chi_value":
+                return getChiValue();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the SAS restraint description.
      * @return IntColumn

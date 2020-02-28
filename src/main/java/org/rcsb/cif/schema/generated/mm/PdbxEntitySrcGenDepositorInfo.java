@@ -20,6 +20,42 @@ public class PdbxEntitySrcGenDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "src_id":
+                return getSrcId();
+            case "entity_id":
+                return getEntityId();
+            case "seq_type":
+                return getSeqType();
+            case "beg_seq_num":
+                return getBegSeqNum();
+            case "end_seq_num":
+                return getEndSeqNum();
+            case "gene_src_gene":
+                return getGeneSrcGene();
+            case "gene_src_scientific_name":
+                return getGeneSrcScientificName();
+            case "host_org_gene":
+                return getHostOrgGene();
+            case "host_org_scientific_name":
+                return getHostOrgScientificName();
+            case "host_org_strain":
+                return getHostOrgStrain();
+            case "gene_src_ncbi_taxonomy_id":
+                return getGeneSrcNcbiTaxonomyId();
+            case "host_org_ncbi_taxonomy_id":
+                return getHostOrgNcbiTaxonomyId();
+            case "host_org_vector_type":
+                return getHostOrgVectorType();
+            case "plasmid_name":
+                return getPlasmidName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is an ordinal identifier for entity_src_gen data records.
      * @return IntColumn

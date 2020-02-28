@@ -17,6 +17,24 @@ public class IhmGeometricObjectTorus extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "object_id":
+                return getObjectId();
+            case "center_id":
+                return getCenterId();
+            case "transformation_id":
+                return getTransformationId();
+            case "major_radius_R":
+                return getMajorRadiusR();
+            case "minor_radius_r":
+                return getMinorRadiusR();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Identifier to the geometric object.
      * This data item is a pointer to the _ihm_geometric_object_list.object_id in the

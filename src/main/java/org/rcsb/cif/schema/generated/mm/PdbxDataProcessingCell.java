@@ -14,6 +14,48 @@ public class PdbxDataProcessingCell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "a":
+                return getA();
+            case "a_tolerance":
+                return getATolerance();
+            case "b":
+                return getB();
+            case "b_tolerance":
+                return getBTolerance();
+            case "c":
+                return getC();
+            case "c_tolerance":
+                return getCTolerance();
+            case "alpha":
+                return getAlpha();
+            case "alpha_tolerance":
+                return getAlphaTolerance();
+            case "beta":
+                return getBeta();
+            case "beta_tolerance":
+                return getBetaTolerance();
+            case "gamma":
+                return getGamma();
+            case "gamma_tolerance":
+                return getGammaTolerance();
+            case "volume":
+                return getVolume();
+            case "mosaicity":
+                return getMosaicity();
+            case "resolution_range":
+                return getResolutionRange();
+            case "space_group":
+                return getSpaceGroup();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_data_processing_cell.entry_id identifies the data block.
      * @return StrColumn

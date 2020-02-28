@@ -17,6 +17,106 @@ public class AtomSiteAnisotrop extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "B[1][1]":
+                return getB11();
+            case "B[1][1]_esd":
+                return getB11Esd();
+            case "B[1][2]":
+                return getB12();
+            case "B[1][2]_esd":
+                return getB12Esd();
+            case "B[1][3]":
+                return getB13();
+            case "B[1][3]_esd":
+                return getB13Esd();
+            case "B[2][2]":
+                return getB22();
+            case "B[2][2]_esd":
+                return getB22Esd();
+            case "B[2][3]":
+                return getB23();
+            case "B[2][3]_esd":
+                return getB23Esd();
+            case "B[3][3]":
+                return getB33();
+            case "B[3][3]_esd":
+                return getB33Esd();
+            case "ratio":
+                return getRatio();
+            case "id":
+                return getId();
+            case "type_symbol":
+                return getTypeSymbol();
+            case "U[1][1]":
+                return getU11();
+            case "U[1][1]_esd":
+                return getU11Esd();
+            case "U[1][2]":
+                return getU12();
+            case "U[1][2]_esd":
+                return getU12Esd();
+            case "U[1][3]":
+                return getU13();
+            case "U[1][3]_esd":
+                return getU13Esd();
+            case "U[2][2]":
+                return getU22();
+            case "U[2][2]_esd":
+                return getU22Esd();
+            case "U[2][3]":
+                return getU23();
+            case "U[2][3]_esd":
+                return getU23Esd();
+            case "U[3][3]":
+                return getU33();
+            case "U[3][3]_esd":
+                return getU33Esd();
+            case "pdbx_auth_seq_id":
+                return getPdbxAuthSeqId();
+            case "pdbx_auth_alt_id":
+                return getPdbxAuthAltId();
+            case "pdbx_auth_asym_id":
+                return getPdbxAuthAsymId();
+            case "pdbx_auth_atom_id":
+                return getPdbxAuthAtomId();
+            case "pdbx_auth_comp_id":
+                return getPdbxAuthCompId();
+            case "pdbx_label_seq_id":
+                return getPdbxLabelSeqId();
+            case "pdbx_label_alt_id":
+                return getPdbxLabelAltId();
+            case "pdbx_label_asym_id":
+                return getPdbxLabelAsymId();
+            case "pdbx_label_atom_id":
+                return getPdbxLabelAtomId();
+            case "pdbx_label_comp_id":
+                return getPdbxLabelCompId();
+            case "pdbx_PDB_ins_code":
+                return getPdbxPDBInsCode();
+            case "pdbx_PDB_model_num":
+                return getPdbxPDBModelNum();
+            case "pdbx_not_in_asym":
+                return getPdbxNotInAsym();
+            case "pdbx_PDB_residue_no":
+                return getPdbxPDBResidueNo();
+            case "pdbx_PDB_residue_name":
+                return getPdbxPDBResidueName();
+            case "pdbx_PDB_strand_id":
+                return getPdbxPDBStrandId();
+            case "pdbx_PDB_atom_name":
+                return getPdbxPDBAtomName();
+            case "pdbx_auth_atom_name":
+                return getPdbxAuthAtomName();
+            case "pdbx_label_ins_code":
+                return getPdbxLabelInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The elements of the anisotropic atomic displacement
      * matrix B, which appears in the structure-factor term as:

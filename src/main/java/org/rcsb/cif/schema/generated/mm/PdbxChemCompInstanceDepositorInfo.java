@@ -15,6 +15,32 @@ public class PdbxChemCompInstanceDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "comp_id":
+                return getCompId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "in_polymer_flag":
+                return getInPolymerFlag();
+            case "author_provided_flag":
+                return getAuthorProvidedFlag();
+            case "formula":
+                return getFormula();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of pdbx_chem_comp_instance_depositor_info.ordinal must uniquely identify a record in
      * the PDBX_CHEM_COMP_INSTANCE_DEPOSITOR_INFO list.

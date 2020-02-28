@@ -15,6 +15,26 @@ public class IhmPseudoSiteFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "feature_id":
+                return getFeatureId();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_z":
+                return getCartnZ();
+            case "radius":
+                return getRadius();
+            case "description":
+                return getDescription();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The feature identifier corresponding to this pseudo site.
      * This data item is a pointer to _ihm_feature_list.feature_id

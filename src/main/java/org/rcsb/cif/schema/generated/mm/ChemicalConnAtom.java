@@ -30,6 +30,28 @@ public class ChemicalConnAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "charge":
+                return getCharge();
+            case "display_x":
+                return getDisplayX();
+            case "display_y":
+                return getDisplayY();
+            case "NCA":
+                return getNCA();
+            case "NH":
+                return getNH();
+            case "number":
+                return getNumber();
+            case "type_symbol":
+                return getTypeSymbol();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The net integer charge assigned to this atom. This is the
      * formal charge assignment normally found in chemical diagrams.

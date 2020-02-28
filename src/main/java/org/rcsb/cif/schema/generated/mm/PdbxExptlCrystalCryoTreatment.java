@@ -15,6 +15,24 @@ public class PdbxExptlCrystalCryoTreatment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "crystal_id":
+                return getCrystalId();
+            case "final_solution_details":
+                return getFinalSolutionDetails();
+            case "soaking_details":
+                return getSoakingDetails();
+            case "cooling_details":
+                return getCoolingDetails();
+            case "annealing_details":
+                return getAnnealingDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.

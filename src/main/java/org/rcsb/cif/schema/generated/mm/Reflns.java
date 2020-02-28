@@ -21,6 +21,126 @@ public class Reflns extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "B_iso_Wilson_estimate":
+                return getBIsoWilsonEstimate();
+            case "entry_id":
+                return getEntryId();
+            case "data_reduction_details":
+                return getDataReductionDetails();
+            case "data_reduction_method":
+                return getDataReductionMethod();
+            case "d_resolution_high":
+                return getDResolutionHigh();
+            case "d_resolution_low":
+                return getDResolutionLow();
+            case "details":
+                return getDetails();
+            case "limit_h_max":
+                return getLimitHMax();
+            case "limit_h_min":
+                return getLimitHMin();
+            case "limit_k_max":
+                return getLimitKMax();
+            case "limit_k_min":
+                return getLimitKMin();
+            case "limit_l_max":
+                return getLimitLMax();
+            case "limit_l_min":
+                return getLimitLMin();
+            case "number_all":
+                return getNumberAll();
+            case "number_obs":
+                return getNumberObs();
+            case "observed_criterion":
+                return getObservedCriterion();
+            case "observed_criterion_F_max":
+                return getObservedCriterionFMax();
+            case "observed_criterion_F_min":
+                return getObservedCriterionFMin();
+            case "observed_criterion_I_max":
+                return getObservedCriterionIMax();
+            case "observed_criterion_I_min":
+                return getObservedCriterionIMin();
+            case "observed_criterion_sigma_F":
+                return getObservedCriterionSigmaF();
+            case "observed_criterion_sigma_I":
+                return getObservedCriterionSigmaI();
+            case "percent_possible_obs":
+                return getPercentPossibleObs();
+            case "R_free_details":
+                return getRFreeDetails();
+            case "Rmerge_F_all":
+                return getRmergeFAll();
+            case "Rmerge_F_obs":
+                return getRmergeFObs();
+            case "Friedel_coverage":
+                return getFriedelCoverage();
+            case "number_gt":
+                return getNumberGt();
+            case "threshold_expression":
+                return getThresholdExpression();
+            case "pdbx_redundancy":
+                return getPdbxRedundancy();
+            case "pdbx_Rmerge_I_obs":
+                return getPdbxRmergeIObs();
+            case "pdbx_Rmerge_I_all":
+                return getPdbxRmergeIAll();
+            case "pdbx_Rsym_value":
+                return getPdbxRsymValue();
+            case "pdbx_netI_over_av_sigmaI":
+                return getPdbxNetIOverAvSigmaI();
+            case "pdbx_netI_over_sigmaI":
+                return getPdbxNetIOverSigmaI();
+            case "pdbx_res_netI_over_av_sigmaI_2":
+                return getPdbxResNetIOverAvSigmaI2();
+            case "pdbx_res_netI_over_sigmaI_2":
+                return getPdbxResNetIOverSigmaI2();
+            case "pdbx_chi_squared":
+                return getPdbxChiSquared();
+            case "pdbx_scaling_rejects":
+                return getPdbxScalingRejects();
+            case "pdbx_d_res_high_opt":
+                return getPdbxDResHighOpt();
+            case "pdbx_d_res_low_opt":
+                return getPdbxDResLowOpt();
+            case "pdbx_d_res_opt_method":
+                return getPdbxDResOptMethod();
+            case "phase_calculation_details":
+                return getPhaseCalculationDetails();
+            case "pdbx_Rrim_I_all":
+                return getPdbxRrimIAll();
+            case "pdbx_Rpim_I_all":
+                return getPdbxRpimIAll();
+            case "pdbx_d_opt":
+                return getPdbxDOpt();
+            case "pdbx_number_measured_all":
+                return getPdbxNumberMeasuredAll();
+            case "pdbx_diffrn_id":
+                return getPdbxDiffrnId();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            case "pdbx_CC_half":
+                return getPdbxCCHalf();
+            case "pdbx_R_split":
+                return getPdbxRSplit();
+            case "pdbx_redundancy_reflns_obs":
+                return getPdbxRedundancyReflnsObs();
+            case "pdbx_number_anomalous":
+                return getPdbxNumberAnomalous();
+            case "pdbx_Rrim_I_all_anomalous":
+                return getPdbxRrimIAllAnomalous();
+            case "pdbx_Rpim_I_all_anomalous":
+                return getPdbxRpimIAllAnomalous();
+            case "pdbx_Rmerge_I_anomalous":
+                return getPdbxRmergeIAnomalous();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of the overall isotropic displacement parameter
      * estimated from the slope of the Wilson plot.

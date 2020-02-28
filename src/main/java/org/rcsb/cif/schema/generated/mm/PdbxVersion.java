@@ -15,6 +15,26 @@ public class PdbxVersion extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "revision_date":
+                return getRevisionDate();
+            case "major_version":
+                return getMajorVersion();
+            case "minor_version":
+                return getMinorVersion();
+            case "details":
+                return getDetails();
+            case "revision_type":
+                return getRevisionType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

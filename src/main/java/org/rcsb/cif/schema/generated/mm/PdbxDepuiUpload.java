@@ -15,6 +15,30 @@ public class PdbxDepuiUpload extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "file_content_type":
+                return getFileContentType();
+            case "file_type":
+                return getFileType();
+            case "file_name":
+                return getFileName();
+            case "file_size":
+                return getFileSize();
+            case "valid_flag":
+                return getValidFlag();
+            case "diagnostic_message":
+                return getDiagnosticMessage();
+            case "sequence_align":
+                return getSequenceAlign();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal identifier for each update record.
      * @return IntColumn

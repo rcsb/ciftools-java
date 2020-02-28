@@ -23,6 +23,82 @@ public class DiffrnRefln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_chi":
+                return getAngleChi();
+            case "angle_kappa":
+                return getAngleKappa();
+            case "angle_omega":
+                return getAngleOmega();
+            case "angle_phi":
+                return getAnglePhi();
+            case "angle_psi":
+                return getAnglePsi();
+            case "angle_theta":
+                return getAngleTheta();
+            case "attenuator_code":
+                return getAttenuatorCode();
+            case "counts_bg_1":
+                return getCountsBg1();
+            case "counts_bg_2":
+                return getCountsBg2();
+            case "counts_net":
+                return getCountsNet();
+            case "counts_peak":
+                return getCountsPeak();
+            case "counts_total":
+                return getCountsTotal();
+            case "detect_slit_horiz":
+                return getDetectSlitHoriz();
+            case "detect_slit_vert":
+                return getDetectSlitVert();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "elapsed_time":
+                return getElapsedTime();
+            case "id":
+                return getId();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "intensity_net":
+                return getIntensityNet();
+            case "intensity_sigma":
+                return getIntensitySigma();
+            case "scale_group_code":
+                return getScaleGroupCode();
+            case "scan_mode":
+                return getScanMode();
+            case "scan_mode_backgd":
+                return getScanModeBackgd();
+            case "scan_rate":
+                return getScanRate();
+            case "scan_time_backgd":
+                return getScanTimeBackgd();
+            case "scan_width":
+                return getScanWidth();
+            case "sint_over_lambda":
+                return getSintOverLambda();
+            case "standard_code":
+                return getStandardCode();
+            case "wavelength":
+                return getWavelength();
+            case "wavelength_id":
+                return getWavelengthId();
+            case "class_code":
+                return getClassCode();
+            case "intensity_u":
+                return getIntensityU();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The diffractometer angle chi of a reflection in degrees. This
      * angle corresponds to the specified orientation matrix

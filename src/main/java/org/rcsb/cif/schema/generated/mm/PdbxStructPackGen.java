@@ -15,6 +15,30 @@ public class PdbxStructPackGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "asym_id":
+                return getAsymId();
+            case "symmetry":
+                return getSymmetry();
+            case "color_red":
+                return getColorRed();
+            case "color_green":
+                return getColorGreen();
+            case "color_blue":
+                return getColorBlue();
+            case "crystal_type":
+                return getCrystalType();
+            case "packing_type":
+                return getPackingType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal identifier
      * @return StrColumn

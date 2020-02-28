@@ -31,6 +31,40 @@ public class StructRef extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "biol_id":
+                return getBiolId();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            case "details":
+                return getDetails();
+            case "entity_id":
+                return getEntityId();
+            case "id":
+                return getId();
+            case "seq_align":
+                return getSeqAlign();
+            case "seq_dif":
+                return getSeqDif();
+            case "pdbx_db_accession":
+                return getPdbxDbAccession();
+            case "pdbx_db_isoform":
+                return getPdbxDbIsoform();
+            case "pdbx_seq_one_letter_code":
+                return getPdbxSeqOneLetterCode();
+            case "pdbx_align_begin":
+                return getPdbxAlignBegin();
+            case "pdbx_align_end":
+                return getPdbxAlignEnd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_biol.id in the
      * STRUCT_BIOL category.

@@ -19,6 +19,126 @@ public class StructConn extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "conn_type_id":
+                return getConnTypeId();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "ptnr1_label_alt_id":
+                return getPtnr1LabelAltId();
+            case "ptnr1_label_asym_id":
+                return getPtnr1LabelAsymId();
+            case "ptnr1_label_atom_id":
+                return getPtnr1LabelAtomId();
+            case "ptnr1_label_comp_id":
+                return getPtnr1LabelCompId();
+            case "ptnr1_label_seq_id":
+                return getPtnr1LabelSeqId();
+            case "ptnr1_auth_asym_id":
+                return getPtnr1AuthAsymId();
+            case "ptnr1_auth_atom_id":
+                return getPtnr1AuthAtomId();
+            case "ptnr1_auth_comp_id":
+                return getPtnr1AuthCompId();
+            case "ptnr1_auth_seq_id":
+                return getPtnr1AuthSeqId();
+            case "ptnr1_role":
+                return getPtnr1Role();
+            case "ptnr1_symmetry":
+                return getPtnr1Symmetry();
+            case "ptnr2_label_alt_id":
+                return getPtnr2LabelAltId();
+            case "ptnr2_label_asym_id":
+                return getPtnr2LabelAsymId();
+            case "ptnr2_label_atom_id":
+                return getPtnr2LabelAtomId();
+            case "ptnr2_label_comp_id":
+                return getPtnr2LabelCompId();
+            case "ptnr2_label_seq_id":
+                return getPtnr2LabelSeqId();
+            case "ptnr2_auth_asym_id":
+                return getPtnr2AuthAsymId();
+            case "ptnr2_auth_atom_id":
+                return getPtnr2AuthAtomId();
+            case "ptnr2_auth_comp_id":
+                return getPtnr2AuthCompId();
+            case "ptnr2_auth_seq_id":
+                return getPtnr2AuthSeqId();
+            case "ptnr2_role":
+                return getPtnr2Role();
+            case "ptnr2_symmetry":
+                return getPtnr2Symmetry();
+            case "pdbx_ptnr1_PDB_ins_code":
+                return getPdbxPtnr1PDBInsCode();
+            case "pdbx_ptnr1_auth_alt_id":
+                return getPdbxPtnr1AuthAltId();
+            case "pdbx_ptnr1_label_alt_id":
+                return getPdbxPtnr1LabelAltId();
+            case "pdbx_ptnr1_standard_comp_id":
+                return getPdbxPtnr1StandardCompId();
+            case "pdbx_ptnr2_PDB_ins_code":
+                return getPdbxPtnr2PDBInsCode();
+            case "pdbx_ptnr2_auth_alt_id":
+                return getPdbxPtnr2AuthAltId();
+            case "pdbx_ptnr2_label_alt_id":
+                return getPdbxPtnr2LabelAltId();
+            case "pdbx_ptnr3_auth_alt_id":
+                return getPdbxPtnr3AuthAltId();
+            case "pdbx_ptnr3_auth_asym_id":
+                return getPdbxPtnr3AuthAsymId();
+            case "pdbx_ptnr3_auth_atom_id":
+                return getPdbxPtnr3AuthAtomId();
+            case "pdbx_ptnr3_auth_comp_id":
+                return getPdbxPtnr3AuthCompId();
+            case "pdbx_ptnr3_PDB_ins_code":
+                return getPdbxPtnr3PDBInsCode();
+            case "pdbx_ptnr3_auth_seq_id":
+                return getPdbxPtnr3AuthSeqId();
+            case "pdbx_ptnr3_label_alt_id":
+                return getPdbxPtnr3LabelAltId();
+            case "pdbx_ptnr3_label_asym_id":
+                return getPdbxPtnr3LabelAsymId();
+            case "pdbx_ptnr3_label_atom_id":
+                return getPdbxPtnr3LabelAtomId();
+            case "pdbx_ptnr3_label_comp_id":
+                return getPdbxPtnr3LabelCompId();
+            case "pdbx_ptnr3_label_seq_id":
+                return getPdbxPtnr3LabelSeqId();
+            case "pdbx_PDB_id":
+                return getPdbxPDBId();
+            case "pdbx_dist_value":
+                return getPdbxDistValue();
+            case "pdbx_value_order":
+                return getPdbxValueOrder();
+            case "pdbx_leaving_atom_flag":
+                return getPdbxLeavingAtomFlag();
+            case "pdbx_ptnr1_mod_name":
+                return getPdbxPtnr1ModName();
+            case "pdbx_ptnr1_sugar_name":
+                return getPdbxPtnr1SugarName();
+            case "pdbx_ptnr1_replaced_atom":
+                return getPdbxPtnr1ReplacedAtom();
+            case "pdbx_ptnr3_auth_ins_code":
+                return getPdbxPtnr3AuthInsCode();
+            case "pdbx_ptnr1_atom_stereo_config":
+                return getPdbxPtnr1AtomStereoConfig();
+            case "pdbx_ptnr1_leaving_atom_id":
+                return getPdbxPtnr1LeavingAtomId();
+            case "pdbx_ptnr2_atom_stereo_config":
+                return getPdbxPtnr2AtomStereoConfig();
+            case "pdbx_ptnr2_leaving_atom_id":
+                return getPdbxPtnr2LeavingAtomId();
+            case "pdbx_role":
+                return getPdbxRole();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_conn_type.id in the
      * STRUCT_CONN_TYPE category.

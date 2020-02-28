@@ -14,6 +14,22 @@ public class EmFigureDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "experiment_id":
+                return getExperimentId();
+            case "upload_file_name":
+                return getUploadFileName();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is the unique identifier for an image file.
      * @return StrColumn

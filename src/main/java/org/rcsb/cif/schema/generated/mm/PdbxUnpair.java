@@ -18,6 +18,20 @@ public class PdbxUnpair extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "chain_id":
+                return getChainId();
+            case "residue_name":
+                return getResidueName();
+            case "residue_number":
+                return getResidueNumber();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Strand id.
      * @return StrColumn

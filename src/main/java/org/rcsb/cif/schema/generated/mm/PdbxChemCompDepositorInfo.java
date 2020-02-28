@@ -15,6 +15,34 @@ public class PdbxChemCompDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "comp_id":
+                return getCompId();
+            case "alt_comp_id":
+                return getAltCompId();
+            case "name":
+                return getName();
+            case "formula":
+                return getFormula();
+            case "type":
+                return getType();
+            case "descriptor":
+                return getDescriptor();
+            case "descriptor_type":
+                return getDescriptorType();
+            case "in_dictionary_flag":
+                return getInDictionaryFlag();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for this category.
      * @return IntColumn

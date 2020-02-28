@@ -15,6 +15,22 @@ public class PdbxPointSymmetry extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "Schoenflies_symbol":
+                return getSchoenfliesSymbol();
+            case "circular_symmetry":
+                return getCircularSymmetry();
+            case "H-M_notation":
+                return getH_MNotation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

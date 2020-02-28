@@ -16,6 +16,98 @@ public class GeomHbond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_DHA":
+                return getAngleDHA();
+            case "angle_DHA_esd":
+                return getAngleDHAEsd();
+            case "atom_site_id_A":
+                return getAtomSiteIdA();
+            case "atom_site_label_alt_id_A":
+                return getAtomSiteLabelAltIdA();
+            case "atom_site_label_asym_id_A":
+                return getAtomSiteLabelAsymIdA();
+            case "atom_site_label_atom_id_A":
+                return getAtomSiteLabelAtomIdA();
+            case "atom_site_label_comp_id_A":
+                return getAtomSiteLabelCompIdA();
+            case "atom_site_label_seq_id_A":
+                return getAtomSiteLabelSeqIdA();
+            case "atom_site_id_D":
+                return getAtomSiteIdD();
+            case "atom_site_label_alt_id_D":
+                return getAtomSiteLabelAltIdD();
+            case "atom_site_label_asym_id_D":
+                return getAtomSiteLabelAsymIdD();
+            case "atom_site_label_atom_id_D":
+                return getAtomSiteLabelAtomIdD();
+            case "atom_site_label_comp_id_D":
+                return getAtomSiteLabelCompIdD();
+            case "atom_site_label_seq_id_D":
+                return getAtomSiteLabelSeqIdD();
+            case "atom_site_id_H":
+                return getAtomSiteIdH();
+            case "atom_site_label_alt_id_H":
+                return getAtomSiteLabelAltIdH();
+            case "atom_site_label_asym_id_H":
+                return getAtomSiteLabelAsymIdH();
+            case "atom_site_label_atom_id_H":
+                return getAtomSiteLabelAtomIdH();
+            case "atom_site_label_comp_id_H":
+                return getAtomSiteLabelCompIdH();
+            case "atom_site_label_seq_id_H":
+                return getAtomSiteLabelSeqIdH();
+            case "atom_site_auth_asym_id_A":
+                return getAtomSiteAuthAsymIdA();
+            case "atom_site_auth_atom_id_A":
+                return getAtomSiteAuthAtomIdA();
+            case "atom_site_auth_comp_id_A":
+                return getAtomSiteAuthCompIdA();
+            case "atom_site_auth_seq_id_A":
+                return getAtomSiteAuthSeqIdA();
+            case "atom_site_auth_asym_id_D":
+                return getAtomSiteAuthAsymIdD();
+            case "atom_site_auth_atom_id_D":
+                return getAtomSiteAuthAtomIdD();
+            case "atom_site_auth_comp_id_D":
+                return getAtomSiteAuthCompIdD();
+            case "atom_site_auth_seq_id_D":
+                return getAtomSiteAuthSeqIdD();
+            case "atom_site_auth_asym_id_H":
+                return getAtomSiteAuthAsymIdH();
+            case "atom_site_auth_atom_id_H":
+                return getAtomSiteAuthAtomIdH();
+            case "atom_site_auth_comp_id_H":
+                return getAtomSiteAuthCompIdH();
+            case "atom_site_auth_seq_id_H":
+                return getAtomSiteAuthSeqIdH();
+            case "dist_DA":
+                return getDistDA();
+            case "dist_DA_esd":
+                return getDistDAEsd();
+            case "dist_DH":
+                return getDistDH();
+            case "dist_DH_esd":
+                return getDistDHEsd();
+            case "dist_HA":
+                return getDistHA();
+            case "dist_HA_esd":
+                return getDistHAEsd();
+            case "publ_flag":
+                return getPublFlag();
+            case "site_symmetry_A":
+                return getSiteSymmetryA();
+            case "site_symmetry_D":
+                return getSiteSymmetryD();
+            case "site_symmetry_H":
+                return getSiteSymmetryH();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The angle in degrees defined by the donor-, hydrogen- and
      * acceptor-atom sites in a hydrogen bond.

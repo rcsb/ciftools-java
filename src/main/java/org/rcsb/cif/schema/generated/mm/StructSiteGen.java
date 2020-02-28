@@ -16,6 +16,44 @@ public class StructSiteGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "site_id":
+                return getSiteId();
+            case "symmetry":
+                return getSymmetry();
+            case "pdbx_auth_ins_code":
+                return getPdbxAuthInsCode();
+            case "pdbx_num_res":
+                return getPdbxNumRes();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the symmetry generation of
      * this portion of the structural site.

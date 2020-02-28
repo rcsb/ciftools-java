@@ -17,6 +17,40 @@ public class EmVitrification extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "sample_preparation_id":
+                return getSamplePreparationId();
+            case "specimen_id":
+                return getSpecimenId();
+            case "cryogen_name":
+                return getCryogenName();
+            case "humidity":
+                return getHumidity();
+            case "temp":
+                return getTemp();
+            case "chamber_temperature":
+                return getChamberTemperature();
+            case "instrument":
+                return getInstrument();
+            case "method":
+                return getMethod();
+            case "time_resolved_state":
+                return getTimeResolvedState();
+            case "citation_id":
+                return getCitationId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

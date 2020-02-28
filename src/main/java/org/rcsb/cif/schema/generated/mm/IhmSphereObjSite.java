@@ -15,6 +15,36 @@ public class IhmSphereObjSite extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "entity_id":
+                return getEntityId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "asym_id":
+                return getAsymId();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_z":
+                return getCartnZ();
+            case "object_radius":
+                return getObjectRadius();
+            case "rmsf":
+                return getRmsf();
+            case "model_id":
+                return getModelId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for this pseudo atom / sphere object.
      * @return IntColumn

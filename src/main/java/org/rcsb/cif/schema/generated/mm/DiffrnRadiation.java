@@ -19,6 +19,48 @@ public class DiffrnRadiation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "collimation":
+                return getCollimation();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "filter_edge":
+                return getFilterEdge();
+            case "inhomogeneity":
+                return getInhomogeneity();
+            case "monochromator":
+                return getMonochromator();
+            case "polarisn_norm":
+                return getPolarisnNorm();
+            case "polarisn_ratio":
+                return getPolarisnRatio();
+            case "probe":
+                return getProbe();
+            case "type":
+                return getType();
+            case "xray_symbol":
+                return getXraySymbol();
+            case "wavelength_id":
+                return getWavelengthId();
+            case "pdbx_monochromatic_or_laue_m_l":
+                return getPdbxMonochromaticOrLaueML();
+            case "pdbx_wavelength_list":
+                return getPdbxWavelengthList();
+            case "pdbx_wavelength":
+                return getPdbxWavelength();
+            case "pdbx_diffrn_protocol":
+                return getPdbxDiffrnProtocol();
+            case "pdbx_analyzer":
+                return getPdbxAnalyzer();
+            case "pdbx_scattering_type":
+                return getPdbxScatteringType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The collimation or focusing applied to the radiation.
      * @return StrColumn

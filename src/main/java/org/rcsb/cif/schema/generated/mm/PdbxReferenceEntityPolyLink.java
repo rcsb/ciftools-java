@@ -16,6 +16,42 @@ public class PdbxReferenceEntityPolyLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "link_id":
+                return getLinkId();
+            case "prd_id":
+                return getPrdId();
+            case "details":
+                return getDetails();
+            case "ref_entity_id":
+                return getRefEntityId();
+            case "component_id":
+                return getComponentId();
+            case "entity_seq_num_1":
+                return getEntitySeqNum1();
+            case "entity_seq_num_2":
+                return getEntitySeqNum2();
+            case "comp_id_1":
+                return getCompId1();
+            case "comp_id_2":
+                return getCompId2();
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "insert_code_1":
+                return getInsertCode1();
+            case "insert_code_2":
+                return getInsertCode2();
+            case "value_order":
+                return getValueOrder();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_poly_link.link_id uniquely identifies
      * a linkage within a polymer entity.

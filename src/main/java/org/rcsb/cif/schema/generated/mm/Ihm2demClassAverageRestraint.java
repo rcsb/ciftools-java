@@ -15,6 +15,34 @@ public class Ihm2demClassAverageRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "number_raw_micrographs":
+                return getNumberRawMicrographs();
+            case "pixel_size_width":
+                return getPixelSizeWidth();
+            case "pixel_size_height":
+                return getPixelSizeHeight();
+            case "image_resolution":
+                return getImageResolution();
+            case "image_segment_flag":
+                return getImageSegmentFlag();
+            case "number_of_projections":
+                return getNumberOfProjections();
+            case "struct_assembly_id":
+                return getStructAssemblyId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the 2dem class average.
      * @return IntColumn

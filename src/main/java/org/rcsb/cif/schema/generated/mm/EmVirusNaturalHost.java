@@ -14,6 +14,24 @@ public class EmVirusNaturalHost extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "id":
+                return getId();
+            case "ncbi_tax_id":
+                return getNcbiTaxId();
+            case "organism":
+                return getOrganism();
+            case "strain":
+                return getStrain();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Pointer to _em_entity_assembly.id.
      * @return StrColumn

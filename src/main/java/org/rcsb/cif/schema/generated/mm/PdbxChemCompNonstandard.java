@@ -15,6 +15,18 @@ public class PdbxChemCompNonstandard extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_comp.id in the
      * CHEM_COMP category.

@@ -15,6 +15,22 @@ public class PdbxXplorFile extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "serial_no":
+                return getSerialNo();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "param_file":
+                return getParamFile();
+            case "topol_file":
+                return getTopolFile();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return StrColumn

@@ -17,6 +17,32 @@ public class PdbxMissingAtomNonpoly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "auth_PDB_insert_id":
+                return getAuthPDBInsertId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "atom_name":
+                return getAtomName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_missing_atom_nonpoly.id must
      * uniquely identify each item in the PDBX_MISSING_ATOM_NONPOLY list.

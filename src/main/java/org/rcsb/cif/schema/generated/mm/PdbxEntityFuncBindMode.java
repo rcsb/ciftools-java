@@ -15,6 +15,24 @@ public class PdbxEntityFuncBindMode extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "domain_id":
+                return getDomainId();
+            case "entity_id":
+                return getEntityId();
+            case "protein_binds_to":
+                return getProteinBindsTo();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_func_bind_mode.id is a unique identifier
      * for a binding mode within a domain within an entity.

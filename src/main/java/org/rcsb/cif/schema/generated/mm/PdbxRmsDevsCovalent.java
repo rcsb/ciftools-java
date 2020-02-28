@@ -16,6 +16,48 @@ public class PdbxRmsDevsCovalent extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "rms_bonds":
+                return getRmsBonds();
+            case "num_bonds":
+                return getNumBonds();
+            case "rms_bonds_base":
+                return getRmsBondsBase();
+            case "num_bonds_base":
+                return getNumBondsBase();
+            case "rms_bonds_sugar":
+                return getRmsBondsSugar();
+            case "num_bonds_sugar":
+                return getNumBondsSugar();
+            case "rms_bonds_phosphate":
+                return getRmsBondsPhosphate();
+            case "num_bonds_phosphate":
+                return getNumBondsPhosphate();
+            case "rms_angles":
+                return getRmsAngles();
+            case "num_angles":
+                return getNumAngles();
+            case "rms_angles_base":
+                return getRmsAnglesBase();
+            case "num_angles_base":
+                return getNumAnglesBase();
+            case "rms_angles_sugar":
+                return getRmsAnglesSugar();
+            case "num_angles_sugar":
+                return getNumAnglesSugar();
+            case "rms_angles_phosphate":
+                return getRmsAnglesPhosphate();
+            case "num_angles_phosphate":
+                return getNumAnglesPhosphate();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Pointer to the entry id.
      * @return StrColumn

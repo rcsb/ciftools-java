@@ -15,6 +15,24 @@ public class PublAuthor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "address":
+                return getAddress();
+            case "email":
+                return getEmail();
+            case "footnote":
+                return getFootnote();
+            case "name":
+                return getName();
+            case "id_iucr":
+                return getIdIucr();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The address of a publication author. If there is more than one
      * author this is looped with _publ_author.name.

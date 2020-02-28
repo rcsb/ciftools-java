@@ -14,6 +14,52 @@ public class PdbxDataProcessingDetector extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "name":
+                return getName();
+            case "wavelength":
+                return getWavelength();
+            case "polarization":
+                return getPolarization();
+            case "beam_position_x":
+                return getBeamPositionX();
+            case "beam_position_y":
+                return getBeamPositionY();
+            case "cassette_rot_x":
+                return getCassetteRotX();
+            case "cassette_rot_y":
+                return getCassetteRotY();
+            case "cassette_rot_z":
+                return getCassetteRotZ();
+            case "scale_y":
+                return getScaleY();
+            case "skew":
+                return getSkew();
+            case "crossfire_x":
+                return getCrossfireX();
+            case "crossfire_y":
+                return getCrossfireY();
+            case "crossfire_xy":
+                return getCrossfireXy();
+            case "date":
+                return getDate();
+            case "experimentor":
+                return getExperimentor();
+            case "crystal_data_id":
+                return getCrystalDataId();
+            case "processing_path":
+                return getProcessingPath();
+            case "processing_files":
+                return getProcessingFiles();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_data_processing_detector.entry_id identifies the data block.
      * @return StrColumn

@@ -15,6 +15,18 @@ public class PdbxChemCompModel extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "comp_id":
+                return getCompId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_chem_comp_model.id must uniquely identify each
      * model instance the PDBX_CHEM_COMP_MODEL list.

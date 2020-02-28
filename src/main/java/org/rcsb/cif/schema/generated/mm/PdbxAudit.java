@@ -14,6 +14,18 @@ public class PdbxAudit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "current_version":
+                return getCurrentVersion();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_audit.entry_id identifies the data block.
      * @return StrColumn

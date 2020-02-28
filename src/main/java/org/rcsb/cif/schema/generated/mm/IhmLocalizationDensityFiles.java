@@ -18,6 +18,28 @@ public class IhmLocalizationDensityFiles extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "file_id":
+                return getFileId();
+            case "ensemble_id":
+                return getEnsembleId();
+            case "entity_id":
+                return getEntityId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "asym_id":
+                return getAsymId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier.
      * @return IntColumn

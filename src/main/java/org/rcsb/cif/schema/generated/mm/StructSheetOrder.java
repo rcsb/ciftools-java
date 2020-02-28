@@ -19,6 +19,24 @@ public class StructSheetOrder extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "offset":
+                return getOffset();
+            case "range_id_1":
+                return getRangeId1();
+            case "range_id_2":
+                return getRangeId2();
+            case "sense":
+                return getSense();
+            case "sheet_id":
+                return getSheetId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Designates the relative position in the sheet, plus or minus, of
      * the second residue range to the first.

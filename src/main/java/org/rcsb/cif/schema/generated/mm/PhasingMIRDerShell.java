@@ -23,6 +23,60 @@ public class PhasingMIRDerShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "der_id":
+                return getDerId();
+            case "fom":
+                return getFom();
+            case "ha_ampl":
+                return getHaAmpl();
+            case "loc":
+                return getLoc();
+            case "phase":
+                return getPhase();
+            case "power":
+                return getPower();
+            case "R_cullis":
+                return getRCullis();
+            case "R_kraut":
+                return getRKraut();
+            case "reflns":
+                return getReflns();
+            case "pdbx_R_cullis_centric":
+                return getPdbxRCullisCentric();
+            case "pdbx_R_cullis_acentric":
+                return getPdbxRCullisAcentric();
+            case "pdbx_R_kraut_centric":
+                return getPdbxRKrautCentric();
+            case "pdbx_R_kraut_acentric":
+                return getPdbxRKrautAcentric();
+            case "pdbx_loc_centric":
+                return getPdbxLocCentric();
+            case "pdbx_loc_acentric":
+                return getPdbxLocAcentric();
+            case "pdbx_power_centric":
+                return getPdbxPowerCentric();
+            case "pdbx_power_acentric":
+                return getPdbxPowerAcentric();
+            case "pdbx_fom_centric":
+                return getPdbxFomCentric();
+            case "pdbx_fom_acentric":
+                return getPdbxFomAcentric();
+            case "pdbx_reflns_centric":
+                return getPdbxReflnsCentric();
+            case "pdbx_reflns_acentric":
+                return getPdbxReflnsAcentric();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The lowest value  for the interplanar spacings for the
      * reflection data for this derivative in this shell. This is called

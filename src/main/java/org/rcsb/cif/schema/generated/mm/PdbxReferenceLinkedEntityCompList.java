@@ -16,6 +16,22 @@ public class PdbxReferenceLinkedEntityCompList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "linked_entity_id":
+                return getLinkedEntityId();
+            case "list_id":
+                return getListId();
+            case "name":
+                return getName();
+            case "comp_id":
+                return getCompId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_reference_linked_entity.id
      * in the pdbx_reference_linked_entity  category.

@@ -17,6 +17,52 @@ public class IhmCrossLinkRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "group_id":
+                return getGroupId();
+            case "entity_id_1":
+                return getEntityId1();
+            case "entity_id_2":
+                return getEntityId2();
+            case "asym_id_1":
+                return getAsymId1();
+            case "asym_id_2":
+                return getAsymId2();
+            case "comp_id_1":
+                return getCompId1();
+            case "comp_id_2":
+                return getCompId2();
+            case "seq_id_1":
+                return getSeqId1();
+            case "seq_id_2":
+                return getSeqId2();
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "restraint_type":
+                return getRestraintType();
+            case "conditional_crosslink_flag":
+                return getConditionalCrosslinkFlag();
+            case "model_granularity":
+                return getModelGranularity();
+            case "distance_threshold":
+                return getDistanceThreshold();
+            case "psi":
+                return getPsi();
+            case "sigma_1":
+                return getSigma1();
+            case "sigma_2":
+                return getSigma2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the cross link record.
      * @return IntColumn

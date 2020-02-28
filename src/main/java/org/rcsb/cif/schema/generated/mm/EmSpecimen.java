@@ -15,6 +15,30 @@ public class EmSpecimen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "concentration":
+                return getConcentration();
+            case "details":
+                return getDetails();
+            case "embedding_applied":
+                return getEmbeddingApplied();
+            case "experiment_id":
+                return getExperimentId();
+            case "id":
+                return getId();
+            case "shadowing_applied":
+                return getShadowingApplied();
+            case "staining_applied":
+                return getStainingApplied();
+            case "vitrification_applied":
+                return getVitrificationApplied();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The concentration (in milligrams per milliliter, mg/ml)
      * of the complex in the sample.

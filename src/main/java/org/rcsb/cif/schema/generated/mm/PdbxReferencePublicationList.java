@@ -15,6 +15,30 @@ public class PdbxReferencePublicationList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "publication_abbrev":
+                return getPublicationAbbrev();
+            case "ASTM_code_type":
+                return getASTMCodeType();
+            case "ASTM_code_value":
+                return getASTMCodeValue();
+            case "ISSN_code_type":
+                return getISSNCodeType();
+            case "ISSN_code_value":
+                return getISSNCodeValue();
+            case "country":
+                return getCountry();
+            case "start_year":
+                return getStartYear();
+            case "end_year":
+                return getEndYear();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Abbreviated name of the reference publication.
      * @return StrColumn

@@ -15,6 +15,26 @@ public class PdbxEntityPolyDomain extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "entity_id":
+                return getEntityId();
+            case "begin_mon_id":
+                return getBeginMonId();
+            case "begin_seq_num":
+                return getBeginSeqNum();
+            case "end_mon_id":
+                return getEndMonId();
+            case "end_seq_num":
+                return getEndSeqNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_poly_domain.id must uniquely identify a
      * domain within an entity.

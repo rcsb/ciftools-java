@@ -15,6 +15,22 @@ public class PdbxHybrid extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "sugar_name":
+                return getSugarName();
+            case "strand_id":
+                return getStrandId();
+            case "residue_names":
+                return getResidueNames();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * ID code.
      * @return StrColumn

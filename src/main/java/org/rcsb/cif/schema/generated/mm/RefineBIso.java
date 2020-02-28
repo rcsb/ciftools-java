@@ -16,6 +16,30 @@ public class RefineBIso extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "class":
+                return getClazz();
+            case "details":
+                return getDetails();
+            case "treatment":
+                return getTreatment();
+            case "value":
+                return getValue();
+            case "pdbx_residue_name":
+                return getPdbxResidueName();
+            case "pdbx_strand":
+                return getPdbxStrand();
+            case "pdbx_residue_num":
+                return getPdbxResidueNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_B_iso.pdbx_refine_id can be used to distinguish the results

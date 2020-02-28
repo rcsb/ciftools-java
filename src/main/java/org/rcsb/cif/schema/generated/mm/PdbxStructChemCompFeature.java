@@ -15,6 +15,32 @@ public class PdbxStructChemCompFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "type":
+                return getType();
+            case "pdb_strand_id":
+                return getPdbStrandId();
+            case "asym_id":
+                return getAsymId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "seq_num":
+                return getSeqNum();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "pdb_ins_code":
+                return getPdbInsCode();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Special structural details about this chemical component.
      * @return StrColumn

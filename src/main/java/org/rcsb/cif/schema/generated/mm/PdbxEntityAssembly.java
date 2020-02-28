@@ -16,6 +16,22 @@ public class PdbxEntityAssembly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "entity_id":
+                return getEntityId();
+            case "biol_id":
+                return getBiolId();
+            case "num_copies":
+                return getNumCopies();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An  identifier for the assembly.
      * @return StrColumn

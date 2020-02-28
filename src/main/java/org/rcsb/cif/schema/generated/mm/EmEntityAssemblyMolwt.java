@@ -15,6 +15,26 @@ public class EmEntityAssemblyMolwt extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "experimental_flag":
+                return getExperimentalFlag();
+            case "id":
+                return getId();
+            case "units":
+                return getUnits();
+            case "value":
+                return getValue();
+            case "method":
+                return getMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A reference to  _em_entity_assembly.id which uniquely identifies
      * one assembly or assembly component of the imaged sample.

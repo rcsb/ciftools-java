@@ -19,6 +19,74 @@ public class ChemCompAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "alt_atom_id":
+                return getAltAtomId();
+            case "atom_id":
+                return getAtomId();
+            case "charge":
+                return getCharge();
+            case "model_Cartn_x":
+                return getModelCartnX();
+            case "model_Cartn_x_esd":
+                return getModelCartnXEsd();
+            case "model_Cartn_y":
+                return getModelCartnY();
+            case "model_Cartn_y_esd":
+                return getModelCartnYEsd();
+            case "model_Cartn_z":
+                return getModelCartnZ();
+            case "model_Cartn_z_esd":
+                return getModelCartnZEsd();
+            case "comp_id":
+                return getCompId();
+            case "partial_charge":
+                return getPartialCharge();
+            case "substruct_code":
+                return getSubstructCode();
+            case "type_symbol":
+                return getTypeSymbol();
+            case "pdbx_align":
+                return getPdbxAlign();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            case "pdbx_component_atom_id":
+                return getPdbxComponentAtomId();
+            case "pdbx_component_comp_id":
+                return getPdbxComponentCompId();
+            case "pdbx_alt_atom_id":
+                return getPdbxAltAtomId();
+            case "pdbx_alt_comp_id":
+                return getPdbxAltCompId();
+            case "pdbx_model_Cartn_x_ideal":
+                return getPdbxModelCartnXIdeal();
+            case "pdbx_model_Cartn_y_ideal":
+                return getPdbxModelCartnYIdeal();
+            case "pdbx_model_Cartn_z_ideal":
+                return getPdbxModelCartnZIdeal();
+            case "pdbx_stereo_config":
+                return getPdbxStereoConfig();
+            case "pdbx_aromatic_flag":
+                return getPdbxAromaticFlag();
+            case "pdbx_leaving_atom_flag":
+                return getPdbxLeavingAtomFlag();
+            case "pdbx_residue_numbering":
+                return getPdbxResidueNumbering();
+            case "pdbx_polymer_type":
+                return getPdbxPolymerType();
+            case "pdbx_ref_id":
+                return getPdbxRefId();
+            case "pdbx_component_id":
+                return getPdbxComponentId();
+            case "pdbx_component_entity_id":
+                return getPdbxComponentEntityId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An alternative identifier for the atom. This data item would be
      * used in cases where alternative nomenclatures exist for labelling

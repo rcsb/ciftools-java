@@ -15,6 +15,22 @@ public class IhmModelRepresentative extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_group_id":
+                return getModelGroupId();
+            case "model_id":
+                return getModelId();
+            case "selection_criteria":
+                return getSelectionCriteria();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the representative of the model group.
      * @return IntColumn

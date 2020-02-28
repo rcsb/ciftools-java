@@ -19,6 +19,28 @@ public class DiffrnStandards extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "decay_%":
+                return getDecay();
+            case "interval_count":
+                return getIntervalCount();
+            case "interval_time":
+                return getIntervalTime();
+            case "number":
+                return getNumber();
+            case "scale_sigma":
+                return getScaleSigma();
+            case "scale_u":
+                return getScaleU();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.

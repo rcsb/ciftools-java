@@ -15,6 +15,36 @@ public class EmVirusEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "virus_host_category":
+                return getVirusHostCategory();
+            case "virus_host_species":
+                return getVirusHostSpecies();
+            case "virus_host_growth_cell":
+                return getVirusHostGrowthCell();
+            case "virus_type":
+                return getVirusType();
+            case "virus_isolate":
+                return getVirusIsolate();
+            case "ictvdb_id":
+                return getIctvdbId();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "enveloped":
+                return getEnveloped();
+            case "empty":
+                return getEmpty();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Is the unique identifier for VIRUS_ENTITY category.
      * @return StrColumn

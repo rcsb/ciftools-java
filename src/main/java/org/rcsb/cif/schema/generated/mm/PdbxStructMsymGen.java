@@ -19,6 +19,20 @@ public class PdbxStructMsymGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_inst_id":
+                return getEntityInstId();
+            case "msym_id":
+                return getMsymId();
+            case "oper_expression":
+                return getOperExpression();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_struct_entity_inst.id in
      * the PDBX_STRUCT_ENTITY_INST category.

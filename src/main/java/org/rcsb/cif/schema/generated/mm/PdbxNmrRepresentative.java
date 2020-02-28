@@ -16,6 +16,20 @@ public class PdbxNmrRepresentative extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "conformer_id":
+                return getConformerId();
+            case "selection_criteria":
+                return getSelectionCriteria();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * msd will assign the ID.
      * @return StrColumn

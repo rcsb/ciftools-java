@@ -15,6 +15,18 @@ public class ValenceRef extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "reference":
+                return getReference();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An identifier for items in this category. Parent of
      * _valence_param.ref_id, which must have the same value.

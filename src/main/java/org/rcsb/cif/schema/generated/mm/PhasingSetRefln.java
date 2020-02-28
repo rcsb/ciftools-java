@@ -18,6 +18,30 @@ public class PhasingSetRefln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "set_id":
+                return getSetId();
+            case "F_meas":
+                return getFMeas();
+            case "F_meas_au":
+                return getFMeasAu();
+            case "F_meas_sigma":
+                return getFMeasSigma();
+            case "F_meas_sigma_au":
+                return getFMeasSigmaAu();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _phasing_set.id in the
      * PHASING_SET category.

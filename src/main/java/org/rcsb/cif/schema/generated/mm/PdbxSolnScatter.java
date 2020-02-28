@@ -15,6 +15,60 @@ public class PdbxSolnScatter extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "type":
+                return getType();
+            case "source_beamline":
+                return getSourceBeamline();
+            case "source_beamline_instrument":
+                return getSourceBeamlineInstrument();
+            case "detector_type":
+                return getDetectorType();
+            case "detector_specific":
+                return getDetectorSpecific();
+            case "source_type":
+                return getSourceType();
+            case "source_class":
+                return getSourceClass();
+            case "num_time_frames":
+                return getNumTimeFrames();
+            case "sample_pH":
+                return getSamplePH();
+            case "temperature":
+                return getTemperature();
+            case "concentration_range":
+                return getConcentrationRange();
+            case "buffer_name":
+                return getBufferName();
+            case "mean_guiner_radius":
+                return getMeanGuinerRadius();
+            case "mean_guiner_radius_esd":
+                return getMeanGuinerRadiusEsd();
+            case "min_mean_cross_sectional_radii_gyration":
+                return getMinMeanCrossSectionalRadiiGyration();
+            case "min_mean_cross_sectional_radii_gyration_esd":
+                return getMinMeanCrossSectionalRadiiGyrationEsd();
+            case "max_mean_cross_sectional_radii_gyration":
+                return getMaxMeanCrossSectionalRadiiGyration();
+            case "max_mean_cross_sectional_radii_gyration_esd":
+                return getMaxMeanCrossSectionalRadiiGyrationEsd();
+            case "protein_length":
+                return getProteinLength();
+            case "data_reduction_software_list":
+                return getDataReductionSoftwareList();
+            case "data_analysis_software_list":
+                return getDataAnalysisSoftwareList();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

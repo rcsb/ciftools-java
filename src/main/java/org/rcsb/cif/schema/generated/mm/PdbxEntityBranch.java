@@ -15,6 +15,18 @@ public class PdbxEntityBranch extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The entity id for this branched entity.
      * 

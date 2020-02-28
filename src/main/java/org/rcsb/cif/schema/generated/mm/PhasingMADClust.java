@@ -16,6 +16,20 @@ public class PhasingMADClust extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "expt_id":
+                return getExptId();
+            case "id":
+                return getId();
+            case "number_set":
+                return getNumberSet();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _phasing_MAD_expt.id in the
      * PHASING_MAD_EXPT category.

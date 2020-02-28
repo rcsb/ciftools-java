@@ -17,6 +17,32 @@ public class ChemCompBond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "comp_id":
+                return getCompId();
+            case "value_order":
+                return getValueOrder();
+            case "value_dist":
+                return getValueDist();
+            case "value_dist_esd":
+                return getValueDistEsd();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            case "pdbx_stereo_config":
+                return getPdbxStereoConfig();
+            case "pdbx_aromatic_flag":
+                return getPdbxAromaticFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of the first of the two atoms that define the bond.
      * 

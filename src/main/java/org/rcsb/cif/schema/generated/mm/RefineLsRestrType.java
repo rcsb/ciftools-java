@@ -15,6 +15,20 @@ public class RefineLsRestrType extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "distance_cutoff_high":
+                return getDistanceCutoffHigh();
+            case "distance_cutoff_low":
+                return getDistanceCutoffLow();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The upper limit in angstroms of the distance range applied to
      * the current restraint type.

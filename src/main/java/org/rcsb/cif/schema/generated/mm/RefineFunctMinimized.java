@@ -16,6 +16,24 @@ public class RefineFunctMinimized extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "number_terms":
+                return getNumberTerms();
+            case "residual":
+                return getResidual();
+            case "type":
+                return getType();
+            case "weight":
+                return getWeight();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_funct_minimized.pdbx_refine_id can be used to distinguish the results

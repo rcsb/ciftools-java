@@ -86,6 +86,7 @@ class SchemaGenerator {
         output.add("");
 
         StringJoiner getters = new StringJoiner("\n");
+        StringJoiner delegator = new StringJoiner("\n");
         StringJoiner builder = new StringJoiner("\n");
         StringJoiner categoryBuilder = new StringJoiner("\n");
 
@@ -109,6 +110,10 @@ class SchemaGenerator {
 
             writeCategory(category.getDescription(), categoryClassName, entry.getValue(), path, categoryName, categoryClassName, categoryBuilder);
 
+            // delegation function
+            delegator.add("            case \"" + categoryName + "\":");
+            delegator.add("                return get" + categoryClassName + "();");
+
             // builder
             builder.add("    public CategoryBuilder." + categoryClassName + "Builder enter" + categoryClassName  + "() {");
             builder.add("        return new " + name + "CategoryBuilder." + categoryClassName + "Builder(this);");
@@ -116,8 +121,10 @@ class SchemaGenerator {
             builder.add("");
         }
 
-        output.add("import org.rcsb.cif.schema.DelegatingBlock;");
         output.add("import org.rcsb.cif.model.Block;");
+        output.add("import org.rcsb.cif.model.Category;");
+        output.add("import org.rcsb.cif.schema.DelegatingBlock;");
+        output.add("import org.rcsb.cif.schema.DelegatingCategory;");
         output.add("");
         output.add("import javax.annotation.Generated;");
         output.add("");
@@ -127,6 +134,15 @@ class SchemaGenerator {
         // constructor
         output.add("    public " + className + "(Block delegate) {");
         output.add("        super(delegate);");
+        output.add("    }");
+        output.add("");
+        output.add("    @Override");
+        output.add("    protected Category createDelegate(String categoryName, Category category) {");
+        output.add("        switch (categoryName) {");
+        output.add(delegator.toString());
+        output.add("            default:");
+        output.add("                return new DelegatingCategory.NOPDelegatingCategory(category);");
+        output.add("        }");
         output.add("    }");
         output.add("");
 
@@ -167,6 +183,7 @@ class SchemaGenerator {
         output.add("public class " + className + " extends " + DelegatingCategory.class.getSimpleName() + " {");
 
         StringJoiner getters = new StringJoiner("\n");
+        StringJoiner delegator = new StringJoiner("\n");
 
         categoryBuilder.add("");
         categoryBuilder.add("    public static class " + categoryClassName + "Builder extends CategoryBuilder {");
@@ -198,6 +215,10 @@ class SchemaGenerator {
             getters.add("    }");
             getters.add("");
 
+            // delegation function
+            delegator.add("            case \"" + columnName + "\":");
+            delegator.add("                return get" + columnClassName + "();");
+
             categoryBuilder.add("");
             categoryBuilder.add("        public " + baseClassName + "Builder<" +
                     categoryClassName + "Builder> enter" + columnClassName + "() {");
@@ -211,6 +232,16 @@ class SchemaGenerator {
         output.add("        super(delegate);");
         output.add("    }");
         output.add("");
+        output.add("    @Override");
+        output.add("    protected Column createDelegate(String columnName, Column column) {");
+        output.add("        switch (columnName) {");
+        output.add(delegator.toString());
+        output.add("            default:");
+        output.add("                return new DelegatingColumn(column);");
+        output.add("        }");
+        output.add("    }");
+        output.add("");
+
 
         // getters
         output.add(getters.toString() + "}");

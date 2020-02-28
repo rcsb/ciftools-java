@@ -14,6 +14,16 @@ public class NdbOriginalNdbCoordinates extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "coord_section":
+                return getCoordSection();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Placeholder item to hold unparsed coordinate data.
      * @return StrColumn

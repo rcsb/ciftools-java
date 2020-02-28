@@ -42,6 +42,46 @@ public class Entity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "formula_weight":
+                return getFormulaWeight();
+            case "id":
+                return getId();
+            case "src_method":
+                return getSrcMethod();
+            case "type":
+                return getType();
+            case "pdbx_description":
+                return getPdbxDescription();
+            case "pdbx_number_of_molecules":
+                return getPdbxNumberOfMolecules();
+            case "pdbx_parent_entity_id":
+                return getPdbxParentEntityId();
+            case "pdbx_mutation":
+                return getPdbxMutation();
+            case "pdbx_fragment":
+                return getPdbxFragment();
+            case "pdbx_ec":
+                return getPdbxEc();
+            case "pdbx_modification":
+                return getPdbxModification();
+            case "pdbx_formula_weight_exptl":
+                return getPdbxFormulaWeightExptl();
+            case "pdbx_formula_weight_exptl_method":
+                return getPdbxFormulaWeightExptlMethod();
+            case "pdbx_target_id":
+                return getPdbxTargetId();
+            case "pdbx_entities_per_biological_unit":
+                return getPdbxEntitiesPerBiologicalUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the entity.
      * @return StrColumn

@@ -18,6 +18,40 @@ public class StructRefSeqDif extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "align_id":
+                return getAlignId();
+            case "db_mon_id":
+                return getDbMonId();
+            case "details":
+                return getDetails();
+            case "mon_id":
+                return getMonId();
+            case "seq_num":
+                return getSeqNum();
+            case "pdbx_pdb_id_code":
+                return getPdbxPdbIdCode();
+            case "pdbx_pdb_strand_id":
+                return getPdbxPdbStrandId();
+            case "pdbx_pdb_ins_code":
+                return getPdbxPdbInsCode();
+            case "pdbx_auth_seq_num":
+                return getPdbxAuthSeqNum();
+            case "pdbx_seq_db_name":
+                return getPdbxSeqDbName();
+            case "pdbx_seq_db_accession_code":
+                return getPdbxSeqDbAccessionCode();
+            case "pdbx_seq_db_seq_num":
+                return getPdbxSeqDbSeqNum();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_ref_seq.align_id in
      * the STRUCT_REF_SEQ  category.

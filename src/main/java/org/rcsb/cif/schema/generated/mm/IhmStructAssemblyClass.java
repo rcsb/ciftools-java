@@ -17,6 +17,20 @@ public class IhmStructAssemblyClass extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "class_id":
+                return getClassId();
+            case "assembly_id":
+                return getAssemblyId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the category.
      * @return IntColumn

@@ -18,6 +18,54 @@ public class PdbxContactAuthor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "address_1":
+                return getAddress1();
+            case "address_2":
+                return getAddress2();
+            case "address_3":
+                return getAddress3();
+            case "legacy_address":
+                return getLegacyAddress();
+            case "city":
+                return getCity();
+            case "state_province":
+                return getStateProvince();
+            case "postal_code":
+                return getPostalCode();
+            case "email":
+                return getEmail();
+            case "fax":
+                return getFax();
+            case "name_first":
+                return getNameFirst();
+            case "name_last":
+                return getNameLast();
+            case "name_mi":
+                return getNameMi();
+            case "name_salutation":
+                return getNameSalutation();
+            case "country":
+                return getCountry();
+            case "continent":
+                return getContinent();
+            case "phone":
+                return getPhone();
+            case "role":
+                return getRole();
+            case "organization_type":
+                return getOrganizationType();
+            case "identifier_ORCID":
+                return getIdentifierORCID();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique integer identifier for this author
      * @return StrColumn

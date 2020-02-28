@@ -15,6 +15,36 @@ public class PdbxSolnScatterModel extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "scatter_id":
+                return getScatterId();
+            case "id":
+                return getId();
+            case "details":
+                return getDetails();
+            case "method":
+                return getMethod();
+            case "software_list":
+                return getSoftwareList();
+            case "software_author_list":
+                return getSoftwareAuthorList();
+            case "entry_fitting_list":
+                return getEntryFittingList();
+            case "num_conformers_calculated":
+                return getNumConformersCalculated();
+            case "num_conformers_submitted":
+                return getNumConformersSubmitted();
+            case "representative_conformer":
+                return getRepresentativeConformer();
+            case "conformer_selection_criteria":
+                return getConformerSelectionCriteria();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to  _pdbx_soln_scatter.id in the  PDBX_SOLN_SCATTER category.
      * @return StrColumn

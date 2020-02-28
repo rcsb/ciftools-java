@@ -16,6 +16,22 @@ public class ReflnsScale extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "group_code":
+                return getGroupCode();
+            case "meas_F":
+                return getMeasF();
+            case "meas_F_squared":
+                return getMeasFSquared();
+            case "meas_intensity":
+                return getMeasIntensity();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The code identifying a scale _reflns_scale.meas_F,
      * _reflns_scale.meas_F_squared or _reflns_scale.meas_intensity.

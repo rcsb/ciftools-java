@@ -17,6 +17,28 @@ public class IhmExternalFiles extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "reference_id":
+                return getReferenceId();
+            case "file_path":
+                return getFilePath();
+            case "file_format":
+                return getFileFormat();
+            case "content_type":
+                return getContentType();
+            case "file_size_bytes":
+                return getFileSizeBytes();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for each external file.
      * @return IntColumn

@@ -15,6 +15,22 @@ public class PdbxMolecule extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "instance_id":
+                return getInstanceId();
+            case "asym_id":
+                return getAsymId();
+            case "linked_entity_id":
+                return getLinkedEntityId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_molecule.prd_id is the PDB accession code for this
      * reference molecule.

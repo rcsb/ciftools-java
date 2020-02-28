@@ -15,6 +15,42 @@ public class PdbxEntityBranchLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "link_id":
+                return getLinkId();
+            case "details":
+                return getDetails();
+            case "entity_id":
+                return getEntityId();
+            case "entity_branch_list_num_1":
+                return getEntityBranchListNum1();
+            case "entity_branch_list_num_2":
+                return getEntityBranchListNum2();
+            case "comp_id_1":
+                return getCompId1();
+            case "comp_id_2":
+                return getCompId2();
+            case "atom_id_1":
+                return getAtomId1();
+            case "leaving_atom_id_1":
+                return getLeavingAtomId1();
+            case "atom_stereo_config_1":
+                return getAtomStereoConfig1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "leaving_atom_id_2":
+                return getLeavingAtomId2();
+            case "atom_stereo_config_2":
+                return getAtomStereoConfig2();
+            case "value_order":
+                return getValueOrder();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_branch_link.link_id uniquely identifies
      * linkages within the branched entity.

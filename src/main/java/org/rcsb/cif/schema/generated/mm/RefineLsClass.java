@@ -16,6 +16,30 @@ public class RefineLsClass extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "code":
+                return getCode();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "R_factor_gt":
+                return getRFactorGt();
+            case "R_factor_all":
+                return getRFactorAll();
+            case "R_Fsqd_factor":
+                return getRFsqdFactor();
+            case "R_I_factor":
+                return getRIFactor();
+            case "wR_factor_all":
+                return getWRFactorAll();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The code identifying a certain reflection class. This code must
      * match a _reflns_class.code.

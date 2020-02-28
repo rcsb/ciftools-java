@@ -16,6 +16,30 @@ public class PdbxNonstandardList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_seq_num":
+                return getLabelSeqNum();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "ins_code":
+                return getInsCode();
+            case "number_atoms_nh":
+                return getNumberAtomsNh();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_nonstandard_list.id must uniquely identify each item in
      * the PDBX_NONSTANDARD_LIST list.

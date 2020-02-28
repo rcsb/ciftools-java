@@ -20,6 +20,22 @@ public class IhmDatasetList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "data_type":
+                return getDataType();
+            case "details":
+                return getDetails();
+            case "database_hosted":
+                return getDatabaseHosted();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the dataset.
      * @return IntColumn

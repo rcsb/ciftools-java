@@ -16,6 +16,66 @@ public class EntitySrcNat extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "common_name":
+                return getCommonName();
+            case "details":
+                return getDetails();
+            case "entity_id":
+                return getEntityId();
+            case "genus":
+                return getGenus();
+            case "species":
+                return getSpecies();
+            case "strain":
+                return getStrain();
+            case "tissue":
+                return getTissue();
+            case "tissue_fraction":
+                return getTissueFraction();
+            case "pdbx_organism_scientific":
+                return getPdbxOrganismScientific();
+            case "pdbx_secretion":
+                return getPdbxSecretion();
+            case "pdbx_fragment":
+                return getPdbxFragment();
+            case "pdbx_variant":
+                return getPdbxVariant();
+            case "pdbx_cell_line":
+                return getPdbxCellLine();
+            case "pdbx_atcc":
+                return getPdbxAtcc();
+            case "pdbx_cellular_location":
+                return getPdbxCellularLocation();
+            case "pdbx_organ":
+                return getPdbxOrgan();
+            case "pdbx_organelle":
+                return getPdbxOrganelle();
+            case "pdbx_cell":
+                return getPdbxCell();
+            case "pdbx_plasmid_name":
+                return getPdbxPlasmidName();
+            case "pdbx_plasmid_details":
+                return getPdbxPlasmidDetails();
+            case "pdbx_ncbi_taxonomy_id":
+                return getPdbxNcbiTaxonomyId();
+            case "pdbx_src_id":
+                return getPdbxSrcId();
+            case "pdbx_alt_source_flag":
+                return getPdbxAltSourceFlag();
+            case "pdbx_beg_seq_num":
+                return getPdbxBegSeqNum();
+            case "pdbx_end_seq_num":
+                return getPdbxEndSeqNum();
+            case "pdbx_culture_collection":
+                return getPdbxCultureCollection();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The common name of the organism from which the entity
      * was isolated.

@@ -15,6 +15,26 @@ public class EntityLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "link_id":
+                return getLinkId();
+            case "details":
+                return getDetails();
+            case "entity_id_1":
+                return getEntityId1();
+            case "entity_id_2":
+                return getEntityId2();
+            case "entity_seq_num_1":
+                return getEntitySeqNum1();
+            case "entity_seq_num_2":
+                return getEntitySeqNum2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_link.id in the
      * CHEM_LINK category.

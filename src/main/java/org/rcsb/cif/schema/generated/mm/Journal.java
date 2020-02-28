@@ -20,6 +20,90 @@ public class Journal extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "coden_ASTM":
+                return getCodenASTM();
+            case "coden_Cambridge":
+                return getCodenCambridge();
+            case "coeditor_address":
+                return getCoeditorAddress();
+            case "coeditor_code":
+                return getCoeditorCode();
+            case "coeditor_email":
+                return getCoeditorEmail();
+            case "coeditor_fax":
+                return getCoeditorFax();
+            case "coeditor_name":
+                return getCoeditorName();
+            case "coeditor_notes":
+                return getCoeditorNotes();
+            case "coeditor_phone":
+                return getCoeditorPhone();
+            case "data_validation_number":
+                return getDataValidationNumber();
+            case "date_accepted":
+                return getDateAccepted();
+            case "date_from_coeditor":
+                return getDateFromCoeditor();
+            case "date_to_coeditor":
+                return getDateToCoeditor();
+            case "date_printers_final":
+                return getDatePrintersFinal();
+            case "date_printers_first":
+                return getDatePrintersFirst();
+            case "date_proofs_in":
+                return getDateProofsIn();
+            case "date_proofs_out":
+                return getDateProofsOut();
+            case "date_recd_copyright":
+                return getDateRecdCopyright();
+            case "date_recd_electronic":
+                return getDateRecdElectronic();
+            case "date_recd_hard_copy":
+                return getDateRecdHardCopy();
+            case "issue":
+                return getIssue();
+            case "language":
+                return getLanguage();
+            case "name_full":
+                return getNameFull();
+            case "page_first":
+                return getPageFirst();
+            case "page_last":
+                return getPageLast();
+            case "paper_category":
+                return getPaperCategory();
+            case "suppl_publ_number":
+                return getSupplPublNumber();
+            case "suppl_publ_pages":
+                return getSupplPublPages();
+            case "techeditor_address":
+                return getTecheditorAddress();
+            case "techeditor_code":
+                return getTecheditorCode();
+            case "techeditor_email":
+                return getTecheditorEmail();
+            case "techeditor_fax":
+                return getTecheditorFax();
+            case "techeditor_name":
+                return getTecheditorName();
+            case "techeditor_notes":
+                return getTecheditorNotes();
+            case "techeditor_phone":
+                return getTecheditorPhone();
+            case "volume":
+                return getVolume();
+            case "year":
+                return getYear();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

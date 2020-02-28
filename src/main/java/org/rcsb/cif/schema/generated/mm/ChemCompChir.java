@@ -17,6 +17,32 @@ public class ChemCompChir extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id":
+                return getAtomId();
+            case "atom_config":
+                return getAtomConfig();
+            case "id":
+                return getId();
+            case "comp_id":
+                return getCompId();
+            case "number_atoms_all":
+                return getNumberAtomsAll();
+            case "number_atoms_nh":
+                return getNumberAtomsNh();
+            case "volume_flag":
+                return getVolumeFlag();
+            case "volume_three":
+                return getVolumeThree();
+            case "volume_three_esd":
+                return getVolumeThreeEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of the atom that is a chiral centre.
      * 

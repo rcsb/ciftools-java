@@ -15,6 +15,20 @@ public class PdbxSerialCrystallographySampleDelivery extends DelegatingCategory 
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "description":
+                return getDescription();
+            case "method":
+                return getMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.

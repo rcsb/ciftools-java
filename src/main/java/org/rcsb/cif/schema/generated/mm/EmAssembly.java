@@ -15,6 +15,34 @@ public class EmAssembly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "entry_id":
+                return getEntryId();
+            case "name":
+                return getName();
+            case "aggregation_state":
+                return getAggregationState();
+            case "composition":
+                return getComposition();
+            case "num_components":
+                return getNumComponents();
+            case "mol_wt_exp":
+                return getMolWtExp();
+            case "mol_wt_theo":
+                return getMolWtTheo();
+            case "mol_wt_method":
+                return getMolWtMethod();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _em_assembly.id must uniquely identify
      * a collection of observed complexes.

@@ -15,6 +15,24 @@ public class IhmGeometricObjectList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "object_id":
+                return getObjectId();
+            case "object_type":
+                return getObjectType();
+            case "object_name":
+                return getObjectName();
+            case "object_description":
+                return getObjectDescription();
+            case "other_details":
+                return getOtherDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the geometric object.
      * @return IntColumn

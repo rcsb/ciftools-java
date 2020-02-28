@@ -15,6 +15,44 @@ public class PdbxSequenceRange extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "beg_label_alt_id":
+                return getBegLabelAltId();
+            case "beg_label_asym_id":
+                return getBegLabelAsymId();
+            case "beg_label_comp_id":
+                return getBegLabelCompId();
+            case "beg_label_seq_id":
+                return getBegLabelSeqId();
+            case "beg_auth_asym_id":
+                return getBegAuthAsymId();
+            case "beg_auth_comp_id":
+                return getBegAuthCompId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "seq_range_id":
+                return getSeqRangeId();
+            case "end_label_alt_id":
+                return getEndLabelAltId();
+            case "end_label_asym_id":
+                return getEndLabelAsymId();
+            case "end_label_comp_id":
+                return getEndLabelCompId();
+            case "end_label_seq_id":
+                return getEndLabelSeqId();
+            case "end_auth_asym_id":
+                return getEndAuthAsymId();
+            case "end_auth_comp_id":
+                return getEndAuthCompId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the monomer at which this
      * segment of the sequence range begins.

@@ -16,6 +16,74 @@ public class AtomSites extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "Cartn_transf_matrix[1][1]":
+                return getCartnTransfMatrix11();
+            case "Cartn_transf_matrix[1][2]":
+                return getCartnTransfMatrix12();
+            case "Cartn_transf_matrix[1][3]":
+                return getCartnTransfMatrix13();
+            case "Cartn_transf_matrix[2][1]":
+                return getCartnTransfMatrix21();
+            case "Cartn_transf_matrix[2][2]":
+                return getCartnTransfMatrix22();
+            case "Cartn_transf_matrix[2][3]":
+                return getCartnTransfMatrix23();
+            case "Cartn_transf_matrix[3][1]":
+                return getCartnTransfMatrix31();
+            case "Cartn_transf_matrix[3][2]":
+                return getCartnTransfMatrix32();
+            case "Cartn_transf_matrix[3][3]":
+                return getCartnTransfMatrix33();
+            case "Cartn_transf_vector[1]":
+                return getCartnTransfVector1();
+            case "Cartn_transf_vector[2]":
+                return getCartnTransfVector2();
+            case "Cartn_transf_vector[3]":
+                return getCartnTransfVector3();
+            case "Cartn_transform_axes":
+                return getCartnTransformAxes();
+            case "fract_transf_matrix[1][1]":
+                return getFractTransfMatrix11();
+            case "fract_transf_matrix[1][2]":
+                return getFractTransfMatrix12();
+            case "fract_transf_matrix[1][3]":
+                return getFractTransfMatrix13();
+            case "fract_transf_matrix[2][1]":
+                return getFractTransfMatrix21();
+            case "fract_transf_matrix[2][2]":
+                return getFractTransfMatrix22();
+            case "fract_transf_matrix[2][3]":
+                return getFractTransfMatrix23();
+            case "fract_transf_matrix[3][1]":
+                return getFractTransfMatrix31();
+            case "fract_transf_matrix[3][2]":
+                return getFractTransfMatrix32();
+            case "fract_transf_matrix[3][3]":
+                return getFractTransfMatrix33();
+            case "fract_transf_vector[1]":
+                return getFractTransfVector1();
+            case "fract_transf_vector[2]":
+                return getFractTransfVector2();
+            case "fract_transf_vector[3]":
+                return getFractTransfVector3();
+            case "solution_primary":
+                return getSolutionPrimary();
+            case "solution_secondary":
+                return getSolutionSecondary();
+            case "solution_hydrogens":
+                return getSolutionHydrogens();
+            case "special_details":
+                return getSpecialDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

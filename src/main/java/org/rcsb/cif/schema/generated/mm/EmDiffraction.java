@@ -14,6 +14,22 @@ public class EmDiffraction extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "camera_length":
+                return getCameraLength();
+            case "id":
+                return getId();
+            case "imaging_id":
+                return getImagingId();
+            case "tilt_angle_list":
+                return getTiltAngleList();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * TODO
      * @return FloatColumn

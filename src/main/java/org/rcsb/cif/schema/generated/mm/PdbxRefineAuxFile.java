@@ -15,6 +15,22 @@ public class PdbxRefineAuxFile extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "serial_no":
+                return getSerialNo();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "file_name":
+                return getFileName();
+            case "file_type":
+                return getFileType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return StrColumn

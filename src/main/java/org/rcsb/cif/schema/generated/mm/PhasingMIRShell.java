@@ -16,6 +16,58 @@ public class PhasingMIRShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "FOM":
+                return getFOM();
+            case "FOM_acentric":
+                return getFOMAcentric();
+            case "FOM_centric":
+                return getFOMCentric();
+            case "loc":
+                return getLoc();
+            case "mean_phase":
+                return getMeanPhase();
+            case "power":
+                return getPower();
+            case "R_cullis":
+                return getRCullis();
+            case "R_kraut":
+                return getRKraut();
+            case "reflns":
+                return getReflns();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_anomalous":
+                return getReflnsAnomalous();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "pdbx_loc_centric":
+                return getPdbxLocCentric();
+            case "pdbx_loc_acentric":
+                return getPdbxLocAcentric();
+            case "pdbx_power_centric":
+                return getPdbxPowerCentric();
+            case "pdbx_power_acentric":
+                return getPdbxPowerAcentric();
+            case "pdbx_R_kraut_centric":
+                return getPdbxRKrautCentric();
+            case "pdbx_R_kraut_acentric":
+                return getPdbxRKrautAcentric();
+            case "pdbx_R_cullis_centric":
+                return getPdbxRCullisCentric();
+            case "pdbx_R_cullis_acentric":
+                return getPdbxRCullisAcentric();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The lowest value for the interplanar spacings for the
      * reflection data in this shell. This is called the highest

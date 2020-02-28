@@ -20,6 +20,98 @@ public class EmMap extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "annotation_details":
+                return getAnnotationDetails();
+            case "axis_order_fast":
+                return getAxisOrderFast();
+            case "axis_order_medium":
+                return getAxisOrderMedium();
+            case "axis_order_slow":
+                return getAxisOrderSlow();
+            case "cell_a":
+                return getCellA();
+            case "cell_b":
+                return getCellB();
+            case "cell_c":
+                return getCellC();
+            case "cell_alpha":
+                return getCellAlpha();
+            case "cell_beta":
+                return getCellBeta();
+            case "cell_gamma":
+                return getCellGamma();
+            case "contour_level":
+                return getContourLevel();
+            case "contour_level_source":
+                return getContourLevelSource();
+            case "data_type":
+                return getDataType();
+            case "dimensions_col":
+                return getDimensionsCol();
+            case "dimensions_row":
+                return getDimensionsRow();
+            case "dimensions_sec":
+                return getDimensionsSec();
+            case "endian_type":
+                return getEndianType();
+            case "file":
+                return getFile();
+            case "format":
+                return getFormat();
+            case "id":
+                return getId();
+            case "partition":
+                return getPartition();
+            case "entry_id":
+                return getEntryId();
+            case "label":
+                return getLabel();
+            case "limit_col":
+                return getLimitCol();
+            case "limit_row":
+                return getLimitRow();
+            case "limit_sec":
+                return getLimitSec();
+            case "origin_col":
+                return getOriginCol();
+            case "origin_row":
+                return getOriginRow();
+            case "origin_sec":
+                return getOriginSec();
+            case "pixel_spacing_x":
+                return getPixelSpacingX();
+            case "pixel_spacing_y":
+                return getPixelSpacingY();
+            case "pixel_spacing_z":
+                return getPixelSpacingZ();
+            case "size_kb":
+                return getSizeKb();
+            case "spacing_x":
+                return getSpacingX();
+            case "spacing_y":
+                return getSpacingY();
+            case "spacing_z":
+                return getSpacingZ();
+            case "statistics_average":
+                return getStatisticsAverage();
+            case "statistics_maximum":
+                return getStatisticsMaximum();
+            case "statistics_minimum":
+                return getStatisticsMinimum();
+            case "statistics_std":
+                return getStatisticsStd();
+            case "symmetry_space_group":
+                return getSymmetrySpaceGroup();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * map annotation details
      * @return StrColumn

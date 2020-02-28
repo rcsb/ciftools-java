@@ -15,6 +15,20 @@ public class PdbxChemCompModelDescriptor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "model_id":
+                return getModelId();
+            case "descriptor":
+                return getDescriptor();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_chem_comp_model.id in the PDBX_CHEM_COMP_MODEL
      * category.

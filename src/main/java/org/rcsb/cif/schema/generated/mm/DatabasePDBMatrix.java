@@ -20,6 +20,64 @@ public class DatabasePDBMatrix extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "origx[1][1]":
+                return getOrigx11();
+            case "origx[1][2]":
+                return getOrigx12();
+            case "origx[1][3]":
+                return getOrigx13();
+            case "origx[2][1]":
+                return getOrigx21();
+            case "origx[2][2]":
+                return getOrigx22();
+            case "origx[2][3]":
+                return getOrigx23();
+            case "origx[3][1]":
+                return getOrigx31();
+            case "origx[3][2]":
+                return getOrigx32();
+            case "origx[3][3]":
+                return getOrigx33();
+            case "origx_vector[1]":
+                return getOrigxVector1();
+            case "origx_vector[2]":
+                return getOrigxVector2();
+            case "origx_vector[3]":
+                return getOrigxVector3();
+            case "scale[1][1]":
+                return getScale11();
+            case "scale[1][2]":
+                return getScale12();
+            case "scale[1][3]":
+                return getScale13();
+            case "scale[2][1]":
+                return getScale21();
+            case "scale[2][2]":
+                return getScale22();
+            case "scale[2][3]":
+                return getScale23();
+            case "scale[3][1]":
+                return getScale31();
+            case "scale[3][2]":
+                return getScale32();
+            case "scale[3][3]":
+                return getScale33();
+            case "scale_vector[1]":
+                return getScaleVector1();
+            case "scale_vector[2]":
+                return getScaleVector2();
+            case "scale_vector[3]":
+                return getScaleVector3();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

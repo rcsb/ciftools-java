@@ -16,6 +16,36 @@ public class PdbxStructRefSeqDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ref_id":
+                return getRefId();
+            case "entity_id":
+                return getEntityId();
+            case "db_align_beg":
+                return getDbAlignBeg();
+            case "db_align_end":
+                return getDbAlignEnd();
+            case "details":
+                return getDetails();
+            case "db_accession":
+                return getDbAccession();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            case "db_seq_one_letter_code":
+                return getDbSeqOneLetterCode();
+            case "seq_align_begin":
+                return getSeqAlignBegin();
+            case "seq_align_end":
+                return getSeqAlignEnd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a unique identifier for reference sequence information.
      * @return StrColumn

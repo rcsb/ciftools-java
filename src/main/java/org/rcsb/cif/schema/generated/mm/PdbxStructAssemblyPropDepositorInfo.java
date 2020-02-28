@@ -16,6 +16,22 @@ public class PdbxStructAssemblyPropDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "biol_id":
+                return getBiolId();
+            case "type":
+                return getType();
+            case "value":
+                return getValue();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier for the assembly used in category STRUCT_BIOL.
      * @return StrColumn

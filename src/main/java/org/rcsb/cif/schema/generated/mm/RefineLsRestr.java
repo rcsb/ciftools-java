@@ -16,6 +16,32 @@ public class RefineLsRestr extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "criterion":
+                return getCriterion();
+            case "dev_ideal":
+                return getDevIdeal();
+            case "dev_ideal_target":
+                return getDevIdealTarget();
+            case "number":
+                return getNumber();
+            case "rejects":
+                return getRejects();
+            case "type":
+                return getType();
+            case "weight":
+                return getWeight();
+            case "pdbx_restraint_function":
+                return getPdbxRestraintFunction();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_ls_restr.pdbx_refine_id can be used to distinguish the results

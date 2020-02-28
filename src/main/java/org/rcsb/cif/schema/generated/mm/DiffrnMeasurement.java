@@ -17,6 +17,30 @@ public class DiffrnMeasurement extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "details":
+                return getDetails();
+            case "device":
+                return getDevice();
+            case "device_details":
+                return getDeviceDetails();
+            case "device_type":
+                return getDeviceType();
+            case "method":
+                return getMethod();
+            case "specimen_support":
+                return getSpecimenSupport();
+            case "pdbx_date":
+                return getPdbxDate();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.

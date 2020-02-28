@@ -15,6 +15,22 @@ public class PdbxRobotSystem extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model":
+                return getModel();
+            case "type":
+                return getType();
+            case "manufacturer":
+                return getManufacturer();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Assign a numerical ID to each instrument.
      * @return StrColumn

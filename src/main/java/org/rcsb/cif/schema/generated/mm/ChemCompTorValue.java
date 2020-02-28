@@ -18,6 +18,26 @@ public class ChemCompTorValue extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "tor_id":
+                return getTorId();
+            case "angle":
+                return getAngle();
+            case "angle_esd":
+                return getAngleEsd();
+            case "dist":
+                return getDist();
+            case "dist_esd":
+                return getDistEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_comp_atom.comp_id in the
      * CHEM_COMP_ATOM category.

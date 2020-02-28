@@ -15,6 +15,26 @@ public class IhmCrossLinkResultParameters extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "restraint_id":
+                return getRestraintId();
+            case "model_id":
+                return getModelId();
+            case "psi":
+                return getPsi();
+            case "sigma_1":
+                return getSigma1();
+            case "sigma_2":
+                return getSigma2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the restraint/model combination.
      * @return IntColumn

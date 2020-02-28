@@ -15,6 +15,34 @@ public class PdbxDiffrnReflnsShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "d_res_low":
+                return getDResLow();
+            case "d_res_high":
+                return getDResHigh();
+            case "percent_possible_obs":
+                return getPercentPossibleObs();
+            case "Rmerge_I_obs":
+                return getRmergeIObs();
+            case "Rsym_value":
+                return getRsymValue();
+            case "chi_squared":
+                return getChiSquared();
+            case "redundancy":
+                return getRedundancy();
+            case "rejects":
+                return getRejects();
+            case "number_obs":
+                return getNumberObs();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN category.
      * This item distingush the different data sets

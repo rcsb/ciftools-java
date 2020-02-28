@@ -15,6 +15,16 @@ public class PdbxSource extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "src_method":
+                return getSrcMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Source of biological unit.  Mostly: SYNTHETIC
      * @return StrColumn

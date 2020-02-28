@@ -14,6 +14,26 @@ public class EmShadowing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle":
+                return getAngle();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "material":
+                return getMaterial();
+            case "specimen_id":
+                return getSpecimenId();
+            case "thickness":
+                return getThickness();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The shadowing angle (degrees)
      * @return FloatColumn

@@ -15,6 +15,52 @@ public class PdbxStructGroupComponentRange extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "struct_group_id":
+                return getStructGroupId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "beg_auth_asym_id":
+                return getBegAuthAsymId();
+            case "beg_auth_comp_id":
+                return getBegAuthCompId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "beg_PDB_ins_code":
+                return getBegPDBInsCode();
+            case "beg_label_asym_id":
+                return getBegLabelAsymId();
+            case "beg_label_comp_id":
+                return getBegLabelCompId();
+            case "beg_label_seq_id":
+                return getBegLabelSeqId();
+            case "beg_label_alt_id":
+                return getBegLabelAltId();
+            case "end_auth_asym_id":
+                return getEndAuthAsymId();
+            case "end_auth_comp_id":
+                return getEndAuthCompId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            case "end_PDB_ins_code":
+                return getEndPDBInsCode();
+            case "end_label_asym_id":
+                return getEndLabelAsymId();
+            case "end_label_comp_id":
+                return getEndLabelCompId();
+            case "end_label_seq_id":
+                return getEndLabelSeqId();
+            case "end_label_alt_id":
+                return getEndLabelAltId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_struct_group_component_range.id must uniquely identify
      * a record in the PDBX_STRUCT_GROUP_COMPONENT_RANGE list.

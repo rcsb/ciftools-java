@@ -15,6 +15,22 @@ public class PdbxSeqMapDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "one_letter_code":
+                return getOneLetterCode();
+            case "one_letter_code_mod":
+                return getOneLetterCodeMod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity_poly.entity_id in the ENTITY_POLY category.
      * @return StrColumn

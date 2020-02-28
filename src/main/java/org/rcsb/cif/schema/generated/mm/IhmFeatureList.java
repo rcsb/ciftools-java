@@ -15,6 +15,20 @@ public class IhmFeatureList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "feature_id":
+                return getFeatureId();
+            case "feature_type":
+                return getFeatureType();
+            case "entity_type":
+                return getEntityType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the feature.
      * @return IntColumn

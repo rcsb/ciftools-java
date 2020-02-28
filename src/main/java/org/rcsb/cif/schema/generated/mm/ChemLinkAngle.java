@@ -15,6 +15,36 @@ public class ChemLinkAngle extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_1_comp_id":
+                return getAtom1CompId();
+            case "atom_2_comp_id":
+                return getAtom2CompId();
+            case "atom_3_comp_id":
+                return getAtom3CompId();
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "atom_id_3":
+                return getAtomId3();
+            case "link_id":
+                return getLinkId();
+            case "value_angle":
+                return getValueAngle();
+            case "value_angle_esd":
+                return getValueAngleEsd();
+            case "value_dist":
+                return getValueDist();
+            case "value_dist_esd":
+                return getValueDistEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item indicates whether atom 1 is found in the first
      * or the second of the two components connected by the link.

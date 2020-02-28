@@ -16,6 +16,36 @@ public class PdbxRmsDevsCovByMonomer extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "rms_bonds":
+                return getRmsBonds();
+            case "num_bonds":
+                return getNumBonds();
+            case "rms_angles":
+                return getRmsAngles();
+            case "num_angles":
+                return getNumAngles();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_rms_devs_cov_by_monomer.id must uniquely identify
      * each item in the PDBX_RMS_DEVS_COV_BY_MONOMER list.

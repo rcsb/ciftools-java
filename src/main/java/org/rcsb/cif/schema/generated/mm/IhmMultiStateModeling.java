@@ -15,6 +15,34 @@ public class IhmMultiStateModeling extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "state_id":
+                return getStateId();
+            case "state_group_id":
+                return getStateGroupId();
+            case "population_fraction":
+                return getPopulationFraction();
+            case "population_fraction_sd":
+                return getPopulationFractionSd();
+            case "state_type":
+                return getStateType();
+            case "state_name":
+                return getStateName();
+            case "model_group_id":
+                return getModelGroupId();
+            case "experiment_type":
+                return getExperimentType();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the multiple states being described.
      * @return IntColumn

@@ -15,6 +15,58 @@ public class PdbxEntitySrcGenChrom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "next_step_id":
+                return getNextStepId();
+            case "end_construct_id":
+                return getEndConstructId();
+            case "robot_id":
+                return getRobotId();
+            case "date":
+                return getDate();
+            case "column_type":
+                return getColumnType();
+            case "column_volume":
+                return getColumnVolume();
+            case "column_temperature":
+                return getColumnTemperature();
+            case "equilibration_buffer_id":
+                return getEquilibrationBufferId();
+            case "flow_rate":
+                return getFlowRate();
+            case "elution_buffer_id":
+                return getElutionBufferId();
+            case "elution_protocol":
+                return getElutionProtocol();
+            case "sample_prep_details":
+                return getSamplePrepDetails();
+            case "sample_volume":
+                return getSampleVolume();
+            case "sample_concentration":
+                return getSampleConcentration();
+            case "sample_conc_method":
+                return getSampleConcMethod();
+            case "volume_pooled_fractions":
+                return getVolumePooledFractions();
+            case "yield_pooled_fractions":
+                return getYieldPooledFractions();
+            case "yield_method":
+                return getYieldMethod();
+            case "post_treatment":
+                return getPostTreatment();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_chrom.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

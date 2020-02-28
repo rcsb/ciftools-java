@@ -16,6 +16,94 @@ public class ReflnsShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "meanI_over_sigI_all":
+                return getMeanIOverSigIAll();
+            case "meanI_over_sigI_obs":
+                return getMeanIOverSigIObs();
+            case "number_measured_all":
+                return getNumberMeasuredAll();
+            case "number_measured_obs":
+                return getNumberMeasuredObs();
+            case "number_possible":
+                return getNumberPossible();
+            case "number_unique_all":
+                return getNumberUniqueAll();
+            case "number_unique_obs":
+                return getNumberUniqueObs();
+            case "percent_possible_all":
+                return getPercentPossibleAll();
+            case "percent_possible_obs":
+                return getPercentPossibleObs();
+            case "Rmerge_F_all":
+                return getRmergeFAll();
+            case "Rmerge_F_obs":
+                return getRmergeFObs();
+            case "Rmerge_I_all":
+                return getRmergeIAll();
+            case "Rmerge_I_obs":
+                return getRmergeIObs();
+            case "meanI_over_sigI_gt":
+                return getMeanIOverSigIGt();
+            case "meanI_over_uI_all":
+                return getMeanIOverUIAll();
+            case "meanI_over_uI_gt":
+                return getMeanIOverUIGt();
+            case "number_measured_gt":
+                return getNumberMeasuredGt();
+            case "number_unique_gt":
+                return getNumberUniqueGt();
+            case "percent_possible_gt":
+                return getPercentPossibleGt();
+            case "Rmerge_F_gt":
+                return getRmergeFGt();
+            case "Rmerge_I_gt":
+                return getRmergeIGt();
+            case "pdbx_redundancy":
+                return getPdbxRedundancy();
+            case "pdbx_Rsym_value":
+                return getPdbxRsymValue();
+            case "pdbx_chi_squared":
+                return getPdbxChiSquared();
+            case "pdbx_netI_over_sigmaI_all":
+                return getPdbxNetIOverSigmaIAll();
+            case "pdbx_netI_over_sigmaI_obs":
+                return getPdbxNetIOverSigmaIObs();
+            case "pdbx_Rrim_I_all":
+                return getPdbxRrimIAll();
+            case "pdbx_Rpim_I_all":
+                return getPdbxRpimIAll();
+            case "pdbx_rejects":
+                return getPdbxRejects();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            case "pdbx_diffrn_id":
+                return getPdbxDiffrnId();
+            case "pdbx_CC_half":
+                return getPdbxCCHalf();
+            case "pdbx_R_split":
+                return getPdbxRSplit();
+            case "pdbx_redundancy_reflns_obs":
+                return getPdbxRedundancyReflnsObs();
+            case "pdbx_number_anomalous":
+                return getPdbxNumberAnomalous();
+            case "pdbx_Rrim_I_all_anomalous":
+                return getPdbxRrimIAllAnomalous();
+            case "pdbx_Rpim_I_all_anomalous":
+                return getPdbxRpimIAllAnomalous();
+            case "pdbx_Rmerge_I_all_anomalous":
+                return getPdbxRmergeIAllAnomalous();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The smallest value in angstroms for the interplanar spacings
      * for the reflections in this shell. This is called the highest

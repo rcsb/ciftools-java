@@ -15,6 +15,42 @@ public class PdbxDccDensityCorr extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "program":
+                return getProgram();
+            case "ls_d_res_high":
+                return getLsDResHigh();
+            case "ls_d_res_low":
+                return getLsDResLow();
+            case "ls_R_factor_R_all":
+                return getLsRFactorRAll();
+            case "ls_R_factor_R_work":
+                return getLsRFactorRWork();
+            case "ls_R_factor_R_free":
+                return getLsRFactorRFree();
+            case "ls_number_reflns_obs":
+                return getLsNumberReflnsObs();
+            case "ls_percent_reflns_obs":
+                return getLsPercentReflnsObs();
+            case "ls_number_reflns_R_free":
+                return getLsNumberReflnsRFree();
+            case "correlation_coeff_Fo_to_Fc":
+                return getCorrelationCoeffFoToFc();
+            case "real_space_R":
+                return getRealSpaceR();
+            case "correlation":
+                return getCorrelation();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ordered number in the output list.
      * @return IntColumn

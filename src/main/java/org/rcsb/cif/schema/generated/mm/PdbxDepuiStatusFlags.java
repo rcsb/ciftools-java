@@ -15,6 +15,58 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dep_dataset_id":
+                return getDepDatasetId();
+            case "primary_citation_status":
+                return getPrimaryCitationStatus();
+            case "corresponding_author_status":
+                return getCorrespondingAuthorStatus();
+            case "reference_citation_status":
+                return getReferenceCitationStatus();
+            case "is_grant_funded":
+                return getIsGrantFunded();
+            case "has_ncs_data":
+                return getHasNcsData();
+            case "prediction_target":
+                return getPredictionTarget();
+            case "has_helical_symmetry":
+                return getHasHelicalSymmetry();
+            case "has_point_symmetry":
+                return getHasPointSymmetry();
+            case "has_cyclic_symmetry":
+                return getHasCyclicSymmetry();
+            case "has_accepted_terms_and_conditions":
+                return getHasAcceptedTermsAndConditions();
+            case "has_viewed_validation_report":
+                return getHasViewedValidationReport();
+            case "validated_model_file_name":
+                return getValidatedModelFileName();
+            case "merge_prior_model_file_name":
+                return getMergePriorModelFileName();
+            case "merge_replace_model_file_name":
+                return getMergeReplaceModelFileName();
+            case "merge_output_model_file_name":
+                return getMergeOutputModelFileName();
+            case "is_ligand_processing_complete":
+                return getIsLigandProcessingComplete();
+            case "sample_xyz_sequence_alignments_valid":
+                return getSampleXyzSequenceAlignmentsValid();
+            case "has_sas_data":
+                return getHasSasData();
+            case "is_sas_deposited":
+                return getIsSasDeposited();
+            case "use_sas_refine":
+                return getUseSasRefine();
+            case "merged_fail":
+                return getMergedFail();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The internal identifier assigned to each deposition.
      * @return StrColumn

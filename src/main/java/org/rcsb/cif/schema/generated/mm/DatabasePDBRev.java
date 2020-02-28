@@ -20,6 +20,38 @@ public class DatabasePDBRev extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "author_name":
+                return getAuthorName();
+            case "date":
+                return getDate();
+            case "date_original":
+                return getDateOriginal();
+            case "mod_type":
+                return getModType();
+            case "num":
+                return getNum();
+            case "replaced_by":
+                return getReplacedBy();
+            case "replaces":
+                return getReplaces();
+            case "status":
+                return getStatus();
+            case "pdbx_record_revised_1":
+                return getPdbxRecordRevised1();
+            case "pdbx_record_revised_2":
+                return getPdbxRecordRevised2();
+            case "pdbx_record_revised_3":
+                return getPdbxRecordRevised3();
+            case "pdbx_record_revised_4":
+                return getPdbxRecordRevised4();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The name of the person responsible for submitting this revision
      * to the PDB.

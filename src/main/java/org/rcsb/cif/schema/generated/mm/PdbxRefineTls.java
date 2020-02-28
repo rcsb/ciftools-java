@@ -18,6 +18,112 @@ public class PdbxRefineTls extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "details":
+                return getDetails();
+            case "method":
+                return getMethod();
+            case "origin_x":
+                return getOriginX();
+            case "origin_y":
+                return getOriginY();
+            case "origin_z":
+                return getOriginZ();
+            case "T[1][1]":
+                return getT11();
+            case "T[1][1]_esd":
+                return getT11Esd();
+            case "T[1][2]":
+                return getT12();
+            case "T[1][2]_esd":
+                return getT12Esd();
+            case "T[1][3]":
+                return getT13();
+            case "T[1][3]_esd":
+                return getT13Esd();
+            case "T[2][2]":
+                return getT22();
+            case "T[2][2]_esd":
+                return getT22Esd();
+            case "T[2][3]":
+                return getT23();
+            case "T[2][3]_esd":
+                return getT23Esd();
+            case "T[3][3]":
+                return getT33();
+            case "T[3][3]_esd":
+                return getT33Esd();
+            case "L[1][1]":
+                return getL11();
+            case "L[1][1]_esd":
+                return getL11Esd();
+            case "L[1][2]":
+                return getL12();
+            case "L[1][2]_esd":
+                return getL12Esd();
+            case "L[1][3]":
+                return getL13();
+            case "L[1][3]_esd":
+                return getL13Esd();
+            case "L[2][2]":
+                return getL22();
+            case "L[2][2]_esd":
+                return getL22Esd();
+            case "L[2][3]":
+                return getL23();
+            case "L[2][3]_esd":
+                return getL23Esd();
+            case "L[3][3]":
+                return getL33();
+            case "L[3][3]_esd":
+                return getL33Esd();
+            case "S[1][1]":
+                return getS11();
+            case "S[1][1]_esd":
+                return getS11Esd();
+            case "S[1][2]":
+                return getS12();
+            case "S[1][2]_esd":
+                return getS12Esd();
+            case "S[1][3]":
+                return getS13();
+            case "S[1][3]_esd":
+                return getS13Esd();
+            case "S[2][1]":
+                return getS21();
+            case "S[2][1]_esd":
+                return getS21Esd();
+            case "S[2][2]":
+                return getS22();
+            case "S[2][2]_esd":
+                return getS22Esd();
+            case "S[2][3]":
+                return getS23();
+            case "S[2][3]_esd":
+                return getS23Esd();
+            case "S[3][1]":
+                return getS31();
+            case "S[3][1]_esd":
+                return getS31Esd();
+            case "S[3][2]":
+                return getS32();
+            case "S[3][2]_esd":
+                return getS32Esd();
+            case "S[3][3]":
+                return getS33();
+            case "S[3][3]_esd":
+                return getS33Esd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_refine_tls.id must uniquely identify a record in
      * the PDBX_REFINE_TLS list.

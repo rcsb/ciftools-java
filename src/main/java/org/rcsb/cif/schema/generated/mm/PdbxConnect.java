@@ -15,6 +15,38 @@ public class PdbxConnect extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "res_name":
+                return getResName();
+            case "hetgroup_name":
+                return getHetgroupName();
+            case "formul":
+                return getFormul();
+            case "hetgroup_chemical_name":
+                return getHetgroupChemicalName();
+            case "parent_residue":
+                return getParentResidue();
+            case "formal_charge":
+                return getFormalCharge();
+            case "class_1":
+                return getClass1();
+            case "class_2":
+                return getClass2();
+            case "type":
+                return getType();
+            case "status":
+                return getStatus();
+            case "date":
+                return getDate();
+            case "modified_date":
+                return getModifiedDate();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique (typically 3-letter code) identifier for chemical group.
      * @return StrColumn

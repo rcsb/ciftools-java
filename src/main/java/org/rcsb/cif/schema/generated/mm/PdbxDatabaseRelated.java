@@ -15,6 +15,22 @@ public class PdbxDatabaseRelated extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "db_name":
+                return getDbName();
+            case "details":
+                return getDetails();
+            case "db_id":
+                return getDbId();
+            case "content_type":
+                return getContentType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The name of the database containing the related entry.
      * @return StrColumn

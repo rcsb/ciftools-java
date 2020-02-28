@@ -15,6 +15,48 @@ public class ExptlCrystalGrow extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "apparatus":
+                return getApparatus();
+            case "atmosphere":
+                return getAtmosphere();
+            case "crystal_id":
+                return getCrystalId();
+            case "details":
+                return getDetails();
+            case "method":
+                return getMethod();
+            case "method_ref":
+                return getMethodRef();
+            case "pH":
+                return getPH();
+            case "pressure":
+                return getPressure();
+            case "pressure_esd":
+                return getPressureEsd();
+            case "seeding":
+                return getSeeding();
+            case "seeding_ref":
+                return getSeedingRef();
+            case "temp":
+                return getTemp();
+            case "temp_details":
+                return getTempDetails();
+            case "temp_esd":
+                return getTempEsd();
+            case "time":
+                return getTime();
+            case "pdbx_details":
+                return getPdbxDetails();
+            case "pdbx_pH_range":
+                return getPdbxPHRange();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The physical apparatus in which the crystal was grown.
      * @return StrColumn

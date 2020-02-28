@@ -16,6 +16,32 @@ public class PdbxFeatureAssembly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "assembly_id":
+                return getAssemblyId();
+            case "feature_name":
+                return getFeatureName();
+            case "feature_type":
+                return getFeatureType();
+            case "feature":
+                return getFeature();
+            case "feature_identifier":
+                return getFeatureIdentifier();
+            case "feature_assigned_by":
+                return getFeatureAssignedBy();
+            case "feature_citation_id":
+                return getFeatureCitationId();
+            case "feature_software_id":
+                return getFeatureSoftwareId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_feature_assembly.id uniquely identifies a
      * feature in the PDBX_FEATURE_ASSEMBLY category.

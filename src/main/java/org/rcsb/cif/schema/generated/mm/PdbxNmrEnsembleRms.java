@@ -15,6 +15,52 @@ public class PdbxNmrEnsembleRms extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "residue_range_begin":
+                return getResidueRangeBegin();
+            case "chain_range_begin":
+                return getChainRangeBegin();
+            case "residue_range_end":
+                return getResidueRangeEnd();
+            case "chain_range_end":
+                return getChainRangeEnd();
+            case "atom_type":
+                return getAtomType();
+            case "distance_rms_dev":
+                return getDistanceRmsDev();
+            case "distance_rms_dev_error":
+                return getDistanceRmsDevError();
+            case "covalent_bond_rms_dev":
+                return getCovalentBondRmsDev();
+            case "covalent_bond_rms_dev_error":
+                return getCovalentBondRmsDevError();
+            case "bond_angle_rms_dev":
+                return getBondAngleRmsDev();
+            case "bond_angle_rms_dev_error":
+                return getBondAngleRmsDevError();
+            case "improper_torsion_angle_rms_dev":
+                return getImproperTorsionAngleRmsDev();
+            case "improper_torsion_angle_rms_dev_error":
+                return getImproperTorsionAngleRmsDevError();
+            case "peptide_planarity_rms_dev":
+                return getPeptidePlanarityRmsDev();
+            case "peptide_planarity_rms_dev_error":
+                return getPeptidePlanarityRmsDevError();
+            case "dihedral_angles_rms_dev":
+                return getDihedralAnglesRmsDev();
+            case "dihedral_angles_rms_dev_error":
+                return getDihedralAnglesRmsDevError();
+            case "coord_average_rmsd_method":
+                return getCoordAverageRmsdMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * '?'
      * @return StrColumn

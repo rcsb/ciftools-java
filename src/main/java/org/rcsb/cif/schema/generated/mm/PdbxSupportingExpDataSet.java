@@ -15,6 +15,24 @@ public class PdbxSupportingExpDataSet extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "data_content_type":
+                return getDataContentType();
+            case "data_version_major":
+                return getDataVersionMajor();
+            case "data_version_minor":
+                return getDataVersionMinor();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal identifier for each experimental data set.
      * @return IntColumn

@@ -14,6 +14,30 @@ public class EmEulerAngleAssignment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "order":
+                return getOrder();
+            case "proj_matching_angular_sampling":
+                return getProjMatchingAngularSampling();
+            case "proj_matching_merit_function":
+                return getProjMatchingMeritFunction();
+            case "proj_matching_num_projections":
+                return getProjMatchingNumProjections();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Any additional details about euler angle assignment
      * @return StrColumn

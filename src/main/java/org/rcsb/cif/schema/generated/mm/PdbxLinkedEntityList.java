@@ -15,6 +15,22 @@ public class PdbxLinkedEntityList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "linked_entity_id":
+                return getLinkedEntityId();
+            case "entity_id":
+                return getEntityId();
+            case "component_id":
+                return getComponentId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_linked_entity_list.linked_entity_id is a reference
      * _pdbx_linked_entity.linked_entity_id in the PDBX_LINKED_ENTITY category.

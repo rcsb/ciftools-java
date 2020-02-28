@@ -26,6 +26,40 @@ public class ExptlCrystalGrowComp extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "conc":
+                return getConc();
+            case "details":
+                return getDetails();
+            case "crystal_id":
+                return getCrystalId();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "sol_id":
+                return getSolId();
+            case "volume":
+                return getVolume();
+            case "pdbx_conc_final":
+                return getPdbxConcFinal();
+            case "pdbx_bath":
+                return getPdbxBath();
+            case "pdbx_salt":
+                return getPdbxSalt();
+            case "pdbx_soak_salt":
+                return getPdbxSoakSalt();
+            case "pdbx_soak_solv":
+                return getPdbxSoakSolv();
+            case "pdbx_solv":
+                return getPdbxSolv();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The concentration of the solution component.
      * @return StrColumn

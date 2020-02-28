@@ -14,6 +14,28 @@ public class EmVolumeSelection extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "method":
+                return getMethod();
+            case "num_tomograms":
+                return getNumTomograms();
+            case "num_volumes_extracted":
+                return getNumVolumesExtracted();
+            case "reference_model":
+                return getReferenceModel();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Any additional details used for selecting volumes.
      * @return StrColumn

@@ -14,6 +14,20 @@ public class PdbxEntityNonpoly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "comp_id":
+                return getCompId();
+            case "name":
+                return getName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

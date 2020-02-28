@@ -16,6 +16,36 @@ public class PdbxReferenceLinkedEntityLink extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "linked_entity_id":
+                return getLinkedEntityId();
+            case "link_id":
+                return getLinkId();
+            case "from_list_id":
+                return getFromListId();
+            case "details":
+                return getDetails();
+            case "to_comp_id":
+                return getToCompId();
+            case "from_comp_id":
+                return getFromCompId();
+            case "to_atom_id":
+                return getToAtomId();
+            case "from_atom_id":
+                return getFromAtomId();
+            case "from_leaving_atom_id":
+                return getFromLeavingAtomId();
+            case "from_atom_stereo_config":
+                return getFromAtomStereoConfig();
+            case "value_order":
+                return getValueOrder();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_linked_entity_link.linked_entity_id is a reference
      * _pdbx_reference_linked_entity_comp_list.linked_entity_id in the pdbx_reference_linked_entity_comp_list

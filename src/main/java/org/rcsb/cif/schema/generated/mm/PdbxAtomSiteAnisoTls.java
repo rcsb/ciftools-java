@@ -15,6 +15,52 @@ public class PdbxAtomSiteAnisoTls extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "type_symbol":
+                return getTypeSymbol();
+            case "tls_group_id":
+                return getTlsGroupId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "U_tls[1][1]":
+                return getUTls11();
+            case "U_tls[2][2]":
+                return getUTls22();
+            case "U_tls[3][3]":
+                return getUTls33();
+            case "U_tls[1][2]":
+                return getUTls12();
+            case "U_tls[1][3]":
+                return getUTls13();
+            case "U_tls[2][3]":
+                return getUTls23();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _atom_site.id in the ATOM_SITE
      * category.

@@ -15,6 +15,34 @@ public class CellMeasurement extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "pressure":
+                return getPressure();
+            case "pressure_esd":
+                return getPressureEsd();
+            case "radiation":
+                return getRadiation();
+            case "reflns_used":
+                return getReflnsUsed();
+            case "temp":
+                return getTemp();
+            case "temp_esd":
+                return getTempEsd();
+            case "theta_max":
+                return getThetaMax();
+            case "theta_min":
+                return getThetaMin();
+            case "wavelength":
+                return getWavelength();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

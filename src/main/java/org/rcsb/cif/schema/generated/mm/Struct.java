@@ -15,6 +15,34 @@ public class Struct extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "title":
+                return getTitle();
+            case "pdbx_descriptor":
+                return getPdbxDescriptor();
+            case "pdbx_model_details":
+                return getPdbxModelDetails();
+            case "pdbx_formula_weight":
+                return getPdbxFormulaWeight();
+            case "pdbx_formula_weight_method":
+                return getPdbxFormulaWeightMethod();
+            case "pdbx_model_type_details":
+                return getPdbxModelTypeDetails();
+            case "pdbx_CASP_flag":
+                return getPdbxCASPFlag();
+            case "pdbx_details":
+                return getPdbxDetails();
+            case "pdbx_title_text":
+                return getPdbxTitleText();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

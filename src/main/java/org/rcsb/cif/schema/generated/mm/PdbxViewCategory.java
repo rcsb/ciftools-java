@@ -17,6 +17,20 @@ public class PdbxViewCategory extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "view_group_id":
+                return getViewGroupId();
+            case "category_id":
+                return getCategoryId();
+            case "category_view_name":
+                return getCategoryViewName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A pointer to the view_group_id in the PDBX_VIEW_CATEGORY_GROUP category.
      * @return StrColumn

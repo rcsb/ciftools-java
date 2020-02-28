@@ -17,6 +17,18 @@ public class Entry extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "pdbx_DOI":
+                return getPdbxDOI();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _entry.id identifies the data block.
      * 

@@ -16,6 +16,24 @@ public class AuditContactAuthor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "address":
+                return getAddress();
+            case "email":
+                return getEmail();
+            case "fax":
+                return getFax();
+            case "name":
+                return getName();
+            case "phone":
+                return getPhone();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed.

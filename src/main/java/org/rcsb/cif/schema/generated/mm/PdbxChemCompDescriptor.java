@@ -15,6 +15,26 @@ public class PdbxChemCompDescriptor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "descriptor":
+                return getDescriptor();
+            case "type":
+                return getType();
+            case "program":
+                return getProgram();
+            case "program_version":
+                return getProgramVersion();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _chem_comp.id in the CHEM_COMP
      * category.

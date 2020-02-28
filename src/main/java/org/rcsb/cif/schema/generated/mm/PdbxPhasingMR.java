@@ -15,6 +15,66 @@ public class PdbxPhasingMR extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "method_rotation":
+                return getMethodRotation();
+            case "d_res_high_rotation":
+                return getDResHighRotation();
+            case "d_res_low_rotation":
+                return getDResLowRotation();
+            case "sigma_F_rotation":
+                return getSigmaFRotation();
+            case "sigma_I_rotation":
+                return getSigmaIRotation();
+            case "reflns_percent_rotation":
+                return getReflnsPercentRotation();
+            case "method_translation":
+                return getMethodTranslation();
+            case "d_res_high_translation":
+                return getDResHighTranslation();
+            case "d_res_low_translation":
+                return getDResLowTranslation();
+            case "sigma_F_translation":
+                return getSigmaFTranslation();
+            case "sigma_I_translation":
+                return getSigmaITranslation();
+            case "reflns_percent_translation":
+                return getReflnsPercentTranslation();
+            case "correlation_coeff_Io_to_Ic":
+                return getCorrelationCoeffIoToIc();
+            case "correlation_coeff_Fo_to_Fc":
+                return getCorrelationCoeffFoToFc();
+            case "R_factor":
+                return getRFactor();
+            case "R_rigid_body":
+                return getRRigidBody();
+            case "packing":
+                return getPacking();
+            case "model_details":
+                return getModelDetails();
+            case "native_set_id":
+                return getNativeSetId();
+            case "d_res_high_fit":
+                return getDResHighFit();
+            case "d_res_low_fit":
+                return getDResLowFit();
+            case "zscore_rotation":
+                return getZscoreRotation();
+            case "LL_gain_rotation":
+                return getLLGainRotation();
+            case "zscore_translation":
+                return getZscoreTranslation();
+            case "LL_gain_translation":
+                return getLLGainTranslation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_phasing_MR.entry_id identifies the data block.
      * @return StrColumn

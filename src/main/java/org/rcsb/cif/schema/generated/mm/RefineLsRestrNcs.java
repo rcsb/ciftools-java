@@ -20,6 +20,44 @@ public class RefineLsRestrNcs extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "dom_id":
+                return getDomId();
+            case "ncs_model_details":
+                return getNcsModelDetails();
+            case "rms_dev_B_iso":
+                return getRmsDevBIso();
+            case "rms_dev_position":
+                return getRmsDevPosition();
+            case "weight_B_iso":
+                return getWeightBIso();
+            case "weight_position":
+                return getWeightPosition();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            case "pdbx_type":
+                return getPdbxType();
+            case "pdbx_asym_id":
+                return getPdbxAsymId();
+            case "pdbx_auth_asym_id":
+                return getPdbxAuthAsymId();
+            case "pdbx_number":
+                return getPdbxNumber();
+            case "pdbx_rms":
+                return getPdbxRms();
+            case "pdbx_weight":
+                return getPdbxWeight();
+            case "pdbx_ens_id":
+                return getPdbxEnsId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_ls_restr_ncs.pdbx_refine_id can be used to distinguish the results

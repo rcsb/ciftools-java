@@ -14,6 +14,26 @@ public class EmDepui extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "depositor_hold_instructions":
+                return getDepositorHoldInstructions();
+            case "entry_id":
+                return getEntryId();
+            case "macromolecule_description":
+                return getMacromoleculeDescription();
+            case "obsolete_instructions":
+                return getObsoleteInstructions();
+            case "same_authors_as_pdb":
+                return getSameAuthorsAsPdb();
+            case "same_title_as_pdb":
+                return getSameTitleAsPdb();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Choose the manner in which you would like the map and associated files (half
      * maps, additional maps, masks, FSC curves, structure factors, layer lines, and

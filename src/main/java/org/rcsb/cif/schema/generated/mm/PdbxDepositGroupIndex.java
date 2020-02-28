@@ -15,6 +15,36 @@ public class PdbxDepositGroupIndex extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "group_id":
+                return getGroupId();
+            case "ordinal_id":
+                return getOrdinalId();
+            case "dep_set_id":
+                return getDepSetId();
+            case "pdb_id_code":
+                return getPdbIdCode();
+            case "group_file_name":
+                return getGroupFileName();
+            case "group_file_timestamp":
+                return getGroupFileTimestamp();
+            case "auth_file_label":
+                return getAuthFileLabel();
+            case "auth_file_content_type":
+                return getAuthFileContentType();
+            case "auth_file_format_type":
+                return getAuthFileFormatType();
+            case "auth_file_name":
+                return getAuthFileName();
+            case "auth_file_size":
+                return getAuthFileSize();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for a group of entries deposited as a collection.
      * @return StrColumn

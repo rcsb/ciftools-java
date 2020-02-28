@@ -16,6 +16,20 @@ public class PdbxAuditConformExtension extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "extension_dict_location":
+                return getExtensionDictLocation();
+            case "extension_dict_name":
+                return getExtensionDictName();
+            case "extension_dict_version":
+                return getExtensionDictVersion();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A file name or uniform resource locator (URL) for the
      * file containing the extension dictionary.

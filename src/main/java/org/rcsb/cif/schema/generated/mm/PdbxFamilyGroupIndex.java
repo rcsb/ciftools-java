@@ -15,6 +15,18 @@ public class PdbxFamilyGroupIndex extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "family_prd_id":
+                return getFamilyPrdId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is the identifier for the a group of related BIRD families.
      * @return StrColumn

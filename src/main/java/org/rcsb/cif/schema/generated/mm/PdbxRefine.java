@@ -17,6 +17,48 @@ public class PdbxRefine extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "R_factor_all_no_cutoff":
+                return getRFactorAllNoCutoff();
+            case "R_factor_obs_no_cutoff":
+                return getRFactorObsNoCutoff();
+            case "free_R_factor_4sig_cutoff":
+                return getFreeRFactor4sigCutoff();
+            case "free_R_factor_no_cutoff":
+                return getFreeRFactorNoCutoff();
+            case "free_R_error_no_cutoff":
+                return getFreeRErrorNoCutoff();
+            case "free_R_val_test_set_size_perc_no_cutoff":
+                return getFreeRValTestSetSizePercNoCutoff();
+            case "free_R_val_test_set_ct_no_cutoff":
+                return getFreeRValTestSetCtNoCutoff();
+            case "number_reflns_obs_no_cutoff":
+                return getNumberReflnsObsNoCutoff();
+            case "R_factor_all_4sig_cutoff":
+                return getRFactorAll4sigCutoff();
+            case "R_factor_obs_4sig_cutoff":
+                return getRFactorObs4sigCutoff();
+            case "free_R_val_4sig_cutoff":
+                return getFreeRVal4sigCutoff();
+            case "free_R_val_test_set_size_perc_4sig_cutoff":
+                return getFreeRValTestSetSizePerc4sigCutoff();
+            case "free_R_val_test_set_ct_4sig_cutoff":
+                return getFreeRValTestSetCt4sigCutoff();
+            case "number_reflns_obs_4sig_cutoff":
+                return getNumberReflnsObs4sigCutoff();
+            case "free_R_val_no_cutoff":
+                return getFreeRValNoCutoff();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

@@ -18,6 +18,48 @@ public class StructSheetRange extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "beg_label_asym_id":
+                return getBegLabelAsymId();
+            case "beg_label_comp_id":
+                return getBegLabelCompId();
+            case "beg_label_seq_id":
+                return getBegLabelSeqId();
+            case "end_label_asym_id":
+                return getEndLabelAsymId();
+            case "end_label_comp_id":
+                return getEndLabelCompId();
+            case "end_label_seq_id":
+                return getEndLabelSeqId();
+            case "beg_auth_asym_id":
+                return getBegAuthAsymId();
+            case "beg_auth_comp_id":
+                return getBegAuthCompId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "end_auth_asym_id":
+                return getEndAuthAsymId();
+            case "end_auth_comp_id":
+                return getEndAuthCompId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            case "id":
+                return getId();
+            case "sheet_id":
+                return getSheetId();
+            case "symmetry":
+                return getSymmetry();
+            case "pdbx_beg_PDB_ins_code":
+                return getPdbxBegPDBInsCode();
+            case "pdbx_end_PDB_ins_code":
+                return getPdbxEndPDBInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the residue at which the
      * beta-sheet range begins.

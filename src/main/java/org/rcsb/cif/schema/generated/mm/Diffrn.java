@@ -15,6 +15,46 @@ public class Diffrn extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ambient_environment":
+                return getAmbientEnvironment();
+            case "ambient_temp":
+                return getAmbientTemp();
+            case "ambient_temp_details":
+                return getAmbientTempDetails();
+            case "ambient_temp_esd":
+                return getAmbientTempEsd();
+            case "crystal_id":
+                return getCrystalId();
+            case "crystal_support":
+                return getCrystalSupport();
+            case "crystal_treatment":
+                return getCrystalTreatment();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "ambient_pressure":
+                return getAmbientPressure();
+            case "ambient_pressure_esd":
+                return getAmbientPressureEsd();
+            case "ambient_pressure_gt":
+                return getAmbientPressureGt();
+            case "ambient_pressure_lt":
+                return getAmbientPressureLt();
+            case "ambient_temp_gt":
+                return getAmbientTempGt();
+            case "ambient_temp_lt":
+                return getAmbientTempLt();
+            case "pdbx_serial_crystal_experiment":
+                return getPdbxSerialCrystalExperiment();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The gas or liquid surrounding the sample, if not air.
      * @return StrColumn

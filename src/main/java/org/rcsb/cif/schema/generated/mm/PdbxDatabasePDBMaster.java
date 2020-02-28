@@ -15,6 +15,40 @@ public class PdbxDatabasePDBMaster extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "num_remark":
+                return getNumRemark();
+            case "num_ftnote":
+                return getNumFtnote();
+            case "num_het":
+                return getNumHet();
+            case "num_helix":
+                return getNumHelix();
+            case "num_sheet":
+                return getNumSheet();
+            case "num_turn":
+                return getNumTurn();
+            case "num_site":
+                return getNumSite();
+            case "num_trans":
+                return getNumTrans();
+            case "num_coord":
+                return getNumCoord();
+            case "num_ter":
+                return getNumTer();
+            case "num_conect":
+                return getNumConect();
+            case "num_seqres":
+                return getNumSeqres();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A link to _ENTRY.id
      * @return StrColumn

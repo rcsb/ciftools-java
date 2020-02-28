@@ -17,6 +17,62 @@ public class PdbxRemediationAtomSiteMapping extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "group_PDB":
+                return getGroupPDB();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "pdbx_align":
+                return getPdbxAlign();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "pre_auth_asym_id":
+                return getPreAuthAsymId();
+            case "pre_auth_atom_id":
+                return getPreAuthAtomId();
+            case "pre_auth_comp_id":
+                return getPreAuthCompId();
+            case "pre_auth_seq_id":
+                return getPreAuthSeqId();
+            case "pre_PDB_ins_code":
+                return getPrePDBInsCode();
+            case "pre_group_PDB":
+                return getPreGroupPDB();
+            case "pre_auth_alt_id":
+                return getPreAuthAltId();
+            case "pre_pdbx_align":
+                return getPrePdbxAlign();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "auth_alt_id":
+                return getAuthAltId();
+            case "occupancy":
+                return getOccupancy();
+            case "pre_occupancy":
+                return getPreOccupancy();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of pdbx_remediation_atom_site_mapping.id must uniquely identify a record in
      * the PDBX_REMEDIATION_ATOM_SITE_MAPPING list.

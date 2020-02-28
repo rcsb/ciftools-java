@@ -16,6 +16,34 @@ public class PdbxSerialCrystallographyDataReduction extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "frames_total":
+                return getFramesTotal();
+            case "xfel_pulse_events":
+                return getXfelPulseEvents();
+            case "frame_hits":
+                return getFrameHits();
+            case "crystal_hits":
+                return getCrystalHits();
+            case "droplet_hits":
+                return getDropletHits();
+            case "frames_failed_index":
+                return getFramesFailedIndex();
+            case "frames_indexed":
+                return getFramesIndexed();
+            case "lattices_indexed":
+                return getLatticesIndexed();
+            case "xfel_run_numbers":
+                return getXfelRunNumbers();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.

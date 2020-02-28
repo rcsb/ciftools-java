@@ -16,6 +16,18 @@ public class PdbxViewCategoryGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "view_group_id":
+                return getViewGroupId();
+            case "description":
+                return getDescription();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier for a collection of related mmCIF categories.
      * @return StrColumn

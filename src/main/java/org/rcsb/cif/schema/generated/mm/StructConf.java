@@ -18,6 +18,54 @@ public class StructConf extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "beg_label_asym_id":
+                return getBegLabelAsymId();
+            case "beg_label_comp_id":
+                return getBegLabelCompId();
+            case "beg_label_seq_id":
+                return getBegLabelSeqId();
+            case "beg_auth_asym_id":
+                return getBegAuthAsymId();
+            case "beg_auth_comp_id":
+                return getBegAuthCompId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "conf_type_id":
+                return getConfTypeId();
+            case "details":
+                return getDetails();
+            case "end_label_asym_id":
+                return getEndLabelAsymId();
+            case "end_label_comp_id":
+                return getEndLabelCompId();
+            case "end_label_seq_id":
+                return getEndLabelSeqId();
+            case "end_auth_asym_id":
+                return getEndAuthAsymId();
+            case "end_auth_comp_id":
+                return getEndAuthCompId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            case "id":
+                return getId();
+            case "pdbx_beg_PDB_ins_code":
+                return getPdbxBegPDBInsCode();
+            case "pdbx_end_PDB_ins_code":
+                return getPdbxEndPDBInsCode();
+            case "pdbx_PDB_helix_class":
+                return getPdbxPDBHelixClass();
+            case "pdbx_PDB_helix_length":
+                return getPdbxPDBHelixLength();
+            case "pdbx_PDB_helix_id":
+                return getPdbxPDBHelixId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A component of the identifier for the residue at which the
      * conformation segment begins.

@@ -14,6 +14,26 @@ public class PdbxDataProcessingReflns extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "number_all":
+                return getNumberAll();
+            case "number_marked_reject":
+                return getNumberMarkedReject();
+            case "percent_marked_reject":
+                return getPercentMarkedReject();
+            case "percent_rejected":
+                return getPercentRejected();
+            case "R_factor_all_linear":
+                return getRFactorAllLinear();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_data_processing_reflns.entry_id identifies the data block.
      * @return StrColumn

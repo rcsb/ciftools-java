@@ -14,6 +14,38 @@ public class EmFocusedIonBeam extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "current":
+                return getCurrent();
+            case "details":
+                return getDetails();
+            case "dose_rate":
+                return getDoseRate();
+            case "duration":
+                return getDuration();
+            case "em_tomography_specimen_id":
+                return getEmTomographySpecimenId();
+            case "final_thickness":
+                return getFinalThickness();
+            case "id":
+                return getId();
+            case "initial_thickness":
+                return getInitialThickness();
+            case "instrument":
+                return getInstrument();
+            case "ion":
+                return getIon();
+            case "temperature":
+                return getTemperature();
+            case "voltage":
+                return getVoltage();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Current of the ion beam, in nanoamperes (nA)
      * @return FloatColumn

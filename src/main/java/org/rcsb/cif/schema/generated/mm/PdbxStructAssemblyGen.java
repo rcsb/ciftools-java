@@ -17,6 +17,24 @@ public class PdbxStructAssemblyGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_inst_id":
+                return getEntityInstId();
+            case "asym_id_list":
+                return getAsymIdList();
+            case "auth_asym_id_list":
+                return getAuthAsymIdList();
+            case "assembly_id":
+                return getAssemblyId();
+            case "oper_expression":
+                return getOperExpression();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_struct_entity_inst.id in
      * the PDBX_STRUCT_ENTITY_INST category.

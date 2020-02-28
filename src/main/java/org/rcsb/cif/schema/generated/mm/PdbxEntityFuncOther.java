@@ -16,6 +16,18 @@ public class PdbxEntityFuncOther extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "bind_mode_id":
+                return getBindModeId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is pointer to _pdbx_entity_func_bind_mode.id in the
      * PDBX_ENTITY_FUNC_BIND_MODE category.

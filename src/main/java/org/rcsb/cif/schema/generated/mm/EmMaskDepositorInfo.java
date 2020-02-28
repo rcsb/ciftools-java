@@ -15,6 +15,30 @@ public class EmMaskDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "upload_file_name":
+                return getUploadFileName();
+            case "upload_format":
+                return getUploadFormat();
+            case "contour_level":
+                return getContourLevel();
+            case "annotation_details":
+                return getAnnotationDetails();
+            case "pixel_spacing_x":
+                return getPixelSpacingX();
+            case "pixel_spacing_y":
+                return getPixelSpacingY();
+            case "pixel_spacing_z":
+                return getPixelSpacingZ();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique identifier for each map listed.
      * @return StrColumn

@@ -15,6 +15,28 @@ public class PdbxAuditRevisionHistory extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "data_content_type":
+                return getDataContentType();
+            case "major_revision":
+                return getMajorRevision();
+            case "minor_revision":
+                return getMinorRevision();
+            case "revision_date":
+                return getRevisionDate();
+            case "internal_version":
+                return getInternalVersion();
+            case "internal_deposition_id":
+                return getInternalDepositionId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the pdbx_audit_revision_history record.
      * @return IntColumn

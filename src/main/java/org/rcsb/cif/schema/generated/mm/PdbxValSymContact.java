@@ -21,6 +21,64 @@ public class PdbxValSymContact extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "auth_asym_id_1":
+                return getAuthAsymId1();
+            case "auth_atom_id_1":
+                return getAuthAtomId1();
+            case "auth_comp_id_1":
+                return getAuthCompId1();
+            case "auth_seq_id_1":
+                return getAuthSeqId1();
+            case "auth_atom_id_2":
+                return getAuthAtomId2();
+            case "auth_asym_id_2":
+                return getAuthAsymId2();
+            case "auth_comp_id_2":
+                return getAuthCompId2();
+            case "auth_seq_id_2":
+                return getAuthSeqId2();
+            case "auth_PDB_insert_id_1":
+                return getAuthPDBInsertId1();
+            case "auth_PDB_insert_id_2":
+                return getAuthPDBInsertId2();
+            case "label_alt_id_1":
+                return getLabelAltId1();
+            case "label_asym_id_1":
+                return getLabelAsymId1();
+            case "label_atom_id_1":
+                return getLabelAtomId1();
+            case "label_comp_id_1":
+                return getLabelCompId1();
+            case "label_seq_id_1":
+                return getLabelSeqId1();
+            case "label_alt_id_2":
+                return getLabelAltId2();
+            case "label_asym_id_2":
+                return getLabelAsymId2();
+            case "label_atom_id_2":
+                return getLabelAtomId2();
+            case "label_comp_id_2":
+                return getLabelCompId2();
+            case "label_seq_id_2":
+                return getLabelSeqId2();
+            case "site_symmetry_1":
+                return getSiteSymmetry1();
+            case "site_symmetry_2":
+                return getSiteSymmetry2();
+            case "dist":
+                return getDist();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_val_sym_contact.id must uniquely identify
      * each item in the PDBX_VAL_SYM_CONTACT list.

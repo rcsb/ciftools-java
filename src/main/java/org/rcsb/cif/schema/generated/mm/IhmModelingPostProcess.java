@@ -16,6 +16,40 @@ public class IhmModelingPostProcess extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "protocol_id":
+                return getProtocolId();
+            case "analysis_id":
+                return getAnalysisId();
+            case "step_id":
+                return getStepId();
+            case "struct_assembly_id":
+                return getStructAssemblyId();
+            case "dataset_group_id":
+                return getDatasetGroupId();
+            case "type":
+                return getType();
+            case "feature":
+                return getFeature();
+            case "feature_name":
+                return getFeatureName();
+            case "num_models_begin":
+                return getNumModelsBegin();
+            case "num_models_end":
+                return getNumModelsEnd();
+            case "script_file_id":
+                return getScriptFileId();
+            case "software_id":
+                return getSoftwareId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the post modeling analysis/step combination.
      * @return IntColumn

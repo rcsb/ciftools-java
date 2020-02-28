@@ -16,6 +16,34 @@ public class EmSampleSupport extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "film_material":
+                return getFilmMaterial();
+            case "method":
+                return getMethod();
+            case "grid_material":
+                return getGridMaterial();
+            case "grid_mesh_size":
+                return getGridMeshSize();
+            case "grid_type":
+                return getGridType();
+            case "pretreatment":
+                return getPretreatment();
+            case "details":
+                return getDetails();
+            case "specimen_id":
+                return getSpecimenId();
+            case "citation_id":
+                return getCitationId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _em_sample_support.id must uniquely identify
      * the sample support.

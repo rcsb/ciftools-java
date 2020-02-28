@@ -15,6 +15,26 @@ public class Symmetry extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "cell_setting":
+                return getCellSetting();
+            case "Int_Tables_number":
+                return getIntTablesNumber();
+            case "space_group_name_Hall":
+                return getSpaceGroupNameHall();
+            case "space_group_name_H-M":
+                return getSpaceGroupNameH_M();
+            case "pdbx_full_space_group_name_H-M":
+                return getPdbxFullSpaceGroupNameH_M();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

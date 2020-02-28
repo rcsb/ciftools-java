@@ -15,6 +15,30 @@ public class IhmModelList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "model_id":
+                return getModelId();
+            case "model_group_id":
+                return getModelGroupId();
+            case "model_name":
+                return getModelName();
+            case "model_group_name":
+                return getModelGroupName();
+            case "assembly_id":
+                return getAssemblyId();
+            case "protocol_id":
+                return getProtocolId();
+            case "representation_id":
+                return getRepresentationId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the model / model group combination.
      * @return IntColumn

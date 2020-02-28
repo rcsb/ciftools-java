@@ -16,6 +16,20 @@ public class PdbxNmrSpectralPeakSoftware extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "software_id":
+                return getSoftwareId();
+            case "entry_id":
+                return getEntryId();
+            case "spectral_peak_list_id":
+                return getSpectralPeakListId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Pointer to '_pdbx_nmr_software.ordinal'

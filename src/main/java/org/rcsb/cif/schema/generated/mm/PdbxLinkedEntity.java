@@ -15,6 +15,26 @@ public class PdbxLinkedEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "linked_entity_id":
+                return getLinkedEntityId();
+            case "type":
+                return getType();
+            case "class":
+                return getClazz();
+            case "name":
+                return getName();
+            case "description":
+                return getDescription();
+            case "prd_id":
+                return getPrdId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_linked_entity.linked_entity_id is the unique identifier
      * for the molecule represented as a collection of linked entities.

@@ -14,6 +14,22 @@ public class EmLayerLines extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "experiment_id":
+                return getExperimentId();
+            case "file":
+                return getFile();
+            case "id":
+                return getId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Details about the layer line file.
      * @return StrColumn

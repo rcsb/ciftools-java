@@ -18,6 +18,64 @@ public class PdbxValidateRmsdAngle extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id_1":
+                return getAuthAsymId1();
+            case "auth_atom_id_1":
+                return getAuthAtomId1();
+            case "auth_comp_id_1":
+                return getAuthCompId1();
+            case "auth_seq_id_1":
+                return getAuthSeqId1();
+            case "auth_atom_id_2":
+                return getAuthAtomId2();
+            case "auth_asym_id_2":
+                return getAuthAsymId2();
+            case "auth_comp_id_2":
+                return getAuthCompId2();
+            case "auth_seq_id_2":
+                return getAuthSeqId2();
+            case "auth_atom_id_3":
+                return getAuthAtomId3();
+            case "auth_asym_id_3":
+                return getAuthAsymId3();
+            case "auth_comp_id_3":
+                return getAuthCompId3();
+            case "auth_seq_id_3":
+                return getAuthSeqId3();
+            case "PDB_ins_code_1":
+                return getPDBInsCode1();
+            case "PDB_ins_code_2":
+                return getPDBInsCode2();
+            case "PDB_ins_code_3":
+                return getPDBInsCode3();
+            case "label_alt_id_1":
+                return getLabelAltId1();
+            case "label_alt_id_2":
+                return getLabelAltId2();
+            case "label_alt_id_3":
+                return getLabelAltId3();
+            case "angle_deviation":
+                return getAngleDeviation();
+            case "angle_value":
+                return getAngleValue();
+            case "angle_target_value":
+                return getAngleTargetValue();
+            case "angle_standard_deviation":
+                return getAngleStandardDeviation();
+            case "linker_flag":
+                return getLinkerFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_validate_rmsd_angle.id must uniquely identify
      * each item in the PDBX_VALIDATE_RMSD_ANGLE list.

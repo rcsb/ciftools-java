@@ -18,6 +18,20 @@ public class EntityNameCom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "name":
+                return getName();
+            case "pdbx_provenance":
+                return getPdbxProvenance();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

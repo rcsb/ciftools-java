@@ -15,6 +15,26 @@ public class PdbxEntitySrcGenExpressTimepoint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "serial":
+                return getSerial();
+            case "OD":
+                return getOD();
+            case "time":
+                return getTime();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_express_timepoint.entry_id is a pointer
      * to _pdbx_entity_src_gen_express.entry_id

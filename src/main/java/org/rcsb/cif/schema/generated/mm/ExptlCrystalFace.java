@@ -15,6 +15,32 @@ public class ExptlCrystalFace extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "crystal_id":
+                return getCrystalId();
+            case "diffr_chi":
+                return getDiffrChi();
+            case "diffr_kappa":
+                return getDiffrKappa();
+            case "diffr_phi":
+                return getDiffrPhi();
+            case "diffr_psi":
+                return getDiffrPsi();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "perp_dist":
+                return getPerpDist();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.

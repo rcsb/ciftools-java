@@ -21,6 +21,156 @@ public class Refln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "A_calc":
+                return getACalc();
+            case "A_calc_au":
+                return getACalcAu();
+            case "A_meas":
+                return getAMeas();
+            case "A_meas_au":
+                return getAMeasAu();
+            case "B_calc":
+                return getBCalc();
+            case "B_calc_au":
+                return getBCalcAu();
+            case "B_meas":
+                return getBMeas();
+            case "B_meas_au":
+                return getBMeasAu();
+            case "crystal_id":
+                return getCrystalId();
+            case "F_calc":
+                return getFCalc();
+            case "F_calc_au":
+                return getFCalcAu();
+            case "F_meas":
+                return getFMeas();
+            case "F_meas_au":
+                return getFMeasAu();
+            case "F_meas_sigma":
+                return getFMeasSigma();
+            case "F_meas_sigma_au":
+                return getFMeasSigmaAu();
+            case "F_squared_calc":
+                return getFSquaredCalc();
+            case "F_squared_meas":
+                return getFSquaredMeas();
+            case "F_squared_sigma":
+                return getFSquaredSigma();
+            case "fom":
+                return getFom();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "intensity_calc":
+                return getIntensityCalc();
+            case "intensity_meas":
+                return getIntensityMeas();
+            case "intensity_sigma":
+                return getIntensitySigma();
+            case "status":
+                return getStatus();
+            case "phase_calc":
+                return getPhaseCalc();
+            case "phase_meas":
+                return getPhaseMeas();
+            case "refinement_status":
+                return getRefinementStatus();
+            case "scale_group_code":
+                return getScaleGroupCode();
+            case "sint_over_lambda":
+                return getSintOverLambda();
+            case "symmetry_epsilon":
+                return getSymmetryEpsilon();
+            case "symmetry_multiplicity":
+                return getSymmetryMultiplicity();
+            case "wavelength":
+                return getWavelength();
+            case "wavelength_id":
+                return getWavelengthId();
+            case "class_code":
+                return getClassCode();
+            case "d_spacing":
+                return getDSpacing();
+            case "include_status":
+                return getIncludeStatus();
+            case "mean_path_length_tbar":
+                return getMeanPathLengthTbar();
+            case "pdbx_F_calc_part_solvent":
+                return getPdbxFCalcPartSolvent();
+            case "pdbx_phase_calc_part_solvent":
+                return getPdbxPhaseCalcPartSolvent();
+            case "pdbx_F_calc_with_solvent":
+                return getPdbxFCalcWithSolvent();
+            case "pdbx_phase_calc_with_solvent":
+                return getPdbxPhaseCalcWithSolvent();
+            case "pdbx_anom_difference":
+                return getPdbxAnomDifference();
+            case "pdbx_anom_difference_sigma":
+                return getPdbxAnomDifferenceSigma();
+            case "pdbx_I_plus":
+                return getPdbxIPlus();
+            case "pdbx_I_minus":
+                return getPdbxIMinus();
+            case "pdbx_F_plus":
+                return getPdbxFPlus();
+            case "pdbx_F_minus":
+                return getPdbxFMinus();
+            case "pdbx_I_plus_sigma":
+                return getPdbxIPlusSigma();
+            case "pdbx_I_minus_sigma":
+                return getPdbxIMinusSigma();
+            case "pdbx_F_minus_sigma":
+                return getPdbxFMinusSigma();
+            case "pdbx_F_plus_sigma":
+                return getPdbxFPlusSigma();
+            case "pdbx_HL_A_iso":
+                return getPdbxHLAIso();
+            case "pdbx_HL_B_iso":
+                return getPdbxHLBIso();
+            case "pdbx_HL_C_iso":
+                return getPdbxHLCIso();
+            case "pdbx_HL_D_iso":
+                return getPdbxHLDIso();
+            case "pdbx_fiber_layer":
+                return getPdbxFiberLayer();
+            case "pdbx_fiber_coordinate":
+                return getPdbxFiberCoordinate();
+            case "pdbx_fiber_F_meas_au":
+                return getPdbxFiberFMeasAu();
+            case "pdbx_FWT":
+                return getPdbxFWT();
+            case "pdbx_PHWT":
+                return getPdbxPHWT();
+            case "pdbx_DELFWT":
+                return getPdbxDELFWT();
+            case "pdbx_DELPHWT":
+                return getPdbxDELPHWT();
+            case "pdbx_diffrn_id":
+                return getPdbxDiffrnId();
+            case "pdbx_r_free_flag":
+                return getPdbxRFreeFlag();
+            case "pdbx_anomalous_diff":
+                return getPdbxAnomalousDiff();
+            case "pdbx_anomalous_diff_sigma":
+                return getPdbxAnomalousDiffSigma();
+            case "pdbx_phase_cycle":
+                return getPdbxPhaseCycle();
+            case "pdbx_cos_phase_calc":
+                return getPdbxCosPhaseCalc();
+            case "pdbx_sin_phase_calc":
+                return getPdbxSinPhaseCalc();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The calculated value of structure-factor component A in
      * electrons.

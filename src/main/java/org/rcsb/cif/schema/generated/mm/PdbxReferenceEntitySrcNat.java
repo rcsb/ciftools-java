@@ -15,6 +15,36 @@ public class PdbxReferenceEntitySrcNat extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "ref_entity_id":
+                return getRefEntityId();
+            case "ordinal":
+                return getOrdinal();
+            case "organism_scientific":
+                return getOrganismScientific();
+            case "strain":
+                return getStrain();
+            case "taxid":
+                return getTaxid();
+            case "atcc":
+                return getAtcc();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            case "source":
+                return getSource();
+            case "source_id":
+                return getSourceId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_src_nat.prd_id is a reference
      * _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category.

@@ -16,6 +16,34 @@ public class DiffrnDetector extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "detector":
+                return getDetector();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "type":
+                return getType();
+            case "area_resol_mean":
+                return getAreaResolMean();
+            case "dtime":
+                return getDtime();
+            case "pdbx_frames_total":
+                return getPdbxFramesTotal();
+            case "pdbx_collection_time_total":
+                return getPdbxCollectionTimeTotal();
+            case "pdbx_collection_date":
+                return getPdbxCollectionDate();
+            case "pdbx_frequency":
+                return getPdbxFrequency();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the radiation detector.
      * @return StrColumn

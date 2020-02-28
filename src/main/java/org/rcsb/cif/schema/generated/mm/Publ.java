@@ -15,6 +15,72 @@ public class Publ extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "contact_author":
+                return getContactAuthor();
+            case "contact_author_address":
+                return getContactAuthorAddress();
+            case "contact_author_email":
+                return getContactAuthorEmail();
+            case "contact_author_fax":
+                return getContactAuthorFax();
+            case "contact_author_name":
+                return getContactAuthorName();
+            case "contact_author_phone":
+                return getContactAuthorPhone();
+            case "contact_letter":
+                return getContactLetter();
+            case "manuscript_creation":
+                return getManuscriptCreation();
+            case "manuscript_processed":
+                return getManuscriptProcessed();
+            case "manuscript_text":
+                return getManuscriptText();
+            case "requested_category":
+                return getRequestedCategory();
+            case "requested_coeditor_name":
+                return getRequestedCoeditorName();
+            case "requested_journal":
+                return getRequestedJournal();
+            case "section_abstract":
+                return getSectionAbstract();
+            case "section_acknowledgements":
+                return getSectionAcknowledgements();
+            case "section_comment":
+                return getSectionComment();
+            case "section_discussion":
+                return getSectionDiscussion();
+            case "section_experimental":
+                return getSectionExperimental();
+            case "section_exptl_prep":
+                return getSectionExptlPrep();
+            case "section_exptl_refinement":
+                return getSectionExptlRefinement();
+            case "section_exptl_solution":
+                return getSectionExptlSolution();
+            case "section_figure_captions":
+                return getSectionFigureCaptions();
+            case "section_introduction":
+                return getSectionIntroduction();
+            case "section_references":
+                return getSectionReferences();
+            case "section_synopsis":
+                return getSectionSynopsis();
+            case "section_table_legends":
+                return getSectionTableLegends();
+            case "section_title":
+                return getSectionTitle();
+            case "section_title_footnote":
+                return getSectionTitleFootnote();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

@@ -15,6 +15,22 @@ public class ChemCompPlaneAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id":
+                return getAtomId();
+            case "comp_id":
+                return getCompId();
+            case "plane_id":
+                return getPlaneId();
+            case "dist_esd":
+                return getDistEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of an atom involved in the plane.
      * 

@@ -16,6 +16,24 @@ public class PdbxDrugInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "num_per_asym_unit":
+                return getNumPerAsymUnit();
+            case "num_of_whole_molecule":
+                return getNumOfWholeMolecule();
+            case "size_of_molecule_per_asym_unit":
+                return getSizeOfMoleculePerAsymUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return StrColumn

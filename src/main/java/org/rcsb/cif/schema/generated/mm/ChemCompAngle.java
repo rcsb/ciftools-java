@@ -18,6 +18,30 @@ public class ChemCompAngle extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "atom_id_3":
+                return getAtomId3();
+            case "comp_id":
+                return getCompId();
+            case "value_angle":
+                return getValueAngle();
+            case "value_angle_esd":
+                return getValueAngleEsd();
+            case "value_dist":
+                return getValueDist();
+            case "value_dist_esd":
+                return getValueDistEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of the first of the three atoms that define the angle.
      * 

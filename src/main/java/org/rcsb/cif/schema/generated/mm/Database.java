@@ -16,6 +16,48 @@ public class Database extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "journal_ASTM":
+                return getJournalASTM();
+            case "journal_CSD":
+                return getJournalCSD();
+            case "CSD_history":
+                return getCSDHistory();
+            case "code_CAS":
+                return getCodeCAS();
+            case "code_CSD":
+                return getCodeCSD();
+            case "code_ICSD":
+                return getCodeICSD();
+            case "code_MDF":
+                return getCodeMDF();
+            case "code_NBS":
+                return getCodeNBS();
+            case "code_PDB":
+                return getCodePDB();
+            case "code_PDF":
+                return getCodePDF();
+            case "code_depnum_ccdc_fiz":
+                return getCodeDepnumCcdcFiz();
+            case "code_depnum_ccdc_journal":
+                return getCodeDepnumCcdcJournal();
+            case "code_depnum_ccdc_archive":
+                return getCodeDepnumCcdcArchive();
+            case "pdbx_code_NDB":
+                return getPdbxCodeNDB();
+            case "pdbx_code_PDB":
+                return getPdbxCodePDB();
+            case "pdbx_related_codes_PDB":
+                return getPdbxRelatedCodesPDB();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

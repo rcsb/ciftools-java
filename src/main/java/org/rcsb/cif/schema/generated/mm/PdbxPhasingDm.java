@@ -15,6 +15,36 @@ public class PdbxPhasingDm extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "method":
+                return getMethod();
+            case "mask_type":
+                return getMaskType();
+            case "fom_acentric":
+                return getFomAcentric();
+            case "fom_centric":
+                return getFomCentric();
+            case "fom":
+                return getFom();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "reflns":
+                return getReflns();
+            case "delta_phi_initial":
+                return getDeltaPhiInitial();
+            case "delta_phi_final":
+                return getDeltaPhiFinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_phasing_dm.entry_id identifies the data block.
      * @return StrColumn

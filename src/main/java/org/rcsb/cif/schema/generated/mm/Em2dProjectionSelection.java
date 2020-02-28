@@ -16,6 +16,28 @@ public class Em2dProjectionSelection extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "num_particles":
+                return getNumParticles();
+            case "software_name":
+                return getSoftwareName();
+            case "method":
+                return getMethod();
+            case "details":
+                return getDetails();
+            case "citation_id":
+                return getCitationId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * entry id
      * @return StrColumn

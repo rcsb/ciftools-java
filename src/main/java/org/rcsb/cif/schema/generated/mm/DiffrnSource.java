@@ -15,6 +15,46 @@ public class DiffrnSource extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "current":
+                return getCurrent();
+            case "details":
+                return getDetails();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "power":
+                return getPower();
+            case "size":
+                return getSize();
+            case "source":
+                return getSource();
+            case "target":
+                return getTarget();
+            case "type":
+                return getType();
+            case "voltage":
+                return getVoltage();
+            case "take-off_angle":
+                return getTake_offAngle();
+            case "pdbx_wavelength_list":
+                return getPdbxWavelengthList();
+            case "pdbx_wavelength":
+                return getPdbxWavelength();
+            case "pdbx_synchrotron_beamline":
+                return getPdbxSynchrotronBeamline();
+            case "pdbx_synchrotron_site":
+                return getPdbxSynchrotronSite();
+            case "pdbx_synchrotron_y_n":
+                return getPdbxSynchrotronYN();
+            case "pdbx_source_specific_beamline":
+                return getPdbxSourceSpecificBeamline();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The current in milliamperes at which the radiation source
      * was operated.

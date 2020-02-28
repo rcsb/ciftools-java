@@ -16,6 +16,28 @@ public class PdbxNmrExptlSample extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "solution_id":
+                return getSolutionId();
+            case "component":
+                return getComponent();
+            case "concentration":
+                return getConcentration();
+            case "concentration_range":
+                return getConcentrationRange();
+            case "concentration_units":
+                return getConcentrationUnits();
+            case "isotopic_labeling":
+                return getIsotopicLabeling();
+            case "concentration_err":
+                return getConcentrationErr();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The name (number) of the sample.
      * @return StrColumn

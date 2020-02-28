@@ -15,6 +15,24 @@ public class EmVirusShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diameter":
+                return getDiameter();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "triangulation":
+                return getTriangulation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of the diameter (in angstroms) for this virus shell.
      * @return FloatColumn

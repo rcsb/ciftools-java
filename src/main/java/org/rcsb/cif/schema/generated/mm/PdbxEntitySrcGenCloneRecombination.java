@@ -20,6 +20,26 @@ public class PdbxEntitySrcGenCloneRecombination extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "system":
+                return getSystem();
+            case "recombination_enzymes":
+                return getRecombinationEnzymes();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This item is a pointer to _pdbx_entity_src_gen_clone.entry_id in the
      * PDBX_ENTITY_SRC_GEN_CLONE category.

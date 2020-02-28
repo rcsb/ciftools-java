@@ -16,6 +16,68 @@ public class PdbxSolventAtomSiteMapping extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "pre_auth_asym_id":
+                return getPreAuthAsymId();
+            case "pre_auth_atom_id":
+                return getPreAuthAtomId();
+            case "pre_auth_comp_id":
+                return getPreAuthCompId();
+            case "pre_auth_seq_id":
+                return getPreAuthSeqId();
+            case "pre_PDB_ins_code":
+                return getPrePDBInsCode();
+            case "pre_auth_alt_id":
+                return getPreAuthAltId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "auth_alt_id":
+                return getAuthAltId();
+            case "occupancy":
+                return getOccupancy();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_z":
+                return getCartnZ();
+            case "pre_Cartn_x":
+                return getPreCartnX();
+            case "pre_Cartn_y":
+                return getPreCartnY();
+            case "pre_Cartn_z":
+                return getPreCartnZ();
+            case "symmetry":
+                return getSymmetry();
+            case "symmetry_as_xyz":
+                return getSymmetryAsXyz();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of pdbx_solvent_atom_site_mapping.id must uniquely identify a record in
      * the PDBX_SOLVENT_ATOM_SITE_MAPPING list.

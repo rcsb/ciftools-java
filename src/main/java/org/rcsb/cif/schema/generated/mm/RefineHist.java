@@ -20,6 +20,66 @@ public class RefineHist extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "cycle_id":
+                return getCycleId();
+            case "details":
+                return getDetails();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "number_atoms_solvent":
+                return getNumberAtomsSolvent();
+            case "number_atoms_total":
+                return getNumberAtomsTotal();
+            case "number_reflns_all":
+                return getNumberReflnsAll();
+            case "number_reflns_obs":
+                return getNumberReflnsObs();
+            case "number_reflns_R_free":
+                return getNumberReflnsRFree();
+            case "number_reflns_R_work":
+                return getNumberReflnsRWork();
+            case "R_factor_all":
+                return getRFactorAll();
+            case "R_factor_obs":
+                return getRFactorObs();
+            case "R_factor_R_free":
+                return getRFactorRFree();
+            case "R_factor_R_work":
+                return getRFactorRWork();
+            case "pdbx_number_residues_total":
+                return getPdbxNumberResiduesTotal();
+            case "pdbx_B_iso_mean_ligand":
+                return getPdbxBIsoMeanLigand();
+            case "pdbx_B_iso_mean_solvent":
+                return getPdbxBIsoMeanSolvent();
+            case "pdbx_number_atoms_protein":
+                return getPdbxNumberAtomsProtein();
+            case "pdbx_number_atoms_nucleic_acid":
+                return getPdbxNumberAtomsNucleicAcid();
+            case "pdbx_number_atoms_ligand":
+                return getPdbxNumberAtomsLigand();
+            case "pdbx_number_atoms_lipid":
+                return getPdbxNumberAtomsLipid();
+            case "pdbx_number_atoms_carb":
+                return getPdbxNumberAtomsCarb();
+            case "pdbx_pseudo_atom_details":
+                return getPdbxPseudoAtomDetails();
+            case "pdbx_number_atoms_solvent":
+                return getPdbxNumberAtomsSolvent();
+            case "pdbx_number_atoms_total":
+                return getPdbxNumberAtomsTotal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_hist.pdbx_refine_id can be used to distinguish the results

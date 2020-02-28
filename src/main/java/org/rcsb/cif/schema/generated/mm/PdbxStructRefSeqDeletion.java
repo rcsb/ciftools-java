@@ -16,6 +16,28 @@ public class PdbxStructRefSeqDeletion extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "details":
+                return getDetails();
+            case "asym_id":
+                return getAsymId();
+            case "comp_id":
+                return getCompId();
+            case "db_seq_id":
+                return getDbSeqId();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_struct_ref_seq_deletion.id must
      * uniquely identify a record in the PDBX_STRUCT_REF_SEQ_DELETION list.

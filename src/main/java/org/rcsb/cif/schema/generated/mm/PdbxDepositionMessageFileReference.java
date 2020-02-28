@@ -16,6 +16,30 @@ public class PdbxDepositionMessageFileReference extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "deposition_data_set_id":
+                return getDepositionDataSetId();
+            case "message_id":
+                return getMessageId();
+            case "content_type":
+                return getContentType();
+            case "content_format":
+                return getContentFormat();
+            case "partition_number":
+                return getPartitionNumber();
+            case "version_id":
+                return getVersionId();
+            case "storage_type":
+                return getStorageType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for the each file reference.
      * @return IntColumn

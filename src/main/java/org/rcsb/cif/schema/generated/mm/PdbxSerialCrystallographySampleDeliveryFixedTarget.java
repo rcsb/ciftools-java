@@ -15,6 +15,38 @@ public class PdbxSerialCrystallographySampleDeliveryFixedTarget extends Delegati
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "description":
+                return getDescription();
+            case "sample_holding":
+                return getSampleHolding();
+            case "support_base":
+                return getSupportBase();
+            case "sample_unit_size":
+                return getSampleUnitSize();
+            case "crystals_per_unit":
+                return getCrystalsPerUnit();
+            case "sample_solvent":
+                return getSampleSolvent();
+            case "sample_dehydration_prevention":
+                return getSampleDehydrationPrevention();
+            case "motion_control":
+                return getMotionControl();
+            case "velocity_horizontal":
+                return getVelocityHorizontal();
+            case "velocity_vertical":
+                return getVelocityVertical();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The data item is a pointer to _diffrn.id in the DIFFRN
      * category.

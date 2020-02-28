@@ -15,6 +15,38 @@ public class PdbxDepositionMessageInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "deposition_data_set_id":
+                return getDepositionDataSetId();
+            case "message_id":
+                return getMessageId();
+            case "timestamp":
+                return getTimestamp();
+            case "sender":
+                return getSender();
+            case "content_type":
+                return getContentType();
+            case "content_value":
+                return getContentValue();
+            case "parent_message_id":
+                return getParentMessageId();
+            case "message_subject":
+                return getMessageSubject();
+            case "message_text":
+                return getMessageText();
+            case "message_type":
+                return getMessageType();
+            case "send_status":
+                return getSendStatus();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for the each message.
      * @return IntColumn

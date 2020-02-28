@@ -15,6 +15,20 @@ public class PdbxEntityName extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "name":
+                return getName();
+            case "name_type":
+                return getNameType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Pointer to _entity.id.
      * @return StrColumn

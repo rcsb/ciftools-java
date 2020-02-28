@@ -14,6 +14,30 @@ public class PdbxReflnsTwin extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "crystal_id":
+                return getCrystalId();
+            case "domain_id":
+                return getDomainId();
+            case "type":
+                return getType();
+            case "operator":
+                return getOperator();
+            case "fraction":
+                return getFraction();
+            case "mean_I2_over_mean_I_square":
+                return getMeanI2OverMeanISquare();
+            case "mean_F_square_over_mean_F2":
+                return getMeanFSquareOverMeanF2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The diffraction data set identifier.  A reference to
      * _diffrn.id in category DIFFRN.

@@ -14,6 +14,22 @@ public class EmHighPressureFreezing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "em_tomography_specimen_id":
+                return getEmTomographySpecimenId();
+            case "id":
+                return getId();
+            case "instrument":
+                return getInstrument();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Additional details about high pressure freezing.
      * @return StrColumn

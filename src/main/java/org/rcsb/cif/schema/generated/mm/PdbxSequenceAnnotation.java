@@ -15,6 +15,18 @@ public class PdbxSequenceAnnotation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdb_chain_id":
+                return getPdbChainId();
+            case "ncbi_taxid":
+                return getNcbiTaxid();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * PDB chain ID.
      * @return StrColumn

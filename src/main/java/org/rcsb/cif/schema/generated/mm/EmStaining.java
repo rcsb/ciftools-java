@@ -14,6 +14,24 @@ public class EmStaining extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "material":
+                return getMaterial();
+            case "specimen_id":
+                return getSpecimenId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Staining procedure used in the specimen preparation.
      * @return StrColumn

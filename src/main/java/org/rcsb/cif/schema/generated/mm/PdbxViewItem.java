@@ -18,6 +18,24 @@ public class PdbxViewItem extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "item_name":
+                return getItemName();
+            case "category_id":
+                return getCategoryId();
+            case "item_view_name":
+                return getItemViewName();
+            case "item_view_mandatory_code":
+                return getItemViewMandatoryCode();
+            case "item_view_allow_alternate_value":
+                return getItemViewAllowAlternateValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The mmCIF item name.
      * @return StrColumn

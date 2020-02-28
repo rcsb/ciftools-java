@@ -25,6 +25,18 @@ public class Database2 extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "database_id":
+                return getDatabaseId();
+            case "database_code":
+                return getDatabaseCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An abbreviation that identifies the database.
      * @return StrColumn

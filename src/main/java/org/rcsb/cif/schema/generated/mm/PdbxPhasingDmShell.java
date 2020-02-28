@@ -15,6 +15,34 @@ public class PdbxPhasingDmShell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "fom_acentric":
+                return getFomAcentric();
+            case "fom_centric":
+                return getFomCentric();
+            case "fom":
+                return getFom();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "reflns":
+                return getReflns();
+            case "delta_phi_initial":
+                return getDeltaPhiInitial();
+            case "delta_phi_final":
+                return getDeltaPhiFinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_phasing_dm_shell.d_res_high  identifies high resolution
      * @return FloatColumn

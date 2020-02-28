@@ -17,6 +17,40 @@ public class IhmModelRepresentation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "representation_id":
+                return getRepresentationId();
+            case "segment_id":
+                return getSegmentId();
+            case "entity_id":
+                return getEntityId();
+            case "entity_description":
+                return getEntityDescription();
+            case "entity_asym_id":
+                return getEntityAsymId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "model_object_primitive":
+                return getModelObjectPrimitive();
+            case "starting_model_id":
+                return getStartingModelId();
+            case "model_mode":
+                return getModelMode();
+            case "model_granularity":
+                return getModelGranularity();
+            case "model_object_count":
+                return getModelObjectCount();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the model details record.
      * @return IntColumn

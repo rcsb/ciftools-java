@@ -15,6 +15,28 @@ public class IhmPolyAtomFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "feature_id":
+                return getFeatureId();
+            case "entity_id":
+                return getEntityId();
+            case "asym_id":
+                return getAsymId();
+            case "comp_id":
+                return getCompId();
+            case "seq_id":
+                return getSeqId();
+            case "atom_id":
+                return getAtomId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the category.
      * @return IntColumn

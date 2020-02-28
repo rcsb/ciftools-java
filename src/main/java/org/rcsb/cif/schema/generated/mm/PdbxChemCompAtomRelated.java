@@ -14,6 +14,26 @@ public class PdbxChemCompAtomRelated extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "comp_id":
+                return getCompId();
+            case "related_comp_id":
+                return getRelatedCompId();
+            case "ordinal":
+                return getOrdinal();
+            case "atom_id":
+                return getAtomId();
+            case "related_atom_id":
+                return getRelatedAtomId();
+            case "related_type":
+                return getRelatedType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The chemical component for which this relationship applies.
      * @return StrColumn

@@ -16,6 +16,28 @@ public class PdbxConstructFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "construct_id":
+                return getConstructId();
+            case "entry_id":
+                return getEntryId();
+            case "start_seq":
+                return getStartSeq();
+            case "end_seq":
+                return getEndSeq();
+            case "type":
+                return getType();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_construct_feature.id must uniquely
      * identify a record in the PDBX_CONSTRUCT_FEATURE list.

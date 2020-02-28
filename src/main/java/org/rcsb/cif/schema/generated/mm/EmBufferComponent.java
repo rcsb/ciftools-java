@@ -14,6 +14,26 @@ public class EmBufferComponent extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "buffer_id":
+                return getBufferId();
+            case "concentration":
+                return getConcentration();
+            case "concentration_units":
+                return getConcentrationUnits();
+            case "formula":
+                return getFormula();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Foreign key to the entry category.
      * @return StrColumn

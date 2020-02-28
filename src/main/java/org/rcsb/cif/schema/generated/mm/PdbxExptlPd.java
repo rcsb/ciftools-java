@@ -15,6 +15,22 @@ public class PdbxExptlPd extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "spec_preparation_pH":
+                return getSpecPreparationPH();
+            case "spec_preparation_pH_range":
+                return getSpecPreparationPHRange();
+            case "spec_preparation":
+                return getSpecPreparation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_exptl_pd.entry_id uniquely identifies a
      * record in the PDBX_EXPTL_PD category.

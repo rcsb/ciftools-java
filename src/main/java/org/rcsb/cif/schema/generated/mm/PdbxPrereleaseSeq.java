@@ -16,6 +16,18 @@ public class PdbxPrereleaseSeq extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "seq_one_letter_code":
+                return getSeqOneLetterCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

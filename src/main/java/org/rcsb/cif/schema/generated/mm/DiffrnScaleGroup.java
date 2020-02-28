@@ -18,6 +18,18 @@ public class DiffrnScaleGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "code":
+                return getCode();
+            case "I_net":
+                return getINet();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _diffrn_scale_group.code must uniquely identify a
      * record in the DIFFRN_SCALE_GROUP list.

@@ -16,6 +16,30 @@ public class PdbxHelicalSymmetryDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "number_of_operations":
+                return getNumberOfOperations();
+            case "rotation_per_n_subunits":
+                return getRotationPerNSubunits();
+            case "rise_per_n_subunits":
+                return getRisePerNSubunits();
+            case "n_subunits_divisor":
+                return getNSubunitsDivisor();
+            case "dyad_axis":
+                return getDyadAxis();
+            case "circular_symmetry":
+                return getCircularSymmetry();
+            case "status_flag":
+                return getStatusFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

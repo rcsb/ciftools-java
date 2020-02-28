@@ -16,6 +16,28 @@ public class PdbxExptlCrystalGrowComp extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "crystal_id":
+                return getCrystalId();
+            case "comp_id":
+                return getCompId();
+            case "comp_name":
+                return getCompName();
+            case "sol_id":
+                return getSolId();
+            case "conc":
+                return getConc();
+            case "conc_range":
+                return getConcRange();
+            case "conc_units":
+                return getConcUnits();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _exptl_crystal.id in the
      * EXPTL_CRYSTAL category.

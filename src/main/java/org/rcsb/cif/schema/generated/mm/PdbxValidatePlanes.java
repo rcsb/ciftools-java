@@ -16,6 +16,32 @@ public class PdbxValidatePlanes extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "rmsd":
+                return getRmsd();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_validate_planes.id must uniquely identify
      * each item in the PDBX_VALIDATE_PLANES list.

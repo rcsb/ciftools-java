@@ -16,6 +16,120 @@ public class PdbxDccMap extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "pdb_id":
+                return getPdbId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_ins_code":
+                return getLabelInsCode();
+            case "RSCC":
+                return getRSCC();
+            case "RSR":
+                return getRSR();
+            case "weighted_RSR":
+                return getWeightedRSR();
+            case "RSRZ":
+                return getRSRZ();
+            case "weighted_RSRZ":
+                return getWeightedRSRZ();
+            case "Biso_mean":
+                return getBisoMean();
+            case "occupancy_mean":
+                return getOccupancyMean();
+            case "RSCC_main_chain":
+                return getRSCCMainChain();
+            case "RSR_main_chain":
+                return getRSRMainChain();
+            case "wRSR_main_chain":
+                return getWRSRMainChain();
+            case "RSRZ_main_chain":
+                return getRSRZMainChain();
+            case "wRSRZ_main_chain":
+                return getWRSRZMainChain();
+            case "Biso_mean_main_chain":
+                return getBisoMeanMainChain();
+            case "occupancy_mean_main_chain":
+                return getOccupancyMeanMainChain();
+            case "RSCC_side_chain":
+                return getRSCCSideChain();
+            case "RSR_side_chain":
+                return getRSRSideChain();
+            case "wRSR_side_chain":
+                return getWRSRSideChain();
+            case "RSRZ_side_chain":
+                return getRSRZSideChain();
+            case "wRSRZ_side_chain":
+                return getWRSRZSideChain();
+            case "Biso_mean_side_chain":
+                return getBisoMeanSideChain();
+            case "occupancy_mean_side_chain":
+                return getOccupancyMeanSideChain();
+            case "RSCC_phosphate_group":
+                return getRSCCPhosphateGroup();
+            case "RSR_phosphate_group":
+                return getRSRPhosphateGroup();
+            case "wRSR_phosphate_group":
+                return getWRSRPhosphateGroup();
+            case "RSRZ_phosphate_group":
+                return getRSRZPhosphateGroup();
+            case "wRSRZ_phosphate_group":
+                return getWRSRZPhosphateGroup();
+            case "Biso_mean_phosphate_group":
+                return getBisoMeanPhosphateGroup();
+            case "occupancy_mean_phosphate_group":
+                return getOccupancyMeanPhosphateGroup();
+            case "shift":
+                return getShift();
+            case "shift_main_chain":
+                return getShiftMainChain();
+            case "shift_side_chain":
+                return getShiftSideChain();
+            case "density_connectivity":
+                return getDensityConnectivity();
+            case "density_index_main_chain":
+                return getDensityIndexMainChain();
+            case "density_index_side_chain":
+                return getDensityIndexSideChain();
+            case "RSZD":
+                return getRSZD();
+            case "RSZO":
+                return getRSZO();
+            case "RSZO_Zscore":
+                return getRSZOZscore();
+            case "LLDF":
+                return getLLDF();
+            case "RSZD_main_chain":
+                return getRSZDMainChain();
+            case "RSZO_main_chain":
+                return getRSZOMainChain();
+            case "RSZD_side_chain":
+                return getRSZDSideChain();
+            case "RSZO_side_chain":
+                return getRSZOSideChain();
+            case "RSZD_phosphate_group":
+                return getRSZDPhosphateGroup();
+            case "RSZO_phosphate_group":
+                return getRSZOPhosphateGroup();
+            case "quality_indicator":
+                return getQualityIndicator();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ordered number of residue in the output list.
      * @return IntColumn

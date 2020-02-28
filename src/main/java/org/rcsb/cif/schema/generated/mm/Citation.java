@@ -16,6 +16,68 @@ public class Citation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "abstract":
+                return getAbstract();
+            case "abstract_id_CAS":
+                return getAbstractIdCAS();
+            case "book_id_ISBN":
+                return getBookIdISBN();
+            case "book_publisher":
+                return getBookPublisher();
+            case "book_publisher_city":
+                return getBookPublisherCity();
+            case "book_title":
+                return getBookTitle();
+            case "coordinate_linkage":
+                return getCoordinateLinkage();
+            case "country":
+                return getCountry();
+            case "database_id_Medline":
+                return getDatabaseIdMedline();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "journal_abbrev":
+                return getJournalAbbrev();
+            case "journal_id_ASTM":
+                return getJournalIdASTM();
+            case "journal_id_CSD":
+                return getJournalIdCSD();
+            case "journal_id_ISSN":
+                return getJournalIdISSN();
+            case "journal_full":
+                return getJournalFull();
+            case "journal_issue":
+                return getJournalIssue();
+            case "journal_volume":
+                return getJournalVolume();
+            case "language":
+                return getLanguage();
+            case "page_first":
+                return getPageFirst();
+            case "page_last":
+                return getPageLast();
+            case "title":
+                return getTitle();
+            case "year":
+                return getYear();
+            case "database_id_CSD":
+                return getDatabaseIdCSD();
+            case "pdbx_database_id_DOI":
+                return getPdbxDatabaseIdDOI();
+            case "pdbx_database_id_PubMed":
+                return getPdbxDatabaseIdPubMed();
+            case "unpublished_flag":
+                return getUnpublishedFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Abstract for the citation. This is used most when the
      * citation is extracted from a bibliographic database that

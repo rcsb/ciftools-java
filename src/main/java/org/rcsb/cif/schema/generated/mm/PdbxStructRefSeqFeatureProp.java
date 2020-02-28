@@ -16,6 +16,32 @@ public class PdbxStructRefSeqFeatureProp extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "feature_id":
+                return getFeatureId();
+            case "property_id":
+                return getPropertyId();
+            case "type":
+                return getType();
+            case "value":
+                return getValue();
+            case "details":
+                return getDetails();
+            case "beg_db_mon_id":
+                return getBegDbMonId();
+            case "end_db_mon_id":
+                return getEndDbMonId();
+            case "beg_db_seq_id":
+                return getBegDbSeqId();
+            case "end_db_seq_id":
+                return getEndDbSeqId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_struct_ref_seq_feature.feature_id in
      * the STRUCT_REF_SEQ_FEATURE  category.

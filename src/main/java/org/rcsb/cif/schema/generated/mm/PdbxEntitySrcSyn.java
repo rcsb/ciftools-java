@@ -15,6 +15,34 @@ public class PdbxEntitySrcSyn extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "organism_scientific":
+                return getOrganismScientific();
+            case "organism_common_name":
+                return getOrganismCommonName();
+            case "strain":
+                return getStrain();
+            case "ncbi_taxonomy_id":
+                return getNcbiTaxonomyId();
+            case "entity_id":
+                return getEntityId();
+            case "pdbx_src_id":
+                return getPdbxSrcId();
+            case "pdbx_alt_source_flag":
+                return getPdbxAltSourceFlag();
+            case "pdbx_beg_seq_num":
+                return getPdbxBegSeqNum();
+            case "pdbx_end_seq_num":
+                return getPdbxEndSeqNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the source for the
      * synthetic entity.

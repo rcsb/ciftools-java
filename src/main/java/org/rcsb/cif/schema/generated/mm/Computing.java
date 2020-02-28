@@ -20,6 +20,36 @@ public class Computing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "cell_refinement":
+                return getCellRefinement();
+            case "data_collection":
+                return getDataCollection();
+            case "data_reduction":
+                return getDataReduction();
+            case "molecular_graphics":
+                return getMolecularGraphics();
+            case "publication_material":
+                return getPublicationMaterial();
+            case "structure_refinement":
+                return getStructureRefinement();
+            case "structure_solution":
+                return getStructureSolution();
+            case "pdbx_structure_refinement_method":
+                return getPdbxStructureRefinementMethod();
+            case "pdbx_data_reduction_ii":
+                return getPdbxDataReductionIi();
+            case "pdbx_data_reduction_ds":
+                return getPdbxDataReductionDs();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

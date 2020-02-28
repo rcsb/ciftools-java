@@ -15,6 +15,26 @@ public class EmExperiment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "reconstruction_method":
+                return getReconstructionMethod();
+            case "aggregation_state":
+                return getAggregationState();
+            case "specimen_type":
+                return getSpecimenType();
+            case "entity_assembly_id":
+                return getEntityAssemblyId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

@@ -17,6 +17,40 @@ public class PdbxValChiral extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "auth_PDB_insert_id":
+                return getAuthPDBInsertId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "chiral_center_atom_name":
+                return getChiralCenterAtomName();
+            case "chiral_neighbor_atom_name":
+                return getChiralNeighborAtomName();
+            case "chiral_center_atom_alt_id":
+                return getChiralCenterAtomAltId();
+            case "chiral_neighbor_atom_alt_id":
+                return getChiralNeighborAtomAltId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_val_chiral.id must
      * uniquely identify each item in the PDBX_VAL_CHIRAL list.

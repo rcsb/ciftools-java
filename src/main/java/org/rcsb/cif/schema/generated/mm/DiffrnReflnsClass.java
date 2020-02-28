@@ -16,6 +16,30 @@ public class DiffrnReflnsClass extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "av_R_eq":
+                return getAvREq();
+            case "av_sgI/I":
+                return getAvSgI_I();
+            case "av_uI/I":
+                return getAvUI_I();
+            case "code":
+                return getCode();
+            case "description":
+                return getDescription();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "number":
+                return getNumber();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * For each reflection class, the residual
      * [sum av|del(I)|/sum|av(I)|] for symmetry-equivalent reflections

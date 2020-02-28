@@ -17,6 +17,20 @@ public class PhasingAveraging extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "entry_id":
+                return getEntryId();
+            case "method":
+                return getMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the averaging process.
      * @return StrColumn

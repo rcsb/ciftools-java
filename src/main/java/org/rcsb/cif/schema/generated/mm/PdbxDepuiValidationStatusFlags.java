@@ -15,6 +15,30 @@ public class PdbxDepuiValidationStatusFlags extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dep_dataset_id":
+                return getDepDatasetId();
+            case "residual_B_factors_flag":
+                return getResidualBFactorsFlag();
+            case "occupancy_outliers_low":
+                return getOccupancyOutliersLow();
+            case "occupancy_outliers_high":
+                return getOccupancyOutliersHigh();
+            case "adp_outliers_low":
+                return getAdpOutliersLow();
+            case "solvent_outliers":
+                return getSolventOutliers();
+            case "tls_no_aniso":
+                return getTlsNoAniso();
+            case "adp_outliers_zero":
+                return getAdpOutliersZero();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The internal identifier assigned to each deposition.
      * @return StrColumn

@@ -17,6 +17,26 @@ public class PdbxNmrSoftware extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "classification":
+                return getClassification();
+            case "name":
+                return getName();
+            case "version":
+                return getVersion();
+            case "authors":
+                return getAuthors();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * An ordinal index for this category

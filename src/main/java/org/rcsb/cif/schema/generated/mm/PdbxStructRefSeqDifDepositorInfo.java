@@ -16,6 +16,38 @@ public class PdbxStructRefSeqDifDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
+            case "ref_id":
+                return getRefId();
+            case "entity_id":
+                return getEntityId();
+            case "db_mon_id":
+                return getDbMonId();
+            case "db_seq_id":
+                return getDbSeqId();
+            case "details":
+                return getDetails();
+            case "auth_mon_id":
+                return getAuthMonId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "db_accession":
+                return getDbAccession();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            case "annotation":
+                return getAnnotation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Ordinal index for this category.
      * @return IntColumn

@@ -15,6 +15,50 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_group":
+                return getAtomGroup();
+            case "atom_isotope_number":
+                return getAtomIsotopeNumber();
+            case "atom_type":
+                return getAtomType();
+            case "chem_shift_reference_id":
+                return getChemShiftReferenceId();
+            case "chem_shift_units":
+                return getChemShiftUnits();
+            case "chem_shift_val":
+                return getChemShiftVal();
+            case "correction_val":
+                return getCorrectionVal();
+            case "entry_id":
+                return getEntryId();
+            case "external_ref_axis":
+                return getExternalRefAxis();
+            case "external_ref_loc":
+                return getExternalRefLoc();
+            case "external_ref_sample_geometry":
+                return getExternalRefSampleGeometry();
+            case "indirect_shift_ratio":
+                return getIndirectShiftRatio();
+            case "mol_common_name":
+                return getMolCommonName();
+            case "rank":
+                return getRank();
+            case "ref_correction_type":
+                return getRefCorrectionType();
+            case "ref_method":
+                return getRefMethod();
+            case "ref_type":
+                return getRefType();
+            case "solvent":
+                return getSolvent();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Group of atoms within a molecule whose chemical shift was used as the standard

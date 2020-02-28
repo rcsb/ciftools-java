@@ -16,6 +16,22 @@ public class StructNcsEnsGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dom_id_1":
+                return getDomId1();
+            case "dom_id_2":
+                return getDomId2();
+            case "ens_id":
+                return getEnsId();
+            case "oper_id":
+                return getOperId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier for the domain that will remain unchanged by the
      * transformation operator.

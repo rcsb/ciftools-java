@@ -16,6 +16,22 @@ public class PdbxNaStrandInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "num_of_NA_strands_per_asym_unit":
+                return getNumOfNAStrandsPerAsymUnit();
+            case "num_of_NA_strands_per_biol_unit":
+                return getNumOfNAStrandsPerBiolUnit();
+            case "fract_NA_strand_per_asym_unit":
+                return getFractNAStrandPerAsymUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return StrColumn

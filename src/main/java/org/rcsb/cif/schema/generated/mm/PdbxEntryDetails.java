@@ -15,6 +15,24 @@ public class PdbxEntryDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "nonpolymer_details":
+                return getNonpolymerDetails();
+            case "sequence_details":
+                return getSequenceDetails();
+            case "compound_details":
+                return getCompoundDetails();
+            case "source_details":
+                return getSourceDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This item identifies the entry.  This is a reference to _entry.id.
      * @return StrColumn

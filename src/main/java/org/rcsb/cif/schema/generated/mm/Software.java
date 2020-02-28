@@ -21,6 +21,52 @@ public class Software extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "citation_id":
+                return getCitationId();
+            case "classification":
+                return getClassification();
+            case "compiler_name":
+                return getCompilerName();
+            case "compiler_version":
+                return getCompilerVersion();
+            case "contact_author":
+                return getContactAuthor();
+            case "contact_author_email":
+                return getContactAuthorEmail();
+            case "date":
+                return getDate();
+            case "description":
+                return getDescription();
+            case "dependencies":
+                return getDependencies();
+            case "hardware":
+                return getHardware();
+            case "language":
+                return getLanguage();
+            case "location":
+                return getLocation();
+            case "mods":
+                return getMods();
+            case "name":
+                return getName();
+            case "os":
+                return getOs();
+            case "os_version":
+                return getOsVersion();
+            case "type":
+                return getType();
+            case "version":
+                return getVersion();
+            case "pdbx_ordinal":
+                return getPdbxOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _citation.id in the CITATION
      * category.

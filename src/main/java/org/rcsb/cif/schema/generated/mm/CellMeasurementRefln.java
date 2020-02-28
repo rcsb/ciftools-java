@@ -19,6 +19,22 @@ public class CellMeasurementRefln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "theta":
+                return getTheta();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Miller index h of a reflection used for measurement of the unit
      * cell.

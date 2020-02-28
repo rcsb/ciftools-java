@@ -14,6 +14,24 @@ public class IhmDatasetGroup extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "group_id":
+                return getGroupId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "application":
+                return getApplication();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the entry.
      * @return IntColumn

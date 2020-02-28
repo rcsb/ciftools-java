@@ -23,6 +23,26 @@ public class IhmExternalReferenceInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "reference_id":
+                return getReferenceId();
+            case "reference_provider":
+                return getReferenceProvider();
+            case "reference_type":
+                return getReferenceType();
+            case "reference":
+                return getReference();
+            case "refers_to":
+                return getRefersTo();
+            case "associated_url":
+                return getAssociatedUrl();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the external reference.
      * @return IntColumn

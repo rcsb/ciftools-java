@@ -16,6 +16,38 @@ public class StructSiteView extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "rot_matrix[1][1]":
+                return getRotMatrix11();
+            case "rot_matrix[1][2]":
+                return getRotMatrix12();
+            case "rot_matrix[1][3]":
+                return getRotMatrix13();
+            case "rot_matrix[2][1]":
+                return getRotMatrix21();
+            case "rot_matrix[2][2]":
+                return getRotMatrix22();
+            case "rot_matrix[2][3]":
+                return getRotMatrix23();
+            case "rot_matrix[3][1]":
+                return getRotMatrix31();
+            case "rot_matrix[3][2]":
+                return getRotMatrix32();
+            case "rot_matrix[3][3]":
+                return getRotMatrix33();
+            case "site_id":
+                return getSiteId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of this view of the
      * site. This data item can be used as a figure legend.

@@ -17,6 +17,42 @@ public class IhmHydroxylRadicalFpRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "group_id":
+                return getGroupId();
+            case "entity_description":
+                return getEntityDescription();
+            case "entity_id":
+                return getEntityId();
+            case "asym_id":
+                return getAsymId();
+            case "comp_id":
+                return getCompId();
+            case "seq_id":
+                return getSeqId();
+            case "fp_rate":
+                return getFpRate();
+            case "fp_rate_error":
+                return getFpRateError();
+            case "log_pf":
+                return getLogPf();
+            case "log_pf_error":
+                return getLogPfError();
+            case "predicted_sasa":
+                return getPredictedSasa();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "software_id":
+                return getSoftwareId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the hydroxyl radical footprinting restraint.
      * @return IntColumn

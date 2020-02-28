@@ -15,6 +15,40 @@ public class PdbxEntitySrcGenLysis extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "next_step_id":
+                return getNextStepId();
+            case "end_construct_id":
+                return getEndConstructId();
+            case "robot_id":
+                return getRobotId();
+            case "date":
+                return getDate();
+            case "method":
+                return getMethod();
+            case "buffer_id":
+                return getBufferId();
+            case "buffer_volume":
+                return getBufferVolume();
+            case "temperature":
+                return getTemperature();
+            case "time":
+                return getTime();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_lysis.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

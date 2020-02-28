@@ -15,6 +15,54 @@ public class Em3dReconstruction extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "method":
+                return getMethod();
+            case "algorithm":
+                return getAlgorithm();
+            case "citation_id":
+                return getCitationId();
+            case "details":
+                return getDetails();
+            case "resolution":
+                return getResolution();
+            case "resolution_method":
+                return getResolutionMethod();
+            case "magnification_calibration":
+                return getMagnificationCalibration();
+            case "ctf_correction_method":
+                return getCtfCorrectionMethod();
+            case "nominal_pixel_size":
+                return getNominalPixelSize();
+            case "actual_pixel_size":
+                return getActualPixelSize();
+            case "num_particles":
+                return getNumParticles();
+            case "euler_angles_details":
+                return getEulerAnglesDetails();
+            case "num_class_averages":
+                return getNumClassAverages();
+            case "software":
+                return getSoftware();
+            case "fsc_type":
+                return getFscType();
+            case "refinement_type":
+                return getRefinementType();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "symmetry_type":
+                return getSymmetryType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

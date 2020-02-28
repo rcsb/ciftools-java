@@ -15,6 +15,24 @@ public class PdbxNmrUpload extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "data_file_id":
+                return getDataFileId();
+            case "data_file_name":
+                return getDataFileName();
+            case "data_file_category":
+                return getDataFileCategory();
+            case "data_file_syntax":
+                return getDataFileSyntax();
+            case "entry_id":
+                return getEntryId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Unique code assigned to the file being uploaded by the depositor and that

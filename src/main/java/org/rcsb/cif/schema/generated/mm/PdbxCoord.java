@@ -14,6 +14,24 @@ public class PdbxCoord extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "chain_atoms_Y_P":
+                return getChainAtomsYP();
+            case "hydrogen_atoms_Y_N":
+                return getHydrogenAtomsYN();
+            case "solvent_atoms_Y_N":
+                return getSolventAtomsYN();
+            case "structure_factors_Y_N":
+                return getStructureFactorsYN();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The entry identifier.
      * @return StrColumn

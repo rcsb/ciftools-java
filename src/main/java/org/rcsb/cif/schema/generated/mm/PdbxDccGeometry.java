@@ -17,6 +17,68 @@ public class PdbxDccGeometry extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbid":
+                return getPdbid();
+            case "Ramachandran_outlier_percent":
+                return getRamachandranOutlierPercent();
+            case "Ramachandran_outlier_number":
+                return getRamachandranOutlierNumber();
+            case "Ramachandran_allowed_percent":
+                return getRamachandranAllowedPercent();
+            case "Ramachandran_allowed_number":
+                return getRamachandranAllowedNumber();
+            case "Ramachandran_favored_percent":
+                return getRamachandranFavoredPercent();
+            case "Ramachandran_favored_number":
+                return getRamachandranFavoredNumber();
+            case "rotamer_outliers_percent":
+                return getRotamerOutliersPercent();
+            case "rotamer_outliers_number":
+                return getRotamerOutliersNumber();
+            case "cbeta_deviations":
+                return getCbetaDeviations();
+            case "all_atom_clashscore":
+                return getAllAtomClashscore();
+            case "overall_score":
+                return getOverallScore();
+            case "bond_overall_rms":
+                return getBondOverallRms();
+            case "bond_overall_max":
+                return getBondOverallMax();
+            case "bond_ligand_rms":
+                return getBondLigandRms();
+            case "bond_ligand_max":
+                return getBondLigandMax();
+            case "angle_overall_rms":
+                return getAngleOverallRms();
+            case "angle_overall_max":
+                return getAngleOverallMax();
+            case "angle_ligand_rms":
+                return getAngleLigandRms();
+            case "angle_ligand_max":
+                return getAngleLigandMax();
+            case "dihedral_overall_rms":
+                return getDihedralOverallRms();
+            case "dihedral_overall_max":
+                return getDihedralOverallMax();
+            case "chirality_overall_rms":
+                return getChiralityOverallRms();
+            case "chirality_overall_max":
+                return getChiralityOverallMax();
+            case "planarity_overall_rms":
+                return getPlanarityOverallRms();
+            case "planarity_overall_max":
+                return getPlanarityOverallMax();
+            case "non-bonded_rms":
+                return getNon_bondedRms();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The PDB id code.
      * @return StrColumn

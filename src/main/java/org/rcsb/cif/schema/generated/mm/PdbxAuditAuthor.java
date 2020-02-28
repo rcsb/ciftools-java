@@ -15,6 +15,20 @@ public class PdbxAuditAuthor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "address":
+                return getAddress();
+            case "name":
+                return getName();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The address of an author of this data block. If there are
      * multiple authors, _pdbx_audit_author.address is looped with

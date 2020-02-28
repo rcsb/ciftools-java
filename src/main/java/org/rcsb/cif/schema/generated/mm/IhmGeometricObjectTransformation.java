@@ -17,6 +17,40 @@ public class IhmGeometricObjectTransformation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "rot_matrix[1][1]":
+                return getRotMatrix11();
+            case "rot_matrix[2][1]":
+                return getRotMatrix21();
+            case "rot_matrix[3][1]":
+                return getRotMatrix31();
+            case "rot_matrix[1][2]":
+                return getRotMatrix12();
+            case "rot_matrix[2][2]":
+                return getRotMatrix22();
+            case "rot_matrix[3][2]":
+                return getRotMatrix32();
+            case "rot_matrix[1][3]":
+                return getRotMatrix13();
+            case "rot_matrix[2][3]":
+                return getRotMatrix23();
+            case "rot_matrix[3][3]":
+                return getRotMatrix33();
+            case "tr_vector[1]":
+                return getTrVector1();
+            case "tr_vector[2]":
+                return getTrVector2();
+            case "tr_vector[3]":
+                return getTrVector3();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the transformation.
      * @return IntColumn

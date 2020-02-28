@@ -19,6 +19,22 @@ public class PdbxEntityBranchList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "hetero":
+                return getHetero();
+            case "comp_id":
+                return getCompId();
+            case "num":
+                return getNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

@@ -16,6 +16,18 @@ public class AtomSitesAltGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "alt_id":
+                return getAltId();
+            case "ens_id":
+                return getEnsId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _atom_sites_alt.id in the
      * ATOM_SITES_ALT category.

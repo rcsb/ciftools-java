@@ -16,6 +16,32 @@ public class PdbxValidatePlanesAtom extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "plane_id":
+                return getPlaneId();
+            case "id":
+                return getId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_comp_id":
+                return getAuthCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "PDB_ins_code":
+                return getPDBInsCode();
+            case "auth_atom_id":
+                return getAuthAtomId();
+            case "atom_deviation":
+                return getAtomDeviation();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A pointer to _pdbx_validate_planes.id
      * This is an integer serial number.

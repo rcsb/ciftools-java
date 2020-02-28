@@ -16,6 +16,34 @@ public class Exptl extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "absorpt_coefficient_mu":
+                return getAbsorptCoefficientMu();
+            case "absorpt_correction_T_max":
+                return getAbsorptCorrectionTMax();
+            case "absorpt_correction_T_min":
+                return getAbsorptCorrectionTMin();
+            case "absorpt_correction_type":
+                return getAbsorptCorrectionType();
+            case "absorpt_process_details":
+                return getAbsorptProcessDetails();
+            case "entry_id":
+                return getEntryId();
+            case "crystals_number":
+                return getCrystalsNumber();
+            case "details":
+                return getDetails();
+            case "method":
+                return getMethod();
+            case "method_details":
+                return getMethodDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The absorption coefficient mu in reciprocal millimetres
      * calculated from the atomic content of the cell, the density and

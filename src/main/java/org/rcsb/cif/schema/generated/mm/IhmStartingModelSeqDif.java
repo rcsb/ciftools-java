@@ -20,6 +20,36 @@ public class IhmStartingModelSeqDif extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "entity_id":
+                return getEntityId();
+            case "asym_id":
+                return getAsymId();
+            case "seq_id":
+                return getSeqId();
+            case "comp_id":
+                return getCompId();
+            case "starting_model_id":
+                return getStartingModelId();
+            case "db_entity_id":
+                return getDbEntityId();
+            case "db_asym_id":
+                return getDbAsymId();
+            case "db_seq_id":
+                return getDbSeqId();
+            case "db_comp_id":
+                return getDbCompId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the entry.
      * @return IntColumn

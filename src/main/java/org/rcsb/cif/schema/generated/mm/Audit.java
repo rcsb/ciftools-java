@@ -20,6 +20,22 @@ public class Audit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "creation_date":
+                return getCreationDate();
+            case "creation_method":
+                return getCreationMethod();
+            case "revision_id":
+                return getRevisionId();
+            case "update_record":
+                return getUpdateRecord();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A date that the data block was created. The date format is
      * yyyy-mm-dd.

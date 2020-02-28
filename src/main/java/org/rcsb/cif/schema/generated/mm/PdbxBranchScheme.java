@@ -15,6 +15,36 @@ public class PdbxBranchScheme extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "hetero":
+                return getHetero();
+            case "asym_id":
+                return getAsymId();
+            case "mon_id":
+                return getMonId();
+            case "num":
+                return getNum();
+            case "pdb_asym_id":
+                return getPdbAsymId();
+            case "pdb_seq_num":
+                return getPdbSeqNum();
+            case "pdb_mon_id":
+                return getPdbMonId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "auth_seq_num":
+                return getAuthSeqNum();
+            case "auth_mon_id":
+                return getAuthMonId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

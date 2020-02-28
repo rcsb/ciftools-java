@@ -16,6 +16,44 @@ public class IhmStartingModelCoord extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "starting_model_id":
+                return getStartingModelId();
+            case "group_PDB":
+                return getGroupPDB();
+            case "id":
+                return getId();
+            case "type_symbol":
+                return getTypeSymbol();
+            case "entity_id":
+                return getEntityId();
+            case "atom_id":
+                return getAtomId();
+            case "comp_id":
+                return getCompId();
+            case "seq_id":
+                return getSeqId();
+            case "asym_id":
+                return getAsymId();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_z":
+                return getCartnZ();
+            case "B_iso_or_equiv":
+                return getBIsoOrEquiv();
+            case "formal_charge":
+                return getFormalCharge();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for this coordinate position.
      * @return IntColumn

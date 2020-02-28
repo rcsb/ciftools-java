@@ -15,6 +15,92 @@ public class EmImaging extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "astigmatism":
+                return getAstigmatism();
+            case "electron_beam_tilt_params":
+                return getElectronBeamTiltParams();
+            case "residual_tilt":
+                return getResidualTilt();
+            case "sample_support_id":
+                return getSampleSupportId();
+            case "detector_id":
+                return getDetectorId();
+            case "scans_id":
+                return getScansId();
+            case "microscope_id":
+                return getMicroscopeId();
+            case "microscope_model":
+                return getMicroscopeModel();
+            case "specimen_holder_type":
+                return getSpecimenHolderType();
+            case "specimen_holder_model":
+                return getSpecimenHolderModel();
+            case "details":
+                return getDetails();
+            case "date":
+                return getDate();
+            case "accelerating_voltage":
+                return getAcceleratingVoltage();
+            case "illumination_mode":
+                return getIlluminationMode();
+            case "mode":
+                return getMode();
+            case "nominal_cs":
+                return getNominalCs();
+            case "nominal_defocus_min":
+                return getNominalDefocusMin();
+            case "nominal_defocus_max":
+                return getNominalDefocusMax();
+            case "calibrated_defocus_min":
+                return getCalibratedDefocusMin();
+            case "calibrated_defocus_max":
+                return getCalibratedDefocusMax();
+            case "tilt_angle_min":
+                return getTiltAngleMin();
+            case "tilt_angle_max":
+                return getTiltAngleMax();
+            case "nominal_magnification":
+                return getNominalMagnification();
+            case "calibrated_magnification":
+                return getCalibratedMagnification();
+            case "electron_source":
+                return getElectronSource();
+            case "electron_dose":
+                return getElectronDose();
+            case "energy_filter":
+                return getEnergyFilter();
+            case "energy_window":
+                return getEnergyWindow();
+            case "citation_id":
+                return getCitationId();
+            case "temperature":
+                return getTemperature();
+            case "detector_distance":
+                return getDetectorDistance();
+            case "recording_temperature_minimum":
+                return getRecordingTemperatureMinimum();
+            case "recording_temperature_maximum":
+                return getRecordingTemperatureMaximum();
+            case "alignment_procedure":
+                return getAlignmentProcedure();
+            case "c2_aperture_diameter":
+                return getC2ApertureDiameter();
+            case "specimen_id":
+                return getSpecimenId();
+            case "cryogen":
+                return getCryogen();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

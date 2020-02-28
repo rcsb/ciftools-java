@@ -14,6 +14,32 @@ public class EmImagingOptics extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "chr_aberration_corrector":
+                return getChrAberrationCorrector();
+            case "energyfilter_lower":
+                return getEnergyfilterLower();
+            case "energyfilter_slit_width":
+                return getEnergyfilterSlitWidth();
+            case "energyfilter_name":
+                return getEnergyfilterName();
+            case "energyfilter_upper":
+                return getEnergyfilterUpper();
+            case "id":
+                return getId();
+            case "imaging_id":
+                return getImagingId();
+            case "phase_plate":
+                return getPhasePlate();
+            case "sph_aberration_corrector":
+                return getSphAberrationCorrector();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Chromatic aberration corrector information
      * @return StrColumn

@@ -17,6 +17,18 @@ public class PdbxDatabasePdbOmit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "record_name":
+                return getRecordName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_database_pdb_omit.entry_id identifies the data block.
      * @return StrColumn

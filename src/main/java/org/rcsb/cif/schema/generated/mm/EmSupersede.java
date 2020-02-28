@@ -14,6 +14,22 @@ public class EmSupersede extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "date":
+                return getDate();
+            case "details":
+                return getDetails();
+            case "entry":
+                return getEntry();
+            case "id":
+                return getId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Dated when the entry made supersede the other entry
      * @return StrColumn

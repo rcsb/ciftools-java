@@ -14,6 +14,18 @@ public class PdbxPdbCompnd extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "text":
+                return getText();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * NDB ID.
      * @return StrColumn

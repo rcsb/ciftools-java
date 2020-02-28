@@ -16,6 +16,26 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "solution_id":
+                return getSolutionId();
+            case "contents":
+                return getContents();
+            case "solvent_system":
+                return getSolventSystem();
+            case "label":
+                return getLabel();
+            case "type":
+                return getType();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * The name (number) of the sample.

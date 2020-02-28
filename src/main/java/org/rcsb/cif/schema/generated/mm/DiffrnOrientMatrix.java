@@ -16,6 +16,36 @@ public class DiffrnOrientMatrix extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "diffrn_id":
+                return getDiffrnId();
+            case "type":
+                return getType();
+            case "UB[1][1]":
+                return getUB11();
+            case "UB[1][2]":
+                return getUB12();
+            case "UB[1][3]":
+                return getUB13();
+            case "UB[2][1]":
+                return getUB21();
+            case "UB[2][2]":
+                return getUB22();
+            case "UB[2][3]":
+                return getUB23();
+            case "UB[3][1]":
+                return getUB31();
+            case "UB[3][2]":
+                return getUB32();
+            case "UB[3][3]":
+                return getUB33();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _diffrn.id in the DIFFRN
      * category.

@@ -14,6 +14,20 @@ public class PdbxStructInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "type":
+                return getType();
+            case "value":
+                return getValue();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The information category/type for this item.
      * @return StrColumn

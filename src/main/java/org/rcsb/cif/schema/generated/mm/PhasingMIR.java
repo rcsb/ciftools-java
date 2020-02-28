@@ -21,6 +21,40 @@ public class PhasingMIR extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "entry_id":
+                return getEntryId();
+            case "FOM":
+                return getFOM();
+            case "FOM_acentric":
+                return getFOMAcentric();
+            case "FOM_centric":
+                return getFOMCentric();
+            case "method":
+                return getMethod();
+            case "reflns":
+                return getReflns();
+            case "reflns_acentric":
+                return getReflnsAcentric();
+            case "reflns_centric":
+                return getReflnsCentric();
+            case "reflns_criterion":
+                return getReflnsCriterion();
+            case "pdbx_number_derivatives":
+                return getPdbxNumberDerivatives();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the isomorphous-replacement
      * phasing.

@@ -15,6 +15,20 @@ public class EmImageProcessing extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "image_recording_id":
+                return getImageRecordingId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Method details.
      * @return StrColumn

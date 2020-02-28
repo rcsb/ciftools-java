@@ -15,6 +15,46 @@ public class PdbxReferenceMolecule extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "formula_weight":
+                return getFormulaWeight();
+            case "formula":
+                return getFormula();
+            case "type":
+                return getType();
+            case "type_evidence_code":
+                return getTypeEvidenceCode();
+            case "class":
+                return getClazz();
+            case "class_evidence_code":
+                return getClassEvidenceCode();
+            case "name":
+                return getName();
+            case "represent_as":
+                return getRepresentAs();
+            case "chem_comp_id":
+                return getChemCompId();
+            case "compound_details":
+                return getCompoundDetails();
+            case "description":
+                return getDescription();
+            case "representative_PDB_id_code":
+                return getRepresentativePDBIdCode();
+            case "release_status":
+                return getReleaseStatus();
+            case "replaces":
+                return getReplaces();
+            case "replaced_by":
+                return getReplacedBy();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_molecule.prd_id is the unique identifier
      * for the reference molecule in this family.

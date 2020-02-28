@@ -16,6 +16,26 @@ public class ReflnSysAbs extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "I":
+                return getI();
+            case "I_over_sigmaI":
+                return getIOverSigmaI();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "sigmaI":
+                return getSigmaI();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The measured value of the intensity in arbitrary units.
      * @return FloatColumn

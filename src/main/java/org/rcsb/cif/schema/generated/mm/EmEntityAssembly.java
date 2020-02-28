@@ -16,6 +16,62 @@ public class EmEntityAssembly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "assembly_id":
+                return getAssemblyId();
+            case "parent_id":
+                return getParentId();
+            case "source":
+                return getSource();
+            case "type":
+                return getType();
+            case "name":
+                return getName();
+            case "details":
+                return getDetails();
+            case "go_id":
+                return getGoId();
+            case "ipr_id":
+                return getIprId();
+            case "synonym":
+                return getSynonym();
+            case "number_of_copies":
+                return getNumberOfCopies();
+            case "oligomeric_details":
+                return getOligomericDetails();
+            case "entity_id_list":
+                return getEntityIdList();
+            case "ebi_organism_scientific":
+                return getEbiOrganismScientific();
+            case "ebi_organism_common":
+                return getEbiOrganismCommon();
+            case "ebi_strain":
+                return getEbiStrain();
+            case "ebi_tissue":
+                return getEbiTissue();
+            case "ebi_cell":
+                return getEbiCell();
+            case "ebi_organelle":
+                return getEbiOrganelle();
+            case "ebi_cellular_location":
+                return getEbiCellularLocation();
+            case "ebi_engineered":
+                return getEbiEngineered();
+            case "ebi_expression_system":
+                return getEbiExpressionSystem();
+            case "ebi_expression_system_plasmid":
+                return getEbiExpressionSystemPlasmid();
+            case "mutant_flag":
+                return getMutantFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _em_entity_assembly.id identifies
      * one component of the complex.

@@ -15,6 +15,142 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "status_code":
+                return getStatusCode();
+            case "author_release_status_code":
+                return getAuthorReleaseStatusCode();
+            case "status_code_sf":
+                return getStatusCodeSf();
+            case "status_code_mr":
+                return getStatusCodeMr();
+            case "dep_release_code_coordinates":
+                return getDepReleaseCodeCoordinates();
+            case "dep_release_code_sequence":
+                return getDepReleaseCodeSequence();
+            case "dep_release_code_struct_fact":
+                return getDepReleaseCodeStructFact();
+            case "dep_release_code_nmr_constraints":
+                return getDepReleaseCodeNmrConstraints();
+            case "entry_id":
+                return getEntryId();
+            case "recvd_deposit_form":
+                return getRecvdDepositForm();
+            case "date_deposition_form":
+                return getDateDepositionForm();
+            case "date_begin_deposition":
+                return getDateBeginDeposition();
+            case "date_begin_processing":
+                return getDateBeginProcessing();
+            case "date_end_processing":
+                return getDateEndProcessing();
+            case "date_begin_release_preparation":
+                return getDateBeginReleasePreparation();
+            case "date_author_release_request":
+                return getDateAuthorReleaseRequest();
+            case "recvd_coordinates":
+                return getRecvdCoordinates();
+            case "date_coordinates":
+                return getDateCoordinates();
+            case "recvd_struct_fact":
+                return getRecvdStructFact();
+            case "date_struct_fact":
+                return getDateStructFact();
+            case "recvd_nmr_constraints":
+                return getRecvdNmrConstraints();
+            case "date_nmr_constraints":
+                return getDateNmrConstraints();
+            case "recvd_internal_approval":
+                return getRecvdInternalApproval();
+            case "recvd_manuscript":
+                return getRecvdManuscript();
+            case "date_manuscript":
+                return getDateManuscript();
+            case "name_depositor":
+                return getNameDepositor();
+            case "recvd_author_approval":
+                return getRecvdAuthorApproval();
+            case "author_approval_type":
+                return getAuthorApprovalType();
+            case "date_author_approval":
+                return getDateAuthorApproval();
+            case "recvd_initial_deposition_date":
+                return getRecvdInitialDepositionDate();
+            case "date_submitted":
+                return getDateSubmitted();
+            case "rcsb_annotator":
+                return getRcsbAnnotator();
+            case "date_of_sf_release":
+                return getDateOfSfRelease();
+            case "date_of_mr_release":
+                return getDateOfMrRelease();
+            case "date_of_PDB_release":
+                return getDateOfPDBRelease();
+            case "date_hold_coordinates":
+                return getDateHoldCoordinates();
+            case "date_hold_struct_fact":
+                return getDateHoldStructFact();
+            case "date_hold_nmr_constraints":
+                return getDateHoldNmrConstraints();
+            case "hold_for_publication":
+                return getHoldForPublication();
+            case "SG_entry":
+                return getSGEntry();
+            case "pdb_date_of_author_approval":
+                return getPdbDateOfAuthorApproval();
+            case "deposit_site":
+                return getDepositSite();
+            case "process_site":
+                return getProcessSite();
+            case "dep_release_code_chemical_shifts":
+                return getDepReleaseCodeChemicalShifts();
+            case "recvd_chemical_shifts":
+                return getRecvdChemicalShifts();
+            case "date_chemical_shifts":
+                return getDateChemicalShifts();
+            case "date_hold_chemical_shifts":
+                return getDateHoldChemicalShifts();
+            case "status_code_cs":
+                return getStatusCodeCs();
+            case "date_of_cs_release":
+                return getDateOfCsRelease();
+            case "methods_development_category":
+                return getMethodsDevelopmentCategory();
+            case "pdb_format_compatible":
+                return getPdbFormatCompatible();
+            case "auth_req_rel_date":
+                return getAuthReqRelDate();
+            case "ndb_tid":
+                return getNdbTid();
+            case "status_coordinates_in_NDB":
+                return getStatusCoordinatesInNDB();
+            case "date_revised":
+                return getDateRevised();
+            case "replaced_entry_id":
+                return getReplacedEntryId();
+            case "revision_id":
+                return getRevisionId();
+            case "revision_description":
+                return getRevisionDescription();
+            case "pdbx_annotator":
+                return getPdbxAnnotator();
+            case "date_of_NDB_release":
+                return getDateOfNDBRelease();
+            case "date_released_to_PDB":
+                return getDateReleasedToPDB();
+            case "skip_PDB_REMARK_500":
+                return getSkipPDBREMARK500();
+            case "skip_PDB_REMARK":
+                return getSkipPDBREMARK();
+            case "title_suppression":
+                return getTitleSuppression();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Code for status of file.
      * @return StrColumn

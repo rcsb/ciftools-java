@@ -16,6 +16,20 @@ public class PdbxIonInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "numb_per_asym_unit":
+                return getNumbPerAsymUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Serial number.
      * @return StrColumn

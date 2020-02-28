@@ -15,6 +15,48 @@ public class PdbxStereochemistry extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "model_id":
+                return getModelId();
+            case "auth_asym_id":
+                return getAuthAsymId();
+            case "label_asym_id":
+                return getLabelAsymId();
+            case "label_comp_id":
+                return getLabelCompId();
+            case "auth_seq_id":
+                return getAuthSeqId();
+            case "label_seq_id":
+                return getLabelSeqId();
+            case "label_atom_id":
+                return getLabelAtomId();
+            case "label_alt_id":
+                return getLabelAltId();
+            case "label_atom_id_u":
+                return getLabelAtomIdU();
+            case "label_alt_id_u":
+                return getLabelAltIdU();
+            case "label_atom_id_v":
+                return getLabelAtomIdV();
+            case "label_alt_id_v":
+                return getLabelAltIdV();
+            case "label_atom_id_w":
+                return getLabelAtomIdW();
+            case "label_alt_id_w":
+                return getLabelAltIdW();
+            case "volume3":
+                return getVolume3();
+            case "angle_out_of_plane":
+                return getAngleOutOfPlane();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_stereochemistry.id must uniquely identify
      * each item in the PDBX_STEREOCHEMISTRY list.

@@ -15,6 +15,42 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "feature_id":
+                return getFeatureId();
+            case "align_id":
+                return getAlignId();
+            case "type":
+                return getType();
+            case "details":
+                return getDetails();
+            case "pdb_strand_id":
+                return getPdbStrandId();
+            case "asym_id":
+                return getAsymId();
+            case "beg_auth_seq_id":
+                return getBegAuthSeqId();
+            case "end_auth_seq_id":
+                return getEndAuthSeqId();
+            case "beg_seq_num":
+                return getBegSeqNum();
+            case "end_seq_num":
+                return getEndSeqNum();
+            case "beg_auth_mon_id":
+                return getBegAuthMonId();
+            case "end_auth_mon_id":
+                return getEndAuthMonId();
+            case "beg_pdb_ins_code":
+                return getBegPdbInsCode();
+            case "end_pdb_ins_code":
+                return getEndPdbInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Uniquely identfies a sequence feature in
      * the STRUCT_REF_SEQ_FEATURE  category.

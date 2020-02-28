@@ -16,6 +16,64 @@ public class PhasingMAD extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "entry_id":
+                return getEntryId();
+            case "method":
+                return getMethod();
+            case "pdbx_d_res_low":
+                return getPdbxDResLow();
+            case "pdbx_d_res_high":
+                return getPdbxDResHigh();
+            case "pdbx_reflns_acentric":
+                return getPdbxReflnsAcentric();
+            case "pdbx_reflns_centric":
+                return getPdbxReflnsCentric();
+            case "pdbx_reflns":
+                return getPdbxReflns();
+            case "pdbx_fom_acentric":
+                return getPdbxFomAcentric();
+            case "pdbx_fom_centric":
+                return getPdbxFomCentric();
+            case "pdbx_fom":
+                return getPdbxFom();
+            case "pdbx_R_cullis_centric":
+                return getPdbxRCullisCentric();
+            case "pdbx_R_cullis_acentric":
+                return getPdbxRCullisAcentric();
+            case "pdbx_R_cullis":
+                return getPdbxRCullis();
+            case "pdbx_R_kraut_centric":
+                return getPdbxRKrautCentric();
+            case "pdbx_R_kraut_acentric":
+                return getPdbxRKrautAcentric();
+            case "pdbx_R_kraut":
+                return getPdbxRKraut();
+            case "pdbx_loc_centric":
+                return getPdbxLocCentric();
+            case "pdbx_loc_acentric":
+                return getPdbxLocAcentric();
+            case "pdbx_loc":
+                return getPdbxLoc();
+            case "pdbx_power_centric":
+                return getPdbxPowerCentric();
+            case "pdbx_power_acentric":
+                return getPdbxPowerAcentric();
+            case "pdbx_power":
+                return getPdbxPower();
+            case "pdbx_number_data_sets":
+                return getPdbxNumberDataSets();
+            case "pdbx_anom_scat_method":
+                return getPdbxAnomScatMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of the MAD phasing.
      * @return StrColumn

@@ -14,6 +14,18 @@ public class EmAuthorList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "author":
+                return getAuthor();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Author of the EMDB entry in PDB format: Taylor, T.J.
      * @return StrColumn

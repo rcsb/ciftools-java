@@ -16,6 +16,36 @@ public class PdbxStructAssemblyGenDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "asym_id_list":
+                return getAsymIdList();
+            case "assembly_id":
+                return getAssemblyId();
+            case "oper_expression":
+                return getOperExpression();
+            case "full_matrices":
+                return getFullMatrices();
+            case "symmetry_operation":
+                return getSymmetryOperation();
+            case "at_unit_matrix":
+                return getAtUnitMatrix();
+            case "chain_id_list":
+                return getChainIdList();
+            case "all_chains":
+                return getAllChains();
+            case "helical_rotation":
+                return getHelicalRotation();
+            case "helical_rise":
+                return getHelicalRise();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_struct_assembly_gen_depositor_info.id must
      * uniquely identify a record in the

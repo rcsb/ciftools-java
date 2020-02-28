@@ -14,6 +14,26 @@ public class PdbxMissingResidueList extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdb_model_id":
+                return getPdbModelId();
+            case "pdb_chain_id":
+                return getPdbChainId();
+            case "pdb_residue_name":
+                return getPdbResidueName();
+            case "pdb_residue_number":
+                return getPdbResidueNumber();
+            case "pdb_insertion_code":
+                return getPdbInsertionCode();
+            case "label_seq_id":
+                return getLabelSeqId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * PDB model ID.
      * @return IntColumn

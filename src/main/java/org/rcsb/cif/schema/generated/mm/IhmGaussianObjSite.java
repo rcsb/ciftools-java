@@ -15,6 +15,52 @@ public class IhmGaussianObjSite extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "entity_id":
+                return getEntityId();
+            case "seq_id_begin":
+                return getSeqIdBegin();
+            case "seq_id_end":
+                return getSeqIdEnd();
+            case "asym_id":
+                return getAsymId();
+            case "mean_Cartn_x":
+                return getMeanCartnX();
+            case "mean_Cartn_y":
+                return getMeanCartnY();
+            case "mean_Cartn_z":
+                return getMeanCartnZ();
+            case "weight":
+                return getWeight();
+            case "covariance_matrix[1][1]":
+                return getCovarianceMatrix11();
+            case "covariance_matrix[1][2]":
+                return getCovarianceMatrix12();
+            case "covariance_matrix[1][3]":
+                return getCovarianceMatrix13();
+            case "covariance_matrix[2][1]":
+                return getCovarianceMatrix21();
+            case "covariance_matrix[2][2]":
+                return getCovarianceMatrix22();
+            case "covariance_matrix[2][3]":
+                return getCovarianceMatrix23();
+            case "covariance_matrix[3][1]":
+                return getCovarianceMatrix31();
+            case "covariance_matrix[3][2]":
+                return getCovarianceMatrix32();
+            case "covariance_matrix[3][3]":
+                return getCovarianceMatrix33();
+            case "model_id":
+                return getModelId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for this gaussian object in the model.
      * @return IntColumn

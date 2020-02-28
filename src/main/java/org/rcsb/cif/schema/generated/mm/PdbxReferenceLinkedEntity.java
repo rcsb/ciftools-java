@@ -15,6 +15,30 @@ public class PdbxReferenceLinkedEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "class":
+                return getClazz();
+            case "name":
+                return getName();
+            case "taxonomy_id":
+                return getTaxonomyId();
+            case "taxonomy_class":
+                return getTaxonomyClass();
+            case "link_to_entity_type":
+                return getLinkToEntityType();
+            case "link_to_comp_id":
+                return getLinkToCompId();
+            case "link_from_entity_type":
+                return getLinkFromEntityType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_linked_entity.id uniquely identifies
      * examples in the list of observed linking patterns.

@@ -15,6 +15,40 @@ public class StructAsym extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "entity_id":
+                return getEntityId();
+            case "id":
+                return getId();
+            case "pdbx_modified":
+                return getPdbxModified();
+            case "pdbx_blank_PDB_chainid_flag":
+                return getPdbxBlankPDBChainidFlag();
+            case "pdbx_PDB_id":
+                return getPdbxPDBId();
+            case "pdbx_alt_id":
+                return getPdbxAltId();
+            case "pdbx_type":
+                return getPdbxType();
+            case "pdbx_order":
+                return getPdbxOrder();
+            case "pdbx_fraction_per_asym_unit":
+                return getPdbxFractionPerAsymUnit();
+            case "pdbx_missing_num_begin_of_chain_not_in_seqres":
+                return getPdbxMissingNumBeginOfChainNotInSeqres();
+            case "pdbx_missing_num_end_of_chain_not_in_seqres":
+                return getPdbxMissingNumEndOfChainNotInSeqres();
+            case "pdbx_missing_num_begin_of_chain_in_seqres":
+                return getPdbxMissingNumBeginOfChainInSeqres();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of this portion of the contents
      * of the asymmetric unit.

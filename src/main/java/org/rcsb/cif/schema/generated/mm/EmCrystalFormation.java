@@ -14,6 +14,34 @@ public class EmCrystalFormation extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atmosphere":
+                return getAtmosphere();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "instrument":
+                return getInstrument();
+            case "lipid_mixture":
+                return getLipidMixture();
+            case "lipid_protein_ratio":
+                return getLipidProteinRatio();
+            case "specimen_id":
+                return getSpecimenId();
+            case "temperature":
+                return getTemperature();
+            case "time":
+                return getTime();
+            case "time_unit":
+                return getTimeUnit();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The type of atmosphere in which crystals were grown
      * @return StrColumn

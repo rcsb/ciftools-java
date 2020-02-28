@@ -15,6 +15,24 @@ public class EmSingleParticleEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "symmetry_type":
+                return getSymmetryType();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "point_symmetry":
+                return getPointSymmetry();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

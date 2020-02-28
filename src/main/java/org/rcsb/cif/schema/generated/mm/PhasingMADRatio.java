@@ -16,6 +16,32 @@ public class PhasingMADRatio extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "d_res_high":
+                return getDResHigh();
+            case "d_res_low":
+                return getDResLow();
+            case "expt_id":
+                return getExptId();
+            case "clust_id":
+                return getClustId();
+            case "ratio_one_wl":
+                return getRatioOneWl();
+            case "ratio_one_wl_centric":
+                return getRatioOneWlCentric();
+            case "ratio_two_wl":
+                return getRatioTwoWl();
+            case "wavelength_1":
+                return getWavelength1();
+            case "wavelength_2":
+                return getWavelength2();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The lowest value for the interplanar spacings for the
      * reflection data used for the comparison of Bijvoet differences.

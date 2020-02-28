@@ -16,6 +16,44 @@ public class PdbxNmrEnsemble extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "conformers_calculated_total_number":
+                return getConformersCalculatedTotalNumber();
+            case "conformers_submitted_total_number":
+                return getConformersSubmittedTotalNumber();
+            case "conformer_selection_criteria":
+                return getConformerSelectionCriteria();
+            case "representative_conformer":
+                return getRepresentativeConformer();
+            case "average_constraints_per_residue":
+                return getAverageConstraintsPerResidue();
+            case "average_constraint_violations_per_residue":
+                return getAverageConstraintViolationsPerResidue();
+            case "maximum_distance_constraint_violation":
+                return getMaximumDistanceConstraintViolation();
+            case "average_distance_constraint_violation":
+                return getAverageDistanceConstraintViolation();
+            case "maximum_upper_distance_constraint_violation":
+                return getMaximumUpperDistanceConstraintViolation();
+            case "maximum_lower_distance_constraint_violation":
+                return getMaximumLowerDistanceConstraintViolation();
+            case "distance_constraint_violation_method":
+                return getDistanceConstraintViolationMethod();
+            case "maximum_torsion_angle_constraint_violation":
+                return getMaximumTorsionAngleConstraintViolation();
+            case "average_torsion_angle_constraint_violation":
+                return getAverageTorsionAngleConstraintViolation();
+            case "torsion_angle_constraint_violation_method":
+                return getTorsionAngleConstraintViolationMethod();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Leave this blank as the ID is provided by the MSD
      * @return StrColumn

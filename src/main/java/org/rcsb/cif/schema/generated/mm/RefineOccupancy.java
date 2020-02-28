@@ -15,6 +15,24 @@ public class RefineOccupancy extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "class":
+                return getClazz();
+            case "details":
+                return getDetails();
+            case "treatment":
+                return getTreatment();
+            case "value":
+                return getValue();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item uniquely identifies a refinement within an entry.
      * _refine_occupancy.pdbx_refine_id can be used to distinguish the results

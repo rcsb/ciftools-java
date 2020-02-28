@@ -20,6 +20,24 @@ public class PublBody extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "contents":
+                return getContents();
+            case "element":
+                return getElement();
+            case "format":
+                return getFormat();
+            case "label":
+                return getLabel();
+            case "title":
+                return getTitle();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A text section of a paper.
      * @return StrColumn

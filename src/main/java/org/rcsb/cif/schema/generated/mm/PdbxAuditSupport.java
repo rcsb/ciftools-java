@@ -15,6 +15,24 @@ public class PdbxAuditSupport extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "funding_organization":
+                return getFundingOrganization();
+            case "country":
+                return getCountry();
+            case "grant_number":
+                return getGrantNumber();
+            case "details":
+                return getDetails();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The name of the organization providing funding support for the
      * entry.

@@ -16,6 +16,72 @@ public class GeomBond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_site_id_1":
+                return getAtomSiteId1();
+            case "atom_site_label_alt_id_1":
+                return getAtomSiteLabelAltId1();
+            case "atom_site_label_atom_id_1":
+                return getAtomSiteLabelAtomId1();
+            case "atom_site_label_comp_id_1":
+                return getAtomSiteLabelCompId1();
+            case "atom_site_label_seq_id_1":
+                return getAtomSiteLabelSeqId1();
+            case "atom_site_label_asym_id_1":
+                return getAtomSiteLabelAsymId1();
+            case "atom_site_id_2":
+                return getAtomSiteId2();
+            case "atom_site_label_alt_id_2":
+                return getAtomSiteLabelAltId2();
+            case "atom_site_label_atom_id_2":
+                return getAtomSiteLabelAtomId2();
+            case "atom_site_label_comp_id_2":
+                return getAtomSiteLabelCompId2();
+            case "atom_site_label_seq_id_2":
+                return getAtomSiteLabelSeqId2();
+            case "atom_site_label_asym_id_2":
+                return getAtomSiteLabelAsymId2();
+            case "atom_site_auth_atom_id_1":
+                return getAtomSiteAuthAtomId1();
+            case "atom_site_auth_asym_id_1":
+                return getAtomSiteAuthAsymId1();
+            case "atom_site_auth_comp_id_1":
+                return getAtomSiteAuthCompId1();
+            case "atom_site_auth_seq_id_1":
+                return getAtomSiteAuthSeqId1();
+            case "atom_site_auth_atom_id_2":
+                return getAtomSiteAuthAtomId2();
+            case "atom_site_auth_asym_id_2":
+                return getAtomSiteAuthAsymId2();
+            case "atom_site_auth_comp_id_2":
+                return getAtomSiteAuthCompId2();
+            case "atom_site_auth_seq_id_2":
+                return getAtomSiteAuthSeqId2();
+            case "dist":
+                return getDist();
+            case "dist_esd":
+                return getDistEsd();
+            case "publ_flag":
+                return getPublFlag();
+            case "site_symmetry_1":
+                return getSiteSymmetry1();
+            case "site_symmetry_2":
+                return getSiteSymmetry2();
+            case "valence":
+                return getValence();
+            case "pdbx_atom_site_PDB_ins_code_1":
+                return getPdbxAtomSitePDBInsCode1();
+            case "pdbx_atom_site_PDB_ins_code_2":
+                return getPdbxAtomSitePDBInsCode2();
+            case "pdbx_PDB_model_num":
+                return getPdbxPDBModelNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The identifier of the first of the two atom sites that define the
      * bond.

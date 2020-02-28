@@ -15,6 +15,20 @@ public class PdbxStructBiolFunc extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "biol_id":
+                return getBiolId();
+            case "function":
+                return getFunction();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A code which must uniquely identify each function assigned to
      * a biological assembly.

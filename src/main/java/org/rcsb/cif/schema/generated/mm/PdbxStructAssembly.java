@@ -15,6 +15,24 @@ public class PdbxStructAssembly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "method_details":
+                return getMethodDetails();
+            case "oligomeric_details":
+                return getOligomericDetails();
+            case "oligomeric_count":
+                return getOligomericCount();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Provides details of the method used to determine or
      * compute the assembly.

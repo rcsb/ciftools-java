@@ -15,6 +15,76 @@ public class Cell extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_alpha":
+                return getAngleAlpha();
+            case "angle_alpha_esd":
+                return getAngleAlphaEsd();
+            case "angle_beta":
+                return getAngleBeta();
+            case "angle_beta_esd":
+                return getAngleBetaEsd();
+            case "angle_gamma":
+                return getAngleGamma();
+            case "angle_gamma_esd":
+                return getAngleGammaEsd();
+            case "entry_id":
+                return getEntryId();
+            case "details":
+                return getDetails();
+            case "formula_units_Z":
+                return getFormulaUnitsZ();
+            case "length_a":
+                return getLengthA();
+            case "length_a_esd":
+                return getLengthAEsd();
+            case "length_b":
+                return getLengthB();
+            case "length_b_esd":
+                return getLengthBEsd();
+            case "length_c":
+                return getLengthC();
+            case "length_c_esd":
+                return getLengthCEsd();
+            case "volume":
+                return getVolume();
+            case "volume_esd":
+                return getVolumeEsd();
+            case "Z_PDB":
+                return getZPDB();
+            case "reciprocal_angle_alpha":
+                return getReciprocalAngleAlpha();
+            case "reciprocal_angle_beta":
+                return getReciprocalAngleBeta();
+            case "reciprocal_angle_gamma":
+                return getReciprocalAngleGamma();
+            case "reciprocal_angle_alpha_esd":
+                return getReciprocalAngleAlphaEsd();
+            case "reciprocal_angle_beta_esd":
+                return getReciprocalAngleBetaEsd();
+            case "reciprocal_angle_gamma_esd":
+                return getReciprocalAngleGammaEsd();
+            case "reciprocal_length_a":
+                return getReciprocalLengthA();
+            case "reciprocal_length_b":
+                return getReciprocalLengthB();
+            case "reciprocal_length_c":
+                return getReciprocalLengthC();
+            case "reciprocal_length_a_esd":
+                return getReciprocalLengthAEsd();
+            case "reciprocal_length_b_esd":
+                return getReciprocalLengthBEsd();
+            case "reciprocal_length_c_esd":
+                return getReciprocalLengthCEsd();
+            case "pdbx_unique_axis":
+                return getPdbxUniqueAxis();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unit-cell angle alpha of the reported structure in degrees.
      * @return FloatColumn

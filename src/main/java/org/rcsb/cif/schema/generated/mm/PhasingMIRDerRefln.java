@@ -28,6 +28,46 @@ public class PhasingMIRDerRefln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "der_id":
+                return getDerId();
+            case "F_calc":
+                return getFCalc();
+            case "F_calc_au":
+                return getFCalcAu();
+            case "F_meas":
+                return getFMeas();
+            case "F_meas_au":
+                return getFMeasAu();
+            case "F_meas_sigma":
+                return getFMeasSigma();
+            case "F_meas_sigma_au":
+                return getFMeasSigmaAu();
+            case "HL_A_iso":
+                return getHLAIso();
+            case "HL_B_iso":
+                return getHLBIso();
+            case "HL_C_iso":
+                return getHLCIso();
+            case "HL_D_iso":
+                return getHLDIso();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            case "phase_calc":
+                return getPhaseCalc();
+            case "set_id":
+                return getSetId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _phasing_MIR_der.id in the
      * PHASING_MIR_DER category.

@@ -15,6 +15,20 @@ public class SpaceGroupSymop extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "operation_xyz":
+                return getOperationXyz();
+            case "sg_id":
+                return getSgId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * An arbitrary identifier that uniquely labels each symmetry
      * operation in the list.

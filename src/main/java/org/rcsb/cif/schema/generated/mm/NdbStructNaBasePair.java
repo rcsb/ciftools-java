@@ -15,6 +15,64 @@ public class NdbStructNaBasePair extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "model_number":
+                return getModelNumber();
+            case "pair_number":
+                return getPairNumber();
+            case "pair_name":
+                return getPairName();
+            case "i_label_asym_id":
+                return getILabelAsymId();
+            case "i_label_comp_id":
+                return getILabelCompId();
+            case "i_label_seq_id":
+                return getILabelSeqId();
+            case "i_symmetry":
+                return getISymmetry();
+            case "j_label_asym_id":
+                return getJLabelAsymId();
+            case "j_label_comp_id":
+                return getJLabelCompId();
+            case "j_label_seq_id":
+                return getJLabelSeqId();
+            case "j_symmetry":
+                return getJSymmetry();
+            case "i_auth_asym_id":
+                return getIAuthAsymId();
+            case "i_auth_seq_id":
+                return getIAuthSeqId();
+            case "i_PDB_ins_code":
+                return getIPDBInsCode();
+            case "j_auth_asym_id":
+                return getJAuthAsymId();
+            case "j_auth_seq_id":
+                return getJAuthSeqId();
+            case "j_PDB_ins_code":
+                return getJPDBInsCode();
+            case "shear":
+                return getShear();
+            case "stretch":
+                return getStretch();
+            case "stagger":
+                return getStagger();
+            case "buckle":
+                return getBuckle();
+            case "propeller":
+                return getPropeller();
+            case "opening":
+                return getOpening();
+            case "hbond_type_12":
+                return getHbondType12();
+            case "hbond_type_28":
+                return getHbondType28();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Describes the model number of the the base pair.

@@ -16,6 +16,86 @@ public class ExptlCrystal extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "colour":
+                return getColour();
+            case "density_diffrn":
+                return getDensityDiffrn();
+            case "density_Matthews":
+                return getDensityMatthews();
+            case "density_method":
+                return getDensityMethod();
+            case "density_percent_sol":
+                return getDensityPercentSol();
+            case "description":
+                return getDescription();
+            case "F_000":
+                return getF000();
+            case "id":
+                return getId();
+            case "preparation":
+                return getPreparation();
+            case "size_max":
+                return getSizeMax();
+            case "size_mid":
+                return getSizeMid();
+            case "size_min":
+                return getSizeMin();
+            case "size_rad":
+                return getSizeRad();
+            case "colour_lustre":
+                return getColourLustre();
+            case "colour_modifier":
+                return getColourModifier();
+            case "colour_primary":
+                return getColourPrimary();
+            case "density_meas":
+                return getDensityMeas();
+            case "density_meas_esd":
+                return getDensityMeasEsd();
+            case "density_meas_gt":
+                return getDensityMeasGt();
+            case "density_meas_lt":
+                return getDensityMeasLt();
+            case "density_meas_temp":
+                return getDensityMeasTemp();
+            case "density_meas_temp_esd":
+                return getDensityMeasTempEsd();
+            case "density_meas_temp_gt":
+                return getDensityMeasTempGt();
+            case "density_meas_temp_lt":
+                return getDensityMeasTempLt();
+            case "pdbx_crystal_image_url":
+                return getPdbxCrystalImageUrl();
+            case "pdbx_crystal_image_format":
+                return getPdbxCrystalImageFormat();
+            case "pdbx_mosaicity":
+                return getPdbxMosaicity();
+            case "pdbx_mosaicity_esd":
+                return getPdbxMosaicityEsd();
+            case "pdbx_crystal_image":
+                return getPdbxCrystalImage();
+            case "pdbx_x-ray_image":
+                return getPdbxX_rayImage();
+            case "pdbx_x-ray_image_type":
+                return getPdbxX_rayImageType();
+            case "pdbx_crystal_diffrn_limit":
+                return getPdbxCrystalDiffrnLimit();
+            case "pdbx_crystal_diffrn_lifetime":
+                return getPdbxCrystalDiffrnLifetime();
+            case "pdbx_crystal_direction_1":
+                return getPdbxCrystalDirection1();
+            case "pdbx_crystal_direction_2":
+                return getPdbxCrystalDirection2();
+            case "pdbx_crystal_direction_3":
+                return getPdbxCrystalDirection3();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The colour of the crystal.
      * @return StrColumn

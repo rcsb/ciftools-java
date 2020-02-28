@@ -16,6 +16,24 @@ public class PdbxReferenceEntityPoly extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "ref_entity_id":
+                return getRefEntityId();
+            case "type":
+                return getType();
+            case "db_code":
+                return getDbCode();
+            case "db_name":
+                return getDbName();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_poly.prd_id is a reference
      * _pdbx_reference_entity_list.prd_id in the  PDBX_REFERENCE_ENTITY_LIST category.

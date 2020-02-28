@@ -18,6 +18,46 @@ public class StructRefSeq extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "align_id":
+                return getAlignId();
+            case "db_align_beg":
+                return getDbAlignBeg();
+            case "db_align_end":
+                return getDbAlignEnd();
+            case "details":
+                return getDetails();
+            case "ref_id":
+                return getRefId();
+            case "seq_align_beg":
+                return getSeqAlignBeg();
+            case "seq_align_end":
+                return getSeqAlignEnd();
+            case "pdbx_strand_id":
+                return getPdbxStrandId();
+            case "pdbx_db_accession":
+                return getPdbxDbAccession();
+            case "pdbx_db_align_beg_ins_code":
+                return getPdbxDbAlignBegInsCode();
+            case "pdbx_db_align_end_ins_code":
+                return getPdbxDbAlignEndInsCode();
+            case "pdbx_PDB_id_code":
+                return getPdbxPDBIdCode();
+            case "pdbx_auth_seq_align_beg":
+                return getPdbxAuthSeqAlignBeg();
+            case "pdbx_auth_seq_align_end":
+                return getPdbxAuthSeqAlignEnd();
+            case "pdbx_seq_align_beg_ins_code":
+                return getPdbxSeqAlignBegInsCode();
+            case "pdbx_seq_align_end_ins_code":
+                return getPdbxSeqAlignEndInsCode();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _struct_ref_seq.align_id must uniquely identify a
      * record in the STRUCT_REF_SEQ list.

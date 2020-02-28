@@ -18,6 +18,44 @@ public class StructBiolGen extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "asym_id":
+                return getAsymId();
+            case "biol_id":
+                return getBiolId();
+            case "details":
+                return getDetails();
+            case "symmetry":
+                return getSymmetry();
+            case "pdbx_full_symmetry_operation":
+                return getPdbxFullSymmetryOperation();
+            case "pdbx_PDB_order":
+                return getPdbxPDBOrder();
+            case "pdbx_new_asym_id":
+                return getPdbxNewAsymId();
+            case "pdbx_new_pdb_asym_id":
+                return getPdbxNewPdbAsymId();
+            case "pdbx_color_red":
+                return getPdbxColorRed();
+            case "pdbx_color_green":
+                return getPdbxColorGreen();
+            case "pdbx_color_blue":
+                return getPdbxColorBlue();
+            case "pdbx_after_begin_residue_no":
+                return getPdbxAfterBeginResidueNo();
+            case "pdbx_after_end_residue_no":
+                return getPdbxAfterEndResidueNo();
+            case "pdbx_before_begin_residue_no":
+                return getPdbxBeforeBeginResidueNo();
+            case "pdbx_before_end_residue_no":
+                return getPdbxBeforeEndResidueNo();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _struct_asym.id in the STRUCT_ASYM
      * category.

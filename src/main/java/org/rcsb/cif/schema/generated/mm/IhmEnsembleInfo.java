@@ -16,6 +16,34 @@ public class IhmEnsembleInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ensemble_id":
+                return getEnsembleId();
+            case "ensemble_name":
+                return getEnsembleName();
+            case "post_process_id":
+                return getPostProcessId();
+            case "model_group_id":
+                return getModelGroupId();
+            case "ensemble_clustering_method":
+                return getEnsembleClusteringMethod();
+            case "ensemble_clustering_feature":
+                return getEnsembleClusteringFeature();
+            case "num_ensemble_models":
+                return getNumEnsembleModels();
+            case "num_ensemble_models_deposited":
+                return getNumEnsembleModelsDeposited();
+            case "ensemble_precision_value":
+                return getEnsemblePrecisionValue();
+            case "ensemble_file_id":
+                return getEnsembleFileId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique id for the ensemble.
      * @return IntColumn

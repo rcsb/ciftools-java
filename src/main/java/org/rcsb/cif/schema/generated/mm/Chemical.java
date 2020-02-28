@@ -21,6 +21,56 @@ public class Chemical extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "compound_source":
+                return getCompoundSource();
+            case "melting_point":
+                return getMeltingPoint();
+            case "name_common":
+                return getNameCommon();
+            case "name_mineral":
+                return getNameMineral();
+            case "name_structure_type":
+                return getNameStructureType();
+            case "name_systematic":
+                return getNameSystematic();
+            case "absolute_configuration":
+                return getAbsoluteConfiguration();
+            case "melting_point_gt":
+                return getMeltingPointGt();
+            case "melting_point_lt":
+                return getMeltingPointLt();
+            case "optical_rotation":
+                return getOpticalRotation();
+            case "properties_biological":
+                return getPropertiesBiological();
+            case "properties_physical":
+                return getPropertiesPhysical();
+            case "temperature_decomposition":
+                return getTemperatureDecomposition();
+            case "temperature_decomposition_esd":
+                return getTemperatureDecompositionEsd();
+            case "temperature_decomposition_gt":
+                return getTemperatureDecompositionGt();
+            case "temperature_decomposition_lt":
+                return getTemperatureDecompositionLt();
+            case "temperature_sublimation":
+                return getTemperatureSublimation();
+            case "temperature_sublimation_esd":
+                return getTemperatureSublimationEsd();
+            case "temperature_sublimation_gt":
+                return getTemperatureSublimationGt();
+            case "temperature_sublimation_lt":
+                return getTemperatureSublimationLt();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

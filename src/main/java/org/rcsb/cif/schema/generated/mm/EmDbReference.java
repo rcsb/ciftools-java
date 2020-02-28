@@ -15,6 +15,24 @@ public class EmDbReference extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "access_code":
+                return getAccessCode();
+            case "db_name":
+                return getDbName();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "relationship":
+                return getRelationship();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unique identifier for a provided link.
      * @return StrColumn

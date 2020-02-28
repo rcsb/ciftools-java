@@ -16,6 +16,34 @@ public class DiffrnOrientRefln extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_chi":
+                return getAngleChi();
+            case "angle_kappa":
+                return getAngleKappa();
+            case "angle_omega":
+                return getAngleOmega();
+            case "angle_phi":
+                return getAnglePhi();
+            case "angle_psi":
+                return getAnglePsi();
+            case "angle_theta":
+                return getAngleTheta();
+            case "diffrn_id":
+                return getDiffrnId();
+            case "index_h":
+                return getIndexH();
+            case "index_k":
+                return getIndexK();
+            case "index_l":
+                return getIndexL();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Diffractometer angle chi of a reflection used to
      * define the orientation matrix in degrees. See

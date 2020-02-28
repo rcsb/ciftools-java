@@ -30,6 +30,36 @@ public class PdbxConstruct extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "organisation":
+                return getOrganisation();
+            case "entity_id":
+                return getEntityId();
+            case "robot_id":
+                return getRobotId();
+            case "date":
+                return getDate();
+            case "details":
+                return getDetails();
+            case "class":
+                return getClazz();
+            case "type":
+                return getType();
+            case "seq":
+                return getSeq();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_construct.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

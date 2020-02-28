@@ -22,6 +22,60 @@ public class PhasingMIRDerSite extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_type_symbol":
+                return getAtomTypeSymbol();
+            case "B_iso":
+                return getBIso();
+            case "B_iso_esd":
+                return getBIsoEsd();
+            case "Cartn_x":
+                return getCartnX();
+            case "Cartn_x_esd":
+                return getCartnXEsd();
+            case "Cartn_y":
+                return getCartnY();
+            case "Cartn_y_esd":
+                return getCartnYEsd();
+            case "Cartn_z":
+                return getCartnZ();
+            case "Cartn_z_esd":
+                return getCartnZEsd();
+            case "der_id":
+                return getDerId();
+            case "details":
+                return getDetails();
+            case "fract_x":
+                return getFractX();
+            case "fract_x_esd":
+                return getFractXEsd();
+            case "fract_y":
+                return getFractY();
+            case "fract_y_esd":
+                return getFractYEsd();
+            case "fract_z":
+                return getFractZ();
+            case "fract_z_esd":
+                return getFractZEsd();
+            case "id":
+                return getId();
+            case "occupancy":
+                return getOccupancy();
+            case "occupancy_anom":
+                return getOccupancyAnom();
+            case "occupancy_anom_su":
+                return getOccupancyAnomSu();
+            case "occupancy_iso":
+                return getOccupancyIso();
+            case "occupancy_iso_su":
+                return getOccupancyIsoSu();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _atom_type.symbol in the
      * ATOM_TYPE category.

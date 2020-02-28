@@ -16,6 +16,24 @@ public class PdbxMoleculeFeaturesDepositorInfo extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "class":
+                return getClazz();
+            case "type":
+                return getType();
+            case "name":
+                return getName();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_molecule_features_depositor_info.entity_id is a reference to
      * to the entity identifier for this molecule.

@@ -21,6 +21,42 @@ public class IhmGeometricObjectDistanceRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "object_id":
+                return getObjectId();
+            case "feature_id":
+                return getFeatureId();
+            case "object_characteristic":
+                return getObjectCharacteristic();
+            case "restraint_type":
+                return getRestraintType();
+            case "harmonic_force_constant":
+                return getHarmonicForceConstant();
+            case "group_conditionality":
+                return getGroupConditionality();
+            case "distance_lower_limit":
+                return getDistanceLowerLimit();
+            case "distance_upper_limit":
+                return getDistanceUpperLimit();
+            case "distance_lower_limit_esd":
+                return getDistanceLowerLimitEsd();
+            case "distance_upper_limit_esd":
+                return getDistanceUpperLimitEsd();
+            case "distance_probability":
+                return getDistanceProbability();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "other_details":
+                return getOtherDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique id for the geometric object distance restraint.
      * @return IntColumn

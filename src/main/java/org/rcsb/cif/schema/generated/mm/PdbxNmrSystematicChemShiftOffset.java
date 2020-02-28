@@ -15,6 +15,30 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "type":
+                return getType();
+            case "atom_type":
+                return getAtomType();
+            case "atom_isotope_number":
+                return getAtomIsotopeNumber();
+            case "val":
+                return getVal();
+            case "val_err":
+                return getValErr();
+            case "entry_id":
+                return getEntryId();
+            case "assigned_chem_shift_list_id":
+                return getAssignedChemShiftListId();
+            case "ordinal":
+                return getOrdinal();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * The kind of chemical shift offset that should be applied to all chemical

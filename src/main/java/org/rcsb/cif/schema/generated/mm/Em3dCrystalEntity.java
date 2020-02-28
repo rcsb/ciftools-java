@@ -15,6 +15,34 @@ public class Em3dCrystalEntity extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "angle_alpha":
+                return getAngleAlpha();
+            case "angle_beta":
+                return getAngleBeta();
+            case "angle_gamma":
+                return getAngleGamma();
+            case "image_processing_id":
+                return getImageProcessingId();
+            case "id":
+                return getId();
+            case "length_a":
+                return getLengthA();
+            case "length_b":
+                return getLengthB();
+            case "length_c":
+                return getLengthC();
+            case "space_group_name":
+                return getSpaceGroupName();
+            case "space_group_num":
+                return getSpaceGroupNum();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unit-cell angle alpha in degrees.
      * @return FloatColumn

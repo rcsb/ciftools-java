@@ -31,6 +31,44 @@ public class PhasingSet extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "cell_angle_alpha":
+                return getCellAngleAlpha();
+            case "cell_angle_beta":
+                return getCellAngleBeta();
+            case "cell_angle_gamma":
+                return getCellAngleGamma();
+            case "cell_length_a":
+                return getCellLengthA();
+            case "cell_length_b":
+                return getCellLengthB();
+            case "cell_length_c":
+                return getCellLengthC();
+            case "detector_specific":
+                return getDetectorSpecific();
+            case "detector_type":
+                return getDetectorType();
+            case "id":
+                return getId();
+            case "radiation_source_specific":
+                return getRadiationSourceSpecific();
+            case "radiation_wavelength":
+                return getRadiationWavelength();
+            case "temp":
+                return getTemp();
+            case "pdbx_temp_details":
+                return getPdbxTempDetails();
+            case "pdbx_d_res_high":
+                return getPdbxDResHigh();
+            case "pdbx_d_res_low":
+                return getPdbxDResLow();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Unit-cell angle alpha for this data set in degrees.
      * @return FloatColumn

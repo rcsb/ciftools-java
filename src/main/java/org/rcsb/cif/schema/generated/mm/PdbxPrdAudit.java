@@ -15,6 +15,26 @@ public class PdbxPrdAudit extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "date":
+                return getDate();
+            case "annotator":
+                return getAnnotator();
+            case "processing_site":
+                return getProcessingSite();
+            case "details":
+                return getDetails();
+            case "action_type":
+                return getActionType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _pdbx_reference_molecule.prd_id in the
      * pdbx_reference_molecule category.

@@ -16,6 +16,52 @@ public class PdbxValidateRmsdBond extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "PDB_model_num":
+                return getPDBModelNum();
+            case "auth_asym_id_1":
+                return getAuthAsymId1();
+            case "auth_atom_id_1":
+                return getAuthAtomId1();
+            case "auth_comp_id_1":
+                return getAuthCompId1();
+            case "auth_seq_id_1":
+                return getAuthSeqId1();
+            case "auth_atom_id_2":
+                return getAuthAtomId2();
+            case "auth_asym_id_2":
+                return getAuthAsymId2();
+            case "auth_comp_id_2":
+                return getAuthCompId2();
+            case "auth_seq_id_2":
+                return getAuthSeqId2();
+            case "PDB_ins_code_1":
+                return getPDBInsCode1();
+            case "PDB_ins_code_2":
+                return getPDBInsCode2();
+            case "label_alt_id_1":
+                return getLabelAltId1();
+            case "label_alt_id_2":
+                return getLabelAltId2();
+            case "bond_deviation":
+                return getBondDeviation();
+            case "bond_value":
+                return getBondValue();
+            case "bond_target_value":
+                return getBondTargetValue();
+            case "bond_standard_deviation":
+                return getBondStandardDeviation();
+            case "linker_flag":
+                return getLinkerFlag();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_validate_rmsd_bond.id must uniquely identify
      * each item in the PDBX_VALIDATE_RMSD_BOND list.

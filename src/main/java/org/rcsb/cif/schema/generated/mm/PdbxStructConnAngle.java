@@ -15,6 +15,92 @@ public class PdbxStructConnAngle extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "ptnr1_label_alt_id":
+                return getPtnr1LabelAltId();
+            case "ptnr1_label_asym_id":
+                return getPtnr1LabelAsymId();
+            case "ptnr1_label_atom_id":
+                return getPtnr1LabelAtomId();
+            case "ptnr1_label_comp_id":
+                return getPtnr1LabelCompId();
+            case "ptnr1_label_seq_id":
+                return getPtnr1LabelSeqId();
+            case "ptnr1_auth_asym_id":
+                return getPtnr1AuthAsymId();
+            case "ptnr1_auth_atom_id":
+                return getPtnr1AuthAtomId();
+            case "ptnr1_auth_comp_id":
+                return getPtnr1AuthCompId();
+            case "ptnr1_auth_seq_id":
+                return getPtnr1AuthSeqId();
+            case "ptnr1_symmetry":
+                return getPtnr1Symmetry();
+            case "ptnr2_label_alt_id":
+                return getPtnr2LabelAltId();
+            case "ptnr2_label_asym_id":
+                return getPtnr2LabelAsymId();
+            case "ptnr2_label_atom_id":
+                return getPtnr2LabelAtomId();
+            case "ptnr2_label_comp_id":
+                return getPtnr2LabelCompId();
+            case "ptnr2_label_seq_id":
+                return getPtnr2LabelSeqId();
+            case "ptnr2_auth_asym_id":
+                return getPtnr2AuthAsymId();
+            case "ptnr2_auth_atom_id":
+                return getPtnr2AuthAtomId();
+            case "ptnr2_auth_comp_id":
+                return getPtnr2AuthCompId();
+            case "ptnr2_auth_seq_id":
+                return getPtnr2AuthSeqId();
+            case "ptnr2_symmetry":
+                return getPtnr2Symmetry();
+            case "ptnr1_PDB_ins_code":
+                return getPtnr1PDBInsCode();
+            case "ptnr1_auth_alt_id":
+                return getPtnr1AuthAltId();
+            case "ptnr2_PDB_ins_code":
+                return getPtnr2PDBInsCode();
+            case "ptnr2_auth_alt_id":
+                return getPtnr2AuthAltId();
+            case "ptnr3_auth_alt_id":
+                return getPtnr3AuthAltId();
+            case "ptnr3_auth_asym_id":
+                return getPtnr3AuthAsymId();
+            case "ptnr3_auth_atom_id":
+                return getPtnr3AuthAtomId();
+            case "ptnr3_auth_comp_id":
+                return getPtnr3AuthCompId();
+            case "ptnr3_PDB_ins_code":
+                return getPtnr3PDBInsCode();
+            case "ptnr3_auth_seq_id":
+                return getPtnr3AuthSeqId();
+            case "ptnr3_label_alt_id":
+                return getPtnr3LabelAltId();
+            case "ptnr3_label_asym_id":
+                return getPtnr3LabelAsymId();
+            case "ptnr3_label_atom_id":
+                return getPtnr3LabelAtomId();
+            case "ptnr3_label_comp_id":
+                return getPtnr3LabelCompId();
+            case "ptnr3_label_seq_id":
+                return getPtnr3LabelSeqId();
+            case "ptnr3_symmetry":
+                return getPtnr3Symmetry();
+            case "value":
+                return getValue();
+            case "value_esd":
+                return getValueEsd();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_struct_conn_angle.id must uniquely identify a record in
      * the PDBX_STRUCT_CONN_ANGLE list.

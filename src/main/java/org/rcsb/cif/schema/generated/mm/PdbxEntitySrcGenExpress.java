@@ -17,6 +17,84 @@ public class PdbxEntitySrcGenExpress extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "next_step_id":
+                return getNextStepId();
+            case "end_construct_id":
+                return getEndConstructId();
+            case "robot_id":
+                return getRobotId();
+            case "date":
+                return getDate();
+            case "promoter_type":
+                return getPromoterType();
+            case "plasmid_id":
+                return getPlasmidId();
+            case "vector_type":
+                return getVectorType();
+            case "N_terminal_seq_tag":
+                return getNTerminalSeqTag();
+            case "C_terminal_seq_tag":
+                return getCTerminalSeqTag();
+            case "host_org_scientific_name":
+                return getHostOrgScientificName();
+            case "host_org_common_name":
+                return getHostOrgCommonName();
+            case "host_org_variant":
+                return getHostOrgVariant();
+            case "host_org_strain":
+                return getHostOrgStrain();
+            case "host_org_tissue":
+                return getHostOrgTissue();
+            case "host_org_culture_collection":
+                return getHostOrgCultureCollection();
+            case "host_org_cell_line":
+                return getHostOrgCellLine();
+            case "host_org_tax_id":
+                return getHostOrgTaxId();
+            case "host_org_details":
+                return getHostOrgDetails();
+            case "culture_base_media":
+                return getCultureBaseMedia();
+            case "culture_additives":
+                return getCultureAdditives();
+            case "culture_volume":
+                return getCultureVolume();
+            case "culture_time":
+                return getCultureTime();
+            case "culture_temperature":
+                return getCultureTemperature();
+            case "inducer":
+                return getInducer();
+            case "inducer_concentration":
+                return getInducerConcentration();
+            case "induction_details":
+                return getInductionDetails();
+            case "multiplicity_of_infection":
+                return getMultiplicityOfInfection();
+            case "induction_timepoint":
+                return getInductionTimepoint();
+            case "induction_temperature":
+                return getInductionTemperature();
+            case "harvesting_details":
+                return getHarvestingDetails();
+            case "storage_details":
+                return getStorageDetails();
+            case "summary":
+                return getSummary();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_express.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

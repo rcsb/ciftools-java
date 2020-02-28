@@ -15,6 +15,18 @@ public class PdbxDataProcessingStatus extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "task_name":
+                return getTaskName();
+            case "status":
+                return getStatus();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A data processing workflow task name.
      * @return StrColumn

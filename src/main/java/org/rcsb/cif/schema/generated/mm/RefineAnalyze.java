@@ -18,6 +18,52 @@ public class RefineAnalyze extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "pdbx_refine_id":
+                return getPdbxRefineId();
+            case "Luzzati_coordinate_error_free":
+                return getLuzzatiCoordinateErrorFree();
+            case "Luzzati_coordinate_error_obs":
+                return getLuzzatiCoordinateErrorObs();
+            case "Luzzati_d_res_low_free":
+                return getLuzzatiDResLowFree();
+            case "Luzzati_d_res_low_obs":
+                return getLuzzatiDResLowObs();
+            case "Luzzati_sigma_a_free":
+                return getLuzzatiSigmaAFree();
+            case "Luzzati_sigma_a_free_details":
+                return getLuzzatiSigmaAFreeDetails();
+            case "Luzzati_sigma_a_obs":
+                return getLuzzatiSigmaAObs();
+            case "Luzzati_sigma_a_obs_details":
+                return getLuzzatiSigmaAObsDetails();
+            case "number_disordered_residues":
+                return getNumberDisorderedResidues();
+            case "occupancy_sum_hydrogen":
+                return getOccupancySumHydrogen();
+            case "occupancy_sum_non_hydrogen":
+                return getOccupancySumNonHydrogen();
+            case "RG_d_res_high":
+                return getRGDResHigh();
+            case "RG_d_res_low":
+                return getRGDResLow();
+            case "RG_free":
+                return getRGFree();
+            case "RG_work":
+                return getRGWork();
+            case "RG_free_work_ratio":
+                return getRGFreeWorkRatio();
+            case "pdbx_Luzzati_d_res_high_obs":
+                return getPdbxLuzzatiDResHighObs();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entry.id in the ENTRY category.
      * @return StrColumn

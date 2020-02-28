@@ -17,6 +17,20 @@ public class PdbxStructEntityInst extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "details":
+                return getDetails();
+            case "entity_id":
+                return getEntityId();
+            case "id":
+                return getId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A description of special aspects of this portion of the contents
      * of the deposited unit.

@@ -18,6 +18,32 @@ public class ValenceParam extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_1":
+                return getAtom1();
+            case "atom_1_valence":
+                return getAtom1Valence();
+            case "atom_2":
+                return getAtom2();
+            case "atom_2_valence":
+                return getAtom2Valence();
+            case "B":
+                return getB();
+            case "details":
+                return getDetails();
+            case "id":
+                return getId();
+            case "ref_id":
+                return getRefId();
+            case "Ro":
+                return getRo();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The element symbol of the first atom forming the bond whose
      * bond-valence parameters are given in this category.

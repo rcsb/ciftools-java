@@ -17,6 +17,26 @@ public class ChemCompTor extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "atom_id_1":
+                return getAtomId1();
+            case "atom_id_2":
+                return getAtomId2();
+            case "atom_id_3":
+                return getAtomId3();
+            case "atom_id_4":
+                return getAtomId4();
+            case "id":
+                return getId();
+            case "comp_id":
+                return getCompId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The ID of the first of the four atoms that define the torsion
      * angle.

@@ -15,6 +15,22 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "assigned_chem_shift_list_id":
+                return getAssignedChemShiftListId();
+            case "entry_id":
+                return getEntryId();
+            case "software_id":
+                return getSoftwareId();
+            case "software_label":
+                return getSoftwareLabel();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Pointer to '_pdbx_nmr_assigned_chem_shift_list.id'

@@ -15,6 +15,20 @@ public class PdbxReferenceEntitySubcomponents extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "prd_id":
+                return getPrdId();
+            case "seq":
+                return getSeq();
+            case "chem_comp_id":
+                return getChemCompId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_reference_entity_subcomponents.prd_id is a reference
      * _pdbx_reference_molecule.prd_id in the  PDBX_REFERENCE_MOLECULE category.

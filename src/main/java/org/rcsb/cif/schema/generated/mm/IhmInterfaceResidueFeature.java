@@ -18,6 +18,26 @@ public class IhmInterfaceResidueFeature extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "ordinal_id":
+                return getOrdinalId();
+            case "feature_id":
+                return getFeatureId();
+            case "binding_partner_entity_id":
+                return getBindingPartnerEntityId();
+            case "binding_partner_asym_id":
+                return getBindingPartnerAsymId();
+            case "dataset_list_id":
+                return getDatasetListId();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the category.
      * @return IntColumn

@@ -22,6 +22,26 @@ public class EntityKeywords extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entity_id":
+                return getEntityId();
+            case "text":
+                return getText();
+            case "pdbx_mutation":
+                return getPdbxMutation();
+            case "pdbx_fragment":
+                return getPdbxFragment();
+            case "pdbx_ec":
+                return getPdbxEc();
+            case "pdbx_antibody_isotype":
+                return getPdbxAntibodyIsotype();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn

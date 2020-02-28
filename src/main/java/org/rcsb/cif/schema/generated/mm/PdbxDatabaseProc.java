@@ -14,6 +14,24 @@ public class PdbxDatabaseProc extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "cycle_id":
+                return getCycleId();
+            case "date_begin_cycle":
+                return getDateBeginCycle();
+            case "date_end_cycle":
+                return getDateEndCycle();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_database_proc.entry_id identifies the data block.
      * @return StrColumn

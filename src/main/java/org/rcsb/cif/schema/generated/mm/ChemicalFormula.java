@@ -53,6 +53,30 @@ public class ChemicalFormula extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "analytical":
+                return getAnalytical();
+            case "entry_id":
+                return getEntryId();
+            case "iupac":
+                return getIupac();
+            case "moiety":
+                return getMoiety();
+            case "structural":
+                return getStructural();
+            case "sum":
+                return getSum();
+            case "weight":
+                return getWeight();
+            case "weight_meas":
+                return getWeightMeas();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * Formula determined by standard chemical analysis including trace
      * elements. See the CHEMICAL_FORMULA category description for

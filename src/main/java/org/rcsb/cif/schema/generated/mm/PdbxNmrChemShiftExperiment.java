@@ -15,6 +15,26 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "assigned_chem_shift_list_id":
+                return getAssignedChemShiftListId();
+            case "entry_id":
+                return getEntryId();
+            case "experiment_id":
+                return getExperimentId();
+            case "experiment_name":
+                return getExperimentName();
+            case "sample_state":
+                return getSampleState();
+            case "solution_id":
+                return getSolutionId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * 
      * Pointer to '_pdbx_nmr_assigned_chem_shift_list.ID'

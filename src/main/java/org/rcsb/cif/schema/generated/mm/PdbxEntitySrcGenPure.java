@@ -19,6 +19,44 @@ public class PdbxEntitySrcGenPure extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "product_id":
+                return getProductId();
+            case "date":
+                return getDate();
+            case "conc_device_id":
+                return getConcDeviceId();
+            case "conc_details":
+                return getConcDetails();
+            case "conc_assay_method":
+                return getConcAssayMethod();
+            case "protein_concentration":
+                return getProteinConcentration();
+            case "protein_yield":
+                return getProteinYield();
+            case "protein_purity":
+                return getProteinPurity();
+            case "protein_oligomeric_state":
+                return getProteinOligomericState();
+            case "storage_buffer_id":
+                return getStorageBufferId();
+            case "storage_temperature":
+                return getStorageTemperature();
+            case "summary":
+                return getSummary();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_pure.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

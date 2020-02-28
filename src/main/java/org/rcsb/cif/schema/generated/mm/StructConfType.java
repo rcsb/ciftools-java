@@ -16,6 +16,20 @@ public class StructConfType extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "criteria":
+                return getCriteria();
+            case "id":
+                return getId();
+            case "reference":
+                return getReference();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The criteria used to assign this conformation type.
      * @return StrColumn

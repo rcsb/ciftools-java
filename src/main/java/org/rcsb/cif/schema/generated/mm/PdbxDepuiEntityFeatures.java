@@ -15,6 +15,20 @@ public class PdbxDepuiEntityFeatures extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "dep_dataset_id":
+                return getDepDatasetId();
+            case "entity_id":
+                return getEntityId();
+            case "type":
+                return getType();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The internal identifier assigned to each deposition.
      * @return StrColumn

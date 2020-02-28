@@ -19,6 +19,32 @@ public class PdbxEntitySrcGenProdOther extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "entry_id":
+                return getEntryId();
+            case "entity_id":
+                return getEntityId();
+            case "step_id":
+                return getStepId();
+            case "next_step_id":
+                return getNextStepId();
+            case "end_construct_id":
+                return getEndConstructId();
+            case "robot_id":
+                return getRobotId();
+            case "date":
+                return getDate();
+            case "process_name":
+                return getProcessName();
+            case "details":
+                return getDetails();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * The value of _pdbx_entity_src_gen_prod_other.entry_id uniquely identifies
      * a sample consisting of one or more proteins whose structure is

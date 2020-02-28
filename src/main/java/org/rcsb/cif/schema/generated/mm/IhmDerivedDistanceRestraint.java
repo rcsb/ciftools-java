@@ -16,6 +16,40 @@ public class IhmDerivedDistanceRestraint extends DelegatingCategory {
         super(delegate);
     }
 
+    @Override
+    protected Column createDelegate(String columnName, Column column) {
+        switch (columnName) {
+            case "id":
+                return getId();
+            case "group_id":
+                return getGroupId();
+            case "feature_id_1":
+                return getFeatureId1();
+            case "feature_id_2":
+                return getFeatureId2();
+            case "group_conditionality":
+                return getGroupConditionality();
+            case "random_exclusion_fraction":
+                return getRandomExclusionFraction();
+            case "distance_lower_limit":
+                return getDistanceLowerLimit();
+            case "distance_upper_limit":
+                return getDistanceUpperLimit();
+            case "distance_lower_limit_esd":
+                return getDistanceLowerLimitEsd();
+            case "distance_upper_limit_esd":
+                return getDistanceUpperLimitEsd();
+            case "probability":
+                return getProbability();
+            case "restraint_type":
+                return getRestraintType();
+            case "dataset_list_id":
+                return getDatasetListId();
+            default:
+                return new DelegatingColumn(column);
+        }
+    }
+
     /**
      * A unique identifier for the derived distance restraint.
      * @return IntColumn
