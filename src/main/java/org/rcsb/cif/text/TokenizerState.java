@@ -120,6 +120,25 @@ class TokenizerState {
     }
 
     /**
+     * Eats an escaped value "triple quote" (''') value.
+     */
+    private void eatTripleQuote() {
+        position += 3;
+        while (position < length) {
+            if (data.charAt(position) == '\'' && isTripleQuoteAtPosition()) {
+                tokenStart += 3;
+                tokenEnd = position;
+                isEscaped = true;
+                position += 3;
+            }
+
+            position++;
+        }
+
+        tokenEnd = position;
+    }
+
+    /**
      * Eats a multiline token of the form NL;....NL;
      */
     private void eatMultiline() {
@@ -221,6 +240,10 @@ class TokenizerState {
         return "loop".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 4));
     }
 
+    private boolean isTripleQuoteAtPosition() {
+        return "'''".equals(data.substring(tokenStart, tokenStart + 3));
+    }
+
     /**
      * Checks if the current token shares the namespace with string at <start,end).
      */
@@ -287,6 +310,11 @@ class TokenizerState {
                 tokenType = CifTokenType.COMMENT;
                 break;
             case '"': case '\'':
+                if (isTripleQuoteAtPosition()) {
+                    eatTripleQuote();
+                    tokenType = CifTokenType.VALUE;
+                    break;
+                }
                 eatEscaped(c);
                 tokenType = CifTokenType.VALUE;
                 break;

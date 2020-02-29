@@ -43,15 +43,15 @@ class SchemaGenerator {
     private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("MmCif", "mm",
-                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-//        new SchemaGenerator("CifCore", "core",
-//                "cif_core.dic",
-//                "",
-//                "");
+//        new SchemaGenerator("MmCif", "mm",
+//                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+//                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+        new SchemaGenerator("CifCore", "core",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif");
     }
 
     static String toClassName(String rawName) {
