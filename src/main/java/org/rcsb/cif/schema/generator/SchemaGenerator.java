@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringJoiner;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -566,20 +567,51 @@ class SchemaGenerator {
     }
 
     private void getCategoryMetadataCifCore(CifFile cifFile) {
-        final String cifCoreDicVersion = cifFile.getBlocks().get(0).getCategory("dictionary_version").getColumn("").getStringData(0);
+        Block block = cifFile.getBlocks().get(0);
+        final String cifCoreDicVersion = block.getCategory("dictionary").getColumn("version").getStringData(0);
         System.out.println("Dictionary versions: CifCore " + cifCoreDicVersion);
 
-        for (Block block : cifFile.getBlocks()) {
-            block.categories()
-                    .filter(category -> category.getCategoryName().contains("import"))
-                    .forEach(System.out::println);
+        resolveImports(block.getSaveFrames());
+    }
+
+    private void resolveImports(List<Block> frames) {
+        Map<String, List<Block>> imports = new LinkedHashMap<>();
+
+        for (Block d : frames) {
+            if (d.getCategories().keySet().stream().anyMatch(cn -> cn.equals("import"))) {
+                parseImportGet(d.getCategory("import").getColumn("get").getStringData(0));
+            }
         }
+    }
+
+    private static final Pattern savePattern = Pattern.compile("('save'|\"save\"):([^ \t\n]+)");
+    private static final Pattern filePattern = Pattern.compile("('file'|\"file\"):([^ \t\n]+)");
+
+    private Stream<Import> parseImportGet(String s) {
+        // [{'save':hi_ang_Fox_coeffs  'file':templ_attr.cif}   {'save':hi_ang_Fox_c0  'file':templ_enum.cif}]
+        // [{"file":'templ_enum.cif' "save":'H_M_ref'}]
+        return Pattern.compile("\\}[ \n\t]*\\{").splitAsStream(s.trim().substring(2, s.length() - 2))
+                .map(split -> {
+                    Matcher save = savePattern.matcher(split);
+                    Matcher file = filePattern.matcher(split);
+                    return new Import(save, file);
+                });
     }
 
     private String escape(String description) {
         return description.replace("&", "&amp;")
                 .replace(">", "&gt;")
                 .replace("<", "&lt;");
+    }
+
+    static class Import {
+        final String save;
+        final String file;
+
+        public Import(Matcher save, Matcher file) {
+            this.save = save.matches() ? save.group(0).substring(7).replace("['\"]", "") : null;
+            this.file = file.matches() ? file.group(0).substring(7).replaceAll("['\"]", "") : null;
+        }
     }
 }
 
