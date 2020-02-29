@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Category provides a mechanism to group datasets.
+ * Category to define groups or collections of input datasets.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmDatasetGroup extends DelegatingCategory {
@@ -17,12 +17,10 @@ public class IhmDatasetGroup extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
-            case "group_id":
-                return getGroupId();
-            case "dataset_list_id":
-                return getDatasetListId();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
             case "application":
                 return getApplication();
             case "details":
@@ -33,28 +31,19 @@ public class IhmDatasetGroup extends DelegatingCategory {
     }
 
     /**
-     * A unique identifier for the entry.
+     * A unique identifier for the dataset group.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
-     * An identifier for the dataset group.
-     * @return IntColumn
+     * A name for the dataset group.
+     * @return StrColumn
      */
-    public IntColumn getGroupId() {
-        return delegate.getColumn("group_id", DelegatingIntColumn::new);
-    }
-
-    /**
-     * An identifier to the dataset. This data item is a pointer to
-     * _ihm_dataset_list.id in the IHM_DATASET_LIST category.
-     * @return IntColumn
-     */
-    public IntColumn getDatasetListId() {
-        return delegate.getColumn("dataset_list_id", DelegatingIntColumn::new);
+    public StrColumn getName() {
+        return delegate.getColumn("name", DelegatingStrColumn::new);
     }
 
     /**

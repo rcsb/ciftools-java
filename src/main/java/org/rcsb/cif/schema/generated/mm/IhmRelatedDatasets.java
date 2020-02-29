@@ -17,8 +17,6 @@ public class IhmRelatedDatasets extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
             case "dataset_list_id_derived":
                 return getDatasetListIdDerived();
             case "dataset_list_id_primary":
@@ -26,14 +24,6 @@ public class IhmRelatedDatasets extends DelegatingCategory {
             default:
                 return new DelegatingColumn(column);
         }
-    }
-
-    /**
-     * A unique identifier for the entry.
-     * @return IntColumn
-     */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
     }
 
     /**

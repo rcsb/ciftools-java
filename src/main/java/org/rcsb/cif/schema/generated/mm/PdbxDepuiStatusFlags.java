@@ -62,6 +62,10 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
                 return getUseSasRefine();
             case "merged_fail":
                 return getMergedFail();
+            case "post_rel_replacement_reason":
+                return getPostRelReplacementReason();
+            case "post_rel_replacement_reason_details":
+                return getPostRelReplacementReasonDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -241,5 +245,21 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
      */
     public StrColumn getMergedFail() {
         return delegate.getColumn("merged_fail", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Records reason for author initiated coordinate replacement
+     * @return StrColumn
+     */
+    public StrColumn getPostRelReplacementReason() {
+        return delegate.getColumn("post_rel_replacement_reason", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Records additional details for author initiated coordinate replacement
+     * @return StrColumn
+     */
+    public StrColumn getPostRelReplacementReasonDetails() {
+        return delegate.getColumn("post_rel_replacement_reason_details", DelegatingStrColumn::new);
     }
 }

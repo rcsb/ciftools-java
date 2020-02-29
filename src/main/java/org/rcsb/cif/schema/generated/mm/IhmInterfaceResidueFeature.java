@@ -48,8 +48,8 @@ public class IhmInterfaceResidueFeature extends DelegatingCategory {
 
     /**
      * Identifier for the interface residue feature that defines the interface residue.
-     * This data item is a pointer to _ihm_poly_residue_feature.feature_id in the
-     * IHM_POLY_RESIDUE_FEATURE category.
+     * This data item is a pointer to _ihm_feature_list.feature_id in the
+     * IHM_FEATURE_LIST category.
      * @return IntColumn
      */
     public IntColumn getFeatureId() {

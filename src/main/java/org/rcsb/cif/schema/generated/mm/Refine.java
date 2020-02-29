@@ -162,6 +162,8 @@ public class Refine extends DelegatingCategory {
                 return getSolventModelParamBsol();
             case "solvent_model_param_ksol":
                 return getSolventModelParamKsol();
+            case "pdbx_R_complete":
+                return getPdbxRComplete();
             case "ls_R_factor_gt":
                 return getLsRFactorGt();
             case "ls_goodness_of_fit_gt":
@@ -1350,6 +1352,20 @@ public class Refine extends DelegatingCategory {
      */
     public FloatColumn getSolventModelParamKsol() {
         return delegate.getColumn("solvent_model_param_ksol", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The crystallographic reliability index Rcomplete for
+     * reflections that satisfy the resolution limits
+     * established by _refine.ls_d_res_high and
+     * _refine.ls_d_res_low and the observation limit
+     * established by _reflns.observed_criterion
+     * 
+     * Ref: Luebben, J., Gruene, T., (2015). Proc.Nat.Acad.Sci. 112(29) 8999-9003
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRComplete() {
+        return delegate.getColumn("pdbx_R_complete", DelegatingFloatColumn::new);
     }
 
     /**

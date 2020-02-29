@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * Data items in the IHM_PSEUDO_SITE_FEATURE category records the details
- * of pseudo positions for the features listed in IHM_FEATURE_LIST.
+ * of pseudo site features listed in IHM_FEATURE_LIST.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmPseudoSiteFeature extends DelegatingCategory {
@@ -20,16 +20,8 @@ public class IhmPseudoSiteFeature extends DelegatingCategory {
         switch (columnName) {
             case "feature_id":
                 return getFeatureId();
-            case "Cartn_x":
-                return getCartnX();
-            case "Cartn_y":
-                return getCartnY();
-            case "Cartn_z":
-                return getCartnZ();
-            case "radius":
-                return getRadius();
-            case "description":
-                return getDescription();
+            case "pseudo_site_id":
+                return getPseudoSiteId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -46,42 +38,12 @@ public class IhmPseudoSiteFeature extends DelegatingCategory {
     }
 
     /**
-     * The Cartesian X component corresponding to this pseudo site.
-     * @return FloatColumn
+     * The pseudo site identifier corresponding to this feature.
+     * This data item is a pointer to _ihm_pseudo_site.id
+     * in the IHM_PSEUDO_SITE category.
+     * @return IntColumn
      */
-    public FloatColumn getCartnX() {
-        return delegate.getColumn("Cartn_x", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The Cartesian Y component corresponding to this pseudo site.
-     * @return FloatColumn
-     */
-    public FloatColumn getCartnY() {
-        return delegate.getColumn("Cartn_y", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The Cartesian Z component corresponding to this pseudo site.
-     * @return FloatColumn
-     */
-    public FloatColumn getCartnZ() {
-        return delegate.getColumn("Cartn_z", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The radius associated with the feature at this position, if applicable.
-     * @return FloatColumn
-     */
-    public FloatColumn getRadius() {
-        return delegate.getColumn("radius", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * Textual description of the pseudo site representing the specific feature.
-     * @return StrColumn
-     */
-    public StrColumn getDescription() {
-        return delegate.getColumn("description", DelegatingStrColumn::new);
+    public IntColumn getPseudoSiteId() {
+        return delegate.getColumn("pseudo_site_id", DelegatingIntColumn::new);
     }
 }

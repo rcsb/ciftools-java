@@ -59,6 +59,8 @@ public class RefineLsShell extends DelegatingCategory {
                 return getWRFactorRFree();
             case "wR_factor_R_work":
                 return getWRFactorRWork();
+            case "pdbx_R_complete":
+                return getPdbxRComplete();
             case "pdbx_total_number_of_bins_used":
                 return getPdbxTotalNumberOfBinsUsed();
             case "pdbx_phase_error":
@@ -401,6 +403,20 @@ public class RefineLsShell extends DelegatingCategory {
      */
     public FloatColumn getWRFactorRWork() {
         return delegate.getColumn("wR_factor_R_work", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The crystallographic reliability index Rcomplete for
+     * reflections that satisfy the resolution limits
+     * established by _refine_ls_shell.d_res_high and
+     * _refine_ls_shell.d_res_low and the observation limit
+     * established by _reflns.observed_criterion
+     * 
+     * Ref: Luebben, J., Gruene, T., (2015). Proc.Nat.Acad.Sci. 112(29) 8999-9003
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRComplete() {
+        return delegate.getColumn("pdbx_R_complete", DelegatingFloatColumn::new);
     }
 
     /**

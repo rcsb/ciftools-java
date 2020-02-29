@@ -18,8 +18,6 @@ public class IhmMultiStateModeling extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
             case "state_id":
                 return getStateId();
             case "state_group_id":
@@ -32,8 +30,6 @@ public class IhmMultiStateModeling extends DelegatingCategory {
                 return getStateType();
             case "state_name":
                 return getStateName();
-            case "model_group_id":
-                return getModelGroupId();
             case "experiment_type":
                 return getExperimentType();
             case "details":
@@ -44,15 +40,7 @@ public class IhmMultiStateModeling extends DelegatingCategory {
     }
 
     /**
-     * A unique identifier for the multiple states being described.
-     * @return IntColumn
-     */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
-    }
-
-    /**
-     * An identifier for the particular state in the multi-state modeling.
+     * A unique identifier for a particular state in the multi-state modeling.
      * @return IntColumn
      */
     public IntColumn getStateId() {
@@ -61,9 +49,8 @@ public class IhmMultiStateModeling extends DelegatingCategory {
 
     /**
      * An identifier for a collections of states in the multi-state modeling.
-     * If the states do not need to be grouped into collections, then
-     * _ihm_multi_state_modeling.state_group_id is the same as
-     * _ihm_multi_state_modeling.state_id.
+     * This data item can be used when structural models belong to diffent
+     * multi-state modeling types.
      * @return IntColumn
      */
     public IntColumn getStateGroupId() {
@@ -100,18 +87,6 @@ public class IhmMultiStateModeling extends DelegatingCategory {
      */
     public StrColumn getStateName() {
         return delegate.getColumn("state_name", DelegatingStrColumn::new);
-    }
-
-    /**
-     * The model group id corresponding to the particular state in the multi-state model.
-     * This data item is a pointer to _ihm_model_list.model_group_id in the
-     * IHM_MODEL_LIST category.
-     * If there is only a single model corresponding to a particular state, then the
-     * _ihm_model_list.model_group_id is the same as the _ihm_model_list.model_id.
-     * @return IntColumn
-     */
-    public IntColumn getModelGroupId() {
-        return delegate.getColumn("model_group_id", DelegatingIntColumn::new);
     }
 
     /**

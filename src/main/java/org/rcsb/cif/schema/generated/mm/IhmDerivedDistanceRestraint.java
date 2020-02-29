@@ -43,6 +43,8 @@ public class IhmDerivedDistanceRestraint extends DelegatingCategory {
                 return getProbability();
             case "restraint_type":
                 return getRestraintType();
+            case "mic_value":
+                return getMicValue();
             case "dataset_list_id":
                 return getDatasetListId();
             default:
@@ -158,6 +160,17 @@ public class IhmDerivedDistanceRestraint extends DelegatingCategory {
      */
     public StrColumn getRestraintType() {
         return delegate.getColumn("restraint_type", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The value of the Maximal Information Co-efficient (MIC), if applicable.
+     * MIC values are correlation measures derived from the genetic profiles
+     * and are used to derive restraint information  from quantitative measurements
+     * of genetic interactions.
+     * @return FloatColumn
+     */
+    public FloatColumn getMicValue() {
+        return delegate.getColumn("mic_value", DelegatingFloatColumn::new);
     }
 
     /**

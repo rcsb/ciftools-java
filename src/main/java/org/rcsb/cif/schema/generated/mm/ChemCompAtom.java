@@ -82,6 +82,8 @@ public class ChemCompAtom extends DelegatingCategory {
                 return getPdbxComponentId();
             case "pdbx_component_entity_id":
                 return getPdbxComponentEntityId();
+            case "pdbx_stnd_atom_id":
+                return getPdbxStndAtomId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -374,5 +376,14 @@ public class ChemCompAtom extends DelegatingCategory {
      */
     public IntColumn getPdbxComponentEntityId() {
         return delegate.getColumn("pdbx_component_entity_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * A standard identifier for the atom. This data item is used when
+     * IUPAC/IUBMB nomenclature exists for labeling atoms.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxStndAtomId() {
+        return delegate.getColumn("pdbx_stnd_atom_id", DelegatingStrColumn::new);
     }
 }

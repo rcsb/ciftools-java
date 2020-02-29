@@ -23,8 +23,8 @@ public class IhmStartingModelSeqDif extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "entity_id":
                 return getEntityId();
             case "asym_id":
@@ -54,8 +54,8 @@ public class IhmStartingModelSeqDif extends DelegatingCategory {
      * A unique identifier for the entry.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**

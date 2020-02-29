@@ -19,8 +19,8 @@ public class Ihm3demRestraint extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "dataset_list_id":
                 return getDatasetListId();
             case "model_id":
@@ -48,8 +48,8 @@ public class Ihm3demRestraint extends DelegatingCategory {
      * A unique identifier for the 3DEM restraint description.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
@@ -75,7 +75,7 @@ public class Ihm3demRestraint extends DelegatingCategory {
     /**
      * An indicator to whether the whole assembly that is modeled is fit into the 3DEM map
      * or if only a subset of the structural assembly is fit into the map.
-     * This data item is a pointer to _ihm_struct_assembly.assembly_id in the
+     * This data item is a pointer to _ihm_struct_assembly.id in the
      * IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the
      * details regarding the different structural assemblies used in the modeling.
      * The default value for this data item is "1" indicating that the entire assembly

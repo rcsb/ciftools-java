@@ -43,7 +43,7 @@ public class PdbxAuditSupport extends DelegatingCategory {
     }
 
     /**
-     * The country providing the funding support for the entry.
+     * The country/region providing the funding support for the entry.
      * @return StrColumn
      */
     public StrColumn getCountry() {

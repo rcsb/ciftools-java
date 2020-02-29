@@ -18,8 +18,8 @@ public class IhmCrossLinkResult extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "restraint_id":
                 return getRestraintId();
             case "ensemble_id":
@@ -41,8 +41,8 @@ public class IhmCrossLinkResult extends DelegatingCategory {
      * A unique identifier for the restraint/ensemble combination.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**

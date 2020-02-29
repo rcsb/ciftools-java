@@ -119,7 +119,8 @@ public class IhmStartingModelCoord extends DelegatingCategory {
 
     /**
      * The component identifier corresponding to this coordinate position.
-     * This data item is a pointer to _chem_comp.id in the CHEM_COMP category.
+     * This data item is a pointer to _chem_comp.id in the
+     * CHEM_COMP category.
      * @return StrColumn
      */
     public StrColumn getCompId() {
@@ -128,8 +129,7 @@ public class IhmStartingModelCoord extends DelegatingCategory {
 
     /**
      * The sequence index corresponding this to coordinate position.
-     * 
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY category.
+     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category.
      * @return IntColumn
      */
     public IntColumn getSeqId() {

@@ -6,10 +6,10 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the IHM_STRUCT_ASSEMBLY_CLASS category provides
- * details regarding the structural assembly classes. This
- * category provides a mechanism to identify the classes to which
- * structural assemblies belong.
+ * Data items in the IHM_STRUCT_ASSEMBLY_CLASS category lists
+ * all the structural assembly classes relevant to the entry. This
+ * category provides a mechanism to define classes of the
+ * structural assemblies.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmStructAssemblyClass extends DelegatingCategory {
@@ -20,42 +20,48 @@ public class IhmStructAssemblyClass extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
-            case "class_id":
-                return getClassId();
-            case "assembly_id":
-                return getAssemblyId();
+            case "id":
+                return getId();
+            case "name":
+                return getName();
+            case "type":
+                return getType();
+            case "description":
+                return getDescription();
             default:
                 return new DelegatingColumn(column);
         }
     }
 
     /**
-     * A unique identifier for the category.
+     * A unique identifier for the structural assembly class.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
-     * An identifier for the structural assembly class.
-     * This data item is a pointer to _ihm_struct_assembly_class_list.class_id
-     * in the IHM_STRUCT_ASSEMBLY_CLASS_LIST category.
-     * @return IntColumn
+     * A user provided name for the class.
+     * @return StrColumn
      */
-    public IntColumn getClassId() {
-        return delegate.getColumn("class_id", DelegatingIntColumn::new);
+    public StrColumn getName() {
+        return delegate.getColumn("name", DelegatingStrColumn::new);
     }
 
     /**
-     * An identifier for the structural assembly.
-     * This data item is a pointer to _ihm_struct_assembly.assembly_id
-     * in the IHM_STRUCT_ASSEMBLY category.
-     * @return IntColumn
+     * The type of classifier.
+     * @return StrColumn
      */
-    public IntColumn getAssemblyId() {
-        return delegate.getColumn("assembly_id", DelegatingIntColumn::new);
+    public StrColumn getType() {
+        return delegate.getColumn("type", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Additional description regarding the class.
+     * @return StrColumn
+     */
+    public StrColumn getDescription() {
+        return delegate.getColumn("description", DelegatingStrColumn::new);
     }
 }

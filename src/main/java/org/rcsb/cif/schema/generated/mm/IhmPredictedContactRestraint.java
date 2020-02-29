@@ -46,10 +46,10 @@ public class IhmPredictedContactRestraint extends DelegatingCategory {
                 return getSeqId1();
             case "seq_id_2":
                 return getSeqId2();
-            case "atom_id_1":
-                return getAtomId1();
-            case "atom_id_2":
-                return getAtomId2();
+            case "rep_atom_1":
+                return getRepAtom1();
+            case "rep_atom_2":
+                return getRepAtom2();
             case "distance_lower_limit":
                 return getDistanceLowerLimit();
             case "distance_upper_limit":
@@ -176,23 +176,21 @@ public class IhmPredictedContactRestraint extends DelegatingCategory {
     }
 
     /**
-     * The atom id of the first partner in the predicted contact.
-     * This data item is a pointer to _chem_comp_atom.atom_id in the
-     * CHEM_COMP_ATOM category.
+     * If _ihm_predicted_contact_restraint.model_granularity is by-residue, then indicate the atom
+     * used to represent the first monomer partner in three-dimension. Default is the C-alpha atom.
      * @return StrColumn
      */
-    public StrColumn getAtomId1() {
-        return delegate.getColumn("atom_id_1", DelegatingStrColumn::new);
+    public StrColumn getRepAtom1() {
+        return delegate.getColumn("rep_atom_1", DelegatingStrColumn::new);
     }
 
     /**
-     * The atom id of the second partner in the predicted contact.
-     * This data item is a pointer to _chem_comp_atom.atom_id in the
-     * CHEM_COMP_ATOM category.
+     * If _ihm_predicted_contact_restraint.model_granularity is by-residue, then indicate the atom
+     * used to represent the second monomer partner in three-dimension. Default is the C-alpha atom.
      * @return StrColumn
      */
-    public StrColumn getAtomId2() {
-        return delegate.getColumn("atom_id_2", DelegatingStrColumn::new);
+    public StrColumn getRepAtom2() {
+        return delegate.getColumn("rep_atom_2", DelegatingStrColumn::new);
     }
 
     /**

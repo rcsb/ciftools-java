@@ -28,6 +28,8 @@ public class PdbxEntryDetails extends DelegatingCategory {
                 return getCompoundDetails();
             case "source_details":
                 return getSourceDetails();
+            case "has_ligand_of_interest":
+                return getHasLigandOfInterest();
             default:
                 return new DelegatingColumn(column);
         }
@@ -73,5 +75,14 @@ public class PdbxEntryDetails extends DelegatingCategory {
      */
     public StrColumn getSourceDetails() {
         return delegate.getColumn("source_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag to indicate if author has indicated that there are any or no ligands
+     * that are the focus of research.
+     * @return StrColumn
+     */
+    public StrColumn getHasLigandOfInterest() {
+        return delegate.getColumn("has_ligand_of_interest", DelegatingStrColumn::new);
     }
 }

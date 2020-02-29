@@ -95,7 +95,7 @@ public class IhmExternalFiles extends DelegatingCategory {
     }
 
     /**
-     * Textual description of what the external file is.
+     * Additional textual details regarding the external file.
      * @return StrColumn
      */
     public StrColumn getDetails() {

@@ -82,7 +82,7 @@ public class PdbxReferencePublicationList extends DelegatingCategory {
     }
 
     /**
-     * The country of publication.
+     * The country/region of publication.
      * @return StrColumn
      */
     public StrColumn getCountry() {

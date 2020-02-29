@@ -67,7 +67,7 @@ public class EmBuffer extends DelegatingCategory {
     }
 
     /**
-     * Additional details about the buffer.
+     * The pH of the sample buffer.
      * @return FloatColumn
      */
     public FloatColumn getPH() {

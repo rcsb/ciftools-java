@@ -104,10 +104,8 @@ public class IhmOrderedEnsemble extends DelegatingCategory {
 
     /**
      * The model group id corresponding to the node at the origin of directed edge.
-     * This data item is a pointer to _ihm_model_list.model_group_id in the
-     * IHM_MODEL_LIST category.
-     * If the node involves a single model instead of a collection of models,
-     * then the _ihm_model_list.model_group_id is the same as the _ihm_model_list.model_id.
+     * This data item is a pointer to _ihm_model_group.id in the
+     * IHM_MODEL_GROUP category.
      * @return IntColumn
      */
     public IntColumn getModelGroupIdBegin() {
@@ -116,10 +114,8 @@ public class IhmOrderedEnsemble extends DelegatingCategory {
 
     /**
      * The model group id corresponding to the node at the end of the directed edge.
-     * This data item is a pointer to _ihm_model_list.model_group_id in the
-     * IHM_MODEL_LIST category.
-     * If the node involves a single model instead of a collection of models,
-     * then the _ihm_model_list.model_group_id is the same as the _ihm_model_list.model_id.
+     * This data item is a pointer to _ihm_model_group.id in the
+     * IHM_MODEL_GROUP category.
      * @return IntColumn
      */
     public IntColumn getModelGroupIdEnd() {

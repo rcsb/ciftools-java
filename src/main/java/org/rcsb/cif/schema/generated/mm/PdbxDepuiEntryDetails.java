@@ -85,7 +85,7 @@ public class PdbxDepuiEntryDetails extends DelegatingCategory {
     }
 
     /**
-     * The country location of the institution submitting the deposition.
+     * The country/region location of the institution submitting the deposition.
      * @return StrColumn
      */
     public StrColumn getCountry() {

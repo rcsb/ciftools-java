@@ -27,10 +27,8 @@ public class IhmStartingModelDetails extends DelegatingCategory {
                 return getEntityDescription();
             case "asym_id":
                 return getAsymId();
-            case "seq_id_begin":
-                return getSeqIdBegin();
-            case "seq_id_end":
-                return getSeqIdEnd();
+            case "entity_poly_segment_id":
+                return getEntityPolySegmentId();
             case "starting_model_source":
                 return getStartingModelSource();
             case "starting_model_auth_asym_id":
@@ -39,6 +37,8 @@ public class IhmStartingModelDetails extends DelegatingCategory {
                 return getStartingModelSequenceOffset();
             case "dataset_list_id":
                 return getDatasetListId();
+            case "description":
+                return getDescription();
             default:
                 return new DelegatingColumn(column);
         }
@@ -80,21 +80,13 @@ public class IhmStartingModelDetails extends DelegatingCategory {
     }
 
     /**
-     * The leading residue index for the sequence segment modeled using this starting model.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category.
+     * The identifier for the polymeric segment modeled using this starting model.
+     * This data item is a pointer to _ihm_entity_poly_segment.id in the
+     * IHM_ENTITY_POLY_SEGMENT category.
      * @return IntColumn
      */
-    public IntColumn getSeqIdBegin() {
-        return delegate.getColumn("seq_id_begin", DelegatingIntColumn::new);
-    }
-
-    /**
-     * The trailing residue index for the sequence segment modeled using this starting model.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category.
-     * @return IntColumn
-     */
-    public IntColumn getSeqIdEnd() {
-        return delegate.getColumn("seq_id_end", DelegatingIntColumn::new);
+    public IntColumn getEntityPolySegmentId() {
+        return delegate.getColumn("entity_poly_segment_id", DelegatingIntColumn::new);
     }
 
     /**
@@ -135,5 +127,13 @@ public class IhmStartingModelDetails extends DelegatingCategory {
      */
     public IntColumn getDatasetListId() {
         return delegate.getColumn("dataset_list_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Additional description regarding the starting model.
+     * @return StrColumn
+     */
+    public StrColumn getDescription() {
+        return delegate.getColumn("description", DelegatingStrColumn::new);
     }
 }

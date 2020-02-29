@@ -24,6 +24,8 @@ public class IhmFeatureList extends DelegatingCategory {
                 return getFeatureType();
             case "entity_type":
                 return getEntityType();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -51,5 +53,13 @@ public class IhmFeatureList extends DelegatingCategory {
      */
     public StrColumn getEntityType() {
         return delegate.getColumn("entity_type", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Additional details regarding the feature.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

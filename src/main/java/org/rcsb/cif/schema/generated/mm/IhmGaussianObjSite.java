@@ -18,8 +18,8 @@ public class IhmGaussianObjSite extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "entity_id":
                 return getEntityId();
             case "seq_id_begin":
@@ -65,8 +65,8 @@ public class IhmGaussianObjSite extends DelegatingCategory {
      * A unique identifier for this gaussian object in the model.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
@@ -80,7 +80,7 @@ public class IhmGaussianObjSite extends DelegatingCategory {
 
     /**
      * The leading sequence index corresponding to this gaussian object.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY category.
+     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category.
      * @return IntColumn
      */
     public IntColumn getSeqIdBegin() {
@@ -89,7 +89,7 @@ public class IhmGaussianObjSite extends DelegatingCategory {
 
     /**
      * The trailing sequence index corresponding to this gaussian object.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY category.
+     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY_SEQ category.
      * @return IntColumn
      */
     public IntColumn getSeqIdEnd() {

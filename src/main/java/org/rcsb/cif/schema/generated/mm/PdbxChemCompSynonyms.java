@@ -17,15 +17,27 @@ public class PdbxChemCompSynonyms extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
+            case "ordinal":
+                return getOrdinal();
             case "name":
                 return getName();
             case "comp_id":
                 return getCompId();
             case "provenance":
                 return getProvenance();
+            case "type":
+                return getType();
             default:
                 return new DelegatingColumn(column);
         }
+    }
+
+    /**
+     * An ordinal index for this category
+     * @return IntColumn
+     */
+    public IntColumn getOrdinal() {
+        return delegate.getColumn("ordinal", DelegatingIntColumn::new);
     }
 
     /**
@@ -50,5 +62,13 @@ public class PdbxChemCompSynonyms extends DelegatingCategory {
      */
     public StrColumn getProvenance() {
         return delegate.getColumn("provenance", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The type of this synonym.
+     * @return StrColumn
+     */
+    public StrColumn getType() {
+        return delegate.getColumn("type", DelegatingStrColumn::new);
     }
 }

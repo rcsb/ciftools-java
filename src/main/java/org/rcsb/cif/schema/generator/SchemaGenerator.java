@@ -1,7 +1,6 @@
 package org.rcsb.cif.schema.generator;
 
 import org.rcsb.cif.CifIO;
-import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
@@ -17,6 +16,7 @@ import org.rcsb.cif.schema.DelegatingIntColumn;
 import org.rcsb.cif.schema.DelegatingStrColumn;
 
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -35,13 +35,6 @@ import java.util.stream.Stream;
 /**
  * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
  * bootstrap itself.
- *
- * Download URLS:
- * http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic
- * https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic
- * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic
- * https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic
- * https://www.iucr.org/resources/cif/dictionaries/cif_core
  */
 @SuppressWarnings("ALL")
 class SchemaGenerator {
@@ -50,7 +43,15 @@ class SchemaGenerator {
     private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("MmCif", "mm", "mmcif_pdbx_v50.dic", "chem_comp-extension.dic", "entity_branch-extension.dic", "ihm-extension.dic");
+        new SchemaGenerator("MmCif", "mm",
+                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+//        new SchemaGenerator("CifCore", "core",
+//                "cif_core.dic",
+//                "",
+//                "");
     }
 
     static String toClassName(String rawName) {
@@ -72,8 +73,6 @@ class SchemaGenerator {
         }
         return name;
     }
-
-    private static final MessagePackCodec MESSAGE_PACK_CODEC = new MessagePackCodec();
 
     private void writeClasses() throws IOException {
         writeBlockImpl(name, schema, OUTPUT_PATH);
@@ -333,10 +332,12 @@ class SchemaGenerator {
         this.links = new LinkedHashMap<>();
         for (String res : resource) {
             System.out.println(res);
-            CifFile cifFile = CifIO.readFromInputStream(Thread.currentThread()
-                    .getContextClassLoader()
-                    .getResourceAsStream(res));
-            getCategoryMetadata(cifFile);
+            CifFile cifFile = CifIO.readFromURL(new URL(res));
+            if (name.equals("MmCif")) {
+                getCategoryMetadataMmcif(cifFile);
+            } else if (name.equals("CifCore")) {
+                getCategoryMetadataCifCore(cifFile);
+            }
             buildListOfLinksBetweenCategories(cifFile);
         }
         getFieldData();
@@ -537,7 +538,7 @@ class SchemaGenerator {
                 });
     }
 
-    private void getCategoryMetadata(CifFile cifFile) {
+    private void getCategoryMetadataMmcif(CifFile cifFile) {
         cifFile.getBlocks()
                 .get(0)
                 .getSaveFrames()
@@ -562,6 +563,17 @@ class SchemaGenerator {
                     schema.put(saveFrame.getBlockHeader(), new Table(description, categoryKeyNames,
                             new LinkedHashMap<>()));
                 });
+    }
+
+    private void getCategoryMetadataCifCore(CifFile cifFile) {
+        final String cifCoreDicVersion = cifFile.getBlocks().get(0).getCategory("dictionary_version").getColumn("").getStringData(0);
+        System.out.println("Dictionary versions: CifCore " + cifCoreDicVersion);
+
+        for (Block block : cifFile.getBlocks()) {
+            block.categories()
+                    .filter(category -> category.getCategoryName().contains("import"))
+                    .forEach(System.out::println);
+        }
     }
 
     private String escape(String description) {

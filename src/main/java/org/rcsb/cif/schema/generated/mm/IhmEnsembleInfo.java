@@ -39,6 +39,12 @@ public class IhmEnsembleInfo extends DelegatingCategory {
                 return getEnsemblePrecisionValue();
             case "ensemble_file_id":
                 return getEnsembleFileId();
+            case "details":
+                return getDetails();
+            case "sub_sample_flag":
+                return getSubSampleFlag();
+            case "sub_sampling_type":
+                return getSubSamplingType();
             default:
                 return new DelegatingColumn(column);
         }
@@ -72,8 +78,8 @@ public class IhmEnsembleInfo extends DelegatingCategory {
 
     /**
      * An identifier for the cluster or group of models being deposited.
-     * This data item is a pointer to the _ihm_model_list.model_group_id
-     * in the IHM_MODEL_LIST category.
+     * This data item is a pointer to the _ihm_model_group.id
+     * in the IHM_MODEL_GROUP category.
      * @return IntColumn
      */
     public IntColumn getModelGroupId() {
@@ -140,5 +146,29 @@ public class IhmEnsembleInfo extends DelegatingCategory {
      */
     public IntColumn getEnsembleFileId() {
         return delegate.getColumn("ensemble_file_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Additional details regarding the ensemble.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Indicate if the ensemble consists of sub samples.
+     * @return StrColumn
+     */
+    public StrColumn getSubSampleFlag() {
+        return delegate.getColumn("sub_sample_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Indicate the sub sampling type, if applicable.
+     * @return StrColumn
+     */
+    public StrColumn getSubSamplingType() {
+        return delegate.getColumn("sub_sampling_type", DelegatingStrColumn::new);
     }
 }

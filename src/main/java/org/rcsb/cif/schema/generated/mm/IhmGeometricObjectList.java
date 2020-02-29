@@ -26,8 +26,6 @@ public class IhmGeometricObjectList extends DelegatingCategory {
                 return getObjectName();
             case "object_description":
                 return getObjectDescription();
-            case "other_details":
-                return getOtherDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -63,14 +61,5 @@ public class IhmGeometricObjectList extends DelegatingCategory {
      */
     public StrColumn getObjectDescription() {
         return delegate.getColumn("object_description", DelegatingStrColumn::new);
-    }
-
-    /**
-     * Additional details about the geometric object, especially if
-     * _ihm_geometric_object_list.object_type is "other".
-     * @return StrColumn
-     */
-    public StrColumn getOtherDetails() {
-        return delegate.getColumn("other_details", DelegatingStrColumn::new);
     }
 }

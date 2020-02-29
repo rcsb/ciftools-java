@@ -41,8 +41,12 @@ public class IhmCrossLinkList extends DelegatingCategory {
                 return getSeqId2();
             case "linker_type":
                 return getLinkerType();
+            case "linker_chem_comp_descriptor_id":
+                return getLinkerChemCompDescriptorId();
             case "dataset_list_id":
                 return getDatasetListId();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -150,6 +154,16 @@ public class IhmCrossLinkList extends DelegatingCategory {
     }
 
     /**
+     * Pointer to the chemical description of the linker.
+     * Data item points to _ihm_chemical_component_descriptor.id in the
+     * IHM_CHEMICAL_COMPONENT_DESCRIPTOR category.
+     * @return IntColumn
+     */
+    public IntColumn getLinkerChemCompDescriptorId() {
+        return delegate.getColumn("linker_chem_comp_descriptor_id", DelegatingIntColumn::new);
+    }
+
+    /**
      * Identifier to the crosslinking dataset.
      * This data item is a pointer to the _ihm_dataset_list.id in the
      * IHM_DATASET_LIST category.
@@ -157,5 +171,13 @@ public class IhmCrossLinkList extends DelegatingCategory {
      */
     public IntColumn getDatasetListId() {
         return delegate.getColumn("dataset_list_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Additional details regarding the cross link or the cross linking agent.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

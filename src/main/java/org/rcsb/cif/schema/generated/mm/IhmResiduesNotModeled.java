@@ -22,8 +22,8 @@ public class IhmResiduesNotModeled extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "model_id":
                 return getModelId();
             case "entity_description":
@@ -36,6 +36,10 @@ public class IhmResiduesNotModeled extends DelegatingCategory {
                 return getSeqIdBegin();
             case "seq_id_end":
                 return getSeqIdEnd();
+            case "comp_id_begin":
+                return getCompIdBegin();
+            case "comp_id_end":
+                return getCompIdEnd();
             case "reason":
                 return getReason();
             case "details":
@@ -49,8 +53,8 @@ public class IhmResiduesNotModeled extends DelegatingCategory {
      * A unique identifier for the category.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
@@ -110,6 +114,26 @@ public class IhmResiduesNotModeled extends DelegatingCategory {
      */
     public IntColumn getSeqIdEnd() {
         return delegate.getColumn("seq_id_end", DelegatingIntColumn::new);
+    }
+
+    /**
+     * The starting residue for the sequence segment of missing residues.
+     * This data item is a pointer to _entity_poly_seq.mon_id in the
+     * ENTITY_POLY_SEQ category.
+     * @return StrColumn
+     */
+    public StrColumn getCompIdBegin() {
+        return delegate.getColumn("comp_id_begin", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The ending residue for the sequence segment of missing residues.
+     * This data item is a pointer to _entity_poly_seq.mon_id in the
+     * ENTITY_POLY_SEQ category.
+     * @return StrColumn
+     */
+    public StrColumn getCompIdEnd() {
+        return delegate.getColumn("comp_id_end", DelegatingStrColumn::new);
     }
 
     /**

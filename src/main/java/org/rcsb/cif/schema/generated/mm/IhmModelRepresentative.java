@@ -41,8 +41,8 @@ public class IhmModelRepresentative extends DelegatingCategory {
 
     /**
      * The model group identifier corresponding to the representative model.
-     * This data item is a pointer to _ihm_model_list.model_group_id in the
-     * IHM_MODEL_LIST category.
+     * This data item is a pointer to _ihm_model_group.id in the
+     * IHM_MODEL_GROUP category.
      * @return IntColumn
      */
     public IntColumn getModelGroupId() {

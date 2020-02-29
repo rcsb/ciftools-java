@@ -1032,6 +1032,10 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.PdbxStructChemCompDiagnosticsBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxChemCompSynonymsBuilder enterPdbxChemCompSynonyms() {
+        return new MmCifCategoryBuilder.PdbxChemCompSynonymsBuilder(this);
+    }
+
     public MmCifCategoryBuilder.PdbxChemCompFeatureBuilder enterPdbxChemCompFeature() {
         return new MmCifCategoryBuilder.PdbxChemCompFeatureBuilder(this);
     }
@@ -1404,8 +1408,8 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.PdbxLinkedEntityLinkListBuilder(this);
     }
 
-    public MmCifCategoryBuilder.PdbxEntityDescriptorBuilder enterPdbxEntityDescriptor() {
-        return new MmCifCategoryBuilder.PdbxEntityDescriptorBuilder(this);
+    public MmCifCategoryBuilder.PdbxEntityBranchDescriptorBuilder enterPdbxEntityBranchDescriptor() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchDescriptorBuilder(this);
     }
 
     public MmCifCategoryBuilder.PdbxReferenceLinkedEntityBuilder enterPdbxReferenceLinkedEntity() {
@@ -2220,32 +2224,8 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.PdbxSerialCrystallographyDataReductionBuilder(this);
     }
 
-    public MmCifCategoryBuilder.PdbxChemCompSynonymsBuilder enterPdbxChemCompSynonyms() {
-        return new MmCifCategoryBuilder.PdbxChemCompSynonymsBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxChemCompRelatedBuilder enterPdbxChemCompRelated() {
-        return new MmCifCategoryBuilder.PdbxChemCompRelatedBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
-        return new MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchListBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder enterPdbxEntityBranchLink() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchBuilder enterPdbxEntityBranch() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxBranchSchemeBuilder enterPdbxBranchScheme() {
-        return new MmCifCategoryBuilder.PdbxBranchSchemeBuilder(this);
+    public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {
+        return new MmCifCategoryBuilder.IhmEntityPolySegmentBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmStartingModelDetailsBuilder enterIhmStartingModelDetails() {
@@ -2268,28 +2248,40 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.IhmModelRepresentationBuilder(this);
     }
 
-    public MmCifCategoryBuilder.IhmStructAssemblyBuilder enterIhmStructAssembly() {
-        return new MmCifCategoryBuilder.IhmStructAssemblyBuilder(this);
+    public MmCifCategoryBuilder.IhmModelRepresentationDetailsBuilder enterIhmModelRepresentationDetails() {
+        return new MmCifCategoryBuilder.IhmModelRepresentationDetailsBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmStructAssemblyDetailsBuilder enterIhmStructAssemblyDetails() {
         return new MmCifCategoryBuilder.IhmStructAssemblyDetailsBuilder(this);
     }
 
-    public MmCifCategoryBuilder.IhmStructAssemblyClassListBuilder enterIhmStructAssemblyClassList() {
-        return new MmCifCategoryBuilder.IhmStructAssemblyClassListBuilder(this);
+    public MmCifCategoryBuilder.IhmStructAssemblyBuilder enterIhmStructAssembly() {
+        return new MmCifCategoryBuilder.IhmStructAssemblyBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmStructAssemblyClassBuilder enterIhmStructAssemblyClass() {
         return new MmCifCategoryBuilder.IhmStructAssemblyClassBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmStructAssemblyClassLinkBuilder enterIhmStructAssemblyClassLink() {
+        return new MmCifCategoryBuilder.IhmStructAssemblyClassLinkBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmModelingProtocolBuilder enterIhmModelingProtocol() {
         return new MmCifCategoryBuilder.IhmModelingProtocolBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmModelingProtocolDetailsBuilder enterIhmModelingProtocolDetails() {
+        return new MmCifCategoryBuilder.IhmModelingProtocolDetailsBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmMultiStateModelingBuilder enterIhmMultiStateModeling() {
         return new MmCifCategoryBuilder.IhmMultiStateModelingBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmMultiStateModelGroupLinkBuilder enterIhmMultiStateModelGroupLink() {
+        return new MmCifCategoryBuilder.IhmMultiStateModelGroupLinkBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmOrderedEnsembleBuilder enterIhmOrderedEnsemble() {
@@ -2304,8 +2296,20 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.IhmEnsembleInfoBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmEnsembleSubSampleBuilder enterIhmEnsembleSubSample() {
+        return new MmCifCategoryBuilder.IhmEnsembleSubSampleBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmModelListBuilder enterIhmModelList() {
         return new MmCifCategoryBuilder.IhmModelListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmModelGroupBuilder enterIhmModelGroup() {
+        return new MmCifCategoryBuilder.IhmModelGroupBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmModelGroupLinkBuilder enterIhmModelGroupLink() {
+        return new MmCifCategoryBuilder.IhmModelGroupLinkBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmModelRepresentativeBuilder enterIhmModelRepresentative() {
@@ -2318,6 +2322,10 @@ public class MmCifBlockBuilder extends BlockBuilder {
 
     public MmCifCategoryBuilder.IhmDatasetGroupBuilder enterIhmDatasetGroup() {
         return new MmCifCategoryBuilder.IhmDatasetGroupBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmDatasetGroupLinkBuilder enterIhmDatasetGroupLink() {
+        return new MmCifCategoryBuilder.IhmDatasetGroupLinkBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmRelatedDatasetsBuilder enterIhmRelatedDatasets() {
@@ -2352,12 +2360,40 @@ public class MmCifBlockBuilder extends BlockBuilder {
         return new MmCifCategoryBuilder.IhmHydroxylRadicalFpRestraintBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmChemicalComponentDescriptorBuilder enterIhmChemicalComponentDescriptor() {
+        return new MmCifCategoryBuilder.IhmChemicalComponentDescriptorBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmProbeListBuilder enterIhmProbeList() {
+        return new MmCifCategoryBuilder.IhmProbeListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmPolyProbePositionBuilder enterIhmPolyProbePosition() {
+        return new MmCifCategoryBuilder.IhmPolyProbePositionBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmPolyProbeConjugateBuilder enterIhmPolyProbeConjugate() {
+        return new MmCifCategoryBuilder.IhmPolyProbeConjugateBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmLigandProbeBuilder enterIhmLigandProbe() {
+        return new MmCifCategoryBuilder.IhmLigandProbeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmEprRestraintBuilder enterIhmEprRestraint() {
+        return new MmCifCategoryBuilder.IhmEprRestraintBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmCrossLinkListBuilder enterIhmCrossLinkList() {
         return new MmCifCategoryBuilder.IhmCrossLinkListBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmCrossLinkRestraintBuilder enterIhmCrossLinkRestraint() {
         return new MmCifCategoryBuilder.IhmCrossLinkRestraintBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmCrossLinkPseudoSiteBuilder enterIhmCrossLinkPseudoSite() {
+        return new MmCifCategoryBuilder.IhmCrossLinkPseudoSiteBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmCrossLinkResultBuilder enterIhmCrossLinkResult() {
@@ -2398,6 +2434,10 @@ public class MmCifBlockBuilder extends BlockBuilder {
 
     public MmCifCategoryBuilder.IhmGaussianObjEnsembleBuilder enterIhmGaussianObjEnsemble() {
         return new MmCifCategoryBuilder.IhmGaussianObjEnsembleBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmPseudoSiteBuilder enterIhmPseudoSite() {
+        return new MmCifCategoryBuilder.IhmPseudoSiteBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmResiduesNotModeledBuilder enterIhmResiduesNotModeled() {
@@ -2466,6 +2506,30 @@ public class MmCifBlockBuilder extends BlockBuilder {
 
     public MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder enterIhmGeometricObjectDistanceRestraint() {
         return new MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder enterPdbxEntityBranchLink() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityBranchBuilder enterPdbxEntityBranch() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxBranchSchemeBuilder enterPdbxBranchScheme() {
+        return new MmCifCategoryBuilder.PdbxBranchSchemeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompRelatedBuilder enterPdbxChemCompRelated() {
+        return new MmCifCategoryBuilder.PdbxChemCompRelatedBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
+        return new MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
     }
 
 }

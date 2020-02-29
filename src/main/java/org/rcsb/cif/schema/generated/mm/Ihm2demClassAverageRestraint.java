@@ -118,7 +118,7 @@ public class Ihm2demClassAverageRestraint extends DelegatingCategory {
     /**
      * An indicator to whether the whole assembly that is modeled is fit into the image
      * or if only a subset of the structural assembly is fit into the image.
-     * This data item is a pointer to _ihm_struct_assembly.assembly_id in the
+     * This data item is a pointer to _ihm_struct_assembly.id in the
      * IHM_STRUCT_ASSEMBLY category. The IHM_STRUCT_ASSEMBLY category provides the
      * details regarding the different structural assemblies used in the modeling.
      * The default value for this data item is "1" indicating that the entire assembly

@@ -45,6 +45,8 @@ public class IhmModelingPostProcess extends DelegatingCategory {
                 return getScriptFileId();
             case "software_id":
                 return getSoftwareId();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -61,7 +63,7 @@ public class IhmModelingPostProcess extends DelegatingCategory {
     /**
      * An identifier for the modeling protocol, whose post modeling analysis
      * is being carried out.
-     * This data item is a pointer to the _ihm_modeling_protocol.protocol_id
+     * This data item is a pointer to the _ihm_modeling_protocol.id
      * in the IHM_MODELING_PROTOCOL category.
      * @return IntColumn
      */
@@ -91,7 +93,7 @@ public class IhmModelingPostProcess extends DelegatingCategory {
      * An index for the structural assembly being processed.
      * This is an indicator to whether the whole assembly is processed
      * or if only a subset of the structural assembly is processed.
-     * This data item is a pointer to _ihm_struct_assembly.assembly_id in the
+     * This data item is a pointer to _ihm_struct_assembly.id in the
      * IHM_STRUCT_ASSEMBLY category.
      * @return IntColumn
      */
@@ -101,7 +103,7 @@ public class IhmModelingPostProcess extends DelegatingCategory {
 
     /**
      * An index for the dataset group being used in the post modeling process.
-     * This data item is a pointer to the _ihm_dataset_group.group_id in the
+     * This data item is a pointer to the _ihm_dataset_group.id in the
      * IHM_DATASET_GROUP category.
      * @return IntColumn
      */
@@ -166,5 +168,13 @@ public class IhmModelingPostProcess extends DelegatingCategory {
      */
     public IntColumn getSoftwareId() {
         return delegate.getColumn("software_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Additional details regarding post processing.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

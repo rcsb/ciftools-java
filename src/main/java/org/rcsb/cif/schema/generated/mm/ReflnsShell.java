@@ -87,6 +87,8 @@ public class ReflnsShell extends DelegatingCategory {
                 return getPdbxDiffrnId();
             case "pdbx_CC_half":
                 return getPdbxCCHalf();
+            case "pdbx_CC_star":
+                return getPdbxCCStar();
             case "pdbx_R_split":
                 return getPdbxRSplit();
             case "pdbx_redundancy_reflns_obs":
@@ -544,6 +546,20 @@ public class ReflnsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxCCHalf() {
         return delegate.getColumn("pdbx_CC_half", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Estimates the value of CC_true, the true correlation coefficient
+     * between the average intensities from randomly selected half-datasets
+     * within the resolution shell.
+     * 
+     * CC_star = sqrt(2*CC_half/(1+CC_half))
+     * 
+     * Ref: Karplus &amp; Diederichs (2012), Science 336, 1030-33
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCCStar() {
+        return delegate.getColumn("pdbx_CC_star", DelegatingFloatColumn::new);
     }
 
     /**

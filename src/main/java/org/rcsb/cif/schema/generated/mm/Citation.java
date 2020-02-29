@@ -147,7 +147,7 @@ public class Citation extends DelegatingCategory {
     }
 
     /**
-     * The country of publication; relevant for books
+     * The country/region of publication; relevant for books
      * and book chapters.
      * @return StrColumn
      */

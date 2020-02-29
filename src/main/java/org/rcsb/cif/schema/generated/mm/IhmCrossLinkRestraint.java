@@ -58,6 +58,8 @@ public class IhmCrossLinkRestraint extends DelegatingCategory {
                 return getSigma1();
             case "sigma_2":
                 return getSigma2();
+            case "pseudo_site_flag":
+                return getPseudoSiteFlag();
             default:
                 return new DelegatingColumn(column);
         }
@@ -247,5 +249,15 @@ public class IhmCrossLinkRestraint extends DelegatingCategory {
      */
     public FloatColumn getSigma2() {
         return delegate.getColumn("sigma_2", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * A flag indicating if the cross link involves a pseudo site that is
+     * not part of the model representation and hence will not be part
+     * of the model. However, it can be part of the input restraints.
+     * @return StrColumn
+     */
+    public StrColumn getPseudoSiteFlag() {
+        return delegate.getColumn("pseudo_site_flag", DelegatingStrColumn::new);
     }
 }

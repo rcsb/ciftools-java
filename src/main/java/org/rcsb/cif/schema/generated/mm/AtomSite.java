@@ -1018,12 +1018,12 @@ public class AtomSite extends DelegatingCategory {
     }
 
     /**
-     * A component of the identifier for this atom site.
-     * For further details, see the definition of the ATOM_SITE_ALT
-     * category.
-     * 
-     * This data item is a pointer to _atom_sites_alt.id in the
-     * ATOM_SITES_ALT category.
+     * A place holder to indicate alternate conformation. The alternate conformation
+     * can be an entire polymer chain, or several residues or
+     * partial residue (several atoms within one residue). If
+     * an atom is provided in more than one position, then a
+     * non-blank alternate location indicator must be used for
+     * each of the atomic positions.
      * @return StrColumn
      */
     public StrColumn getLabelAltId() {

@@ -50,8 +50,8 @@ public class IhmGeometricObjectDistanceRestraint extends DelegatingCategory {
                 return getDistanceProbability();
             case "dataset_list_id":
                 return getDatasetListId();
-            case "other_details":
-                return getOtherDetails();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -175,7 +175,7 @@ public class IhmGeometricObjectDistanceRestraint extends DelegatingCategory {
      * _ihm_geometric_object_distance_restraint.object_characteristic is "other".
      * @return StrColumn
      */
-    public StrColumn getOtherDetails() {
-        return delegate.getColumn("other_details", DelegatingStrColumn::new);
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

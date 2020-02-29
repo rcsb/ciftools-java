@@ -198,7 +198,7 @@ public class PdbxContactAuthor extends DelegatingCategory {
     }
 
     /**
-     * The country of the author of the data block to whom
+     * The country/region of the author of the data block to whom
      * correspondence should be addressed.
      * @return StrColumn
      */

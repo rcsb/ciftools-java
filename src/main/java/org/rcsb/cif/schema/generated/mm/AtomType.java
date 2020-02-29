@@ -67,6 +67,10 @@ public class AtomType extends DelegatingCategory {
                 return getPdbxScatCromerMannA5();
             case "pdbx_scat_Cromer_Mann_b5":
                 return getPdbxScatCromerMannB5();
+            case "pdbx_scat_Z":
+                return getPdbxScatZ();
+            case "pdbx_N_electrons":
+                return getPdbxNElectrons();
             default:
                 return new DelegatingColumn(column);
         }
@@ -358,5 +362,21 @@ public class AtomType extends DelegatingCategory {
      */
     public FloatColumn getPdbxScatCromerMannB5() {
         return delegate.getColumn("pdbx_scat_Cromer_Mann_b5", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Atomic number of atom in scattering amplitude.
+     * @return IntColumn
+     */
+    public IntColumn getPdbxScatZ() {
+        return delegate.getColumn("pdbx_scat_Z", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Number of electrons in atom used in scattering factor
+     * @return IntColumn
+     */
+    public IntColumn getPdbxNElectrons() {
+        return delegate.getColumn("pdbx_N_electrons", DelegatingIntColumn::new);
     }
 }

@@ -38,6 +38,8 @@ public class IhmExternalReferenceInfo extends DelegatingCategory {
                 return getRefersTo();
             case "associated_url":
                 return getAssociatedUrl();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -95,5 +97,13 @@ public class IhmExternalReferenceInfo extends DelegatingCategory {
      */
     public StrColumn getAssociatedUrl() {
         return delegate.getColumn("associated_url", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Additional details regarding the external reference.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

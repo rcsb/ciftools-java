@@ -79,7 +79,8 @@ public class IhmHydroxylRadicalFpRestraint extends DelegatingCategory {
 
     /**
      * The entity identifier.
-     * This data item is a pointer to _entity.id in the ENTITY category.
+     * This data item is a pointer to _entity_poly_seq.entity_id in the
+     * ENTITY_POLY_SEQ category.
      * @return StrColumn
      */
     public StrColumn getEntityId() {

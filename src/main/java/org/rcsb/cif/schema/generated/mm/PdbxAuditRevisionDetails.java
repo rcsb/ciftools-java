@@ -31,6 +31,8 @@ public class PdbxAuditRevisionDetails extends DelegatingCategory {
                 return getType();
             case "description":
                 return getDescription();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -82,5 +84,13 @@ public class PdbxAuditRevisionDetails extends DelegatingCategory {
      */
     public StrColumn getDescription() {
         return delegate.getColumn("description", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Further details describing the revision.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

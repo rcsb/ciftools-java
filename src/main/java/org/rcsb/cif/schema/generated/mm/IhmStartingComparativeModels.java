@@ -19,8 +19,8 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "ordinal_id":
-                return getOrdinalId();
+            case "id":
+                return getId();
             case "starting_model_id":
                 return getStartingModelId();
             case "starting_model_auth_asym_id":
@@ -43,6 +43,8 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
                 return getTemplateDatasetListId();
             case "alignment_file_id":
                 return getAlignmentFileId();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -52,8 +54,8 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
      * A unique identifier for the starting comparative model.
      * @return IntColumn
      */
-    public IntColumn getOrdinalId() {
-        return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**
@@ -148,5 +150,13 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
      */
     public IntColumn getAlignmentFileId() {
         return delegate.getColumn("alignment_file_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Additional details regarding the starting comparative models.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 }

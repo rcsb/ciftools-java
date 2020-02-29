@@ -29,10 +29,8 @@ public class IhmLocalizationDensityFiles extends DelegatingCategory {
                 return getEnsembleId();
             case "entity_id":
                 return getEntityId();
-            case "seq_id_begin":
-                return getSeqIdBegin();
-            case "seq_id_end":
-                return getSeqIdEnd();
+            case "entity_poly_segment_id":
+                return getEntityPolySegmentId();
             case "asym_id":
                 return getAsymId();
             default:
@@ -77,21 +75,14 @@ public class IhmLocalizationDensityFiles extends DelegatingCategory {
     }
 
     /**
-     * The leading sequence index corresponding to this localization density.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY category.
+     * The identifier for the polymeric segment corresponding to this
+     * localization density.
+     * This data item is a pointer to _ihm_entity_poly_segment.id in the
+     * IHM_ENTITY_POLY_SEGMENT category.
      * @return IntColumn
      */
-    public IntColumn getSeqIdBegin() {
-        return delegate.getColumn("seq_id_begin", DelegatingIntColumn::new);
-    }
-
-    /**
-     * The trailing sequence index corresponding to this localization density.
-     * This data item is a pointer to _entity_poly_seq.num in the ENTITY_POLY category.
-     * @return IntColumn
-     */
-    public IntColumn getSeqIdEnd() {
-        return delegate.getColumn("seq_id_end", DelegatingIntColumn::new);
+    public IntColumn getEntityPolySegmentId() {
+        return delegate.getColumn("entity_poly_segment_id", DelegatingIntColumn::new);
     }
 
     /**

@@ -116,10 +116,28 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
                 return getStatusCodeCs();
             case "date_of_cs_release":
                 return getDateOfCsRelease();
+            case "date_nmr_data":
+                return getDateNmrData();
+            case "date_hold_nmr_data":
+                return getDateHoldNmrData();
+            case "date_of_nmr_data_release":
+                return getDateOfNmrDataRelease();
+            case "dep_release_code_nmr_data":
+                return getDepReleaseCodeNmrData();
+            case "recvd_nmr_data":
+                return getRecvdNmrData();
+            case "status_code_nmr_data":
+                return getStatusCodeNmrData();
             case "methods_development_category":
                 return getMethodsDevelopmentCategory();
             case "pdb_format_compatible":
                 return getPdbFormatCompatible();
+            case "post_rel_status":
+                return getPostRelStatus();
+            case "post_rel_recvd_coord":
+                return getPostRelRecvdCoord();
+            case "post_rel_recvd_coord_date":
+                return getPostRelRecvdCoordDate();
             case "auth_req_rel_date":
                 return getAuthReqRelDate();
             case "ndb_tid":
@@ -583,6 +601,59 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
+     * The date the unified NMR data are received.
+     * @return StrColumn
+     */
+    public StrColumn getDateNmrData() {
+        return delegate.getColumn("date_nmr_data", DelegatingStrColumn::new);
+    }
+
+    /**
+     * At an author's request, the unified NMR data may be held after
+     * processing for some period of time.
+     * @return StrColumn
+     */
+    public StrColumn getDateHoldNmrData() {
+        return delegate.getColumn("date_hold_nmr_data", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The date of PDB release.  This corresponds to the date
+     * at which the unified NMR data are placed into the public archive.
+     * @return StrColumn
+     */
+    public StrColumn getDateOfNmrDataRelease() {
+        return delegate.getColumn("date_of_nmr_data_release", DelegatingStrColumn::new);
+    }
+
+    /**
+     * 
+     * The deposited unified NMR data for this deposition will be released according
+     * the value of this item.
+     * @return StrColumn
+     */
+    public StrColumn getDepReleaseCodeNmrData() {
+        return delegate.getColumn("dep_release_code_nmr_data", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This code indicates whether the unified NMR data for an entry
+     * have been received.
+     * @return StrColumn
+     */
+    public StrColumn getRecvdNmrData() {
+        return delegate.getColumn("recvd_nmr_data", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Code for status of unified NMR data file.
+     * @return StrColumn
+     */
+    public StrColumn getStatusCodeNmrData() {
+        return delegate.getColumn("status_code_nmr_data", DelegatingStrColumn::new);
+    }
+
+    /**
      * The methods development category in which this
      * entry has been placed.
      * @return StrColumn
@@ -600,6 +671,30 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
      */
     public StrColumn getPdbFormatCompatible() {
         return delegate.getColumn("pdb_format_compatible", DelegatingStrColumn::new);
+    }
+
+    /**
+     * For author initiated replacement, the current status of the replacement entry
+     * @return StrColumn
+     */
+    public StrColumn getPostRelStatus() {
+        return delegate.getColumn("post_rel_status", DelegatingStrColumn::new);
+    }
+
+    /**
+     * For author initiated replacement, indicates if new coordinates have been provided
+     * @return StrColumn
+     */
+    public StrColumn getPostRelRecvdCoord() {
+        return delegate.getColumn("post_rel_recvd_coord", DelegatingStrColumn::new);
+    }
+
+    /**
+     * For author initiated replacement, date new coordinates have been provided
+     * @return StrColumn
+     */
+    public StrColumn getPostRelRecvdCoordDate() {
+        return delegate.getColumn("post_rel_recvd_coord_date", DelegatingStrColumn::new);
     }
 
     /**

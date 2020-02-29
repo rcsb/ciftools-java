@@ -528,6 +528,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxStructRefSeqFeatureProp();
             case "pdbx_struct_chem_comp_diagnostics":
                 return getPdbxStructChemCompDiagnostics();
+            case "pdbx_chem_comp_synonyms":
+                return getPdbxChemCompSynonyms();
             case "pdbx_chem_comp_feature":
                 return getPdbxChemCompFeature();
             case "pdbx_coordinate_model":
@@ -714,8 +716,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxLinkedEntityList();
             case "pdbx_linked_entity_link_list":
                 return getPdbxLinkedEntityLinkList();
-            case "pdbx_entity_descriptor":
-                return getPdbxEntityDescriptor();
+            case "pdbx_entity_branch_descriptor":
+                return getPdbxEntityBranchDescriptor();
             case "pdbx_reference_linked_entity":
                 return getPdbxReferenceLinkedEntity();
             case "pdbx_reference_linked_entity_comp_list":
@@ -1122,20 +1124,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxSerialCrystallographySampleDeliveryFixedTarget();
             case "pdbx_serial_crystallography_data_reduction":
                 return getPdbxSerialCrystallographyDataReduction();
-            case "pdbx_chem_comp_synonyms":
-                return getPdbxChemCompSynonyms();
-            case "pdbx_chem_comp_related":
-                return getPdbxChemCompRelated();
-            case "pdbx_chem_comp_atom_related":
-                return getPdbxChemCompAtomRelated();
-            case "pdbx_entity_branch_list":
-                return getPdbxEntityBranchList();
-            case "pdbx_entity_branch_link":
-                return getPdbxEntityBranchLink();
-            case "pdbx_entity_branch":
-                return getPdbxEntityBranch();
-            case "pdbx_branch_scheme":
-                return getPdbxBranchScheme();
+            case "ihm_entity_poly_segment":
+                return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
                 return getIhmStartingModelDetails();
             case "ihm_starting_comparative_models":
@@ -1146,32 +1136,46 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmStartingModelSeqDif();
             case "ihm_model_representation":
                 return getIhmModelRepresentation();
-            case "ihm_struct_assembly":
-                return getIhmStructAssembly();
+            case "ihm_model_representation_details":
+                return getIhmModelRepresentationDetails();
             case "ihm_struct_assembly_details":
                 return getIhmStructAssemblyDetails();
-            case "ihm_struct_assembly_class_list":
-                return getIhmStructAssemblyClassList();
+            case "ihm_struct_assembly":
+                return getIhmStructAssembly();
             case "ihm_struct_assembly_class":
                 return getIhmStructAssemblyClass();
+            case "ihm_struct_assembly_class_link":
+                return getIhmStructAssemblyClassLink();
             case "ihm_modeling_protocol":
                 return getIhmModelingProtocol();
+            case "ihm_modeling_protocol_details":
+                return getIhmModelingProtocolDetails();
             case "ihm_multi_state_modeling":
                 return getIhmMultiStateModeling();
+            case "ihm_multi_state_model_group_link":
+                return getIhmMultiStateModelGroupLink();
             case "ihm_ordered_ensemble":
                 return getIhmOrderedEnsemble();
             case "ihm_modeling_post_process":
                 return getIhmModelingPostProcess();
             case "ihm_ensemble_info":
                 return getIhmEnsembleInfo();
+            case "ihm_ensemble_sub_sample":
+                return getIhmEnsembleSubSample();
             case "ihm_model_list":
                 return getIhmModelList();
+            case "ihm_model_group":
+                return getIhmModelGroup();
+            case "ihm_model_group_link":
+                return getIhmModelGroupLink();
             case "ihm_model_representative":
                 return getIhmModelRepresentative();
             case "ihm_dataset_list":
                 return getIhmDatasetList();
             case "ihm_dataset_group":
                 return getIhmDatasetGroup();
+            case "ihm_dataset_group_link":
+                return getIhmDatasetGroupLink();
             case "ihm_related_datasets":
                 return getIhmRelatedDatasets();
             case "ihm_dataset_related_db_reference":
@@ -1188,10 +1192,24 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmPredictedContactRestraint();
             case "ihm_hydroxyl_radical_fp_restraint":
                 return getIhmHydroxylRadicalFpRestraint();
+            case "ihm_chemical_component_descriptor":
+                return getIhmChemicalComponentDescriptor();
+            case "ihm_probe_list":
+                return getIhmProbeList();
+            case "ihm_poly_probe_position":
+                return getIhmPolyProbePosition();
+            case "ihm_poly_probe_conjugate":
+                return getIhmPolyProbeConjugate();
+            case "ihm_ligand_probe":
+                return getIhmLigandProbe();
+            case "ihm_epr_restraint":
+                return getIhmEprRestraint();
             case "ihm_cross_link_list":
                 return getIhmCrossLinkList();
             case "ihm_cross_link_restraint":
                 return getIhmCrossLinkRestraint();
+            case "ihm_cross_link_pseudo_site":
+                return getIhmCrossLinkPseudoSite();
             case "ihm_cross_link_result":
                 return getIhmCrossLinkResult();
             case "ihm_cross_link_result_parameters":
@@ -1212,6 +1230,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmGaussianObjSite();
             case "ihm_gaussian_obj_ensemble":
                 return getIhmGaussianObjEnsemble();
+            case "ihm_pseudo_site":
+                return getIhmPseudoSite();
             case "ihm_residues_not_modeled":
                 return getIhmResiduesNotModeled();
             case "ihm_feature_list":
@@ -1246,6 +1266,18 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmGeometricObjectPlane();
             case "ihm_geometric_object_distance_restraint":
                 return getIhmGeometricObjectDistanceRestraint();
+            case "pdbx_entity_branch_list":
+                return getPdbxEntityBranchList();
+            case "pdbx_entity_branch_link":
+                return getPdbxEntityBranchLink();
+            case "pdbx_entity_branch":
+                return getPdbxEntityBranch();
+            case "pdbx_branch_scheme":
+                return getPdbxBranchScheme();
+            case "pdbx_chem_comp_related":
+                return getPdbxChemCompRelated();
+            case "pdbx_chem_comp_atom_related":
+                return getPdbxChemCompAtomRelated();
             default:
                 return new DelegatingCategory.NOPDelegatingCategory(category);
         }
@@ -4204,6 +4236,14 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * PDBX_CHEM_COMP_SYNONYMS holds chemical name and synonym correspondences.
+     * @return PdbxChemCompSynonyms
+     */
+    public PdbxChemCompSynonyms getPdbxChemCompSynonyms() {
+        return delegate.getCategory("pdbx_chem_comp_synonyms", PdbxChemCompSynonyms::new);
+    }
+
+    /**
      * Additional features associated with the chemical component.
      * @return PdbxChemCompFeature
      */
@@ -5116,12 +5156,12 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the PDBX_ENTITY_DESCRIPTOR category provide
+     * Data items in the PDBX_ENTITY_BRANCH_DESCRIPTOR category provide
      * string descriptors of entity chemical structure.
-     * @return PdbxEntityDescriptor
+     * @return PdbxEntityBranchDescriptor
      */
-    public PdbxEntityDescriptor getPdbxEntityDescriptor() {
-        return delegate.getCategory("pdbx_entity_descriptor", PdbxEntityDescriptor::new);
+    public PdbxEntityBranchDescriptor getPdbxEntityBranchDescriptor() {
+        return delegate.getCategory("pdbx_entity_branch_descriptor", PdbxEntityBranchDescriptor::new);
     }
 
     /**
@@ -7020,67 +7060,12 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * PDBX_CHEM_COMP_SYNONYMS holds chemical name and synonym correspondences.
-     * @return PdbxChemCompSynonyms
+     * Data items in the IHM_ENTITY_POLY_SEGMENT category identifies
+     * segments of polymeric entities.
+     * @return IhmEntityPolySegment
      */
-    public PdbxChemCompSynonyms getPdbxChemCompSynonyms() {
-        return delegate.getCategory("pdbx_chem_comp_synonyms", PdbxChemCompSynonyms::new);
-    }
-
-    /**
-     * PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.
-     * @return PdbxChemCompRelated
-     */
-    public PdbxChemCompRelated getPdbxChemCompRelated() {
-        return delegate.getCategory("pdbx_chem_comp_related", PdbxChemCompRelated::new);
-    }
-
-    /**
-     * PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.
-     * @return PdbxChemCompAtomRelated
-     */
-    public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
-        return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
-     * of monomers in a branched entity.  Allowance is made for the possibility
-     * of microheterogeneity in a sample by allowing a given sequence
-     * number to be correlated with more than one monomer ID. The
-     * corresponding ATOM_SITE entries should reflect this
-     * heterogeneity.
-     * @return PdbxEntityBranchList
-     */
-    public PdbxEntityBranchList getPdbxEntityBranchList() {
-        return delegate.getCategory("pdbx_entity_branch_list", PdbxEntityBranchList::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
-     * the linkages between components within a branched entity.
-     * @return PdbxEntityBranchLink
-     */
-    public PdbxEntityBranchLink getPdbxEntityBranchLink() {
-        return delegate.getCategory("pdbx_entity_branch_link", PdbxEntityBranchLink::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH category specify the list
-     * of branched entities and the type.
-     * @return PdbxEntityBranch
-     */
-    public PdbxEntityBranch getPdbxEntityBranch() {
-        return delegate.getCategory("pdbx_entity_branch", PdbxEntityBranch::new);
-    }
-
-    /**
-     * The PDBX_BRANCH_SCHEME category provides residue level nomenclature
-     * mapping for branch chain entities.
-     * @return PdbxBranchScheme
-     */
-    public PdbxBranchScheme getPdbxBranchScheme() {
-        return delegate.getCategory("pdbx_branch_scheme", PdbxBranchScheme::new);
+    public IhmEntityPolySegment getIhmEntityPolySegment() {
+        return delegate.getCategory("ihm_entity_poly_segment", IhmEntityPolySegment::new);
     }
 
     /**
@@ -7128,10 +7113,9 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the IHM_MODEL_REPRESENTATION category records the
-     * details about the architecture and representation of structural
-     * models created by the integrative model building tasks. This
-     * category handles the multi-scale model representation, if employed.
+     * Data items in the IHM_MODEL_REPRESENTATION category lists the
+     * various mono or multi-scale model representations used in the
+     * integrative modeling study.
      * @return IhmModelRepresentation
      */
     public IhmModelRepresentation getIhmModelRepresentation() {
@@ -7139,18 +7123,19 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the IHM_STRUCT_ASSEMBLY category records the
-     * details of the structural assemblies and used in the
-     * IHM modeling.
-     * @return IhmStructAssembly
+     * Data items in the IHM_MODEL_REPRESENTATION_DETAILS category records the
+     * details about the architecture and representation of structural
+     * models involved in the integrative modeling study.
+     * @return IhmModelRepresentationDetails
      */
-    public IhmStructAssembly getIhmStructAssembly() {
-        return delegate.getCategory("ihm_struct_assembly", IhmStructAssembly::new);
+    public IhmModelRepresentationDetails getIhmModelRepresentationDetails() {
+        return delegate.getCategory("ihm_model_representation_details", IhmModelRepresentationDetails::new);
     }
 
     /**
-     * Data items in the IHM_STRUCT_ASSEMBLY_DETAILS category provides
-     * additional details regarding the structure assembly.
+     * Data items in the IHM_STRUCT_ASSEMBLY_DETAILS category records
+     * the details of the structural assemblies and used in the
+     * integrative modeling.
      * @return IhmStructAssemblyDetails
      */
     public IhmStructAssemblyDetails getIhmStructAssemblyDetails() {
@@ -7158,21 +7143,20 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS_LIST category lists
-     * all the structural assembly classes relevant to the entry. This
-     * category provides a mechanism to define classes of the
-     * structural assemblies.
-     * @return IhmStructAssemblyClassList
+     * Data items in the IHM_STRUCT_ASSEMBLY category lists
+     * all the structural assemblies used in the integrative
+     * modeling study.
+     * @return IhmStructAssembly
      */
-    public IhmStructAssemblyClassList getIhmStructAssemblyClassList() {
-        return delegate.getCategory("ihm_struct_assembly_class_list", IhmStructAssemblyClassList::new);
+    public IhmStructAssembly getIhmStructAssembly() {
+        return delegate.getCategory("ihm_struct_assembly", IhmStructAssembly::new);
     }
 
     /**
-     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS category provides
-     * details regarding the structural assembly classes. This
-     * category provides a mechanism to identify the classes to which
-     * structural assemblies belong.
+     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS category lists
+     * all the structural assembly classes relevant to the entry. This
+     * category provides a mechanism to define classes of the
+     * structural assemblies.
      * @return IhmStructAssemblyClass
      */
     public IhmStructAssemblyClass getIhmStructAssemblyClass() {
@@ -7180,12 +7164,32 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the IHM_MODELING_PROTOCOL category records the
-     * step-wise details of the integrative modeling workflow.
+     * Data items in the IHM_STRUCT_ASSEMBLY_CLASS_LINK category provides
+     * details regarding the structural assembly classes. This
+     * category provides a mechanism to identify the classes to which
+     * structural assemblies belong.
+     * @return IhmStructAssemblyClassLink
+     */
+    public IhmStructAssemblyClassLink getIhmStructAssemblyClassLink() {
+        return delegate.getCategory("ihm_struct_assembly_class_link", IhmStructAssemblyClassLink::new);
+    }
+
+    /**
+     * Data items in the IHM_MODELING_PROTOCOL category lists all
+     * modeling protocols used in the integrative modeling study.
      * @return IhmModelingProtocol
      */
     public IhmModelingProtocol getIhmModelingProtocol() {
         return delegate.getCategory("ihm_modeling_protocol", IhmModelingProtocol::new);
+    }
+
+    /**
+     * Data items in the IHM_MODELING_PROTOCOL_DETAILS category records the
+     * step-wise details of the integrative modeling workflow.
+     * @return IhmModelingProtocolDetails
+     */
+    public IhmModelingProtocolDetails getIhmModelingProtocolDetails() {
+        return delegate.getCategory("ihm_modeling_protocol_details", IhmModelingProtocolDetails::new);
     }
 
     /**
@@ -7195,6 +7199,15 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmMultiStateModeling getIhmMultiStateModeling() {
         return delegate.getCategory("ihm_multi_state_modeling", IhmMultiStateModeling::new);
+    }
+
+    /**
+     * IHM_MULTI_STATE_MODEL_GROUP_LINK category provides the list of models groups
+     * corresponding to a particular state.
+     * @return IhmMultiStateModelGroupLink
+     */
+    public IhmMultiStateModelGroupLink getIhmMultiStateModelGroupLink() {
+        return delegate.getCategory("ihm_multi_state_model_group_link", IhmMultiStateModelGroupLink::new);
     }
 
     /**
@@ -7229,12 +7242,39 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_ENSEMBLE_SUB_SAMPLE category records the
+     * details of the sub samples within the ensembles.
+     * @return IhmEnsembleSubSample
+     */
+    public IhmEnsembleSubSample getIhmEnsembleSubSample() {
+        return delegate.getCategory("ihm_ensemble_sub_sample", IhmEnsembleSubSample::new);
+    }
+
+    /**
      * Data items in the IHM_MODEL_LIST category record the
      * details of the models being deposited.
      * @return IhmModelList
      */
     public IhmModelList getIhmModelList() {
         return delegate.getCategory("ihm_model_list", IhmModelList::new);
+    }
+
+    /**
+     * IHM_MODEL_GROUP category defines collections or groups of integrative
+     * structural models.
+     * @return IhmModelGroup
+     */
+    public IhmModelGroup getIhmModelGroup() {
+        return delegate.getCategory("ihm_model_group", IhmModelGroup::new);
+    }
+
+    /**
+     * IHM_MODEL_GROUP_LINK category provides the list of models present in
+     * a particular model group.
+     * @return IhmModelGroupLink
+     */
+    public IhmModelGroupLink getIhmModelGroupLink() {
+        return delegate.getCategory("ihm_model_group_link", IhmModelGroupLink::new);
     }
 
     /**
@@ -7261,11 +7301,20 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Category provides a mechanism to group datasets.
+     * Category to define groups or collections of input datasets.
      * @return IhmDatasetGroup
      */
     public IhmDatasetGroup getIhmDatasetGroup() {
         return delegate.getCategory("ihm_dataset_group", IhmDatasetGroup::new);
+    }
+
+    /**
+     * IHM_DATASET_GROUP_LINK category provides the list of datasets present in
+     * a particular group.
+     * @return IhmDatasetGroupLink
+     */
+    public IhmDatasetGroupLink getIhmDatasetGroupLink() {
+        return delegate.getCategory("ihm_dataset_group_link", IhmDatasetGroupLink::new);
     }
 
     /**
@@ -7360,6 +7409,65 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_CHEMICAL_COMPONENT_DESCRIPTOR category records the
+     * details of the chemical descriptors of various non-polymeric
+     * chemical components (fluorescent probes, crosslinking agents etc.)
+     * used in the experiments.
+     * @return IhmChemicalComponentDescriptor
+     */
+    public IhmChemicalComponentDescriptor getIhmChemicalComponentDescriptor() {
+        return delegate.getCategory("ihm_chemical_component_descriptor", IhmChemicalComponentDescriptor::new);
+    }
+
+    /**
+     * Data items in the IHM_PROBE_LIST category records the
+     * list of probes used in the experiment.
+     * @return IhmProbeList
+     */
+    public IhmProbeList getIhmProbeList() {
+        return delegate.getCategory("ihm_probe_list", IhmProbeList::new);
+    }
+
+    /**
+     * Data items in the IHM_POLY_PROBE_POSITION category identifies
+     * specific residue positions in the polymeric entity where probes
+     * are covalently attached.
+     * @return IhmPolyProbePosition
+     */
+    public IhmPolyProbePosition getIhmPolyProbePosition() {
+        return delegate.getCategory("ihm_poly_probe_position", IhmPolyProbePosition::new);
+    }
+
+    /**
+     * Data items in the IHM_POLY_PROBE_CONJUGATE category records the
+     * details of the probes that are covalenty attached to residues in the
+     * polymeric entities.
+     * @return IhmPolyProbeConjugate
+     */
+    public IhmPolyProbeConjugate getIhmPolyProbeConjugate() {
+        return delegate.getCategory("ihm_poly_probe_conjugate", IhmPolyProbeConjugate::new);
+    }
+
+    /**
+     * Data items in the IHM_LIGAND_PROBE category identifies
+     * non-polymeric entities (ligands) that are used as probes.
+     * @return IhmLigandProbe
+     */
+    public IhmLigandProbe getIhmLigandProbe() {
+        return delegate.getCategory("ihm_ligand_probe", IhmLigandProbe::new);
+    }
+
+    /**
+     * Data items in the IHM_EPR_RESTRAINT category records the
+     * details of the EPR data used as restraints in the
+     * IHM modeling.
+     * @return IhmEprRestraint
+     */
+    public IhmEprRestraint getIhmEprRestraint() {
+        return delegate.getCategory("ihm_epr_restraint", IhmEprRestraint::new);
+    }
+
+    /**
      * Data items in the IHM_CROSS_LINK_LIST category records the
      * list of spatial restraints derived from chemical crosslinking
      * experiment.
@@ -7378,6 +7486,15 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmCrossLinkRestraint getIhmCrossLinkRestraint() {
         return delegate.getCategory("ihm_cross_link_restraint", IhmCrossLinkRestraint::new);
+    }
+
+    /**
+     * Data items in the IHM_CROSS_LINK_PSEUDO_SITE category records the
+     * details of the pseudo sites involved in the cross links.
+     * @return IhmCrossLinkPseudoSite
+     */
+    public IhmCrossLinkPseudoSite getIhmCrossLinkPseudoSite() {
+        return delegate.getCategory("ihm_cross_link_pseudo_site", IhmCrossLinkPseudoSite::new);
     }
 
     /**
@@ -7488,6 +7605,15 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_PSEUDO_SITE_FEATURE category records the details
+     * of pseudo sites that may be used in the restraints or model representation.
+     * @return IhmPseudoSite
+     */
+    public IhmPseudoSite getIhmPseudoSite() {
+        return delegate.getCategory("ihm_pseudo_site", IhmPseudoSite::new);
+    }
+
+    /**
      * Data items in the IHM_RESIDUES_NOT_MODELED category record the
      * details of the residues that are defined in the
      * IHM_STRUCT_ASSEMBLY category but are missing in the
@@ -7511,7 +7637,7 @@ public class MmCifBlock extends DelegatingBlock {
 
     /**
      * Data items in the IHM_PSEUDO_SITE_FEATURE category records the details
-     * of pseudo positions for the features listed in IHM_FEATURE_LIST.
+     * of pseudo site features listed in IHM_FEATURE_LIST.
      * @return IhmPseudoSiteFeature
      */
     public IhmPseudoSiteFeature getIhmPseudoSiteFeature() {
@@ -7657,5 +7783,61 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint() {
         return delegate.getCategory("ihm_geometric_object_distance_restraint", IhmGeometricObjectDistanceRestraint::new);
+    }
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
+     * of monomers in a branched entity.  Allowance is made for the possibility
+     * of microheterogeneity in a sample by allowing a given sequence
+     * number to be correlated with more than one monomer ID. The
+     * corresponding ATOM_SITE entries should reflect this
+     * heterogeneity.
+     * @return PdbxEntityBranchList
+     */
+    public PdbxEntityBranchList getPdbxEntityBranchList() {
+        return delegate.getCategory("pdbx_entity_branch_list", PdbxEntityBranchList::new);
+    }
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
+     * the linkages between components within a branched entity.
+     * @return PdbxEntityBranchLink
+     */
+    public PdbxEntityBranchLink getPdbxEntityBranchLink() {
+        return delegate.getCategory("pdbx_entity_branch_link", PdbxEntityBranchLink::new);
+    }
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH category specify the list
+     * of branched entities and the type.
+     * @return PdbxEntityBranch
+     */
+    public PdbxEntityBranch getPdbxEntityBranch() {
+        return delegate.getCategory("pdbx_entity_branch", PdbxEntityBranch::new);
+    }
+
+    /**
+     * The PDBX_BRANCH_SCHEME category provides residue level nomenclature
+     * mapping for branch chain entities.
+     * @return PdbxBranchScheme
+     */
+    public PdbxBranchScheme getPdbxBranchScheme() {
+        return delegate.getCategory("pdbx_branch_scheme", PdbxBranchScheme::new);
+    }
+
+    /**
+     * PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.
+     * @return PdbxChemCompRelated
+     */
+    public PdbxChemCompRelated getPdbxChemCompRelated() {
+        return delegate.getCategory("pdbx_chem_comp_related", PdbxChemCompRelated::new);
+    }
+
+    /**
+     * PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.
+     * @return PdbxChemCompAtomRelated
+     */
+    public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
+        return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
     }
 }
