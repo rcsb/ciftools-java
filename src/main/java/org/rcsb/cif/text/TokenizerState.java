@@ -18,6 +18,8 @@ class TokenizerState {
 
     private int position;
     private boolean isEscaped;
+    private boolean isImportGet;
+    private boolean isSaveFrame;
 
     private int lineNumber;
     private CifTokenType tokenType;
@@ -26,14 +28,17 @@ class TokenizerState {
 
     TokenizerState(String data) {
         this.data = data;
+        this.length = data.length();
 
         this.position = 0;
-        this.length = data.length();
+        this.isEscaped = false;
+        this.isImportGet = false;
+        this.isSaveFrame = false;
+
+        this.lineNumber = 1;
+        this.tokenType = CifTokenType.END;
         this.tokenStart = 0;
         this.tokenEnd = 0;
-        this.tokenType = CifTokenType.END;
-        this.lineNumber = 1;
-        this.isEscaped = false;
     }
 
     CifTokenType getTokenType() {
@@ -138,6 +143,21 @@ class TokenizerState {
         tokenEnd = position;
     }
 
+    private void eatImportGet() {
+        // _import.get [{'save':orient_matrix  'file':templ_attr.cif}]
+        // skipWhitespace(state)
+        while (position < length) {
+            if (data.charAt(position) == ']') {
+                position++;
+                tokenEnd = position;
+                isImportGet = false;
+                return;
+            } else {
+                position++;
+            }
+        }
+    }
+
     /**
      * Eats a multiline token of the form NL;....NL;
      */
@@ -240,6 +260,14 @@ class TokenizerState {
         return "loop".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 4));
     }
 
+    private boolean isImportGet() {
+        try {
+            return "import.get".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 11));
+        } catch (IndexOutOfBoundsException e) {
+            return false;
+        }
+    }
+
     private boolean isTripleQuoteAtPosition() {
         return "'''".equals(data.substring(tokenStart, tokenStart + 3));
     }
@@ -328,12 +356,20 @@ class TokenizerState {
                 tokenType = CifTokenType.VALUE;
                 break;
             default:
-                eatValue();
+                if (isImportGet) {
+                    eatImportGet();
+                } else {
+                    eatValue();
+                }
+
                 // escaped is always Value
                 if (isEscaped) {
                     tokenType = CifTokenType.VALUE;
-                    // _ always means column name
+                    // _ always means column name, including _import.get
                 } else if (data.charAt(tokenStart) == '_') {
+                    if (isSaveFrame && isImportGet()) {
+                        isImportGet = true;
+                    }
                     tokenType = CifTokenType.COLUMN_NAME;
                     // 5th char needs to be _ for data_ or loop_
                 } else if (tokenEnd - tokenStart >= 5 && data.charAt(tokenStart + 4) == '_') {
