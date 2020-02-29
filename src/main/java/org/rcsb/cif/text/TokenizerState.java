@@ -19,7 +19,7 @@ class TokenizerState {
     private int position;
     private boolean isEscaped;
     private boolean isImportGet;
-    private boolean isSaveFrame;
+    boolean inSaveFrame;
 
     private int lineNumber;
     private CifTokenType tokenType;
@@ -33,7 +33,7 @@ class TokenizerState {
         this.position = 0;
         this.isEscaped = false;
         this.isImportGet = false;
-        this.isSaveFrame = false;
+        this.inSaveFrame = false;
 
         this.lineNumber = 1;
         this.tokenType = CifTokenType.END;
@@ -135,6 +135,7 @@ class TokenizerState {
                 tokenEnd = position;
                 isEscaped = true;
                 position += 3;
+                return;
             }
 
             position++;
@@ -262,14 +263,18 @@ class TokenizerState {
 
     private boolean isImportGet() {
         try {
-            return "import.get".equalsIgnoreCase(data.substring(tokenStart, tokenStart + 11));
+            return "import.get".equalsIgnoreCase(data.substring(tokenStart + 1, tokenStart + 11));
         } catch (IndexOutOfBoundsException e) {
             return false;
         }
     }
 
     private boolean isTripleQuoteAtPosition() {
-        return "'''".equals(data.substring(tokenStart, tokenStart + 3));
+        if (length - position < 2) {
+            return false;
+        }
+        if (data.charAt(position + 1) != 39) return false; // '
+        return data.charAt(position + 2) == 39; // '
     }
 
     /**
@@ -367,7 +372,7 @@ class TokenizerState {
                     tokenType = CifTokenType.VALUE;
                     // _ always means column name, including _import.get
                 } else if (data.charAt(tokenStart) == '_') {
-                    if (isSaveFrame && isImportGet()) {
+                    if (inSaveFrame && isImportGet()) {
                         isImportGet = true;
                     }
                     tokenType = CifTokenType.COLUMN_NAME;

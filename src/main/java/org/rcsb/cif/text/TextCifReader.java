@@ -40,8 +40,6 @@ public class TextCifReader {
 
         FrameContext blockCtx = new FrameContext();
 
-        boolean inSaveFrame = false;
-
         // the next three initial values are never used in valid files
         List<Block> saveFrames = new ArrayList<>();
         FrameContext saveCtx = new FrameContext();
@@ -53,7 +51,7 @@ public class TextCifReader {
 
             // data block
             if (token == CifTokenType.DATA) {
-                if (inSaveFrame) {
+                if (tokenizer.inSaveFrame) {
                     throw new ParsingException("Unexpected data block inside a save frame.", tokenizer.getLineNumber());
                 }
                 if (blockCtx.getCategories().size() > 0) {
@@ -72,12 +70,12 @@ public class TextCifReader {
                     if (saveCtx.getCategories().size() > 0) {
                         saveFrames.add(saveFrame);
                     }
-                    inSaveFrame = false;
+                    tokenizer.inSaveFrame = false;
                 } else {
-                    if (inSaveFrame) {
+                    if (tokenizer.inSaveFrame) {
                         throw new ParsingException("Save frames cannot be nested.", tokenizer.getLineNumber());
                     }
-                    inSaveFrame = true;
+                    tokenizer.inSaveFrame = true;
                     final String safeHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                     saveCtx = new FrameContext();
                     saveFrame = new TextBlock(saveCtx.getCategories(), safeHeader);
@@ -85,10 +83,10 @@ public class TextCifReader {
                 tokenizer.moveNext();
                 // loop
             } else if (token == CifTokenType.LOOP) {
-                tokenizer.handleLoop(inSaveFrame ? saveCtx : blockCtx);
+                tokenizer.handleLoop(tokenizer.inSaveFrame ? saveCtx : blockCtx);
                 // single row
             } else if (token == CifTokenType.COLUMN_NAME) {
-                tokenizer.handleSingle(inSaveFrame ? saveCtx : blockCtx);
+                tokenizer.handleSingle(tokenizer.inSaveFrame ? saveCtx : blockCtx);
                 // out of options
             } else {
                 throw new ParsingException("Unexpected token (" + token + "). Expected data_, loop_, or data name.", tokenizer.getLineNumber());
@@ -96,7 +94,7 @@ public class TextCifReader {
         }
 
         // check if the latest save frame was terminated
-        if (inSaveFrame) {
+        if (tokenizer.inSaveFrame) {
             throw new ParsingException("Unfinished save frame (" + saveFrame.getBlockHeader() + ").", tokenizer.getLineNumber());
         }
 
