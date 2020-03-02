@@ -10,7 +10,7 @@ import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 
 import java.io.IOException;
 
-import static junit.framework.TestCase.assertEquals;
+import static junit.framework.TestCase.*;
 
 public class NonMmcifFormatTest {
     @Test
@@ -55,6 +55,11 @@ public class NonMmcifFormatTest {
         assertEquals("11.0829(8)", firstBlock.getColumn("cell_length_a").getStringData(0));
 //        assertEquals(11.0829, firstBlock.getCell().getLengthA().get(0));
 
-        // TODO tests for trivial category functions (rowCount, column map etc)
+        // tests for trivial category functions (rowCount, column map etc)
+        assertEquals(12, firstBlock.getCell().getColumns().size());
+        assertEquals(1, firstBlock.getCell().getRowCount());
+        assertTrue(firstBlock.getCell().isDefined());
+        // not present
+        assertFalse(firstBlock.getAuditAuthor().isDefined());
     }
 }

@@ -6,6 +6,7 @@ import org.rcsb.cif.schema.generated.core.CifCoreBlock;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public abstract class DelegatingCategory implements Category {
     protected final Category delegate;
@@ -57,37 +58,49 @@ public abstract class DelegatingCategory implements Category {
     }
 
     public static class DelegatingCifCoreCategory implements Category {
-        private final String catgoryName;
+        private final String categoryName;
         protected final CifCoreBlock parentBlock;
 
         public DelegatingCifCoreCategory(String categoryName, CifCoreBlock parentBlock) {
-            this.catgoryName = categoryName;
+            this.categoryName = categoryName;
             this.parentBlock = parentBlock;
         }
 
         @Override
         public String getCategoryName() {
-            return catgoryName;
+            return categoryName;
         }
 
         @Override
         public int getRowCount() {
-            return -1;//TODO
+            return parentBlock.categories()
+                    .filter(category -> category.getCategoryName().startsWith(categoryName))
+                    .findFirst()
+                    .map(Category::getRowCount)
+                    .orElse(0);
         }
 
         @Override
         public Column getColumn(String name) {
-            return parentBlock.getColumn(catgoryName + "_" + name);
+            return parentBlock.getColumn(categoryName + "_" + name);
         }
 
         @Override
         public Map<String, Column> getColumns() {
-            return null;//TODO
+            return parentBlock.categories()
+                    // the core-cif impl uses 'categoryName_columnName' to identify columns
+                    .filter(category -> category.getCategoryName().startsWith(categoryName))
+                    // they are stored as categories with that name, those categories report a single column with an empty name
+                    .collect(Collectors.toMap(this::extractName, category -> category.getColumn("")));
+        }
+
+        private String extractName(Category category) {
+            return category.getCategoryName().replaceFirst(categoryName + "_", "");
         }
 
         @Override
         public boolean isDefined() {
-            return true;//TODO
+            return getRowCount() > 0;
         }
     }
 }
