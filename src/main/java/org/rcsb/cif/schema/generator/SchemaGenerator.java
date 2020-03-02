@@ -28,8 +28,7 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 /**
- * Creates a type-safe data model using the mmCIF dictionary. Needs the basic data structure already present to
- * bootstrap itself.
+ * Creates a type-safe data model using a CIF dictionary.
  */
 @SuppressWarnings("ALL")
 class SchemaGenerator {

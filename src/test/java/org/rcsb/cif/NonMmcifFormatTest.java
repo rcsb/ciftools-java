@@ -36,12 +36,11 @@ public class NonMmcifFormatTest {
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
         CifCoreBlock firstBlock = cifFile.with(StandardSchemas.CIF_CORE).getFirstBlock();
 
-        // TODO update
         // single
         assertEquals("10.5517/ccy42jn", firstBlock.getColumn("audit_block_doi").getStringData(0));
         assertEquals("10.5517/ccy42jn", firstBlock.getAudit().getBlockDoi().get(0));
         assertEquals("CCDC 867861", firstBlock.getColumn("database_code_depnum_ccdc_archive").getStringData(0));
-//        assertEquals("CCDC 867861", firstBlock.getDatabase().getCodeDepnumCcdcArchive().get(0));
+        assertEquals("CCDC 867861", firstBlock.getDatabase().getCodeDepnumCcdcArchive().get(0));
 
         // loop
         assertEquals("1", firstBlock.getColumn("citation_id").getStringData(0));
@@ -53,13 +52,15 @@ public class NonMmcifFormatTest {
 
         // a 'number'
         assertEquals("11.0829(8)", firstBlock.getColumn("cell_length_a").getStringData(0));
-//        assertEquals(11.0829, firstBlock.getCell().getLengthA().get(0));
+        assertEquals(11.0829, firstBlock.getCell().getLengthA().get(0));
 
         // tests for trivial category functions (rowCount, column map etc)
         assertEquals(12, firstBlock.getCell().getColumns().size());
         assertEquals(1, firstBlock.getCell().getRowCount());
         assertTrue(firstBlock.getCell().isDefined());
         // not present
+        assertTrue(firstBlock.getAuditAuthor().getColumns().isEmpty());
+        assertEquals(0, firstBlock.getAuditAuthor().getRowCount());
         assertFalse(firstBlock.getAuditAuthor().isDefined());
     }
 }

@@ -67,4 +67,8 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getJournalCSD() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal_CSD"));
     }
+
+    public StrColumn getCodeDepnumCcdcArchive() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_code_depnum_ccdc_archive"));
+    }
 }

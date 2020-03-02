@@ -318,4 +318,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getVectorC() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vector_c"));
     }
+
+    public FloatColumn getLengthA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_length_a"));
+    }
 }
