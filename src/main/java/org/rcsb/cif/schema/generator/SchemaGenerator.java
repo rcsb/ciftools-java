@@ -170,7 +170,7 @@ class SchemaGenerator {
         output.add("        switch (categoryName) {");
         output.add(delegator.toString());
         output.add("            default:");
-        output.add("                return new DelegatingCategory.NOPDelegatingCategory(category);");
+        output.add("                return new DelegatingCategory(category);");
         output.add("        }");
         output.add("    }");
         output.add("");

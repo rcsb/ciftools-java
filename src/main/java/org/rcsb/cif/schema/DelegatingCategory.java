@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public abstract class DelegatingCategory implements Category {
+public class DelegatingCategory implements Category {
     protected final Category delegate;
 
     public DelegatingCategory(Category delegate) {
@@ -39,22 +39,13 @@ public abstract class DelegatingCategory implements Category {
         return columns;
     }
 
-    protected abstract Column createDelegate(String columnName, Column column);
+    protected Column createDelegate(String columnName, Column column) {
+        return new DelegatingColumn(column);
+    }
 
     @Override
     public boolean isDefined() {
         return delegate.isDefined();
-    }
-
-    public static class NOPDelegatingCategory extends DelegatingCategory {
-        public NOPDelegatingCategory(Category delegate) {
-            super(delegate);
-        }
-
-        @Override
-        protected Column createDelegate(String columnName, Column column) {
-            return new DelegatingColumn(column);
-        }
     }
 
     public static class DelegatingCifCoreCategory implements Category {

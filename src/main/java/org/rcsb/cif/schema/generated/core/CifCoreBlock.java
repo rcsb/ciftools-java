@@ -205,7 +205,7 @@ public class CifCoreBlock extends DelegatingBlock {
             case "symmetry":
                 return getSymmetry();
             default:
-                return new DelegatingCategory.NOPDelegatingCategory(category);
+                return new DelegatingCategory(category);
         }
     }
 

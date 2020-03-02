@@ -1279,7 +1279,7 @@ public class MmCifBlock extends DelegatingBlock {
             case "pdbx_chem_comp_atom_related":
                 return getPdbxChemCompAtomRelated();
             default:
-                return new DelegatingCategory.NOPDelegatingCategory(category);
+                return new DelegatingCategory(category);
         }
     }
 
