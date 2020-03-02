@@ -34,19 +34,19 @@ public class Geom extends DelegatingCategory.DelegatingCifCoreCategory {
      * Increment added to the bond radii for the atomic species to
      * specify the maximum permitted "bonded" distance between two
      * atom sites.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBondDistanceIncr() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_bond_distance_incr"));
+    public FloatColumn getBondDistanceIncr() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_bond_distance_incr"));
     }
 
     /**
      * 
      * Minimum permitted "bonded" distance between two atom sites.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBondDistanceMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_bond_distance_min"));
+    public FloatColumn getBondDistanceMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_bond_distance_min"));
     }
 
     /**
@@ -54,19 +54,19 @@ public class Geom extends DelegatingCategory.DelegatingCifCoreCategory {
      * Increment added to the bond radii for the atomic species to
      * specify the maximum permitted "contact" distance between two
      * "non-bonded" atom sites.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getContactDistanceIncr() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_contact_distance_incr"));
+    public FloatColumn getContactDistanceIncr() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_contact_distance_incr"));
     }
 
     /**
      * 
      * Minimum permitted "contact" distance between two "non-bonded" atom sites.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getContactDistanceMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_contact_distance_min"));
+    public FloatColumn getContactDistanceMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_contact_distance_min"));
     }
 
     /**

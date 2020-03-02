@@ -41,9 +41,9 @@ public class DiffrnAttenuator extends DelegatingCategory.DelegatingCifCoreCatego
      * 
      * The scale factor applied to a measured intensity if it is reduced by
      * an attenuator identified by _diffrn_attenuator.code.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getScale() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_scale"));
+    public FloatColumn getScale() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_scale"));
     }
 }

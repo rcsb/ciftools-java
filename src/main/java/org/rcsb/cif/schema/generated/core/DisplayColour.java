@@ -23,10 +23,10 @@ public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory 
      * Integer value between 0 and 255 giving the intensity of a
      * specific colour component (red, green or blue) for the RGB
      * display colour code.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getBlue() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_blue"));
+    public IntColumn getBlue() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_blue"));
     }
 
     /**
@@ -34,10 +34,10 @@ public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory 
      * Integer value between 0 and 255 giving the intensity of a
      * specific colour component (red, green or blue) for the RGB
      * display colour code.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getGreen() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_green"));
+    public IntColumn getGreen() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_green"));
     }
 
     /**
@@ -54,18 +54,18 @@ public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory 
      * Integer value between 0 and 255 giving the intensity of a
      * specific colour component (red, green or blue) for the RGB
      * display colour code.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getRed() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_red"));
+    public IntColumn getRed() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_red"));
     }
 
     /**
      * 
      * The red-green-blue intensities, bases 256, for each colour code.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getRGB() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_RGB"));
+    public IntColumn getRGB() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_RGB"));
     }
 }

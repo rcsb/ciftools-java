@@ -52,9 +52,9 @@ public class CitationEditor extends DelegatingCategory.DelegatingCifCoreCategory
      * 
      * This data item defines the order of the editor's name in the
      * list of editors of a citation.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getOrdinal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ordinal"));
+    public IntColumn getOrdinal() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_ordinal"));
     }
 }

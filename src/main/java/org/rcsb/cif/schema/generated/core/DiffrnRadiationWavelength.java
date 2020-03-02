@@ -53,28 +53,28 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     /**
      * 
      * Wavelength of radiation used in diffraction measurements.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getValue() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_value"));
+    public FloatColumn getValue() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value"));
     }
 
     /**
      * 
      * Standard uncertainty of the wavelength of radiation used in diffraction
      * measurements.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getValueSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_value_su"));
+    public FloatColumn getValueSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value_su"));
     }
 
     /**
      * 
      * Relative intensity of a radiation used in the diffraction measurements.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wt"));
+    public FloatColumn getWt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wt"));
     }
 }

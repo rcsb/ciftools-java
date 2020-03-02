@@ -50,10 +50,10 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The pair of distances between sites 1 - 2 and 2 - 3.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistances() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distances"));
+    public FloatColumn getDistances() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distances"));
     }
 
     /**
@@ -165,19 +165,19 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Angle defined by the atoms located at atom_site_x/site_symmetry_x for
      * x = 1,2,3. The vertex atom is at site x = 2.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getValue() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_value"));
+    public FloatColumn getValue() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * angle defined by the sites identified by _geom_angle.id
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getValueSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_value_su"));
+    public FloatColumn getValueSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value_su"));
     }
 }

@@ -33,36 +33,36 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
     /**
      * 
      * Miller indices of a standard reflection.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getHkl() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    public IntColumn getHkl() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    public IntColumn getIndexH() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexK() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    public IntColumn getIndexK() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexL() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
+    public IntColumn getIndexL() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 }

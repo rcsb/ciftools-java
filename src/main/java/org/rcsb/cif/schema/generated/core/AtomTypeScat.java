@@ -27,10 +27,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannA1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a1"));
+    public FloatColumn getCromerMannA1() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a1"));
     }
 
     /**
@@ -42,10 +42,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannA2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a2"));
+    public FloatColumn getCromerMannA2() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a2"));
     }
 
     /**
@@ -57,10 +57,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannA3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a3"));
+    public FloatColumn getCromerMannA3() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a3"));
     }
 
     /**
@@ -72,10 +72,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannA4() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a4"));
+    public FloatColumn getCromerMannA4() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a4"));
     }
 
     /**
@@ -87,10 +87,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannB1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b1"));
+    public FloatColumn getCromerMannB1() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b1"));
     }
 
     /**
@@ -102,10 +102,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannB2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b2"));
+    public FloatColumn getCromerMannB2() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b2"));
     }
 
     /**
@@ -117,10 +117,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannB3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b3"));
+    public FloatColumn getCromerMannB3() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b3"));
     }
 
     /**
@@ -132,10 +132,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannB4() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b4"));
+    public FloatColumn getCromerMannB4() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b4"));
     }
 
     /**
@@ -147,10 +147,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * (1974) Table 2.2B
      * or   International Tables for Crystallography, Vol. C
      * (1991) Tables 6.1.1.4 and 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannC() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_c"));
+    public FloatColumn getCromerMannC() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_c"));
     }
 
     /**
@@ -159,10 +159,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * factors. [ a1, b1, a2, b2, a3, b3, a4, b4, c]
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.4
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCromerMannCoeffs() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_coeffs"));
+    public FloatColumn getCromerMannCoeffs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_coeffs"));
     }
 
     /**
@@ -179,60 +179,60 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The imaginary component of the anomalous dispersion scattering factors
      * for this atom type and radiation by _diffrn_radiation_wavelength.value
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionImag() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_imag"));
+    public FloatColumn getDispersionImag() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_imag"));
     }
 
     /**
      * 
      * The imaginary component of the anomalous dispersion scattering factors
      * for this atom type and Cu K alpha radiation
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionImagCu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_imag_cu"));
+    public FloatColumn getDispersionImagCu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_imag_cu"));
     }
 
     /**
      * 
      * The imaginary component of the anomalous dispersion scattering factors
      * for this atom type and Mo K alpha radiation
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionImagMo() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_imag_mo"));
+    public FloatColumn getDispersionImagMo() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_imag_mo"));
     }
 
     /**
      * 
      * The real component of the anomalous dispersion scattering factors
      * for this atom type and radiation by _diffrn_radiation_wavelength.value
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionReal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_real"));
+    public FloatColumn getDispersionReal() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_real"));
     }
 
     /**
      * 
      * The real component of the anomalous dispersion scattering factors
      * for this atom type and Cu K alpha radiation
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionRealCu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_real_cu"));
+    public FloatColumn getDispersionRealCu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_real_cu"));
     }
 
     /**
      * 
      * The real component of the anomalous dispersion scattering factors
      * for this atom type and Mo K alpha radiation
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDispersionRealMo() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_real_mo"));
+    public FloatColumn getDispersionRealMo() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dispersion_real_mo"));
     }
 
     /**
@@ -252,10 +252,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getHiAngFoxC0() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c0"));
+    public FloatColumn getHiAngFoxC0() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c0"));
     }
 
     /**
@@ -265,10 +265,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getHiAngFoxC1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c1"));
+    public FloatColumn getHiAngFoxC1() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c1"));
     }
 
     /**
@@ -278,10 +278,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getHiAngFoxC2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c2"));
+    public FloatColumn getHiAngFoxC2() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c2"));
     }
 
     /**
@@ -291,10 +291,10 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getHiAngFoxC3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c3"));
+    public FloatColumn getHiAngFoxC3() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c3"));
     }
 
     /**
@@ -303,20 +303,20 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * X-ray scattering factors. [ c0, c1, c2, c3 ]
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getHiAngFoxCoeffs() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_coeffs"));
+    public FloatColumn getHiAngFoxCoeffs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_coeffs"));
     }
 
     /**
      * 
      * The bound coherent scattering length for the atom type at the
      * isotopic composition used for the diffraction experiment.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLengthNeutron() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_neutron"));
+    public FloatColumn getLengthNeutron() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_length_neutron"));
     }
 
     /**

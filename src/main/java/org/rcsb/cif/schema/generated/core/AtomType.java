@@ -21,28 +21,28 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Mass percentage of this atom type derived from chemical analysis.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAnalyticalMassPercent() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_analytical_mass_percent"));
+    public FloatColumn getAnalyticalMassPercent() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_analytical_mass_percent"));
     }
 
     /**
      * 
      * Mass of this atom type.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAtomicMass() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atomic_mass"));
+    public FloatColumn getAtomicMass() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_atomic_mass"));
     }
 
     /**
      * 
      * Atomic number of this atom type.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getAtomicNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atomic_number"));
+    public IntColumn getAtomicNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_atomic_number"));
     }
 
     /**
@@ -71,10 +71,10 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Number of electrons in this atom type.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getElectronCount() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_electron_count"));
+    public IntColumn getElectronCount() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_electron_count"));
     }
 
     /**
@@ -101,37 +101,37 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Total number of atoms of this atom type in the unit cell.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getNumberInCell() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_in_cell"));
+    public FloatColumn getNumberInCell() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_number_in_cell"));
     }
 
     /**
      * 
      * Formal oxidation state of this atom type in the structure.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getOxidationNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_oxidation_number"));
+    public IntColumn getOxidationNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_oxidation_number"));
     }
 
     /**
      * 
      * The effective intra-molecular bonding radius of this atom type.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRadiusBond() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_radius_bond"));
+    public FloatColumn getRadiusBond() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_bond"));
     }
 
     /**
      * 
      * The effective inter-molecular bonding radius of this atom type.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRadiusContact() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_radius_contact"));
+    public FloatColumn getRadiusContact() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_contact"));
     }
 
     /**

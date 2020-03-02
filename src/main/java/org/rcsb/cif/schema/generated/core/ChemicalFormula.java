@@ -142,18 +142,18 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
      * Mass corresponding to the formulae _chemical_formula.structural,
      * *_iupac, *_moiety or *_sum and, together with the Z value and cell
      * parameters yield the density given as _exptl_crystal.density_diffrn.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWeight() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_weight"));
+    public FloatColumn getWeight() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_weight"));
     }
 
     /**
      * 
      * Formula mass measured by a non-diffraction experiment.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWeightMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_weight_meas"));
+    public FloatColumn getWeightMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_weight_meas"));
     }
 }

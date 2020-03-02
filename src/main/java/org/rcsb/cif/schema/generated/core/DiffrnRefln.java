@@ -23,10 +23,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleChi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_chi"));
+    public FloatColumn getAngleChi() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_chi"));
     }
 
     /**
@@ -34,10 +34,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleKappa() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_kappa"));
+    public FloatColumn getAngleKappa() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_kappa"));
     }
 
     /**
@@ -45,10 +45,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleOmega() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_omega"));
+    public FloatColumn getAngleOmega() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_omega"));
     }
 
     /**
@@ -56,10 +56,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAnglePhi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_phi"));
+    public FloatColumn getAnglePhi() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_phi"));
     }
 
     /**
@@ -67,10 +67,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAnglePsi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_psi"));
+    public FloatColumn getAnglePsi() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_psi"));
     }
 
     /**
@@ -78,10 +78,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Diffractometer angle at which the intensity is measured. This was
      * calculated from the specified  orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleTheta() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_theta"));
+    public FloatColumn getAngleTheta() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_theta"));
     }
 
     /**
@@ -108,10 +108,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
      * and the total counts (background plus peak).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCountsBg1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_bg_1"));
+    public IntColumn getCountsBg1() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_counts_bg_1"));
     }
 
     /**
@@ -120,10 +120,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
      * and the total counts (background plus peak).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCountsBg2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_bg_2"));
+    public IntColumn getCountsBg2() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_counts_bg_2"));
     }
 
     /**
@@ -132,10 +132,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
      * and the total counts (background plus peak).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCountsNet() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_net"));
+    public IntColumn getCountsNet() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_counts_net"));
     }
 
     /**
@@ -144,10 +144,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
      * and the total counts (background plus peak).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCountsPeak() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_peak"));
+    public IntColumn getCountsPeak() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_counts_peak"));
     }
 
     /**
@@ -156,37 +156,37 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
      * and the total counts (background plus peak).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCountsTotal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_total"));
+    public IntColumn getCountsTotal() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_counts_total"));
     }
 
     /**
      * 
      * Total slit aperture angle in the diffraction plane.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDetectSlitHoriz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_detect_slit_horiz"));
+    public FloatColumn getDetectSlitHoriz() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_detect_slit_horiz"));
     }
 
     /**
      * 
      * Total slit aperture angle perpendicular to the diffraction plane.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDetectSlitVert() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_detect_slit_vert"));
+    public FloatColumn getDetectSlitVert() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_detect_slit_vert"));
     }
 
     /**
      * 
      * Elapsed time from the start to the end of the intensity measurement.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getElapsedTime() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_elapsed_time"));
+    public FloatColumn getElapsedTime() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_elapsed_time"));
     }
 
     /**
@@ -194,47 +194,47 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Miller indices of a measured reflection. These need not match the
      * _refln.hkl values if a transformation of the original measured
      * cell has taken place.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getHkl() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    public IntColumn getHkl() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    public IntColumn getIndexH() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexK() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    public IntColumn getIndexK() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexL() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
+    public IntColumn getIndexL() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 
     /**
      * 
      * Net intensity calculated from the diffraction counts after the
      * attenuator and standard scales have been applied.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntensityNet() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity_net"));
+    public FloatColumn getIntensityNet() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_intensity_net"));
     }
 
     /**
@@ -242,10 +242,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * Standard uncertainty of the net intensity calculated from the
      * diffraction counts after the attenuator and standard scales
      * have been applied.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntensityNetSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity_net_su"));
+    public FloatColumn getIntensityNetSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_intensity_net_su"));
     }
 
     /**
@@ -279,37 +279,37 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Angular rate of scanning a reflection to measure the intensity.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getScanRate() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_scan_rate"));
+    public FloatColumn getScanRate() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_scan_rate"));
     }
 
     /**
      * 
      * Time spent measuring background counts.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getScanTimeBackgd() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_scan_time_backgd"));
+    public FloatColumn getScanTimeBackgd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_scan_time_backgd"));
     }
 
     /**
      * 
      * Angular scan width when measuring the peak intensity.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getScanWidth() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_scan_width"));
+    public FloatColumn getScanWidth() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_scan_width"));
     }
 
     /**
      * 
      * (sin theta)/lambda value for this reflection.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSinThetaOverLambda() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_sin_theta_over_lambda"));
+    public FloatColumn getSinThetaOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_sin_theta_over_lambda"));
     }
 
     /**
@@ -326,10 +326,10 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Mean wavelength of radiation used to measure this intensity.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWavelength() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wavelength"));
+    public FloatColumn getWavelength() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wavelength"));
     }
 
     /**

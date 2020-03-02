@@ -104,10 +104,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * preserving affine class) of space groups (crystallographic space
      * group type) to which the space group belongs. This number defines
      * the space group type but not the coordinate system expressed.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getITNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_IT_number"));
+    public IntColumn getITNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_IT_number"));
     }
 
     /**
@@ -124,10 +124,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Number of unique symmetry elements in the space group.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getMultiplicity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+    public IntColumn getMultiplicity() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
     }
 
     /**

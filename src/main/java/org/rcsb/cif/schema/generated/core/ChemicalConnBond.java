@@ -26,19 +26,19 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
     /**
      * 
      * Index id of first atom in a bond connecting two atom sites.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getAtom1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_1"));
+    public IntColumn getAtom1() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_atom_1"));
     }
 
     /**
      * 
      * Index id of second atom in a bond connecting two atom sites.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getAtom2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_2"));
+    public IntColumn getAtom2() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_atom_2"));
     }
 
     /**
@@ -46,10 +46,10 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
      * The value that should be taken as the target for the chemical
      * bond associated with the specified atoms, expressed as a
      * distance.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistance() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance"));
+    public FloatColumn getDistance() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance"));
     }
 
     /**

@@ -38,19 +38,19 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Matrix of dimensionless anisotropic atomic displacement parameters.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAdpMatrixBeta() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_adp_matrix_beta"));
+    public FloatColumn getAdpMatrixBeta() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_adp_matrix_beta"));
     }
 
     /**
      * 
      * Vector of Cartesian (orthogonal angstrom) atom site coordinates.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
+    public FloatColumn getCartnXyz() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
     }
 
     /**
@@ -67,10 +67,10 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Vector of fractional atom site coordinates.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
+    public FloatColumn getFractXyz() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
     }
 
     /**
@@ -86,10 +86,10 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Index number of an atomic site in the connected molecule.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndex() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index"));
+    public IntColumn getIndex() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index"));
     }
 
     /**
@@ -105,28 +105,28 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Index number of a distinct molecules in the cell, not related by
      * symmetry.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getMoleIndex() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mole_index"));
+    public IntColumn getMoleIndex() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_mole_index"));
     }
 
     /**
      * 
      * Atomic radius of atom located at this site.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRadiusBond() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_radius_bond"));
+    public FloatColumn getRadiusBond() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_bond"));
     }
 
     /**
      * 
      * Atomic contact radius of atom specie located at this site.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRadiusContact() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_radius_contact"));
+    public FloatColumn getRadiusContact() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_contact"));
     }
 
     /**

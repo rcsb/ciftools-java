@@ -201,19 +201,19 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Issue number of the journal cited;  relevant for articles.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getJournalIssue() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal_issue"));
+    public IntColumn getJournalIssue() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_journal_issue"));
     }
 
     /**
      * 
      * Volume number of the journal cited;  relevant for articles.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getJournalVolume() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal_volume"));
+    public IntColumn getJournalVolume() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_journal_volume"));
     }
 
     /**

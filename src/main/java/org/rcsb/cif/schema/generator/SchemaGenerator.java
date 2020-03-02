@@ -480,6 +480,7 @@ class SchemaGenerator {
 
     private Col getFieldType(String type, String description, List<String> values) {
         switch (type) {
+            // mmCIF
             case "code":
             case "ucode":
             case "line":
@@ -505,6 +506,7 @@ class SchemaGenerator {
             case "sequence_dep":
             case "pdb_id":
             case "emd_id":
+                // todo, consider adding specialised fields
             case "yyyy-mm-dd":
             case "yyyy-mm-dd:hh:mm":
             case "yyyy-mm-dd:hh:mm-flex":
@@ -521,6 +523,8 @@ class SchemaGenerator {
             case "date_dep":
             case "url":
             case "symop":
+            case "exp_data_doi":
+            case "asym_id":
                 return new StrCol(description);
             case "int":
             case "non_negative_int":
@@ -532,6 +536,30 @@ class SchemaGenerator {
             case "ucode-alphanum-csv":
             case "id_list":
                 return new ListCol("str", ",", description);
+            case "id_list_spc":
+                return new ListCol("str", " ", description);
+
+            // cif
+            case "Text":
+            case "Code":
+            case "Complex":
+            case "Symop":
+            case "List":
+            case "List(Real,Real)":
+            case "List(Real,Real,Real,Real)":
+            case "Date":
+            case "Datetime":
+            case "Tag":
+            case "Implied":
+//                return wrapContainer('str', ',', description, container);
+                return new StrCol(description);
+            case "Real":
+//                return wrapContainer('float', ',', description, container);
+                return new FloatCol(description);
+            case "Integer":
+//                return wrapContainer('int', ',', description, container);
+                return new IntCol(description);
+
             default:
                 return new StrCol(description);
         }

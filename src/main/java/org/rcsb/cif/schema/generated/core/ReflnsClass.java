@@ -31,20 +31,20 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Highest resolution for the reflections in this class.
      * This corresponds to the smallest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResHigh() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_high"));
+    public FloatColumn getDResHigh() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_high"));
     }
 
     /**
      * 
      * Lowest resolution for the reflections in this class.
      * This corresponds to the largest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResLow() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_low"));
+    public FloatColumn getDResLow() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_low"));
     }
 
     /**
@@ -63,10 +63,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
      * depending to the nature of the structure and the procedures used.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_gt"));
+    public IntColumn getNumberGt() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_gt"));
     }
 
     /**
@@ -75,10 +75,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * may include Friedel equivalent reflections (those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
      * depending to the nature of the structure and the procedures used.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberTotal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_total"));
+    public IntColumn getNumberTotal() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_total"));
     }
 
     /**
@@ -93,10 +93,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * F(calc) = the calculated structure-factor amplitudes
      * 
      * and the sum is taken over the specified reflections
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFactorAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_factor_all"));
+    public FloatColumn getRFactorAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_all"));
     }
 
     /**
@@ -113,10 +113,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * F(calc) = the calculated structure-factor amplitudes
      * 
      * and the sum is taken over the specified reflections
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFactorGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_factor_gt"));
+    public FloatColumn getRFactorGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_gt"));
     }
 
     /**
@@ -133,10 +133,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * F(calc   )^2^ = square of the calculated structure-factor
      * 
      * and the sum is taken over the specified reflections
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFsqdFactor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_Fsqd_factor"));
+    public FloatColumn getRFsqdFactor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_Fsqd_factor"));
     }
 
     /**
@@ -153,10 +153,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * I(calc   ) = the net calculated intensity
      * 
      * and the sum is taken over the specified reflections
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRIFactor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_I_factor"));
+    public FloatColumn getRIFactor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_I_factor"));
     }
 
     /**
@@ -177,9 +177,9 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * w       = the least-squares weights
      * 
      * and the sum is taken over the reflections of this class.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWRFactorAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wR_factor_all"));
+    public FloatColumn getWRFactorAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wR_factor_all"));
     }
 }

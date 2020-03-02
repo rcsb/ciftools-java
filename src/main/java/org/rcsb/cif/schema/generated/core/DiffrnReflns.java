@@ -24,19 +24,19 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * reflections used to calculate the average intensity av(I). The
      * av|del(I)| term is the average absolute difference between av(I) and
      * the individual symmetry-equivalent intensities.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAvREquivalents() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_av_R_equivalents"));
+    public FloatColumn getAvREquivalents() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_R_equivalents"));
     }
 
     /**
      * 
      * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAvSunetIOverNetI() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_av_sunetI_over_netI"));
+    public FloatColumn getAvSunetIOverNetI() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_sunetI_over_netI"));
     }
 
     /**
@@ -50,10 +50,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * This number should not be less than 0.95, since it represents
      * the fraction of reflections measured in the part of the
      * diffraction pattern that is essentially complete.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLaueMeasuredFractionFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_full"));
+    public FloatColumn getLaueMeasuredFractionFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_full"));
     }
 
     /**
@@ -64,82 +64,82 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * The Laue group always contains a centre of symmetry so that the
      * reflection h,k,l is always equivalent to the reflection -h,-k,-l
      * even in space groups without a centre of symmetry.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLaueMeasuredFractionMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_max"));
+    public FloatColumn getLaueMeasuredFractionMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitHMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
+    public IntColumn getLimitHMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitHMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
+    public IntColumn getLimitHMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitKMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
+    public IntColumn getLimitKMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitKMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
+    public IntColumn getLimitKMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitLMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
+    public IntColumn getLimitLMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitLMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
+    public IntColumn getLimitLMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
     }
 
     /**
      * 
      * Maximum Miller indices of measured diffraction reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLimitMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_max"));
+    public FloatColumn getLimitMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_max"));
     }
 
     /**
      * 
      * Minimum Miller indices of meas.ued diffraction reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLimitMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_min"));
+    public FloatColumn getLimitMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_min"));
     }
 
     /**
@@ -147,10 +147,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * Total number of measured intensities, excluding reflections that are
      * classed as systematically absent arising from translational symmetry
      * in the crystal unit cell.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number"));
+    public IntColumn getNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number"));
     }
 
     /**
@@ -164,10 +164,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * than 0.95, since it represents the fraction of reflections
      * measured in the part of the diffraction pattern that is
      * essentially complete.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPointMeasuredFractionFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_full"));
+    public FloatColumn getPointMeasuredFractionFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_full"));
     }
 
     /**
@@ -178,10 +178,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * or _diffrn_reflns.theta_max. For space groups that do not
      * contain a centre of symmetry the reflections h,k,l and
      * -h,-k,-l are independent.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPointMeasuredFractionMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_max"));
+    public FloatColumn getPointMeasuredFractionMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_max"));
     }
 
     /**
@@ -198,10 +198,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * The resolution at which the measured reflection count is close
      * to complete. The fraction of unique reflections measured out
      * to this angle is given by _diffrn.measured_fraction_theta_full.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getResolutionFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_resolution_full"));
+    public FloatColumn getResolutionFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_resolution_full"));
     }
 
     /**
@@ -209,10 +209,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * Maximum resolution of the measured diffraction pattern.
      * The fraction of unique reflections measured out to this angle
      * is given by _diffrn.measured_fraction_theta_max.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getResolutionMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_resolution_max"));
+    public FloatColumn getResolutionMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_resolution_max"));
     }
 
     /**
@@ -220,27 +220,27 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * Theta angle at which the count of measured reflections is almost
      * complete.  The fraction of unique reflections measured out to
      * this angle is given by _diffrn.measured_fraction_theta_full.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getThetaFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_theta_full"));
+    public FloatColumn getThetaFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_full"));
     }
 
     /**
      * 
      * Maximum theta angle of the measured reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getThetaMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_theta_max"));
+    public FloatColumn getThetaMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_max"));
     }
 
     /**
      * 
      * Minimum theta angle of the measured reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getThetaMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_theta_min"));
+    public FloatColumn getThetaMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_min"));
     }
 }

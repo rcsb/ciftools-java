@@ -22,10 +22,10 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Total number of crystals used in the measurement of intensities.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCrystalsNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_crystals_number"));
+    public IntColumn getCrystalsNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_crystals_number"));
     }
 
     /**
@@ -64,10 +64,10 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * item does not imply that the structure factors have been
      * corrected for absorption. For the applied correction see
      * _exptl_absorpt.correction_T_max.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTransmissionFactorMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_transmission_factor_max"));
+    public FloatColumn getTransmissionFactorMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_transmission_factor_max"));
     }
 
     /**
@@ -78,9 +78,9 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * item does not imply that the structure factors have been
      * corrected for absorption. For the applied correction see
      * _exptl_absorpt.correction_T_min.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTransmissionFactorMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_transmission_factor_min"));
+    public FloatColumn getTransmissionFactorMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_transmission_factor_min"));
     }
 }

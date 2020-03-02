@@ -22,20 +22,20 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * 
      * The pressure at which the unit-cell parameters were measured
      * (not the pressure used to synthesize the sample).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPressure() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_pressure"));
+    public FloatColumn getPressure() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_pressure"));
     }
 
     /**
      * 
      * The standard uncertainty of the pressure at which
      * the unit-cell parameters were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPressureSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_pressure_su"));
+    public FloatColumn getPressureSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_pressure_su"));
     }
 
     /**
@@ -51,50 +51,50 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * 
      * Total number of reflections used to determine the unit cell.
      * The reflections may be specified as cell_measurement_refln items.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getReflnsUsed() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_reflns_used"));
+    public IntColumn getReflnsUsed() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_reflns_used"));
     }
 
     /**
      * 
      * The temperature at which the unit-cell parameters were measured
      * (not the temperature of synthesis).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperature() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature"));
+    public FloatColumn getTemperature() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature"));
     }
 
     /**
      * 
      * The standard uncertainty of the temperature of at which
      * the unit-cell parameters were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_su"));
+    public FloatColumn getTemperatureSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_su"));
     }
 
     /**
      * 
      * Maximum theta scattering angle of reflections used to measure
      * the crystal unit cell.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getThetaMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_theta_max"));
+    public FloatColumn getThetaMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_max"));
     }
 
     /**
      * 
      * Minimum theta scattering angle of reflections used to measure
      * the crystal unit cell.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getThetaMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_theta_min"));
+    public FloatColumn getThetaMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_min"));
     }
 
     /**
@@ -102,9 +102,9 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * Wavelength of the radiation used to measure the unit cell.
      * If this is not specified, the wavelength is assumed to be the
      * same as that given in _diffrn_radiation_wavelength.value
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWavelength() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wavelength"));
+    public FloatColumn getWavelength() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wavelength"));
     }
 }

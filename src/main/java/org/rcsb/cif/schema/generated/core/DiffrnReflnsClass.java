@@ -24,19 +24,19 @@ public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCateg
      * reflections used to calculate the average intensity av(I).
      * The av|del(I)| term is the average absolute difference
      * between av(I) and the individual intensities.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAvREq() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_av_R_eq"));
+    public FloatColumn getAvREq() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_R_eq"));
     }
 
     /**
      * 
      * Recorded [sum|su(net I)|/sum|net I|] in a reflection class.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAvSuIOverI() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_av_suI_over_I"));
+    public FloatColumn getAvSuIOverI() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_suI_over_I"));
     }
 
     /**
@@ -51,19 +51,19 @@ public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCateg
     /**
      * 
      * Highest resolution in reflection class i.e. smallest d value in class.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResHigh() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_high"));
+    public FloatColumn getDResHigh() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_high"));
     }
 
     /**
      * 
      * Lowest resolution in reflection class i.e. largest d value in class.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResLow() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_low"));
+    public FloatColumn getDResLow() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_low"));
     }
 
     /**
@@ -79,9 +79,9 @@ public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCateg
      * 
      * Number of measured intensities for a reflection class, excluding
      * the systematic absences arising from centring translations.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number"));
+    public IntColumn getNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number"));
     }
 }

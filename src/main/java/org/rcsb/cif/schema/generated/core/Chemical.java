@@ -55,10 +55,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * Ref: Moss G. P. et al. (1996). Basic Terminology of
      * Stereochemistry. Pure Appl. Chem., 68, 2193-2222.
      * http://www.chem.qmul.ac.uk/iupac/stereo/index.html
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getEnantioexcessBulk() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_enantioexcess_bulk"));
+    public FloatColumn getEnantioexcessBulk() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_enantioexcess_bulk"));
     }
 
     /**
@@ -80,10 +80,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * Ref: Moss G. P. et al. (1996). Basic Terminology of
      * Stereochemistry. Pure Appl. Chem., 68, 2193-2222.
      * http://www.chem.qmul.ac.uk/iupac/stereo/index.html
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getEnantioexcessCrystal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_enantioexcess_crystal"));
+    public FloatColumn getEnantioexcessCrystal() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_enantioexcess_crystal"));
     }
 
     /**
@@ -135,30 +135,30 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The temperature at which a crystalline solid changes to a liquid.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeltingPoint() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_melting_point"));
+    public FloatColumn getMeltingPoint() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point"));
     }
 
     /**
      * 
      * A temperature above which the melting point lies.
      * _chemical.melting_point should be used in preference where possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeltingPointGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_melting_point_gt"));
+    public FloatColumn getMeltingPointGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point_gt"));
     }
 
     /**
      * 
      * A temperature below which the melting point lies.
      * _chemical.melting_point should be used in preference where possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeltingPointLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_melting_point_lt"));
+    public FloatColumn getMeltingPointLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point_lt"));
     }
 
     /**
@@ -243,78 +243,78 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The temperature at which a crystalline solid decomposes.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureDecomposition() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_decomposition"));
+    public FloatColumn getTemperatureDecomposition() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition"));
     }
 
     /**
      * 
      * The temperature above which a crystalline solid decomposes.
      * _chemical.temperature_decomposition should be used in preference.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureDecompositionGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_gt"));
+    public FloatColumn getTemperatureDecompositionGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_gt"));
     }
 
     /**
      * 
      * The temperature below which a crystalline solid decomposes.
      * _chemical.temperature_decomposition should be used in preference.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureDecompositionLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_lt"));
+    public FloatColumn getTemperatureDecompositionLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * temperature at which a crystalline solid decomposes.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureDecompositionSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_su"));
+    public FloatColumn getTemperatureDecompositionSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_su"));
     }
 
     /**
      * 
      * The temperature at which a crystalline solid sublimates.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureSublimation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_sublimation"));
+    public FloatColumn getTemperatureSublimation() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation"));
     }
 
     /**
      * 
      * The temperature above which a crystalline solid sublimates.
      * _chemical.temperature_sublimation should be used in preference.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureSublimationGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_gt"));
+    public FloatColumn getTemperatureSublimationGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_gt"));
     }
 
     /**
      * 
      * The temperature below which a crystalline solid sublimates.
      * _chemical.temperature_sublimation should be used in preference.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureSublimationLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_lt"));
+    public FloatColumn getTemperatureSublimationLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * temperature at which a crystalline solid sublimates.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTemperatureSublimationSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_su"));
+    public FloatColumn getTemperatureSublimationSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_su"));
     }
 }

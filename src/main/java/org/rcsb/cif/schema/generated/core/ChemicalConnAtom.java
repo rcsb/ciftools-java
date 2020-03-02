@@ -29,39 +29,39 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
      * 
      * The net integer charge assigned to this atom. This is the
      * formal charge assignment normally found in chemical diagrams.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getCharge() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_charge"));
+    public IntColumn getCharge() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_charge"));
     }
 
     /**
      * 
      * Cartesian coordinate (x) of the atom site in a chemical diagram. The
      * coordinate origin is at the lower left corner, the x axis is horizontal.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDisplayX() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_display_x"));
+    public FloatColumn getDisplayX() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_display_x"));
     }
 
     /**
      * 
      * Cartesian coordinate (y) of the atom site in a chemical diagram. The
      * coordinate origin is at the lower left corner, the y axis is vertical.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDisplayY() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_display_y"));
+    public FloatColumn getDisplayY() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_display_y"));
     }
 
     /**
      * 
      * Total number of connected atoms excluding terminal hydrogen atoms.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNCA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_NCA"));
+    public IntColumn getNCA() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_NCA"));
     }
 
     /**
@@ -71,19 +71,19 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
      * the atom_site list. This number will be the same as
      * _atom_site.attached_hydrogens only if none of the hydrogen
      * atoms appear in the atom_site list.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_NH"));
+    public IntColumn getNH() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_NH"));
     }
 
     /**
      * 
      * The chemical sequence number to be associated with this atom.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number"));
+    public IntColumn getNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number"));
     }
 
     /**

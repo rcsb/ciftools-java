@@ -32,10 +32,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of hydrogen atoms attached to the atom at this site
      * excluding any H atoms for which coordinates (measured or calculated)
      * are given.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getAttachedHydrogens() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_attached_hydrogens"));
+    public IntColumn getAttachedHydrogens() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_attached_hydrogens"));
     }
 
     /**
@@ -51,10 +51,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBEquivGeomMean() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_equiv_geom_mean"));
+    public FloatColumn getBEquivGeomMean() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_equiv_geom_mean"));
     }
 
     /**
@@ -63,10 +63,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Equivalent isotropic atomic displacement parameter, B(equiv),
      * in angstroms squared, calculated as the geometric mean of
      * the anisotropic atomic displacement parameters.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBEquivGeomMeanSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_equiv_geom_mean_su"));
+    public FloatColumn getBEquivGeomMeanSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_equiv_geom_mean_su"));
     }
 
     /**
@@ -85,10 +85,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBIsoOrEquiv() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_iso_or_equiv"));
+    public FloatColumn getBIsoOrEquiv() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_iso_or_equiv"));
     }
 
     /**
@@ -97,10 +97,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Isotropic atomic displacement parameter, or equivalent isotropic
      * atomic displacement parameter, B(equiv), in angstroms squared,
      * calculated from anisotropic temperature factor parameters.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBIsoOrEquivSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_iso_or_equiv_su"));
+    public FloatColumn getBIsoOrEquivSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_iso_or_equiv_su"));
     }
 
     /**
@@ -129,10 +129,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * The atom site coordinates in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnX() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_x"));
+    public FloatColumn getCartnX() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_x"));
     }
 
     /**
@@ -141,19 +141,19 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnXSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_x_su"));
+    public FloatColumn getCartnXSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_x_su"));
     }
 
     /**
      * 
      * Vector of Cartesian (orthogonal angstrom) atom site coordinates.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
+    public FloatColumn getCartnXyz() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
     }
 
     /**
@@ -161,10 +161,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * The atom site coordinates in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnY() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_y"));
+    public FloatColumn getCartnY() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_y"));
     }
 
     /**
@@ -173,10 +173,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnYSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_y_su"));
+    public FloatColumn getCartnYSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_y_su"));
     }
 
     /**
@@ -184,10 +184,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * The atom site coordinates in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnZ() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_z"));
+    public FloatColumn getCartnZ() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_z"));
     }
 
     /**
@@ -196,20 +196,20 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCartnZSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_z_su"));
+    public FloatColumn getCartnZSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_z_su"));
     }
 
     /**
      * 
      * This number links an atom site to the chemical connectivity list.
      * It must match a number specified by _chemical_conn_atom.number.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getChemicalConnNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_chemical_conn_number"));
+    public IntColumn getChemicalConnNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_chemical_conn_number"));
     }
 
     /**
@@ -266,68 +266,68 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Atom site coordinates as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractX() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_x"));
+    public FloatColumn getFractX() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_x"));
     }
 
     /**
      * 
      * Standard uncertainty value of the atom site coordinates
      * as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractXSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_x_su"));
+    public FloatColumn getFractXSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_x_su"));
     }
 
     /**
      * 
      * Vector of atom site coordinates projected onto the crystal unit
      * cell as fractions of the cell lengths.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
+    public FloatColumn getFractXyz() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
     }
 
     /**
      * 
      * Atom site coordinates as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractY() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_y"));
+    public FloatColumn getFractY() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_y"));
     }
 
     /**
      * 
      * Standard uncertainty value of the atom site coordinates
      * as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractYSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_y_su"));
+    public FloatColumn getFractYSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_y_su"));
     }
 
     /**
      * 
      * Atom site coordinates as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractZ() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_z"));
+    public FloatColumn getFractZ() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_z"));
     }
 
     /**
      * 
      * Standard uncertainty value of the atom site coordinates
      * as fractions of the cell length values.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFractZSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_z_su"));
+    public FloatColumn getFractZSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_z_su"));
     }
 
     /**
@@ -439,20 +439,20 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * value must lie in the 99.97% Gaussian confidence interval
      * -3u =&lt; x =&lt; 1 + 3u. The _enumeration.range of 0.0:1.0 is thus
      * correctly interpreted as meaning (0.0 - 3u) =&lt; x =&lt; (1.0 + 3u).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getOccupancy() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_occupancy"));
+    public FloatColumn getOccupancy() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_occupancy"));
     }
 
     /**
      * 
      * Standard Uncertainty value for the
      * The fraction of the atom type present at this site.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getOccupancySu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_occupancy_su"));
+    public FloatColumn getOccupancySu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_occupancy_su"));
     }
 
     /**
@@ -519,10 +519,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Vol. A (2002). It is equal to the multiplicity of the general
      * position divided by the order of the site symmetry given in
      * _atom_site.site_symmetry_order.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSiteSymmetryMultiplicity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_multiplicity"));
+    public IntColumn getSiteSymmetryMultiplicity() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_site_symmetry_multiplicity"));
     }
 
     /**
@@ -533,10 +533,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * multiplicity of the general position
      * ------------------------------------
      * _atom_site.site_symmetry_multiplicity
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSiteSymmetryOrder() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_order"));
+    public IntColumn getSiteSymmetryOrder() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_site_symmetry_order"));
     }
 
     /**
@@ -550,10 +550,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
      * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTensorBeta() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_tensor_beta"));
+    public FloatColumn getTensorBeta() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_tensor_beta"));
     }
 
     /**
@@ -577,19 +577,19 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * U(equiv) = (U~i~ U~j~ U~k~)^1/3^
      * 
      * U~n~ = the principal components of the orthogonalised U^ij^
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getUEquivGeomMean() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_equiv_geom_mean"));
+    public FloatColumn getUEquivGeomMean() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_equiv_geom_mean"));
     }
 
     /**
      * 
      * Standard uncertainty values (esds) of the U(equiv).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getUEquivGeomMeanSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_equiv_geom_mean_su"));
+    public FloatColumn getUEquivGeomMeanSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_equiv_geom_mean_su"));
     }
 
     /**
@@ -603,19 +603,19 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * a  = the real-space cell lengths
      * a* = the reciprocal-space cell lengths
      * Ref: Fischer, R. X. &amp; Tillmanns, E. (1988). Acta Cryst. C44, 775-776.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getUIsoOrEquiv() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_iso_or_equiv"));
+    public FloatColumn getUIsoOrEquiv() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_iso_or_equiv"));
     }
 
     /**
      * 
      * Standard uncertainty values (esds) of the U(iso) or U(equiv).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getUIsoOrEquivSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_iso_or_equiv_su"));
+    public FloatColumn getUIsoOrEquivSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_iso_or_equiv_su"));
     }
 
     /**

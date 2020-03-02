@@ -38,20 +38,20 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Highest resolution for the final REFLN data set.
      * This corresponds to the smallest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResolutionHigh() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_resolution_high"));
+    public FloatColumn getDResolutionHigh() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_resolution_high"));
     }
 
     /**
      * 
      * Lowest resolution for the final REFLN data set.
      * This corresponds to the largest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResolutionLow() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_resolution_low"));
+    public FloatColumn getDResolutionLow() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_resolution_low"));
     }
 
     /**
@@ -87,10 +87,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * same value as in (c), whereas measurements of the
      * two equivalent octants h &gt;= 0, k, l &gt;= 0 will lead to
      * a zero value for _reflns.Friedel_coverage.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFriedelCoverage() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Friedel_coverage"));
+    public FloatColumn getFriedelCoverage() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_coverage"));
     }
 
     /**
@@ -103,10 +103,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * and so one can see at a glance how completely the Friedel pairs
      * have been measured. For centrosymmetric space groups the value
      * would be given as not-applicable '.'
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFriedelFractionFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_full"));
+    public FloatColumn getFriedelFractionFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_full"));
     }
 
     /**
@@ -119,73 +119,73 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * and so one can see at a glance how completely the Friedel pairs
      * have been measured. For centrosymmetric space groups the value
      * would be given as not-applicable '.'
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFriedelFractionMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_max"));
+    public FloatColumn getFriedelFractionMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitHMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
+    public IntColumn getLimitHMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitHMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
+    public IntColumn getLimitHMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitKMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
+    public IntColumn getLimitKMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitKMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
+    public IntColumn getLimitKMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitLMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
+    public IntColumn getLimitLMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getLimitLMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
+    public IntColumn getLimitLMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
     }
 
     /**
      * 
      * Maximum Miller indices of refined diffraction reflections.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLimitMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_max"));
+    public FloatColumn getLimitMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_max"));
     }
 
     /**
@@ -195,10 +195,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
      * depending to the nature of the structure and the procedures used.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_gt"));
+    public IntColumn getNumberGt() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_gt"));
     }
 
     /**
@@ -207,10 +207,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
      * depending to the nature of the structure and the procedures used.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberTotal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_total"));
+    public IntColumn getNumberTotal() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_total"));
     }
 
     /**

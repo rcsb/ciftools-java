@@ -122,10 +122,10 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Number of pages in the supplementary publication.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSupplPublPages() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_suppl_publ_pages"));
+    public IntColumn getSupplPublPages() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_suppl_publ_pages"));
     }
 
     /**
@@ -140,18 +140,18 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Volume number of the publication.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getVolume() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_volume"));
+    public IntColumn getVolume() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_volume"));
     }
 
     /**
      * 
      * Year of the publication.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getYear() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_year"));
+    public IntColumn getYear() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_year"));
     }
 }

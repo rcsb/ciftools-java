@@ -31,19 +31,19 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Crystal density calculated from crystal unit cell and atomic content.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityDiffrn() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_diffrn"));
+    public FloatColumn getDensityDiffrn() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_diffrn"));
     }
 
     /**
      * 
      * Crystal density measured using standard chemical and physical methods.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas"));
+    public FloatColumn getDensityMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas"));
     }
 
     /**
@@ -53,10 +53,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * when _exptl_crystal.density_meas cannot be employed. It is
      * intended for use in reporting information in databases and
      * archives which would be misleading if reported otherwise.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_gt"));
+    public FloatColumn getDensityMeasGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_gt"));
     }
 
     /**
@@ -66,29 +66,29 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * when _exptl_crystal.density_meas cannot be employed. It is
      * intended for use in reporting information in databases and
      * archives which would be misleading if reported otherwise.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_lt"));
+    public FloatColumn getDensityMeasLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Crystal density measured using standard chemical and physical methods.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_su"));
+    public FloatColumn getDensityMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_su"));
     }
 
     /**
      * 
      * Temperature at which _exptl_crystal.density_meas was determined.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasTemp() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_temp"));
+    public FloatColumn getDensityMeasTemp() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp"));
     }
 
     /**
@@ -97,10 +97,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
      * from databases which would be misleading if reported otherwise.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasTempGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_temp_gt"));
+    public FloatColumn getDensityMeasTempGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_gt"));
     }
 
     /**
@@ -109,20 +109,20 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
      * from databases which would be misleading if reported otherwise.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasTempLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_temp_lt"));
+    public FloatColumn getDensityMeasTempLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Temperature at which _exptl_crystal.density_meas was determined.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMeasTempSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_meas_temp_su"));
+    public FloatColumn getDensityMeasTempSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_su"));
     }
 
     /**
@@ -161,10 +161,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * non-dispersive F(000) (which may be negative) counts the total
      * nuclear scattering power in the unit cell. See
      * http://reference.iucr.org/dictionary/F(000)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getF000() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_000"));
+    public FloatColumn getF000() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_000"));
     }
 
     /**
@@ -210,46 +210,46 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The length of needle/cylindrical crystals.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSizeLength() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_size_length"));
+    public FloatColumn getSizeLength() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_length"));
     }
 
     /**
      * 
      * The maximum dimension of a crystal.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSizeMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_size_max"));
+    public FloatColumn getSizeMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_max"));
     }
 
     /**
      * 
      * The median dimension of a crystal.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSizeMid() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_size_mid"));
+    public FloatColumn getSizeMid() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_mid"));
     }
 
     /**
      * 
      * The minimum dimension of a crystal.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSizeMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_size_min"));
+    public FloatColumn getSizeMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_min"));
     }
 
     /**
      * 
      * The radius of a spherical or cylindrical crystal.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSizeRad() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_size_rad"));
+    public FloatColumn getSizeRad() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_rad"));
     }
 
     /**

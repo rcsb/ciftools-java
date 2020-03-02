@@ -33,9 +33,9 @@ public class DiffrnScaleGroup extends DelegatingCategory.DelegatingCifCoreCatego
      * 
      * Scale for a specific measurement group of eflections. Is multiplied
      * with the net intensity to place all intensities on a common scale.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getINet() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_I_net"));
+    public FloatColumn getINet() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_I_net"));
     }
 }

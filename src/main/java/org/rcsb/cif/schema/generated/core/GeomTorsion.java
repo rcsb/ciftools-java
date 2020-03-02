@@ -29,19 +29,19 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * site 4. Clockwise torsions are positive, anticlockwise torsions
      * are negative.
      * Ref: Klyne, W. &amp; Prelog, V. (1960). Experientia, 16, 521-523.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngle() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle"));
+    public FloatColumn getAngle() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle"));
     }
 
     /**
      * 
      * Standard Uncertainty of the torsion angle.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_su"));
+    public FloatColumn getAngleSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_su"));
     }
 
     /**
@@ -87,10 +87,10 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Distances between sites 1 - 2, 2 - 3 and 3 - 4.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistances() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distances"));
+    public FloatColumn getDistances() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distances"));
     }
 
     /**

@@ -67,10 +67,10 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
      * Ref: International Tables for Crystallography (2002). Volume A,
      * Space-group symmetry, edited by Th. Hahn, 5th ed.
      * Dordrecht: Kluwer Academic Publishers.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getMultiplicity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+    public IntColumn getMultiplicity() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
     }
 
     /**

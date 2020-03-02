@@ -42,20 +42,20 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Intermolecular distance between the atomic sites identified
      * by _geom_contact.id
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistance() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance"));
+    public FloatColumn getDistance() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance"));
     }
 
     /**
      * 
      * Standard Uncertainty of the intermolecular distance between
      * the atomic sites identified by _geom_contact.id
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_su"));
+    public FloatColumn getDistanceSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_su"));
     }
 
     /**

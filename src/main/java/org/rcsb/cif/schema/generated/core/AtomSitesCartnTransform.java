@@ -44,10 +44,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat11() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_11"));
+    public FloatColumn getMat11() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_11"));
     }
 
     /**
@@ -64,10 +64,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat12() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_12"));
+    public FloatColumn getMat12() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_12"));
     }
 
     /**
@@ -84,10 +84,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat13() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_13"));
+    public FloatColumn getMat13() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_13"));
     }
 
     /**
@@ -104,10 +104,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat21() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_21"));
+    public FloatColumn getMat21() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_21"));
     }
 
     /**
@@ -124,10 +124,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat22() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_22"));
+    public FloatColumn getMat22() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_22"));
     }
 
     /**
@@ -144,10 +144,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat23() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_23"));
+    public FloatColumn getMat23() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_23"));
     }
 
     /**
@@ -164,10 +164,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat31() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_31"));
+    public FloatColumn getMat31() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_31"));
     }
 
     /**
@@ -184,10 +184,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat32() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_32"));
+    public FloatColumn getMat32() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_32"));
     }
 
     /**
@@ -204,10 +204,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMat33() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_33"));
+    public FloatColumn getMat33() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_33"));
     }
 
     /**
@@ -224,10 +224,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMatrix() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_matrix"));
+    public FloatColumn getMatrix() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_matrix"));
     }
 
     /**
@@ -244,10 +244,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getVec1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_1"));
+    public FloatColumn getVec1() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_1"));
     }
 
     /**
@@ -264,10 +264,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getVec2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_2"));
+    public FloatColumn getVec2() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_2"));
     }
 
     /**
@@ -284,10 +284,10 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * The default transformation matrix uses Rollet's axial
      * assignments with cell vectors a,b,c aligned with orthogonal
      * axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getVec3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_3"));
+    public FloatColumn getVec3() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_3"));
     }
 
     /**
@@ -296,9 +296,9 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * used to transform fractional coordinates to Cartesian  coordinates.
      * The axial alignments of this transformation are described in
      * _atom_sites_Cartn_transform.axes.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getVector() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vector"));
+    public FloatColumn getVector() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vector"));
     }
 }

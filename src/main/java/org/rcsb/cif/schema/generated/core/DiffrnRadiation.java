@@ -32,19 +32,19 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     /**
      * 
      * Absorption edge of the radiation filter used.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFilterEdge() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_filter_edge"));
+    public FloatColumn getFilterEdge() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_filter_edge"));
     }
 
     /**
      * 
      * Half-width of the incident beam perpendicular to the diffraction plane.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getInhomogeneity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_inhomogeneity"));
+    public FloatColumn getInhomogeneity() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_inhomogeneity"));
     }
 
     /**
@@ -62,10 +62,10 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
      * 
      * The angle, as viewed from the specimen, between the perpendicular
      * component of the polarisation and the diffraction plane.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPolarisnNorm() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_polarisn_norm"));
+    public FloatColumn getPolarisnNorm() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_polarisn_norm"));
     }
 
     /**
@@ -76,10 +76,10 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
      * forms an angle of _diffrn_radiation.polarisn_norm to the normal to
      * the diffraction plane of the sample (i.e. the plane containing the
      * incident and reflected beams).
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPolarisnRatio() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_polarisn_ratio"));
+    public FloatColumn getPolarisnRatio() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_polarisn_ratio"));
     }
 
     /**

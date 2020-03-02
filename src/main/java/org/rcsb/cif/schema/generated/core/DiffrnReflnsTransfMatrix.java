@@ -27,10 +27,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_11() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_11"));
+    public FloatColumn get_11() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_11"));
     }
 
     /**
@@ -38,10 +38,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_12() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_12"));
+    public FloatColumn get_12() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_12"));
     }
 
     /**
@@ -49,10 +49,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_13() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_13"));
+    public FloatColumn get_13() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_13"));
     }
 
     /**
@@ -60,10 +60,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_21() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_21"));
+    public FloatColumn get_21() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_21"));
     }
 
     /**
@@ -71,10 +71,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_22() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_22"));
+    public FloatColumn get_22() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_22"));
     }
 
     /**
@@ -82,10 +82,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_23() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_23"));
+    public FloatColumn get_23() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_23"));
     }
 
     /**
@@ -93,10 +93,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_31() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_31"));
+    public FloatColumn get_31() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_31"));
     }
 
     /**
@@ -104,10 +104,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_32() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_32"));
+    public FloatColumn get_32() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_32"));
     }
 
     /**
@@ -115,10 +115,10 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * The set of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn get_33() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_33"));
+    public FloatColumn get_33() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_33"));
     }
 
     /**
@@ -128,9 +128,9 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * |11 12 13|
      * (h k l) diffraction  |21 22 23|  =  (h' k' l')
      * |31 32 33|
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getTIJ() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_TIJ"));
+    public FloatColumn getTIJ() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_TIJ"));
     }
 }

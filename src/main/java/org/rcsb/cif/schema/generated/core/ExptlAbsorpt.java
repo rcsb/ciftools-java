@@ -23,10 +23,10 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Absorption coefficient mu calculated from the atomic content of
      * the cell, the density and the radiation wavelength.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCoefficientMu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_coefficient_mu"));
+    public FloatColumn getCoefficientMu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_coefficient_mu"));
     }
 
     /**
@@ -39,10 +39,10 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
      * absorption. Sometimes referred to as absorption correction A or
      * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
      * by J.P. Glusker et al., Wiley)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCorrectionTMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_correction_T_max"));
+    public FloatColumn getCorrectionTMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_correction_T_max"));
     }
 
     /**
@@ -55,10 +55,10 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
      * absorption. Sometimes referred to as absorption correction A ori
      * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
      * by J.P. Glusker et al., Wiley)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getCorrectionTMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_correction_T_min"));
+    public FloatColumn getCorrectionTMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_correction_T_min"));
     }
 
     /**

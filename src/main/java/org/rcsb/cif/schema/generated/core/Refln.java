@@ -21,37 +21,37 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The calculated real structure-factor component A =|Fcalc|cos(phase)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getACalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_A_calc"));
+    public FloatColumn getACalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_A_calc"));
     }
 
     /**
      * 
      * The measured real structure-factor component A =|Fmeas|cos(phase)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_A_meas"));
+    public FloatColumn getAMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_A_meas"));
     }
 
     /**
      * 
      * The calculated imaginary structure-factor component B =|Fcalc|sin(phase)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBCalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_calc"));
+    public FloatColumn getBCalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_calc"));
     }
 
     /**
      * 
      * The measured imaginary structure-factor component B =|Fmeas|sin(phase)
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getBMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_meas"));
+    public FloatColumn getBMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_meas"));
     }
 
     /**
@@ -74,20 +74,20 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The distance in angstroms between lattice planes in the crystal
      * with the indices _refln.hkl for this reflection.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDSpacing() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_spacing"));
+    public FloatColumn getDSpacing() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_spacing"));
     }
 
     /**
      * 
      * The structure factor amplitude for the reflection calculated from
      * the atom site data.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFCalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_calc"));
+    public FloatColumn getFCalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_calc"));
     }
 
     /**
@@ -104,48 +104,48 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The structure factor amplitude for the reflection derived from the
      * measured intensities.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_meas"));
+    public FloatColumn getFMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_meas"));
     }
 
     /**
      * 
      * The standard uncertainty of the measured structure factor amplitude.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFMeasSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_meas_su"));
+    public FloatColumn getFMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_meas_su"));
     }
 
     /**
      * 
      * The structure factor amplitude squared for the reflection calculated from
      * the atom site data.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFSquaredCalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_squared_calc"));
+    public FloatColumn getFSquaredCalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_squared_calc"));
     }
 
     /**
      * 
      * The structure factor amplitude for the reflection derived from the
      * measured intensities.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFSquaredMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_squared_meas"));
+    public FloatColumn getFSquaredMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_squared_meas"));
     }
 
     /**
      * 
      * The standard uncertainty of the measured structure factor squared.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFSquaredMeasSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_F_squared_meas_su"));
+    public FloatColumn getFSquaredMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_squared_meas_su"));
     }
 
     /**
@@ -159,29 +159,29 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * P~a~ = the probability that the phase angle a is correct
      * 
      * int is taken over the range alpha = 0 to 2 pi.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFom() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fom"));
+    public FloatColumn getFom() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fom"));
     }
 
     /**
      * 
      * Atomic scattering factor table for the scattering angle
      * of this diffraction vector and atom types in structure.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getFormFactorTable() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_form_factor_table"));
+    public FloatColumn getFormFactorTable() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_form_factor_table"));
     }
 
     /**
      * 
      * The Miller indices as a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getHkl() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    public IntColumn getHkl() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
     }
 
     /**
@@ -197,55 +197,55 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    public IntColumn getIndexH() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexK() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    public IntColumn getIndexK() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
     }
 
     /**
      * 
      * The index of a reciprocal space vector.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIndexL() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
+    public IntColumn getIndexL() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 
     /**
      * 
      * The intensity of the reflection calculated from the atom site data.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntensityCalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity_calc"));
+    public FloatColumn getIntensityCalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_intensity_calc"));
     }
 
     /**
      * 
      * The intensity of the reflection derived from the diffraction measurements.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntensityMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity_meas"));
+    public FloatColumn getIntensityMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_intensity_meas"));
     }
 
     /**
      * 
      * standard uncertainty of the measured intensity.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntensityMeasSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity_meas_su"));
+    public FloatColumn getIntensityMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_intensity_meas_su"));
     }
 
     /**
@@ -253,28 +253,28 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * The Lorentz-polarization factor appropriate for the instrument
      * used to measure the diffraction intensity. This is applied to
      * convert the net intensity into the measured F squared.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getLpFactor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Lp_factor"));
+    public FloatColumn getLpFactor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Lp_factor"));
     }
 
     /**
      * 
      * Mean path length through the crystal for this diffraction vector.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeanPathLengthTbar() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mean_path_length_tbar"));
+    public FloatColumn getMeanPathLengthTbar() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mean_path_length_tbar"));
     }
 
     /**
      * 
      * The phase of the calculated structure-factor.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPhaseCalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phase_calc"));
+    public FloatColumn getPhaseCalc() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_phase_calc"));
     }
 
     /**
@@ -282,10 +282,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * The phase of the measured structure-factor. This may be derived from
      * the atom site data if available or from the phase solution process
      * prior to determination of the structure.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPhaseMeas() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phase_meas"));
+    public FloatColumn getPhaseMeas() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_phase_meas"));
     }
 
     /**
@@ -310,10 +310,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * The (sin theta)/lambda value for this reflection.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSinThetaOverLambda() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_sin_theta_over_lambda"));
+    public FloatColumn getSinThetaOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_sin_theta_over_lambda"));
     }
 
     /**
@@ -321,10 +321,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * The symmetry reinforcement factor corresponding to the number of
      * times the reflection indices are generated identically from the
      * space-group symmetry operations.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSymmetryEpsilon() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_symmetry_epsilon"));
+    public IntColumn getSymmetryEpsilon() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_symmetry_epsilon"));
     }
 
     /**
@@ -334,10 +334,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * opposites (h k l and -h -k -l) are equivalent. Tables of
      * symmetry-equivalent reflections are available in International
      * Tables for Crystallography, Volume A (1987), section 10.2.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSymmetryMultiplicity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_symmetry_multiplicity"));
+    public IntColumn getSymmetryMultiplicity() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_symmetry_multiplicity"));
     }
 
     /**
@@ -345,10 +345,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * The mean wavelength in angstroms of radiation used to measure
      * this reflection. This is an important parameter for data
      * collected using energy-dispersive detectors or the Laue method.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWavelength() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wavelength"));
+    public FloatColumn getWavelength() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wavelength"));
     }
 
     /**

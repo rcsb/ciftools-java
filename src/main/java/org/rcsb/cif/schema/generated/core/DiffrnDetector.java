@@ -21,10 +21,10 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     /**
      * 
      * The resolution limit of an area diffraction radiation detector.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAreaResolMean() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_area_resol_mean"));
+    public FloatColumn getAreaResolMean() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_area_resol_mean"));
     }
 
     /**
@@ -48,10 +48,10 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     /**
      * 
      * The maximum time between two detector signals that cannot be resolved.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDtime() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dtime"));
+    public FloatColumn getDtime() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dtime"));
     }
 
     /**

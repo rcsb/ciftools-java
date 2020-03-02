@@ -26,10 +26,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * symmetry codes of the form 'n_pqr'. The identity operation
      * (i.e. _space_group_symop.operation_xyz set to 'x,y,z') should be
      * set to 1.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+    public IntColumn getId() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_id"));
     }
 
     /**
@@ -82,10 +82,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * |  r11  r12  r13  |
      * R  =  |  r21  r22  r23  |
      * |  r31  r32  r33  |
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getR() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R"));
+    public FloatColumn getR() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R"));
     }
 
     /**
@@ -96,10 +96,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * |  r11  r21  r31  |
      * RT  =  |  r12  r22  r32  |
      * |  r13  r23  r33  |
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRT() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_RT"));
+    public FloatColumn getRT() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_RT"));
     }
 
     /**
@@ -111,18 +111,18 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * | R  T |     |  r21  r22  r23  t2  |
      * | 0  1 |     |  r31  r32  r33  t3  |
      * |   0    0    0    1  |
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSeitzMatrix() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Seitz_matrix"));
+    public FloatColumn getSeitzMatrix() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Seitz_matrix"));
     }
 
     /**
      * 
      * A vector containing the symmetry translation operations of a space group.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getT() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_T"));
+    public FloatColumn getT() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_T"));
     }
 }

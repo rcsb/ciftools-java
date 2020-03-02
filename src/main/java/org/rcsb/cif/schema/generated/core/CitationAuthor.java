@@ -52,9 +52,9 @@ public class CitationAuthor extends DelegatingCategory.DelegatingCifCoreCategory
      * 
      * Ordinal code specifies the order of the author's name in the list
      * of authors of the citation.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getOrdinal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ordinal"));
+    public IntColumn getOrdinal() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_ordinal"));
     }
 }

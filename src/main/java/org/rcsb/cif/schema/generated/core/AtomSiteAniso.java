@@ -32,10 +32,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB11() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_11"));
+    public FloatColumn getB11() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_11"));
     }
 
     /**
@@ -44,10 +44,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB11Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_11_su"));
+    public FloatColumn getB11Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_11_su"));
     }
 
     /**
@@ -64,10 +64,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB12() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_12"));
+    public FloatColumn getB12() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_12"));
     }
 
     /**
@@ -76,10 +76,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB12Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_12_su"));
+    public FloatColumn getB12Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_12_su"));
     }
 
     /**
@@ -96,10 +96,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB13() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_13"));
+    public FloatColumn getB13() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_13"));
     }
 
     /**
@@ -108,10 +108,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB13Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_13_su"));
+    public FloatColumn getB13Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_13_su"));
     }
 
     /**
@@ -128,10 +128,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB22() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_22"));
+    public FloatColumn getB22() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_22"));
     }
 
     /**
@@ -140,10 +140,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB22Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_22_su"));
+    public FloatColumn getB22Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_22_su"));
     }
 
     /**
@@ -160,10 +160,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB23() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_23"));
+    public FloatColumn getB23() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_23"));
     }
 
     /**
@@ -172,10 +172,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB23Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_23_su"));
+    public FloatColumn getB23Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_23_su"));
     }
 
     /**
@@ -192,10 +192,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * The IUCr Commission on Nomenclature recommends against the use
      * of B for reporting atomic displacement parameters. U, being
      * directly proportional to B, is preferred.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB33() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_33"));
+    public FloatColumn getB33() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_33"));
     }
 
     /**
@@ -204,10 +204,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Bij anisotropic atomic displacement components (see
      * _aniso_BIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB33Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_33_su"));
+    public FloatColumn getB33Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B_33_su"));
     }
 
     /**
@@ -225,29 +225,29 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
     /**
      * 
      * The symmetric anisotropic atomic displacement matrix B.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMatrixB() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_matrix_B"));
+    public FloatColumn getMatrixB() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_matrix_B"));
     }
 
     /**
      * 
      * The symmetric anisotropic atomic displacement matrix U.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMatrixU() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_matrix_U"));
+    public FloatColumn getMatrixU() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_matrix_U"));
     }
 
     /**
      * 
      * Ratio of the maximum to minimum eigenvalues of the atomic
      * displacement (thermal) ellipsoids.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRatio() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ratio"));
+    public FloatColumn getRatio() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ratio"));
     }
 
     /**
@@ -273,10 +273,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU11() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_11"));
+    public FloatColumn getU11() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_11"));
     }
 
     /**
@@ -285,10 +285,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU11Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_11_su"));
+    public FloatColumn getU11Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_11_su"));
     }
 
     /**
@@ -303,10 +303,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU12() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_12"));
+    public FloatColumn getU12() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_12"));
     }
 
     /**
@@ -315,10 +315,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU12Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_12_su"));
+    public FloatColumn getU12Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_12_su"));
     }
 
     /**
@@ -333,10 +333,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU13() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_13"));
+    public FloatColumn getU13() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_13"));
     }
 
     /**
@@ -345,10 +345,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU13Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_13_su"));
+    public FloatColumn getU13Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_13_su"));
     }
 
     /**
@@ -363,10 +363,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU22() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_22"));
+    public FloatColumn getU22() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_22"));
     }
 
     /**
@@ -375,10 +375,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU22Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_22_su"));
+    public FloatColumn getU22Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_22_su"));
     }
 
     /**
@@ -393,10 +393,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU23() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_23"));
+    public FloatColumn getU23() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_23"));
     }
 
     /**
@@ -405,10 +405,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU23Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_23_su"));
+    public FloatColumn getU23Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_23_su"));
     }
 
     /**
@@ -423,10 +423,10 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU33() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_33"));
+    public FloatColumn getU33() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_33"));
     }
 
     /**
@@ -435,9 +435,9 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * form of the Uij anisotropic atomic displacement components (see
      * _aniso_UIJ. Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getU33Su() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_33_su"));
+    public FloatColumn getU33Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_U_33_su"));
     }
 }

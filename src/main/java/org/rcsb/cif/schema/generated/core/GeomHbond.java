@@ -22,20 +22,20 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Angle subtended by the sites identified by _geom_hbond.id.
      * The hydrogen at site H is at the apex of the angle.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleDHA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_DHA"));
+    public FloatColumn getAngleDHA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_DHA"));
     }
 
     /**
      * 
      * The standard uncertainty of the angle subtended by the sites identified
      * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAngleDHASu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_DHA_su"));
+    public FloatColumn getAngleDHASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_DHA_su"));
     }
 
     /**
@@ -72,10 +72,10 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceDA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_DA"));
+    public FloatColumn getDistanceDA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DA"));
     }
 
     /**
@@ -83,20 +83,20 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceDASu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_DA_su"));
+    public FloatColumn getDistanceDASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DA_su"));
     }
 
     /**
      * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceDH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_DH"));
+    public FloatColumn getDistanceDH() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DH"));
     }
 
     /**
@@ -104,20 +104,20 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceDHSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_DH_su"));
+    public FloatColumn getDistanceDHSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DH_su"));
     }
 
     /**
      * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceHA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_HA"));
+    public FloatColumn getDistanceHA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_HA"));
     }
 
     /**
@@ -125,10 +125,10 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceHASu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_HA_su"));
+    public FloatColumn getDistanceHASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_HA_su"));
     }
 
     /**

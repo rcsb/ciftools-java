@@ -31,27 +31,27 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Structure factor scale for this scale group.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeasF() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_meas_F"));
+    public FloatColumn getMeasF() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_meas_F"));
     }
 
     /**
      * 
      * Structure factor squared scale for this scale group.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeasFSquared() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_meas_F_squared"));
+    public FloatColumn getMeasFSquared() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_meas_F_squared"));
     }
 
     /**
      * 
      * Net intensity scale for this scale group.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeasIntensity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_meas_intensity"));
+    public FloatColumn getMeasIntensity() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_meas_intensity"));
     }
 }

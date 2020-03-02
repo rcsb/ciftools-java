@@ -29,10 +29,10 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Mean hydrostatic  pressure at which intensities were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientPressure() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_pressure"));
+    public FloatColumn getAmbientPressure() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_pressure"));
     }
 
     /**
@@ -41,10 +41,10 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      * These items allow for a pressure range to be given.
      * _diffrn.ambient_pressure should be used in preference to this
      * item when possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientPressureGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_pressure_gt"));
+    public FloatColumn getAmbientPressureGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_pressure_gt"));
     }
 
     /**
@@ -53,29 +53,29 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      * These items allow for a pressure range to be given.
      * _diffrn.ambient_pressure should be used in preference to this
      * item when possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientPressureLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_pressure_lt"));
+    public FloatColumn getAmbientPressureLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_pressure_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Mean hydrostatic  pressure at which intensities were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientPressureSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_pressure_su"));
+    public FloatColumn getAmbientPressureSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_pressure_su"));
     }
 
     /**
      * 
      * Mean temperature at which intensities were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientTemperature() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_temperature"));
+    public FloatColumn getAmbientTemperature() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_temperature"));
     }
 
     /**
@@ -94,10 +94,10 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      * These items allow for a temperature range to be given.
      * _diffrn.ambient_temperature should be used in preference to
      * this item when possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientTemperatureGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_temperature_gt"));
+    public FloatColumn getAmbientTemperatureGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_temperature_gt"));
     }
 
     /**
@@ -106,20 +106,20 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      * These items allow for a temperature range to be given.
      * _diffrn.ambient_temperature should be used in preference to
      * this item when possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientTemperatureLt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_temperature_lt"));
+    public FloatColumn getAmbientTemperatureLt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_temperature_lt"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * mean temperature at which intensities were measured.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAmbientTemperatureSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_ambient_temperature_su"));
+    public FloatColumn getAmbientTemperatureSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_ambient_temperature_su"));
     }
 
     /**
@@ -146,20 +146,20 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Fraction of unique (symmetry-independent) reflections measured
      * out to _diffrn_reflns.theta_full.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeasuredFractionThetaFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_measured_fraction_theta_full"));
+    public FloatColumn getMeasuredFractionThetaFull() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_measured_fraction_theta_full"));
     }
 
     /**
      * 
      * Fraction of unique (symmetry-independent) reflections measured
      * out to _diffrn_reflns.theta_max.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeasuredFractionThetaMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_measured_fraction_theta_max"));
+    public FloatColumn getMeasuredFractionThetaMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_measured_fraction_theta_max"));
     }
 
     /**

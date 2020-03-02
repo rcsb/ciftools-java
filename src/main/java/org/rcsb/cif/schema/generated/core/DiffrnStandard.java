@@ -30,46 +30,46 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * possible value the decay might have.  A range of 3 standard
      * uncertainties is considered possible.  Thus 0.0(1) would indicate
      * a decay of less than 0.3% or an enhancement of less than 0.3%.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDecayPercent() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_decay_percent"));
+    public FloatColumn getDecayPercent() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_decay_percent"));
     }
 
     /**
      * 
      * Reflection count between the standard reflection measurements.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getIntervalCount() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_interval_count"));
+    public IntColumn getIntervalCount() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_interval_count"));
     }
 
     /**
      * 
      * Time between the standard reflection measurements.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getIntervalTime() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_interval_time"));
+    public FloatColumn getIntervalTime() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_interval_time"));
     }
 
     /**
      * 
      * Number of unique standard reflections used in measurements.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumber() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number"));
+    public IntColumn getNumber() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number"));
     }
 
     /**
      * 
      * The average standard uncertainty of the individual standard scales
      * applied to the intensity data.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getScaleSuAverage() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_scale_su_average"));
+    public FloatColumn getScaleSuAverage() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_scale_su_average"));
     }
 }

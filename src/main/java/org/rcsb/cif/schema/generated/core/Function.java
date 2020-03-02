@@ -39,10 +39,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * returns the cell translation vector required to obtain the
      * closest cell-translated occurence of the vector V to the vector
      * W.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getClosest() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Closest"));
+    public FloatColumn getClosest() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Closest"));
     }
 
     /**
@@ -52,10 +52,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * returns a 4x4 Seitz matrix from the Jones faithful representation of
      * the equivalent position which is a character string e.g. 1/2+x,-x,z.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSeitzFromJones() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_SeitzFromJones"));
+    public FloatColumn getSeitzFromJones() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_SeitzFromJones"));
     }
 
     /**
@@ -66,10 +66,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * returns a fractional coordinate vector xyz' which is input vector
      * xyz transformed by the input symop 'n_pqr' applied to the symmetry
      * equivalent matrix extracted from the category space_group_symop.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getSymEquiv() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_SymEquiv"));
+    public FloatColumn getSymEquiv() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_SymEquiv"));
     }
 
     /**
@@ -79,10 +79,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * returns an integer index to the Seitz matrices from the character
      * string of the form 'n_pqr'.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSymKey() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_SymKey"));
+    public IntColumn getSymKey() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_SymKey"));
     }
 
     /**
@@ -92,10 +92,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * returns a vector of the cell translations applied to the coordinates
      * from the character string of the form 'n_pqr'. i.e. p-5, q-5, r-5.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSymLat() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_SymLat"));
+    public IntColumn getSymLat() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_SymLat"));
     }
 
     /**

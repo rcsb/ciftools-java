@@ -42,20 +42,20 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Intramolecular bond distance between the sites identified
      * by _geom_bond.id
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistance() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance"));
+    public FloatColumn getDistance() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance"));
     }
 
     /**
      * 
      * Standard Uncertainty of the intramolecular bond distance
      * between the sites identified by _geom_bond.id
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDistanceSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_distance_su"));
+    public FloatColumn getDistanceSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_su"));
     }
 
     /**
@@ -75,10 +75,10 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * where the full list of bonds is given, one of the series of
      * equivalent bonds may be assigned the appropriate multiplicity
      * while the others are assigned a value of 0.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getMultiplicity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+    public IntColumn getMultiplicity() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
     }
 
     /**
@@ -150,9 +150,9 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Bond valence calculated from the bond distance.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getValence() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_valence"));
+    public FloatColumn getValence() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_valence"));
     }
 }

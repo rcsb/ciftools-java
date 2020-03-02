@@ -31,30 +31,30 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * 
      * Highest resolution for the reflections in this class.
      * This corresponds to the smallest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResHigh() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_high"));
+    public FloatColumn getDResHigh() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_high"));
     }
 
     /**
      * 
      * Lowest resolution for the reflections in this class.
      * This corresponds to the largest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResLow() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_low"));
+    public FloatColumn getDResLow() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_low"));
     }
 
     /**
      * 
      * Residual factor for reflections in this class included in the
      * refinement.  See _refine_ls.R_factor_all definition for details.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFactorAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_factor_all"));
+    public FloatColumn getRFactorAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_all"));
     }
 
     /**
@@ -62,10 +62,10 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * Residual factor for the reflections in this class judged
      * significantly intense (see _reflns.threshold_expression) and
      * included in refinement. See _refine_ls.R_factor_gt for details.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFactorGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_factor_gt"));
+    public FloatColumn getRFactorGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_gt"));
     }
 
     /**
@@ -73,10 +73,10 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * Residual factor R(F^2^) for reflections in this class judged
      * significantly intense (see _reflns.threshold_expression) and
      * included in refinement. See _refine_ls.R_Fsqd_factor for details.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRFsqdFactor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_Fsqd_factor"));
+    public FloatColumn getRFsqdFactor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_Fsqd_factor"));
     }
 
     /**
@@ -84,10 +84,10 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * Residual factor R(I) for reflections in this class judged
      * significantly intense (see _reflns.threshold_expression) and
      * included in refinement. See _refine_ls.R_I_factor for details.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRIFactor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_R_I_factor"));
+    public FloatColumn getRIFactor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_I_factor"));
     }
 
     /**
@@ -95,9 +95,9 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * Weight residual for all reflections in this class judged
      * significantly intense (see _reflns.threshold_expression) and
      * included in refinement. See _refine_ls.wR_factor_all for details.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getWRFactorAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_wR_factor_all"));
+    public FloatColumn getWRFactorAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wR_factor_all"));
     }
 }

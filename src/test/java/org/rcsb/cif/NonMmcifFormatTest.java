@@ -52,9 +52,10 @@ public class NonMmcifFormatTest {
 
         // a 'number'
         assertEquals("11.0829(8)", firstBlock.getColumn("cell_length_a").getStringData(0));
-        assertEquals("11.0829(8)", firstBlock.getCell().getLengthA().get(0));
+        // the interesting case: a column defined with import.get - should be float
+        assertEquals(11.0829, firstBlock.getCell().getLengthA().get(0));
         assertEquals("1", firstBlock.getColumn("cell_formula_units_Z").getStringData(0));
-        assertEquals("1", firstBlock.getCell().getFormulaUnitsZ().get(0));
+        assertEquals(1, firstBlock.getCell().getFormulaUnitsZ().get(0));
 
         // tests for trivial category functions (rowCount, column map etc)
         assertEquals(12, firstBlock.getCell().getColumns().size());

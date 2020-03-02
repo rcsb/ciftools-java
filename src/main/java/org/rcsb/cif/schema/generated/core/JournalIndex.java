@@ -20,10 +20,10 @@ public class JournalIndex extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Index number identifier of the JOURNAL_INDEX category.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+    public IntColumn getId() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_id"));
     }
 
     /**

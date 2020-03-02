@@ -22,10 +22,10 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * Highest resolution for the reflections in this shell.
      * This corresponds to the smallest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResHigh() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_high"));
+    public FloatColumn getDResHigh() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_high"));
     }
 
     /**
@@ -33,30 +33,30 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * Resolution for the reflections in this shell stored as
      * the list of lowest and highest values. This is the
      * category key.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResLimits() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_limits"));
+    public FloatColumn getDResLimits() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_limits"));
     }
 
     /**
      * 
      * Lowest resolution for the reflections in this shell.
      * This corresponds to the largest interpanar d value.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDResLow() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_d_res_low"));
+    public FloatColumn getDResLow() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_low"));
     }
 
     /**
      * 
      * Ratio of the mean intensity in a shell to the mean standard uncertainty
      * of the intensities in the shell.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeanIOverSuIAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_meanI_over_suI_all"));
+    public FloatColumn getMeanIOverSuIAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_meanI_over_suI_all"));
     }
 
     /**
@@ -64,76 +64,76 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * Ratio of the mean intensity of significantly intense reflections (see
      * _reflns.threshold_expression) in this shell to the mean standard
      * uncertainty of the intensities in the shell.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getMeanIOverSuIGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_meanI_over_suI_gt"));
+    public FloatColumn getMeanIOverSuIGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_meanI_over_suI_gt"));
     }
 
     /**
      * 
      * Total count of reflections measured for this resolution shell.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberMeasuredAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_measured_all"));
+    public IntColumn getNumberMeasuredAll() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_measured_all"));
     }
 
     /**
      * 
      * Number of reflections measured for this resolution shell which are
      * significantly intense (see _reflns.threshold_expression).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberMeasuredGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_measured_gt"));
+    public IntColumn getNumberMeasuredGt() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_measured_gt"));
     }
 
     /**
      * 
      * Count of symmetry-unique reflections possible in this reflection shell.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberPossible() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_possible"));
+    public IntColumn getNumberPossible() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_possible"));
     }
 
     /**
      * 
      * Count of symmetry-unique reflections present in this reflection shell.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberUniqueAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_unique_all"));
+    public IntColumn getNumberUniqueAll() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_unique_all"));
     }
 
     /**
      * 
      * Number of symmetry-unique reflections present in this reflection shell
      * which are significantly intense (see _reflns.threshold_expression).
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getNumberUniqueGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_number_unique_gt"));
+    public IntColumn getNumberUniqueGt() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_unique_gt"));
     }
 
     /**
      * 
      * Percentage of reflections present in this shell over that possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPercentPossibleAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_percent_possible_all"));
+    public FloatColumn getPercentPossibleAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_percent_possible_all"));
     }
 
     /**
      * 
      * Percentage of reflections present in this shell which are significantly
      * intense (see _reflns.threshold_expression), over that possible.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getPercentPossibleGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_percent_possible_gt"));
+    public FloatColumn getPercentPossibleGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_percent_possible_gt"));
     }
 
     /**
@@ -150,10 +150,10 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRmergeFAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Rmerge_F_all"));
+    public FloatColumn getRmergeFAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Rmerge_F_all"));
     }
 
     /**
@@ -161,10 +161,10 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * Rmerge(F) for reflections in a shell which are significantly intense
      * (see _reflns.threshold_expression). The residual merge expression is
      * shown in the _reflns_shell.Rmerge_F_all definition.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRmergeFGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Rmerge_F_gt"));
+    public FloatColumn getRmergeFGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Rmerge_F_gt"));
     }
 
     /**
@@ -181,10 +181,10 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * sum~i~ is taken over all reflections
      * sum~j~ is taken over all observations of each reflection.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRmergeIAll() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Rmerge_I_all"));
+    public FloatColumn getRmergeIAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Rmerge_I_all"));
     }
 
     /**
@@ -192,9 +192,9 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * Rmerge(I) for reflections in a shell which are significantly intense
      * (see _reflns.threshold_expression). The residual merge expression is
      * shown in the _reflns_shell.Rmerge_I_all definition.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRmergeIGt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Rmerge_I_gt"));
+    public FloatColumn getRmergeIGt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Rmerge_I_gt"));
     }
 }

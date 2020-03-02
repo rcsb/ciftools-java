@@ -23,39 +23,39 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Maximum density value in a difference Fourier map.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_max"));
+    public FloatColumn getDensityMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_max"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Maximum density value in a difference Fourier map.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMaxSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_max_su"));
+    public FloatColumn getDensityMaxSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_max_su"));
     }
 
     /**
      * 
      * Miniumum density value in a difference Fourier map.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMin() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_min"));
+    public FloatColumn getDensityMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_min"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Miniumum density value in a difference Fourier map.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityMinSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_min_su"));
+    public FloatColumn getDensityMinSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_min_su"));
     }
 
     /**
@@ -66,19 +66,19 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * in the asymmetric unit of the cell. This quantity is useful
      * for assessing the significance of *_min and *_max values,
      * and also for defining suitable contour levels.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityRms() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_rms"));
+    public FloatColumn getDensityRms() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_rms"));
     }
 
     /**
      * 
      * Standard Uncertainty of the
      * Root mean square density value in a difference Fourier map.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getDensityRmsSu() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_rms_su"));
+    public FloatColumn getDensityRmsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_rms_su"));
     }
 }

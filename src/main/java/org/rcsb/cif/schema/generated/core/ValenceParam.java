@@ -31,10 +31,10 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The formal charge of the atom 1 whose bond
      * valence parameters are given in this category.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAtom1Valence() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_1_valence"));
+    public FloatColumn getAtom1Valence() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_atom_1_valence"));
     }
 
     /**
@@ -51,20 +51,20 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The formal charge of the atom 2 whose bond
      * valence parameters are given in this category.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getAtom2Valence() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_2_valence"));
+    public FloatColumn getAtom2Valence() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_atom_2_valence"));
     }
 
     /**
      * 
      * The bond valence parameter B used in the expression
      * s = exp[(Ro - R)/B] where s is the valence of bond length R.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getB() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B"));
+    public FloatColumn getB() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_B"));
     }
 
     /**
@@ -79,10 +79,10 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * 
      * Unique index loop number of the valence parameter loop.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+    public IntColumn getId() {
+        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_id"));
     }
 
     /**
@@ -99,9 +99,9 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * The bond valence parameter Ro used in the expression
      * s = exp[(Ro - R)/B] where s is the valence of bond length R.
-     * @return StrColumn
+     * @return FloatColumn
      */
-    public StrColumn getRo() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Ro"));
+    public FloatColumn getRo() {
+        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Ro"));
     }
 }
