@@ -35,6 +35,186 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      * Matrix used to transform fractional coordinates in the ATOM_SITE
      * category to Cartesian  coordinates. The axial alignments of this
      * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat11() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_11"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat12() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_12"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat13() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_13"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat21() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_21"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat22() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_22"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat23() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_23"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat31() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_31"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat32() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_32"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getMat33() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_mat_33"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
      * The 3 x 1 translation is defined in _atom_sites_Cartn_transform.vector.
      * 
      * x'                   |11 12 13|     x                  | 1 |
@@ -48,6 +228,66 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      */
     public StrColumn getMatrix() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_matrix"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getVec1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_1"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getVec2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_2"));
+    }
+
+    /**
+     * 
+     * Matrix used to transform fractional coordinates in the ATOM_SITE
+     * category to Cartesian  coordinates. The axial alignments of this
+     * transformation are described in _atom_sites_Cartn_transform.axes.
+     * The 3x1 translation is defined in _atom_sites_Cartn_transform.vector.
+     * 
+     * x'                  |11 12 13|     x                  | 1 |
+     * ( y' )Cartesian  = mat|21 22 23| * ( y )fractional + vec| 2 |
+     * z'                  |31 32 33|     z                  | 3 |
+     * 
+     * The default transformation matrix uses Rollet's axial
+     * assignments with cell vectors a,b,c aligned with orthogonal
+     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * @return StrColumn
+     */
+    public StrColumn getVec3() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vec_3"));
     }
 
     /**

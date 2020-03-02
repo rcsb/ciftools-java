@@ -20,6 +20,72 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAngleChi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_chi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAngleKappa() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_kappa"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAngleOmega() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_omega"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAnglePhi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_phi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAnglePsi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_psi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle at which the intensity is measured. This was
+     * calculated from the specified  orientation matrix and the original
+     * measured cell dimensions before any subsequent transformations.
+     * @return StrColumn
+     */
+    public StrColumn getAngleTheta() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_theta"));
+    }
+
+    /**
+     * 
      * Code identifying any attenuator setting for this reflection.
      * @return StrColumn
      */
@@ -34,6 +100,66 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getClassCode() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_class_code"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the diffractometer counts.
+     * Background counts before the peak, background after the peak,
+     * net counts after background removed, counts for peak scan or position,
+     * and the total counts (background plus peak).
+     * @return StrColumn
+     */
+    public StrColumn getCountsBg1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_bg_1"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the diffractometer counts.
+     * Background counts before the peak, background after the peak,
+     * net counts after background removed, counts for peak scan or position,
+     * and the total counts (background plus peak).
+     * @return StrColumn
+     */
+    public StrColumn getCountsBg2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_bg_2"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the diffractometer counts.
+     * Background counts before the peak, background after the peak,
+     * net counts after background removed, counts for peak scan or position,
+     * and the total counts (background plus peak).
+     * @return StrColumn
+     */
+    public StrColumn getCountsNet() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_net"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the diffractometer counts.
+     * Background counts before the peak, background after the peak,
+     * net counts after background removed, counts for peak scan or position,
+     * and the total counts (background plus peak).
+     * @return StrColumn
+     */
+    public StrColumn getCountsPeak() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_peak"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the diffractometer counts.
+     * Background counts before the peak, background after the peak,
+     * net counts after background removed, counts for peak scan or position,
+     * and the total counts (background plus peak).
+     * @return StrColumn
+     */
+    public StrColumn getCountsTotal() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_counts_total"));
     }
 
     /**
@@ -72,6 +198,33 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getHkl() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexK() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexL() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 
     /**

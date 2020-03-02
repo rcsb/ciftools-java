@@ -20,7 +20,14 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.StringJoiner;
+import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -115,7 +122,7 @@ class SchemaGenerator {
             Table category = entry.getValue();
 
             if (!alreadyWritten.add(categoryName)) {
-                System.out.println("skipping " + categoryName);
+                System.err.println("skipping " + categoryName);
                 continue;
             }
 
@@ -390,7 +397,7 @@ class SchemaGenerator {
     private final Map<String, Table> schema;
     private final Map<String, Block> categories;
     private final Map<String, String> links;
-    private final Map<String, Block> imports;
+    private final Map<String, Map<String, Category>> imports;
     private final Map<String, List<String>> aliases;
 
     private void getFieldData() {
@@ -400,15 +407,24 @@ class SchemaGenerator {
             String itemName = header.substring(header.indexOf(".") + 1);
             Map<String, Object> fields = new LinkedHashMap<>();
 
+            // handle imports
+            if (saveFrame.getCategories().containsKey("import")) {
+                parseImportGet(saveFrame.getCategory("import").getColumn("get").getStringData(0))
+                        .filter(Import::isValid)
+                        .filter(i -> imports.containsKey(i.save) && imports.get(i.save).size() > 0)
+                        .map(i -> imports.get(i.save))
+                        .forEach(i -> saveFrame.getCategories().putAll(i));
+            }
+
             if (schema.containsKey(categoryName)) {
                 fields = schema.get(categoryName).getColumns();
                 schema.get(categoryName).getCategoryKeyNames().add(itemName);
             } else if (schema.containsKey(categoryName.toLowerCase())) {
+                fields = schema.get(categoryName.toLowerCase()).getColumns();
                 // take case from category name in 'field' data as it is better if data is from cif dictionaries
                 schema.put(categoryName, schema.get(categoryName.toLowerCase()));
-                fields = schema.get(categoryName).getColumns();
             } else {
-                System.out.println("category " + categoryName + " has no metadata");
+                System.err.println("category " + categoryName + " has no metadata");
                 fields = new LinkedHashMap<>();
                 schema.put(categoryName, new Table("", new HashSet<>(), fields));
             }
@@ -573,16 +589,60 @@ class SchemaGenerator {
         Category cat = saveFrame.getCategory(category);
         if (cat.isDefined()) {
             return cat.getColumn(field);
-        } else {
+        } else if (links.containsKey(saveFrame.getBlockHeader())) {
             String linkName = links.get(saveFrame.getBlockHeader());
             Block block = categories.get(linkName);
             if (block != null) {
                 return getField(category, field, block);
             } else {
+                System.err.println("link " + linkName + "not found");
                 return null;
             }
+        } else {
+//            imports.entrySet()
+//                    .stream()
+//                    .map(entry -> entry.getValue())
+//                    .map(Map::entrySet)
+//                    .flatMap(Collection::stream)
+//                    .forEach(c -> {
+//                        System.out.println(c.getKey() + " -> " + c.getValue().getColumns());
+//                    });
+//            List<Block> idf = getImportFrames(saveFrame);
+//             TODO for-loop?
+//            return getField(category, field, idf);
+            return null;
         }
     }
+
+//    private List<Block> getImportFrames(Block saveFrame) {
+////        List<Block> frames = new ArrayList<>();
+////        if (saveFrame.getCategories().containsKey("import")) {
+////            return frames;
+////        }
+////
+////        parseImportGet(saveFrame.getCategory("import").getColumn("get").getStringData(0))
+////                .forEach(g -> {
+////                    if (!g.isValid()) {
+////                        System.err.println("missing 'save' or 'file' for import in " + saveFrame.getBlockHeader());
+////                        return;
+////                    }
+////                    String file = g.file;
+////                    Map<String, Category> importFrames = imports.get(file);
+////                    if (importFrames.isEmpty()) {
+////                        System.err.println("missing " + file + " entry in imports");
+////                        return;
+////                    }
+////                    System.out.println(g.save);
+//////                    importSave = importFrames.entrySet()
+//////                            .stream()
+//////                            .filter()
+//////                    if () {
+//////                        System.err.println("missing " + g.save + " save frame in " + file);
+//////                    }
+//////                    return importSave;
+////                });
+////        return null;
+////    }
 
     private void buildListOfLinksBetweenCategories(CifFile cifFile) {
         cifFile.getBlocks()
@@ -661,8 +721,12 @@ class SchemaGenerator {
                                 new LinkedHashMap<>()));
                     });
         } else {
+            // resolve imports
             block.getSaveFrames()
-                    .forEach(b -> imports.put(b.getBlockHeader(), b));
+                    .forEach(b -> {
+                        Map<String, Category> map = imports.computeIfAbsent(b.getBlockHeader(), e -> new LinkedHashMap<>());
+                        map.putAll(b.getCategories());
+                    });
         }
     }
 
@@ -699,6 +763,14 @@ class SchemaGenerator {
 
         public boolean isValid() {
             return save != null && file != null;
+        }
+
+        @Override
+        public String toString() {
+            return "Import{" +
+                    "save='" + save + '\'' +
+                    ", file='" + file + '\'' +
+                    '}';
         }
     }
 }

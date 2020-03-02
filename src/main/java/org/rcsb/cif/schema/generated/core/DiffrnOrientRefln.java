@@ -21,10 +21,97 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAngleChi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_chi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAngleKappa() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_kappa"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAngleOmega() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_omega"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAnglePhi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_phi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAnglePsi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_psi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle of a reflection measured at the centre of the
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * @return StrColumn
+     */
+    public StrColumn getAngleTheta() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_theta"));
+    }
+
+    /**
+     * 
      * Miller indices of a reflection used to define the orientation matrix.
      * @return StrColumn
      */
     public StrColumn getHkl() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexK() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexL() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 }

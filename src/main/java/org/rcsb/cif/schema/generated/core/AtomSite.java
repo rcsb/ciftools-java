@@ -126,11 +126,80 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * The atom site coordinates in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnX() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_x"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty values of the atom site coordinates
+     * in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnXSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_x_su"));
+    }
+
+    /**
+     * 
      * Vector of Cartesian (orthogonal angstrom) atom site coordinates.
      * @return StrColumn
      */
     public StrColumn getCartnXyz() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
+    }
+
+    /**
+     * 
+     * The atom site coordinates in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnY() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_y"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty values of the atom site coordinates
+     * in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnYSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_y_su"));
+    }
+
+    /**
+     * 
+     * The atom site coordinates in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnZ() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_z"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty values of the atom site coordinates
+     * in angstroms specified according to a
+     * set of orthogonal Cartesian axes related to the cell axes as
+     * specified by the _atom_sites_Cartn_transform.axes description.
+     * @return StrColumn
+     */
+    public StrColumn getCartnZSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cartn_z_su"));
     }
 
     /**
@@ -196,12 +265,170 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * Atom site coordinates as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractX() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_x"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty value of the atom site coordinates
+     * as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractXSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_x_su"));
+    }
+
+    /**
+     * 
      * Vector of atom site coordinates projected onto the crystal unit
      * cell as fractions of the cell lengths.
      * @return StrColumn
      */
     public StrColumn getFractXyz() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
+    }
+
+    /**
+     * 
+     * Atom site coordinates as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractY() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_y"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty value of the atom site coordinates
+     * as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractYSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_y_su"));
+    }
+
+    /**
+     * 
+     * Atom site coordinates as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractZ() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_z"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty value of the atom site coordinates
+     * as fractions of the cell length values.
+     * @return StrColumn
+     */
+    public StrColumn getFractZSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fract_z_su"));
+    }
+
+    /**
+     * 
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell. It is made up of
+     * components, _atom_site.label_component_0 to *_6, which may be
+     * specified as separate data items. Component 0 usually matches one
+     * of the specified _atom_type.symbol codes. This is not mandatory
+     * if an _atom_site.type_symbol item is included in the atom site
+     * list. The _atom_site.type_symbol always takes precedence over
+     * an _atom_site.label in the identification of the atom type. The
+     * label components 1 to 6 are optional, and normally only
+     * components 0 and 1 are used. Note that components 0 and 1 are
+     * concatenated, while all other components, if specified, are
+     * separated by an underline character. Underline separators are
+     * only used if higher-order components exist. If an intermediate
+     * component is not used it may be omitted provided the underline
+     * separators are inserted. For example the label 'C233__ggg' is
+     * acceptable and represents the components C, 233, '', and ggg.
+     * Each label may have a different number of components.
+     * @return StrColumn
+     */
+    public StrColumn getLabel() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label"));
+    }
+
+    /**
+     * 
+     * Component_0 is normally a code which matches identically with
+     * one of the _atom_type.symbol codes. If this is the case then the
+     * rules governing the _atom_type.symbol code apply. If, however,
+     * the data item _atom_site.type_symbol is also specified in the
+     * atom site list, component 0 need not match this symbol or adhere
+     * to any of the _atom_type.symbol rules.
+     * Component_1 is referred to as the "atom number". When component 0
+     * is the atom type code, it is used to number the sites with the
+     * same atom type. This component code must start with at least one
+     * digit which is not followed by a + or - sign (to distinguish it
+     * from the component 0 rules).
+     * Components_2 to 6 contain the identifier, residue, sequence,
+     * asymmetry identifier and alternate codes, respectively. These
+     * codes may be composed of any characters except an underline.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent0() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_0"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_1"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_2"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent3() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_3"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent4() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_4"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent5() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_5"));
+    }
+
+    /**
+     * 
+     * See label_component_0 description.
+     * @return StrColumn
+     */
+    public StrColumn getLabelComponent6() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label_component_6"));
     }
 
     /**

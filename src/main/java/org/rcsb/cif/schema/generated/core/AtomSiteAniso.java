@@ -20,6 +20,198 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
 
     /**
      * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB11() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_11"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB11Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_11_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB12() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_12"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB12Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_12_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB13() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_13"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB13Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_13_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB22() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_22"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB22Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_22_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB23() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_23"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB23Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_23_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement components
+     * in angstroms squared which appear in the structure factor term:
+     * 
+     * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends against the use
+     * of B for reporting atomic displacement parameters. U, being
+     * directly proportional to B, is preferred.
+     * @return StrColumn
+     */
+    public StrColumn getB33() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_33"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Bij anisotropic atomic displacement components (see
+     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Bij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getB33Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_B_33_su"));
+    }
+
+    /**
+     * 
      * Anisotropic atomic displacement parameters are usually looped in
      * a separate list. If this is the case, this code must match the
      * _atom_site.label of the associated atom in the atom coordinate
@@ -67,5 +259,185 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      */
     public StrColumn getTypeSymbol() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_type_symbol"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU11() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_11"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU11Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_11_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU12() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_12"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU12Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_12_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU13() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_13"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU13Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_13_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU22() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_22"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU22Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_22_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU23() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_23"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU23Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_23_su"));
+    }
+
+    /**
+     * 
+     * These are the standard anisotropic atomic displacement
+     * components in angstroms squared which appear in the
+     * structure factor term:
+     * 
+     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * 
+     * h = the Miller indices
+     * a* = the reciprocal-space cell lengths
+     * 
+     * The unique elements of the real symmetric matrix are entered by row.
+     * @return StrColumn
+     */
+    public StrColumn getU33() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_33"));
+    }
+
+    /**
+     * 
+     * These are the standard uncertainty values (SU) for the standard
+     * form of the Uij anisotropic atomic displacement components (see
+     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the Uij calculation.
+     * @return StrColumn
+     */
+    public StrColumn getU33Su() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_U_33_su"));
     }
 }

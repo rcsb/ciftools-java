@@ -20,11 +20,82 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
 
     /**
      * 
+     * Diffractometer angle setting when the perpendicular to the specified
+     * crystal face is aligned along a specified direction (e.g. the
+     * bisector of the incident and reflected beams in an optical goniometer.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrChi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_diffr_chi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle setting when the perpendicular to the specified
+     * crystal face is aligned along a specified direction (e.g. the
+     * bisector of the incident and reflected beams in an optical goniometer.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrKappa() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_diffr_kappa"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle setting when the perpendicular to the specified
+     * crystal face is aligned along a specified direction (e.g. the
+     * bisector of the incident and reflected beams in an optical goniometer.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrPhi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_diffr_phi"));
+    }
+
+    /**
+     * 
+     * Diffractometer angle setting when the perpendicular to the specified
+     * crystal face is aligned along a specified direction (e.g. the
+     * bisector of the incident and reflected beams in an optical goniometer.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrPsi() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_diffr_psi"));
+    }
+
+    /**
+     * 
      * Miller indices of the crystal face.
      * @return StrColumn
      */
     public StrColumn getHkl() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexK() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexL() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
     }
 
     /**

@@ -38,4 +38,31 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
     public StrColumn getHkl() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hkl"));
     }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexK() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexL() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
+    }
 }

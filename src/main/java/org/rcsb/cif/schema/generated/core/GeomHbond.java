@@ -40,6 +40,36 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteLabelA() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_A"));
+    }
+
+    /**
+     * 
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteLabelD() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_D"));
+    }
+
+    /**
+     * 
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteLabelH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_H"));
+    }
+
+    /**
+     * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return StrColumn
@@ -121,5 +151,89 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getPublFlag() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_publ_flag"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the symmetry operation codes
+     * which must be applied to the atom sites involved in the geometry angle.
+     * 
+     * The symmetry code of each atom site as the symmetry-equivalent position
+     * number 'n' and the cell translation number 'pqr'. These numbers are
+     * combined to form the code 'n pqr' or n_pqr.
+     * 
+     * The character string n_pqr is composed as follows:
+     * 
+     * n refers to the symmetry operation that is applied to the
+     * coordinates stored in _atom_site.fract_xyz. It must match a
+     * number given in _symmetry_equiv.pos_site_id.
+     * 
+     * p, q and r refer to the translations that are subsequently
+     * applied to the symmetry transformed coordinates to generate
+     * the atom used in calculating the angle. These translations
+     * (x,y,z) are related to (p,q,r) by the relations
+     * p = 5 + x
+     * q = 5 + y
+     * r = 5 + z
+     * @return StrColumn
+     */
+    public StrColumn getSiteSymmetryA() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_A"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the symmetry operation codes
+     * which must be applied to the atom sites involved in the geometry angle.
+     * 
+     * The symmetry code of each atom site as the symmetry-equivalent position
+     * number 'n' and the cell translation number 'pqr'. These numbers are
+     * combined to form the code 'n pqr' or n_pqr.
+     * 
+     * The character string n_pqr is composed as follows:
+     * 
+     * n refers to the symmetry operation that is applied to the
+     * coordinates stored in _atom_site.fract_xyz. It must match a
+     * number given in _symmetry_equiv.pos_site_id.
+     * 
+     * p, q and r refer to the translations that are subsequently
+     * applied to the symmetry transformed coordinates to generate
+     * the atom used in calculating the angle. These translations
+     * (x,y,z) are related to (p,q,r) by the relations
+     * p = 5 + x
+     * q = 5 + y
+     * r = 5 + z
+     * @return StrColumn
+     */
+    public StrColumn getSiteSymmetryD() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_D"));
+    }
+
+    /**
+     * 
+     * The set of data items which specify the symmetry operation codes
+     * which must be applied to the atom sites involved in the geometry angle.
+     * 
+     * The symmetry code of each atom site as the symmetry-equivalent position
+     * number 'n' and the cell translation number 'pqr'. These numbers are
+     * combined to form the code 'n pqr' or n_pqr.
+     * 
+     * The character string n_pqr is composed as follows:
+     * 
+     * n refers to the symmetry operation that is applied to the
+     * coordinates stored in _atom_site.fract_xyz. It must match a
+     * number given in _symmetry_equiv.pos_site_id.
+     * 
+     * p, q and r refer to the translations that are subsequently
+     * applied to the symmetry transformed coordinates to generate
+     * the atom used in calculating the angle. These translations
+     * (x,y,z) are related to (p,q,r) by the relations
+     * p = 5 + x
+     * q = 5 + y
+     * r = 5 + z
+     * @return StrColumn
+     */
+    public StrColumn getSiteSymmetryH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_H"));
     }
 }

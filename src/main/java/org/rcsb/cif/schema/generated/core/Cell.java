@@ -91,6 +91,114 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * The angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleAlpha() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_alpha"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleAlphaSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_alpha_su"));
+    }
+
+    /**
+     * 
+     * The angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleBeta() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_beta"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleBetaSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_beta_su"));
+    }
+
+    /**
+     * 
+     * The angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleGamma() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_gamma"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the angle between the bounding cell axes.
+     * @return StrColumn
+     */
+    public StrColumn getAngleGammaSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_angle_gamma_su"));
+    }
+
+    /**
+     * 
+     * The length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthA() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_a"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthASu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_a_su"));
+    }
+
+    /**
+     * 
+     * The length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthB() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_b"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthBSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_b_su"));
+    }
+
+    /**
+     * 
+     * The length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthC() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_c"));
+    }
+
+    /**
+     * 
+     * Standard uncertainty of the length of each cell axis.
+     * @return StrColumn
+     */
+    public StrColumn getLengthCSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_length_c_su"));
+    }
+
+    /**
+     * 
      * The reciprocal space matrix for converting the U(ij) matrix of
      * atomic displacement parameters to a dimensionless beta(IJ) matrix.
      * The adp factor in a structure factor expression:
@@ -317,9 +425,5 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getVectorC() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_vector_c"));
-    }
-
-    public FloatColumn getLengthA() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_length_a"));
     }
 }

@@ -196,6 +196,33 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexH() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_h"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexK() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_k"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getIndexL() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_index_l"));
+    }
+
+    /**
+     * 
      * The intensity of the reflection calculated from the atom site data.
      * @return StrColumn
      */

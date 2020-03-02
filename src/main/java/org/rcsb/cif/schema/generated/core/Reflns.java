@@ -127,6 +127,60 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitHMax() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitHMin() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitKMax() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitKMin() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitLMax() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
+    }
+
+    /**
+     * 
+     * The index of a reciprocal space vector.
+     * @return StrColumn
+     */
+    public StrColumn getLimitLMin() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
+    }
+
+    /**
+     * 
      * Maximum Miller indices of refined diffraction reflections.
      * @return StrColumn
      */

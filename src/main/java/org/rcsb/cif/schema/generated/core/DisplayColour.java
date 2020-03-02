@@ -20,11 +20,44 @@ public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory 
 
     /**
      * 
+     * Integer value between 0 and 255 giving the intensity of a
+     * specific colour component (red, green or blue) for the RGB
+     * display colour code.
+     * @return StrColumn
+     */
+    public StrColumn getBlue() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_blue"));
+    }
+
+    /**
+     * 
+     * Integer value between 0 and 255 giving the intensity of a
+     * specific colour component (red, green or blue) for the RGB
+     * display colour code.
+     * @return StrColumn
+     */
+    public StrColumn getGreen() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_green"));
+    }
+
+    /**
+     * 
      * Colour hue as an enumerated code.
      * @return StrColumn
      */
     public StrColumn getHue() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hue"));
+    }
+
+    /**
+     * 
+     * Integer value between 0 and 255 giving the intensity of a
+     * specific colour component (red, green or blue) for the RGB
+     * display colour code.
+     * @return StrColumn
+     */
+    public StrColumn getRed() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_red"));
     }
 
     /**

@@ -20,6 +20,141 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannA1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a1"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannA2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a2"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannA3() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a3"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannA4() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_a4"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannB1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b1"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannB2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b2"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannB3() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b3"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannB4() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_b4"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Cromer-Mann coefficients
+     * for generation of X-ray scattering factors.
+     * 
+     * Ref: International Tables for X-ray Crystallography, Vol. IV
+     * (1974) Table 2.2B
+     * or   International Tables for Crystallography, Vol. C
+     * (1991) Tables 6.1.1.4 and 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getCromerMannC() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Cromer_Mann_c"));
+    }
+
+    /**
+     * 
      * The set of Cromer-Mann coefficients for generating X-ray scattering
      * factors. [ a1, b1, a2, b2, a3, b3, a4, b4, c]
      * Ref: International Tables for Crystallography, Vol. C
@@ -108,6 +243,58 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getDispersionSource() {
         return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dispersion_source"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Fox et al.  coefficients
+     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * 
+     * Ref: International Tables for Crystallography, Vol. C
+     * (1991) Table 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getHiAngFoxC0() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c0"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Fox et al.  coefficients
+     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * 
+     * Ref: International Tables for Crystallography, Vol. C
+     * (1991) Table 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getHiAngFoxC1() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c1"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Fox et al.  coefficients
+     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * 
+     * Ref: International Tables for Crystallography, Vol. C
+     * (1991) Table 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getHiAngFoxC2() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c2"));
+    }
+
+    /**
+     * 
+     * The set of data items used to define Fox et al.  coefficients
+     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * 
+     * Ref: International Tables for Crystallography, Vol. C
+     * (1991) Table 6.1.1.5
+     * @return StrColumn
+     */
+    public StrColumn getHiAngFoxC3() {
+        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hi_ang_Fox_c3"));
     }
 
     /**

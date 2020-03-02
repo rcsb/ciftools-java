@@ -198,6 +198,42 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "type", this);
         }
 
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_11", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_12", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_13", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB21() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_21", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_22", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_23", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB31() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_31", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB32() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_32", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUB33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "UB_33", this);
+        }
+
         public StrColumnBuilder<DiffrnOrientMatrixBuilder> enterUBIJ() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "UBIJ", this);
         }
@@ -210,8 +246,44 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAngleChi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_chi", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAngleKappa() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_kappa", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAngleOmega() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_omega", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAnglePhi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_phi", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAnglePsi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_psi", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterAngleTheta() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_theta", this);
+        }
+
         public StrColumnBuilder<DiffrnOrientReflnBuilder> enterHkl() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hkl", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<DiffrnOrientReflnBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
         }
     }
 
@@ -298,12 +370,56 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAngleChi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_chi", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAngleKappa() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_kappa", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAngleOmega() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_omega", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAnglePhi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_phi", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAnglePsi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_psi", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterAngleTheta() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_theta", this);
+        }
+
         public StrColumnBuilder<DiffrnReflnBuilder> enterAttenuatorCode() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "attenuator_code", this);
         }
 
         public StrColumnBuilder<DiffrnReflnBuilder> enterClassCode() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "class_code", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterCountsBg1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "counts_bg_1", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterCountsBg2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "counts_bg_2", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterCountsNet() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "counts_net", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterCountsPeak() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "counts_peak", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterCountsTotal() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "counts_total", this);
         }
 
         public StrColumnBuilder<DiffrnReflnBuilder> enterDetectSlitHoriz() {
@@ -320,6 +436,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<DiffrnReflnBuilder> enterHkl() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hkl", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
         }
 
         public StrColumnBuilder<DiffrnReflnBuilder> enterIntensityNet() {
@@ -392,6 +520,30 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<DiffrnReflnsBuilder> enterLaueMeasuredFractionMax() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "Laue_measured_fraction_max", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitHMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_h_max", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitHMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_h_min", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitKMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_k_max", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitKMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_k_min", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitLMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_l_max", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitLMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_l_min", this);
         }
 
         public StrColumnBuilder<DiffrnReflnsBuilder> enterLimitMax() {
@@ -480,6 +632,42 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public DiffrnReflnsTransfMatrixBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "11", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "12", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "13", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_21() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "21", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "22", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "23", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_31() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "31", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_32() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "32", this);
+        }
+
+        public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enter_33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "33", this);
         }
 
         public StrColumnBuilder<DiffrnReflnsTransfMatrixBuilder> enterTIJ() {
@@ -593,6 +781,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
         public StrColumnBuilder<DiffrnStandardReflnBuilder> enterHkl() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hkl", this);
         }
+
+        public StrColumnBuilder<DiffrnStandardReflnBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<DiffrnStandardReflnBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<DiffrnStandardReflnBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
+        }
     }
 
     public static class ReflnBuilder extends CifCoreCategoryBuilder {
@@ -668,6 +868,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<ReflnBuilder> enterIncludeStatus() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "include_status", this);
+        }
+
+        public StrColumnBuilder<ReflnBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<ReflnBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<ReflnBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
         }
 
         public StrColumnBuilder<ReflnBuilder> enterIntensityCalc() {
@@ -756,6 +968,30 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<ReflnsBuilder> enterFriedelFractionMax() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "Friedel_fraction_max", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitHMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_h_max", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitHMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_h_min", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitKMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_k_max", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitKMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_k_min", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitLMax() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_l_max", this);
+        }
+
+        public StrColumnBuilder<ReflnsBuilder> enterLimitLMin() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "limit_l_min", this);
         }
 
         public StrColumnBuilder<ReflnsBuilder> enterLimitMax() {
@@ -994,6 +1230,54 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "volume_su", this);
         }
 
+        public StrColumnBuilder<CellBuilder> enterAngleAlpha() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_alpha", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterAngleAlphaSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_alpha_su", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterAngleBeta() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_beta", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterAngleBetaSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_beta_su", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterAngleGamma() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_gamma", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterAngleGammaSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "angle_gamma_su", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthA() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_a", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthASu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_a_su", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthB() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_b", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthBSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_b_su", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthC() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_c", this);
+        }
+
+        public StrColumnBuilder<CellBuilder> enterLengthCSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "length_c_su", this);
+        }
+
         public StrColumnBuilder<CellBuilder> enterConvertUijToBetaij() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "convert_Uij_to_betaij", this);
         }
@@ -1136,6 +1420,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<CellMeasurementReflnBuilder> enterHkl() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hkl", this);
+        }
+
+        public StrColumnBuilder<CellMeasurementReflnBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<CellMeasurementReflnBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<CellMeasurementReflnBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
         }
 
         public StrColumnBuilder<CellMeasurementReflnBuilder> enterTheta() {
@@ -1510,8 +1806,36 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterDiffrChi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "diffr_chi", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterDiffrKappa() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "diffr_kappa", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterDiffrPhi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "diffr_phi", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterDiffrPsi() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "diffr_psi", this);
+        }
+
         public StrColumnBuilder<ExptlCrystalFaceBuilder> enterHkl() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hkl", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterIndexH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_h", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterIndexK() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_k", this);
+        }
+
+        public StrColumnBuilder<ExptlCrystalFaceBuilder> enterIndexL() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "index_l", this);
         }
 
         public StrColumnBuilder<ExptlCrystalFaceBuilder> enterPerpDist() {
@@ -1746,8 +2070,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<GeomAngleBuilder> enterAtomSiteLabel1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_1", this);
+        }
+
         public StrColumnBuilder<GeomAngleBuilder> enterAtomSiteLabel2() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_2", this);
+        }
+
+        public StrColumnBuilder<GeomAngleBuilder> enterAtomSiteLabel3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_3", this);
         }
 
         public StrColumnBuilder<GeomAngleBuilder> enterDistances() {
@@ -1760,6 +2092,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<GeomAngleBuilder> enterPublFlag() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "publ_flag", this);
+        }
+
+        public StrColumnBuilder<GeomAngleBuilder> enterSiteSymmetry1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_1", this);
+        }
+
+        public StrColumnBuilder<GeomAngleBuilder> enterSiteSymmetry2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_2", this);
+        }
+
+        public StrColumnBuilder<GeomAngleBuilder> enterSiteSymmetry3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_3", this);
         }
 
         public StrColumnBuilder<GeomAngleBuilder> enterValue() {
@@ -1776,6 +2120,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public GeomBondBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<GeomBondBuilder> enterAtomSiteLabel1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_1", this);
+        }
+
+        public StrColumnBuilder<GeomBondBuilder> enterAtomSiteLabel2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_2", this);
         }
 
         public StrColumnBuilder<GeomBondBuilder> enterDistance() {
@@ -1798,6 +2150,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "publ_flag", this);
         }
 
+        public StrColumnBuilder<GeomBondBuilder> enterSiteSymmetry1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_1", this);
+        }
+
+        public StrColumnBuilder<GeomBondBuilder> enterSiteSymmetry2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_2", this);
+        }
+
         public StrColumnBuilder<GeomBondBuilder> enterValence() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "valence", this);
         }
@@ -1808,6 +2168,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public GeomContactBuilder(BlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<GeomContactBuilder> enterAtomSiteLabel1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_1", this);
+        }
+
+        public StrColumnBuilder<GeomContactBuilder> enterAtomSiteLabel2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_2", this);
         }
 
         public StrColumnBuilder<GeomContactBuilder> enterDistance() {
@@ -1825,6 +2193,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
         public StrColumnBuilder<GeomContactBuilder> enterPublFlag() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "publ_flag", this);
         }
+
+        public StrColumnBuilder<GeomContactBuilder> enterSiteSymmetry1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_1", this);
+        }
+
+        public StrColumnBuilder<GeomContactBuilder> enterSiteSymmetry2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_2", this);
+        }
     }
 
     public static class GeomHbondBuilder extends CifCoreCategoryBuilder {
@@ -1840,6 +2216,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<GeomHbondBuilder> enterAngleDHASu() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "angle_DHA_su", this);
+        }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterAtomSiteLabelA() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_A", this);
+        }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterAtomSiteLabelD() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_D", this);
+        }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterAtomSiteLabelH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_H", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder> enterDistanceDA() {
@@ -1873,6 +2261,18 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
         public StrColumnBuilder<GeomHbondBuilder> enterPublFlag() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "publ_flag", this);
         }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterSiteSymmetryA() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_A", this);
+        }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterSiteSymmetryD() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_D", this);
+        }
+
+        public StrColumnBuilder<GeomHbondBuilder> enterSiteSymmetryH() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_H", this);
+        }
     }
 
     public static class GeomTorsionBuilder extends CifCoreCategoryBuilder {
@@ -1890,6 +2290,22 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "angle_su", this);
         }
 
+        public StrColumnBuilder<GeomTorsionBuilder> enterAtomSiteLabel1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_1", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterAtomSiteLabel2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_2", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterAtomSiteLabel3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_3", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterAtomSiteLabel4() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "atom_site_label_4", this);
+        }
+
         public StrColumnBuilder<GeomTorsionBuilder> enterDistances() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "distances", this);
         }
@@ -1900,6 +2316,22 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<GeomTorsionBuilder> enterPublFlag() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "publ_flag", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterSiteSymmetry1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_1", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterSiteSymmetry2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_2", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterSiteSymmetry3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_3", this);
+        }
+
+        public StrColumnBuilder<GeomTorsionBuilder> enterSiteSymmetry4() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "site_symmetry_4", this);
         }
     }
 
@@ -1952,6 +2384,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<ModelSiteBuilder> enterRadiusContact() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "radius_contact", this);
+        }
+
+        public StrColumnBuilder<ModelSiteBuilder> enterSymop() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "symop", this);
         }
 
         public StrColumnBuilder<ModelSiteBuilder> enterTypeSymbol() {
@@ -2462,8 +2898,20 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<DisplayColourBuilder> enterBlue() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "blue", this);
+        }
+
+        public StrColumnBuilder<DisplayColourBuilder> enterGreen() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "green", this);
+        }
+
         public StrColumnBuilder<DisplayColourBuilder> enterHue() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "hue", this);
+        }
+
+        public StrColumnBuilder<DisplayColourBuilder> enterRed() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "red", this);
         }
 
         public StrColumnBuilder<DisplayColourBuilder> enterRGB() {
@@ -2986,8 +3434,32 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "calc_flag", this);
         }
 
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnX() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_x", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnXSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_x_su", this);
+        }
+
         public StrColumnBuilder<AtomSiteBuilder> enterCartnXyz() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_xyz", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnY() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_y", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnYSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_y_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnZ() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_z", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterCartnZSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cartn_z_su", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder> enterChemicalConnNumber() {
@@ -3010,8 +3482,64 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "disorder_group", this);
         }
 
+        public StrColumnBuilder<AtomSiteBuilder> enterFractX() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_x", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterFractXSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_x_su", this);
+        }
+
         public StrColumnBuilder<AtomSiteBuilder> enterFractXyz() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "fract_xyz", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterFractY() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_y", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterFractYSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_y_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterFractZ() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_z", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterFractZSu() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "fract_z_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabel() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent0() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_0", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_1", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_2", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_3", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent4() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_4", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent5() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_5", this);
+        }
+
+        public StrColumnBuilder<AtomSiteBuilder> enterLabelComponent6() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "label_component_6", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder> enterOccupancy() {
@@ -3086,6 +3614,54 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_11", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB11Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_11_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_12", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB12Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_12_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_13", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB13Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_13_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_22", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB22Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_22_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_23", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB23Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_23_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_33", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterB33Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "B_33_su", this);
+        }
+
         public StrColumnBuilder<AtomSiteAnisoBuilder> enterLabel() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "label", this);
         }
@@ -3104,6 +3680,54 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<AtomSiteAnisoBuilder> enterTypeSymbol() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "type_symbol", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_11", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU11Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_11_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_12", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU12Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_12_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_13", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU13Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_13_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_22", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU22Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_22_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_23", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU23Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_23_su", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_33", this);
+        }
+
+        public StrColumnBuilder<AtomSiteAnisoBuilder> enterU33Su() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "U_33_su", this);
         }
     }
 
@@ -3142,8 +3766,56 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "axes", this);
         }
 
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_11", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_12", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_13", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat21() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_21", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_22", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_23", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat31() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_31", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat32() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_32", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMat33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_33", this);
+        }
+
         public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterMatrix() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "matrix", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterVec1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_1", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterVec2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_2", this);
+        }
+
+        public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterVec3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_3", this);
         }
 
         public StrColumnBuilder<AtomSitesCartnTransformBuilder> enterVector() {
@@ -3162,8 +3834,56 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             return new StrColumnBuilder<>(CATEGORY_NAME, "axes", this);
         }
 
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat11() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_11", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat12() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_12", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat13() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_13", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat21() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_21", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat22() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_22", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat23() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_23", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat31() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_31", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat32() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_32", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMat33() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "mat_33", this);
+        }
+
         public StrColumnBuilder<AtomSitesFractTransformBuilder> enterMatrix() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "matrix", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterVec1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_1", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterVec2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_2", this);
+        }
+
+        public StrColumnBuilder<AtomSitesFractTransformBuilder> enterVec3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "vec_3", this);
         }
 
         public StrColumnBuilder<AtomSitesFractTransformBuilder> enterVector() {
@@ -3238,6 +3958,42 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannA1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_a1", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannA2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_a2", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannA3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_a3", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannA4() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_a4", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannB1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_b1", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannB2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_b2", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannB3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_b3", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannB4() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_b4", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannC() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_c", this);
+        }
+
         public StrColumnBuilder<AtomTypeScatBuilder> enterCromerMannCoeffs() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "Cromer_Mann_coeffs", this);
         }
@@ -3272,6 +4028,22 @@ public class CifCoreCategoryBuilder extends CategoryBuilder {
 
         public StrColumnBuilder<AtomTypeScatBuilder> enterDispersionSource() {
             return new StrColumnBuilder<>(CATEGORY_NAME, "dispersion_source", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterHiAngFoxC0() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hi_ang_Fox_c0", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterHiAngFoxC1() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hi_ang_Fox_c1", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterHiAngFoxC2() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hi_ang_Fox_c2", this);
+        }
+
+        public StrColumnBuilder<AtomTypeScatBuilder> enterHiAngFoxC3() {
+            return new StrColumnBuilder<>(CATEGORY_NAME, "hi_ang_Fox_c3", this);
         }
 
         public StrColumnBuilder<AtomTypeScatBuilder> enterHiAngFoxCoeffs() {
