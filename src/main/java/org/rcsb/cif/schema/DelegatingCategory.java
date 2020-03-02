@@ -2,6 +2,7 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.schema.generated.core.CifCoreBlock;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -52,6 +53,41 @@ public abstract class DelegatingCategory implements Category {
         @Override
         protected Column createDelegate(String columnName, Column column) {
             return new DelegatingColumn(column);
+        }
+    }
+
+    public static class DelegatingCifCoreCategory implements Category {
+        private final String catgoryName;
+        protected final CifCoreBlock parentBlock;
+
+        public DelegatingCifCoreCategory(String categoryName, CifCoreBlock parentBlock) {
+            this.catgoryName = categoryName;
+            this.parentBlock = parentBlock;
+        }
+
+        @Override
+        public String getCategoryName() {
+            return catgoryName;
+        }
+
+        @Override
+        public int getRowCount() {
+            return -1;//TODO
+        }
+
+        @Override
+        public Column getColumn(String name) {
+            return parentBlock.getColumn(catgoryName + "_" + name);
+        }
+
+        @Override
+        public Map<String, Column> getColumns() {
+            return null;//TODO
+        }
+
+        @Override
+        public boolean isDefined() {
+            return true;//TODO
         }
     }
 }

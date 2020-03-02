@@ -65,9 +65,11 @@ public interface Column {
 
     class EmptyColumn implements Column {
         private final String name;
+        private final IllegalArgumentException exception;
 
         public EmptyColumn(String name) {
             this.name = name;
+            this.exception = new IllegalArgumentException("column " + name + " is undefined");
         }
 
         @Override
@@ -82,12 +84,12 @@ public interface Column {
 
         @Override
         public String getStringData(int row) {
-            throw new ArrayIndexOutOfBoundsException(row);
+            throw exception;
         }
 
         @Override
         public ValueKind getValueKind(int row) {
-            throw new ArrayIndexOutOfBoundsException(row);
+            throw exception;
         }
 
         @Override

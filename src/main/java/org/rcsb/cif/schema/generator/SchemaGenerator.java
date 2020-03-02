@@ -20,13 +20,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.StringJoiner;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -44,15 +38,15 @@ class SchemaGenerator {
     private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
 
     public static void main(String[] args) throws IOException {
-//        new SchemaGenerator("MmCif", "mm",
+//        new SchemaGenerator("MmCif", "mm", false,
 //                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
 //                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
 //                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
 //                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-        new SchemaGenerator("CifCore", "core",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic",
+        new SchemaGenerator("CifCore", "core", true,
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif");
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -80,6 +74,8 @@ class SchemaGenerator {
     }
 
     private void writeBlockImpl(String name, Map<String, Table> content, Path path) throws IOException {
+        Set<String> alreadyWritten = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+
         String className = name + "Block";
         StringJoiner output = new StringJoiner("\n");
         output.add("package " + BASE_PACKAGE + pkg + ";");
@@ -119,6 +115,11 @@ class SchemaGenerator {
             String categoryName = entry.getKey();
             Table category = entry.getValue();
 
+            if (!alreadyWritten.add(categoryName)) {
+                System.out.println("skipping " + categoryName);
+                continue;
+            }
+
             String categoryClassName = toClassName(categoryName);
 
             getters.add("    /**");
@@ -129,7 +130,11 @@ class SchemaGenerator {
             getters.add("     * @return " + categoryClassName);
             getters.add("     */");
             getters.add("    public " + categoryClassName + " get" + categoryClassName + "() {");
-            getters.add("        return delegate.getCategory(\"" + categoryName + "\", " + categoryClassName + "::new);");
+            if (!flat) {
+                getters.add("        return delegate.getCategory(\"" + categoryName + "\", " + categoryClassName + "::new);");
+            } else {
+                getters.add("        return new " + categoryClassName + "(this);");
+            }
             getters.add("    }");
             getters.add("");
 
@@ -208,7 +213,13 @@ class SchemaGenerator {
         output.add(categoryDescription);
         output.add(" */");
         output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
-        output.add("public class " + className + " extends " + DelegatingCategory.class.getSimpleName() + " {");
+        if (!flat) {
+            output.add("public class " + className + " extends " + DelegatingCategory.class.getSimpleName() + " {");
+        } else {
+            output.add("public class " + className + " extends " + DelegatingCategory.class.getSimpleName() + ".DelegatingCifCoreCategory {");
+            output.add("    private static final String NAME = \"" + categoryName + "\";");
+            output.add("");
+        }
 
         StringJoiner getters = new StringJoiner("\n");
         StringJoiner delegator = new StringJoiner("\n");
@@ -239,7 +250,11 @@ class SchemaGenerator {
             getters.add("     * @return " + baseClassName);
             getters.add("     */");
             getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
-            getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
+            if (!flat) {
+                getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
+            } else {
+                getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(NAME + \"_" + columnName + "\"));");
+            }
             getters.add("    }");
             getters.add("");
 
@@ -254,19 +269,26 @@ class SchemaGenerator {
         }
 
         // constructor
-        output.add("    public " + className + "(Category delegate) {");
-        output.add("        super(delegate);");
-        output.add("    }");
-        output.add("");
-        output.add("    @Override");
-        output.add("    protected Column createDelegate(String columnName, Column column) {");
-        output.add("        switch (columnName) {");
-        output.add(delegator.toString());
-        output.add("            default:");
-        output.add("                return new DelegatingColumn(column);");
-        output.add("        }");
-        output.add("    }");
-        output.add("");
+        if (!flat) {
+            output.add("    public " + className + "(Category delegate) {");
+            output.add("        super(delegate);");
+            output.add("    }");
+            output.add("");
+            output.add("    @Override");
+            output.add("    protected Column createDelegate(String columnName, Column column) {");
+            output.add("        switch (columnName) {");
+            output.add(delegator.toString());
+            output.add("            default:");
+            output.add("                return new DelegatingColumn(column);");
+            output.add("        }");
+            output.add("    }");
+            output.add("");
+        } else {
+            output.add("    public " + className + "(CifCoreBlock parentBlock) {");
+            output.add("        super(NAME, parentBlock);");
+            output.add("    }");
+            output.add("");
+        }
 
         // getters
         output.add(getters.toString() + "}");
@@ -325,12 +347,15 @@ class SchemaGenerator {
         }
     }
 
-    private SchemaGenerator(String name, String pkg, String... resource) throws IOException {
+    private SchemaGenerator(String name, String pkg, boolean flat, String... resource) throws IOException {
         this.name = name;
         this.pkg = pkg;
+        this.flat = flat;
         this.schema = new LinkedHashMap<>();
         this.categories = new LinkedHashMap<>();
         this.links = new LinkedHashMap<>();
+        this.imports = new LinkedHashMap<>();
+        this.aliases = new LinkedHashMap<>();
         for (String res : resource) {
             System.out.println(res);
             CifFile cifFile = CifIO.readFromURL(new URL(res));
@@ -362,16 +387,37 @@ class SchemaGenerator {
 
     private final String name;
     private final String pkg;
+    private final boolean flat;
     private final Map<String, Table> schema;
     private final Map<String, Block> categories;
     private final Map<String, String> links;
+    private final Map<String, Block> imports;
+    private final Map<String, List<String>> aliases;
 
     private void getFieldData() {
         categories.forEach((fullName, saveFrame) -> {
             String header = saveFrame.getBlockHeader();
-            String categoryName = header.substring(1, header.contains(".") ? header.indexOf(".") : header.length());
-            String itemName = header.substring(header.contains(".") ? header.indexOf(".") + 1 : 1);
-            Map<String, Object> fields = schema.get(categoryName).getColumns();
+            String categoryName = header.substring(header.startsWith("_") ? 1 : 0, header.contains(".") ? header.indexOf(".") : header.length());
+            String itemName = header.substring(header.indexOf(".") + 1);
+            Map<String, Object> fields = new LinkedHashMap<>();
+
+            if (schema.containsKey(categoryName)) {
+                fields = schema.get(categoryName).getColumns();
+                schema.get(categoryName).getCategoryKeyNames().add(itemName);
+            } else if (schema.containsKey(categoryName.toLowerCase())) {
+                // take case from category name in 'field' data as it is better if data is from cif dictionaries
+                schema.put(categoryName, schema.get(categoryName.toLowerCase()));
+                fields = schema.get(categoryName).getColumns();
+            } else {
+                System.out.println("category " + categoryName + " has no metadata");
+                fields = new LinkedHashMap<>();
+                schema.put(categoryName, new Table("", new HashSet<>(), fields));
+            }
+
+            List<String> itemAliases = getAliases(saveFrame);
+            if (!itemAliases.isEmpty()) {
+                aliases.put(categoryName + "." + itemName, itemAliases);
+            }
 
             String description = getDescription(saveFrame);
 
@@ -400,6 +446,21 @@ class SchemaGenerator {
                 }
             }
         });
+    }
+
+    private List<String> getAliases(Block saveFrame) {
+        Column field = getField("item_aliases", "alias_name", saveFrame);
+        if (field == null || !field.isDefined()) {
+            field = getField("alias", "definition_id", saveFrame);
+        }
+        Column column = field;
+        if (column == null) {
+            return Collections.emptyList();
+        }
+        return IntStream.range(0, field.getRowCount())
+                .mapToObj(i -> column.getStringData(i))
+                .map(s -> s.substring(1))
+                .collect(Collectors.toList());
     }
 
     private Col getFieldType(String type, String description, List<String> values) {
@@ -463,7 +524,11 @@ class SchemaGenerator {
 
     private List<String> getCode(Block saveFrame) {
         Column code = getField("item_type", "code", saveFrame);
-        if (code.isDefined() && code.getRowCount() > 0) {
+        if (code == null || !code.isDefined()) {
+            code = getField("type", "contents", saveFrame);
+        }
+
+        if (code != null && code.getRowCount() > 0) {
             return Stream.concat(Stream.of(code.getStringData(0)), getEnums(saveFrame)).collect(Collectors.toList());
         } else {
             return Collections.emptyList();
@@ -491,6 +556,12 @@ class SchemaGenerator {
 
     private String getDescription(Block saveFrame) {
         Column value = getField("item_description", "description", saveFrame);
+        if (value == null || !value.isDefined()) {
+            value = getField("description", "text", saveFrame);
+        }
+        if (value == null) {
+            return null;
+        }
         String escapedDescription = escape(value.getStringData(0));
         return Pattern.compile("\n").splitAsStream(escapedDescription)
                 .map(String::trim)
@@ -519,7 +590,7 @@ class SchemaGenerator {
                 .get(0)
                 .getSaveFrames()
                 .stream()
-                .filter(saveFrame -> saveFrame.getBlockHeader().startsWith("_"))
+                .filter(saveFrame -> saveFrame.getBlockHeader().startsWith("_") || saveFrame.getBlockHeader().contains("."))
                 .forEach(saveFrame -> {
                     categories.put(saveFrame.getBlockHeader(), saveFrame);
                     Category item_linked = saveFrame.getCategory("item_linked");
@@ -571,26 +642,40 @@ class SchemaGenerator {
         final String cifCoreDicVersion = block.getCategory("dictionary").getColumn("version").getStringData(0);
         System.out.println("Dictionary versions: CifCore " + cifCoreDicVersion);
 
-        resolveImports(block.getSaveFrames());
-    }
+        if ("CORE_DIC".equals(cifFile.getBlocks().get(0).getBlockHeader())) {
+            block.getSaveFrames()
+                    .stream()
+                    // category definitions in cif don't include a '.'
+                    .filter(saveFrame -> !saveFrame.getBlockHeader().contains("."))
+                    .forEach(saveFrame -> {
+                        Set<String> categoryKeyNames = new HashSet<>();
+                        String rawDescription = saveFrame.getCategory("description")
+                                .getColumn("text")
+                                .getStringData(0);
+                        String escapedDescription = escape(rawDescription);
+                        String description = Pattern.compile("\n")
+                                .splitAsStream(escapedDescription)
+                                .map(String::trim)
+                                .collect(Collectors.joining("\n"));
 
-    private void resolveImports(List<Block> frames) {
-        Map<String, List<Block>> imports = new LinkedHashMap<>();
-
-        for (Block d : frames) {
-            if (d.getCategories().keySet().stream().anyMatch(cn -> cn.equals("import"))) {
-                parseImportGet(d.getCategory("import").getColumn("get").getStringData(0));
-            }
+                        schema.put(saveFrame.getBlockHeader().toLowerCase(), new Table(description, categoryKeyNames,
+                                new LinkedHashMap<>()));
+                    });
+        } else {
+            block.getSaveFrames()
+                    .forEach(b -> imports.put(b.getBlockHeader(), b));
         }
     }
 
-    private static final Pattern savePattern = Pattern.compile("('save'|\"save\"):([^ \t\n]+)");
-    private static final Pattern filePattern = Pattern.compile("('file'|\"file\"):([^ \t\n]+)");
+    private static final Pattern savePattern = Pattern.compile("('save'|'save'):([^ \t\n]+)");
+    private static final Pattern filePattern = Pattern.compile("('file'|'file'):([^ \t\n]+)");
 
     private Stream<Import> parseImportGet(String s) {
         // [{'save':hi_ang_Fox_coeffs  'file':templ_attr.cif}   {'save':hi_ang_Fox_c0  'file':templ_enum.cif}]
         // [{"file":'templ_enum.cif' "save":'H_M_ref'}]
-        return Pattern.compile("\\}[ \n\t]*\\{").splitAsStream(s.trim().substring(2, s.length() - 2))
+        // get rid of surrounding brackets
+        s = s.trim().substring(2, s.length() - 2);
+        return Pattern.compile("}\\s+\\{").splitAsStream(s)
                 .map(split -> {
                     Matcher save = savePattern.matcher(split);
                     Matcher file = filePattern.matcher(split);
@@ -609,8 +694,12 @@ class SchemaGenerator {
         final String file;
 
         public Import(Matcher save, Matcher file) {
-            this.save = save.matches() ? save.group(0).substring(7).replace("['\"]", "") : null;
-            this.file = file.matches() ? file.group(0).substring(7).replaceAll("['\"]", "") : null;
+            this.save = save.find() ? save.group(0).substring(7).replace("['\"]", "") : null;
+            this.file = file.find() ? file.group(0).substring(7).replaceAll("['\"]", "") : null;
+        }
+
+        public boolean isValid() {
+            return save != null && file != null;
         }
     }
 }

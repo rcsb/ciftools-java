@@ -26,18 +26,17 @@ public interface Block {
     /**
      * Retrieve a {@link Column} by name. This is relevant for CCDC files that identify columns by 'flat' names such as
      * "cell_length_a"
-//     * @param name the category name and column name, joined by an underscore
+     * @param name the category name and column name, joined by an underscore
      * @return the corresponding {@link Column}, if none exists a instance of {@link Column} is returned as proxy
      */
-//    default Column getColumn(String name) {
-//        Map<String, Category> categories = getCategories();
-        // TODO rework
-//        if (categories.containsKey(name)) {
-//            return categories.get(name).getColumn("");
-//        } else {
-//            return new Column.EmptyColumn("");
-//        }
-//    }
+    default Column getColumn(String name) {
+        Map<String, Category> categories = getCategories();
+        if (categories.containsKey(name)) {
+            return categories.get(name).getColumn("");
+        } else {
+            return new Column.EmptyColumn("");
+        }
+    }
 
     Map<String, Category> getCategories();
 

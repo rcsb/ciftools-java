@@ -24,7 +24,7 @@ public abstract class DelegatingCifFile<B extends DelegatingBlock> implements Ci
     }
 
     public B getFirstBlock() {
-        return getTypedBlock(blocks.get(0));
+        return blocks.get(0);
     }
 
     abstract protected B getTypedBlock(Block block);
