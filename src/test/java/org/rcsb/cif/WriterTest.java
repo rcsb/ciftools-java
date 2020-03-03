@@ -16,7 +16,8 @@ import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.core.CifCoreBlock;
+import org.rcsb.cif.schema.generated.core.CifCoreFile;
 import org.rcsb.cif.schema.generated.mm.MmCifBlock;
 import org.rcsb.cif.schema.generated.mm.MmCifFile;
 
@@ -98,7 +99,7 @@ public class WriterTest {
     }
 
     @Test
-    public void testClassInferenceOfBuiltCifFile() {
+    public void testClassInferenceOfBuiltMmCifFile() {
         MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
                 .enterBlock("test")
                 .enterAtomSite()
@@ -109,8 +110,33 @@ public class WriterTest {
                 .leaveBlock()
                 .leaveFile();
         MmCifBlock block = cifFile.getFirstBlock();
-        assertTrue(block.getCategory("atom_site") instanceof AtomSite);
+        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.generated.mm.AtomSite);
         assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
+
+        Category atom_site = new CategoryBuilderImpl<>("atom_site", null).build();
+        assertTrue(atom_site instanceof TextCategory);
+
+        FloatColumn cartnX = new FloatColumnBuilderImpl<>("atom_site", "Cartn_x", null).build();
+        assertNotNull(cartnX);
+    }
+
+    @Test
+    public void testClassInferenceOfBuiltCifCoreFile() {
+        CifCoreFile cifFile = CifBuilder.enterFile(StandardSchemas.CIF_CORE)
+                .enterBlock("test")
+                .enterAtomSite()
+                .enterBIsoOrEquiv()
+                .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+        CifCoreBlock block = cifFile.getFirstBlock();
+        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.generated.core.AtomSite);
+        // TODO fix this at builder level
+        assertTrue(block.getCategory("atom_site").isDefined());
+        assertTrue(block.getColumn("atom_site_B_iso_or_equiv").isDefined());
+        assertTrue(block.getColumn("atom_site_B_iso_or_equiv") instanceof FloatColumn);
 
         Category atom_site = new CategoryBuilderImpl<>("atom_site", null).build();
         assertTrue(atom_site instanceof TextCategory);
