@@ -1,5 +1,6 @@
 package org.rcsb.cif.schema.generated.mm;
 
+import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.builder.CategoryBuilderImpl;
 import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 
@@ -15,7 +16,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             super(CATEGORY_NAME, parent);
         }
 
-        public FloatColumnBuilderImpl<AtomSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterBIsoOrEquiv() {
+        public FloatColumnBuilder<AtomSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterBIsoOrEquiv() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_iso_or_equiv", this);
         }
     }

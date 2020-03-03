@@ -99,8 +99,7 @@ public class WriterTest {
 
     @Test
     public void testClassInferenceOfBuiltCifFile() {
-        // TODO update
-        MmCifFile cifFile = new CifFileBuilderImpl()
+        MmCifFile cifFile = CifBuilder.enterFile()
                 .with(StandardSchemas.MMCIF)
                 .enterBlock("test")
                 .enterAtomSite()
