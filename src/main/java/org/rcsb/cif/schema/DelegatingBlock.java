@@ -21,7 +21,7 @@ public abstract class DelegatingBlock implements Block {
 
     @Override
     public Category getCategory(String name) {
-        return getCategories().get(name);
+        return getCategories().computeIfAbsent(name, Category.EmptyCategory::new);
     }
 
     @Override

@@ -16,6 +16,7 @@ import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.core.AtomSite;
 import org.rcsb.cif.schema.core.CifCoreBlock;
 import org.rcsb.cif.schema.core.CifCoreFile;
 import org.rcsb.cif.schema.mm.MmCifBlock;
@@ -131,12 +132,21 @@ public class WriterTest {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
+
         CifCoreBlock block = cifFile.getFirstBlock();
-        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.core.AtomSite);
-        // TODO fix this at builder level
-        assertTrue(block.getCategory("atom_site").isDefined());
-        assertTrue(block.getColumn("atom_site_B_iso_or_equiv").isDefined());
-        assertTrue(block.getColumn("atom_site_B_iso_or_equiv") instanceof FloatColumn);
+
+        FloatColumn columnBySchema = block.getAtomSite().getBIsoOrEquiv();
+        assertTrue(columnBySchema.isDefined());
+        Column columnByName = block.getColumn("atom_site_B_iso_or_equiv");
+        assertTrue(columnByName.isDefined());
+        assertTrue(columnByName instanceof FloatColumn);
+
+        AtomSite categoryBySchema = block.getAtomSite();
+        assertTrue(categoryBySchema.isDefined());
+        assertEquals(1, categoryBySchema.getColumns().size());
+        // retrieval by name is supposed to fail
+        Category categoryByName = block.getCategory("atom_site");
+        assertFalse(categoryByName.isDefined());
 
         Category atom_site = new CategoryBuilderImpl<>("atom_site", null).build();
         assertTrue(atom_site instanceof TextCategory);

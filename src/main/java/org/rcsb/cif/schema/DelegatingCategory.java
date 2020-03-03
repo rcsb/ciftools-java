@@ -27,14 +27,21 @@ public class DelegatingCategory implements Category {
 
     @Override
     public Column getColumn(String name) {
-        return getColumns().get(name);
+        return getColumns().computeIfAbsent(name, Column.EmptyColumn::new);
     }
 
     @Override
     public Map<String, Column> getColumns() {
         Map<String, Column> columns = new LinkedHashMap<>();
         for (Map.Entry<String, Column> entry : delegate.getColumns().entrySet()) {
-            columns.put(entry.getKey(), createDelegate(entry.getKey(), entry.getValue()));
+            Column column = entry.getValue();
+            if (column instanceof DelegatingColumn) {
+                // happens when cifcore builder is at work
+                columns.put(entry.getKey(), column);
+            } else {
+                // normal where we actually have to delegate
+                columns.put(entry.getKey(), createDelegate(entry.getKey(), entry.getValue()));
+            }
         }
         return columns;
     }

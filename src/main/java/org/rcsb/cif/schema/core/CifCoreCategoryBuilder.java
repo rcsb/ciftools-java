@@ -1,5 +1,7 @@
 package org.rcsb.cif.schema.core;
 
+import org.rcsb.cif.model.CategoryBuilder;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.IntColumnBuilder;
 import org.rcsb.cif.model.StrColumnBuilder;
@@ -14,6 +16,21 @@ import javax.annotation.Generated;
 public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuilder, CifCoreFileBuilder> {
     public CifCoreCategoryBuilder(String blockName, CifCoreBlockBuilder parent) {
         super(blockName, parent);
+    }
+
+    @Override
+    public void digest(IntColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> columnBuilder) {
+        parent.digest(columnBuilder);
+    }
+
+    @Override
+    public void digest(FloatColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> columnBuilder) {
+        parent.digest(columnBuilder);
+    }
+
+    @Override
+    public void digest(StrColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> columnBuilder) {
+        parent.digest(columnBuilder);
     }
 
     public static class CifCoreBuilder extends CifCoreCategoryBuilder {

@@ -1,8 +1,21 @@
 package org.rcsb.cif.schema.core;
 
+import org.rcsb.cif.model.BlockBuilder;
+import org.rcsb.cif.model.CategoryBuilder;
+import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.FloatColumnBuilder;
+import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.IntColumnBuilder;
+import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.StrColumnBuilder;
 import org.rcsb.cif.model.builder.BlockBuilderImpl;
+import org.rcsb.cif.model.text.TextCategory;
 
 import javax.annotation.Generated;
+import java.util.Map;
+
+import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
 
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
@@ -22,6 +35,29 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         }
         parent.digest(this);
         return parent;
+    }
+
+    @Override
+    public void digest(CategoryBuilder<? extends BlockBuilder<CifCoreFileBuilder>, CifCoreFileBuilder> builder) {
+        // flat schema: block builder should digest columns directly - do nothing
+    }
+
+    public void digest(IntColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
+        String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
+        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), IntColumn.class);
+        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
+    }
+
+    public void digest(FloatColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
+        String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
+        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), FloatColumn.class);
+        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
+    }
+
+    public void digest(StrColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
+        String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
+        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), StrColumn.class);
+        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
     }
 
     public CifCoreCategoryBuilder.CifCoreBuilder enterCifCore() {
