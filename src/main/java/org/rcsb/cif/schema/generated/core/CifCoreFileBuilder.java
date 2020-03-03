@@ -1,32 +1,21 @@
 package org.rcsb.cif.schema.generated.core;
 
-import org.rcsb.cif.model.Block;
-import org.rcsb.cif.model.BlockBuilder;
-import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.CifFileBuilder;
+import org.rcsb.cif.model.builder.CifFileBuilderImpl;
+import org.rcsb.cif.schema.StandardSchemas;
 
-public class CifCoreFileBuilder implements CifFileBuilder {
+public class CifCoreFileBuilder extends CifFileBuilderImpl {
     @Override
-    public BlockBuilder<? extends CifFileBuilder> enterBlock(String blockHeader) {
-        return null;
+    public CifCoreBlockBuilder enterBlock(String blockHeader) {
+        return new CifCoreBlockBuilder(blockHeader, this);
     }
 
     @Override
-    public CifFile leaveFile() {
-        return null;
+    public CifCoreFile leaveFile() {
+        return build();
     }
 
     @Override
-    public CifFile build() {
-        return null;
-    }
-
-    @Override
-    public CifFileBuilder addBlock(Block block) {
-        return null;
-    }
-
-    @Override
-    public void digest(BlockBuilder<? extends CifFileBuilder> blockBuilder) {
+    public CifCoreFile build() {
+        return super.build().with(StandardSchemas.CIF_CORE);
     }
 }
