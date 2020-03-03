@@ -14,7 +14,7 @@ import java.util.Map;
 public class BlockBuilderImpl<P extends CifFileBuilder> implements BlockBuilder<P> {
     private final String blockName;
     private final Map<String, Category> categories;
-    private final P parent;
+    protected final P parent;
 
     public BlockBuilderImpl(String blockName, P parent) {
         this.blockName = blockName;
