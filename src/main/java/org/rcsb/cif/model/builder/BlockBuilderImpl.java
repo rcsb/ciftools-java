@@ -22,36 +22,42 @@ public class BlockBuilderImpl<P extends CifFileBuilder> implements BlockBuilder<
         this.parent = parent;
     }
 
+    @Override
     public CategoryBuilder<? extends BlockBuilder<P>, P> enterCategory(String categoryName) {
         return new CategoryBuilderImpl<>(categoryName, this);
     }
 
+    @Override
     public String getBlockHeader() {
         return blockName;
     }
 
+    @Override
     public Map<String, Category> getCategories() {
         return categories;
     }
 
-    @SuppressWarnings("unchecked")
-    public <B extends BlockBuilder<P>> B digest(CategoryBuilder<B, P> builder) {
+    @Override
+    public void digest(CategoryBuilder<? extends BlockBuilder<P>, P> builder) {
         Category category = new TextCategory(builder.getCategoryName(), builder.getColumns());
         categories.put(builder.getCategoryName(), category);
-        return (B) this;
     }
 
+    @Override
     public P leaveBlock() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave block with undefined parent file");
         }
-        return parent.digest(this);
+        parent.digest(this);
+        return parent;
     }
 
+    @Override
     public Block build() {
         return new TextBlock(categories, "unknown");
     }
 
+    @Override
     public BlockBuilder<P> addCategory(Category category) {
         categories.put(category.getCategoryName(), category);
         return this;

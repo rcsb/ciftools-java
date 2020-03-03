@@ -9,7 +9,7 @@ public interface BlockBuilder<P extends CifFileBuilder> {
 
     Map<String, Category> getCategories();
 
-    <B extends BlockBuilder<P>> B digest(CategoryBuilder<B, P> categoryBuilder);
+    void digest(CategoryBuilder<? extends BlockBuilder<P>, P> categoryBuilder);
 
     P leaveBlock();
 

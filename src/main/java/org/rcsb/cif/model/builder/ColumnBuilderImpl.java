@@ -26,14 +26,17 @@ public abstract class ColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP e
         }
     }
 
+    @Override
     public String getCategoryName() {
         return categoryName;
     }
 
+    @Override
     public String getColumnName() {
         return columnName;
     }
 
+    @Override
     public List<ValueKind> getMask() {
         return mask;
     }

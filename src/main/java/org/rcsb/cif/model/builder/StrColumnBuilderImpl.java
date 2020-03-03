@@ -21,6 +21,7 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
         this.values = new ArrayList<>();
     }
 
+    @Override
     public List<String> getValues() {
         return values;
     }
@@ -44,6 +45,7 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
         return createColumnText(getColumnName(), values, mask, StrColumn.class);
     }
 
+    @Override
     public StrColumnBuilderImpl<P, PP, PPP> add(String... values) {
         for (String s : values) {
             if (".".equals(s)) {
@@ -59,11 +61,11 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        parent.digest(this);
+        return parent;
     }
 }

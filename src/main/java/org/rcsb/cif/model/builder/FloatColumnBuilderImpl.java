@@ -23,6 +23,7 @@ public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP exten
         this.values = new ArrayList<>();
     }
 
+    @Override
     public List<Double> getValues() {
         return values;
     }
@@ -46,6 +47,7 @@ public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP exten
         return createColumnText(getColumnName(), values, mask, FloatColumn.class);
     }
 
+    @Override
     public FloatColumnBuilderImpl<P, PP, PPP> add(double... value) {
         DoubleStream.of(value).forEach(values::add);
         IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
@@ -53,11 +55,11 @@ public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP exten
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        parent.digest(this);
+        return parent;
     }
 }

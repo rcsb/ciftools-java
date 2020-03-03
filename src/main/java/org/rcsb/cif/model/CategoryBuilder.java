@@ -19,11 +19,11 @@ public interface CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileB
 
     CategoryBuilder<P, PP> addColumn(Column column);
 
-    CategoryBuilder<P, PP> digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
+    void digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
 
-    CategoryBuilder<P, PP> digest(FloatColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
+    void digest(FloatColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
 
-    CategoryBuilder<P, PP> digest(StrColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
+    void digest(StrColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder);
 
     IntColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterIntColumn(String columnName);
 

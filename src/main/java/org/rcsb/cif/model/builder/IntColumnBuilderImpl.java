@@ -22,6 +22,7 @@ public class IntColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
         this.values = new ArrayList<>();
     }
 
+    @Override
     public List<Integer> getValues() {
         return values;
     }
@@ -45,6 +46,7 @@ public class IntColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
         return createColumnText(getColumnName(), values, mask, IntColumn.class);
     }
 
+    @Override
     public IntColumnBuilderImpl<P, PP, PPP> add(int... values) {
         IntStream.of(values).forEach(this.values::add);
         IntStream.range(0, values.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
@@ -52,11 +54,11 @@ public class IntColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return (P) parent.digest(this);
+        parent.digest(this);
+        return parent;
     }
 }

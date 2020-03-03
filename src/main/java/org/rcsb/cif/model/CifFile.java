@@ -1,6 +1,5 @@
 package org.rcsb.cif.model;
 
-import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.schema.SchemaProvider;
 
 import java.util.List;
@@ -46,7 +45,7 @@ public interface CifFile {
      * @param <F> the file type
      * @return this file, honoring a given schema
      */
-    default <F extends CifFile, B extends CifFileBuilderImpl> F with(SchemaProvider<F, B> schemaProvider) {
+    default <F extends CifFile, B extends CifFileBuilder> F with(SchemaProvider<F, B> schemaProvider) {
         return schemaProvider.handle(this);
     }
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.text.TextBlock;
 import org.rcsb.cif.model.text.TextFile;
-import org.rcsb.cif.schema.SchemaProvider;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,37 +19,30 @@ public class CifFileBuilderImpl implements CifFileBuilder {
         this.cifFile = new TextFile(blocks);
     }
 
+    @Override
     public BlockBuilder<? extends CifFileBuilder> enterBlock(String blockHeader) {
         return new BlockBuilderImpl<>(blockHeader, this);
     }
 
-    @SuppressWarnings("unchecked")
-    public <B extends CifFileBuilder> B digest(BlockBuilder<B> builder) {
+    @Override
+    public void digest(BlockBuilder<? extends CifFileBuilder> builder) {
         Block block = new TextBlock(builder.getCategories(), builder.getBlockHeader());
         blocks.add(block);
-        return (B) this;
     }
 
+    @Override
     public CifFile leaveFile() {
         return build();
     }
 
+    @Override
     public CifFile build() {
         return cifFile;
     }
 
+    @Override
     public CifFileBuilder addBlock(Block block) {
         blocks.add(block);
         return this;
-    }
-
-    /**
-     * Convenience method to access this file wrapped by a given schema.
-     * @param schemaProvider the schema provider to enforce on this file
-     * @param <F> the file type
-     * @return this file, honoring a given schema
-     */
-    public <F extends CifFile, B extends CifFileBuilder> B with(SchemaProvider<F, B> schemaProvider) {
-        return schemaProvider.handle(this);
     }
 }

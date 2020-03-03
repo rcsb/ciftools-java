@@ -99,8 +99,7 @@ public class WriterTest {
 
     @Test
     public void testClassInferenceOfBuiltCifFile() {
-        MmCifFile cifFile = CifBuilder.enterFile()
-                .with(StandardSchemas.MMCIF)
+        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
                 .enterBlock("test")
                 .enterAtomSite()
                 .enterBIsoOrEquiv()
@@ -109,7 +108,7 @@ public class WriterTest {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
-        MmCifBlock block = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock block = cifFile.getFirstBlock();
         assertTrue(block.getCategory("atom_site") instanceof AtomSite);
         assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
 

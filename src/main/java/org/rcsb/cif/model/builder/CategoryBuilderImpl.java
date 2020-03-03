@@ -12,12 +12,7 @@ import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.IntColumnBuilder;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.StrColumnBuilder;
-import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.text.TextCategory;
-import org.rcsb.cif.model.text.TextColumn;
-import org.rcsb.cif.schema.DelegatingFloatColumn;
-import org.rcsb.cif.schema.DelegatingIntColumn;
-import org.rcsb.cif.schema.DelegatingStrColumn;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -41,15 +36,18 @@ public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileB
         this.finishedDigests = new ArrayList<>();
     }
 
+    @Override
     public String getCategoryName() {
         return categoryName;
     }
 
+    @Override
     public Map<String, Column> getColumns() {
         return columns;
     }
 
     @SuppressWarnings("unchecked")
+    @Override
     public P leaveCategory() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave category with undefined parent block");
@@ -68,60 +66,67 @@ public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileB
                     }
                 });
 
-        return parent.digest(this);
+        parent.digest(this);
+        return parent;
     }
 
+    @Override
     public Category build() {
         return new TextCategory(categoryName, columns);
     }
 
+    @Override
     public CategoryBuilder<P, PP> addColumn(Column column) {
         columns.put(column.getColumnName(), column);
         return this;
     }
 
-    public CategoryBuilder<P, PP> digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
+    @Override
+    public void digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
         columns.put(columnBuilder.getColumnName(),
                 createColumnText(columnBuilder.getColumnName(),
                         columnBuilder.getValues(),
                         columnBuilder.getMask(),
                         IntColumn.class));
         finishedDigests.add(columnBuilder);
-        return this;
     }
 
-    public CategoryBuilder<P, PP> digest(FloatColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
+    @Override
+    public void digest(FloatColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
         columns.put(columnBuilder.getColumnName(),
                 createColumnText(columnBuilder.getColumnName(),
                         columnBuilder.getValues(),
                         columnBuilder.getMask(),
                         FloatColumn.class));
         finishedDigests.add(columnBuilder);
-        return this;
     }
 
-    public CategoryBuilder<P, PP> digest(StrColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
+    @Override
+    public void digest(StrColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
         columns.put(columnBuilder.getColumnName(),
                 createColumnText(columnBuilder.getColumnName(),
                         columnBuilder.getValues(),
                         columnBuilder.getMask(),
                         StrColumn.class));
         finishedDigests.add(columnBuilder);
-        return this;
     }
 
+    @Override
     public IntColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterIntColumn(String columnName) {
         return new IntColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
+    @Override
     public FloatColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterFloatColumn(String columnName) {
         return new FloatColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
+    @Override
     public StrColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterStrColumn(String columnName) {
         return new StrColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
+    @Override
     public void registerChild(ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> builder) {
         pendingDigests.add(builder);
     }

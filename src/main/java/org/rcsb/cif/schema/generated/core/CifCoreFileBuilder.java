@@ -1,42 +1,32 @@
 package org.rcsb.cif.schema.generated.core;
 
 import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.CifFileBuilder;
-import org.rcsb.cif.model.builder.CifFileBuilderImpl;
-import org.rcsb.cif.model.text.TextFile;
-import org.rcsb.cif.schema.StandardSchemas;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class CifCoreFileBuilder extends CifFileBuilderImpl {
-    private final CifFile cifFile;
-    private final List<Block> blocks;
-
-    public CifCoreFileBuilder(CifFileBuilder builder) {
-        this.blocks = new ArrayList<>();
-        this.cifFile = new TextFile(blocks);
+public class CifCoreFileBuilder implements CifFileBuilder {
+    @Override
+    public BlockBuilder<? extends CifFileBuilder> enterBlock(String blockHeader) {
+        return null;
     }
 
     @Override
-    public CifCoreBlockBuilder enterBlock(String blockHeader) {
-        return new CifCoreBlockBuilder(blockHeader, this);
+    public CifFile leaveFile() {
+        return null;
     }
 
     @Override
-    public CifCoreFile leaveFile() {
-        return build();
+    public CifFile build() {
+        return null;
     }
 
     @Override
-    public CifCoreFile build() {
-        return cifFile.with(StandardSchemas.CIF_CORE);
+    public CifFileBuilder addBlock(Block block) {
+        return null;
     }
 
     @Override
-    public CifCoreFileBuilder addBlock(Block block) {
-        blocks.add(block);
-        return this;
+    public void digest(BlockBuilder<? extends CifFileBuilder> blockBuilder) {
     }
 }

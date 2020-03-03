@@ -11,9 +11,9 @@ public interface CifFileBuilder {
 
     CifFileBuilder addBlock(Block block);
 
-    <B extends CifFileBuilder> B digest(BlockBuilder<B> blockBuilder);
+    void digest(BlockBuilder<? extends CifFileBuilder> blockBuilder);
 
     default <F extends CifFile, B extends CifFileBuilder> B with(SchemaProvider<F, B> schemaProvider) {
-        return schemaProvider.handle(this);
+        return schemaProvider.handle();
     }
 }
