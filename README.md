@@ -27,6 +27,7 @@ class Demo {
 
         // CIF and BinaryCIF are stored in the same data structure
         // to access the data, it does not matter where and in which format the data came from
+        // all relevant IO operations are exposed by the CifIO class
         CifFile cifFile;
         if (parseBinary) {
             // parse binary CIF from RCSB PDB
@@ -35,9 +36,13 @@ class Demo {
             // parse CIF from RCSB PDB
             cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
         }
+        // fine-grained options are available in the CifOptions class
 
+        // access can be generic or using a specified schema - you can even use a custom dictionary
+        MmCifFile mmCifFile = cifFile.with(StandardSchemas.MMCIF);
+        
         // get first block of CIF
-        Block data = cifFile.getFirstBlock();
+        MmCifBlock data = mmCifFile.getFirstBlock();
 
         // get category with name '_atom_site' from first block - access is type-safe, all categories
         // are inferred from the CIF schema
@@ -48,7 +53,7 @@ class Demo {
         String entryId = data.getEntry().getId().get(0);
         System.out.println(entryId);
 
-        // calculate the average x-coordinate - #values() returns as DoubleStream as defined in the
+        // calculate the average x-coordinate - #values() returns as DoubleStream as defined by the
         // schema for column 'Cartn_x'
         OptionalDouble averageCartnX = cartnX.values().average();
         averageCartnX.ifPresent(System.out::println);
@@ -77,7 +82,9 @@ the data structure and hardly wastes any time on preparing information you will 
 ```Java
 class Demo {
     public static void main(String[] args) {
-        CifFile cifFile = new CifBuilder()
+        // all builder functionality is exposed by the CifBuilder class
+        // again access can be generic or following a given schema
+        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
@@ -86,8 +93,9 @@ class Demo {
                 .enterId()
                 // to '1EXP'
                 .add("1EXP")
-                // leave current column and category
+                // leave current column
                 .leaveColumn()
+                // and category
                 .leaveCategory()
 
                 // create atom site category
@@ -111,13 +119,24 @@ class Demo {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
+
+        // the created CifFile instance behaves like a parsed file and can be processed or written as needed
+        System.out.println(new String(CifIO.writeText(cifFile)));
+
+        System.out.println(cifFile.getFirstBlock().getEntry().getId().get(0));
+        cifFile.getFirstBlock()
+                .getAtomSite()
+                .getCartnX()
+                .values()
+                .forEach(System.out::println);
     }
 }
 ```
 
-A step-wise builder is provided for the creation of `CifFile` instances. It is aware of category and column names and 
-the corresponding type described by a column (e.g. the `add` function called above is not overloaded, but rather will 
-only accept `String` values while in `entry.id` and only `double` values in `atom_site.Cartn_x`.
+A step-wise builder is provided for the creation of `CifFile` instances. If a schema is provided, the builder is aware 
+of category and column names and the corresponding type described by a column (e.g. the `add` function called above is 
+not overloaded, but rather will only accept `String` values while in `entry.id` and only `double` values in 
+`atom_site.Cartn_x`.
 
 ## Performance
 The implementation can read the full PDB archive (151,579 files) in 2 minutes. This is achieved by lazy decoding and 
@@ -133,7 +152,6 @@ Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM an
 heap. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
 
 ## Contributions & Related Projects
-
 - [molstar/ciftools](https://github.com/molstar/ciftools) a TypeScript/JavaScript implementation
 
 These implementations are based on a number of other projects, namely:

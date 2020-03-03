@@ -7,5 +7,9 @@ public interface StrColumnBuilder<P extends CategoryBuilder<PP, PPP>, PP extends
 
     StrColumn build();
 
+    IntColumnBuilder<P, PP, PPP> markNextNotPresent();
+
+    IntColumnBuilder<P, PP, PPP> markNextUnknown();
+
     StrColumnBuilder<P, PP, PPP> add(String... values);
 }

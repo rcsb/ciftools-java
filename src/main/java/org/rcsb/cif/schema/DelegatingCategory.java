@@ -2,7 +2,7 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.schema.generated.core.CifCoreBlock;
+import org.rcsb.cif.schema.core.CifCoreBlock;
 
 import java.util.LinkedHashMap;
 import java.util.Map;

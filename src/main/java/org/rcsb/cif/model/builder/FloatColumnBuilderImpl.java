@@ -29,14 +29,14 @@ public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP exten
     }
 
     @Override
-    public FloatColumnBuilderImpl<P, PP, PPP> markNextNotPresent() {
+    public FloatColumnBuilder<P, PP, PPP> markNextNotPresent() {
         values.add(0.0);
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public FloatColumnBuilderImpl<P, PP, PPP> markNextUnknown() {
+    public FloatColumnBuilder<P, PP, PPP> markNextUnknown() {
         values.add(0.0);
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -48,7 +48,7 @@ public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP exten
     }
 
     @Override
-    public FloatColumnBuilderImpl<P, PP, PPP> add(double... value) {
+    public FloatColumnBuilder<P, PP, PPP> add(double... value) {
         DoubleStream.of(value).forEach(values::add);
         IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
         return this;

@@ -16,10 +16,10 @@ import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.generated.core.CifCoreBlock;
-import org.rcsb.cif.schema.generated.core.CifCoreFile;
-import org.rcsb.cif.schema.generated.mm.MmCifBlock;
-import org.rcsb.cif.schema.generated.mm.MmCifFile;
+import org.rcsb.cif.schema.core.CifCoreBlock;
+import org.rcsb.cif.schema.core.CifCoreFile;
+import org.rcsb.cif.schema.mm.MmCifBlock;
+import org.rcsb.cif.schema.mm.MmCifFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -110,7 +110,7 @@ public class WriterTest {
                 .leaveBlock()
                 .leaveFile();
         MmCifBlock block = cifFile.getFirstBlock();
-        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.generated.mm.AtomSite);
+        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.mm.AtomSite);
         assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
 
         Category atom_site = new CategoryBuilderImpl<>("atom_site", null).build();
@@ -132,7 +132,7 @@ public class WriterTest {
                 .leaveBlock()
                 .leaveFile();
         CifCoreBlock block = cifFile.getFirstBlock();
-        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.generated.core.AtomSite);
+        assertTrue(block.getCategory("atom_site") instanceof org.rcsb.cif.schema.core.AtomSite);
         // TODO fix this at builder level
         assertTrue(block.getCategory("atom_site").isDefined());
         assertTrue(block.getColumn("atom_site_B_iso_or_equiv").isDefined());

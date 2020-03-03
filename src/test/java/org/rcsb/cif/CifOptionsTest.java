@@ -6,8 +6,8 @@ import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.binary.BinaryFile;
 import org.rcsb.cif.model.text.TextFile;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.generated.mm.AtomSite;
-import org.rcsb.cif.schema.generated.mm.MmCifFile;
+import org.rcsb.cif.schema.mm.AtomSite;
+import org.rcsb.cif.schema.mm.MmCifFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

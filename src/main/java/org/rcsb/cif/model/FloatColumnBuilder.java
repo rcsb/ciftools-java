@@ -7,5 +7,9 @@ public interface FloatColumnBuilder<P extends CategoryBuilder<PP, PPP>, PP exten
 
     FloatColumn build();
 
+    FloatColumnBuilder<P, PP, PPP> markNextNotPresent();
+
+    FloatColumnBuilder<P, PP, PPP> markNextUnknown();
+
     FloatColumnBuilder<P, PP, PPP> add(double... values);
 }

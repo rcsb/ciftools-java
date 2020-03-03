@@ -9,11 +9,11 @@ import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.schema.DelegatingCategory;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.generated.mm.AtomSite;
-import org.rcsb.cif.schema.generated.mm.AtomSites;
-import org.rcsb.cif.schema.generated.mm.Cell;
-import org.rcsb.cif.schema.generated.mm.MmCifBlock;
-import org.rcsb.cif.schema.generated.mm.MmCifFile;
+import org.rcsb.cif.schema.mm.AtomSite;
+import org.rcsb.cif.schema.mm.AtomSites;
+import org.rcsb.cif.schema.mm.Cell;
+import org.rcsb.cif.schema.mm.MmCifBlock;
+import org.rcsb.cif.schema.mm.MmCifFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;

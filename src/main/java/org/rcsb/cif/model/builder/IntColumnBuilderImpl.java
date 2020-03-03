@@ -28,14 +28,14 @@ public class IntColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    public IntColumnBuilderImpl<P, PP, PPP> markNextNotPresent() {
+    public IntColumnBuilder<P, PP, PPP> markNextNotPresent() {
         values.add(0);
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public IntColumnBuilderImpl<P, PP, PPP> markNextUnknown() {
+    public IntColumnBuilder<P, PP, PPP> markNextUnknown() {
         values.add(0);
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -47,7 +47,7 @@ public class IntColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    public IntColumnBuilderImpl<P, PP, PPP> add(int... values) {
+    public IntColumnBuilder<P, PP, PPP> add(int... values) {
         IntStream.of(values).forEach(this.values::add);
         IntStream.range(0, values.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
         return this;

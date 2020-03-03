@@ -27,14 +27,14 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    public StrColumnBuilderImpl<P, PP, PPP> markNextNotPresent() {
+    public StrColumnBuilder<P, PP, PPP> markNextNotPresent() {
         values.add(".");
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public StrColumnBuilderImpl<P, PP, PPP> markNextUnknown() {
+    public StrColumnBuilder<P, PP, PPP> markNextUnknown() {
         values.add("?");
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -46,7 +46,7 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     }
 
     @Override
-    public StrColumnBuilderImpl<P, PP, PPP> add(String... values) {
+    public StrColumnBuilder<P, PP, PPP> add(String... values) {
         for (String s : values) {
             if (".".equals(s)) {
                 markNextNotPresent();

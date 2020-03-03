@@ -3,10 +3,10 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.schema.StandardSchemas;
-import org.rcsb.cif.schema.generated.core.CifCoreBlock;
-import org.rcsb.cif.schema.generated.mm.ChemComp;
-import org.rcsb.cif.schema.generated.mm.ChemCompAtom;
-import org.rcsb.cif.schema.generated.mm.MmCifBlock;
+import org.rcsb.cif.schema.core.CifCoreBlock;
+import org.rcsb.cif.schema.mm.ChemComp;
+import org.rcsb.cif.schema.mm.ChemCompAtom;
+import org.rcsb.cif.schema.mm.MmCifBlock;
 
 import java.io.IOException;
 

@@ -1,9 +1,9 @@
 package org.rcsb.cif.schema;
 
-import org.rcsb.cif.schema.generated.core.CifCoreFileBuilder;
-import org.rcsb.cif.schema.generated.core.CifCoreFile;
-import org.rcsb.cif.schema.generated.mm.MmCifFileBuilder;
-import org.rcsb.cif.schema.generated.mm.MmCifFile;
+import org.rcsb.cif.schema.core.CifCoreFileBuilder;
+import org.rcsb.cif.schema.core.CifCoreFile;
+import org.rcsb.cif.schema.mm.MmCifFileBuilder;
+import org.rcsb.cif.schema.mm.MmCifFile;
 
 public class StandardSchemas {
 //    BIRD(),

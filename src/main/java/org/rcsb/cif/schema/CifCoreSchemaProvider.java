@@ -1,8 +1,8 @@
 package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.schema.generated.core.CifCoreFile;
-import org.rcsb.cif.schema.generated.core.CifCoreFileBuilder;
+import org.rcsb.cif.schema.core.CifCoreFile;
+import org.rcsb.cif.schema.core.CifCoreFileBuilder;
 
 public class CifCoreSchemaProvider implements SchemaProvider<CifCoreFile, CifCoreFileBuilder> {
     @Override

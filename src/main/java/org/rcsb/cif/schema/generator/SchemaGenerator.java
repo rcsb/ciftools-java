@@ -40,19 +40,18 @@ import java.util.stream.Stream;
 @SuppressWarnings("ALL")
 class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
-    private static final String BASE_PACKAGE = "org.rcsb.cif.schema.generated.";
-    private static final String GENERATED_PACKAGE = BASE_PACKAGE + ".generated";
+    private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
 
     public static void main(String[] args) throws IOException {
-//        new SchemaGenerator("MmCif", "mm", false,
-//                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-//                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
-//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-        new SchemaGenerator("CifCore", "core", true,
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+        new SchemaGenerator("MmCif", "mm", false,
+                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+//        new SchemaGenerator("CifCore", "core", true,
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -96,6 +95,8 @@ class SchemaGenerator {
         blockBuilder.add("");
         blockBuilder.add("import org.rcsb.cif.model.builder.BlockBuilderImpl;");
         blockBuilder.add("");
+        blockBuilder.add("import javax.annotation.Generated;");
+        blockBuilder.add("");
         blockBuilder.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         blockBuilder.add("public class " + name + "BlockBuilder extends BlockBuilderImpl<" + name + "FileBuilder> {");
         blockBuilder.add("    public " + name + "BlockBuilder(String blockName, " + name + "FileBuilder parent) {");
@@ -125,6 +126,8 @@ class SchemaGenerator {
         categoryBuilder.add("import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;");
         categoryBuilder.add("import org.rcsb.cif.model.builder.IntColumnBuilderImpl;");
         categoryBuilder.add("import org.rcsb.cif.model.builder.StrColumnBuilderImpl;");
+        categoryBuilder.add("");
+        categoryBuilder.add("import javax.annotation.Generated;");
         categoryBuilder.add("");
         categoryBuilder.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         categoryBuilder.add("public class " + name + "CategoryBuilder extends CategoryBuilderImpl<" + name + "BlockBuilder, " + name + "FileBuilder> {");
