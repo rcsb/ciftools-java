@@ -8,6 +8,9 @@ import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 import org.rcsb.cif.model.builder.IntColumnBuilderImpl;
 import org.rcsb.cif.model.builder.StrColumnBuilderImpl;
 
+import javax.annotation.Generated;
+
+@Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuilder, CifCoreFileBuilder> {
     public CifCoreCategoryBuilder(String blockName, CifCoreBlockBuilder parent) {
         super(blockName, parent);

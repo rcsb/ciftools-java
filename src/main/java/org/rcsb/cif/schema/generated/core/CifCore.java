@@ -1,7 +1,6 @@
 package org.rcsb.cif.schema.generated.core;
 
-import org.rcsb.cif.model.*;
-import org.rcsb.cif.schema.*;
+import org.rcsb.cif.schema.DelegatingCategory;
 
 import javax.annotation.Generated;
 
