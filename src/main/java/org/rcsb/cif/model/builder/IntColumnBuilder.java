@@ -7,11 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
-/**
- * Builds a int column, data type cannot change, all subsequent values must be ints.
- * @param <P> the type of the parent builder
- */
-public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
+public class IntColumnBuilder<P extends CategoryBuilder<PP, PPP>, PP extends BlockBuilder<PPP>, PPP extends CifFileBuilder> extends ColumnBuilder<P, PP, PPP> {
     private final List<Integer> values;
 
     public IntColumnBuilder(String categoryName, String columnName, P parent) {
@@ -19,19 +15,19 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         this.values = new ArrayList<>();
     }
 
-    List<Integer> getValues() {
+    public List<Integer> getValues() {
         return values;
     }
 
     @Override
-    public IntColumnBuilder<P> markNextNotPresent() {
+    public IntColumnBuilder<P, PP, PPP> markNextNotPresent() {
         values.add(0);
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public IntColumnBuilder<P> markNextUnknown() {
+    public IntColumnBuilder<P, PP, PPP> markNextUnknown() {
         values.add(0);
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -42,22 +38,18 @@ public class IntColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P
         return CategoryBuilder.createColumnText(getColumnName(), values, mask, IntColumn.class);
     }
 
+    public IntColumnBuilder<P, PP, PPP> add(int... values) {
+        IntStream.of(values).forEach(this.values::add);
+        IntStream.range(0, values.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
+        return this;
+    }
+
     @Override
+    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return parent.digest(this);
-    }
-
-    /**
-     * Add an arbitrary number of int values to this column.
-     * @param value 0...n int values
-     * @return this builder instance
-     */
-    public IntColumnBuilder<P> add(int... value) {
-        IntStream.of(value).forEach(values::add);
-        IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
-        return this;
+        return (P) parent.digest(this);
     }
 }

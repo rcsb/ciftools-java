@@ -5,7 +5,7 @@ import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.builder.CifFileBuilder;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -99,7 +99,7 @@ public class CaseSensitivityTest {
 
     @Test
     public void shouldPropagateCaseForBinaryFiles() throws IOException {
-        CifFile cifFile = new CifBuilder()
+        CifFile cifFile = new CifFileBuilder()
                 .enterBlock("TEST")
                 .enterCategory("ATOM_SITE")
                 .enterFloatColumn("cartn_x")
@@ -118,7 +118,7 @@ public class CaseSensitivityTest {
 
     @Test
     public void shouldPropagateCaseForTextFiles() throws IOException {
-        CifFile cifFile = new CifBuilder()
+        CifFile cifFile = new CifFileBuilder()
                 .enterBlock("TEST")
                 .enterCategory("ATOM_SITE")
                 .enterFloatColumn("cartn_x")

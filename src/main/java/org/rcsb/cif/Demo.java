@@ -34,7 +34,7 @@ public class Demo {
             cifFile = CifIO.readFromURL(new URL("https://files.rcsb.org/download/" + pdbId + ".cif"));
         }
 
-        // get first block of CIF
+        // get first block of CIF - access can be generic or using a specified schema
         MmCifBlock data = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
 
         // get category with name '_atom_site' from first block - access is type-safe, all categories
@@ -61,7 +61,8 @@ public class Demo {
     }
 
     private static void buildModel() throws IOException {
-//        CifFile cifFile = new CifBuilder()
+//        MmCifFile cifFile = new CifFileBuilder()
+//                .with(StandardSchemas.MMCIF)
 //                // create a block
 //                .enterBlock("1EXP")
 //                // create a category with name 'entry'

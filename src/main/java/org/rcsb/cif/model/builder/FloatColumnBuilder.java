@@ -8,11 +8,7 @@ import java.util.List;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
-/**
- * Builds a float column, data type cannot change, all subsequent values must be floats.
- * @param <P> the type of the parent builder
- */
-public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder<P> {
+public class FloatColumnBuilder<P extends CategoryBuilder<PP, PPP>, PP extends BlockBuilder<PPP>, PPP extends CifFileBuilder> extends ColumnBuilder<P, PP, PPP> {
     private final List<Double> values;
 
     public FloatColumnBuilder(String categoryName, String columnName, P parent) {
@@ -20,19 +16,19 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
         this.values = new ArrayList<>();
     }
 
-    List<Double> getValues() {
+    public List<Double> getValues() {
         return values;
     }
 
     @Override
-    public FloatColumnBuilder<P> markNextNotPresent() {
+    public FloatColumnBuilder<P, PP, PPP> markNextNotPresent() {
         values.add(0.0);
         mask.add(ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
-    public FloatColumnBuilder<P> markNextUnknown() {
+    public FloatColumnBuilder<P, PP, PPP> markNextUnknown() {
         values.add(0.0);
         mask.add(ValueKind.UNKNOWN);
         return this;
@@ -43,22 +39,18 @@ public class FloatColumnBuilder<P extends CategoryBuilder> extends ColumnBuilder
         return CategoryBuilder.createColumnText(getColumnName(), values, mask, FloatColumn.class);
     }
 
+    public FloatColumnBuilder<P, PP, PPP> add(double... value) {
+        DoubleStream.of(value).forEach(values::add);
+        IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
+        return this;
+    }
+
     @Override
+    @SuppressWarnings("unchecked")
     public P leaveColumn() {
         if (parent == null) {
             throw new IllegalStateException("cannot leave column with undefined parent category");
         }
-        return parent.digest(this);
-    }
-
-    /**
-     * Add an arbitrary number of float values to this column.
-     * @param value 0...n float values
-     * @return this builder instance
-     */
-    public FloatColumnBuilder<P> add(double... value) {
-        DoubleStream.of(value).forEach(values::add);
-        IntStream.range(0, value.length).mapToObj(i -> ValueKind.PRESENT).forEach(mask::add);
-        return this;
+        return (P) parent.digest(this);
     }
 }

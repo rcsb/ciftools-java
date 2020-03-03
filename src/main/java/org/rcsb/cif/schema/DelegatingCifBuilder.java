@@ -1,14 +1,14 @@
 package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.builder.BlockBuilder;
-import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.builder.CifFileBuilder;
 
-public abstract class DelegatingCifBuilder<B extends BlockBuilder> extends CifBuilder {
-    private final CifBuilder delegate;
+public abstract class DelegatingCifBuilder extends CifFileBuilder {
+    private final CifFileBuilder delegate;
 
-    public DelegatingCifBuilder(CifBuilder delegate) {
+    public DelegatingCifBuilder(CifFileBuilder delegate) {
         this.delegate = delegate;
     }
 
-    public abstract B enterBlock(String blockName);
+    public abstract BlockBuilder<CifFileBuilder> enterBlock(String blockName);
 }

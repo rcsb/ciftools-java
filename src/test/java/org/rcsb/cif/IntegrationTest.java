@@ -6,7 +6,7 @@ import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
-import org.rcsb.cif.model.builder.CifBuilder;
+import org.rcsb.cif.model.builder.CifFileBuilder;
 import org.rcsb.cif.schema.DelegatingCategory;
 import org.rcsb.cif.schema.StandardSchemas;
 import org.rcsb.cif.schema.generated.mm.AtomSite;
@@ -46,7 +46,7 @@ public class IntegrationTest {
 
     @Test
     public void testBehaviorForEmptyFiles() throws IOException {
-        CifFile cifFile = new CifBuilder()
+        CifFile cifFile = new CifFileBuilder()
                 .enterBlock("test")
                 .enterCategory("atom_site")
                 .leaveCategory()

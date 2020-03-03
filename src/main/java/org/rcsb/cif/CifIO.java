@@ -277,6 +277,12 @@ public class CifIO {
         return options.isGzip() ? compress(raw) : raw;
     }
 
+    /**
+     * Use standard GZIP to compress data.
+     * @param bytes the array of bytes to compress
+     * @return a byte array containing the compressed data
+     * @throws IOException failing
+     */
     private static byte[] compress(byte[] bytes) throws IOException {
         byte[] output;
         try (ByteArrayOutputStream byteStream = new ByteArrayOutputStream(bytes.length)) {

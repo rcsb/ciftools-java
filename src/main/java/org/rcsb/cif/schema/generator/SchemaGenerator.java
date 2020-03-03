@@ -112,8 +112,8 @@ class SchemaGenerator {
         categoryBuilder.add("import org.rcsb.cif.model.builder.IntColumnBuilder;");
         categoryBuilder.add("import org.rcsb.cif.model.builder.StrColumnBuilder;");
         categoryBuilder.add("");
-        categoryBuilder.add("public class " + name + "CategoryBuilder extends CategoryBuilder {");
-        categoryBuilder.add("    public " + name + "CategoryBuilder(String blockName, BlockBuilder parent) {");
+        categoryBuilder.add("public class " + name + "CategoryBuilder extends CategoryBuilder<" + name + "BlockBuilder> {");
+        categoryBuilder.add("    public " + name + "CategoryBuilder(String blockName, " + name + "BlockBuilder parent) {");
         categoryBuilder.add("        super(blockName, parent);");
         categoryBuilder.add("    }");
 
