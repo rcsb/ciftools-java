@@ -43,15 +43,15 @@ class SchemaGenerator {
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
 
     public static void main(String[] args) throws IOException {
-//        new SchemaGenerator("MmCif", "mm", false,
-//                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-//                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
-//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-        new SchemaGenerator("CifCore", "core", true,
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+        new SchemaGenerator("MmCif", "mm", false,
+                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+//        new SchemaGenerator("CifCore", "core", true,
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -325,7 +325,8 @@ class SchemaGenerator {
             getters.add("    /**");
             String description = Pattern.compile("\n").splitAsStream(column.getDescription())
                     .map(s -> "     * " + s)
-                    .collect(Collectors.joining("\n"));
+                    .collect(Collectors.joining("\n"))
+                    .replace("TODO", ""); // remove TODOs from description;
             getters.add(description);
             getters.add("     * @return " + baseClassName);
             getters.add("     */");
@@ -580,7 +581,7 @@ class SchemaGenerator {
             case "sequence_dep":
             case "pdb_id":
             case "emd_id":
-                // todo, consider adding specialised fields
+            // TODO, consider adding specialised fields
             case "yyyy-mm-dd":
             case "yyyy-mm-dd:hh:mm":
             case "yyyy-mm-dd:hh:mm-flex":
@@ -701,50 +702,9 @@ class SchemaGenerator {
                 return null;
             }
         } else {
-//            imports.entrySet()
-//                    .stream()
-//                    .map(entry -> entry.getValue())
-//                    .map(Map::entrySet)
-//                    .flatMap(Collection::stream)
-//                    .forEach(c -> {
-//                        System.out.println(c.getKey() + " -> " + c.getValue().getColumns());
-//                    });
-//            List<Block> idf = getImportFrames(saveFrame);
-//             TODO for-loop?
-//            return getField(category, field, idf);
             return null;
         }
     }
-
-//    private List<Block> getImportFrames(Block saveFrame) {
-////        List<Block> frames = new ArrayList<>();
-////        if (saveFrame.getCategories().containsKey("import")) {
-////            return frames;
-////        }
-////
-////        parseImportGet(saveFrame.getCategory("import").getColumn("get").getStringData(0))
-////                .forEach(g -> {
-////                    if (!g.isValid()) {
-////                        System.err.println("missing 'save' or 'file' for import in " + saveFrame.getBlockHeader());
-////                        return;
-////                    }
-////                    String file = g.file;
-////                    Map<String, Category> importFrames = imports.get(file);
-////                    if (importFrames.isEmpty()) {
-////                        System.err.println("missing " + file + " entry in imports");
-////                        return;
-////                    }
-////                    System.out.println(g.save);
-//////                    importSave = importFrames.entrySet()
-//////                            .stream()
-//////                            .filter()
-//////                    if () {
-//////                        System.err.println("missing " + g.save + " save frame in " + file);
-//////                    }
-//////                    return importSave;
-////                });
-////        return null;
-////    }
 
     private void buildListOfLinksBetweenCategories(CifFile cifFile) {
         cifFile.getBlocks()
