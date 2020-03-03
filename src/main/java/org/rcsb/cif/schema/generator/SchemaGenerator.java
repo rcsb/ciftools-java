@@ -405,7 +405,6 @@ class SchemaGenerator {
     }
 
     private Class<? extends DelegatingColumn> getDelegatingBaseClass(String type) {
-        // TODO enums, lists, matrix, and vector would be nice to have
         switch (type) {
             case "coord":
                 return DelegatingFloatColumn.class;
@@ -581,7 +580,7 @@ class SchemaGenerator {
             case "sequence_dep":
             case "pdb_id":
             case "emd_id":
-            // TODO, consider adding specialised fields
+            // TODO consider adding specialised fields
             case "yyyy-mm-dd":
             case "yyyy-mm-dd:hh:mm":
             case "yyyy-mm-dd:hh:mm-flex":

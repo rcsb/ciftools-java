@@ -68,7 +68,6 @@ public class IntegrationTest {
     }
 
     private void testVectorAndMatrixBehavior(CifFile cifFile) {
-        // TODO matrix/vector/enum support
         AtomSites atomSites = cifFile.with(StandardSchemas.MMCIF).getFirstBlock().getAtomSites();
 
         assertDefined(atomSites.getFractTransfMatrix11());
