@@ -1,7 +1,9 @@
 package org.rcsb.cif.model.builder;
 
 import org.rcsb.cif.model.Block;
+import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.text.TextBlock;
 import org.rcsb.cif.model.text.TextFile;
 import org.rcsb.cif.schema.SchemaProvider;
@@ -9,22 +11,22 @@ import org.rcsb.cif.schema.SchemaProvider;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CifFileBuilder {
+public class CifFileBuilderImpl implements CifFileBuilder {
     private final CifFile cifFile;
     private final List<Block> blocks;
 
-    public CifFileBuilder() {
+    public CifFileBuilderImpl() {
         this.blocks = new ArrayList<>();
         this.cifFile = new TextFile(blocks);
     }
 
-    public BlockBuilder<CifFileBuilder> enterBlock(String blockHeader) {
-        return new BlockBuilder<>(blockHeader, this);
+    public BlockBuilder<? extends CifFileBuilder> enterBlock(String blockHeader) {
+        return new BlockBuilderImpl<>(blockHeader, this);
     }
 
     @SuppressWarnings("unchecked")
-    public <B extends CifFileBuilder> B digest(BlockBuilder<B> blockBuilder) {
-        Block block = new TextBlock(blockBuilder.getCategories(), blockBuilder.getBlockHeader());
+    public <B extends CifFileBuilder> B digest(BlockBuilder<B> builder) {
+        Block block = new TextBlock(builder.getCategories(), builder.getBlockHeader());
         blocks.add(block);
         return (B) this;
     }

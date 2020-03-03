@@ -1,17 +1,24 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CategoryBuilder;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.model.builder.BlockBuilder;
-import org.rcsb.cif.model.builder.CategoryBuilder;
-import org.rcsb.cif.model.builder.CifFileBuilder;
-import org.rcsb.cif.model.builder.FloatColumnBuilder;
-import org.rcsb.cif.model.builder.IntColumnBuilder;
+import org.rcsb.cif.model.IntColumnBuilder;
+import org.rcsb.cif.model.builder.CategoryBuilderImpl;
+import org.rcsb.cif.model.builder.CifFileBuilderImpl;
+import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
+import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.generated.mm.AtomSite;
+import org.rcsb.cif.schema.generated.mm.MmCifBlock;
+import org.rcsb.cif.schema.generated.mm.MmCifFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -26,7 +33,7 @@ import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 public class WriterTest {
     @Test
     public void testNumberFormatOfBuiltCifFile() throws IOException {
-        CifFile cifFile = new CifFileBuilder()
+        CifFile cifFile = new CifFileBuilderImpl()
                 .enterBlock("test")
                 .enterCategory("atom_site")
                 .enterFloatColumn("occupancy")
@@ -53,17 +60,19 @@ public class WriterTest {
     @Test
     public void shouldReturnIntAndFloatColumn() throws IOException {
         // upon serialization int and double types were lost for built files
-        CategoryBuilder<BlockBuilder<CifFileBuilder>, CifFileBuilder> categoryBuilder = new CifFileBuilder()
+        CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> categoryBuilder = CifBuilder.enterFile()
                 .enterBlock("test")
                 .enterCategory("test");
 
-        IntColumnBuilder<CategoryBuilder<BlockBuilder<CifFileBuilder>, CifFileBuilder>, BlockBuilder<CifFileBuilder>, CifFileBuilder> ints = categoryBuilder.enterIntColumn("ints");
-        FloatColumnBuilder<CategoryBuilder<BlockBuilder<CifFileBuilder>, CifFileBuilder>, BlockBuilder<CifFileBuilder>, CifFileBuilder> floats = categoryBuilder.enterFloatColumn("floats");
+        IntColumnBuilder<? extends CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder>, ? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> ints = categoryBuilder.enterIntColumn("ints");
+        FloatColumnBuilder<? extends CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder>, ? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> floats = categoryBuilder.enterFloatColumn("floats");
 
         ints.add(1, 2, 3);
         floats.add(-1.234, 3.1415, 42);
 
-        CifFile cifFile = categoryBuilder.leaveCategory().leaveBlock().leaveFile();
+        CifFile cifFile = categoryBuilder.leaveCategory()
+                .leaveBlock()
+                .leaveFile();
 
         byte[] binary = CifIO.writeBinary(cifFile);
         byte[] text = CifIO.writeText(cifFile);
@@ -91,25 +100,25 @@ public class WriterTest {
     @Test
     public void testClassInferenceOfBuiltCifFile() {
         // TODO update
-//        CifFile cifFile = new CifFileBuilder()
-//                .with(StandardSchemas.MMCIF)
-//                .enterBlock("test")
-//                .enterAtomSite()
-//                .enterBIsoOrEquiv()
-//                .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
-//                .leaveColumn()
-//                .leaveCategory()
-//                .leaveBlock()
-//                .leaveFile();
-//        MmCifBlock block = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
-//        assertTrue(block.getCategory("atom_site") instanceof AtomSite);
-//        assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
-//
-//        Category atom_site = new CategoryBuilder("atom_site", null).build();
-//        assertTrue(atom_site instanceof TextCategory);
-//
-//        FloatColumn cartnX = new FloatColumnBuilder<>("atom_site", "Cartn_x", null).build();
-//        assertNotNull(cartnX);
+        MmCifFile cifFile = new CifFileBuilderImpl()
+                .with(StandardSchemas.MMCIF)
+                .enterBlock("test")
+                .enterAtomSite()
+                .enterBIsoOrEquiv()
+                .add(1, 2, 3.456789012345, 1 / 3.0 * 0.999999999999)
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+        MmCifBlock block = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
+        assertTrue(block.getCategory("atom_site") instanceof AtomSite);
+        assertTrue(block.getCategory("atom_site").getColumn("B_iso_or_equiv") instanceof FloatColumn);
+
+        Category atom_site = new CategoryBuilderImpl<>("atom_site", null).build();
+        assertTrue(atom_site instanceof TextCategory);
+
+        FloatColumn cartnX = new FloatColumnBuilderImpl<>("atom_site", "Cartn_x", null).build();
+        assertNotNull(cartnX);
     }
 
     @Test

@@ -1,10 +1,17 @@
 package org.rcsb.cif.model.builder;
 
+import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.CategoryBuilder;
+import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.Column;
+import org.rcsb.cif.model.ColumnBuilder;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.IntColumnBuilder;
 import org.rcsb.cif.model.StrColumn;
+import org.rcsb.cif.model.StrColumnBuilder;
 import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.text.TextCategory;
 import org.rcsb.cif.model.text.TextColumn;
@@ -17,14 +24,16 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileBuilder> {
+import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
+
+public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileBuilder> implements CategoryBuilder<P, PP> {
     private final String categoryName;
     private final Map<String, Column> columns;
     private final P parent;
     private final List<ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP>> pendingDigests;
     private final List<ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP>> finishedDigests;
 
-    public CategoryBuilder(String categoryName, P parent) {
+    public CategoryBuilderImpl(String categoryName, P parent) {
         this.categoryName = categoryName;
         this.columns = new LinkedHashMap<>();
         this.parent = parent;
@@ -71,37 +80,6 @@ public class CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileBuild
         return this;
     }
 
-    @SuppressWarnings("unchecked")
-    static <C extends Column> C createColumnText(String columnName, List<?> values, List<ValueKind> mask, Class<C> hint) {
-        int length = values.size();
-        int[] startToken = new int[length];
-        int[] endToken = new int[length];
-        StringBuilder builder = new StringBuilder();
-
-        for (int i = 0; i < length; i++) {
-            startToken[i] = builder.length();
-            String value = String.valueOf(values.get(i));
-            if (mask.get(i) == ValueKind.NOT_PRESENT) {
-                value = ".";
-            } else if (mask.get(i) == ValueKind.UNKNOWN) {
-                value = "?";
-            }
-            builder.append(value);
-            endToken[i] = builder.length();
-        }
-
-        String data = builder.toString();
-        int rowCount = startToken.length;
-        TextColumn column = new TextColumn(columnName, rowCount, data, startToken, endToken);
-        if (hint.equals(IntColumn.class)) {
-            return (C) new DelegatingIntColumn(column);
-        } else if (hint.equals(FloatColumn.class)) {
-            return (C) new DelegatingFloatColumn(column);
-        } else {
-            return (C) new DelegatingStrColumn(column);
-        }
-    }
-
     public CategoryBuilder<P, PP> digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
         columns.put(columnBuilder.getColumnName(),
                 createColumnText(columnBuilder.getColumnName(),
@@ -133,18 +111,18 @@ public class CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileBuild
     }
 
     public IntColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterIntColumn(String columnName) {
-        return new IntColumnBuilder<>(getCategoryName(), columnName, this);
+        return new IntColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
     public FloatColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterFloatColumn(String columnName) {
-        return new FloatColumnBuilder<>(getCategoryName(), columnName, this);
+        return new FloatColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
     public StrColumnBuilder<CategoryBuilder<P, PP>, P, PP> enterStrColumn(String columnName) {
-        return new StrColumnBuilder<>(getCategoryName(), columnName, this);
+        return new StrColumnBuilderImpl<>(getCategoryName(), columnName, this);
     }
 
-    public void registerChild(ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
-        pendingDigests.add(columnBuilder);
+    public void registerChild(ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> builder) {
+        pendingDigests.add(builder);
     }
 }

@@ -1,7 +1,7 @@
 package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.CifFile;
-import org.rcsb.cif.model.builder.CifFileBuilder;
+import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.schema.generated.mm.MmCifFileBuilder;
 import org.rcsb.cif.schema.generated.mm.MmCifFile;
 
