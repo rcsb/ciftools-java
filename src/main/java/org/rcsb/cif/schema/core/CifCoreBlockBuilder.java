@@ -1,14 +1,6 @@
 package org.rcsb.cif.schema.core;
 
-import org.rcsb.cif.model.BlockBuilder;
-import org.rcsb.cif.model.CategoryBuilder;
-import org.rcsb.cif.model.Column;
-import org.rcsb.cif.model.FloatColumn;
-import org.rcsb.cif.model.FloatColumnBuilder;
-import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.model.IntColumnBuilder;
-import org.rcsb.cif.model.StrColumn;
-import org.rcsb.cif.model.StrColumnBuilder;
+import org.rcsb.cif.model.*;
 import org.rcsb.cif.model.builder.BlockBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
 

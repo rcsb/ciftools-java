@@ -1,7 +1,6 @@
 package org.rcsb.cif.schema.core;
 
 import org.rcsb.cif.model.CategoryBuilder;
-import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.IntColumnBuilder;
 import org.rcsb.cif.model.StrColumnBuilder;

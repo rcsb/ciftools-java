@@ -43,15 +43,15 @@ class SchemaGenerator {
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("MmCif", "mm", false,
-                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-//        new SchemaGenerator("CifCore", "core", true,
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+//        new SchemaGenerator("MmCif", "mm", false,
+//                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+//                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+        new SchemaGenerator("CifCore", "core", true,
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -93,9 +93,20 @@ class SchemaGenerator {
 
         blockBuilder.add("package " + BASE_PACKAGE + pkg + ";");
         blockBuilder.add("");
-        blockBuilder.add("import org.rcsb.cif.model.builder.BlockBuilderImpl;");
-        blockBuilder.add("");
-        blockBuilder.add("import javax.annotation.Generated;");
+        if (!flat) {
+            blockBuilder.add("import org.rcsb.cif.model.builder.BlockBuilderImpl;");
+            blockBuilder.add("");
+            blockBuilder.add("import javax.annotation.Generated;");
+        } else {
+            blockBuilder.add("import org.rcsb.cif.model.*;");
+            blockBuilder.add("import org.rcsb.cif.model.builder.BlockBuilderImpl;");
+            blockBuilder.add("import org.rcsb.cif.model.text.TextCategory;");
+            blockBuilder.add("");
+            blockBuilder.add("import javax.annotation.Generated;");
+            blockBuilder.add("import java.util.Map;");
+            blockBuilder.add("");
+            blockBuilder.add("import static org.rcsb.cif.model.CategoryBuilder.createColumnText;");
+        }
         blockBuilder.add("");
         blockBuilder.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         blockBuilder.add("public class " + name + "BlockBuilder extends BlockBuilderImpl<" + name + "FileBuilder> {");
@@ -116,9 +127,37 @@ class SchemaGenerator {
         blockBuilder.add("        parent.digest(this);");
         blockBuilder.add("        return parent;");
         blockBuilder.add("    }");
+        if (flat) {
+            blockBuilder.add("");
+            blockBuilder.add("    @Override");
+            blockBuilder.add("    public void digest(CategoryBuilder<? extends BlockBuilder<" + name + "FileBuilder>, " + name + "FileBuilder> builder) {");
+            blockBuilder.add("        // flat schema: block builder should digest columns directly - do nothing");
+            blockBuilder.add("    }");
+            blockBuilder.add("");
+            blockBuilder.add("    public void digest(IntColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> builder) {");
+            blockBuilder.add("        String flatName = builder.getCategoryName() + \"_\" + builder.getColumnName();");
+            blockBuilder.add("        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), IntColumn.class);");
+            blockBuilder.add("        categories.put(flatName, new TextCategory(flatName, Map.of(\"\", column)));");
+            blockBuilder.add("    }");
+            blockBuilder.add("");
+            blockBuilder.add("    public void digest(FloatColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> builder) {");
+            blockBuilder.add("        String flatName = builder.getCategoryName() + \"_\" + builder.getColumnName();");
+            blockBuilder.add("        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), FloatColumn.class);");
+            blockBuilder.add("        categories.put(flatName, new TextCategory(flatName, Map.of(\"\", column)));");
+            blockBuilder.add("    }");
+            blockBuilder.add("");
+            blockBuilder.add("    public void digest(StrColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> builder) {");
+            blockBuilder.add("        String flatName = builder.getCategoryName() + \"_\" + builder.getColumnName();");
+            blockBuilder.add("        Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), StrColumn.class);");
+            blockBuilder.add("        categories.put(flatName, new TextCategory(flatName, Map.of(\"\", column)));");
+            blockBuilder.add("    }");
+        }
 
         categoryBuilder.add("package " + BASE_PACKAGE + pkg + ";");
         categoryBuilder.add("");
+        if (flat) {
+            categoryBuilder.add("import org.rcsb.cif.model.CategoryBuilder;");
+        }
         categoryBuilder.add("import org.rcsb.cif.model.FloatColumnBuilder;");
         categoryBuilder.add("import org.rcsb.cif.model.IntColumnBuilder;");
         categoryBuilder.add("import org.rcsb.cif.model.StrColumnBuilder;");
@@ -134,6 +173,22 @@ class SchemaGenerator {
         categoryBuilder.add("    public " + name + "CategoryBuilder(String blockName, " + name + "BlockBuilder parent) {");
         categoryBuilder.add("        super(blockName, parent);");
         categoryBuilder.add("    }");
+        if (flat) {
+            categoryBuilder.add("");
+            categoryBuilder.add("    @Override");
+            categoryBuilder.add("    public void digest(IntColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> columnBuilder) {");
+            categoryBuilder.add("        parent.digest(columnBuilder);");
+            categoryBuilder.add("    }");
+            categoryBuilder.add("");
+            categoryBuilder.add("    @Override");
+            categoryBuilder.add("    public void digest(FloatColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> columnBuilder) {");
+            categoryBuilder.add("        parent.digest(columnBuilder);");
+            categoryBuilder.add("    }");            categoryBuilder.add("");
+            categoryBuilder.add("    @Override");
+            categoryBuilder.add("    public void digest(StrColumnBuilder<? extends CategoryBuilder<" + name + "BlockBuilder, " + name + "FileBuilder>, " + name + "BlockBuilder, " + name + "FileBuilder> columnBuilder) {");
+            categoryBuilder.add("        parent.digest(columnBuilder);");
+            categoryBuilder.add("    }");
+        }
 
         for (Map.Entry<String, Table> entry : content.entrySet()) {
             String categoryName = entry.getKey();
