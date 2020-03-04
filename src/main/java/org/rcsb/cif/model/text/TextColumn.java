@@ -52,8 +52,8 @@ public class TextColumn implements StrColumn {
     }
 
     /**
-     * Explicitly creates this array by parsing all data in this text column.
-     * @implNote don't use this function on for text data - returned array is not cached
+     * Explicitly creates this array by parsing all data in this text column. Don't use this function on for text data -
+     * returned array is not cached
      * @return the requested array
      */
     @Override
