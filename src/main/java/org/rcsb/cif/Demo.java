@@ -38,7 +38,7 @@ public class Demo {
         // fine-grained options are available in the CifOptions class
 
         // access can be generic or using a specified schema - you can even use a custom dictionary
-        MmCifFile mmCifFile = cifFile.with(StandardSchemata.MMCIF);
+        MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
 
         // get first block of CIF
         MmCifBlock data = mmCifFile.getFirstBlock();

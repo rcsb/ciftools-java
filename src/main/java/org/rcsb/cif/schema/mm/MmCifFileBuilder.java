@@ -16,6 +16,6 @@ public class MmCifFileBuilder extends CifFileBuilderImpl {
 
     @Override
     public MmCifFile build() {
-        return super.build().with(StandardSchemata.MMCIF);
+        return super.build().as(StandardSchemata.MMCIF);
     }
 }

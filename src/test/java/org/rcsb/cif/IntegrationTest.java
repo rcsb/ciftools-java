@@ -32,12 +32,12 @@ public class IntegrationTest {
     @Test
     public void testDelegationBehavior() throws IOException {
         // blocks and categories should report typed categories and columns respectively
-        MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).with(StandardSchemata.MMCIF);
+        MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
         textCifFile.getFirstBlock()
                 .categories()
                 .forEach(category -> assertTrue("no delegation for text after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
 
-        MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).with(StandardSchemata.MMCIF);
+        MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         binaryCifFile.getFirstBlock()
                 .categories()
                 .forEach(category -> assertTrue("no delegation for binary after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
@@ -67,7 +67,7 @@ public class IntegrationTest {
     }
 
     private void testVectorAndMatrixBehavior(CifFile cifFile) {
-        AtomSites atomSites = cifFile.with(StandardSchemata.MMCIF).getFirstBlock().getAtomSites();
+        AtomSites atomSites = cifFile.as(StandardSchemata.MMCIF).getFirstBlock().getAtomSites();
 
         assertDefined(atomSites.getFractTransfMatrix11());
         assertEquals(0.008795, atomSites.getFractTransfMatrix11().get(0), TestHelper.ERROR_MARGIN);
@@ -112,7 +112,7 @@ public class IntegrationTest {
     }
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
-        MmCifBlock block = cifFile.with(StandardSchemata.MMCIF).getFirstBlock();
+        MmCifBlock block = cifFile.as(StandardSchemata.MMCIF).getFirstBlock();
         assertNotNull("header is corrupted", block.getBlockHeader());
 
         assertTrue(block.getEntry().isDefined());
@@ -140,7 +140,7 @@ public class IntegrationTest {
     public void testUnknownFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
         Cell cell = text.getFirstBlock().getCell();
 
@@ -154,7 +154,7 @@ public class IntegrationTest {
     public void testNotPresentFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
         StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
@@ -166,7 +166,7 @@ public class IntegrationTest {
     public void testUnknownFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
         Cell cell = text.getFirstBlock().getCell();
 
@@ -180,7 +180,7 @@ public class IntegrationTest {
     public void testNotPresentFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
-        MmCifFile text = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
+        MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
         StrColumn labelAltId = text.getFirstBlock().getAtomSite().getLabelAltId();
 
@@ -219,7 +219,7 @@ public class IntegrationTest {
 
     private void readCifWriteBcif(String testCase) throws IOException {
         byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
-        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif")).with(StandardSchemata.MMCIF);
+        CifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/" + testCase + ".cif")).as(StandardSchemata.MMCIF);
 
         byte[] output = CifIO.writeBinary(originalFile);
 
@@ -237,7 +237,7 @@ public class IntegrationTest {
 
     private void readBcifWriteCif(String testCase) throws IOException {
         String originalContent = new String(TestHelper.getBytes("snapshot/" + testCase + ".cif"));
-        MmCifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).with(StandardSchemata.MMCIF);
+        MmCifFile originalFile = CifIO.readFromInputStream(TestHelper.getInputStream("snapshot/" + testCase + ".bcif")).as(StandardSchemata.MMCIF);
 
         String copyContent = new String(CifIO.writeText(originalFile));
 

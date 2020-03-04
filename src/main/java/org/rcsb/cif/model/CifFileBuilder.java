@@ -46,7 +46,7 @@ public interface CifFileBuilder {
      * @param <B> the type of builder that does the work
      * @return a schema-aware builder instance
      */
-    default <F extends CifFile, B extends CifFileBuilder> B with(SchemaProvider<F, B> schemaProvider) {
+    default <F extends CifFile, B extends CifFileBuilder> B as(SchemaProvider<F, B> schemaProvider) {
         return schemaProvider.createTypedBuilder();
     }
 }

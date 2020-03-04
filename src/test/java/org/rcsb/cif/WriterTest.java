@@ -210,7 +210,7 @@ public class WriterTest {
         // run to update snapshot files
         for (String id : TEST_CASES.keySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-            CifFile data = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
+            CifFile data = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
             CifOptions options = CifOptions.builder().build();
             CifOptions optionsGzip = CifOptions.builder().gzip(true).build();

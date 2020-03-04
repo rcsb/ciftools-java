@@ -16,6 +16,6 @@ public class CifCoreFileBuilder extends CifFileBuilderImpl {
 
     @Override
     public CifCoreFile build() {
-        return super.build().with(StandardSchemata.CIF_CORE);
+        return super.build().as(StandardSchemata.CIF_CORE);
     }
 }
