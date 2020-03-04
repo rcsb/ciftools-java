@@ -5,8 +5,9 @@ import java.util.stream.Stream;
 
 /**
  * Represents a column of information in a {@link CifFile}, e.g. the coordinates in x-dimension of all atoms.
+ * @param <T> the array type of this column (int[], double[], String[])
  */
-public interface Column {
+public interface Column<T> {
     /**
      * The name of this {@link Column}.
      * @return the <code>String</code> which is used to acquire this column from its parent {@link Category}
@@ -64,9 +65,18 @@ public interface Column {
     }
 
     /**
+     * Unsafe access to the underlying data. Useful, when you are sure that your dealing with binary data and want the
+     * most efficient access to all data in this column.
+     * @return an array of the appropriate type (int[], double[], String[])
+     */
+    default T getBinaryDataUnsafe() {
+        return null;
+    }
+
+    /**
      * This dummy instance is created and returned if an absent Column is requested for a Category.
      */
-    class EmptyColumn implements Column {
+    class EmptyColumn implements Column<Void> {
         private final String name;
         private final IllegalArgumentException exception;
 

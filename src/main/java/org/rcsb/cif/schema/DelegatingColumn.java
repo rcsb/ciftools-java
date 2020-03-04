@@ -3,10 +3,10 @@ package org.rcsb.cif.schema;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
-public class DelegatingColumn implements Column {
-    protected final Column delegate;
+public class DelegatingColumn<T> implements Column<T> {
+    protected final Column<?> delegate;
 
-    public DelegatingColumn(Column delegate) {
+    public DelegatingColumn(Column<?> delegate) {
         this.delegate = delegate;
     }
 

@@ -9,8 +9,8 @@ import org.rcsb.cif.model.binary.BinaryStrColumn;
 
 import java.util.stream.DoubleStream;
 
-public class DelegatingFloatColumn extends DelegatingColumn implements FloatColumn {
-    public DelegatingFloatColumn(Column delegate) {
+public class DelegatingFloatColumn extends DelegatingColumn<double[]> implements FloatColumn {
+    public DelegatingFloatColumn(Column<?> delegate) {
         super(delegate);
     }
 

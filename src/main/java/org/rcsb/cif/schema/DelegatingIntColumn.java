@@ -9,8 +9,8 @@ import org.rcsb.cif.model.binary.BinaryStrColumn;
 
 import java.util.stream.IntStream;
 
-public class DelegatingIntColumn extends DelegatingColumn implements IntColumn {
-    public DelegatingIntColumn(Column delegate) {
+public class DelegatingIntColumn extends DelegatingColumn<int[]> implements IntColumn {
+    public DelegatingIntColumn(Column<?> delegate) {
         super(delegate);
     }
 

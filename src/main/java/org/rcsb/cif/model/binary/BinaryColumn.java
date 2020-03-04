@@ -3,7 +3,7 @@ package org.rcsb.cif.model.binary;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
-public abstract class BinaryColumn<T> implements Column {
+public abstract class BinaryColumn<T> implements Column<T> {
     private final String name;
     private final int rowCount;
     private final boolean hasMask;
@@ -34,10 +34,5 @@ public abstract class BinaryColumn<T> implements Column {
         return ValueKind.values()[mask[row]];
     }
 
-    /**
-     * Unsafe access to the underlying data of BinaryColumn instances. Useful, when you are sure that your dealing with
-     * binary data and want the most efficient access to all data in this column.
-     * @return an array of the appropriate type (int[], double[], String[])
-     */
     public abstract T getBinaryDataUnsafe();
 }

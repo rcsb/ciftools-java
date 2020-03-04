@@ -30,6 +30,15 @@ import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
  */
 public class IntegrationTest {
     @Test
+    public void testBinaryDataAccessBehavior() throws IOException {
+        MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
+        FloatColumn cartnX = binaryCifFile.getFirstBlock()
+                .getAtomSite()
+                .getCartnX();
+        cartnX.getBinaryDataUnsafe();
+    }
+
+    @Test
     public void testDelegationBehavior() throws IOException {
         // blocks and categories should report typed categories and columns respectively
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);

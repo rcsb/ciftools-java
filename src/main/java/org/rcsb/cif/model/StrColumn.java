@@ -6,7 +6,7 @@ import java.util.stream.Stream;
 /**
  * A column that provides String data.
  */
-public interface StrColumn extends Column {
+public interface StrColumn extends Column<String[]> {
     /**
      * Type-safe access to the native type of data stored in this column.
      * @param row the index to retrieve

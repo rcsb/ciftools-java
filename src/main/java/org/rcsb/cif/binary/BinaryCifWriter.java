@@ -128,20 +128,20 @@ public class BinaryCifWriter {
         return Classifier.encode(column, encoding);
     }
 
-    private Map<String, Object> encodeColumn(String categoryName, Column cifColumn) {
+    private Map<String, Object> encodeColumn(String categoryName, Column<?> cifColumn) {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
-            double[] array = floatCol instanceof BinaryFloatColumn ? ((BinaryFloatColumn) floatCol).getBinaryDataUnsafe() : floatCol.values().toArray();
+            double[] array = floatCol instanceof BinaryFloatColumn ? floatCol.getBinaryDataUnsafe() : floatCol.values().toArray();
             ByteArray byteArray = encodeFloatArray(categoryName, cifColumn.getColumnName(), new Float64Array(array));
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
-            int[] array = intCol instanceof BinaryIntColumn ? ((BinaryIntColumn) intCol).getBinaryDataUnsafe() : intCol.values().toArray();
+            int[] array = intCol instanceof BinaryIntColumn ? intCol.getBinaryDataUnsafe() : intCol.values().toArray();
             ByteArray byteArray = encodeIntArray(categoryName, cifColumn.getColumnName(), new Int32Array(array));
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof StrColumn) {
             StrColumn strCol = (StrColumn) cifColumn;
-            String[] array = strCol instanceof BinaryStrColumn ? ((BinaryStrColumn) strCol).getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
+            String[] array = strCol instanceof BinaryStrColumn ? strCol.getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else {
@@ -152,7 +152,7 @@ public class BinaryCifWriter {
         }
     }
 
-    private Map<String, Object> encodeColumnUsingByteArray(Column cifField, ByteArray byteArray) {
+    private Map<String, Object> encodeColumnUsingByteArray(Column<?> cifField, ByteArray byteArray) {
         String name = cifField.getColumnName();
 
         // handle ValueKind and if needed create mask

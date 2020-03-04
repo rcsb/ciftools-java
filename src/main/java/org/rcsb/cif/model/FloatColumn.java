@@ -6,7 +6,7 @@ import java.util.stream.IntStream;
 /**
  * A column that provides float data.
  */
-public interface FloatColumn extends Column {
+public interface FloatColumn extends Column<double[]> {
     /**
      * Type-safe access to the native type of data stored in this column.
      * @param row the index to retrieve

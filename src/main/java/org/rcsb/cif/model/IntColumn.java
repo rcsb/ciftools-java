@@ -5,7 +5,7 @@ import java.util.stream.IntStream;
 /**
  * A column that provides int data.
  */
-public interface IntColumn extends Column {
+public interface IntColumn extends Column<int[]> {
     /**
      * Type-safe access to the native type of data stored in this column.
      * @param row the index to retrieve
