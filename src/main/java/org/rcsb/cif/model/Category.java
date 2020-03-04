@@ -47,8 +47,13 @@ public interface Category {
      * States whether this {@link Category} is defined.
      * @return <code>true</code> if this {@link Category} contains data
      */
-    boolean isDefined();
+    default boolean isDefined() {
+        return getRowCount() > 0;
+    }
 
+    /**
+     * This dummy instance is created and returned if an absent Category is requested for a Block.
+     */
     class EmptyCategory implements Category {
         private final String name;
 
@@ -74,11 +79,6 @@ public interface Category {
         @Override
         public Map<String, Column> getColumns() {
             return Collections.emptyMap();
-        }
-
-        @Override
-        public boolean isDefined() {
-            return false;
         }
     }
 }

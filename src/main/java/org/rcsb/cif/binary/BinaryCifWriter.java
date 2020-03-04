@@ -93,7 +93,7 @@ public class BinaryCifWriter {
         return file;
     }
 
-    private ByteArray encode(String categoryName, String columnName, Float64Array column) {
+    private ByteArray encodeFloatArray(String categoryName, String columnName, Float64Array column) {
         Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
 
         // if no hint given, auto-classify column
@@ -119,7 +119,7 @@ public class BinaryCifWriter {
         return m;
     }
 
-    private ByteArray encode(String categoryName, String columnName, Int32Array column) {
+    private ByteArray encodeIntArray(String categoryName, String columnName, Int32Array column) {
         Optional<String> optional = options.getEncodingStrategyHint(categoryName, columnName).map(EncodingStrategyHint::getEncoding);
 
         // if no hint given, auto-classify column
@@ -132,27 +132,27 @@ public class BinaryCifWriter {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
             double[] array = floatCol instanceof BinaryFloatColumn ? ((BinaryFloatColumn) floatCol).getBinaryDataUnsafe() : floatCol.values().toArray();
-            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Float64Array(array));
-            return encodeColumn(cifColumn, byteArray);
+            ByteArray byteArray = encodeFloatArray(categoryName, cifColumn.getColumnName(), new Float64Array(array));
+            return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
             int[] array = intCol instanceof BinaryIntColumn ? ((BinaryIntColumn) intCol).getBinaryDataUnsafe() : intCol.values().toArray();
-            ByteArray byteArray = encode(categoryName, cifColumn.getColumnName(), new Int32Array(array));
-            return encodeColumn(cifColumn, byteArray);
+            ByteArray byteArray = encodeIntArray(categoryName, cifColumn.getColumnName(), new Int32Array(array));
+            return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof StrColumn) {
             StrColumn strCol = (StrColumn) cifColumn;
             String[] array = strCol instanceof BinaryStrColumn ? ((BinaryStrColumn) strCol).getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
-            return encodeColumn(cifColumn, byteArray);
+            return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else {
             // column is typed but unknown
             String[] array = cifColumn.stringData().toArray(String[]::new);
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
-            return encodeColumn(cifColumn, byteArray);
+            return encodeColumnUsingByteArray(cifColumn, byteArray);
         }
     }
 
-    private Map<String, Object> encodeColumn(Column cifField, ByteArray byteArray) {
+    private Map<String, Object> encodeColumnUsingByteArray(Column cifField, ByteArray byteArray) {
         String name = cifField.getColumnName();
 
         // handle ValueKind and if needed create mask

@@ -60,7 +60,6 @@ public class TextCifWriter {
                 }
             }
         }
-//        output.append("\n");
 
         return output.toString().getBytes(StandardCharsets.UTF_8);
     }

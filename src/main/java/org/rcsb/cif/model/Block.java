@@ -38,6 +38,10 @@ public interface Block {
         }
     }
 
+    /**
+     * Access to the category map wrapped by this block.
+     * @return a map with category names as keys and instances as values
+     */
     Map<String, Category> getCategories();
 
     /**
@@ -62,6 +66,13 @@ public interface Block {
         return getSaveFrames().stream();
     }
 
+    /**
+     * 'Type-safe' access to arbitrary categories.
+     * @param name the category name to retrieve
+     * @param wrapper a mapping function that ensures that correct behavior of this category
+     * @param <C> the desired type
+     * @return typed instance of the requested category
+     */
     default <C extends Category> C getCategory(String name, Function<Category, C> wrapper) {
         Category category = getCategory(name);
         return wrapper.apply(category != null ? category : new Category.EmptyCategory(name));

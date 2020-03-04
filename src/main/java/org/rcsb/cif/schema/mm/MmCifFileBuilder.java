@@ -1,7 +1,7 @@
 package org.rcsb.cif.schema.mm;
 
 import org.rcsb.cif.model.builder.CifFileBuilderImpl;
-import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.StandardSchemata;
 
 public class MmCifFileBuilder extends CifFileBuilderImpl {
     @Override
@@ -16,6 +16,6 @@ public class MmCifFileBuilder extends CifFileBuilderImpl {
 
     @Override
     public MmCifFile build() {
-        return super.build().with(StandardSchemas.MMCIF);
+        return super.build().with(StandardSchemata.MMCIF);
     }
 }

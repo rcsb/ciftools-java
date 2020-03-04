@@ -38,7 +38,7 @@ import java.util.stream.Stream;
  * Creates a type-safe data model using a CIF dictionary.
  */
 @SuppressWarnings("ALL")
-class SchemaGenerator {
+public class SchemaGenerator {
     private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
 

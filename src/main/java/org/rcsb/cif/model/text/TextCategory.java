@@ -39,9 +39,4 @@ public class TextCategory implements Category {
     public Map<String, Column> getColumns() {
         return textFields;
     }
-
-    @Override
-    public boolean isDefined() {
-        return true;
-    }
 }

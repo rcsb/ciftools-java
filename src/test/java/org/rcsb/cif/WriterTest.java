@@ -12,10 +12,9 @@ import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.IntColumnBuilder;
 import org.rcsb.cif.model.builder.CategoryBuilderImpl;
-import org.rcsb.cif.model.builder.CifFileBuilderImpl;
 import org.rcsb.cif.model.builder.FloatColumnBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
-import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.core.AtomSite;
 import org.rcsb.cif.schema.core.CifCoreBlock;
 import org.rcsb.cif.schema.core.CifCoreFile;
@@ -35,7 +34,7 @@ import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 public class WriterTest {
     @Test
     public void testNumberFormatOfBuiltCifFile() throws IOException {
-        CifFile cifFile = new CifFileBuilderImpl()
+        CifFile cifFile = CifBuilder.enterFile()
                 .enterBlock("test")
                 .enterCategory("atom_site")
                 .enterFloatColumn("occupancy")
@@ -66,6 +65,7 @@ public class WriterTest {
                 .enterBlock("test")
                 .enterCategory("test");
 
+        // zero regrets for these generics
         IntColumnBuilder<? extends CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder>, ? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> ints = categoryBuilder.enterIntColumn("ints");
         FloatColumnBuilder<? extends CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder>, ? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> floats = categoryBuilder.enterFloatColumn("floats");
 
@@ -101,7 +101,7 @@ public class WriterTest {
 
     @Test
     public void testClassInferenceOfBuiltMmCifFile() {
-        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
+        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemata.MMCIF)
                 .enterBlock("test")
                 .enterAtomSite()
                 .enterBIsoOrEquiv()
@@ -123,7 +123,7 @@ public class WriterTest {
 
     @Test
     public void testClassInferenceOfBuiltCifCoreFile() {
-        CifCoreFile cifFile = CifBuilder.enterFile(StandardSchemas.CIF_CORE)
+        CifCoreFile cifFile = CifBuilder.enterFile(StandardSchemata.CIF_CORE)
                 .enterBlock("test")
                 .enterAtomSite()
                 .enterBIsoOrEquiv()
@@ -210,7 +210,7 @@ public class WriterTest {
         // run to update snapshot files
         for (String id : TEST_CASES.keySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-            CifFile data = CifIO.readFromInputStream(inputStream).with(StandardSchemas.MMCIF);
+            CifFile data = CifIO.readFromInputStream(inputStream).with(StandardSchemata.MMCIF);
 
             CifOptions options = CifOptions.builder().build();
             CifOptions optionsGzip = CifOptions.builder().gzip(true).build();

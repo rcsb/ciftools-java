@@ -1,7 +1,7 @@
 package org.rcsb.cif.schema.core;
 
 import org.rcsb.cif.model.builder.CifFileBuilderImpl;
-import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.StandardSchemata;
 
 public class CifCoreFileBuilder extends CifFileBuilderImpl {
     @Override
@@ -16,6 +16,6 @@ public class CifCoreFileBuilder extends CifFileBuilderImpl {
 
     @Override
     public CifCoreFile build() {
-        return super.build().with(StandardSchemas.CIF_CORE);
+        return super.build().with(StandardSchemata.CIF_CORE);
     }
 }

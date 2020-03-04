@@ -3,14 +3,31 @@ package org.rcsb.cif.model;
 import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 
+/**
+ * A column that provides float data.
+ */
 public interface FloatColumn extends Column {
+    /**
+     * Type-safe access to the native type of data stored in this column.
+     * @param row the index to retrieve
+     * @return an double value
+     */
     double get(int row);
 
+    /**
+     * A DoubleStream of all registered values.
+     * @return doubles
+     */
     default DoubleStream values() {
         return IntStream.range(0, getRowCount())
                 .mapToDouble(this::get);
     }
 
+    /**
+     * This is how all FloatColumns parse their data.
+     * @param text the raw data
+     * @return a double
+     */
     static double parseFloat(String text) {
         if (text.isEmpty() || ".".equals(text) || "?".equals(text)) {
             return 0;

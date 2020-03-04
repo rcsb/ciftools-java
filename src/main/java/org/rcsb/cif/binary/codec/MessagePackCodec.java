@@ -17,8 +17,6 @@ import java.util.Map;
  * considered.
  */
 public class MessagePackCodec {
-    /* encoding */
-
     public static byte[] encode(Map<String, Object> input) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -179,8 +177,6 @@ public class MessagePackCodec {
             }
         }
     }
-
-    /* decoding */
 
     @SuppressWarnings("unchecked")
     public static Map<String, Object> decode(InputStream inputStream) throws IOException {

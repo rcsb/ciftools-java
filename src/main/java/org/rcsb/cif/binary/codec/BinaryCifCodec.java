@@ -27,9 +27,9 @@ public class BinaryCifCodec {
     public static final boolean IS_NATIVE_LITTLE_ENDIAN = ByteOrder.nativeOrder().equals(ByteOrder.LITTLE_ENDIAN);
 
     /**
-     * Request decoding of this EncodedData instance. Will automatically resolve its decoding chain, starting from a
-     * ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved which is
-     * then ready to use.
+     * Request decoding of this {@link EncodedData} instance. Will automatically resolve its decoding chain, starting
+     * from a ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved
+     * which is then ready to use.
      * @return the decoded data
      */
     @SuppressWarnings({"unchecked", "rawtypes"})

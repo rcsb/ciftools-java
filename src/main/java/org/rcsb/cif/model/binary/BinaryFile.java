@@ -21,10 +21,19 @@ public class BinaryFile implements CifFile {
         return blocks;
     }
 
+    /**
+     * Reports the encoder version that was used to create this file.
+     * @return a String
+     */
     public String getVersion() {
         return version;
     }
 
+
+    /**
+     * Reports the encoder name that was used to create this file.
+     * @return a String
+     */
     public String getEncoder() {
         return encoder;
     }

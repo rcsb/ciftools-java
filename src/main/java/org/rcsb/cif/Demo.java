@@ -2,7 +2,7 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
-import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 import org.rcsb.cif.schema.mm.MmCifFile;
@@ -38,7 +38,7 @@ public class Demo {
         // fine-grained options are available in the CifOptions class
 
         // access can be generic or using a specified schema - you can even use a custom dictionary
-        MmCifFile mmCifFile = cifFile.with(StandardSchemas.MMCIF);
+        MmCifFile mmCifFile = cifFile.with(StandardSchemata.MMCIF);
 
         // get first block of CIF
         MmCifBlock data = mmCifFile.getFirstBlock();
@@ -69,7 +69,7 @@ public class Demo {
     private static void buildModel() throws IOException {
         // all builder functionality is exposed by the CifBuilder class
         // again access can be generic or following a given schema
-        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
+        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemata.MMCIF)
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'

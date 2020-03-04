@@ -50,11 +50,6 @@ public class DelegatingCategory implements Category {
         return new DelegatingColumn(column);
     }
 
-    @Override
-    public boolean isDefined() {
-        return delegate.isDefined();
-    }
-
     public static class DelegatingCifCoreCategory implements Category {
         private final String categoryName;
         protected final CifCoreBlock parentBlock;
@@ -94,11 +89,6 @@ public class DelegatingCategory implements Category {
 
         private String extractName(Category category) {
             return category.getCategoryName().replaceFirst(categoryName + "_", "");
-        }
-
-        @Override
-        public boolean isDefined() {
-            return getRowCount() > 0;
         }
     }
 }

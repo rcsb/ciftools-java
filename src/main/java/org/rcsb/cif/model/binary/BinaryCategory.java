@@ -85,9 +85,4 @@ public class BinaryCategory implements Category {
         columnNames.forEach(this::getColumn);
         return decodedColumns;
     }
-
-    @Override
-    public boolean isDefined() {
-        return true;
-    }
 }

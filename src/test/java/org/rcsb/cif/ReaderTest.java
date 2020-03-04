@@ -3,7 +3,7 @@ package org.rcsb.cif;
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.IntColumn;
-import org.rcsb.cif.schema.StandardSchemas;
+import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 
@@ -59,7 +59,7 @@ public class ReaderTest {
 
     @SuppressWarnings("rawtypes")
     private void checkParsedEntity(CifFile cifFile, List testData) throws ParsingException {
-        MmCifBlock data = cifFile.with(StandardSchemas.MMCIF).getFirstBlock();
+        MmCifBlock data = cifFile.with(StandardSchemata.MMCIF).getFirstBlock();
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);
         assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);
