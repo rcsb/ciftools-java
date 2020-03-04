@@ -26,20 +26,20 @@ public interface Category {
      * @param name the column name
      * @return the {@link Column}, empty column if no column of that name exists
      */
-    Column getColumn(String name);
+    Column<?> getColumn(String name);
 
-    default <C extends Column> C getColumn(String name, Function<Column, C> wrapper) {
-        Column column = getColumn(name);
+    default <C extends Column<?>> C getColumn(String name, Function<Column<?>, C> wrapper) {
+        Column<?> column = getColumn(name);
         return wrapper.apply(column != null ? column : new Column.EmptyColumn(name));
     }
 
-    Map<String, Column> getColumns();
+    Map<String, Column<?>> getColumns();
 
     /**
      * Traverse all present columns.
      * @return a {@link Stream} of all present columns
      */
-    default Stream<Column> columns() {
+    default Stream<Column<?>> columns() {
         return getColumns().values().stream();
     }
 
@@ -72,12 +72,12 @@ public interface Category {
         }
 
         @Override
-        public Column getColumn(String name) {
+        public Column<Void> getColumn(String name) {
             return new Column.EmptyColumn(name);
         }
 
         @Override
-        public Map<String, Column> getColumns() {
+        public Map<String, Column<?>> getColumns() {
             return Collections.emptyMap();
         }
     }

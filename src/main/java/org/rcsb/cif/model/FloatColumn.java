@@ -1,7 +1,7 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
 import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
 
 /**
  * A column that provides float data.
@@ -19,8 +19,7 @@ public interface FloatColumn extends Column<double[]> {
      * @return doubles
      */
     default DoubleStream values() {
-        return IntStream.range(0, getRowCount())
-                .mapToDouble(this::get);
+        return Arrays.stream(getArray());
     }
 
     /**

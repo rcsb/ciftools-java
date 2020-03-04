@@ -414,7 +414,7 @@ class TokenizerState {
         final int nsEnd = getNamespaceEnd();
         final String name = getNamespace(nsEnd);
         final boolean isFlat = isFlatNamespace();
-        final Map<String, Column> fields = new LinkedCaseInsensitiveMap<>();
+        final Map<String, Column<?>> fields = new LinkedCaseInsensitiveMap<>();
         final String categoryName = name.substring(1);
 
         while (tokenType == CifTokenType.COLUMN_NAME && isNamespace(nsStart, nsEnd)) {
@@ -424,7 +424,7 @@ class TokenizerState {
                 throw new ParsingException("Expected value.", lineNumber);
             }
 
-            Column cifColumn = createColumn(columnName, data, new int[] { tokenStart }, new int[] { tokenEnd });
+            Column<?> cifColumn = createColumn(columnName, data, new int[] { tokenStart }, new int[] { tokenEnd });
             fields.put(columnName, cifColumn);
             moveNext();
         }
@@ -474,19 +474,19 @@ class TokenizerState {
         if (isFlat) {
             for (int i = 0; i < start.size(); i++) {
                 String flatName = columnNames.get(i).substring(1);
-                Column cifColumn = createColumn("",
+                Column<?> cifColumn = createColumn("",
                         data,
                         toArray(start.get(i)),
                         toArray(end.get(i)));
-                Map<String, Column> columnMap = new LinkedHashMap<>(1);
+                Map<String, Column<?>> columnMap = new LinkedHashMap<>(1);
                 columnMap.put("", cifColumn);
                 ctx.getCategories().put(flatName, createCategory(flatName, columnMap));
             }
         } else {
             String categoryName = name.substring(1);
-            Map<String, Column> columns = new LinkedCaseInsensitiveMap<>();
+            Map<String, Column<?>> columns = new LinkedCaseInsensitiveMap<>();
             for (int i = 0; i < start.size(); i++) {
-                Column cifColumn = createColumn(columnNames.get(i),
+                Column<?> cifColumn = createColumn(columnNames.get(i),
                         data,
                         toArray(start.get(i)),
                         toArray(end.get(i)));
@@ -508,11 +508,11 @@ class TokenizerState {
         return array;
     }
 
-    private Column createColumn(String columnName, String data, int[] startToken, int[] endToken) {
+    private Column<?> createColumn(String columnName, String data, int[] startToken, int[] endToken) {
         return new TextColumn(columnName, startToken.length, data, startToken, endToken);
     }
 
-    private Category createCategory(String categoryName, Map<String, Column> textColumns) {
+    private Category createCategory(String categoryName, Map<String, Column<?>> textColumns) {
         return new TextCategory(categoryName, textColumns);
     }
 }

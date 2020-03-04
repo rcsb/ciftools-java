@@ -45,7 +45,7 @@ public class TextCifWriter {
                     continue;
                 }
 
-                List<Column> columns = cifCategory.columns()
+                List<Column<?>> columns = cifCategory.columns()
                         .filter(column -> options.filterColumn(categoryName, column.getColumnName()))
                         .collect(Collectors.toList());
 
@@ -64,7 +64,7 @@ public class TextCifWriter {
         return output.toString().getBytes(StandardCharsets.UTF_8);
     }
 
-    private void writeCifSingleRecord(StringBuilder output, Category cifCategory, List<Column> columns) {
+    private void writeCifSingleRecord(StringBuilder output, Category cifCategory, List<Column<?>> columns) {
         int width = columns.stream()
                 .map(Column::getColumnName)
                 .mapToInt(String::length)
@@ -72,7 +72,7 @@ public class TextCifWriter {
                 .orElseThrow(() -> new NoSuchElementException("not able to determine column width"))
                 + 6 + cifCategory.getCategoryName().length();
 
-        for (Column cifField : columns) {
+        for (Column<?> cifField : columns) {
             writePadRight(output, "_" + cifCategory.getCategoryName() + "." + cifField.getColumnName(), width);
 
             for (int row = 0; row < cifField.getRowCount(); row++) {
@@ -85,10 +85,10 @@ public class TextCifWriter {
         output.append("#\n");
     }
 
-    private void writeCifLoop(StringBuilder output, Category cifCategory, List<Column> columns) {
+    private void writeCifLoop(StringBuilder output, Category cifCategory, List<Column<?>> columns) {
         output.append("loop_")
                 .append("\n");
-        for (Column cifField : columns) {
+        for (Column<?> cifField : columns) {
             output.append("_")
                     .append(cifCategory.getCategoryName())
                     .append(".")
@@ -98,7 +98,7 @@ public class TextCifWriter {
 
         for (int row = 0; row < columns.get(0).getRowCount(); row++) {
             boolean multiline = false;
-            for (Column cifField : columns) {
+            for (Column<?> cifField : columns) {
                 multiline = writeValue(output, cifField, row);
             }
             if (!multiline) {
@@ -108,7 +108,7 @@ public class TextCifWriter {
         output.append("#\n");
     }
 
-    private boolean writeValue(StringBuilder output, Column column, int row) {
+    private boolean writeValue(StringBuilder output, Column<?> column, int row) {
         ValueKind kind = column.getValueKind(row);
 
         if (kind != ValueKind.PRESENT) {

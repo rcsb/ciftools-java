@@ -2,48 +2,50 @@ package org.rcsb.cif.schema;
 
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.IntColumn;
+import org.rcsb.cif.model.ValueKind;
 import org.rcsb.cif.model.binary.BinaryColumn;
 import org.rcsb.cif.model.binary.BinaryFloatColumn;
 import org.rcsb.cif.model.binary.BinaryIntColumn;
 import org.rcsb.cif.model.binary.BinaryStrColumn;
 
-import java.util.stream.IntStream;
-
 public class DelegatingIntColumn extends DelegatingColumn<int[]> implements IntColumn {
     public DelegatingIntColumn(Column<?> delegate) {
-        super(delegate);
+        super(forceInt(delegate));
     }
+
+    private static IntColumn forceInt(Column<?> column) {
+        if (column instanceof IntColumn) {
+            return (IntColumn) column;
+        } else if (column instanceof EmptyColumn) {
+            return new BinaryIntColumn(column.getColumnName(), 0, new int[0], new int[0]);
+        } else {
+            String columnName = column.getColumnName();
+            int rowCount = column.getRowCount();
+            int[] data;
+            int[] mask;
+            if (column instanceof BinaryColumn) {
+                mask = ((BinaryColumn<?>) column).getMask();
+                if (column instanceof BinaryFloatColumn) {
+                    data = ((BinaryFloatColumn) column).values().mapToInt(d -> (int) d).toArray();
+                } else {
+                    data = ((BinaryStrColumn) column).values().mapToInt(IntColumn::parseInt).toArray();
+                }
+            } else {
+                // text-column, i.e. String data
+                data = column.stringData().mapToInt(IntColumn::parseInt).toArray();
+                mask = column.valueKinds().mapToInt(ValueKind::ordinal).toArray();
+            }
+            return new BinaryIntColumn(columnName, rowCount, data, mask);
+        }
+    }
+
 
     @Override
     public int get(int row) {
         if (delegate instanceof BinaryColumn) {
-            if (delegate instanceof BinaryIntColumn) {
-                return ((BinaryIntColumn) delegate).getBinaryDataUnsafe()[row];
-            } else if (delegate instanceof BinaryFloatColumn) {
-                return (int) ((BinaryFloatColumn) delegate).getBinaryDataUnsafe()[row];
-            } else {
-                return IntColumn.parseInt(((BinaryStrColumn) delegate).getBinaryDataUnsafe()[row]);
-            }
+            return delegate.getArray()[row];
         } else {
             return IntColumn.parseInt(delegate.getStringData(row));
-        }
-    }
-
-    @Override
-    public IntStream values() {
-        if (delegate instanceof BinaryColumn) {
-            if (delegate instanceof BinaryIntColumn) {
-                return ((BinaryIntColumn) delegate).values();
-            } else if (delegate instanceof BinaryFloatColumn) {
-                return ((BinaryFloatColumn) delegate).values()
-                        .mapToInt(i -> (int) i);
-            } else {
-                return ((BinaryStrColumn) delegate).values()
-                        .mapToInt(IntColumn::parseInt);
-            }
-        } else {
-            // for text: nothing much to gain
-            return IntColumn.super.values();
         }
     }
 }

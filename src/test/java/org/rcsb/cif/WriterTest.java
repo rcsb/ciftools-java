@@ -90,8 +90,8 @@ public class WriterTest {
         FloatColumn binaryFloatColumn = (FloatColumn) binaryCategory.getColumn("floats");
 
         // in text impl we cant be sure without meta information that this is not string data
-        Column textIntColumn = textCategory.getColumn("ints");
-        Column textFloatColumn = textCategory.getColumn("floats");
+        Column<?> textIntColumn = textCategory.getColumn("ints");
+        Column<?> textFloatColumn = textCategory.getColumn("floats");
 
         assertNotNull(binaryIntColumn);
         assertNotNull(binaryFloatColumn);
@@ -137,7 +137,7 @@ public class WriterTest {
 
         FloatColumn columnBySchema = block.getAtomSite().getBIsoOrEquiv();
         assertTrue(columnBySchema.isDefined());
-        Column columnByName = block.getColumn("atom_site_B_iso_or_equiv");
+        Column<?> columnByName = block.getColumn("atom_site_B_iso_or_equiv");
         assertTrue(columnByName.isDefined());
         assertTrue(columnByName instanceof FloatColumn);
 

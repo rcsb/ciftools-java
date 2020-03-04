@@ -8,9 +8,9 @@ import java.util.Map;
 public class TextCategory implements Category {
     private final String name;
     private final int rowCount;
-    private final Map<String, Column> textFields;
+    private final Map<String, Column<?>> textFields;
 
-    public TextCategory(String name, Map<String, Column> textColumns) {
+    public TextCategory(String name, Map<String, Column<?>> textColumns) {
         this.name = name;
         this.rowCount = textColumns.values()
                 .stream()
@@ -31,12 +31,12 @@ public class TextCategory implements Category {
     }
 
     @Override
-    public Column getColumn(String name) {
+    public Column<?> getColumn(String name) {
         return textFields.computeIfAbsent(name, Column.EmptyColumn::new);
     }
 
     @Override
-    public Map<String, Column> getColumns() {
+    public Map<String, Column<?>> getColumns() {
         return textFields;
     }
 }

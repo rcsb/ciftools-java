@@ -31,11 +31,39 @@ import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 public class IntegrationTest {
     @Test
     public void testBinaryDataAccessBehavior() throws IOException {
+        // load binary data - access is basically directly to array
         MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
-        FloatColumn cartnX = binaryCifFile.getFirstBlock()
-                .getAtomSite()
-                .getCartnX();
-        cartnX.getBinaryDataUnsafe();
+        AtomSite binaryAtomSite = binaryCifFile.getFirstBlock().getAtomSite();
+        FloatColumn binaryCartnX = binaryAtomSite.getCartnX();
+        assertNotNull(binaryCartnX.getArray());
+
+        // test for text conversion
+        MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
+        AtomSite textAtomSite = textCifFile.getFirstBlock().getAtomSite();
+        FloatColumn textCartnX = textAtomSite.getCartnX();
+        assertNotNull(textCartnX.getArray());
+
+        // test for empty categories
+        double[] binaryEmptyFloatArray = binaryAtomSite.getAnisoB11Esd().getArray();
+        assertNotNull(binaryEmptyFloatArray);
+        assertEquals(0, binaryEmptyFloatArray.length);
+        double[] textEmptyFloatArray = textAtomSite.getAnisoB11Esd().getArray();
+        assertNotNull(textEmptyFloatArray);
+        assertEquals(0, textEmptyFloatArray.length);
+
+        int[] binaryEmptyIntArray = binaryAtomSite.getChemicalConnNumber().getArray();
+        assertNotNull(binaryEmptyIntArray);
+        assertEquals(0, binaryEmptyIntArray.length);
+        int[] textEmptyIntArray = textAtomSite.getChemicalConnNumber().getArray();
+        assertNotNull(textEmptyIntArray);
+        assertEquals(0, textEmptyIntArray.length);
+
+        String[] binaryEmptyStrArray = binaryAtomSite.getWyckoffSymbol().getArray();
+        assertNotNull(binaryEmptyStrArray);
+        assertEquals(0, binaryEmptyStrArray.length);
+        String[] textEmptyStrArray = textAtomSite.getWyckoffSymbol().getArray();
+        assertNotNull(textEmptyStrArray);
+        assertEquals(0, textEmptyStrArray.length);
     }
 
     @Test
@@ -105,7 +133,7 @@ public class IntegrationTest {
         assertEquals(0.0, atomSites.getFractTransfVector3().get(0), TestHelper.ERROR_MARGIN);
     }
 
-    private void assertDefined(Column column) {
+    private void assertDefined(Column<?> column) {
         assertNotNull(column);
         assertTrue(column.isDefined());
         assertTrue(column.getRowCount() > 0);

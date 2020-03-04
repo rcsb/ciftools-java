@@ -24,7 +24,7 @@ public interface CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileB
      * The column map of this builder (and Category about to be created).
      * @return a map with column names as keys and Column instances as values
      */
-    Map<String, Column> getColumns();
+    Map<String, Column<?>> getColumns();
 
     /**
      * Leave this category and move back to the parent builder at Block level.
@@ -43,7 +43,7 @@ public interface CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileB
      * @param column some column with data
      * @return this builder instance
      */
-    CategoryBuilder<P, PP> addColumn(Column column);
+    CategoryBuilder<P, PP> addColumn(Column<?> column);
 
     /**
      * A hook to make this instance aware of the data in all child nodes.
@@ -102,7 +102,7 @@ public interface CategoryBuilder<P extends BlockBuilder<PP>, PP extends CifFileB
      * @return a subclass of Column
      */
     @SuppressWarnings("unchecked")
-    static <C extends Column> C createColumnText(String columnName, List<?> values, List<ValueKind> mask, Class<C> hint) {
+    static <C extends Column<?>> C createColumnText(String columnName, List<?> values, List<ValueKind> mask, Class<C> hint) {
         int length = values.size();
         int[] startToken = new int[length];
         int[] endToken = new int[length];

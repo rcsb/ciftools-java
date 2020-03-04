@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import java.util.Arrays;
 import java.util.stream.IntStream;
 
 /**
@@ -18,8 +19,7 @@ public interface IntColumn extends Column<int[]> {
      * @return ints
      */
     default IntStream values() {
-        return IntStream.range(0, getRowCount())
-                .map(this::get);
+        return Arrays.stream(getArray());
     }
 
     /**

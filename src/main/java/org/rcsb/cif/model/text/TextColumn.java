@@ -3,6 +3,8 @@ package org.rcsb.cif.model.text;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
 
+import java.util.stream.IntStream;
+
 public class TextColumn implements StrColumn {
     private final String name;
     private final int rowCount;
@@ -47,6 +49,18 @@ public class TextColumn implements StrColumn {
         } else {
             return ValueKind.PRESENT;
         }
+    }
+
+    /**
+     * Explicitly creates this array by parsing all data in this text column.
+     * @implNote don't use this function on for text data - returned array is not cached
+     * @return the requested array
+     */
+    @Override
+    public String[] getArray() {
+        return IntStream.range(0, rowCount)
+                .mapToObj(this::get)
+                .toArray(String[]::new);
     }
 
     @Override

@@ -65,13 +65,12 @@ public interface Column<T> {
     }
 
     /**
-     * Unsafe access to the underlying data. Useful, when you are sure that your dealing with binary data and want the
-     * most efficient access to all data in this column.
+     * Access to the underlying data array. Useful, when you are sure that your dealing with binary data and want the
+     * most efficient access to all data in this column. For text data, this will be 'slow' as it requires the creation
+     * of the requested array by parsing all data in this column.
      * @return an array of the appropriate type (int[], double[], String[])
      */
-    default T getBinaryDataUnsafe() {
-        return null;
-    }
+    T getArray();
 
     /**
      * This dummy instance is created and returned if an absent Column is requested for a Category.
@@ -108,6 +107,11 @@ public interface Column<T> {
         @Override
         public Stream<ValueKind> valueKinds() {
             return Stream.empty();
+        }
+
+        @Override
+        public Void getArray() {
+            return null;
         }
     }
 }

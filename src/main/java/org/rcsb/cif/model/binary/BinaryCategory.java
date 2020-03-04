@@ -16,7 +16,7 @@ public class BinaryCategory implements Category {
     private final String name;
     private final int rowCount;
     private final Object[] encodedColumns;
-    private final Map<String, Column> decodedColumns;
+    private final Map<String, Column<?>> decodedColumns;
     private final List<String> columnNames;
 
     @SuppressWarnings("unchecked")
@@ -43,7 +43,7 @@ public class BinaryCategory implements Category {
 
     @Override
     @SuppressWarnings("unchecked")
-    public Column getColumn(String name) {
+    public Column<?> getColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
         if (optional.isEmpty()) {
             return new Column.EmptyColumn(name);
@@ -59,13 +59,13 @@ public class BinaryCategory implements Category {
         Map<String, Object> maskMap = (Map<String, Object>) encodedColumn.get("mask");
         int[] mask = (maskMap == null || maskMap.isEmpty() ? null : (int[]) BinaryCifCodec.decode(maskMap));
 
-        Column decodedColumn;
+        Column<?> decodedColumn;
         if (binaryData instanceof int[]) {
-            decodedColumn = new BinaryIntColumn(name, rowCount, binaryData, mask);
+            decodedColumn = new BinaryIntColumn(name, rowCount, (int[]) binaryData, mask);
         } else if (binaryData instanceof double[]) {
-            decodedColumn = new BinaryFloatColumn(name, rowCount, binaryData, mask);
+            decodedColumn = new BinaryFloatColumn(name, rowCount, (double[]) binaryData, mask);
         } else {
-            decodedColumn = new BinaryStrColumn(name, rowCount, binaryData, mask);
+            decodedColumn = new BinaryStrColumn(name, rowCount, (String[]) binaryData, mask);
         }
         decodedColumns.put(name, decodedColumn);
         return decodedColumn;
@@ -80,7 +80,7 @@ public class BinaryCategory implements Category {
     }
 
     @Override
-    public Map<String, Column> getColumns() {
+    public Map<String, Column<?>> getColumns() {
         // touch every column to ensure decoding
         columnNames.forEach(this::getColumn);
         return decodedColumns;

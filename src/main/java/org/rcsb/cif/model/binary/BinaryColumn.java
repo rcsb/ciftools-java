@@ -34,5 +34,7 @@ public abstract class BinaryColumn<T> implements Column<T> {
         return ValueKind.values()[mask[row]];
     }
 
-    public abstract T getBinaryDataUnsafe();
+    public int[] getMask() {
+        return mask;
+    }
 }

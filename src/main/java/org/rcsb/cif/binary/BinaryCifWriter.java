@@ -22,9 +22,6 @@ import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
-import org.rcsb.cif.model.binary.BinaryFloatColumn;
-import org.rcsb.cif.model.binary.BinaryIntColumn;
-import org.rcsb.cif.model.binary.BinaryStrColumn;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -131,17 +128,17 @@ public class BinaryCifWriter {
     private Map<String, Object> encodeColumn(String categoryName, Column<?> cifColumn) {
         if (cifColumn instanceof FloatColumn) {
             FloatColumn floatCol = (FloatColumn) cifColumn;
-            double[] array = floatCol instanceof BinaryFloatColumn ? floatCol.getBinaryDataUnsafe() : floatCol.values().toArray();
+            double[] array = floatCol.getArray();
             ByteArray byteArray = encodeFloatArray(categoryName, cifColumn.getColumnName(), new Float64Array(array));
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof IntColumn) {
             IntColumn intCol = (IntColumn) cifColumn;
-            int[] array = intCol instanceof BinaryIntColumn ? intCol.getBinaryDataUnsafe() : intCol.values().toArray();
+            int[] array = intCol.getArray();
             ByteArray byteArray = encodeIntArray(categoryName, cifColumn.getColumnName(), new Int32Array(array));
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else if (cifColumn instanceof StrColumn) {
             StrColumn strCol = (StrColumn) cifColumn;
-            String[] array = strCol instanceof BinaryStrColumn ? strCol.getBinaryDataUnsafe() : strCol.values().toArray(String[]::new);
+            String[] array = strCol.getArray();
             ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
             return encodeColumnUsingByteArray(cifColumn, byteArray);
         } else {

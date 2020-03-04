@@ -45,16 +45,16 @@ public class CaseSensitivityTest {
         Category ATOM_SITE = firstBlock.getCategory("ATOM_SITE");
         assertCategoryEquals("case insensitivity not honored for categories", originalAtomSite, ATOM_SITE);
 
-        Column originalCartnX = originalAtomSite.getColumn("Cartn_x");
-        Column Cartn_x = atom_site.getColumn("Cartn_x");
+        Column<?> originalCartnX = originalAtomSite.getColumn("Cartn_x");
+        Column<?> Cartn_x = atom_site.getColumn("Cartn_x");
         assertColumnEquals("good luck if these do not match", originalCartnX, Cartn_x);
-        Column cartn_x = atom_Site.getColumn("cartn_x");
+        Column<?> cartn_x = atom_Site.getColumn("cartn_x");
         assertColumnEquals("case insensitivity not honored for columns", originalCartnX, cartn_x);
-        Column CARTN_X = ATOM_SITE.getColumn("CARTN_X");
+        Column<?> CARTN_X = ATOM_SITE.getColumn("CARTN_X");
         assertColumnEquals("case insensitivity not honored for columns", originalCartnX, CARTN_X);
     }
 
-    private void assertColumnEquals(String msg, Column expected, Column actual) {
+    private void assertColumnEquals(String msg, Column<?> expected, Column<?> actual) {
         if (expected == actual) {
             return;
         }

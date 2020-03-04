@@ -4,9 +4,9 @@ import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
 public class DelegatingColumn<T> implements Column<T> {
-    protected final Column<?> delegate;
+    protected final Column<T> delegate;
 
-    public DelegatingColumn(Column<?> delegate) {
+    public DelegatingColumn(Column<T> delegate) {
         this.delegate = delegate;
     }
 
@@ -28,5 +28,10 @@ public class DelegatingColumn<T> implements Column<T> {
     @Override
     public ValueKind getValueKind(int row) {
         return delegate.getValueKind(row);
+    }
+
+    @Override
+    public T getArray() {
+        return delegate.getArray();
     }
 }

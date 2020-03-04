@@ -26,15 +26,15 @@ public class DelegatingCategory implements Category {
     }
 
     @Override
-    public Column getColumn(String name) {
+    public Column<?> getColumn(String name) {
         return getColumns().computeIfAbsent(name, Column.EmptyColumn::new);
     }
 
     @Override
-    public Map<String, Column> getColumns() {
-        Map<String, Column> columns = new LinkedHashMap<>();
-        for (Map.Entry<String, Column> entry : delegate.getColumns().entrySet()) {
-            Column column = entry.getValue();
+    public Map<String, Column<?>> getColumns() {
+        Map<String, Column<?>> columns = new LinkedHashMap<>();
+        for (Map.Entry<String, Column<?>> entry : delegate.getColumns().entrySet()) {
+            Column<?> column = entry.getValue();
             if (column instanceof DelegatingColumn) {
                 // happens when cifcore builder is at work
                 columns.put(entry.getKey(), column);
@@ -46,8 +46,8 @@ public class DelegatingCategory implements Category {
         return columns;
     }
 
-    protected Column createDelegate(String columnName, Column column) {
-        return new DelegatingColumn(column);
+    protected Column<?> createDelegate(String columnName, Column<?> column) {
+        return new DelegatingColumn<>(column);
     }
 
     public static class DelegatingCifCoreCategory implements Category {
@@ -74,12 +74,12 @@ public class DelegatingCategory implements Category {
         }
 
         @Override
-        public Column getColumn(String name) {
+        public Column<?> getColumn(String name) {
             return parentBlock.getColumn(categoryName + "_" + name);
         }
 
         @Override
-        public Map<String, Column> getColumns() {
+        public Map<String, Column<?>> getColumns() {
             return parentBlock.categories()
                     // the core-cif impl uses 'categoryName_columnName' to identify columns
                     .filter(category -> category.getCategoryName().startsWith(categoryName))

@@ -44,7 +44,7 @@ public interface ColumnBuilder<P extends CategoryBuilder<PP, PPP>, PP extends Bl
      * Retrieve (detached) column describe by this builder.
      * @return this builder instance
      */
-    Column build();
+    Column<?> build();
 
     /**
      * Leave this column.

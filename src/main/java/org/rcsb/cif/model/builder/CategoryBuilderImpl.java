@@ -23,7 +23,7 @@ import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
 
 public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileBuilder> implements CategoryBuilder<P, PP> {
     private final String categoryName;
-    private final Map<String, Column> columns;
+    private final Map<String, Column<?>> columns;
     protected final P parent;
     private final List<ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP>> pendingDigests;
     private final List<ColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP>> finishedDigests;
@@ -42,7 +42,7 @@ public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileB
     }
 
     @Override
-    public Map<String, Column> getColumns() {
+    public Map<String, Column<?>> getColumns() {
         return columns;
     }
 
@@ -76,7 +76,7 @@ public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileB
     }
 
     @Override
-    public CategoryBuilder<P, PP> addColumn(Column column) {
+    public CategoryBuilder<P, PP> addColumn(Column<?> column) {
         columns.put(column.getColumnName(), column);
         return this;
     }
