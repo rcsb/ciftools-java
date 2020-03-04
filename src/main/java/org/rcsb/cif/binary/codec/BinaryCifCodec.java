@@ -30,6 +30,7 @@ public class BinaryCifCodec {
      * Request decoding of this {@link EncodedData} instance. Will automatically resolve its decoding chain, starting
      * from a ByteArray until 'raw' data represented by Int32Array, Float64Array, or StringArray classes is achieved
      * which is then ready to use.
+     * @param data what to decode
      * @return the decoded data
      */
     @SuppressWarnings({"unchecked", "rawtypes"})

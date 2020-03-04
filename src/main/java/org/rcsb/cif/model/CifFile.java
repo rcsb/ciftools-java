@@ -43,6 +43,7 @@ public interface CifFile {
      * Convenience method to access this file wrapped by a given schema.
      * @param schemaProvider the schema provider to enforce on this file
      * @param <F> the file type
+     * @param <B> the builder type
      * @return this file, honoring a given schema
      */
     default <F extends CifFile, B extends CifFileBuilder> F as(SchemaProvider<F, B> schemaProvider) {
