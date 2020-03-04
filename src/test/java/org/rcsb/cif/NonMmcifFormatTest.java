@@ -66,4 +66,15 @@ public class NonMmcifFormatTest {
         assertEquals(0, firstBlock.getAuditAuthor().getRowCount());
         assertFalse(firstBlock.getAuditAuthor().isDefined());
     }
+
+    @Test
+    public void shouldSupportCifCoreAliases() throws IOException {
+        // read CIF describing ligand
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/CBMZPN01.cif"));
+        CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
+
+        assertEquals("monoclinic", firstBlock.getSymmetry().getColumn("cell_setting").getStringData(0));
+        assertEquals("P 21/c", firstBlock.getSymmetry().getColumn("space_group_name_H-M").getStringData(0));
+        assertEquals("14", firstBlock.getSymmetry().getColumn("Int_Tables_number").getStringData(0));
+    }
 }

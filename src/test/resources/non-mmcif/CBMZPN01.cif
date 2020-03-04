@@ -1,0 +1,100 @@
+####################################################################### 
+# 
+# This file contains crystal structure data downloaded from the 
+# Cambridge Structural Database (CSD) hosted by the Cambridge 
+# Crystallographic Data Centre (CCDC).
+# 
+# Full information about CCDC data access policies and citation 
+# guidelines are available at http://www.ccdc.cam.ac.uk/access/V1 
+# 
+# Audit and citation data items may have been added by the CCDC. 
+# Please retain this information to preserve the provenance of 
+# this file and to allow appropriate attribution of the data. 
+# 
+#######################################################################
+
+data_CBMZPN01
+#This CIF has been generated from an entry in the Cambridge Structural Database
+_database_code_depnum_ccdc_archive 'CCDC 1121421'
+_database_code_CSD               CBMZPN01
+loop_
+_citation_id
+_citation_doi
+_citation_year
+1 10.1107/S0567740881007383 1981
+_audit_creation_method           'Created from the CSD'
+_audit_update_record             
+;
+2020-02-25 downloaded from the CCDC.
+;
+_database_code_NBS               533498
+_chemical_name_common            Carbamazepine
+_chemical_formula_moiety         'C15 H12 N2 O1'
+_chemical_name_systematic        5H-Dibenz(b,f)azepine-5-carboxamide
+_chemical_properties_biological  
+'analgesic, antiepileptic, anticonvulsant, bipolar disorder treatment, trigeminal neuralgia treatment, known auditory pitch lowering effect'
+_chemical_absolute_configuration unk
+_diffrn_ambient_temperature      295
+_exptl_crystal_density_diffrn    1.347
+#These two values have been output from a single CSD field.
+_refine_ls_R_factor_gt           0.035
+_refine_ls_wR_factor_gt          0.035
+_diffrn_radiation_probe          x-ray
+_symmetry_cell_setting           monoclinic
+_symmetry_space_group_name_H-M   'P 21/c'
+_symmetry_Int_Tables_number      14
+_space_group_name_Hall           '-P 2ybc'
+loop_
+_symmetry_equiv_pos_site_id
+_symmetry_equiv_pos_as_xyz
+1 x,y,z
+2 -x,1/2+y,1/2-z
+3 -x,-y,-z
+4 x,1/2-y,1/2+z
+_cell_length_a                   7.529(1)
+_cell_length_b                   11.148(2)
+_cell_length_c                   15.470(2)
+_cell_angle_alpha                90
+_cell_angle_beta                 116.17(1)
+_cell_angle_gamma                90
+_cell_volume                     1165.34
+_exptl_crystal_colour            colorless
+_cell_formula_units_Z            4
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+C1 C 0.17860 0.88590 0.16870
+C2 C 0.23100 0.94490 0.25480
+C3 C 0.42590 0.94570 0.32350
+C4 C 0.56720 0.88750 0.30570
+C5 C 0.67610 0.76940 0.20250
+C6 C 0.68870 0.75680 0.11990
+C7 C 0.61640 0.83880 -0.04070
+C8 C 0.48950 0.88590 -0.12890
+C9 C 0.29040 0.89760 -0.15340
+C10 C 0.21840 0.86110 -0.08960
+C11 C 0.34560 0.81130 -0.00130
+C12 C 0.54760 0.80120 0.02560
+C13 C 0.51890 0.82680 0.21850
+C14 C 0.32030 0.82680 0.15060
+N1 N 0.26590 0.76520 0.06090
+C15 C 0.15980 0.65950 0.04100
+N2 N 0.14170 0.60050 -0.03800
+O1 O 0.08770 0.62230 0.09340
+H1 H 0.04400 0.88800 0.12000
+H2 H 0.13200 0.98800 0.26900
+H3 H 0.46400 0.98500 0.38500
+H4 H 0.70000 0.88400 0.35100
+H5 H 0.79500 0.74500 0.26500
+H6 H 0.81000 0.73300 0.12200
+H7 H 0.76300 0.83000 -0.02400
+H8 H 0.53700 0.91800 -0.17800
+H9 H 0.19300 0.93100 -0.21700
+H10 H 0.08000 0.85900 -0.10400
+H11 H 0.07000 0.54100 -0.05400
+H12 H 0.19200 0.63200 -0.07400
+
+#END
