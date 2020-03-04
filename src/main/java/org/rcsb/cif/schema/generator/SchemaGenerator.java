@@ -43,15 +43,15 @@ public class SchemaGenerator {
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("MmCif", "mm", false,
-                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-//        new SchemaGenerator("CifCore", "core", true,
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+//        new SchemaGenerator("MmCif", "mm", false,
+//                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+//                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
+//                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+        new SchemaGenerator("CifCore", "core", true,
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -447,6 +447,11 @@ public class SchemaGenerator {
             buildListOfLinksBetweenCategories(cifFile);
         }
         getFieldData();
+
+        for (Map.Entry<String, List<String>> entry : aliases.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+
         writeClasses();
     }
 

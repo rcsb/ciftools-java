@@ -29,12 +29,12 @@ public interface Block {
      * @param name the category name and column name, joined by an underscore
      * @return the corresponding {@link Column}, if none exists a instance of {@link Column} is returned as proxy
      */
-    default Column getColumn(String name) {
+    default Column<?> getColumn(String name) {
         Map<String, Category> categories = getCategories();
         if (categories.containsKey(name)) {
             return categories.get(name).getColumn("");
         } else {
-            return new Column.EmptyColumn("");
+            return Column.EmptyColumn.UNNAMED_COLUMN;
         }
     }
 

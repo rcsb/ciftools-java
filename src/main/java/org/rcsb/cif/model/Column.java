@@ -76,6 +76,7 @@ public interface Column<T> {
      * This dummy instance is created and returned if an absent Column is requested for a Category.
      */
     class EmptyColumn implements Column<Void> {
+        public static final EmptyColumn UNNAMED_COLUMN = new EmptyColumn("");
         private final String name;
         private final IllegalArgumentException exception;
 
