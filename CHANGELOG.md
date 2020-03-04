@@ -1,6 +1,14 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.9.0
+-------------
+### New features
+* access to (primitive) data array for all columns
+
+### Breaking API changes
+* renames #getBinaryDataUnsafe to #getArray
+
 ciftools-java 0.8.0
 -------------
 ### New features
