@@ -1,6 +1,18 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.8.0
+-------------
+### New features
+* adds support for arbitrary schemata
+    * clean mmCIF support
+    * core-CIF support for CCDC files
+    * schema support also during CifFile building
+
+### Breaking API changes
+* detaches CIF model from any schema - type-safe access now requires to specify SchemaProvider
+* several package and class names changed
+
 ciftools-java 0.7.1
 -------------
 ### New features

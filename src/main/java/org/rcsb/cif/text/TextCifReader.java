@@ -15,10 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class TextCifReader {
-    private final CifOptions options;
-
     public TextCifReader(CifOptions options) {
-        this.options = options;
     }
 
     public TextFile read(InputStream inputStream) throws ParsingException, IOException {

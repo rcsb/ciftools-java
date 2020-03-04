@@ -19,10 +19,7 @@ import java.util.List;
 import java.util.Map;
 
 public class BinaryCifReader {
-    private final CifOptions options;
-
     public BinaryCifReader(CifOptions options) {
-        this.options = options;
     }
 
     @SuppressWarnings("unchecked")

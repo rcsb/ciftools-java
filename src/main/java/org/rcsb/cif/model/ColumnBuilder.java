@@ -3,7 +3,7 @@ package org.rcsb.cif.model;
 import java.util.List;
 
 /**
- * Defines functionality of column building classes. All builders are aware of their parent instances in order to enfore
+ * Defines functionality of column building classes. All builders are aware of their parent instances in order to enforce
  * the schema.
  * @param <P> parent builder type (CategoryBuilder)
  * @param <PP> parent's parent builder type (BlockBuilder)
