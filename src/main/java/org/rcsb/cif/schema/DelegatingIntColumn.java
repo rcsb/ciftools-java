@@ -17,7 +17,7 @@ public class DelegatingIntColumn extends DelegatingColumn<int[]> implements IntC
         if (column instanceof IntColumn) {
             return (IntColumn) column;
         } else if (column instanceof EmptyColumn) {
-            return new BinaryIntColumn(column.getColumnName(), 0, new int[0], new int[0]);
+            return new BinaryIntColumn(column.getColumnName(), 0, null, null);
         } else {
             String columnName = column.getColumnName();
             int rowCount = column.getRowCount();

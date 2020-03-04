@@ -17,7 +17,7 @@ public class DelegatingFloatColumn extends DelegatingColumn<double[]> implements
         if (column instanceof FloatColumn) {
             return (FloatColumn) column;
         } else if (column instanceof EmptyColumn) {
-            return new BinaryFloatColumn(column.getColumnName(), 0, new double[0], new int[0]);
+            return new BinaryFloatColumn(column.getColumnName(), 0, null, null);
         } else {
             String columnName = column.getColumnName();
             int rowCount = column.getRowCount();

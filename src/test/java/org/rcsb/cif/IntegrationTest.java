@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.Test;
+import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.FloatColumn;
@@ -17,6 +18,7 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 
 import static org.junit.Assert.*;
@@ -45,25 +47,49 @@ public class IntegrationTest {
 
         // test for empty categories
         double[] binaryEmptyFloatArray = binaryAtomSite.getAnisoB11Esd().getArray();
-        assertNotNull(binaryEmptyFloatArray);
-        assertEquals(0, binaryEmptyFloatArray.length);
+        assertNull(binaryEmptyFloatArray);
         double[] textEmptyFloatArray = textAtomSite.getAnisoB11Esd().getArray();
-        assertNotNull(textEmptyFloatArray);
-        assertEquals(0, textEmptyFloatArray.length);
+        assertNull(textEmptyFloatArray);
 
         int[] binaryEmptyIntArray = binaryAtomSite.getChemicalConnNumber().getArray();
-        assertNotNull(binaryEmptyIntArray);
-        assertEquals(0, binaryEmptyIntArray.length);
+        assertNull(binaryEmptyIntArray);
         int[] textEmptyIntArray = textAtomSite.getChemicalConnNumber().getArray();
-        assertNotNull(textEmptyIntArray);
-        assertEquals(0, textEmptyIntArray.length);
+        assertNull(textEmptyIntArray);
 
         String[] binaryEmptyStrArray = binaryAtomSite.getWyckoffSymbol().getArray();
-        assertNotNull(binaryEmptyStrArray);
-        assertEquals(0, binaryEmptyStrArray.length);
+        assertNull(binaryEmptyStrArray);
         String[] textEmptyStrArray = textAtomSite.getWyckoffSymbol().getArray();
-        assertNotNull(textEmptyStrArray);
-        assertEquals(0, textEmptyStrArray.length);
+        assertNull(textEmptyStrArray);
+
+        // behavior should be the same for generic files
+        CifFile binaryCifFileGeneric = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
+        Category binaryAtomSiteGeneric = binaryCifFileGeneric.getBlocks().get(0).getCategory("atom_site");
+        Column<?> binaryCartnXGeneric = binaryAtomSiteGeneric.getColumn("Cartn_x");
+        assertNotNull(binaryCartnXGeneric.getArray());
+        assertTrue(Array.getLength(binaryCartnXGeneric.getArray()) > 0);
+
+        // test for text conversion
+        CifFile textCifFileGeneric = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
+        Category textAtomSiteGeneric = textCifFileGeneric.getBlocks().get(0).getCategory("atom_site");
+        Column<?> textCartnXGeneric = textAtomSiteGeneric.getColumn("Cartn_x");
+        assertNotNull(textCartnXGeneric.getArray());
+        assertTrue(Array.getLength(textCartnXGeneric.getArray()) > 0);
+
+        // test for empty categories
+        Object binaryEmptyFloatArrayGeneric = binaryAtomSiteGeneric.getColumn("aniso_B[1][1]_esd").getArray();
+        assertNull(binaryEmptyFloatArrayGeneric);
+        Object textEmptyFloatArrayGeneric = textAtomSiteGeneric.getColumn("aniso_B[1][1]_esd").getArray();
+        assertNull(textEmptyFloatArrayGeneric);
+
+        Object binaryEmptyIntArrayGeneric = binaryAtomSiteGeneric.getColumn("chemical_conn_number").getArray();
+        assertNull(binaryEmptyIntArrayGeneric);
+        Object textEmptyIntArrayGeneric = textAtomSiteGeneric.getColumn("chemical_conn_number").getArray();
+        assertNull(textEmptyIntArrayGeneric);
+
+        Object binaryEmptyStrArrayGeneric = binaryAtomSiteGeneric.getColumn("Wyckoff_symbol").getArray();
+        assertNull(binaryEmptyStrArrayGeneric);
+        Object textEmptyStrArrayGeneric = textAtomSiteGeneric.getColumn("Wyckoff_symbol").getArray();
+        assertNull(textEmptyStrArrayGeneric);
     }
 
     @Test

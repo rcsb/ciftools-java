@@ -17,7 +17,7 @@ public class DelegatingStrColumn extends DelegatingColumn<String[]> implements S
         if (column instanceof StrColumn) {
             return (StrColumn) column;
         } else if (column instanceof EmptyColumn) {
-            return new BinaryStrColumn(column.getColumnName(), 0, new String[0], new int[0]);
+            return new BinaryStrColumn(column.getColumnName(), 0, null, null);
         } else {
             String columnName = column.getColumnName();
             int rowCount = column.getRowCount();
