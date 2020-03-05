@@ -34,7 +34,7 @@ public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getAvSuIOverI() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_class_av_suI_over_I"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_class_av_uI/I", "diffrn_reflns_class_av_sgI/I", "diffrn_reflns_class_av_suI_over_I"));
     }
 
     /**
@@ -76,21 +76,5 @@ public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCateg
      */
     public IntColumn getNumber() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_class_number"));
-    }
-
-    /**
-     * Recorded [sum|su(net I)|/sum|net I|] in a reflection class.
-     * @return FloatColumn
-     */
-    public FloatColumn getAvUI_I() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_class_av_suI_over_I"));
-    }
-
-    /**
-     * Recorded [sum|su(net I)|/sum|net I|] in a reflection class.
-     * @return FloatColumn
-     */
-    public FloatColumn getAvSgI_I() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_class_av_suI_over_I"));
     }
 }

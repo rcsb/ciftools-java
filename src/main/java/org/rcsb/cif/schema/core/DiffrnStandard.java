@@ -32,7 +32,7 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * @return FloatColumn
      */
     public FloatColumn getDecayPercent() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_decay_percent"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_standards_decay_%", "diffrn_standard_decay_percent"));
     }
 
     /**
@@ -40,7 +40,7 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * @return IntColumn
      */
     public IntColumn getIntervalCount() {
-        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_interval_count"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("diffrn_standards_interval_count", "diffrn_standard_interval_count"));
     }
 
     /**
@@ -48,7 +48,7 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * @return FloatColumn
      */
     public FloatColumn getIntervalTime() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_interval_time"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_standards_interval_time", "diffrn_standard_interval_time"));
     }
 
     /**
@@ -56,7 +56,7 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * @return IntColumn
      */
     public IntColumn getNumber() {
-        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_number"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("diffrn_standards_number", "diffrn_standard_number"));
     }
 
     /**
@@ -65,6 +65,6 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * @return FloatColumn
      */
     public FloatColumn getScaleSuAverage() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_scale_su_average"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_standards_scale_sigma", "diffrn_standards_scale_u", "diffrn_standard_scale_su_average"));
     }
 }

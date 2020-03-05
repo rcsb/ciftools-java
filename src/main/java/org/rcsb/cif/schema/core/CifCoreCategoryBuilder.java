@@ -4359,4 +4359,52 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cell_setting", this);
         }
     }
+
+    public static class DiffrnStandardsBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "diffrn_standards";
+
+        public DiffrnStandardsBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
+
+    public static class CellAngleBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "cell_angle";
+
+        public CellAngleBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
+
+    public static class ChemCompBondBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "chem_comp_bond";
+
+        public ChemCompBondBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
+
+    public static class SymmetryEquivBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "symmetry_equiv";
+
+        public SymmetryEquivBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
+
+    public static class PublManuscriptInclBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "publ_manuscript_incl";
+
+        public PublManuscriptInclBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
+
+    public static class AtomSiteAnisotropBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "atom_site_anisotrop";
+
+        public AtomSiteAnisotropBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+    }
 }

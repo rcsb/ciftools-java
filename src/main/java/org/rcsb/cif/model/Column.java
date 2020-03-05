@@ -78,11 +78,9 @@ public interface Column<T> {
     class EmptyColumn implements Column<Void> {
         public static final EmptyColumn UNNAMED_COLUMN = new EmptyColumn("");
         private final String name;
-        private final IllegalArgumentException exception;
 
         public EmptyColumn(String name) {
             this.name = name;
-            this.exception = new IllegalArgumentException("column " + name + " is undefined");
         }
 
         @Override
@@ -97,12 +95,12 @@ public interface Column<T> {
 
         @Override
         public String getStringData(int row) {
-            throw exception;
+            throw new IllegalArgumentException("column " + name + " is undefined");
         }
 
         @Override
         public ValueKind getValueKind(int row) {
-            throw exception;
+            throw new IllegalArgumentException("column " + name + " is undefined");
         }
 
         @Override

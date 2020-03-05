@@ -253,7 +253,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("chemical_temperature_decomposition_esd", "chemical_temperature_decomposition_su"));
     }
 
     /**
@@ -288,24 +288,6 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_su"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid sublimates.
-     * @return FloatColumn
-     */
-    public FloatColumn getTemperatureSublimationEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_su"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid decomposes.
-     * @return FloatColumn
-     */
-    public FloatColumn getTemperatureDecompositionEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("chemical_temperature_sublimation_esd", "chemical_temperature_sublimation_su"));
     }
 }

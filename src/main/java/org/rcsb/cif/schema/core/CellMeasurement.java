@@ -33,7 +33,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getPressureSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_pressure_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_measurement_pressure_esd", "cell_measurement_pressure_su"));
     }
 
     /**
@@ -59,7 +59,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getTemperature() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_temperature"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_measurement_temp", "cell_measurement_temperature"));
     }
 
     /**
@@ -68,7 +68,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_temperature_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_measurement_temp_esd", "cell_measurement_temperature_su"));
     }
 
     /**
@@ -97,32 +97,5 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
      */
     public FloatColumn getWavelength() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_wavelength"));
-    }
-
-    /**
-     * The temperature at which the unit-cell parameters were measured
-     * (not the temperature of synthesis).
-     * @return FloatColumn
-     */
-    public FloatColumn getTemp() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_temperature"));
-    }
-
-    /**
-     * The standard uncertainty of the temperature of at which
-     * the unit-cell parameters were measured.
-     * @return FloatColumn
-     */
-    public FloatColumn getTempEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_temperature_su"));
-    }
-
-    /**
-     * The standard uncertainty of the pressure at which
-     * the unit-cell parameters were measured.
-     * @return FloatColumn
-     */
-    public FloatColumn getPressureEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_pressure_su"));
     }
 }

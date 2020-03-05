@@ -65,20 +65,4 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
     public StrColumn getSpecimenSupport() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_specimen_support"));
     }
-
-    /**
-     * Type of goniometer device used to mount and orient the specimen.
-     * @return StrColumn
-     */
-    public StrColumn getDevice() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_device_class"));
-    }
-
-    /**
-     * The make, model or name of the goniometer device used.
-     * @return StrColumn
-     */
-    public StrColumn getDeviceType() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_device_make"));
-    }
 }

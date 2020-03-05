@@ -73,7 +73,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_esd", "exptl_crystal_density_meas_su"));
     }
 
     /**
@@ -112,7 +112,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_temp_esd", "exptl_crystal_density_meas_temp_su"));
     }
 
     /**
@@ -236,48 +236,5 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getThermalHistory() {
         return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_thermal_history"));
-    }
-
-    /**
-     * Colour hue of the crystals as prescribed state codes.
-     * @return StrColumn
-     */
-    public StrColumn getColourPrimary() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_hue"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * Crystal density measured using standard chemical and physical methods.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_su"));
-    }
-
-    /**
-     * Colour intensity of the crystal as prescribed state codes.
-     * @return StrColumn
-     */
-    public StrColumn getColourModifier() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_intensity"));
-    }
-
-    /**
-     * Appearance of the crystal as prescribed state codes. Note that 'dull'
-     * and 'clear' should no longer be used.
-     * @return StrColumn
-     */
-    public StrColumn getColourLustre() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_general"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * Temperature at which _exptl_crystal.density_meas was determined.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasTempEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_su"));
     }
 }

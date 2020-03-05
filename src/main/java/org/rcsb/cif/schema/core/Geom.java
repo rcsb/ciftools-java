@@ -71,15 +71,6 @@ public class Geom extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_special_details"));
-    }
-
-    /**
-     * Description of geometry information not covered by the existing data
-     * names in the geometry categories, such as least-squares planes.
-     * @return StrColumn
-     */
-    public StrColumn getDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_special_details"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_details", "geom_special_details"));
     }
 }

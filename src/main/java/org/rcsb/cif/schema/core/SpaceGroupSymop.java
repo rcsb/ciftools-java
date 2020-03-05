@@ -28,7 +28,7 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return IntColumn
      */
     public IntColumn getId() {
-        return new DelegatingIntColumn(parentBlock.getColumn("space_group_symop_id"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("symmetry_equiv_pos_site_id", "space_group_symop_id"));
     }
 
     /**
@@ -60,7 +60,7 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return StrColumn
      */
     public StrColumn getOperationXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_symop_operation_xyz"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_equiv_pos_as_xyz", "space_group_symop_operation_xyz"));
     }
 
     /**

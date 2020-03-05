@@ -31,7 +31,7 @@ public class Computing extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDiffrnCollection() {
-        return new DelegatingStrColumn(parentBlock.getColumn("computing_diffrn_collection"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("computing_data_collection", "computing_diffrn_collection"));
     }
 
     /**
@@ -40,7 +40,7 @@ public class Computing extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDiffrnReduction() {
-        return new DelegatingStrColumn(parentBlock.getColumn("computing_diffrn_reduction"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("computing_data_reduction", "computing_diffrn_reduction"));
     }
 
     /**
@@ -73,22 +73,5 @@ public class Computing extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getStructureSolution() {
         return new DelegatingStrColumn(parentBlock.getColumn("computing_structure_solution"));
-    }
-
-    /**
-     * Description of software used to measure diffraction data.
-     * @return StrColumn
-     */
-    public StrColumn getDataCollection() {
-        return new DelegatingStrColumn(parentBlock.getColumn("computing_diffrn_collection"));
-    }
-
-    /**
-     * Description of software used to convert diffraction data
-     * to measured structure factors.
-     * @return StrColumn
-     */
-    public StrColumn getDataReduction() {
-        return new DelegatingStrColumn(parentBlock.getColumn("computing_diffrn_reduction"));
     }
 }

@@ -33,7 +33,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB11() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_11"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[1][1]", "diffrn_orient_matrix_UB_11"));
     }
 
     /**
@@ -42,7 +42,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB12() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_12"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[1][2]", "diffrn_orient_matrix_UB_12"));
     }
 
     /**
@@ -51,7 +51,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB13() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_13"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[1][3]", "diffrn_orient_matrix_UB_13"));
     }
 
     /**
@@ -60,7 +60,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB21() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_21"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[2][1]", "diffrn_orient_matrix_UB_21"));
     }
 
     /**
@@ -69,7 +69,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB22() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_22"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[2][2]", "diffrn_orient_matrix_UB_22"));
     }
 
     /**
@@ -78,7 +78,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB23() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_23"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[2][3]", "diffrn_orient_matrix_UB_23"));
     }
 
     /**
@@ -87,7 +87,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB31() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_31"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[3][1]", "diffrn_orient_matrix_UB_31"));
     }
 
     /**
@@ -96,7 +96,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB32() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_32"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[3][2]", "diffrn_orient_matrix_UB_32"));
     }
 
     /**
@@ -105,7 +105,7 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      * @return FloatColumn
      */
     public FloatColumn getUB33() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_33"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[3][3]", "diffrn_orient_matrix_UB_33"));
     }
 
     /**

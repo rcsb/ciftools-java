@@ -20,12 +20,14 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Set;
 import java.util.StringJoiner;
 import java.util.TreeSet;
@@ -234,10 +236,17 @@ public class SchemaGenerator {
 
         output.add("import org.rcsb.cif.model.Block;");
         output.add("import org.rcsb.cif.model.Category;");
+        if (flat) {
+            output.add("import org.rcsb.cif.model.Column;");
+        }
         output.add("import org.rcsb.cif.schema.DelegatingBlock;");
         output.add("import org.rcsb.cif.schema.DelegatingCategory;");
         output.add("");
         output.add("import javax.annotation.Generated;");
+        if (flat) {
+            output.add("import java.util.Arrays;");
+            output.add("import java.util.Optional;");
+        }
         output.add("");
         output.add("@Generated(\"org.rcsb.cif.schema.generator.SchemaGenerator\")");
         output.add("public class " + className + " extends " + DelegatingBlock.class.getSimpleName() + " {");
@@ -247,6 +256,17 @@ public class SchemaGenerator {
         output.add("        super(delegate);");
         output.add("    }");
         output.add("");
+        if (flat) {
+            output.add("    public Column<?> getAliasedColumn(String... aliases) {");
+            output.add("        Optional<Column<?>> optional = Arrays.stream(aliases)");
+            output.add("                .filter(alias -> getCategories().containsKey(alias))");
+            output.add("                .findFirst()");
+            output.add("                .map(alias -> getCategories().get(alias).getColumn(\"\"));");
+            output.add("        // compiler, please...");
+            output.add("        return optional.orElse(Column.EmptyColumn.UNNAMED_COLUMN);");
+            output.add("    }");
+            output.add("");
+        }
         output.add("    @Override");
         output.add("    protected Category createDelegate(String categoryName, Category category) {");
         output.add("        switch (categoryName) {");
@@ -323,7 +343,39 @@ public class SchemaGenerator {
             String baseClassName = baseClass.getSimpleName();
             String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
-            writeColumnGetter(getters, column, baseClassName, columnClassName, categoryName, columnName, delegatingBaseClassName, null);
+            String description = Pattern.compile("\n").splitAsStream(column.getDescription().trim())
+                    .map(s -> "     * " + s)
+                    .collect(Collectors.joining("\n"))
+                    .replace("TODO", ""); // remove TODOs from description
+            getters.add("    /**");
+            getters.add(description);
+            getters.add("     * @return " + baseClassName);
+            getters.add("     */");
+            getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
+
+            // check if this is a 'backward' aliases, i.e. other names linking here
+            Optional<List<String>> optional = aliases.stream()
+                    .filter(list -> list.contains(categoryName + "." + columnName))
+                    .findFirst();
+            if (optional.isPresent()) {
+                List<String> a = optional.get();
+                String as = a.stream()
+                        .map(n -> n.replace(".", "_"))
+                        .map(n -> "\"" + n + "\"")
+                        .collect(Collectors.joining(", "));
+//                System.out.println("backward ref: " + categoryName + "." + columnName);
+
+                // always 'flat'
+                getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getAliasedColumn(" + as + "));");
+            } else {
+                if (!flat) {
+                    getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
+                } else {
+                    getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(\"" + categoryName + "_" + columnName + "\"));");
+                }
+            }
+            getters.add("    }");
+            getters.add("");
 
             // delegation function
             delegator.add("            case \"" + columnName + "\":");
@@ -335,22 +387,19 @@ public class SchemaGenerator {
             categoryBuilder.add("        }");
         }
 
-        // TODO duplicated methods
-        Set<String> processed = new HashSet<>();
-        aliases.entrySet().stream()
-                .filter(e -> e.getKey().split("\\.")[0].equals(categoryName))
-                .forEach(aliasEntry -> {
-                    String source = aliasEntry.getKey();
-                    String target = aliasEntry.getValue();
-
-                    String ccn = toClassName(source.split("\\.")[1]);
-                    String[] ts = target.split("\\.");
-                    Col c = (Col) schema.get(ts[0]).getColumns().get(ts[1]);
-                    String bcn = getBaseClass(c.getType()).getSimpleName();
-                    String dbcn = getDelegatingBaseClass(c.getType()).getSimpleName();
-
-                    writeColumnGetter(getters, c, bcn, ccn, categoryName, null, dbcn, target.replace(".", "_"));
-                    processed.add(source);
+        Set<List<String>> processed = new HashSet<>();
+        // forward aliases
+        aliases.stream()
+                .filter(set -> set.stream().anyMatch(n -> n.split("\\.")[0].equals(categoryName)))
+                .forEach(set -> {
+//                    String ccn = toClassName(source.split("\\.")[1]);
+//                    String[] ts = target.split("\\.");
+//                    Col c = (Col) schema.get(ts[0]).getColumns().get(ts[1]);
+//                    String bcn = getBaseClass(c.getType()).getSimpleName();
+//                    String dbcn = getDelegatingBaseClass(c.getType()).getSimpleName();
+//
+//                    writeColumnGetter(getters, c, bcn, ccn, categoryName, null, dbcn, target.replace(".", "_"));
+                    processed.add(set);
                 });
         // remove processed entries
         processed.forEach(aliases::remove);
@@ -385,26 +434,6 @@ public class SchemaGenerator {
 
         Files.write(path.resolve("generated").resolve(className + ".java"), output.toString().getBytes());
     }
-
-    private void writeColumnGetter(StringJoiner getters, Col column, String baseClassName, String columnClassName, String categoryName, String columnName, String delegatingBaseClassName, String alias) {
-        getters.add("    /**");
-        String description = Pattern.compile("\n").splitAsStream(column.getDescription().trim())
-                .map(s -> "     * " + s)
-                .collect(Collectors.joining("\n"))
-                .replace("TODO", ""); // remove TODOs from description
-        getters.add(description);
-        getters.add("     * @return " + baseClassName);
-        getters.add("     */");
-        getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
-        if (!flat) {
-            getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
-        } else {
-            getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(" + (alias == null ? "\"" + categoryName + "_" + columnName + "\"" : "\"" + alias + "\"") + "));");
-        }
-        getters.add("    }");
-        getters.add("");
-    }
-
 
     private Class<? extends Column> getBaseClass(String type) {
         // TODO enums, lists, matrix, and vector would be nice to have
@@ -462,7 +491,7 @@ public class SchemaGenerator {
         this.links = new LinkedHashMap<>();
         this.imports = new LinkedHashMap<>();
         this.rawAliases = new LinkedHashMap<>();
-        this.aliases = new HashMap<String, String>();
+        this.aliases = new ArrayList<>();
         for (String res : resource) {
             System.out.println(res);
             CifFile cifFile = CifIO.readFromURL(new URL(res));
@@ -505,7 +534,7 @@ public class SchemaGenerator {
     private final Map<String, String> links;
     private final Map<String, Map<String, Category>> imports;
     private final Map<String, List<String>> rawAliases;
-    private final Map<String, String> aliases;
+    private final List<List<String>> aliases;
 
     private void getFieldData() {
         categories.forEach((fullName, saveFrame) -> {
@@ -872,7 +901,7 @@ public class SchemaGenerator {
         // filter and flip aliases
         rawAliases.entrySet()
                 .stream()
-                .flatMap(entry -> {
+                .map(entry -> {
                     String target = entry.getKey();
                     String flatTarget = target.replace(".", "_");
                     List<String> sources = entry.getValue().stream()
@@ -885,23 +914,38 @@ public class SchemaGenerator {
 
                     // most will be empty as they just map between name with . and flat name
                     if (sources.isEmpty()) {
-                        return Stream.empty();
+                        return Collections.emptyList();
                     }
 
-                    return sources.stream()
-                            .map(source -> new String[] { source, target });
+//                    System.out.println("alias: " + sources + " -> " + target);
+
+                    sources.add(target);
+                    return sources;
                 })
-                .forEach(entry -> aliases.put(entry[0], entry[1]));
+                .filter(list -> !list.isEmpty())
+                .forEach(list -> {
+                    List<String> alias = (List<String>) list;
+
+                    Optional<List<String>> optional = aliases.stream()
+                            // find sets of name referencing this
+                            .filter(set -> alias.stream().anyMatch(a -> set.contains(a)))
+                            .findFirst();
+
+                    if (optional.isPresent()) {
+                        optional.get().addAll(alias);
+                    } else {
+                        aliases.add(alias);
+                    }
+                });
 
         // ensure new categories
-        aliases.entrySet()
-                .stream()
-                .filter(entry -> !schema.containsKey(entry.getKey().split("\\.")[0]))
-                .forEach(entry -> {
-                    System.out.println(entry);
-                    String[] keySplit = entry.getKey().split("\\.");
-                    String categoryName = keySplit[0];
-
+        aliases.stream()
+                // map to individual names
+                .flatMap(Collection::stream)
+                .map(name -> name.split("\\.")[0])
+                .filter(categoryName -> !schema.containsKey(categoryName))
+                .forEach(categoryName -> {
+//                    System.out.println("additional category: " + categoryName);
                     Table table = schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
                 });
     }

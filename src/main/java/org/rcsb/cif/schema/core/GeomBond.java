@@ -24,7 +24,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_bond_atom_site_id_1", "geom_bond_atom_site_label_1"));
     }
 
     /**
@@ -33,7 +33,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_bond_atom_site_id_2", "geom_bond_atom_site_label_2"));
     }
 
     /**
@@ -42,7 +42,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDistance() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_bond_dist", "geom_bond_distance"));
     }
 
     /**
@@ -51,7 +51,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_bond_dist_esd", "geom_bond_distance_su"));
     }
 
     /**
@@ -144,41 +144,5 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getValence() {
         return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_valence"));
-    }
-
-    /**
-     * Standard Uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id
-     * @return FloatColumn
-     */
-    public FloatColumn getDistEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance_su"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_2"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_1"));
-    }
-
-    /**
-     * Intramolecular bond distance between the sites identified
-     * by _geom_bond.id
-     * @return FloatColumn
-     */
-    public FloatColumn getDist() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance"));
     }
 }

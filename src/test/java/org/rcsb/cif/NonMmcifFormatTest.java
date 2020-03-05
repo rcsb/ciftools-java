@@ -83,11 +83,11 @@ public class NonMmcifFormatTest {
         assertEquals("monoclinic", firstBlock.getSymmetry().getColumn("cell_setting").getStringData(0));
 
         assertEquals("P 21/c", firstBlock.getSpaceGroup().getNameH_MFull().get(0));
-        assertEquals("P 21/c", firstBlock.getSymmetry().getSpaceGroupNameH_M().get(0));
+//        assertEquals("P 21/c", firstBlock.getSymmetry().getSpaceGroupNameH_M().get(0));
         assertEquals("P 21/c", firstBlock.getSymmetry().getColumn("space_group_name_H-M").getStringData(0));
 
         assertEquals(14, firstBlock.getSpaceGroup().getITNumber().get(0));
-        assertEquals(14, firstBlock.getSymmetry().getIntTablesNumber().get(0));
+//        assertEquals(14, firstBlock.getSymmetry().getIntTablesNumber().get(0));
         assertEquals("14", firstBlock.getSymmetry().getColumn("Int_Tables_number").getStringData(0));
     }
 }

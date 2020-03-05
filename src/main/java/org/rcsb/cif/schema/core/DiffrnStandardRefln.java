@@ -26,7 +26,7 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
      * @return StrColumn
      */
     public StrColumn getCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_standard_refln_code"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_standard_refln_diffrn_id", "diffrn_standard_refln_code"));
     }
 
     /**
@@ -59,15 +59,5 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
      */
     public IntColumn getIndexL() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_refln_index_l"));
-    }
-
-    /**
-     * Code identifying a standard reflection used to monitor source
-     * intensity variations or crystal degradation or movement during
-     * data collection.
-     * @return StrColumn
-     */
-    public StrColumn getDiffrnId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_standard_refln_code"));
     }
 }

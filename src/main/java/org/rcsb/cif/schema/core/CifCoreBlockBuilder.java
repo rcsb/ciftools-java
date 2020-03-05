@@ -427,4 +427,28 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
     public CifCoreCategoryBuilder.SymmetryBuilder enterSymmetry() {
         return new CifCoreCategoryBuilder.SymmetryBuilder(this);
     }
+
+    public CifCoreCategoryBuilder.DiffrnStandardsBuilder enterDiffrnStandards() {
+        return new CifCoreCategoryBuilder.DiffrnStandardsBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.CellAngleBuilder enterCellAngle() {
+        return new CifCoreCategoryBuilder.CellAngleBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.ChemCompBondBuilder enterChemCompBond() {
+        return new CifCoreCategoryBuilder.ChemCompBondBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.SymmetryEquivBuilder enterSymmetryEquiv() {
+        return new CifCoreCategoryBuilder.SymmetryEquivBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.PublManuscriptInclBuilder enterPublManuscriptIncl() {
+        return new CifCoreCategoryBuilder.PublManuscriptInclBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.AtomSiteAnisotropBuilder enterAtomSiteAnisotrop() {
+        return new CifCoreCategoryBuilder.AtomSiteAnisotropBuilder(this);
+    }
 }

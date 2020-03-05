@@ -2,15 +2,27 @@ package org.rcsb.cif.schema.core;
 
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
+import org.rcsb.cif.model.Column;
 import org.rcsb.cif.schema.DelegatingBlock;
 import org.rcsb.cif.schema.DelegatingCategory;
 
 import javax.annotation.Generated;
+import java.util.Arrays;
+import java.util.Optional;
 
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CifCoreBlock extends DelegatingBlock {
     public CifCoreBlock(Block delegate) {
         super(delegate);
+    }
+
+    public Column<?> getAliasedColumn(String... aliases) {
+        Optional<Column<?>> optional = Arrays.stream(aliases)
+                .filter(alias -> getCategories().containsKey(alias))
+                .findFirst()
+                .map(alias -> getCategories().get(alias).getColumn(""));
+        // compiler, please...
+        return optional.orElse(Column.EmptyColumn.UNNAMED_COLUMN);
     }
 
     @Override
@@ -204,6 +216,18 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getRefineLsClass();
             case "symmetry":
                 return getSymmetry();
+            case "diffrn_standards":
+                return getDiffrnStandards();
+            case "cell_angle":
+                return getCellAngle();
+            case "chem_comp_bond":
+                return getChemCompBond();
+            case "symmetry_equiv":
+                return getSymmetryEquiv();
+            case "publ_manuscript_incl":
+                return getPublManuscriptIncl();
+            case "atom_site_anisotrop":
+                return getAtomSiteAnisotrop();
             default:
                 return new DelegatingCategory(category);
         }
@@ -1271,5 +1295,53 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public Symmetry getSymmetry() {
         return new Symmetry(this);
+    }
+
+    /**
+     * 
+     * @return DiffrnStandards
+     */
+    public DiffrnStandards getDiffrnStandards() {
+        return new DiffrnStandards(this);
+    }
+
+    /**
+     * 
+     * @return CellAngle
+     */
+    public CellAngle getCellAngle() {
+        return new CellAngle(this);
+    }
+
+    /**
+     * 
+     * @return ChemCompBond
+     */
+    public ChemCompBond getChemCompBond() {
+        return new ChemCompBond(this);
+    }
+
+    /**
+     * 
+     * @return SymmetryEquiv
+     */
+    public SymmetryEquiv getSymmetryEquiv() {
+        return new SymmetryEquiv(this);
+    }
+
+    /**
+     * 
+     * @return PublManuscriptIncl
+     */
+    public PublManuscriptIncl getPublManuscriptIncl() {
+        return new PublManuscriptIncl(this);
+    }
+
+    /**
+     * 
+     * @return AtomSiteAnisotrop
+     */
+    public AtomSiteAnisotrop getAtomSiteAnisotrop() {
+        return new AtomSiteAnisotrop(this);
     }
 }

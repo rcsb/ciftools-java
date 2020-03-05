@@ -30,7 +30,7 @@ public class PublManuscriptInclExtra extends DelegatingCategory.DelegatingCifCor
      * @return StrColumn
      */
     public StrColumn getDefn() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_incl_extra_defn"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_manuscript_incl_extra_defn", "publ_manuscript_incl_extra_defn"));
     }
 
     /**
@@ -40,7 +40,7 @@ public class PublManuscriptInclExtra extends DelegatingCategory.DelegatingCifCor
      * @return StrColumn
      */
     public StrColumn getInfo() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_incl_extra_info"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_manuscript_incl_extra_info", "publ_manuscript_incl_extra_info"));
     }
 
     /**
@@ -51,6 +51,6 @@ public class PublManuscriptInclExtra extends DelegatingCategory.DelegatingCifCor
      * @return StrColumn
      */
     public StrColumn getItem() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_incl_extra_item"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_manuscript_incl_extra_item", "publ_manuscript_incl_extra_item"));
     }
 }

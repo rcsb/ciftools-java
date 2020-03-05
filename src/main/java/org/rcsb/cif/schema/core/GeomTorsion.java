@@ -31,7 +31,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAngle() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_torsion_angle"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_torsion_value", "geom_torsion_angle"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAngleSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_torsion_angle_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_torsion_value_esd", "geom_torsion_angle_su"));
     }
 
     /**
@@ -48,7 +48,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_torsion_atom_site_id_1", "geom_torsion_atom_site_label_1"));
     }
 
     /**
@@ -57,7 +57,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_torsion_atom_site_id_2", "geom_torsion_atom_site_label_2"));
     }
 
     /**
@@ -66,7 +66,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel3() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_3"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_torsion_atom_site_id_3", "geom_torsion_atom_site_label_3"));
     }
 
     /**
@@ -75,7 +75,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel4() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_4"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_torsion_atom_site_id_4", "geom_torsion_atom_site_label_4"));
     }
 
     /**
@@ -209,65 +209,5 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getSiteSymmetry4() {
         return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_site_symmetry_4"));
-    }
-
-    /**
-     * Standard Uncertainty of the torsion angle.
-     * @return FloatColumn
-     */
-    public FloatColumn getValueEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_torsion_angle_su"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId3() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_3"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId4() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_4"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_1"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_torsion_atom_site_label_2"));
-    }
-
-    /**
-     * Angle defined by the sites identified by _geom_torsion.id.
-     * The torsion-angle definition should be that of Klyne and Prelog.
-     * The vector direction *_label_2 to *_label_3 is the viewing
-     * direction, and the torsion angle is the angle of twist required
-     * to superimpose the projection of the vector between site 2 and
-     * site 1 onto the projection of the vector between site 3 and
-     * site 4. Clockwise torsions are positive, anticlockwise torsions
-     * are negative.
-     * Ref: Klyne, W. &amp; Prelog, V. (1960). Experientia, 16, 521-523.
-     * @return FloatColumn
-     */
-    public FloatColumn getValue() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_torsion_angle"));
     }
 }

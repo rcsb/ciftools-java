@@ -206,7 +206,7 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return StrColumn
      */
     public StrColumn getLabel() {
-        return new DelegatingStrColumn(parentBlock.getColumn("atom_site_aniso_label"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("atom_site_anisotrop_id", "atom_site_aniso_label"));
     }
 
     /**
@@ -241,7 +241,7 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return StrColumn
      */
     public StrColumn getTypeSymbol() {
-        return new DelegatingStrColumn(parentBlock.getColumn("atom_site_aniso_type_symbol"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("atom_site_anisotrop_type_symbol", "atom_site_aniso_type_symbol"));
     }
 
     /**

@@ -106,7 +106,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
     }
 
     /**
@@ -132,7 +132,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
     }
 
     /**
@@ -174,7 +174,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getIncludeStatus() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refln_include_status"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("refln_observed_status", "refln_status", "refln_include_status"));
     }
 
     /**
@@ -222,7 +222,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getIntensityMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_intensity_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_intensity_sigma", "refln_intensity_meas_su"));
     }
 
     /**
@@ -283,7 +283,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getSinThetaOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_sin_theta_over_lambda"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_sint_over_lambda", "refln_sin_theta_over_lambda"));
     }
 
     /**
@@ -324,55 +324,5 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getWavelengthId() {
         return new DelegatingStrColumn(parentBlock.getColumn("refln_wavelength_id"));
-    }
-
-    /**
-     * The standard uncertainty of the measured structure factor amplitude.
-     * @return FloatColumn
-     */
-    public FloatColumn getFMeasSigma() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_meas_su"));
-    }
-
-    /**
-     * Code indicating how the reflection was included in the refinement
-     * and R-factor calculations.
-     * @return StrColumn
-     */
-    public StrColumn getStatus() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refln_include_status"));
-    }
-
-    /**
-     * The standard uncertainty of the measured structure factor squared.
-     * @return FloatColumn
-     */
-    public FloatColumn getFSquaredSigma() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_meas_su"));
-    }
-
-    /**
-     * standard uncertainty of the measured intensity.
-     * @return FloatColumn
-     */
-    public FloatColumn getIntensitySigma() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_intensity_meas_su"));
-    }
-
-    /**
-     * Code indicating how the reflection was included in the refinement
-     * and R-factor calculations.
-     * @return StrColumn
-     */
-    public StrColumn getObservedStatus() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refln_include_status"));
-    }
-
-    /**
-     * The (sin theta)/lambda value for this reflection.
-     * @return FloatColumn
-     */
-    public FloatColumn getSintOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_sin_theta_over_lambda"));
     }
 }

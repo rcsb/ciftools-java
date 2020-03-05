@@ -28,7 +28,7 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
      * @return IntColumn
      */
     public IntColumn getAtom1() {
-        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_bond_atom_1"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("chem_comp_bond_atom_id_1", "chemical_conn_bond_atom_1"));
     }
 
     /**
@@ -36,7 +36,7 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
      * @return IntColumn
      */
     public IntColumn getAtom2() {
-        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_bond_atom_2"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("chem_comp_bond_atom_id_2", "chemical_conn_bond_atom_2"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
      * @return FloatColumn
      */
     public FloatColumn getDistance() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_conn_bond_distance"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("chem_comp_bond_value_dist", "chemical_conn_bond_distance"));
     }
 
     /**
@@ -54,6 +54,6 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
      * @return StrColumn
      */
     public StrColumn getType() {
-        return new DelegatingStrColumn(parentBlock.getColumn("chemical_conn_bond_type"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("chem_comp_bond_value_order", "chemical_conn_bond_type"));
     }
 }

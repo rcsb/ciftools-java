@@ -24,7 +24,7 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_angle_atom_site_id_1", "geom_angle_atom_site_label_1"));
     }
 
     /**
@@ -32,7 +32,7 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_angle_atom_site_id_2", "geom_angle_atom_site_label_2"));
     }
 
     /**
@@ -41,7 +41,7 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel3() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_3"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_angle_atom_site_id_3", "geom_angle_atom_site_label_3"));
     }
 
     /**
@@ -167,41 +167,6 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_value_su"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId1() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_1"));
-    }
-
-    /**
-     * The unique identifier for the vertex atom of the angle.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId2() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_2"));
-    }
-
-    /**
-     * This label is a unique identifier for a particular site in the
-     * asymmetric unit of the crystal unit cell.
-     * @return StrColumn
-     */
-    public StrColumn getAtomSiteId3() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_3"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * angle defined by the sites identified by _geom_angle.id
-     * @return FloatColumn
-     */
-    public FloatColumn getValueEsd() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_value_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_angle_value_esd", "geom_angle_value_su"));
     }
 }

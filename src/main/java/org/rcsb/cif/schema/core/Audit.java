@@ -23,7 +23,7 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getBlockCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn("audit_block_code"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("audit_revision_id", "audit_block_code"));
     }
 
     /**
@@ -94,13 +94,5 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getUpdateRecord() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_update_record"));
-    }
-
-    /**
-     * A unique block code identifier for each revision.
-     * @return StrColumn
-     */
-    public StrColumn getRevisionId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("audit_block_code"));
     }
 }

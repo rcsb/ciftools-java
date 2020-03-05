@@ -100,39 +100,4 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     public StrColumn getXraySymbol() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_xray_symbol"));
     }
-
-    /**
-     * Method by which the radiation wavelength was determined.
-     * @return StrColumn
-     */
-    public StrColumn getWavelengthDetermination() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_determination"));
-    }
-
-    /**
-     * Code identifying a radiation used in the diffraction measurements.
-     * This is linked to _diffrn_refln.wavelength_id and _refln.wavelength_id
-     * @return StrColumn
-     */
-    public StrColumn getWavelengthId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_id"));
-    }
-
-    /**
-     * The maximum time between two detector signals that cannot be resolved.
-     * @return FloatColumn
-     */
-    public FloatColumn getDetectorDtime() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_detector_dtime"));
-    }
-
-    /**
-     * Information about the determination of the radiation
-     * diffrn_radiation_wavelength that is not conveyed completely by an
-     * enumerated value of _diffrn_radiation_wavelength.determination.
-     * @return StrColumn
-     */
-    public StrColumn getWavelengthDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_details"));
-    }
 }

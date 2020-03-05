@@ -102,7 +102,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getITNumber() {
-        return new DelegatingIntColumn(parentBlock.getColumn("space_group_IT_number"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("symmetry_Int_Tables_number", "space_group_IT_number"));
     }
 
     /**
@@ -204,7 +204,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameHall() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_Hall"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_Hall", "space_group_name_Hall"));
     }
 
     /**
@@ -248,7 +248,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameH_MFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_full"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_H-M", "space_group_name_H-M_full"));
     }
 
     /**

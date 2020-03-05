@@ -52,7 +52,7 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
      * @return FloatColumn
      */
     public FloatColumn getValue() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_value"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength", "diffrn_radiation_wavelength_value"));
     }
 
     /**
@@ -61,7 +61,7 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_value_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength_su", "diffrn_radiation_wavelength_value_su"));
     }
 
     /**
@@ -70,22 +70,5 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
      */
     public FloatColumn getWt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_wt"));
-    }
-
-    /**
-     * Wavelength of radiation used in diffraction measurements.
-     * @return FloatColumn
-     */
-    public FloatColumn getWavelength() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_value"));
-    }
-
-    /**
-     * Standard uncertainty of the wavelength of radiation used in diffraction
-     * measurements.
-     * @return FloatColumn
-     */
-    public FloatColumn getWavelengthSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_value_su"));
     }
 }

@@ -223,7 +223,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getIntensityNetSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_net_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_intensity_sigma", "diffrn_refln_intensity_u", "diffrn_refln_intensity_net_su"));
     }
 
     /**
@@ -280,7 +280,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getSinThetaOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_sin_theta_over_lambda"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_sint_over_lambda", "diffrn_refln_sin_theta_over_lambda"));
     }
 
     /**
@@ -307,33 +307,5 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getWavelengthId() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_refln_wavelength_id"));
-    }
-
-    /**
-     * (sin theta)/lambda value for this reflection.
-     * @return FloatColumn
-     */
-    public FloatColumn getSintOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_sin_theta_over_lambda"));
-    }
-
-    /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
-     * @return FloatColumn
-     */
-    public FloatColumn getIntensitySigma() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_net_su"));
-    }
-
-    /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
-     * @return FloatColumn
-     */
-    public FloatColumn getIntensityU() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_net_su"));
     }
 }
