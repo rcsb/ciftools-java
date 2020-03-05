@@ -27,14 +27,6 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * Description of the type of diffraction radiation detector.
-     * @return StrColumn
-     */
-    public StrColumn getDescription() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_detector_detector", "diffrn_detector_description"));
-    }
-
-    /**
      * Description of special aspects of the radiation detector.
      * @return StrColumn
      */
@@ -43,11 +35,35 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
+     * Description of the type of diffraction radiation detector.
+     * @return StrColumn
+     */
+    public StrColumn getDetector() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_detector_detector", "diffrn_detector_description"));
+    }
+
+    /**
+     * Description of the type of diffraction radiation detector.
+     * @return StrColumn
+     */
+    public StrColumn getDescription() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_detector_detector", "diffrn_detector_description"));
+    }
+
+    /**
      * The maximum time between two detector signals that cannot be resolved.
      * @return FloatColumn
      */
     public FloatColumn getDtime() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_detector_dtime", "diffrn_detector_dtime"));
+    }
+
+    /**
+     * The make, model or name of the diffraction radiation detector.
+     * @return StrColumn
+     */
+    public StrColumn getType() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_detector_type", "diffrn_detector_make"));
     }
 
     /**

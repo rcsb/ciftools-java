@@ -19,14 +19,6 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * A unique block code identifier for each revision.
-     * @return StrColumn
-     */
-    public StrColumn getBlockCode() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("audit_revision_id", "audit_block_code"));
-    }
-
-    /**
      * The digital object identifier (DOI) registered to identify
      * the data set publication represented by the current
      * datablock. This can be used as a unique identifier for
@@ -94,5 +86,21 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getUpdateRecord() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_update_record"));
+    }
+
+    /**
+     * A unique block code identifier for each revision.
+     * @return StrColumn
+     */
+    public StrColumn getRevisionId() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("audit_revision_id", "audit_block_code"));
+    }
+
+    /**
+     * A unique block code identifier for each revision.
+     * @return StrColumn
+     */
+    public StrColumn getBlockCode() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("audit_revision_id", "audit_block_code"));
     }
 }

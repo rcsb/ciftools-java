@@ -47,47 +47,11 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Ratio of the mean intensity in a shell to the mean standard uncertainty
-     * of the intensities in the shell.
-     * @return FloatColumn
-     */
-    public FloatColumn getMeanIOverSuIAll() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
-    }
-
-    /**
-     * Ratio of the mean intensity of significantly intense reflections (see
-     * _reflns.threshold_expression) in this shell to the mean standard
-     * uncertainty of the intensities in the shell.
-     * @return FloatColumn
-     */
-    public FloatColumn getMeanIOverSuIGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
-    }
-
-    /**
      * Total count of reflections measured for this resolution shell.
      * @return IntColumn
      */
     public IntColumn getNumberMeasuredAll() {
         return new DelegatingIntColumn(parentBlock.getColumn("reflns_shell_number_measured_all"));
-    }
-
-    /**
-     * Number of reflections measured for this resolution shell which are
-     * significantly intense (see _reflns.threshold_expression).
-     * @return IntColumn
-     */
-    public IntColumn getNumberMeasuredGt() {
-        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_measured_obs", "reflns_shell_number_measured_gt"));
-    }
-
-    /**
-     * Count of symmetry-unique reflections possible in this reflection shell.
-     * @return IntColumn
-     */
-    public IntColumn getNumberPossible() {
-        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_possible_all", "reflns_shell_number_possible"));
     }
 
     /**
@@ -99,29 +63,11 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Number of symmetry-unique reflections present in this reflection shell
-     * which are significantly intense (see _reflns.threshold_expression).
-     * @return IntColumn
-     */
-    public IntColumn getNumberUniqueGt() {
-        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_unique_obs", "reflns_shell_number_unique_gt"));
-    }
-
-    /**
      * Percentage of reflections present in this shell over that possible.
      * @return FloatColumn
      */
     public FloatColumn getPercentPossibleAll() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_percent_possible_all"));
-    }
-
-    /**
-     * Percentage of reflections present in this shell which are significantly
-     * intense (see _reflns.threshold_expression), over that possible.
-     * @return FloatColumn
-     */
-    public FloatColumn getPercentPossibleGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_percent_possible_obs", "reflns_shell_percent_possible_gt"));
     }
 
     /**
@@ -144,16 +90,6 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Rmerge(F) for reflections in a shell which are significantly intense
-     * (see _reflns.threshold_expression). The residual merge expression is
-     * shown in the _reflns_shell.Rmerge_F_all definition.
-     * @return FloatColumn
-     */
-    public FloatColumn getRmergeFGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_Rmerge_F_gt"));
-    }
-
-    /**
      * Rmerge(I) for all reflections in a given shell.
      * 
      * sum~i~ ( sum~j~ | I~j~ - &lt;I&gt; | )
@@ -170,6 +106,173 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getRmergeIAll() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_Rmerge_I_all"));
+    }
+
+    /**
+     * Ratio of the mean intensity in a shell to the mean standard uncertainty
+     * of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverSigIAll() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
+    }
+
+    /**
+     * Ratio of the mean intensity in a shell to the mean standard uncertainty
+     * of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverUIAll() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
+    }
+
+    /**
+     * Ratio of the mean intensity in a shell to the mean standard uncertainty
+     * of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverSuIAll() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
+    }
+
+    /**
+     * Ratio of the mean intensity of significantly intense reflections (see
+     * _reflns.threshold_expression) in this shell to the mean standard
+     * uncertainty of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverSigIObs() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
+    }
+
+    /**
+     * Ratio of the mean intensity of significantly intense reflections (see
+     * _reflns.threshold_expression) in this shell to the mean standard
+     * uncertainty of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverSigIGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
+    }
+
+    /**
+     * Ratio of the mean intensity of significantly intense reflections (see
+     * _reflns.threshold_expression) in this shell to the mean standard
+     * uncertainty of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverUIGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
+    }
+
+    /**
+     * Ratio of the mean intensity of significantly intense reflections (see
+     * _reflns.threshold_expression) in this shell to the mean standard
+     * uncertainty of the intensities in the shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeanIOverSuIGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
+    }
+
+    /**
+     * Number of reflections measured for this resolution shell which are
+     * significantly intense (see _reflns.threshold_expression).
+     * @return IntColumn
+     */
+    public IntColumn getNumberMeasuredObs() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_measured_obs", "reflns_shell_number_measured_gt"));
+    }
+
+    /**
+     * Number of reflections measured for this resolution shell which are
+     * significantly intense (see _reflns.threshold_expression).
+     * @return IntColumn
+     */
+    public IntColumn getNumberMeasuredGt() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_measured_obs", "reflns_shell_number_measured_gt"));
+    }
+
+    /**
+     * Count of symmetry-unique reflections possible in this reflection shell.
+     * @return IntColumn
+     */
+    public IntColumn getNumberPossibleAll() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_possible_all", "reflns_shell_number_possible"));
+    }
+
+    /**
+     * Count of symmetry-unique reflections possible in this reflection shell.
+     * @return IntColumn
+     */
+    public IntColumn getNumberPossible() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_possible_all", "reflns_shell_number_possible"));
+    }
+
+    /**
+     * Number of symmetry-unique reflections present in this reflection shell
+     * which are significantly intense (see _reflns.threshold_expression).
+     * @return IntColumn
+     */
+    public IntColumn getNumberUniqueObs() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_unique_obs", "reflns_shell_number_unique_gt"));
+    }
+
+    /**
+     * Number of symmetry-unique reflections present in this reflection shell
+     * which are significantly intense (see _reflns.threshold_expression).
+     * @return IntColumn
+     */
+    public IntColumn getNumberUniqueGt() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_shell_number_unique_obs", "reflns_shell_number_unique_gt"));
+    }
+
+    /**
+     * Percentage of reflections present in this shell which are significantly
+     * intense (see _reflns.threshold_expression), over that possible.
+     * @return FloatColumn
+     */
+    public FloatColumn getPercentPossibleObs() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_percent_possible_obs", "reflns_shell_percent_possible_gt"));
+    }
+
+    /**
+     * Percentage of reflections present in this shell which are significantly
+     * intense (see _reflns.threshold_expression), over that possible.
+     * @return FloatColumn
+     */
+    public FloatColumn getPercentPossibleGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_percent_possible_obs", "reflns_shell_percent_possible_gt"));
+    }
+
+    /**
+     * Rmerge(F) for reflections in a shell which are significantly intense
+     * (see _reflns.threshold_expression). The residual merge expression is
+     * shown in the _reflns_shell.Rmerge_F_all definition.
+     * @return FloatColumn
+     */
+    public FloatColumn getRmergeFObs() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_Rmerge_F_gt"));
+    }
+
+    /**
+     * Rmerge(F) for reflections in a shell which are significantly intense
+     * (see _reflns.threshold_expression). The residual merge expression is
+     * shown in the _reflns_shell.Rmerge_F_all definition.
+     * @return FloatColumn
+     */
+    public FloatColumn getRmergeFGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_Rmerge_F_gt"));
+    }
+
+    /**
+     * Rmerge(I) for reflections in a shell which are significantly intense
+     * (see _reflns.threshold_expression). The residual merge expression is
+     * shown in the _reflns_shell.Rmerge_I_all definition.
+     * @return FloatColumn
+     */
+    public FloatColumn getRmergeIObs() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_Rmerge_I_gt"));
     }
 
     /**

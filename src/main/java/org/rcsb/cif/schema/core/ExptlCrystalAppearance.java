@@ -24,7 +24,7 @@ public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCore
      * @return StrColumn
      */
     public StrColumn getGeneral() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_general"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_lustre", "exptl_crystal_appearance_general"));
     }
 
     /**
@@ -32,7 +32,7 @@ public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCore
      * @return StrColumn
      */
     public StrColumn getHue() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_hue"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_primary", "exptl_crystal_appearance_hue"));
     }
 
     /**
@@ -40,6 +40,6 @@ public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCore
      * @return StrColumn
      */
     public StrColumn getIntensity() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_intensity"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_modifier", "exptl_crystal_appearance_intensity"));
     }
 }

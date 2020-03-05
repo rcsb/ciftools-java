@@ -19,6 +19,53 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Details concerning the evaluation of the structure factors
+     * using the expression given in _refine_ls.F_calc_formula.
+     * @return StrColumn
+     */
+    public StrColumn getFCalcDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("refine_ls_F_calc_details"));
+    }
+
+    /**
+     * Analytical expression used to calculate the structure factors.
+     * @return StrColumn
+     */
+    public StrColumn getFCalcFormula() {
+        return new DelegatingStrColumn(parentBlock.getColumn("refine_ls_F_calc_formula"));
+    }
+
+    /**
+     * Estimate of the precision resulting from the numerical
+     * approximations made during the evaluation of the structure
+     * factors using the expression _refine_ls.F_calc_formula
+     * following the method outlined in _refine_ls.F_calc_details.
+     * @return FloatColumn
+     */
+    public FloatColumn getFCalcPrecision() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_F_calc_precision"));
+    }
+
+    /**
+     * Weighted residual factors for reflections included in the refinement
+     * which satisfy the limits specified by _refine_ls.d_res_high and
+     * _refine_ls.d_res_low.
+     * 
+     * ( sum w [ Y(meas) - Y(calc) ]^2^ )^1/2^
+     * wR = ( ------------------------------ )
+     * (         sum w Y(meas)^2^       )
+     * 
+     * Y(meas) = the measured   amplitude _refine_ls.structure_factor_coef
+     * Y(calc) = the calculated amplitude _refine_ls.structure_factor_coef
+     * w       = the least-squares weight
+     * and the sum is taken over the specified reflections
+     * @return FloatColumn
+     */
+    public FloatColumn getWRFactorRef() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_wR_factor_ref"));
+    }
+
+    /**
      * Details on the absolute structure and how it was determined.
      * @return StrColumn
      */
@@ -48,7 +95,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureFlackSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_abs_structure_Flack_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_abs_structure_Flack_esd", "refine_ls_abs_structure_Flack_su"));
     }
 
     /**
@@ -70,7 +117,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureRogersSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_abs_structure_Rogers_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_abs_structure_Rogers_esd", "refine_ls_abs_structure_Rogers_su"));
     }
 
     /**
@@ -116,7 +163,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getExtinctionCoefSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_extinction_coef_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_extinction_coef_esd", "refine_ls_extinction_coef_su"));
     }
 
     /**
@@ -160,34 +207,6 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Details concerning the evaluation of the structure factors
-     * using the expression given in _refine_ls.F_calc_formula.
-     * @return StrColumn
-     */
-    public StrColumn getFCalcDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refine_ls_F_calc_details"));
-    }
-
-    /**
-     * Analytical expression used to calculate the structure factors.
-     * @return StrColumn
-     */
-    public StrColumn getFCalcFormula() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refine_ls_F_calc_formula"));
-    }
-
-    /**
-     * Estimate of the precision resulting from the numerical
-     * approximations made during the evaluation of the structure
-     * factors using the expression _refine_ls.F_calc_formula
-     * following the method outlined in _refine_ls.F_calc_details.
-     * @return FloatColumn
-     */
-    public FloatColumn getFCalcPrecision() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_F_calc_precision"));
-    }
-
-    /**
      * Least-squares goodness-of-fit parameter S for all reflections after
      * the final cycle of refinement. Ideally, account should be taken of
      * parameters restrained in the least squares.
@@ -218,7 +237,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitAllSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_goodness_of_fit_all_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_goodness_of_fit_all_esd", "refine_ls_goodness_of_fit_all_su"));
     }
 
     /**
@@ -245,7 +264,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_goodness_of_fit_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_goodness_of_fit_obs", "refine_ls_goodness_of_fit_gt"));
     }
 
     /**
@@ -254,7 +273,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitGtSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_goodness_of_fit_gt_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_goodness_of_fit_gt_esd", "refine_ls_goodness_of_fit_obs_esd", "refine_ls_goodness_of_fit_gt_su"));
     }
 
     /**
@@ -330,7 +349,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberReflns() {
-        return new DelegatingIntColumn(parentBlock.getColumn("refine_ls_number_reflns"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("refine_ls_number_reflns_all", "refine_ls_number_reflns"));
     }
 
     /**
@@ -341,7 +360,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberReflnsGt() {
-        return new DelegatingIntColumn(parentBlock.getColumn("refine_ls_number_reflns_gt"));
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("refine_ls_number_reflns_obs", "refine_ls_number_reflns_gt"));
     }
 
     /**
@@ -391,7 +410,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRFactorGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_R_factor_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_R_factor_obs", "refine_ls_R_factor_gt"));
     }
 
     /**
@@ -411,7 +430,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRFsqdFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_R_Fsqd_factor"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_R_Fsqd_factor_obs", "refine_ls_R_Fsqd_factor"));
     }
 
     /**
@@ -430,7 +449,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRIFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_R_I_factor"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_R_I_factor_obs", "refine_ls_R_I_factor"));
     }
 
     /**
@@ -502,7 +521,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRestrainedSGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_restrained_S_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_restrained_S_obs", "refine_ls_restrained_S_gt"));
     }
 
     /**
@@ -512,7 +531,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getShiftOverSuMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_shift_over_su_max"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_shift_over_esd_max", "refine_ls_shift_over_su_max"));
     }
 
     /**
@@ -533,7 +552,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getShiftOverSuMean() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_shift_over_su_mean"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_shift_over_esd_mean", "refine_ls_shift_over_su_mean"));
     }
 
     /**
@@ -610,25 +629,6 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getWRFactorGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_wR_factor_gt"));
-    }
-
-    /**
-     * Weighted residual factors for reflections included in the refinement
-     * which satisfy the limits specified by _refine_ls.d_res_high and
-     * _refine_ls.d_res_low.
-     * 
-     * ( sum w [ Y(meas) - Y(calc) ]^2^ )^1/2^
-     * wR = ( ------------------------------ )
-     * (         sum w Y(meas)^2^       )
-     * 
-     * Y(meas) = the measured   amplitude _refine_ls.structure_factor_coef
-     * Y(calc) = the calculated amplitude _refine_ls.structure_factor_coef
-     * w       = the least-squares weight
-     * and the sum is taken over the specified reflections
-     * @return FloatColumn
-     */
-    public FloatColumn getWRFactorRef() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_wR_factor_ref"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_ls_wR_factor_obs", "refine_ls_wR_factor_gt"));
     }
 }

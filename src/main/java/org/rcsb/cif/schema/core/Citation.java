@@ -235,15 +235,6 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Special aspects of the relationship of the data block contents
-     * to the literature item cited.
-     * @return StrColumn
-     */
-    public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("citation_details", "citation_special_details"));
-    }
-
-    /**
      * Title of citation; relevant for articles and book chapters.
      * @return StrColumn
      */
@@ -257,5 +248,23 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getYear() {
         return new DelegatingStrColumn(parentBlock.getColumn("citation_year"));
+    }
+
+    /**
+     * Special aspects of the relationship of the data block contents
+     * to the literature item cited.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("citation_details", "citation_special_details"));
+    }
+
+    /**
+     * Special aspects of the relationship of the data block contents
+     * to the literature item cited.
+     * @return StrColumn
+     */
+    public StrColumn getSpecialDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("citation_details", "citation_special_details"));
     }
 }

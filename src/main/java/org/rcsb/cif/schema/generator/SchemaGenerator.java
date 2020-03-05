@@ -337,6 +337,12 @@ public class SchemaGenerator {
             String columnName = entry.getKey();
             Col column = (Col) entry.getValue();
 
+            // check if this is a alias in place here - if so handled specifically lateron
+            if (aliases.stream()
+                    .anyMatch(list -> list.contains(categoryName + "." + columnName))) {
+                continue;
+            }
+
             String columnClassName = toClassName(columnName);
             Class<? extends Column> baseClass = getBaseClass(column.getType());
             Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
@@ -353,26 +359,10 @@ public class SchemaGenerator {
             getters.add("     */");
             getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
 
-            // check if this is a 'backward' aliases, i.e. other names linking here
-            Optional<List<String>> optional = aliases.stream()
-                    .filter(list -> list.contains(categoryName + "." + columnName))
-                    .findFirst();
-            if (optional.isPresent()) {
-                List<String> a = optional.get();
-                String as = a.stream()
-                        .map(n -> n.replace(".", "_"))
-                        .map(n -> "\"" + n + "\"")
-                        .collect(Collectors.joining(", "));
-//                System.out.println("backward ref: " + categoryName + "." + columnName);
-
-                // always 'flat'
-                getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getAliasedColumn(" + as + "));");
+            if (!flat) {
+                getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
             } else {
-                if (!flat) {
-                    getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
-                } else {
-                    getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(\"" + categoryName + "_" + columnName + "\"));");
-                }
+                getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(\"" + categoryName + "_" + columnName + "\"));");
             }
             getters.add("    }");
             getters.add("");
@@ -387,22 +377,50 @@ public class SchemaGenerator {
             categoryBuilder.add("        }");
         }
 
-        Set<List<String>> processed = new HashSet<>();
         // forward aliases
+        Set<String> processed = new HashSet<>();
         aliases.stream()
                 .filter(set -> set.stream().anyMatch(n -> n.split("\\.")[0].equals(categoryName)))
                 .forEach(set -> {
-//                    String ccn = toClassName(source.split("\\.")[1]);
-//                    String[] ts = target.split("\\.");
-//                    Col c = (Col) schema.get(ts[0]).getColumns().get(ts[1]);
-//                    String bcn = getBaseClass(c.getType()).getSimpleName();
-//                    String dbcn = getDelegatingBaseClass(c.getType()).getSimpleName();
-//
-//                    writeColumnGetter(getters, c, bcn, ccn, categoryName, null, dbcn, target.replace(".", "_"));
-                    processed.add(set);
+                    set.stream()
+                            .filter(n -> n.startsWith(categoryName))
+                            .forEach(cn -> {
+                                String as = set.stream()
+                                        .map(n -> n.replace(".", "_"))
+                                        .distinct()
+                                        .map(n -> "\"" + n + "\"")
+                                        .collect(Collectors.joining(", "));
+                                boolean multiple = as.split(",").length > 1;
+                                Col column = (Col) set.stream()
+                                        .map(n -> n.split("\\."))
+                                        .filter(s -> schema.containsKey(s[0]) && schema.get(s[0]).getColumns().containsKey(s[1]))
+                                        .findFirst()
+                                        .map(s -> schema.get(s[0]).getColumns().get(s[1]))
+                                        .orElseThrow();
+                                String columnClassName = toClassName(cn.split("\\.")[1]);
+                                if (processed.contains(columnClassName)) {
+                                    return;
+                                }
+                                processed.add(columnClassName);
+                                Class<? extends Column> baseClass = getBaseClass(column.getType());
+                                Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
+                                String baseClassName = baseClass.getSimpleName();
+                                String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
+
+                                String description = Pattern.compile("\n").splitAsStream(column.getDescription().trim())
+                                        .map(s -> "     * " + s)
+                                        .collect(Collectors.joining("\n"))
+                                        .replace("TODO", ""); // remove TODOs from description
+                                getters.add("    /**");
+                                getters.add(description);
+                                getters.add("     * @return " + baseClassName);
+                                getters.add("     */");
+                                getters.add("    public " + baseClassName + " get" + columnClassName + "() {");
+                                getters.add("        return new " + delegatingBaseClassName + "(parentBlock.get" + (multiple ? "Aliased" : "") + "Column(" + as + "));");
+                                getters.add("    }");
+                                getters.add("");
+                            });
                 });
-        // remove processed entries
-        processed.forEach(aliases::remove);
 
         // constructor
         if (!flat) {
@@ -505,10 +523,6 @@ public class SchemaGenerator {
         getFieldData();
         prepareAliases();
         writeClasses();
-        if (!aliases.isEmpty()) {
-            System.err.println(aliases.size() + " aliases not in place");
-            System.err.println(aliases);
-        }
     }
 
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";

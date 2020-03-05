@@ -68,15 +68,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Crystal density measured using standard chemical and physical methods.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_esd", "exptl_crystal_density_meas_su"));
-    }
-
-    /**
      * Temperature at which _exptl_crystal.density_meas was determined.
      * @return FloatColumn
      */
@@ -104,15 +95,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getDensityMeasTempLt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * Temperature at which _exptl_crystal.density_meas was determined.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasTempSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_temp_esd", "exptl_crystal_density_meas_temp_su"));
     }
 
     /**
@@ -236,5 +218,91 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getThermalHistory() {
         return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_thermal_history"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Crystal density measured using standard chemical and physical methods.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasEsd() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_esd", "exptl_crystal_density_meas_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Crystal density measured using standard chemical and physical methods.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_esd", "exptl_crystal_density_meas_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Temperature at which _exptl_crystal.density_meas was determined.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasTempEsd() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_temp_esd", "exptl_crystal_density_meas_temp_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Temperature at which _exptl_crystal.density_meas was determined.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasTempSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_crystal_density_meas_temp_esd", "exptl_crystal_density_meas_temp_su"));
+    }
+
+    /**
+     * Appearance of the crystal as prescribed state codes. Note that 'dull'
+     * and 'clear' should no longer be used.
+     * @return StrColumn
+     */
+    public StrColumn getColourLustre() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_lustre", "exptl_crystal_appearance_general"));
+    }
+
+    /**
+     * Appearance of the crystal as prescribed state codes. Note that 'dull'
+     * and 'clear' should no longer be used.
+     * @return StrColumn
+     */
+    public StrColumn getGeneral() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_lustre", "exptl_crystal_appearance_general"));
+    }
+
+    /**
+     * Colour hue of the crystals as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getColourPrimary() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_primary", "exptl_crystal_appearance_hue"));
+    }
+
+    /**
+     * Colour hue of the crystals as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getHue() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_primary", "exptl_crystal_appearance_hue"));
+    }
+
+    /**
+     * Colour intensity of the crystal as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getColourModifier() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_modifier", "exptl_crystal_appearance_intensity"));
+    }
+
+    /**
+     * Colour intensity of the crystal as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getIntensity() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_modifier", "exptl_crystal_appearance_intensity"));
     }
 }

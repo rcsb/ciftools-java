@@ -34,7 +34,7 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMaxSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_max_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_max_esd", "refine_diff_density_max_su"));
     }
 
     /**
@@ -51,7 +51,7 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMinSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_min_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_min_esd", "refine_diff_density_min_su"));
     }
 
     /**
@@ -73,6 +73,6 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_rms_esd", "refine_diff_density_rms_su"));
     }
 }

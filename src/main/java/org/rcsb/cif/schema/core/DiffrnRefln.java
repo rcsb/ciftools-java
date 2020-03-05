@@ -217,16 +217,6 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
-     * @return FloatColumn
-     */
-    public FloatColumn getIntensityNetSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_intensity_sigma", "diffrn_refln_intensity_u", "diffrn_refln_intensity_net_su"));
-    }
-
-    /**
      * Code identifying the scale applying to this reflection.
      * @return StrColumn
      */
@@ -276,14 +266,6 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * (sin theta)/lambda value for this reflection.
-     * @return FloatColumn
-     */
-    public FloatColumn getSinThetaOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_sint_over_lambda", "diffrn_refln_sin_theta_over_lambda"));
-    }
-
-    /**
      * Code identifying reflections measured repeated as standard intensity.
      * Must match a _diffrn_standard_refln.code values OR set to '.' if
      * it was not used as a intensity standard.
@@ -307,5 +289,51 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getWavelengthId() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_refln_wavelength_id"));
+    }
+
+    /**
+     * Standard uncertainty of the net intensity calculated from the
+     * diffraction counts after the attenuator and standard scales
+     * have been applied.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensitySigma() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_intensity_sigma", "diffrn_refln_intensity_u", "diffrn_refln_intensity_net_su"));
+    }
+
+    /**
+     * Standard uncertainty of the net intensity calculated from the
+     * diffraction counts after the attenuator and standard scales
+     * have been applied.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityU() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_intensity_sigma", "diffrn_refln_intensity_u", "diffrn_refln_intensity_net_su"));
+    }
+
+    /**
+     * Standard uncertainty of the net intensity calculated from the
+     * diffraction counts after the attenuator and standard scales
+     * have been applied.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityNetSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_intensity_sigma", "diffrn_refln_intensity_u", "diffrn_refln_intensity_net_su"));
+    }
+
+    /**
+     * (sin theta)/lambda value for this reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getSintOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_sint_over_lambda", "diffrn_refln_sin_theta_over_lambda"));
+    }
+
+    /**
+     * (sin theta)/lambda value for this reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getSinThetaOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_sint_over_lambda", "diffrn_refln_sin_theta_over_lambda"));
     }
 }

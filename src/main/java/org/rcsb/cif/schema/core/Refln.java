@@ -102,14 +102,6 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The standard uncertainty of the measured structure factor amplitude.
-     * @return FloatColumn
-     */
-    public FloatColumn getFMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
-    }
-
-    /**
      * The structure factor amplitude squared for the reflection calculated from
      * the atom site data.
      * @return FloatColumn
@@ -125,14 +117,6 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getFSquaredMeas() {
         return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_meas"));
-    }
-
-    /**
-     * The standard uncertainty of the measured structure factor squared.
-     * @return FloatColumn
-     */
-    public FloatColumn getFSquaredMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
     }
 
     /**
@@ -166,15 +150,6 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public IntColumn getHkl() {
         return new DelegatingIntColumn(parentBlock.getColumn("refln_hkl"));
-    }
-
-    /**
-     * Code indicating how the reflection was included in the refinement
-     * and R-factor calculations.
-     * @return StrColumn
-     */
-    public StrColumn getIncludeStatus() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("refln_observed_status", "refln_status", "refln_include_status"));
     }
 
     /**
@@ -215,14 +190,6 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getIntensityMeas() {
         return new DelegatingFloatColumn(parentBlock.getColumn("refln_intensity_meas"));
-    }
-
-    /**
-     * standard uncertainty of the measured intensity.
-     * @return FloatColumn
-     */
-    public FloatColumn getIntensityMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_intensity_sigma", "refln_intensity_meas_su"));
     }
 
     /**
@@ -279,14 +246,6 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The (sin theta)/lambda value for this reflection.
-     * @return FloatColumn
-     */
-    public FloatColumn getSinThetaOverLambda() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_sint_over_lambda", "refln_sin_theta_over_lambda"));
-    }
-
-    /**
      * The symmetry reinforcement factor corresponding to the number of
      * times the reflection indices are generated identically from the
      * space-group symmetry operations.
@@ -324,5 +283,96 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getWavelengthId() {
         return new DelegatingStrColumn(parentBlock.getColumn("refln_wavelength_id"));
+    }
+
+    /**
+     * The standard uncertainty of the measured structure factor amplitude.
+     * @return FloatColumn
+     */
+    public FloatColumn getFMeasSigma() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+    }
+
+    /**
+     * The standard uncertainty of the measured structure factor amplitude.
+     * @return FloatColumn
+     */
+    public FloatColumn getFMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+    }
+
+    /**
+     * The standard uncertainty of the measured structure factor squared.
+     * @return FloatColumn
+     */
+    public FloatColumn getFSquaredSigma() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+    }
+
+    /**
+     * The standard uncertainty of the measured structure factor squared.
+     * @return FloatColumn
+     */
+    public FloatColumn getFSquaredMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+    }
+
+    /**
+     * Code indicating how the reflection was included in the refinement
+     * and R-factor calculations.
+     * @return StrColumn
+     */
+    public StrColumn getObservedStatus() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("refln_observed_status", "refln_status", "refln_include_status"));
+    }
+
+    /**
+     * Code indicating how the reflection was included in the refinement
+     * and R-factor calculations.
+     * @return StrColumn
+     */
+    public StrColumn getStatus() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("refln_observed_status", "refln_status", "refln_include_status"));
+    }
+
+    /**
+     * Code indicating how the reflection was included in the refinement
+     * and R-factor calculations.
+     * @return StrColumn
+     */
+    public StrColumn getIncludeStatus() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("refln_observed_status", "refln_status", "refln_include_status"));
+    }
+
+    /**
+     * standard uncertainty of the measured intensity.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensitySigma() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_intensity_sigma", "refln_intensity_meas_su"));
+    }
+
+    /**
+     * standard uncertainty of the measured intensity.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_intensity_sigma", "refln_intensity_meas_su"));
+    }
+
+    /**
+     * The (sin theta)/lambda value for this reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getSintOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_sint_over_lambda", "refln_sin_theta_over_lambda"));
+    }
+
+    /**
+     * The (sin theta)/lambda value for this reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getSinThetaOverLambda() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_sint_over_lambda", "refln_sin_theta_over_lambda"));
     }
 }

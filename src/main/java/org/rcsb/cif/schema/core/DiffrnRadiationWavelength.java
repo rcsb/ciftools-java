@@ -21,6 +21,14 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     }
 
     /**
+     * Relative intensity of a radiation used in the diffraction measurements.
+     * @return FloatColumn
+     */
+    public FloatColumn getWt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_wt"));
+    }
+
+    /**
      * Information about the determination of the radiation
      * diffrn_radiation_wavelength that is not conveyed completely by an
      * enumerated value of _diffrn_radiation_wavelength.determination.
@@ -51,6 +59,14 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
      * Wavelength of radiation used in diffraction measurements.
      * @return FloatColumn
      */
+    public FloatColumn getWavelength() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength", "diffrn_radiation_wavelength_value"));
+    }
+
+    /**
+     * Wavelength of radiation used in diffraction measurements.
+     * @return FloatColumn
+     */
     public FloatColumn getValue() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength", "diffrn_radiation_wavelength_value"));
     }
@@ -60,15 +76,16 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
      * measurements.
      * @return FloatColumn
      */
-    public FloatColumn getValueSu() {
+    public FloatColumn getWavelengthSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength_su", "diffrn_radiation_wavelength_value_su"));
     }
 
     /**
-     * Relative intensity of a radiation used in the diffraction measurements.
+     * Standard uncertainty of the wavelength of radiation used in diffraction
+     * measurements.
      * @return FloatColumn
      */
-    public FloatColumn getWt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_wt"));
+    public FloatColumn getValueSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength_su", "diffrn_radiation_wavelength_value_su"));
     }
 }

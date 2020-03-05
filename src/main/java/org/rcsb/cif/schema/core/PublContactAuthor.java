@@ -18,6 +18,27 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
+     * Identifier in the IUCr contact database of the author submitting
+     * the manuscript and datablock. This identifier may be available
+     * from the World Directory of Crystallographers (http://wdc.iucr.org).
+     * @return StrColumn
+     */
+    public StrColumn getIdIucr() {
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_iucr"));
+    }
+
+    /**
+     * Identifier in the ORCID Registry of the author submitting
+     * the manuscript and data block. ORCID is an open, non-profit,
+     * community-driven service to provide a registry of unique
+     * researcher identifiers (http://orcid.org).
+     * @return StrColumn
+     */
+    public StrColumn getIdOrcid() {
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_orcid"));
+    }
+
+    /**
      * The address of the author submitting the manuscript and
      * data block. This is the person contacted by the journal
      * editorial staff.
@@ -52,34 +73,13 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * Identifier in the IUCr contact database of the author submitting
-     * the manuscript and datablock. This identifier may be available
-     * from the World Directory of Crystallographers (http://wdc.iucr.org).
-     * @return StrColumn
-     */
-    public StrColumn getIdIucr() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_iucr"));
-    }
-
-    /**
-     * Identifier in the ORCID Registry of the author submitting
-     * the manuscript and data block. ORCID is an open, non-profit,
-     * community-driven service to provide a registry of unique
-     * researcher identifiers (http://orcid.org).
-     * @return StrColumn
-     */
-    public StrColumn getIdOrcid() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_orcid"));
-    }
-
-    /**
      * The name of the author(s) submitting the manuscript and
      * data block. This is the person contacted by the journal
      * editorial staff.
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_name"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_name"));
     }
 
     /**

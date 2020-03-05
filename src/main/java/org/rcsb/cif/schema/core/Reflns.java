@@ -183,8 +183,31 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * depending to the nature of the structure and the procedures used.
      * @return IntColumn
      */
+    public IntColumn getNumberObs() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_number_obs", "reflns_number_gt"));
+    }
+
+    /**
+     * Count of reflections in the REFLN set (not the DIFFRN_REFLN set) which
+     * are significantly intense (see _reflns.threshold_expression). It may
+     * include Friedel equivalent reflections (i.e. those which are equivalent
+     * under the Laue symmetry but inequivalent under the crystal class),
+     * depending to the nature of the structure and the procedures used.
+     * @return IntColumn
+     */
     public IntColumn getNumberGt() {
         return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_number_obs", "reflns_number_gt"));
+    }
+
+    /**
+     * Number of reflections in the REFLN set (not the DIFFRN_REFLN set). It may
+     * include Friedel equivalent reflections (i.e. those which are equivalent
+     * under the Laue symmetry but inequivalent under the crystal class),
+     * depending to the nature of the structure and the procedures used.
+     * @return IntColumn
+     */
+    public IntColumn getNumberAll() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("reflns_number_all", "reflns_number_total"));
     }
 
     /**
@@ -204,8 +227,28 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * of symmetry-equivalent reflections including Friedel pairs.
      * @return StrColumn
      */
+    public StrColumn getDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("reflns_details", "reflns_special_details"));
+    }
+
+    /**
+     * Description of the properties of the REFLN reflection list that is not
+     * given in other data items. Should include details about the averaging
+     * of symmetry-equivalent reflections including Friedel pairs.
+     * @return StrColumn
+     */
     public StrColumn getSpecialDetails() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("reflns_details", "reflns_special_details"));
+    }
+
+    /**
+     * Description of the criterion used to classify a reflection as having a
+     * "significant intensity". This criterion is usually expressed in terms
+     * of a u(I) or u(F) threshold. "u" is the standard uncertainty.
+     * @return StrColumn
+     */
+    public StrColumn getObservedCriterion() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("reflns_observed_criterion", "reflns_threshold_expression"));
     }
 
     /**

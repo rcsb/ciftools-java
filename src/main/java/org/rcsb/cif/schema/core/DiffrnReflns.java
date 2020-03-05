@@ -30,14 +30,6 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
-     * @return FloatColumn
-     */
-    public FloatColumn getAvSunetIOverNetI() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
-    }
-
-    /**
      * Fraction of Laue group unique reflections (symmetry-independent in
      * the Laue group) measured out to the resolution given in
      * _diffrn_reflns.resolution_full or _diffrn_reflns.theta_full.
@@ -221,5 +213,209 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getThetaMin() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_theta_min"));
+    }
+
+    /**
+     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getAvUnetI_netI() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
+    }
+
+    /**
+     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getAvSigmaIOverNetI() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
+    }
+
+    /**
+     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getAvSunetIOverNetI() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix11() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][1]", "diffrn_reflns_transf_matrix_11"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_11() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][1]", "diffrn_reflns_transf_matrix_11"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix12() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][2]", "diffrn_reflns_transf_matrix_12"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_12() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][2]", "diffrn_reflns_transf_matrix_12"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix13() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][3]", "diffrn_reflns_transf_matrix_13"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_13() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[1][3]", "diffrn_reflns_transf_matrix_13"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix21() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][1]", "diffrn_reflns_transf_matrix_21"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_21() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][1]", "diffrn_reflns_transf_matrix_21"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix22() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][2]", "diffrn_reflns_transf_matrix_22"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_22() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][2]", "diffrn_reflns_transf_matrix_22"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix23() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][3]", "diffrn_reflns_transf_matrix_23"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_23() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[2][3]", "diffrn_reflns_transf_matrix_23"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix31() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][1]", "diffrn_reflns_transf_matrix_31"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_31() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][1]", "diffrn_reflns_transf_matrix_31"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix32() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][2]", "diffrn_reflns_transf_matrix_32"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_32() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][2]", "diffrn_reflns_transf_matrix_32"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix33() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][3]", "diffrn_reflns_transf_matrix_33"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn get_33() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][3]", "diffrn_reflns_transf_matrix_33"));
     }
 }

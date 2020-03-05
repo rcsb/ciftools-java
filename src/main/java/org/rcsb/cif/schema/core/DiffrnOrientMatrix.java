@@ -28,6 +28,15 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
     }
 
     /**
+     * The 3x3 matrix specifying the orientation of the crystal with
+     * respect to the diffractometer axes.
+     * @return FloatColumn
+     */
+    public FloatColumn getUBIJ() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UBIJ"));
+    }
+
+    /**
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
@@ -106,14 +115,5 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
      */
     public FloatColumn getUB33() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[3][3]", "diffrn_orient_matrix_UB_33"));
-    }
-
-    /**
-     * The 3x3 matrix specifying the orientation of the crystal with
-     * respect to the diffractometer axes.
-     * @return FloatColumn
-     */
-    public FloatColumn getUBIJ() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UBIJ"));
     }
 }

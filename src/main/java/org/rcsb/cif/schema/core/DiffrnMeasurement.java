@@ -30,8 +30,16 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
      * Type of goniometer device used to mount and orient the specimen.
      * @return StrColumn
      */
+    public StrColumn getDevice() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_measurement_device_class", "diffrn_measurement_device"));
+    }
+
+    /**
+     * Type of goniometer device used to mount and orient the specimen.
+     * @return StrColumn
+     */
     public StrColumn getDeviceClass() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_device_class"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_measurement_device_class", "diffrn_measurement_device"));
     }
 
     /**
@@ -46,8 +54,16 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
      * The make, model or name of the goniometer device used.
      * @return StrColumn
      */
+    public StrColumn getDeviceType() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_measurement_device_make", "diffrn_measurement_device_type"));
+    }
+
+    /**
+     * The make, model or name of the goniometer device used.
+     * @return StrColumn
+     */
     public StrColumn getDeviceMake() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_device_make"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_measurement_device_make", "diffrn_measurement_device_type"));
     }
 
     /**
