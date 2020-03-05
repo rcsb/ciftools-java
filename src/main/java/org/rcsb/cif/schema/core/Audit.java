@@ -19,12 +19,11 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * A unique block code identifier for each revision.
      * @return StrColumn
      */
     public StrColumn getBlockCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_block_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_block_code"));
     }
 
     /**
@@ -49,30 +48,26 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getBlockDoi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_block_doi"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_block_doi"));
     }
 
     /**
-     * 
      * The timestamp of the data revision.
      * @return StrColumn
      */
     public StrColumn getCreationDate() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_creation_date"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_creation_date"));
     }
 
     /**
-     * 
      * A description of how the revision was applied to the data.
      * @return StrColumn
      */
     public StrColumn getCreationMethod() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_creation_method"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_creation_method"));
     }
 
     /**
-     * 
-     * 
      * This dataname identifies the type of information contained in the
      * datablock. Software written for one schema will not, in general,
      * correctly interpret datafiles written against a different schema.
@@ -90,15 +85,22 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSchema() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_schema"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_schema"));
     }
 
     /**
-     * 
      * A description of the revision applied to the data.
      * @return StrColumn
      */
     public StrColumn getUpdateRecord() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_update_record"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_update_record"));
+    }
+
+    /**
+     * A unique block code identifier for each revision.
+     * @return StrColumn
+     */
+    public StrColumn getRevisionId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_block_code"));
     }
 }

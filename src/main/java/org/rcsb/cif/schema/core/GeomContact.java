@@ -19,68 +19,61 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_atom_site_label_1"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_atom_site_label_2"));
     }
 
     /**
-     * 
      * Intermolecular distance between the atomic sites identified
      * by _geom_contact.id
      * @return FloatColumn
      */
     public FloatColumn getDistance() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_contact_distance"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the intermolecular distance between
      * the atomic sites identified by _geom_contact.id
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_contact_distance_su"));
     }
 
     /**
-     * 
      * Atom site labels and symmetry operators as pairs for each of the
      * two atom sites which define the geom_contact bond.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_id"));
     }
 
     /**
-     * 
      * This code signals whether the contact distance is referred to
      * in a publication or should be placed in a list of significant
      * contact distances.
      * @return StrColumn
      */
     public StrColumn getPublFlag() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_publ_flag"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_publ_flag"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -104,11 +97,10 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_site_symmetry_1"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -132,6 +124,42 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_site_symmetry_2"));
+    }
+
+    /**
+     * Standard Uncertainty of the intermolecular distance between
+     * the atomic sites identified by _geom_contact.id
+     * @return FloatColumn
+     */
+    public FloatColumn getDistEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_contact_distance_su"));
+    }
+
+    /**
+     * Intermolecular distance between the atomic sites identified
+     * by _geom_contact.id
+     * @return FloatColumn
+     */
+    public FloatColumn getDist() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_contact_distance"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId2() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_atom_site_label_2"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId1() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_contact_atom_site_label_1"));
     }
 }

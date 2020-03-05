@@ -18,65 +18,58 @@ public class JournalCoeditor extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * 
      * The postal address of the coeditor.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_address"));
     }
 
     /**
-     * 
      * The coeditor identifier.
      * @return StrColumn
      */
     public StrColumn getCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_code"));
     }
 
     /**
-     * 
      * The email address of the coeditor.
      * @return StrColumn
      */
     public StrColumn getEmail() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_email"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_email"));
     }
 
     /**
-     * 
      * The fax number of the coeditor.
      * @return StrColumn
      */
     public StrColumn getFax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fax"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_fax"));
     }
 
     /**
-     * 
      * The name of the coeditor.
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_name"));
     }
 
     /**
-     * 
      * Notes on coeditor interaction wrt this publication.
      * @return StrColumn
      */
     public StrColumn getNotes() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_notes"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_notes"));
     }
 
     /**
-     * 
      * The phone number of the coeditor.
      * @return StrColumn
      */
     public StrColumn getPhone() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phone"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_phone"));
     }
 }

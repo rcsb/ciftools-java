@@ -38,7 +38,6 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The symbol denoting the lattice type (Bravais type) to which the
      * translational subgroup (vector lattice) of the space group
      * belongs. It consists of a lower-case letter indicating the
@@ -54,21 +53,19 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getBravaisType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Bravais_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Bravais_type"));
     }
 
     /**
-     * 
      * Symbol for the lattice centring. This symbol may be dependent
      * on the coordinate system chosen.
      * @return StrColumn
      */
     public StrColumn getCentringType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_centring_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_centring_type"));
     }
 
     /**
-     * 
      * The name of the system of geometric crystal classes of space
      * groups (crystal system) to which the space group belongs.
      * Note that rhombohedral space groups belong to the
@@ -76,11 +73,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCrystalSystem() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_crystal_system"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_crystal_system"));
     }
 
     /**
-     * 
      * A qualifier taken from the enumeration list identifying which
      * setting in International Tables for Crystallography Volume A
      * (2002) (IT) is used.  See IT Table 4.3.2.1, Section 2.2.16,
@@ -94,11 +90,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getITCoordinateSystemCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_IT_coordinate_system_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_IT_coordinate_system_code"));
     }
 
     /**
-     * 
      * The number as assigned in International Tables for Crystallography
      * Vol A, specifying the proper affine class (i.e. the orientation
      * preserving affine class) of space groups (crystallographic space
@@ -107,31 +102,28 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getITNumber() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_IT_number"));
+        return new DelegatingIntColumn(parentBlock.getColumn("space_group_IT_number"));
     }
 
     /**
-     * 
      * The Hermann-Mauguin symbol of the geometric crystal class of the
      * point group of the space group where a centre of inversion is
      * added if not already present.
      * @return StrColumn
      */
     public StrColumn getLaueClass() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Laue_class"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Laue_class"));
     }
 
     /**
-     * 
      * Number of unique symmetry elements in the space group.
      * @return IntColumn
      */
     public IntColumn getMultiplicity() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+        return new DelegatingIntColumn(parentBlock.getColumn("space_group_multiplicity"));
     }
 
     /**
-     * 
      * _space_group.name_H-M_alt allows for any Hermann-Mauguin symbol
      * to be given. The way in which this item is used is determined
      * by the user and in general is not intended to be interpreted by
@@ -158,11 +150,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameH_MAlt() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_H-M_alt"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_alt"));
     }
 
     /**
-     * 
      * The short international Hermann-Mauguin space-group symbol as
      * defined in Section 2.2.3 and given as the first item of each
      * space-group table in Part 7 of International Tables
@@ -197,11 +188,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameH_MRef() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_H-M_ref"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_ref"));
     }
 
     /**
-     * 
      * Space group symbol defined by Hall. Each component of the
      * space group name is separated by a space or an underscore.
      * The use of space is strongly recommended because it specifies
@@ -214,21 +204,19 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameHall() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_Hall"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_Hall"));
     }
 
     /**
-     * 
      * A free-text description of the code appearing in
      * _space_group.name_H-M_alt.
      * @return StrColumn
      */
     public StrColumn getNameH_MAltDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_H-M_alt_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_alt_description"));
     }
 
     /**
-     * 
      * The full international Hermann-Mauguin space-group symbol as
      * defined in Section 2.2.3 and given as the second item of the
      * second line of each of the space-group tables of Part 7 of
@@ -260,11 +248,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameH_MFull() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_H-M_full"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_full"));
     }
 
     /**
-     * 
      * The Schoenflies symbol as listed in International Tables for
      * Crystallography Volume A denoting the proper affine class (i.e.
      * orientation-preserving affine class) of space groups
@@ -281,11 +268,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameSchoenflies() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_Schoenflies"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_Schoenflies"));
     }
 
     /**
-     * 
      * The Hermann-Mauguin symbol of the type of that centrosymmetric
      * symmorphic space group to which the Patterson function belongs;
      * see Table 2.2.5.1 in International Tables for Crystallography
@@ -303,11 +289,10 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getPattersonNameH_M() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Patterson_name_H-M"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Patterson_name_H-M"));
     }
 
     /**
-     * 
      * The Hermann-Mauguin symbol denoting the geometric crystal
      * class of space groups to which the space group belongs, and
      * the geometric crystal class of point groups to which the
@@ -315,6 +300,6 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getPointGroupH_M() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_point_group_H-M"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_point_group_H-M"));
     }
 }

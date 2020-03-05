@@ -20,98 +20,88 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleChi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_chi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_chi"));
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleKappa() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_kappa"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_kappa"));
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleOmega() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_omega"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_omega"));
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAnglePhi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_phi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_phi"));
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAnglePsi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_psi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_psi"));
     }
 
     /**
-     * 
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleTheta() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_theta"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_theta"));
     }
 
     /**
-     * 
      * Miller indices of a reflection used to define the orientation matrix.
      * @return IntColumn
      */
     public IntColumn getHkl() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_orient_refln_hkl"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexH() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_orient_refln_index_h"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexK() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_orient_refln_index_k"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexL() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_orient_refln_index_l"));
     }
 }

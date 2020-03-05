@@ -19,47 +19,42 @@ public class CellMeasurementRefln extends DelegatingCategory.DelegatingCifCoreCa
     }
 
     /**
-     * 
      * Miller indices of a reflection used to measure the unit cell.
      * @return IntColumn
      */
     public IntColumn getHkl() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
+        return new DelegatingIntColumn(parentBlock.getColumn("cell_measurement_refln_hkl"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexH() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
+        return new DelegatingIntColumn(parentBlock.getColumn("cell_measurement_refln_index_h"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexK() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
+        return new DelegatingIntColumn(parentBlock.getColumn("cell_measurement_refln_index_k"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexL() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
+        return new DelegatingIntColumn(parentBlock.getColumn("cell_measurement_refln_index_l"));
     }
 
     /**
-     * 
      * Theta angle of reflection used to measure the crystal unit cell.
      * @return FloatColumn
      */
     public FloatColumn getTheta() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_refln_theta"));
     }
 }

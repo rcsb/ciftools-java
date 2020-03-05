@@ -19,65 +19,58 @@ public class JournalTecheditor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * 
      * Postal address of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_address"));
     }
 
     /**
-     * 
      * Code of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_code"));
     }
 
     /**
-     * 
      * Email address of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getEmail() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_email"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_email"));
     }
 
     /**
-     * 
      * Fax number of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getFax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fax"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_fax"));
     }
 
     /**
-     * 
      * Name of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_name"));
     }
 
     /**
-     * 
      * Notes of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getNotes() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_notes"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_notes"));
     }
 
     /**
-     * 
      * Phone number of the technical editor for this publication.
      * @return StrColumn
      */
     public StrColumn getPhone() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phone"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_phone"));
     }
 }

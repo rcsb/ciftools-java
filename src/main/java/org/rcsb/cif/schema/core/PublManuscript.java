@@ -18,17 +18,15 @@ public class PublManuscript extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * 
      * A description of the wordprocessor package and computer used to
      * create the manuscript stored as _publ_manuscript.processed.
      * @return StrColumn
      */
     public StrColumn getCreation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_creation"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_creation"));
     }
 
     /**
-     * 
      * The full manuscript of a paper (excluding possibly the figures
      * and the tables) output in ASCII characters from a word processor.
      * Information about the generation of this data item must be
@@ -36,16 +34,15 @@ public class PublManuscript extends DelegatingCategory.DelegatingCifCoreCategory
      * @return StrColumn
      */
     public StrColumn getProcessed() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_processed"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_processed"));
     }
 
     /**
-     * 
      * The full manuscript of a paper (excluding figures and possibly
      * the tables) output as standard ASCII text.
      * @return StrColumn
      */
     public StrColumn getText() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_text"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_text"));
     }
 }

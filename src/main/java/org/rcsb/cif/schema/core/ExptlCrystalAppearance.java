@@ -19,30 +19,27 @@ public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCore
     }
 
     /**
-     * 
      * Appearance of the crystal as prescribed state codes. Note that 'dull'
      * and 'clear' should no longer be used.
      * @return StrColumn
      */
     public StrColumn getGeneral() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_general"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_general"));
     }
 
     /**
-     * 
      * Colour hue of the crystals as prescribed state codes.
      * @return StrColumn
      */
     public StrColumn getHue() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_hue"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_hue"));
     }
 
     /**
-     * 
      * Colour intensity of the crystal as prescribed state codes.
      * @return StrColumn
      */
     public StrColumn getIntensity() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_intensity"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_intensity"));
     }
 }

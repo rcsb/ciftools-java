@@ -19,91 +19,82 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
     }
 
     /**
-     * 
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
      * @return FloatColumn
      */
     public FloatColumn getDiffrChi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_diffr_chi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_chi"));
     }
 
     /**
-     * 
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
      * @return FloatColumn
      */
     public FloatColumn getDiffrKappa() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_diffr_kappa"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_kappa"));
     }
 
     /**
-     * 
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
      * @return FloatColumn
      */
     public FloatColumn getDiffrPhi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_diffr_phi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_phi"));
     }
 
     /**
-     * 
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
      * @return FloatColumn
      */
     public FloatColumn getDiffrPsi() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_diffr_psi"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_psi"));
     }
 
     /**
-     * 
      * Miller indices of the crystal face.
      * @return IntColumn
      */
     public IntColumn getHkl() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
+        return new DelegatingIntColumn(parentBlock.getColumn("exptl_crystal_face_hkl"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexH() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
+        return new DelegatingIntColumn(parentBlock.getColumn("exptl_crystal_face_index_h"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexK() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
+        return new DelegatingIntColumn(parentBlock.getColumn("exptl_crystal_face_index_k"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexL() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
+        return new DelegatingIntColumn(parentBlock.getColumn("exptl_crystal_face_index_l"));
     }
 
     /**
-     * 
      * Perpendicular distance of face to the centre of rotation of the crystal.
      * @return FloatColumn
      */
     public FloatColumn getPerpDist() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_perp_dist"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_perp_dist"));
     }
 }

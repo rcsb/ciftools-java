@@ -18,13 +18,12 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The history of changes made by the Cambridge Crystallographic Data
      * Centre and incorporated into the Cambridge Structural Database (CSD).
      * @return StrColumn
      */
     public StrColumn getCSDHistory() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_CSD_history"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_CSD_history"));
     }
 
     /**
@@ -46,25 +45,117 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDatasetDoi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dataset_doi"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_dataset_doi"));
     }
 
     /**
-     * 
      * ASTM CODEN designator for a journal as given in the Chemical
      * Source List maintained by the Chemical Abstracts Service.
      * @return StrColumn
      */
     public StrColumn getJournalASTM() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal_ASTM"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_ASTM"));
     }
 
     /**
-     * 
      * The journal code used in the Cambridge Structural Database.
      * @return StrColumn
      */
     public StrColumn getJournalCSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal_CSD"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_CSD"));
+    }
+
+    /**
+     * Code assigned by the Cambridge Structural Database.
+     * @return StrColumn
+     */
+    public StrColumn getCodeCSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CSD"));
+    }
+
+    /**
+     * Deposition numbers assigned by various journals to files
+     * containing structural information archived by the Cambridge
+     * Crystallographic Data Centre (CCDC).
+     * @return StrColumn
+     */
+    public StrColumn getCodeDepnumCcdcJournal() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_journal"));
+    }
+
+    /**
+     * Code assigned by the Inorganic Crystal Structure Database.
+     * @return StrColumn
+     */
+    public StrColumn getCodeICSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_ICSD"));
+    }
+
+    /**
+     * Code assigned in the Metals Data File.
+     * @return StrColumn
+     */
+    public StrColumn getCodeMDF() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_MDF"));
+    }
+
+    /**
+     * Code assigned by the Chemical Abstracts Service.
+     * @return StrColumn
+     */
+    public StrColumn getCodeCAS() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CAS"));
+    }
+
+    /**
+     * Deposition numbers assigned by the Cambridge Crystallographic
+     * Data Centre (CCDC) to files containing structural information
+     * archived by the CCDC.
+     * @return StrColumn
+     */
+    public StrColumn getCodeDepnumCcdcArchive() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_archive"));
+    }
+
+    /**
+     * Code assigned by Crystallography Open Database (COD).
+     * @return StrColumn
+     */
+    public StrColumn getCodeCOD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_COD"));
+    }
+
+    /**
+     * Deposition numbers assigned by the Fachinformationszentrum
+     * Karlsruhe (FIZ) to files containing structural information
+     * archived by the Cambridge Crystallographic Data Centre (CCDC).
+     * @return StrColumn
+     */
+    public StrColumn getCodeDepnumCcdcFiz() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_fiz"));
+    }
+
+    /**
+     * Code assigned by the NBS (NIST) Crystal Data Database.
+     * @return StrColumn
+     */
+    public StrColumn getCodeNBS() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_NBS"));
+    }
+
+    /**
+     * Code assigned in the Powder Diffraction File.
+     * @return StrColumn
+     */
+    public StrColumn getCodePDF() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDF"));
+    }
+
+    /**
+     * Code assigned by the Protein Data Base.
+     * @return StrColumn
+     */
+    public StrColumn getCodePDB() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDB"));
     }
 }

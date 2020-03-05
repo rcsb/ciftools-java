@@ -18,18 +18,16 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * 
      * The address of the author submitting the manuscript and
      * data block. This is the person contacted by the journal
      * editorial staff.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_address"));
     }
 
     /**
-     * 
      * E-mail address in a form recognizable to international networks.
      * The format of e-mail addresses is given in Section 3.4, Address
      * Specification, of Internet Message Format, RFC 2822, P. Resnick
@@ -37,11 +35,10 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getEmail() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_email"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_email"));
     }
 
     /**
-     * 
      * Facsimile telephone number of the author submitting the manuscript
      * and data block.
      * The recommended style is the international dialing prefix, followed
@@ -51,18 +48,17 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getFax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fax"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_fax"));
     }
 
     /**
-     * 
      * Identifier in the IUCr contact database of the author submitting
      * the manuscript and datablock. This identifier may be available
      * from the World Directory of Crystallographers (http://wdc.iucr.org).
      * @return StrColumn
      */
     public StrColumn getIdIucr() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id_iucr"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_iucr"));
     }
 
     /**
@@ -73,22 +69,20 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getIdOrcid() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id_orcid"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id_orcid"));
     }
 
     /**
-     * 
      * The name of the author(s) submitting the manuscript and
      * data block. This is the person contacted by the journal
      * editorial staff.
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_name"));
     }
 
     /**
-     * 
      * Telephone number of author submitting the manuscript and data block.
      * The recommended style is the international dialing prefix,
      * followed by the area code in parentheses, followed by the
@@ -98,6 +92,6 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getPhone() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phone"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_phone"));
     }
 }

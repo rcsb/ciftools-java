@@ -19,32 +19,29 @@ public class AuditConform extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * File name or uniform resource locator (URL) where the
      * conformant data dictionary resides.
      * @return StrColumn
      */
     public StrColumn getDictLocation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dict_location"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_conform_dict_location"));
     }
 
     /**
-     * 
      * Name identifying highest-level data dictionary defining
      * data names used in this file.
      * @return StrColumn
      */
     public StrColumn getDictName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dict_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_conform_dict_name"));
     }
 
     /**
-     * 
      * Code for the version of data dictionary defining data names
      * used in this file.
      * @return StrColumn
      */
     public StrColumn getDictVersion() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_dict_version"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_conform_dict_version"));
     }
 }

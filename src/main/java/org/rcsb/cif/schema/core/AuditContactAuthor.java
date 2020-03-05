@@ -18,17 +18,15 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
     }
 
     /**
-     * 
      * The mailing address of the author of the data block to whom
      * correspondence should be addressed.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_address"));
     }
 
     /**
-     * 
      * The electronic mail address of the author of the data block
      * to whom correspondence should be addressed, in a form
      * recognizable to international networks. The format of e-mail
@@ -38,11 +36,10 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
      * @return StrColumn
      */
     public StrColumn getEmail() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_email"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_email"));
     }
 
     /**
-     * 
      * Facsimile telephone number of the author submitting the manuscript
      * and data block.
      * The recommended style is the international dialing prefix, followed
@@ -52,11 +49,10 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
      * @return StrColumn
      */
     public StrColumn getFax() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_fax"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_fax"));
     }
 
     /**
-     * 
      * The name of the author of the data block to whom correspondence
      * should be addressed. The family name(s), followed by a comma and
      * including any dynastic components, precedes the first name(s) or
@@ -64,11 +60,10 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_name"));
     }
 
     /**
-     * 
      * Telephone number of author submitting the manuscript and data block.
      * The recommended style is the international dialing prefix,
      * followed by the area code in parentheses, followed by the
@@ -78,6 +73,6 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
      * @return StrColumn
      */
     public StrColumn getPhone() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phone"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_phone"));
     }
 }

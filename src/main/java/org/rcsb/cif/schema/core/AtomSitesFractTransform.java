@@ -20,18 +20,16 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * 
      * Description of the relative alignment of the crystal cell axes to the
      * Cartesian orthogonal axes as applied in the transformation matrix
      * _atom_sites_fract_transform.matrix.
      * @return StrColumn
      */
     public StrColumn getAxes() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_axes"));
+        return new DelegatingStrColumn(parentBlock.getColumn("atom_sites_fract_transform_axes"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -47,11 +45,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat11() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_11"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_11"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -67,11 +64,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat12() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_12"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_12"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -87,11 +83,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat13() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_13"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_13"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -107,11 +102,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat21() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_21"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_21"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -127,11 +121,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat22() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_22"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_22"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -147,11 +140,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat23() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_23"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_23"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -167,11 +159,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat31() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_31"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_31"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -187,11 +178,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat32() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_32"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_32"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -207,11 +197,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMat33() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_mat_33"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_33"));
     }
 
     /**
-     * 
      * Matrix used to transform fractional coordinates in the ATOM_SITE
      * category to Cartesian  coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -227,11 +216,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getMatrix() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_matrix"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_matrix"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -247,11 +235,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getVec1() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_1"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_1"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -267,11 +254,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getVec2() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_2"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_2"));
     }
 
     /**
-     * 
      * Matrix used to transform Cartesian coordinates in the ATOM_SITE
      * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
@@ -287,11 +273,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getVec3() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vec_3"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_3"));
     }
 
     /**
-     * 
      * The 3x1 translation is used with _atom_sites_fract_transform.matrix
      * used to transform Cartesian coordinates to fractional  coordinates.
      * The axial alignments of this transformation are described in
@@ -299,6 +284,6 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
      * @return FloatColumn
      */
     public FloatColumn getVector() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_vector"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vector"));
     }
 }

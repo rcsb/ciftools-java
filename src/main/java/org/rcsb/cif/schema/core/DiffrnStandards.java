@@ -7,15 +7,21 @@ import javax.annotation.Generated;
 
 /**
  * 
- * The CATEGORY of data items which specify information about the
- * standard reflections used in the diffraction measurement process.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
-public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory {
-    private static final String NAME = "diffrn_standard";
+public class DiffrnStandards extends DelegatingCategory.DelegatingCifCoreCategory {
+    private static final String NAME = "diffrn_standards";
 
-    public DiffrnStandard(CifCoreBlock parentBlock) {
+    public DiffrnStandards(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
+    }
+
+    /**
+     * Reflection count between the standard reflection measurements.
+     * @return IntColumn
+     */
+    public IntColumn getIntervalCount() {
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_interval_count"));
     }
 
     /**
@@ -31,16 +37,8 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * a decay of less than 0.3% or an enhancement of less than 0.3%.
      * @return FloatColumn
      */
-    public FloatColumn getDecayPercent() {
+    public FloatColumn getDecay() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_decay_percent"));
-    }
-
-    /**
-     * Reflection count between the standard reflection measurements.
-     * @return IntColumn
-     */
-    public IntColumn getIntervalCount() {
-        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_interval_count"));
     }
 
     /**
@@ -49,6 +47,15 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      */
     public FloatColumn getIntervalTime() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_interval_time"));
+    }
+
+    /**
+     * The average standard uncertainty of the individual standard scales
+     * applied to the intensity data.
+     * @return FloatColumn
+     */
+    public FloatColumn getScaleSigma() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_scale_su_average"));
     }
 
     /**
@@ -64,7 +71,7 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
      * applied to the intensity data.
      * @return FloatColumn
      */
-    public FloatColumn getScaleSuAverage() {
+    public FloatColumn getScaleU() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_scale_su_average"));
     }
 }

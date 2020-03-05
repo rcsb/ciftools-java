@@ -20,7 +20,6 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Necessary conditions for this assignment are given by
      * Flack, H. D. &amp; Bernardinelli, G. (1999). Acta Cryst. A55,
      * 908-915. (http://www.iucr.org/paper?sh0129)
@@ -29,11 +28,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAbsoluteConfiguration() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_absolute_configuration"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_absolute_configuration"));
     }
 
     /**
-     * 
      * Description of the source of the compound under study, or of the
      * parent  molecule if a simple derivative is studied. This includes
      * the place of  discovery for minerals or the actual source of a
@@ -41,11 +39,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCompoundSource() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_compound_source"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_compound_source"));
     }
 
     /**
-     * 
      * The enantioexcess of the bulk material from which the crystals
      * were grown. A value of 0.0 indicates the racemate. A value of
      * 1.0 indicates that the compound is enantiomerically pure.
@@ -58,20 +55,18 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getEnantioexcessBulk() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_enantioexcess_bulk"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_enantioexcess_bulk"));
     }
 
     /**
-     * 
      * Technique used to determine the enantioexcess of the bulk compound.
      * @return StrColumn
      */
     public StrColumn getEnantioexcessBulkTechnique() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_enantioexcess_bulk_technique"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_enantioexcess_bulk_technique"));
     }
 
     /**
-     * 
      * The enantioexcess of the crystal used for the diffraction
      * study. A value of 0.0 indicates the racemate. A value of
      * 1.0 indicates that the crystal is enantiomerically pure.
@@ -83,20 +78,18 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getEnantioexcessCrystal() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_enantioexcess_crystal"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_enantioexcess_crystal"));
     }
 
     /**
-     * 
      * Technique used to determine the enantioexcess of the crystal.
      * @return StrColumn
      */
     public StrColumn getEnantioexcessCrystalTechnique() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_enantioexcess_crystal_technique"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_enantioexcess_crystal_technique"));
     }
 
     /**
-     * 
      * The IUPAC International Chemical Identifier (InChI) is a
      * textual identifier for chemical substances, designed to provide
      * a standard and human-readable way to encode molecular information
@@ -107,11 +100,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getIdentifierInchi() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_identifier_inchi"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_identifier_inchi"));
     }
 
     /**
-     * 
      * The InChIKey is a compact hashed version of the full InChI
      * (IUPAC International Chemical Identifier), designed to allow
      * for easy web searches of chemical compounds. See
@@ -119,88 +111,79 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getIdentifierInchiKey() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_identifier_inchi_key"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_identifier_inchi_key"));
     }
 
     /**
-     * 
      * Version number of the InChI standard to which the associated
      * chemical identifier string applies.
      * @return StrColumn
      */
     public StrColumn getIdentifierInchiVersion() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_identifier_inchi_version"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_identifier_inchi_version"));
     }
 
     /**
-     * 
      * The temperature at which a crystalline solid changes to a liquid.
      * @return FloatColumn
      */
     public FloatColumn getMeltingPoint() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_melting_point"));
     }
 
     /**
-     * 
      * A temperature above which the melting point lies.
      * _chemical.melting_point should be used in preference where possible.
      * @return FloatColumn
      */
     public FloatColumn getMeltingPointGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_melting_point_gt"));
     }
 
     /**
-     * 
      * A temperature below which the melting point lies.
      * _chemical.melting_point should be used in preference where possible.
      * @return FloatColumn
      */
     public FloatColumn getMeltingPointLt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_melting_point_lt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_melting_point_lt"));
     }
 
     /**
-     * 
      * Trivial name by which the compound is commonly known.
      * @return StrColumn
      */
     public StrColumn getNameCommon() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_common"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_name_common"));
     }
 
     /**
-     * 
      * Mineral name accepted by the International Mineralogical Association.
      * Use only for natural minerals.
      * @return StrColumn
      */
     public StrColumn getNameMineral() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_mineral"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_name_mineral"));
     }
 
     /**
-     * 
      * Commonly used structure-type name. Usually only applied to
      * minerals or inorganic compounds.
      * @return StrColumn
      */
     public StrColumn getNameStructureType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_structure_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_name_structure_type"));
     }
 
     /**
-     * 
      * IUPAC or Chemical Abstracts full name of compound.
      * @return StrColumn
      */
     public StrColumn getNameSystematic() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name_systematic"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_name_systematic"));
     }
 
     /**
-     * 
      * The optical rotation in solution of the compound is
      * specified in the following format:
      * 
@@ -219,102 +202,110 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getOpticalRotation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_optical_rotation"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_optical_rotation"));
     }
 
     /**
-     * 
      * A description of the biological properties of the material.
      * @return StrColumn
      */
     public StrColumn getPropertiesBiological() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_properties_biological"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_properties_biological"));
     }
 
     /**
-     * 
      * A description of the physical properties of the material.
      * @return StrColumn
      */
     public StrColumn getPropertiesPhysical() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_properties_physical"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_properties_physical"));
     }
 
     /**
-     * 
      * The temperature at which a crystalline solid decomposes.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecomposition() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition"));
     }
 
     /**
-     * 
      * The temperature above which a crystalline solid decomposes.
      * _chemical.temperature_decomposition should be used in preference.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_gt"));
     }
 
     /**
-     * 
      * The temperature below which a crystalline solid decomposes.
      * _chemical.temperature_decomposition should be used in preference.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionLt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_lt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_lt"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * temperature at which a crystalline solid decomposes.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_decomposition_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_su"));
     }
 
     /**
-     * 
      * The temperature at which a crystalline solid sublimates.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimation() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation"));
     }
 
     /**
-     * 
      * The temperature above which a crystalline solid sublimates.
      * _chemical.temperature_sublimation should be used in preference.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_gt"));
     }
 
     /**
-     * 
      * The temperature below which a crystalline solid sublimates.
      * _chemical.temperature_sublimation should be used in preference.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationLt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_lt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_lt"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * temperature at which a crystalline solid sublimates.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_temperature_sublimation_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * temperature at which a crystalline solid sublimates.
+     * @return FloatColumn
+     */
+    public FloatColumn getTemperatureSublimationEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_sublimation_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * temperature at which a crystalline solid decomposes.
+     * @return FloatColumn
+     */
+    public FloatColumn getTemperatureDecompositionEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_temperature_decomposition_su"));
     }
 }

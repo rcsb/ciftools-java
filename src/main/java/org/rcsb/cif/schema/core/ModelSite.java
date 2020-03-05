@@ -19,7 +19,6 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The set of three adp eigenvales and associated eigenvectors
      * in the form of 4 element List. Each list has the form
      * 
@@ -32,105 +31,94 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAdpEigenSystem() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_adp_eigen_system"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_adp_eigen_system"));
     }
 
     /**
-     * 
      * Matrix of dimensionless anisotropic atomic displacement parameters.
      * @return FloatColumn
      */
     public FloatColumn getAdpMatrixBeta() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_adp_matrix_beta"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_matrix_beta"));
     }
 
     /**
-     * 
      * Vector of Cartesian (orthogonal angstrom) atom site coordinates.
      * @return FloatColumn
      */
     public FloatColumn getCartnXyz() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Cartn_xyz"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_Cartn_xyz"));
     }
 
     /**
-     * 
      * Display colour code assigned to this atom site. Note that the
      * possible colours are enumerated in the colour_RGB list, and
      * the default code is enumerated in the colour_hue list.
      * @return StrColumn
      */
     public StrColumn getDisplayColour() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_display_colour"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_display_colour"));
     }
 
     /**
-     * 
      * Vector of fractional atom site coordinates.
      * @return FloatColumn
      */
     public FloatColumn getFractXyz() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_fract_xyz"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_fract_xyz"));
     }
 
     /**
-     * 
      * Identifier of model site in terms of the atom site label and
      * symmetry operator.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_id"));
     }
 
     /**
-     * 
      * Index number of an atomic site in the connected molecule.
      * @return IntColumn
      */
     public IntColumn getIndex() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index"));
+        return new DelegatingIntColumn(parentBlock.getColumn("model_site_index"));
     }
 
     /**
-     * 
      * Code identifies a site in the atom_site category of data.
      * @return StrColumn
      */
     public StrColumn getLabel() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_label"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_label"));
     }
 
     /**
-     * 
      * Index number of a distinct molecules in the cell, not related by
      * symmetry.
      * @return IntColumn
      */
     public IntColumn getMoleIndex() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_mole_index"));
+        return new DelegatingIntColumn(parentBlock.getColumn("model_site_mole_index"));
     }
 
     /**
-     * 
      * Atomic radius of atom located at this site.
      * @return FloatColumn
      */
     public FloatColumn getRadiusBond() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_bond"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_radius_bond"));
     }
 
     /**
-     * 
      * Atomic contact radius of atom specie located at this site.
      * @return FloatColumn
      */
     public FloatColumn getRadiusContact() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_radius_contact"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_radius_contact"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -154,15 +142,14 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSymop() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_symop"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_symop"));
     }
 
     /**
-     * 
      * Code to identify the atom specie(s) occupying this site.
      * @return StrColumn
      */
     public StrColumn getTypeSymbol() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_type_symbol"));
+        return new DelegatingStrColumn(parentBlock.getColumn("model_site_type_symbol"));
     }
 }

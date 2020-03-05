@@ -20,7 +20,6 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The function
      * r  =  AtomType( s )
      * 
@@ -28,11 +27,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_AtomType"));
+        return new DelegatingStrColumn(parentBlock.getColumn("function_AtomType"));
     }
 
     /**
-     * 
      * The function
      * d  =  Closest( v, w )
      * 
@@ -42,11 +40,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getClosest() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Closest"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_Closest"));
     }
 
     /**
-     * 
      * The function
      * s  =  SeitzFromJones( j )
      * 
@@ -55,11 +52,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getSeitzFromJones() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_SeitzFromJones"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_SeitzFromJones"));
     }
 
     /**
-     * 
      * The function
      * xyz' =  SymEquiv( symop, xyz )
      * 
@@ -69,11 +65,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getSymEquiv() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_SymEquiv"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_SymEquiv"));
     }
 
     /**
-     * 
      * The function
      * m  =  SymKey( s )
      * 
@@ -82,11 +77,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getSymKey() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_SymKey"));
+        return new DelegatingIntColumn(parentBlock.getColumn("function_SymKey"));
     }
 
     /**
-     * 
      * The function
      * v  =  SymLat( s )
      * 
@@ -95,11 +89,10 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getSymLat() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_SymLat"));
+        return new DelegatingIntColumn(parentBlock.getColumn("function_SymLat"));
     }
 
     /**
-     * 
      * The function
      * s  =  Symop( n, t )
      * 
@@ -109,6 +102,6 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSymop() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_Symop"));
+        return new DelegatingStrColumn(parentBlock.getColumn("function_Symop"));
     }
 }

@@ -19,57 +19,51 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_1"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_2"));
     }
 
     /**
-     * 
      * Intramolecular bond distance between the sites identified
      * by _geom_bond.id
      * @return FloatColumn
      */
     public FloatColumn getDistance() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the intramolecular bond distance
      * between the sites identified by _geom_bond.id
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance_su"));
     }
 
     /**
-     * 
      * Identity of bond distance in terms of the atom site labels and
      * symmetry operators as pairs for each of the two "bonded" atom sites.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_id"));
     }
 
     /**
-     * 
      * The number of times the given bond appears in the environment
      * of the atoms labelled _geom_bond.atom_site_label_1. In cases
      * where the full list of bonds is given, one of the series of
@@ -78,21 +72,19 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getMultiplicity() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+        return new DelegatingIntColumn(parentBlock.getColumn("geom_bond_multiplicity"));
     }
 
     /**
-     * 
      * This code signals whether the angle is referred to in a
      * publication or should be placed in a table of significant angles.
      * @return StrColumn
      */
     public StrColumn getPublFlag() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_publ_flag"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_publ_flag"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -116,11 +108,10 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_site_symmetry_1"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -144,15 +135,50 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_site_symmetry_2"));
     }
 
     /**
-     * 
      * Bond valence calculated from the bond distance.
      * @return FloatColumn
      */
     public FloatColumn getValence() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_valence"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_valence"));
+    }
+
+    /**
+     * Standard Uncertainty of the intramolecular bond distance
+     * between the sites identified by _geom_bond.id
+     * @return FloatColumn
+     */
+    public FloatColumn getDistEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance_su"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId2() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_2"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId1() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_bond_atom_site_label_1"));
+    }
+
+    /**
+     * Intramolecular bond distance between the sites identified
+     * by _geom_bond.id
+     * @return FloatColumn
+     */
+    public FloatColumn getDist() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_distance"));
     }
 }

@@ -19,45 +19,40 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Code identifying a reflection class.
      * @return StrColumn
      */
     public StrColumn getCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_class_code"));
     }
 
     /**
-     * 
      * Highest resolution for the reflections in this class.
      * This corresponds to the smallest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResHigh() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_high"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_d_res_high"));
     }
 
     /**
-     * 
      * Lowest resolution for the reflections in this class.
      * This corresponds to the largest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResLow() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_res_low"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_d_res_low"));
     }
 
     /**
-     * 
      * Description of a reflection class.
      * @return StrColumn
      */
     public StrColumn getDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_class_description"));
     }
 
     /**
-     * 
      * Count of reflections in this REFLN class (not the DIFFRN_REFLN set)
      * which are significantly intense (see _reflns.threshold_expression). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
@@ -66,11 +61,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberGt() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_gt"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_class_number_gt"));
     }
 
     /**
-     * 
      * Count of reflections in this REFLN class (not the DIFFRN_REFLN set). It
      * may include Friedel equivalent reflections (those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
@@ -78,11 +72,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberTotal() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_total"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_class_number_total"));
     }
 
     /**
-     * 
      * Residual factor for reflections in this class used in refinement.
      * 
      * sum | F(meas) - F(calc) |
@@ -96,11 +89,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRFactorAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_all"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_R_factor_all"));
     }
 
     /**
-     * 
      * Residual factor for the reflections in this class judged
      * significantly intense (i.e. greater than required by the
      * _reflns.threshold_expression) and included in the refinement.
@@ -116,11 +108,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRFactorGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_factor_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_R_factor_gt"));
     }
 
     /**
-     * 
      * Residual factor R(F^2^) for reflections in this class judged
      * significantly intense (i.e. greater than required by the
      * _reflns.threshold_expression) and included in the refinement.
@@ -136,11 +127,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRFsqdFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_Fsqd_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_R_Fsqd_factor"));
     }
 
     /**
-     * 
      * Residual factor R(I) for reflections in this class judged
      * significantly intense (i.e. greater than required by the
      * _reflns.threshold_expression) and included in the refinement.
@@ -156,11 +146,10 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRIFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R_I_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_R_I_factor"));
     }
 
     /**
-     * 
      * For each reflection class, the weighted residual factors for all
      * reflections included in the refinement. The reflections also
      * satisfy the resolution limits established by
@@ -180,6 +169,6 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getWRFactorAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_wR_factor_all"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_class_wR_factor_all"));
     }
 }

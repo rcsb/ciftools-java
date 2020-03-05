@@ -18,17 +18,15 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The address of a publication author. If there is more than one
      * author, this will be looped with _publ_author.name.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_address"));
     }
 
     /**
-     * 
      * The e-mail address of a publication author. If there is more
      * than one author, this will be looped with _publ_author.name.
      * The format of e-mail addresses is given in Section 3.4, Address
@@ -37,29 +35,27 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getEmail() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_email"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_email"));
     }
 
     /**
-     * 
      * A footnote accompanying an author's name in the list of authors
      * of a paper. Typically indicates sabbatical address, additional
      * affiliations or date of decease.
      * @return StrColumn
      */
     public StrColumn getFootnote() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_footnote"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_footnote"));
     }
 
     /**
-     * 
      * Identifier in the IUCr contact database of a publication
      * author.  This identifier may be available from the World
      * Directory of Crystallographers (http://wdc.iucr.org).
      * @return StrColumn
      */
     public StrColumn getIdIucr() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id_iucr"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_id_iucr"));
     }
 
     /**
@@ -70,11 +66,10 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getIdOrcid() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id_orcid"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_id_orcid"));
     }
 
     /**
-     * 
      * The name of a publication author. If there are multiple authors,
      * this will be looped with _publ_author.address. The family
      * name(s), followed by a comma and including any dynastic
@@ -82,11 +77,10 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_name"));
     }
 
     /**
-     * 
      * Telephone number of the author submitting the manuscript and
      * data block.
      * 
@@ -99,6 +93,6 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getPhone() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_phone"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_phone"));
     }
 }

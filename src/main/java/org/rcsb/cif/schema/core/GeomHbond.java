@@ -19,142 +19,128 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Angle subtended by the sites identified by _geom_hbond.id.
      * The hydrogen at site H is at the apex of the angle.
      * @return FloatColumn
      */
     public FloatColumn getAngleDHA() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_DHA"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_angle_DHA"));
     }
 
     /**
-     * 
      * The standard uncertainty of the angle subtended by the sites identified
      * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
      * @return FloatColumn
      */
     public FloatColumn getAngleDHASu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_angle_DHA_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_angle_DHA_su"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_A"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_A"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelD() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_D"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_D"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_H"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_H"));
     }
 
     /**
-     * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDA() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DA"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DA"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDASu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DA_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DA_su"));
     }
 
     /**
-     * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDH() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DH"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DH"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDHSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_DH_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DH_su"));
     }
 
     /**
-     * 
      * The set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceHA() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_HA"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_HA"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * set of data items which specify the distance between the
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceHASu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distance_HA_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_HA_su"));
     }
 
     /**
-     * 
      * Atom site labels and symmetry operators as pairs for each of the
      * three atom sites which define the hydrogen angle and distances.
      * Site H is at the apex of the angle.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_id"));
     }
 
     /**
-     * 
      * This code signals whether the hydrogen-bond information
      * is referred to in a publication or should be placed in a
      * table of significant hydrogen-bond geometry.
      * @return StrColumn
      */
     public StrColumn getPublFlag() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_publ_flag"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_publ_flag"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -178,11 +164,10 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryA() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_A"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_A"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -206,11 +191,10 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryD() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_D"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_D"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -234,6 +218,99 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryH() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_H"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_H"));
+    }
+
+    /**
+     * The set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistDH() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DH"));
+    }
+
+    /**
+     * The set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistDA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DA"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteIdA() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_A"));
+    }
+
+    /**
+     * The set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistHA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_HA"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteIdD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_D"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteIdH() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_atom_site_label_H"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistDAEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DA_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistDHEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_DH_su"));
+    }
+
+    /**
+     * The standard uncertainty of the angle subtended by the sites identified
+     * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
+     * @return FloatColumn
+     */
+    public FloatColumn getAngleDHAEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_angle_DHA_su"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistHAEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_distance_HA_su"));
     }
 }

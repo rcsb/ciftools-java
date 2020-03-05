@@ -19,7 +19,6 @@ public class AuditLink extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The value of _audit.block_code associated with a data block
      * in the current file related to the current data block. The
      * special value '.' may be used to refer to the current data
@@ -27,16 +26,15 @@ public class AuditLink extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getBlockCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_block_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_link_block_code"));
     }
 
     /**
-     * 
      * Description of the relationship of the referenced data block
      * to the current one.
      * @return StrColumn
      */
     public StrColumn getBlockDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_block_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_link_block_description"));
     }
 }

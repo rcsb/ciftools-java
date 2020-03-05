@@ -19,7 +19,6 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The residual [sum av|del(I)| / sum |av(I)|] for symmetry-equivalent
      * reflections used to calculate the average intensity av(I). The
      * av|del(I)| term is the average absolute difference between av(I) and
@@ -27,20 +26,18 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAvREquivalents() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_R_equivalents"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_R_equivalents"));
     }
 
     /**
-     * 
      * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
      * @return FloatColumn
      */
     public FloatColumn getAvSunetIOverNetI() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_av_sunetI_over_netI"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_sunetI_over_netI"));
     }
 
     /**
-     * 
      * Fraction of Laue group unique reflections (symmetry-independent in
      * the Laue group) measured out to the resolution given in
      * _diffrn_reflns.resolution_full or _diffrn_reflns.theta_full.
@@ -53,11 +50,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLaueMeasuredFractionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_Laue_measured_fraction_full"));
     }
 
     /**
-     * 
      * Fraction of Laue-group unique reflections (symmetry-independent in
      * the Laue group) measured out to the resolution given in
      * _diffrn_reflns.resolution_max or _diffrn_reflns.theta_max.
@@ -67,94 +63,84 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLaueMeasuredFractionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Laue_measured_fraction_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_Laue_measured_fraction_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitHMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_h_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitHMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_h_min"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitKMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_k_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitKMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_k_min"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitLMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_l_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitLMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_l_min"));
     }
 
     /**
-     * 
      * Maximum Miller indices of measured diffraction reflections.
      * @return FloatColumn
      */
     public FloatColumn getLimitMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_limit_max"));
     }
 
     /**
-     * 
      * Minimum Miller indices of meas.ued diffraction reflections.
      * @return FloatColumn
      */
     public FloatColumn getLimitMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_limit_min"));
     }
 
     /**
-     * 
      * Total number of measured intensities, excluding reflections that are
      * classed as systematically absent arising from translational symmetry
      * in the crystal unit cell.
      * @return IntColumn
      */
     public IntColumn getNumber() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_number"));
     }
 
     /**
-     * 
      * Fraction of crystal point-group unique reflections (i.e.
      * symmetry-independent in the crystal point group) measured
      * out to the resolution given in _diffrn_reflns.resolution_full
@@ -167,11 +153,10 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getPointMeasuredFractionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_point_measured_fraction_full"));
     }
 
     /**
-     * 
      * Fraction of crystal point-group unique reflections (i.e.
      * symmetry-independent in the crystal point group) measured
      * out to the resolution given in _diffrn_reflns.resolution_max
@@ -181,66 +166,166 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getPointMeasuredFractionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_point_measured_fraction_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_point_measured_fraction_max"));
     }
 
     /**
-     * 
      * How intensities were reduced to structure-factor magnitudes.
      * @return StrColumn
      */
     public StrColumn getReductionProcess() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_reduction_process"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_reflns_reduction_process"));
     }
 
     /**
-     * 
      * The resolution at which the measured reflection count is close
      * to complete. The fraction of unique reflections measured out
      * to this angle is given by _diffrn.measured_fraction_theta_full.
      * @return FloatColumn
      */
     public FloatColumn getResolutionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_resolution_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_resolution_full"));
     }
 
     /**
-     * 
      * Maximum resolution of the measured diffraction pattern.
      * The fraction of unique reflections measured out to this angle
      * is given by _diffrn.measured_fraction_theta_max.
      * @return FloatColumn
      */
     public FloatColumn getResolutionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_resolution_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_resolution_max"));
     }
 
     /**
-     * 
      * Theta angle at which the count of measured reflections is almost
      * complete.  The fraction of unique reflections measured out to
      * this angle is given by _diffrn.measured_fraction_theta_full.
      * @return FloatColumn
      */
     public FloatColumn getThetaFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_theta_full"));
     }
 
     /**
-     * 
      * Maximum theta angle of the measured reflections.
      * @return FloatColumn
      */
     public FloatColumn getThetaMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_theta_max"));
     }
 
     /**
-     * 
      * Minimum theta angle of the measured reflections.
      * @return FloatColumn
      */
     public FloatColumn getThetaMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_theta_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_theta_min"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix23() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_23"));
+    }
+
+    /**
+     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getAvSigmaIOverNetI() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_sunetI_over_netI"));
+    }
+
+    /**
+     * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getAvUnetI_netI() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_sunetI_over_netI"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix31() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_31"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix32() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_32"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix13() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_13"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix33() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_33"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix12() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_12"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix11() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_11"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix21() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_21"));
+    }
+
+    /**
+     * The set of data items which specify the elements of the matrix
+     * used to transform the reflection indices _diffrn_refln.hkl
+     * into _refln.hkl.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransfMatrix22() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_22"));
     }
 }

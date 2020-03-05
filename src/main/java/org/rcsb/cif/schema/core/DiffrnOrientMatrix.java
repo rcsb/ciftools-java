@@ -19,112 +19,101 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
     }
 
     /**
-     * 
      * Description of orientation matrix and how it should be applied to define
      * the orientation of the crystal with respect to the diffractometer axes.
      * @return StrColumn
      */
     public StrColumn getType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_orient_matrix_type"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB11() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_11"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_11"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB12() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_12"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_12"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB13() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_13"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_13"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB21() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_21"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_21"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB22() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_22"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_22"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB23() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_23"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_23"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB31() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_31"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_31"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB32() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_32"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_32"));
     }
 
     /**
-     * 
      * The set of data items which specify the elements of the matrix of
      * the orientation of the crystal axes to the diffractometer goniometer.
      * @return FloatColumn
      */
     public FloatColumn getUB33() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UB_33"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UB_33"));
     }
 
     /**
-     * 
      * The 3x3 matrix specifying the orientation of the crystal with
      * respect to the diffractometer axes.
      * @return FloatColumn
      */
     public FloatColumn getUBIJ() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_UBIJ"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_matrix_UBIJ"));
     }
 }

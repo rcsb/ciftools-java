@@ -1,5 +1,6 @@
 package org.rcsb.cif.schema.core;
 
+import org.rcsb.cif.model.*;
 import org.rcsb.cif.schema.*;
 
 import javax.annotation.Generated;

@@ -20,44 +20,39 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Total number of crystals used in the measurement of intensities.
      * @return IntColumn
      */
     public IntColumn getCrystalsNumber() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_crystals_number"));
+        return new DelegatingIntColumn(parentBlock.getColumn("exptl_crystals_number"));
     }
 
     /**
-     * 
      * The method used in the experiment.
      * @return StrColumn
      */
     public StrColumn getMethod() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_method"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_method"));
     }
 
     /**
-     * 
      * A description of special aspects of the experimental method.
      * @return StrColumn
      */
     public StrColumn getMethodDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_method_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_method_details"));
     }
 
     /**
-     * 
      * Details of the experiment prior to intensity measurement.
      * See also _exptl_crystal.preparation
      * @return StrColumn
      */
     public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_special_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_special_details"));
     }
 
     /**
-     * 
      * The calculated maximum value of the transmission factor for
      * the specimen. Its value does not include the effects of
      * absorption in the specimen mount. The presence of this
@@ -67,11 +62,10 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getTransmissionFactorMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_transmission_factor_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_max"));
     }
 
     /**
-     * 
      * The calculated minimum value of the transmission factor for
      * the specimen. Its value does not include the effects of
      * absorption in the specimen mount. The presence of this
@@ -81,6 +75,74 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getTransmissionFactorMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_transmission_factor_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_min"));
+    }
+
+    /**
+     * Description of the absorption correction process applied to the
+     * measured intensities. A literature reference should be supplied
+     * for psi-scan or multi-scan techniques.
+     * @return StrColumn
+     */
+    public StrColumn getAbsorptProcessDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_process_details"));
+    }
+
+    /**
+     * Absorption coefficient mu calculated from the atomic content of
+     * the cell, the density and the radiation wavelength.
+     * @return FloatColumn
+     */
+    public FloatColumn getAbsorptCoefficientMu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_coefficient_mu"));
+    }
+
+    /**
+     * Details of the experiment prior to intensity measurement.
+     * See also _exptl_crystal.preparation
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_special_details"));
+    }
+
+    /**
+     * Maximum transmission factor for the crystal and radiation applied
+     * to the measured intensities, it includes the correction for
+     * absorption by the specimen mount and diffractometer as well
+     * as by the specimen itself. These values give the transmission (T)
+     * factor by which measured intensities have been REDUCED due to
+     * absorption. Sometimes referred to as absorption correction A ori
+     * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
+     * by J.P. Glusker et al., Wiley)
+     * @return FloatColumn
+     */
+    public FloatColumn getAbsorptCorrectionTMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_min"));
+    }
+
+    /**
+     * Code identifying the absorption correction type and method.
+     * The 'empirical' approach should NOT be used if more detailed
+     * information on the crystal shape  is available.
+     * @return StrColumn
+     */
+    public StrColumn getAbsorptCorrectionType() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_correction_type"));
+    }
+
+    /**
+     * Maximum transmission factor for the crystal and radiation applied
+     * to the measured intensities, it includes the correction for
+     * absorption by the specimen mount and diffractometer as well
+     * as by the specimen itself. These values give the transmission (T)
+     * factor by which measured intensities have been REDUCED due to
+     * absorption. Sometimes referred to as absorption correction A or
+     * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
+     * by J.P. Glusker et al., Wiley)
+     * @return FloatColumn
+     */
+    public FloatColumn getAbsorptCorrectionTMax() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_max"));
     }
 }

@@ -19,66 +19,59 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_1"));
     }
 
     /**
-     * 
      * The unique identifier for the vertex atom of the angle.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_2"));
     }
 
     /**
-     * 
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabel3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_atom_site_label_3"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_3"));
     }
 
     /**
-     * 
      * The pair of distances between sites 1 - 2 and 2 - 3.
      * @return FloatColumn
      */
     public FloatColumn getDistances() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_distances"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_distances"));
     }
 
     /**
-     * 
      * Atom site labels and symmetry operators as pairs for each of the
      * three atom sites which identify the angle. The second label-symop
      * pair in the list identifies the site at the apex of the angle.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_id"));
     }
 
     /**
-     * 
      * Code signals if the angle is referred to in a publication or
      * should be placed in a table of significant angles.
      * @return StrColumn
      */
     public StrColumn getPublFlag() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_publ_flag"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_publ_flag"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -102,11 +95,10 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry1() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_1"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_site_symmetry_1"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -130,11 +122,10 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry2() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_2"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_site_symmetry_2"));
     }
 
     /**
-     * 
      * The set of data items which specify the symmetry operation codes
      * which must be applied to the atom sites involved in the geometry angle.
      * 
@@ -158,26 +149,59 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry3() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry_3"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_site_symmetry_3"));
     }
 
     /**
-     * 
      * Angle defined by the atoms located at atom_site_x/site_symmetry_x for
      * x = 1,2,3. The vertex atom is at site x = 2.
      * @return FloatColumn
      */
     public FloatColumn getValue() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_value"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * angle defined by the sites identified by _geom_angle.id
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_value_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_value_su"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId1() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_1"));
+    }
+
+    /**
+     * The unique identifier for the vertex atom of the angle.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId2() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_2"));
+    }
+
+    /**
+     * This label is a unique identifier for a particular site in the
+     * asymmetric unit of the crystal unit cell.
+     * @return StrColumn
+     */
+    public StrColumn getAtomSiteId3() {
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_angle_atom_site_label_3"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * angle defined by the sites identified by _geom_angle.id
+     * @return FloatColumn
+     */
+    public FloatColumn getValueEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_value_su"));
     }
 }

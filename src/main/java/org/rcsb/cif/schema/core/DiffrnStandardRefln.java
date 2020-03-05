@@ -20,49 +20,54 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
     }
 
     /**
-     * 
      * Code identifying a standard reflection used to monitor source
      * intensity variations or crystal degradation or movement during
      * data collection.
      * @return StrColumn
      */
     public StrColumn getCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_standard_refln_code"));
     }
 
     /**
-     * 
      * Miller indices of a standard reflection.
      * @return IntColumn
      */
     public IntColumn getHkl() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_hkl"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_refln_hkl"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexH() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_h"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_refln_index_h"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexK() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_k"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_refln_index_k"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getIndexL() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_index_l"));
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_standard_refln_index_l"));
+    }
+
+    /**
+     * Code identifying a standard reflection used to monitor source
+     * intensity variations or crystal degradation or movement during
+     * data collection.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrnId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_standard_refln_code"));
     }
 }

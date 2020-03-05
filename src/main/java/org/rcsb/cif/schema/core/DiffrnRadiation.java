@@ -21,55 +21,49 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * 
      * Description of the collimation or focusing applied to the radiation.
      * @return StrColumn
      */
     public StrColumn getCollimation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_collimation"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_collimation"));
     }
 
     /**
-     * 
      * Absorption edge of the radiation filter used.
      * @return FloatColumn
      */
     public FloatColumn getFilterEdge() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_filter_edge"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_filter_edge"));
     }
 
     /**
-     * 
      * Half-width of the incident beam perpendicular to the diffraction plane.
      * @return FloatColumn
      */
     public FloatColumn getInhomogeneity() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_inhomogeneity"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_inhomogeneity"));
     }
 
     /**
-     * 
      * Description of the method used to obtain monochromatic radiation.
      * If a monochromator crystal is used the material and the indices of
      * the Bragg reflection are specified.
      * @return StrColumn
      */
     public StrColumn getMonochromator() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_monochromator"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_monochromator"));
     }
 
     /**
-     * 
      * The angle, as viewed from the specimen, between the perpendicular
      * component of the polarisation and the diffraction plane.
      * @return FloatColumn
      */
     public FloatColumn getPolarisnNorm() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_polarisn_norm"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_polarisn_norm"));
     }
 
     /**
-     * 
      * Polarisation ratio of the diffraction beam incident on the crystal.
      * It is the ratio of the perpendicularly polarised to the parallel
      * polarised component of the radiation. The perpendicular component
@@ -79,34 +73,66 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getPolarisnRatio() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_polarisn_ratio"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_polarisn_ratio"));
     }
 
     /**
-     * 
      * Enumerated code for the nature of radiation used (i.e. name of
      * subatomic particle or region of the electromagnetic spectrum).
      * @return StrColumn
      */
     public StrColumn getProbe() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_probe"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_probe"));
     }
 
     /**
-     * 
      * Details of the radiation source or energy spectrum.
      * @return StrColumn
      */
     public StrColumn getType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_type"));
     }
 
     /**
-     * 
      * IUPAC symbol for the X-ray wavelength for probe radiation.
      * @return StrColumn
      */
     public StrColumn getXraySymbol() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_xray_symbol"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_xray_symbol"));
+    }
+
+    /**
+     * Method by which the radiation wavelength was determined.
+     * @return StrColumn
+     */
+    public StrColumn getWavelengthDetermination() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_determination"));
+    }
+
+    /**
+     * Code identifying a radiation used in the diffraction measurements.
+     * This is linked to _diffrn_refln.wavelength_id and _refln.wavelength_id
+     * @return StrColumn
+     */
+    public StrColumn getWavelengthId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_id"));
+    }
+
+    /**
+     * The maximum time between two detector signals that cannot be resolved.
+     * @return FloatColumn
+     */
+    public FloatColumn getDetectorDtime() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_detector_dtime"));
+    }
+
+    /**
+     * Information about the determination of the radiation
+     * diffrn_radiation_wavelength that is not conveyed completely by an
+     * enumerated value of _diffrn_radiation_wavelength.determination.
+     * @return StrColumn
+     */
+    public StrColumn getWavelengthDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_details"));
     }
 }

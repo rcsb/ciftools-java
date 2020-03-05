@@ -18,92 +18,82 @@ public class JournalDate extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Date the publication was accepted.
      * @return StrColumn
      */
     public StrColumn getAccepted() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_accepted"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_accepted"));
     }
 
     /**
-     * 
      * Date the publication recieved from coeditor.
      * @return StrColumn
      */
     public StrColumn getFromCoeditor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_from_coeditor"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_from_coeditor"));
     }
 
     /**
-     * 
      * Date the publication last sent to the printers.
      * @return StrColumn
      */
     public StrColumn getPrintersFinal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_printers_final"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_printers_final"));
     }
 
     /**
-     * 
      * Date the publication first sent to the printers.
      * @return StrColumn
      */
     public StrColumn getPrintersFirst() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_printers_first"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_printers_first"));
     }
 
     /**
-     * 
      * Date the publication proofs recieved.
      * @return StrColumn
      */
     public StrColumn getProofsIn() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_proofs_in"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_proofs_in"));
     }
 
     /**
-     * 
      * Date the publication proofs sent out.
      * @return StrColumn
      */
     public StrColumn getProofsOut() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_proofs_out"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_proofs_out"));
     }
 
     /**
-     * 
      * Date completed copyright recieved.
      * @return StrColumn
      */
     public StrColumn getRecdCopyright() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_recd_copyright"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_recd_copyright"));
     }
 
     /**
-     * 
      * Date publication recieved electronically.
      * @return StrColumn
      */
     public StrColumn getRecdElectronic() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_recd_electronic"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_recd_electronic"));
     }
 
     /**
-     * 
      * Date publication recieved as hard copy.
      * @return StrColumn
      */
     public StrColumn getRecdHardCopy() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_recd_hard_copy"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_recd_hard_copy"));
     }
 
     /**
-     * 
      * Date the publication sent to the coeditor.
      * @return StrColumn
      */
     public StrColumn getToCoeditor() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_to_coeditor"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_date_to_coeditor"));
     }
 }

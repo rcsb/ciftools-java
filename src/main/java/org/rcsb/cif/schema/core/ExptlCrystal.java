@@ -19,35 +19,31 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Colour description of a crystal as a list of the allowed
      * exptl_crystal_appearance states for general, intensity and hue.
      * @return StrColumn
      */
     public StrColumn getColour() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_colour"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_colour"));
     }
 
     /**
-     * 
      * Crystal density calculated from crystal unit cell and atomic content.
      * @return FloatColumn
      */
     public FloatColumn getDensityDiffrn() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_diffrn"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_diffrn"));
     }
 
     /**
-     * 
      * Crystal density measured using standard chemical and physical methods.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas"));
     }
 
     /**
-     * 
      * The value above which the density measured using standard
      * chemical and physical methods lies. This item is used only
      * when _exptl_crystal.density_meas cannot be employed. It is
@@ -56,11 +52,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_gt"));
     }
 
     /**
-     * 
      * The value below which the density measured using standard
      * chemical and physical methods lies. This item is used only
      * when _exptl_crystal.density_meas cannot be employed. It is
@@ -69,30 +64,27 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasLt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_lt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_lt"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * Crystal density measured using standard chemical and physical methods.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_su"));
     }
 
     /**
-     * 
      * Temperature at which _exptl_crystal.density_meas was determined.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTemp() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp"));
     }
 
     /**
-     * 
      * Temperature above which the measured density was determined.
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
@@ -100,11 +92,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_gt"));
     }
 
     /**
-     * 
      * Temperature below which the measured density was determined.
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
@@ -112,40 +103,36 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempLt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_lt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * Temperature at which _exptl_crystal.density_meas was determined.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_meas_temp_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_su"));
     }
 
     /**
-     * 
      * Description of method used to measure _exptl_crystal.density_meas.
      * @return StrColumn
      */
     public StrColumn getDensityMethod() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_density_method"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_density_method"));
     }
 
     /**
-     * 
      * Description of the quality and habit of the crystal. The crystal
      * dimensions should be provided using the exptl_crystal.size_* datanames.
      * @return StrColumn
      */
     public StrColumn getDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_description"));
     }
 
     /**
-     * 
      * Number of electrons in the crystal unit cell contributing to F(000).
      * It may contain dispersion contributions, and is calculated as
      * 
@@ -164,39 +151,35 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getF000() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_F_000"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_F_000"));
     }
 
     /**
-     * 
      * Code identifying a crystal.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_id"));
     }
 
     /**
-     * 
      * Details of crystal growth and preparation of the crystals
      * (e.g.  mounting) prior to the intensity measurements.
      * @return StrColumn
      */
     public StrColumn getPreparation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_preparation"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_preparation"));
     }
 
     /**
-     * 
      * Details concerning the pressure history of the crystals.
      * @return StrColumn
      */
     public StrColumn getPressureHistory() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_pressure_history"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_pressure_history"));
     }
 
     /**
-     * 
      * Method used to recrystallize the sample. Sufficient details should
      * be given for the procedure to be repeated. Temperatures, solvents,
      * flux or carrier gases with concentrations or pressures and ambient
@@ -204,60 +187,97 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getRecrystallizationMethod() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_recrystallization_method"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_recrystallization_method"));
     }
 
     /**
-     * 
      * The length of needle/cylindrical crystals.
      * @return FloatColumn
      */
     public FloatColumn getSizeLength() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_length"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_length"));
     }
 
     /**
-     * 
      * The maximum dimension of a crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_max"));
     }
 
     /**
-     * 
      * The median dimension of a crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeMid() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_mid"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_mid"));
     }
 
     /**
-     * 
      * The minimum dimension of a crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_min"));
     }
 
     /**
-     * 
      * The radius of a spherical or cylindrical crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeRad() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_size_rad"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_rad"));
     }
 
     /**
-     * 
      * Details concerning the thermal history of the crystals.
      * @return StrColumn
      */
     public StrColumn getThermalHistory() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_thermal_history"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_thermal_history"));
+    }
+
+    /**
+     * Colour hue of the crystals as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getColourPrimary() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_hue"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Crystal density measured using standard chemical and physical methods.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_su"));
+    }
+
+    /**
+     * Colour intensity of the crystal as prescribed state codes.
+     * @return StrColumn
+     */
+    public StrColumn getColourModifier() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_intensity"));
+    }
+
+    /**
+     * Appearance of the crystal as prescribed state codes. Note that 'dull'
+     * and 'clear' should no longer be used.
+     * @return StrColumn
+     */
+    public StrColumn getColourLustre() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_appearance_general"));
+    }
+
+    /**
+     * Standard Uncertainty of the
+     * Temperature at which _exptl_crystal.density_meas was determined.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasTempEsd() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_su"));
     }
 }

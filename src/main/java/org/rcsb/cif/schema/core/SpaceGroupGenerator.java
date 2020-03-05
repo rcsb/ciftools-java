@@ -19,17 +19,15 @@ public class SpaceGroupGenerator extends DelegatingCategory.DelegatingCifCoreCat
     }
 
     /**
-     * 
      * Arbitrary identifier for each entry in the _space_group_generator.xyz
      * list.
      * @return StrColumn
      */
     public StrColumn getKey() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_key"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_generator_key"));
     }
 
     /**
-     * 
      * A parsable string giving one of the symmetry generators of the
      * space group in algebraic form.  If W is a matrix representation
      * of the rotational part of the generator defined by the positions
@@ -59,6 +57,6 @@ public class SpaceGroupGenerator extends DelegatingCategory.DelegatingCifCoreCat
      * @return StrColumn
      */
     public StrColumn getXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_xyz"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_generator_xyz"));
     }
 }

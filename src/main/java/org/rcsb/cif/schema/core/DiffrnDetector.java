@@ -19,47 +19,58 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * 
      * The resolution limit of an area diffraction radiation detector.
      * @return FloatColumn
      */
     public FloatColumn getAreaResolMean() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_area_resol_mean"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_detector_area_resol_mean"));
     }
 
     /**
-     * 
      * Description of the type of diffraction radiation detector.
      * @return StrColumn
      */
     public StrColumn getDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_detector_description"));
     }
 
     /**
-     * 
      * Description of special aspects of the radiation detector.
      * @return StrColumn
      */
     public StrColumn getDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_detector_details"));
     }
 
     /**
-     * 
      * The maximum time between two detector signals that cannot be resolved.
      * @return FloatColumn
      */
     public FloatColumn getDtime() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_dtime"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_detector_dtime"));
     }
 
     /**
-     * 
      * The make, model or name of the diffraction radiation detector.
      * @return StrColumn
      */
     public StrColumn getMake() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_make"));
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_detector_make"));
+    }
+
+    /**
+     * Description of the type of diffraction radiation detector.
+     * @return StrColumn
+     */
+    public StrColumn getDetector() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_detector_description"));
+    }
+
+    /**
+     * The make, model or name of the diffraction radiation detector.
+     * @return StrColumn
+     */
+    public StrColumn getType() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_detector_make"));
     }
 }

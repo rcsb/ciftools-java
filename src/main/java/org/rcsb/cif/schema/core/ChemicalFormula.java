@@ -60,17 +60,15 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * 
      * Formula determined by standard chemical analysis including trace
      * elements. Parentheses are used only for standard uncertainties (su's).
      * @return StrColumn
      */
     public StrColumn getAnalytical() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_analytical"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_formula_analytical"));
     }
 
     /**
-     * 
      * Formula expressed in conformance with IUPAC rules for inorganic
      * and metal-organic compounds where these conflict with the rules
      * for any other chemical_formula entries. Typically used for
@@ -82,11 +80,10 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
      * @return StrColumn
      */
     public StrColumn getIupac() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_iupac"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_formula_iupac"));
     }
 
     /**
-     * 
      * Formula with each discrete bonded residue or ion shown as a
      * separate moiety. See above CHEMICAL_FORMULA for rules
      * for writing chemical formulae. In addition to the general
@@ -104,11 +101,10 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
      * @return StrColumn
      */
     public StrColumn getMoiety() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_moiety"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_formula_moiety"));
     }
 
     /**
-     * 
      * This formula should correspond to the structure as reported, i.e.
      * trace elements not included in atom type and atom site lists should
      * not be included. See category description for the rules for writing
@@ -123,37 +119,34 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
      * @return StrColumn
      */
     public StrColumn getStructural() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_structural"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_formula_structural"));
     }
 
     /**
-     * 
      * Chemical formulae in which all discrete bonded residues and ions are
      * summed over the constituent elements, following the ordering given
      * in rule 5 of the CATEGORY description. Parentheses normally not used.
      * @return StrColumn
      */
     public StrColumn getSum() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_sum"));
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_formula_sum"));
     }
 
     /**
-     * 
      * Mass corresponding to the formulae _chemical_formula.structural,
      * *_iupac, *_moiety or *_sum and, together with the Z value and cell
      * parameters yield the density given as _exptl_crystal.density_diffrn.
      * @return FloatColumn
      */
     public FloatColumn getWeight() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_weight"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_formula_weight"));
     }
 
     /**
-     * 
      * Formula mass measured by a non-diffraction experiment.
      * @return FloatColumn
      */
     public FloatColumn getWeightMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_weight_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_formula_weight_meas"));
     }
 }

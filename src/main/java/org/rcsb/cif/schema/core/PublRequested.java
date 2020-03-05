@@ -19,7 +19,6 @@ public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory 
     }
 
     /**
-     * 
      * The category of paper submitted. For submission to Acta
      * Crystallographica Section C or Acta Crystallographica
      * Section E, ONLY those codes indicated for use with those
@@ -27,25 +26,23 @@ public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return StrColumn
      */
     public StrColumn getCategory() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_category"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_requested_category"));
     }
 
     /**
-     * 
      * The name of the Co-editor whom the authors would like to
      * process the submitted manuscript.
      * @return StrColumn
      */
     public StrColumn getCoeditorName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_coeditor_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_requested_coeditor_name"));
     }
 
     /**
-     * 
      * Name of the journal to which the manuscript is being submitted.
      * @return StrColumn
      */
     public StrColumn getJournal() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_journal"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_requested_journal"));
     }
 }

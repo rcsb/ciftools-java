@@ -22,52 +22,47 @@ public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * 
      * An identifer for this database reference
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_id"));
     }
 
     /**
-     * 
      * An identifier for the database that contains the
      * related dataset.
      * @return StrColumn
      */
     public StrColumn getDatabaseId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_database_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_database_id"));
     }
 
     /**
-     * 
      * The code used by the database referred to in
      * _database_related.database_id to identify the
      * related dataset.
      * @return StrColumn
      */
     public StrColumn getEntryCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_entry_code"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_entry_code"));
     }
 
     /**
-     * 
      * The general relationship of the data in the data block
      * to the dataset referred to in the database.
      * @return StrColumn
      */
     public StrColumn getRelation() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_relation"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_relation"));
     }
 
     /**
-     * 
      * Information about the external dataset and relationship not encoded
      * elsewhere.
      * @return StrColumn
      */
     public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_special_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_special_details"));
     }
 }

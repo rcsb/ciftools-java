@@ -21,7 +21,6 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * 
      * Coordinates of one site of a Wyckoff position expressed in
      * terms of its fractional coordinates (x,y,z) in the unit cell.
      * To generate the coordinates of all sites of this Wyckoff
@@ -30,20 +29,18 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getCoordsXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_coords_xyz"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_wyckoff_coords_xyz"));
     }
 
     /**
-     * 
      * An arbitrary code that is unique to a particular Wyckoff position.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_wyckoff_id"));
     }
 
     /**
-     * 
      * The Wyckoff letter associated with this position, as given in
      * International Tables for Crystallography Volume A. The
      * enumeration value '\a' corresponds to the Greek letter 'alpha'
@@ -55,11 +52,10 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getLetter() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_letter"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_wyckoff_letter"));
     }
 
     /**
-     * 
      * The multiplicity of this Wyckoff position as given in
      * International Tables Volume A.  It is the number of equivalent
      * sites per conventional unit cell.
@@ -70,11 +66,10 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
      * @return IntColumn
      */
     public IntColumn getMultiplicity() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_multiplicity"));
+        return new DelegatingIntColumn(parentBlock.getColumn("space_group_wyckoff_multiplicity"));
     }
 
     /**
-     * 
      * The subgroup of the space group that leaves the point fixed.
      * It is isomorphic to a subgroup of the point group of the
      * space group. The site-symmetry symbol indicates the symmetry
@@ -88,6 +83,6 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getSiteSymmetry() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_site_symmetry"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_wyckoff_site_symmetry"));
     }
 }

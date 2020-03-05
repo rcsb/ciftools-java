@@ -18,18 +18,16 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The address of an author of this data block. If there are
      * multiple authors, _audit_author.address is looped with
      * _audit_author.name.
      * @return StrColumn
      */
     public StrColumn getAddress() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_address"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_address"));
     }
 
     /**
-     * 
      * The name of an author of this data block. If there are multiple
      * authors, _audit_author.name is looped with _audit_author.address.
      * The family name(s), followed by a comma and including any
@@ -37,6 +35,6 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_name"));
     }
 }

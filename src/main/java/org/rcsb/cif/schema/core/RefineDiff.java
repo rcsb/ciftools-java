@@ -21,45 +21,40 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Maximum density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_max"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * Maximum density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMaxSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_max_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_max_su"));
     }
 
     /**
-     * 
      * Miniumum density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_min"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * Miniumum density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMinSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_min_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_min_su"));
     }
 
     /**
-     * 
      * Root mean square density value in a difference Fourier map.
      * This value is measured with respect to the arithmetic mean
      * density and is derived from summations over each grid point
@@ -69,16 +64,15 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRms() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_rms"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms"));
     }
 
     /**
-     * 
      * Standard Uncertainty of the
      * Root mean square density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_density_rms_su"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms_su"));
     }
 }

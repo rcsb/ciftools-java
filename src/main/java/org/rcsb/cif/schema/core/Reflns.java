@@ -24,38 +24,34 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Yes or No flag on whether the anomalous dispersion scattering
      * components will be applied in the F complex calculation.
      * See _refln.F_complex
      * @return StrColumn
      */
     public StrColumn getApplyDispersionToFcalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_apply_dispersion_to_Fcalc"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_apply_dispersion_to_Fcalc"));
     }
 
     /**
-     * 
      * Highest resolution for the final REFLN data set.
      * This corresponds to the smallest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionHigh() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_resolution_high"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_d_resolution_high"));
     }
 
     /**
-     * 
      * Lowest resolution for the final REFLN data set.
      * This corresponds to the largest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionLow() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_d_resolution_low"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_d_resolution_low"));
     }
 
     /**
-     * 
      * The proportion of Friedel related reflections present in the number of
      * the 'independent reflections' specified by the item _reflns.number_total.
      * 
@@ -90,11 +86,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelCoverage() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_coverage"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_coverage"));
     }
 
     /**
-     * 
      * The ratio of Friedel pairs measured to _diffrn_reflns.theta_full
      * to the number theoretically possible (ignoring reflections in
      * centric projections and systematic absences throughout).
@@ -106,11 +101,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelFractionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_fraction_full"));
     }
 
     /**
-     * 
      * The ratio of Friedel pairs measured to _diffrn_reflns.theta_max
      * to the number theoretically possible (ignoring reflections in
      * centric projections and systematic absences throughout).
@@ -122,74 +116,66 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelFractionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Friedel_fraction_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_fraction_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitHMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_h_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitHMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_h_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_h_min"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitKMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_k_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitKMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_k_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_k_min"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitLMax() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_max"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_l_max"));
     }
 
     /**
-     * 
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
     public IntColumn getLimitLMin() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_limit_l_min"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_l_min"));
     }
 
     /**
-     * 
      * Maximum Miller indices of refined diffraction reflections.
      * @return FloatColumn
      */
     public FloatColumn getLimitMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_limit_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_limit_max"));
     }
 
     /**
-     * 
      * Count of reflections in the REFLN set (not the DIFFRN_REFLN set) which
      * are significantly intense (see _reflns.threshold_expression). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
@@ -198,11 +184,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberGt() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_gt"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_number_gt"));
     }
 
     /**
-     * 
      * Number of reflections in the REFLN set (not the DIFFRN_REFLN set). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
@@ -210,28 +195,69 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return IntColumn
      */
     public IntColumn getNumberTotal() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_number_total"));
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_number_total"));
     }
 
     /**
-     * 
      * Description of the properties of the REFLN reflection list that is not
      * given in other data items. Should include details about the averaging
      * of symmetry-equivalent reflections including Friedel pairs.
      * @return StrColumn
      */
     public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_special_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_special_details"));
     }
 
     /**
-     * 
      * Description of the criterion used to classify a reflection as having a
      * "significant intensity". This criterion is usually expressed in terms
      * of a u(I) or u(F) threshold. "u" is the standard uncertainty.
      * @return StrColumn
      */
     public StrColumn getThresholdExpression() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_threshold_expression"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_threshold_expression"));
+    }
+
+    /**
+     * Description of the criterion used to classify a reflection as having a
+     * "significant intensity". This criterion is usually expressed in terms
+     * of a u(I) or u(F) threshold. "u" is the standard uncertainty.
+     * @return StrColumn
+     */
+    public StrColumn getObservedCriterion() {
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_threshold_expression"));
+    }
+
+    /**
+     * Count of reflections in the REFLN set (not the DIFFRN_REFLN set) which
+     * are significantly intense (see _reflns.threshold_expression). It may
+     * include Friedel equivalent reflections (i.e. those which are equivalent
+     * under the Laue symmetry but inequivalent under the crystal class),
+     * depending to the nature of the structure and the procedures used.
+     * @return IntColumn
+     */
+    public IntColumn getNumberObs() {
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_number_gt"));
+    }
+
+    /**
+     * Description of the properties of the REFLN reflection list that is not
+     * given in other data items. Should include details about the averaging
+     * of symmetry-equivalent reflections including Friedel pairs.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_special_details"));
+    }
+
+    /**
+     * Number of reflections in the REFLN set (not the DIFFRN_REFLN set). It may
+     * include Friedel equivalent reflections (i.e. those which are equivalent
+     * under the Laue symmetry but inequivalent under the crystal class),
+     * depending to the nature of the structure and the procedures used.
+     * @return IntColumn
+     */
+    public IntColumn getNumberAll() {
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_number_total"));
     }
 }

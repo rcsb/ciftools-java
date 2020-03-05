@@ -23,155 +23,138 @@ public class PublSection extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * The abstract of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getAbstract() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_abstract"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_abstract"));
     }
 
     /**
-     * 
      * The acknowledgements section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getAcknowledgements() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_acknowledgements"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_acknowledgements"));
     }
 
     /**
-     * 
      * The comment section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getComment() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_comment"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_comment"));
     }
 
     /**
-     * 
      * The discussion section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getDiscussion() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_discussion"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_discussion"));
     }
 
     /**
-     * 
      * The experimental section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getExperimental() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_experimental"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_experimental"));
     }
 
     /**
-     * 
      * The experimental preparation section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getExptlPrep() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_exptl_prep"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_exptl_prep"));
     }
 
     /**
-     * 
      * The experimental refinement section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getExptlRefinement() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_exptl_refinement"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_exptl_refinement"));
     }
 
     /**
-     * 
      * The experimental solution section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getExptlSolution() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_exptl_solution"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_exptl_solution"));
     }
 
     /**
-     * 
      * The figure captions of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getFigureCaptions() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_figure_captions"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_figure_captions"));
     }
 
     /**
-     * 
      * The introduction section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getIntroduction() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_introduction"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_introduction"));
     }
 
     /**
-     * 
      * The keywords of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getKeywords() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_keywords"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_keywords"));
     }
 
     /**
-     * 
      * The references section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getReferences() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_references"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_references"));
     }
 
     /**
-     * 
      * The related literature section of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getRelatedLiterature() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_related_literature"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_related_literature"));
     }
 
     /**
-     * 
      * The synopsis of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getSynopsis() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_synopsis"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_synopsis"));
     }
 
     /**
-     * 
      * The table legends of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getTableLegends() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_table_legends"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_table_legends"));
     }
 
     /**
-     * 
      * The full title of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getTitle() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_title"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_title"));
     }
 
     /**
-     * 
      * Footnote (if any) to the title of the submitted paper.
      * @return StrColumn
      */
     public StrColumn getTitleFootnote() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_title_footnote"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_section_title_footnote"));
     }
 }

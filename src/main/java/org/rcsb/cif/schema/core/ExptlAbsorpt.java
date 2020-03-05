@@ -20,17 +20,15 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Absorption coefficient mu calculated from the atomic content of
      * the cell, the density and the radiation wavelength.
      * @return FloatColumn
      */
     public FloatColumn getCoefficientMu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_coefficient_mu"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_coefficient_mu"));
     }
 
     /**
-     * 
      * Maximum transmission factor for the crystal and radiation applied
      * to the measured intensities, it includes the correction for
      * absorption by the specimen mount and diffractometer as well
@@ -42,11 +40,10 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCorrectionTMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_correction_T_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_max"));
     }
 
     /**
-     * 
      * Maximum transmission factor for the crystal and radiation applied
      * to the measured intensities, it includes the correction for
      * absorption by the specimen mount and diffractometer as well
@@ -58,28 +55,26 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCorrectionTMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_correction_T_min"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_min"));
     }
 
     /**
-     * 
      * Code identifying the absorption correction type and method.
      * The 'empirical' approach should NOT be used if more detailed
      * information on the crystal shape  is available.
      * @return StrColumn
      */
     public StrColumn getCorrectionType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_correction_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_correction_type"));
     }
 
     /**
-     * 
      * Description of the absorption correction process applied to the
      * measured intensities. A literature reference should be supplied
      * for psi-scan or multi-scan techniques.
      * @return StrColumn
      */
     public StrColumn getProcessDetails() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_process_details"));
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_process_details"));
     }
 }

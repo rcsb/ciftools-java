@@ -19,7 +19,6 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * 
      * Index identifying each entry in the _space_group_symop.operation_xyz
      * list. It is normally the sequence number of the entry in that
      * list, and should be identified with the code 'n' in the geometry
@@ -29,11 +28,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return IntColumn
      */
     public IntColumn getId() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingIntColumn(parentBlock.getColumn("space_group_symop_id"));
     }
 
     /**
-     * 
      * A parsable string giving one of the symmetry operations of the
      * space group in algebraic form.  If W is a matrix representation
      * of the rotational part of the symmetry operation defined by the
@@ -62,21 +60,19 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return StrColumn
      */
     public StrColumn getOperationXyz() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_operation_xyz"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_symop_operation_xyz"));
     }
 
     /**
-     * 
      * An optional text description of a particular symmetry operation
      * of the space group.
      * @return StrColumn
      */
     public StrColumn getOperationDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_operation_description"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_symop_operation_description"));
     }
 
     /**
-     * 
      * A matrix containing the symmetry rotation operations of a space group
      * 
      * |  r11  r12  r13  |
@@ -85,11 +81,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getR() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_R"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_R"));
     }
 
     /**
-     * 
      * The TRANSPOSE of the symmetry rotation matrix representing the point
      * group opertions of the space group
      * 
@@ -99,11 +94,10 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getRT() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_RT"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_RT"));
     }
 
     /**
-     * 
      * A matrix containing the symmetry operations of a space group
      * in 4x4 Seitz format.
      * 
@@ -114,15 +108,14 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getSeitzMatrix() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_Seitz_matrix"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_Seitz_matrix"));
     }
 
     /**
-     * 
      * A vector containing the symmetry translation operations of a space group.
      * @return FloatColumn
      */
     public FloatColumn getT() {
-        return new DelegatingFloatColumn(parentBlock.getColumn(NAME + "_T"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_T"));
     }
 }

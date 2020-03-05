@@ -18,38 +18,34 @@ public class JournalIndex extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Index number identifier of the JOURNAL_INDEX category.
      * @return IntColumn
      */
     public IntColumn getId() {
-        return new DelegatingIntColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingIntColumn(parentBlock.getColumn("journal_index_id"));
     }
 
     /**
-     * 
      * Sub-term index assigned for the publication.
      * @return StrColumn
      */
     public StrColumn getSubterm() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_subterm"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_index_subterm"));
     }
 
     /**
-     * 
      * Term index assigned for the publication.
      * @return StrColumn
      */
     public StrColumn getTerm() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_term"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_index_term"));
     }
 
     /**
-     * 
      * Type of index assigned for the publication.
      * @return StrColumn
      */
     public StrColumn getType() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_index_type"));
     }
 }

@@ -333,26 +333,27 @@ public class SchemaGenerator {
             categoryBuilder.add("        public " + baseClassName + "Builder<" + categoryClassName + "Builder, " + name + "BlockBuilder, " + name + "FileBuilder> enter" + columnClassName + "() {");
             categoryBuilder.add("            return new " + getBaseClass(column.getType()).getSimpleName() + "BuilderImpl<>(CATEGORY_NAME, \"" + columnName + "\", this);");
             categoryBuilder.add("        }");
-
-            Set<String> processed = new HashSet<>();
-            aliases.entrySet().stream()
-                    .filter(e -> e.getKey().split("\\.")[0].equals(categoryName))
-                    .forEach(aliasEntry -> {
-                        String source = aliasEntry.getKey();
-                        String target = aliasEntry.getValue();
-
-                        String ccn = toClassName(source.split("\\.")[1]);
-                        String[] ts = target.split("\\.");
-                        Col c = (Col) schema.get(ts[0]).getColumns().get(ts[1]);
-                        String bcn = getBaseClass(c.getType()).getSimpleName();
-                        String dbcn = getDelegatingBaseClass(c.getType()).getSimpleName();
-
-                        writeColumnGetter(getters, c, bcn, ccn, categoryName, columnName, dbcn, target.replace(".", "_"));
-                        processed.add(source);
-                    });
-            // remove processed entries
-            processed.forEach(aliases::remove);
         }
+
+        // TODO duplicated methods
+        Set<String> processed = new HashSet<>();
+        aliases.entrySet().stream()
+                .filter(e -> e.getKey().split("\\.")[0].equals(categoryName))
+                .forEach(aliasEntry -> {
+                    String source = aliasEntry.getKey();
+                    String target = aliasEntry.getValue();
+
+                    String ccn = toClassName(source.split("\\.")[1]);
+                    String[] ts = target.split("\\.");
+                    Col c = (Col) schema.get(ts[0]).getColumns().get(ts[1]);
+                    String bcn = getBaseClass(c.getType()).getSimpleName();
+                    String dbcn = getDelegatingBaseClass(c.getType()).getSimpleName();
+
+                    writeColumnGetter(getters, c, bcn, ccn, categoryName, null, dbcn, target.replace(".", "_"));
+                    processed.add(source);
+                });
+        // remove processed entries
+        processed.forEach(aliases::remove);
 
         // constructor
         if (!flat) {
@@ -398,7 +399,7 @@ public class SchemaGenerator {
         if (!flat) {
             getters.add("        return delegate.getColumn(\"" + columnName + "\", " + delegatingBaseClassName + "::new);");
         } else {
-            getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(" + (alias == null ? "\"" + categoryName + "_" + columnName + "\"" : "\"" + alias + "\"") + ");");
+            getters.add("        return new " + delegatingBaseClassName + "(parentBlock.getColumn(" + (alias == null ? "\"" + categoryName + "_" + columnName + "\"" : "\"" + alias + "\"") + "));");
         }
         getters.add("    }");
         getters.add("");
@@ -868,6 +869,7 @@ public class SchemaGenerator {
     }
 
     private void prepareAliases() {
+        // filter and flip aliases
         rawAliases.entrySet()
                 .stream()
                 .flatMap(entry -> {
@@ -886,11 +888,21 @@ public class SchemaGenerator {
                         return Stream.empty();
                     }
 
-                    System.out.println(sources + " -> " + target);
-
                     return sources.stream()
                             .map(source -> new String[] { source, target });
                 })
                 .forEach(entry -> aliases.put(entry[0], entry[1]));
+
+        // ensure new categories
+        aliases.entrySet()
+                .stream()
+                .filter(entry -> !schema.containsKey(entry.getKey().split("\\.")[0]))
+                .forEach(entry -> {
+                    System.out.println(entry);
+                    String[] keySplit = entry.getKey().split("\\.");
+                    String categoryName = keySplit[0];
+
+                    Table table = schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
+                });
     }
 }

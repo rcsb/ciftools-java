@@ -18,21 +18,19 @@ public class ValenceRef extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * 
      * Unique loop code of the valence references.
      * @return StrColumn
      */
     public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_id"));
+        return new DelegatingStrColumn(parentBlock.getColumn("valence_ref_id"));
     }
 
     /**
-     * 
      * Literature reference from which the valence parameters
      * identified by _valence_param.id were taken
      * @return StrColumn
      */
     public StrColumn getReference() {
-        return new DelegatingStrColumn(parentBlock.getColumn(NAME + "_reference"));
+        return new DelegatingStrColumn(parentBlock.getColumn("valence_ref_reference"));
     }
 }
