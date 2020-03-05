@@ -77,24 +77,35 @@ public class NonMmcifFormatTest {
 
         CifCoreBlock secondBlock = CifBuilder.enterFile(StandardSchemata.CIF_CORE)
                 .enterBlock("test")
-//                .enterSymmetry()
-//                .enterCellSetting()
-//                .add("monoclinic")
-//                .leaveColumn()
-//                .leaveCategory()
-//                .enterSpaceGroup()
-//                .enterNameH_MFull()
-//                .add("P 21/c")
-//                .leaveColumn()
-//                .enterITNumber()
-//                .add(14)
-//                .leaveColumn()
-//                .leaveCategory()
+                .enterSymmetry()
+                .enterCellSetting()
+                .add("monoclinic")
+                .leaveColumn()
+                .leaveCategory()
+                .enterSymmetry()
+                .enterSpaceGroupNameH_M()
+                .add("P 21/c")
+                .leaveColumn()
+                .enterIntTablesNumber()
+                .add(14)
+                .leaveColumn()
+                .leaveCategory()
                 .leaveBlock()
                 .leaveFile()
                 .getFirstBlock();
-
         assertAliases(secondBlock);
+
+        // ensure that aliased builder methods exist
+        CifBuilder.enterFile(StandardSchemata.CIF_CORE)
+                .enterBlock("")
+                .enterSpaceGroup()
+                .enterNameH_MFull()
+                .leaveColumn()
+                .enterITNumber()
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
     }
 
     private void assertAliases(CifCoreBlock firstBlock) {
