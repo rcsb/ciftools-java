@@ -223,7 +223,6 @@ public class Software extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal index for this category
      * @return IntColumn
      */

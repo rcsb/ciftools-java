@@ -146,7 +146,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial insertion code of the sequence segment of the
      * reference database.
      * @return StrColumn
@@ -156,7 +155,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending insertion code of the sequence segment of the
      * reference database.
      * @return StrColumn
@@ -174,7 +172,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial position in the PDB sequence segment.
      * @return StrColumn
      */
@@ -183,7 +180,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending position in the PDB sequence segment
      * @return StrColumn
      */
@@ -192,7 +188,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial insertion code of the PDB sequence segment.
      * @return StrColumn
      */
@@ -201,7 +196,6 @@ public class StructRefSeq extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending insertion code of the sequence segment
      * @return StrColumn
      */

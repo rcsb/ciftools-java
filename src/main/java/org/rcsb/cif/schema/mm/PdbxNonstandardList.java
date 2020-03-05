@@ -56,7 +56,6 @@ public class PdbxNonstandardList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Chain id of the nonstandard group used by the author.
      * @return StrColumn
      */
@@ -65,7 +64,6 @@ public class PdbxNonstandardList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Residue number of the nonstandard group used by the
      * author.
      * @return StrColumn

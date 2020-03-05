@@ -50,7 +50,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * An integer value that specifies the dimension of a multidimensional NMR
      * spectrum.
      * @return IntColumn
@@ -60,7 +59,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value for this tag is a standard IUPAC abbreviation for an element
      * (i.e., H, C, N, P, etc).
      * @return StrColumn
@@ -70,7 +68,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The mass number for the specified atom.
      * @return IntColumn
      */
@@ -79,7 +76,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * A code defining the type of nuclei that would be expected to be observed
      * in the spectral region observed in the dimension of the spectrum.
      * @return StrColumn
@@ -89,7 +85,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The magnetization linkage ID is used to designate dimensions of a multidimensional
      * NMR experiment where the nuclei observed in the dimensions are directly
      * linked by a one bond scalar coupling. For example, the amide proton and amide
@@ -101,7 +96,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The width of the spectral window observed in Hz.
      * @return FloatColumn
      */
@@ -110,7 +104,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * Code describing how information from one spectral dimension has been encoded
      * in another dimension in for example a reduced dimensionality experiment.
      * @return StrColumn
@@ -120,7 +113,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_spectral_dim.id'. The spectral dimension in a reduced dimensionality experiment that is the
      * source of the magnetization that has been encoded.
      * @return IntColumn
@@ -130,7 +122,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -139,7 +130,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_spectral_peak_list.id'
      * @return IntColumn
      */
@@ -148,7 +138,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The units for the sweep width value (Hz or ppm)
      * @return StrColumn
      */
@@ -157,7 +146,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The center frequency offset for the spectral dimension specified.
      * @return FloatColumn
      */
@@ -166,7 +154,6 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     }
 
     /**
-     * 
      * The type of spectral folding/aliasing that was used or occurred when the spectrum was collected.
      * @return StrColumn
      */

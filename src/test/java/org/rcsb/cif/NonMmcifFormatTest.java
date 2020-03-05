@@ -73,12 +73,36 @@ public class NonMmcifFormatTest {
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/CBMZPN01.cif"));
         CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
 
+        assertAliases(firstBlock);
+
+        CifCoreBlock secondBlock = CifBuilder.enterFile(StandardSchemata.CIF_CORE)
+                .enterBlock("test")
+//                .enterSymmetry()
+//                .enterCellSetting()
+//                .add("monoclinic")
+//                .leaveColumn()
+//                .leaveCategory()
+//                .enterSpaceGroup()
+//                .enterNameH_MFull()
+//                .add("P 21/c")
+//                .leaveColumn()
+//                .enterITNumber()
+//                .add(14)
+//                .leaveColumn()
+//                .leaveCategory()
+                .leaveBlock()
+                .leaveFile()
+                .getFirstBlock();
+
+        assertAliases(secondBlock);
+    }
+
+    private void assertAliases(CifCoreBlock firstBlock) {
         /*
         _symmetry_cell_setting           monoclinic
         _symmetry_space_group_name_H-M   'P 21/c'
         _symmetry_Int_Tables_number      14
          */
-
         assertEquals("monoclinic", firstBlock.getSymmetry().getCellSetting().get(0));
         assertEquals("monoclinic", firstBlock.getSymmetry().getColumn("cell_setting").getStringData(0));
 

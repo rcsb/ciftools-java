@@ -39,7 +39,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * Assign a numerical ID to each instrument.
      * @return StrColumn
      */
@@ -48,7 +47,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * The model of the NMR spectrometer.
      * @return StrColumn
      */
@@ -57,7 +55,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * Select the instrument manufacturer(s) and the model(s) of the NMR(s)
      * used for this work.
      * @return StrColumn
@@ -67,7 +64,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * The name of the manufacturer of the spectrometer.
      * @return StrColumn
      */
@@ -76,7 +72,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * Select the field strength for protons in MHz.
      * @return FloatColumn
      */
@@ -85,7 +80,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * A text description of the NMR spectrometer.
      * @return StrColumn
      */
@@ -94,7 +88,6 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * 
      * A label that uniquely identifies the NMR spectrometer from other spectrometers
      * listed in the entry.
      * @return StrColumn

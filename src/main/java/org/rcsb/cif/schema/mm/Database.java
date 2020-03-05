@@ -181,7 +181,6 @@ public class Database extends DelegatingCategory {
     }
 
     /**
-     * 
      * The code assigned by the NDB.
      * @return StrColumn
      */
@@ -190,7 +189,6 @@ public class Database extends DelegatingCategory {
     }
 
     /**
-     * 
      * The code assigned by the PDB.
      * @return StrColumn
      */
@@ -199,7 +197,6 @@ public class Database extends DelegatingCategory {
     }
 
     /**
-     * 
      * The codes of related PDB entries.
      * @return StrColumn
      */

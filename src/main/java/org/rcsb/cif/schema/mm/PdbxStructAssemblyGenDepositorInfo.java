@@ -104,7 +104,6 @@ public class PdbxStructAssemblyGenDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * 
      * This item expresses the transformation
      * on an X, Y and Z basis.
      * @return StrColumn

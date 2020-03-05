@@ -54,7 +54,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 13C chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -66,7 +65,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 15N chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -78,7 +76,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 19F chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -90,7 +87,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 1H chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -102,7 +98,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 2H chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -114,7 +109,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value assigned as the error for all 31P chemical shifts reported in
      * the chemical shift list.  The value reported for this tag will be inserted during annotation
      * into the assigned chemical shift error column in the table of assigned chemical
@@ -126,7 +120,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_chem_shift_reference.id'
      * @return IntColumn
      */
@@ -135,7 +128,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl_sample_conditions.conditions_id'
      * @return IntColumn
      */
@@ -144,7 +136,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The name of the file submitted with a deposition that contains the quantitative
      * chemical shift data.
      * @return StrColumn
@@ -154,7 +145,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Text describing the reported assigned chemical shifts.
      * @return StrColumn
      */
@@ -163,7 +153,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.ID'
      * @return StrColumn
      */
@@ -172,7 +161,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Method used to derive the estimated error in the reported chemical shifts.
      * @return StrColumn
      */
@@ -181,7 +169,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * An integer value that uniquely identifies a list of assigned chemical
      * shifts from other sets of assigned chemical shifts in the entry.
      * @return IntColumn
@@ -191,7 +178,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * A descriptive label that uniquely identifies a list of reported assigned chemical shifts.
      * @return StrColumn
      */
@@ -200,7 +186,6 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to 'pdbx_nmr_exptl_sample_conditions.label'.
      * @return StrColumn
      */

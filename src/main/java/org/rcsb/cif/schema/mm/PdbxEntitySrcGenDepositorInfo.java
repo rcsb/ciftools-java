@@ -142,7 +142,6 @@ public class PdbxEntitySrcGenDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * 
      * The strain of the organism in which the entity was
      * expressed.
      * @return StrColumn

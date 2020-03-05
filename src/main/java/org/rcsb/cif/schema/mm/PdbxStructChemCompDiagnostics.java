@@ -75,7 +75,6 @@ public class PdbxStructChemCompDiagnostics extends DelegatingCategory {
     }
 
     /**
-     * 
      * PDB  position in the sequence.
      * @return StrColumn
      */
@@ -84,7 +83,6 @@ public class PdbxStructChemCompDiagnostics extends DelegatingCategory {
     }
 
     /**
-     * 
      * Position in the sequence.
      * @return IntColumn
      */
@@ -93,7 +91,6 @@ public class PdbxStructChemCompDiagnostics extends DelegatingCategory {
     }
 
     /**
-     * 
      * PDB component ID
      * @return StrColumn
      */
@@ -102,7 +99,6 @@ public class PdbxStructChemCompDiagnostics extends DelegatingCategory {
     }
 
     /**
-     * 
      * Insertion code of the monomer or ligand .
      * @return StrColumn
      */
@@ -111,7 +107,6 @@ public class PdbxStructChemCompDiagnostics extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal index for this category
      * @return IntColumn
      */

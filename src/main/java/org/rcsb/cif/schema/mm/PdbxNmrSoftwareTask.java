@@ -30,7 +30,6 @@ public class PdbxNmrSoftwareTask extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -39,7 +38,6 @@ public class PdbxNmrSoftwareTask extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to _software.ordinal
      * @return IntColumn
      */
@@ -48,7 +46,6 @@ public class PdbxNmrSoftwareTask extends DelegatingCategory {
     }
 
     /**
-     * 
      * A word or brief phrase that describes the task that a software application
      * was used to carry out.
      * @return StrColumn

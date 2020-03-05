@@ -129,7 +129,6 @@ public class DatabasePDBRev extends DelegatingCategory {
     }
 
     /**
-     * 
      * The first PDB record name that was revised.
      * 
      * OBSOLETE LOCAL ITEM -- Replaced by _database_PDB_rev_record.type
@@ -140,7 +139,6 @@ public class DatabasePDBRev extends DelegatingCategory {
     }
 
     /**
-     * 
      * The second PDB record name that was revised.
      * 
      * OBSOLETE LOCAL ITEM -- Replaced by _database_PDB_rev_record.type
@@ -151,7 +149,6 @@ public class DatabasePDBRev extends DelegatingCategory {
     }
 
     /**
-     * 
      * The third PDB record name that was revised.
      * 
      * OBSOLETE LOCAL ITEM -- Replaced by _database_PDB_rev_record.type
@@ -162,7 +159,6 @@ public class DatabasePDBRev extends DelegatingCategory {
     }
 
     /**
-     * 
      * The fourth PDB record name that was revised.
      * 
      * OBSOLETE LOCAL ITEM -- Replaced by _database_PDB_rev_record.type

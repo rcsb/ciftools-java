@@ -102,7 +102,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial position in the PDB sequence segment.
      * @return StrColumn
      */
@@ -111,7 +110,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending position in the PDB sequence segment
      * @return StrColumn
      */
@@ -120,7 +118,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial position in the sequence segment.
      * @return StrColumn
      */
@@ -129,7 +126,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending position in the sequence segment
      * @return StrColumn
      */
@@ -138,7 +134,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Monomer ID at the initial position in the PDB sequence segment.
      * @return StrColumn
      */
@@ -147,7 +142,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Monomer ID at the terminal position in the PDB sequence segment
      * @return StrColumn
      */
@@ -156,7 +150,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Initial insertion code of the PDB sequence segment.
      * @return StrColumn
      */
@@ -165,7 +158,6 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Terminal insertion code of the PDB sequence segment.
      * @return StrColumn
      */

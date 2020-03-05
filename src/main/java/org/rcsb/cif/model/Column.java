@@ -76,7 +76,18 @@ public interface Column<T> {
      * This dummy instance is created and returned if an absent Column is requested for a Category.
      */
     class EmptyColumn implements Column<Void> {
-        public static final EmptyColumn UNNAMED_COLUMN = new EmptyColumn("");
+        public static final EmptyColumn UNNAMED_COLUMN = new EmptyColumn("") {
+            @Override
+            public String getStringData(int row) {
+                throw new IllegalArgumentException("anonymous column is undefined");
+            }
+
+            @Override
+            public ValueKind getValueKind(int row) {
+                throw new IllegalArgumentException("anonymous column is undefined");
+            }
+        };
+
         private final String name;
 
         public EmptyColumn(String name) {

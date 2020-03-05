@@ -42,7 +42,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value indicating if 13C chemical shifts are being deposited and if IUPAC chemical shift referencing was used. This item
      * is a user interface item that is used to trigger the automated population of chemical shift referencing tags if IUPAC
      * chemical shift referencing parameters have been used.
@@ -53,7 +52,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * Text providing additional information regarding the reported chemical shift
      * referencing values or methods.
      * @return StrColumn
@@ -63,7 +61,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -72,7 +69,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * An integer value that uniquely identifies a set of chemical shift
      * reference values from other sets of chemical shift referencing values.
      * @return IntColumn
@@ -82,7 +78,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A descriptive label that uniquely identifies this list of chemical shift
      * referencing parameters used in reporting assigned chemical shifts and other chemical
      * shift data.
@@ -93,7 +88,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value indicating if 15N chemical shifts are being deposited and if IUPAC chemical shift referencing was used. This item
      * is a user interface item that is used to trigger the automated population of chemical shift referencing tags if IUPAC
      * chemical shift referencing parameters have been used.
@@ -104,7 +98,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value indicating if chemical shifts other than 1H, 13C, 15N, or 31P are being deposited.
      * @return StrColumn
      */
@@ -113,7 +106,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value indicating if 31P chemical shifts are being deposited and if IUPAC chemical shift referencing was used. This item
      * is a user interface item that is used to trigger the automated population of chemical shift referencing tags if IUPAC
      * chemical shift referencing parameters have been used.
@@ -124,7 +116,6 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value indicating if 1H chemical shifts are being deposited and if IUPAC chemical shift referencing was used. This item
      * is a user interface item that is used to trigger the automated population of chemical shift referencing tags if IUPAC
      * chemical shift referencing parameters have been used.

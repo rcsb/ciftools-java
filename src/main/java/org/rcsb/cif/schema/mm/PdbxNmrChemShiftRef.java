@@ -60,7 +60,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Group of atoms within a molecule whose chemical shift was used as the standard
      * chemical shift reference for the defined observed nuclei.
      * @return StrColumn
@@ -70,7 +69,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The mass number for the chemical element defined by the tag '_pdbx_nmr_chem_shift_ref.atom_type'
      * or any of its related tags.
      * @return IntColumn
@@ -80,7 +78,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value for this tag is a standard IUPAC abbreviation for an element
      * (i.e., H, C, P, etc).
      * @return StrColumn
@@ -90,7 +87,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_chem_shift_reference.id'
      * @return IntColumn
      */
@@ -99,7 +95,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Units for the chemical shift value assigned to the atoms of the chemical
      * shift reference.
      * @return StrColumn
@@ -109,7 +104,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Value assigned to the chemical shift of the reference compound.
      * @return FloatColumn
      */
@@ -118,7 +112,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * An uniform correction value that was applied because of an extenuating
      * circumstance such as data collection at an unusual temperature.
      * @return FloatColumn
@@ -128,7 +121,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -137,7 +129,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The axis of the external chemical shift reference sample relative to the
      * static field (Bo) of the spectrometer.
      * @return StrColumn
@@ -147,7 +138,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * External chemical shift references are defined as either located within
      * the sample (e.g., as a capillary) or external to the sample and are inserted into
      * the spectrometer before, after, or both before and after the sample containing
@@ -159,7 +149,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The geometrical shape of the external reference sample.
      * @return StrColumn
      */
@@ -168,7 +157,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The Chi value used in calculating the chemical shift referencing values
      * for nuclei that are referenced indirectly.  The values used should be those recommended
      * by the IUPAC Taskforce on the deposition of data to the public databases
@@ -180,7 +168,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Common name or abbreviation used in the literature for the molecule used
      * as a chemical shift reference.
      * @return StrColumn
@@ -190,7 +177,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The rank of the chemical shift reference. A primary reference is the one
      * used in reporting the data. A secondary reference would be the compound in the
      * sample or used as an external reference.
@@ -201,7 +187,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * If a correction value is applied to calculate the reported chemical shifts
      * the source of the correction (pH; temperature; etc.).
      * @return StrColumn
@@ -211,7 +196,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The chemical shift reference may be either internal (the compound is located
      * in the sample) or external (the compound is in a container external to the sample).
      * @return StrColumn
@@ -221,7 +205,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * The reference type may be either direct (against a value measured with
      * a chemical compound) or indirect (calculated from chemical shift ratios).
      * @return StrColumn
@@ -231,7 +214,6 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Solvent used for the external reference sample.
      * @return StrColumn
      */

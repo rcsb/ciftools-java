@@ -114,7 +114,6 @@ public class Struct extends DelegatingCategory {
     }
 
     /**
-     * 
      * Additional remarks related to this structure deposition that have not
      * been included in details data items elsewhere.
      * @return StrColumn

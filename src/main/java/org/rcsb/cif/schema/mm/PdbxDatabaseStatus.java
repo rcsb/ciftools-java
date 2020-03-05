@@ -202,7 +202,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The deposited coordinates for this deposition will be released according
      * the value of this item.
      * @return StrColumn
@@ -212,7 +211,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The sequence information for this deposition will be released according
      * the value of this item.  Setting this status code to "RELEASE NOW" indicates
      * that the macromolecular sequence(s) for this entry may be displayed in PDB
@@ -226,7 +224,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The deposited structure factors for this deposition will be released according
      * the value of this item.
      * @return StrColumn
@@ -236,7 +233,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The deposited NMR constrait data for this deposition will be released according
      * the value of this item.
      * @return StrColumn
@@ -548,7 +544,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The deposited chemical shift data for this deposition will be released according
      * the value of this item.
      * @return StrColumn
@@ -627,7 +622,6 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     }
 
     /**
-     * 
      * The deposited unified NMR data for this deposition will be released according
      * the value of this item.
      * @return StrColumn

@@ -32,7 +32,6 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_assigned_chem_shift_list.id'
      * @return IntColumn
      */
@@ -41,7 +40,6 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -50,7 +48,6 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_software.ordinal'
      * @return IntColumn
      */
@@ -59,7 +56,6 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Name given to the software. The name should match the name provided when the software was described in the software category.
      * @return StrColumn
      */

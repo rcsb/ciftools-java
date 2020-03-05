@@ -1541,7 +1541,6 @@ public class Refine extends DelegatingCategory {
     }
 
     /**
-     * 
      * Whether the structure was refined with indvidual
      * isotropic, anisotropic or overall temperature factor.
      * @return StrColumn
@@ -1551,7 +1550,6 @@ public class Refine extends DelegatingCategory {
     }
 
     /**
-     * 
      * Whether the cross validataion method was used through
      * out or only at the end.
      * @return StrColumn
@@ -1596,7 +1594,6 @@ public class Refine extends DelegatingCategory {
     }
 
     /**
-     * 
      * Special case of stereochemistry target values used
      * in SHELXL refinement.
      * @return StrColumn
@@ -1647,7 +1644,6 @@ public class Refine extends DelegatingCategory {
     }
 
     /**
-     * 
      * Real space R factor of electron density for all atoms.
      * 
      * The real space R factor is calculated by the equation
@@ -1667,7 +1663,6 @@ public class Refine extends DelegatingCategory {
     }
 
     /**
-     * 
      * The density correlation coefficient is calculated from atomic
      * densities of (2Fobs-Fcalc) map - "Robs" and the model
      * map (Fcalc) - "Rcalc" :

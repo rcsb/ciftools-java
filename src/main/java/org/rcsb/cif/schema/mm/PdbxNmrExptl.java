@@ -74,7 +74,6 @@ public class PdbxNmrExptl extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_spectrometer.spectrometer_id'
      * @return IntColumn
      */
@@ -83,7 +82,6 @@ public class PdbxNmrExptl extends DelegatingCategory {
     }
 
     /**
-     * 
      * Physical state of the sample either anisotropic or isotropic.
      * @return StrColumn
      */

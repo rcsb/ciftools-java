@@ -105,7 +105,6 @@ public class StructRefSeqDif extends DelegatingCategory {
     }
 
     /**
-     * 
      * The PDB ID code.
      * @return StrColumn
      */

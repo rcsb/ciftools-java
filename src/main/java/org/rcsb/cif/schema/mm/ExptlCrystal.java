@@ -406,7 +406,6 @@ public class ExptlCrystal extends DelegatingCategory {
     }
 
     /**
-     * 
      * The of the distribution of mis-orientation angles specified in degrees
      * of all the unit cells in the crystal. Lower mosaicity indicates better
      * ordered crystals.

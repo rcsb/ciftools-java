@@ -182,7 +182,6 @@ public class StructRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Beginning index in the chemical sequence from the
      * reference database.
      * @return StrColumn
@@ -192,7 +191,6 @@ public class StructRef extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending index in the chemical sequence from the
      * reference database.
      * @return StrColumn

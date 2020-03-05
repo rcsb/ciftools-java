@@ -40,7 +40,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * The kind of chemical shift offset that should be applied to all chemical
      * shifts observed for a specific type of atom.
      * @return StrColumn
@@ -50,7 +49,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * The kind of atom to which the chemical shift offset value applies.
      * @return StrColumn
      */
@@ -59,7 +57,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * Mass number for the atom defined by the '.Atom_type' tag with a systematic
      * chemical shift offset.
      * @return IntColumn
@@ -69,7 +66,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * Chemical shift value that has been applied to all of the reported chemical
      * shifts to bring their values in line with values expected to be observed for
      * the chemical shift referencing that was used.
@@ -80,7 +76,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * Error in the reported chemical shift offset value used.
      * @return FloatColumn
      */
@@ -89,7 +84,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -98,7 +92,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_assigned_chem_shift_list.id'
      * @return IntColumn
      */
@@ -107,7 +100,6 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal identifier uniquely identifying records in the pdbx_nmr_systematic_chem_shift_offset category.
      * @return IntColumn
      */

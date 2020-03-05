@@ -37,7 +37,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * The name (number) of the sample.
      * @return StrColumn
      */
@@ -46,7 +45,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * A complete description of each NMR sample. Include the concentration
      * and concentration units for each component (include buffers, etc.). For each
      * component describe the isotopic composition, including the % labeling level,
@@ -67,7 +65,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * The solvent system used for this sample.
      * @return StrColumn
      */
@@ -76,7 +73,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * A value that uniquely identifies this sample from the other samples listed
      * in the entry.
      * @return StrColumn
@@ -86,7 +82,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * A descriptive term for the sample that defines the general physical properties
      * of the sample.
      * @return StrColumn
@@ -96,7 +91,6 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     }
 
     /**
-     * 
      * Brief description of the sample providing additional information not captured by other items in the category.
      * @return StrColumn
      */

@@ -89,7 +89,6 @@ public class PdbxAtomSiteAnisoTls extends DelegatingCategory {
     }
 
     /**
-     * 
      * This data item is a pointer to _atom_site.auth_comp_id in the
      * ATOM_SITE category.
      * @return StrColumn

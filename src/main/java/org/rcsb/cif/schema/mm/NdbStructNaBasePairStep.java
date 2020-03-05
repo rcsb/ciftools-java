@@ -110,7 +110,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the model number of the the base pair step.
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_model_num in the
@@ -122,7 +121,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The sequence number of this step in the step sequence.
      * @return IntColumn
      */
@@ -131,7 +129,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The text name of this step.
      * @return StrColumn
      */
@@ -140,7 +137,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the i-th base in the first base pair
      * of the step.
      * 
@@ -153,7 +149,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the i-th base in the first base pair
      * of the step.
      * 
@@ -166,7 +161,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the i-th base in the first base pair
      * of the step.
      * 
@@ -189,7 +183,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the j-th base in the first base pair
      * of the step.
      * 
@@ -202,7 +195,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the j-th base in the first base pair
      * of the step.
      * 
@@ -215,7 +207,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the j-th base in the first base pair
      * of the step.
      * 
@@ -238,7 +229,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the i-th base in the second base pair
      * of the step.
      * 
@@ -251,7 +241,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the i-th base in the second base pair
      * of the step.
      * 
@@ -264,7 +253,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the i-th base in the second base pair
      * of the step.
      * 
@@ -287,7 +275,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the j-th base in the second base pair
      * of the step.
      * 
@@ -300,7 +287,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the j-th base in the second base pair
      * of the step.
      * 
@@ -313,7 +299,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the j-th base in the second base pair
      * of the step.
      * 
@@ -336,7 +321,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's asym id of the i-th base in the first
      * base pair of the step.
      * 
@@ -349,7 +333,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's sequence number of the i-th base in the
      * first base pair of the step.
      * 
@@ -362,7 +345,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the i-th base in the
      * first base pair of the step.
      * 
@@ -375,7 +357,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's asym id of the j-th base in the first
      * base pair of the step.
      * 
@@ -388,7 +369,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's sequence number of the j-th base in the
      * first base pair of the step.
      * 
@@ -401,7 +381,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the j-th base in the
      * first base pair of the step.
      * 
@@ -414,7 +393,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's asym id of the i-th base in the second
      * base pair of the step.
      * 
@@ -427,7 +405,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's sequence number of the i-th base in the
      * second base pair of the step.
      * 
@@ -440,7 +417,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the i-th base in the
      * second base pair of the step.
      * 
@@ -453,7 +429,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's asym id of the j-th base in the second
      * base pair of the step.
      * 
@@ -466,7 +441,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the author's sequence number of the j-th base in the
      * second base pair of the step.
      * 
@@ -479,7 +453,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the j-th base in the
      * second base pair of the step.
      * 
@@ -492,7 +465,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step shift parameter.
      * @return FloatColumn
      */
@@ -501,7 +473,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step slide parameter.
      * @return FloatColumn
      */
@@ -510,7 +481,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step rise parameter.
      * @return FloatColumn
      */
@@ -519,7 +489,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step tilt parameter.
      * @return FloatColumn
      */
@@ -528,7 +497,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step roll parameter.
      * @return FloatColumn
      */
@@ -537,7 +505,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step twist parameter.
      * @return FloatColumn
      */
@@ -546,7 +513,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step X displacement parameter.
      * @return FloatColumn
      */
@@ -555,7 +521,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step Y displacement parameter.
      * @return FloatColumn
      */
@@ -564,7 +529,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step helical rise parameter.
      * @return FloatColumn
      */
@@ -573,7 +537,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step inclination parameter.
      * @return FloatColumn
      */
@@ -582,7 +545,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step twist parameter.
      * @return FloatColumn
      */
@@ -591,7 +553,6 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair step helical twist parameter.
      * @return FloatColumn
      */

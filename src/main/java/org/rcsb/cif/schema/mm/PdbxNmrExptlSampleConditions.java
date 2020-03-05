@@ -105,7 +105,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * General details describing conditions of both the sample and the environment
      * during measurements.
      * @return StrColumn
@@ -115,7 +114,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Estimate of the standard error for the value for the sample ionic strength.
      * @return FloatColumn
      */
@@ -124,7 +122,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Units for the value of the sample condition ionic strength..
      * @return StrColumn
      */
@@ -133,7 +130,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * A descriptive label that uniquely identifies this set of sample conditions.
      * @return StrColumn
      */
@@ -142,7 +138,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Estimate of the standard error for the value for the sample pH.
      * @return FloatColumn
      */
@@ -151,7 +146,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Units for the value of the sample condition pH.
      * @return StrColumn
      */
@@ -160,7 +154,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Estimate of the standard error for the value for the sample pressure.
      * @return FloatColumn
      */
@@ -169,7 +162,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Estimate of the standard error for the value for the sample temperature.
      * @return FloatColumn
      */
@@ -178,7 +170,6 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * 
      * Units for the value of the sample condition temperature.
      * @return StrColumn
      */

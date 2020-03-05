@@ -31,7 +31,6 @@ public class PdbxNmrSpectralPeakSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_software.ordinal'
      * @return IntColumn
      */
@@ -40,7 +39,6 @@ public class PdbxNmrSpectralPeakSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -49,7 +47,6 @@ public class PdbxNmrSpectralPeakSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_spectral_peak_list.id'
      * @return IntColumn
      */

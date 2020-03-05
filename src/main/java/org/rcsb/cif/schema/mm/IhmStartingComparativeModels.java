@@ -134,7 +134,6 @@ public class IhmStartingComparativeModels extends DelegatingCategory {
     }
 
     /**
-     * 
      * The dataset list id corresponding to the template used to obtain the comparative model.
      * This data item is a pointer to _ihm_dataset_list.id in the IHM_DATASET_LIST category.
      * @return IntColumn

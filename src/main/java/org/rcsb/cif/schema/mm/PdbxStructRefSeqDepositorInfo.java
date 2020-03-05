@@ -124,7 +124,6 @@ public class PdbxStructRefSeqDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * 
      * Beginning index in the author provided chemical sequence.
      * @return StrColumn
      */
@@ -133,7 +132,6 @@ public class PdbxStructRefSeqDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * 
      * Ending index in the author provided chemical sequence.
      * @return StrColumn
      */

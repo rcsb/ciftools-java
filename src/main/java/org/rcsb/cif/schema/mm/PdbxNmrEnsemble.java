@@ -79,7 +79,6 @@ public class PdbxNmrEnsemble extends DelegatingCategory {
     }
 
     /**
-     * 
      * By highlighting the appropriate choice(s), describe how the submitted
      * conformer (models) were selected.
      * @return StrColumn

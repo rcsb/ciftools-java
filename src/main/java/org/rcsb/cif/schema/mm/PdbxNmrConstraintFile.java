@@ -41,7 +41,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Name of the uploaded file that contains the constraint data.
      * @return StrColumn
      */
@@ -50,7 +49,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Number of constraints of this type and subtype in the file.
      * @return IntColumn
      */
@@ -59,7 +57,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Specific type of constraint.
      * @return StrColumn
      */
@@ -68,7 +65,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * The general type of constraint (distance, torsion angle, RDC, etc.)
      * @return StrColumn
      */
@@ -77,7 +73,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -86,7 +81,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Local unique identifier for the listed constraint file.
      * @return IntColumn
      */
@@ -95,7 +89,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Name of the software application that the listed constraint file is used
      * as input.
      * @return StrColumn
@@ -105,7 +98,6 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to _software.ordinal
      * @return IntColumn
      */

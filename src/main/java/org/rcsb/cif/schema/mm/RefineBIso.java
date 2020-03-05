@@ -89,7 +89,6 @@ public class RefineBIso extends DelegatingCategory {
     }
 
     /**
-     * 
      * Residue name of those residues treated similarly for
      * isotropic B (temperature) factor refinement.
      * @return StrColumn
@@ -99,7 +98,6 @@ public class RefineBIso extends DelegatingCategory {
     }
 
     /**
-     * 
      * Asym chain id of residues treated similarly for
      * isotropic B (temperature) factor refinement.
      * @return StrColumn
@@ -109,7 +107,6 @@ public class RefineBIso extends DelegatingCategory {
     }
 
     /**
-     * 
      * Resiude number of residues treated similarly for
      * isotropic B (temperature) factor refinement.
      * @return StrColumn

@@ -435,7 +435,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 1 of the
      * structure connection. This data item is a pointer to
      * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
@@ -446,7 +445,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 1 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_alt_id in the ATOM_SITE category.
@@ -457,7 +455,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A placeholder for the standard residue name found in
      * the MODRES record of a PDB file.
      * @return StrColumn
@@ -479,7 +476,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 2 of the
      * structure connection. This data item is a pointer to
      * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
@@ -490,7 +486,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 2 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_alt_id in the ATOM_SITE category.
@@ -501,7 +496,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.pdbx_auth_alt_id in the ATOM_SITE category.
@@ -512,7 +506,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.auth_asym_id in the ATOM_SITE category.
@@ -523,7 +516,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.auth_atom_id in the ATOM_SITE category.
@@ -534,7 +526,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.auth_comp_id in the ATOM_SITE category.
@@ -545,7 +536,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.pdbx_PDB_ins_code in the ATOM_SITE category.
@@ -556,7 +546,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 1 of the
      * structure connection. This data item is a pointer to
      * _atom_site.auth_seq_id in the ATOM_SITE category.
@@ -567,7 +556,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_alt_id in the ATOM_SITE category.
@@ -578,7 +566,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_asym_id in the ATOM_SITE category.
@@ -589,7 +576,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_atom_id in the ATOM_SITE category.
@@ -600,7 +586,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_comp_id in the ATOM_SITE category.
@@ -611,7 +596,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 1 of the
      * structure connection. This data item is a pointer to
      * _atom_site.label_seq_id in the ATOM_SITE category.
@@ -622,7 +606,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A placeholder for the PDB id in the case the category
      * is used to hold the information of the MODRES record of
      * a PDB file.
@@ -686,7 +669,6 @@ public class StructConn extends DelegatingCategory {
     }
 
     /**
-     * 
      * A component of the identifier for partner 3 of the
      * structure connection. This data item is a pointer to
      * _atom_site.pdbx_PDB_ins_code in the ATOM_SITE category.

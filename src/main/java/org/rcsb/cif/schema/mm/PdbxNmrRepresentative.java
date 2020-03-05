@@ -48,7 +48,6 @@ public class PdbxNmrRepresentative extends DelegatingCategory {
     }
 
     /**
-     * 
      * By highlighting the appropriate choice(s), describe the criteria used to
      * select this structure as a representative structure, or if an average
      * structure has been calculated describe how this was done.

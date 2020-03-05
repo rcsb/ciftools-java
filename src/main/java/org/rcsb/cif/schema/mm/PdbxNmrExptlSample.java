@@ -95,7 +95,6 @@ public class PdbxNmrExptlSample extends DelegatingCategory {
     }
 
     /**
-     * 
      * Estimate for the standard error associated with the concentration value
      * of the sample component.
      * @return FloatColumn

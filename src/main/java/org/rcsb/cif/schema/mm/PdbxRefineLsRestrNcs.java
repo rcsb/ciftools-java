@@ -43,7 +43,6 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * 
      * The the type of restraint applied to the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id and in the domains
      * against which it was restrained.
@@ -54,7 +53,6 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * 
      * The the number of this type of restraint applied to the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id and in the domains
      * against which it was restrained.
@@ -65,7 +63,6 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * 
      * The root-mean-square deviation in restraints for the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id and in the domains
      * against which it was restrained.
@@ -76,7 +73,6 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the weighting coefficient used in
      * non-crystalographic restaint in the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id

@@ -275,7 +275,6 @@ public class PdbxSolnScatter extends DelegatingCategory {
     }
 
     /**
-     * 
      * The minimum mean radius of structural elongation of the sample.
      * In a given solute-solvent contrast, the radius of gyration
      * R_G is a measure of structural elongation if the internal
@@ -318,7 +317,6 @@ public class PdbxSolnScatter extends DelegatingCategory {
     }
 
     /**
-     * 
      * The estimated standard deviation for the
      * minimum mean radius of structural elongation of the sample.
      * In a given solute-solvent contrast, the radius of gyration
@@ -405,7 +403,6 @@ public class PdbxSolnScatter extends DelegatingCategory {
     }
 
     /**
-     * 
      * The estimated standard deviation for the
      * minimum mean radius of structural elongation of the sample.
      * In a given solute-solvent contrast, the radius of gyration
@@ -449,7 +446,6 @@ public class PdbxSolnScatter extends DelegatingCategory {
     }
 
     /**
-     * 
      * The length (or range) of the protein sample under study.
      * If the solution structure is approximated as an elongated elliptical
      * cyclinder the the length L is determined from,

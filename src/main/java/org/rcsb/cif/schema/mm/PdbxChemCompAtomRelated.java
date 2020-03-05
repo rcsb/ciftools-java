@@ -51,7 +51,6 @@ public class PdbxChemCompAtomRelated extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal index for this category
      * @return IntColumn
      */

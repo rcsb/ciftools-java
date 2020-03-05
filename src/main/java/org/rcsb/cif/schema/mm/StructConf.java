@@ -267,7 +267,6 @@ public class StructConf extends DelegatingCategory {
     }
 
     /**
-     * 
      * A placeholder for the lengths of the helix of the PDB
      * HELIX record.
      * @return IntColumn
@@ -277,7 +276,6 @@ public class StructConf extends DelegatingCategory {
     }
 
     /**
-     * 
      * A placeholder for the helix identifier of the PDB
      * HELIX record.
      * @return StrColumn

@@ -74,7 +74,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the model number of the the base pair.
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_model_num in the
@@ -86,7 +85,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Sequential number of pair in the pair sequence.
      * @return IntColumn
      */
@@ -95,7 +93,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Text label for this base pair.
      * @return StrColumn
      */
@@ -104,7 +101,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_asym_id in the
@@ -116,7 +112,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_comp_id in the
@@ -128,7 +123,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_seq_id in the
@@ -150,7 +144,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_asym_id in the
@@ -162,7 +155,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the component id of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_comp_id in the
@@ -174,7 +166,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.label_seq_id in the
@@ -196,7 +187,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.auth_asym_id in the
@@ -208,7 +198,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.auth_seq_id in the
@@ -220,7 +209,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the i-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_ins_code in the
@@ -232,7 +220,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the asym id of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.auth_asym_id in the
@@ -244,7 +231,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the sequence number of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.auth_seq_id in the
@@ -256,7 +242,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Describes the PDB insertion code of the j-th base in the base pair.
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_ins_code in the
@@ -268,7 +253,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair shear parameter.
      * @return FloatColumn
      */
@@ -277,7 +261,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair stretch parameter.
      * @return FloatColumn
      */
@@ -286,7 +269,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair stagger parameter.
      * @return FloatColumn
      */
@@ -295,7 +277,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair buckle parameter.
      * @return FloatColumn
      */
@@ -304,7 +285,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair propeller parameter.
      * @return FloatColumn
      */
@@ -313,7 +293,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * The value of the base pair opening parameter.
      * @return FloatColumn
      */
@@ -322,7 +301,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Base pair classification of Westhoff and Leontis.
      * @return IntColumn
      */
@@ -331,7 +309,6 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * 
      * Base pair classification of Saenger
      * @return IntColumn
      */

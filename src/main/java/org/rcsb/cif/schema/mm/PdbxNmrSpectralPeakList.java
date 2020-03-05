@@ -46,7 +46,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -55,7 +54,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Unique identifier for a spectral peak list in an entry.
      * @return IntColumn
      */
@@ -64,7 +62,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The name of the file submitted with a deposition that contains the quantitative
      * data for a spectral peak list.
      * @return StrColumn
@@ -74,7 +71,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl_sample.solution_id'
      * @return IntColumn
      */
@@ -83,7 +79,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl_sample_conditions.conditions_id'
      * @return IntColumn
      */
@@ -92,7 +87,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl.experiment_id'
      * @return IntColumn
      */
@@ -101,7 +95,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Number of dimension in the spectrum from which the peak list was extracted.
      * @return IntColumn
      */
@@ -110,7 +103,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Text describing the reported list of spectral peaks.
      * @return StrColumn
      */
@@ -119,7 +111,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * The data format used to represent the spectral peak data as ASCII text
      * in the text block that is the value to the '_Spectral_peak_list.Text_data' tag.
      * @return StrColumn
@@ -129,7 +120,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * A descriptive label that uniquely identifies a list of reported spectral peaks.
      * @return StrColumn
      */
@@ -138,7 +128,6 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to 'pdbx_nmr_exptl_sample_conditions.label'.
      * @return StrColumn
      */

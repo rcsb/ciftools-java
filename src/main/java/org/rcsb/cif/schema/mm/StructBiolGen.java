@@ -94,7 +94,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * This item expresses category _struct_biol_gen.symmetry
      * on an X, Y and Z basis.
      * @return StrColumn
@@ -113,7 +112,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * This category gives the NDB strand ids for the complete
      * biomolecule after it is generated.
      * @return StrColumn
@@ -156,7 +154,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The new residue number after generation of portions of
      * the biomolecule.
      * @return StrColumn
@@ -166,7 +163,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The new residue number after generation of portions of
      * the biomolecule.
      * @return StrColumn
@@ -176,7 +172,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The number of the first residue to which the symmetry
      * operations have to be applied to generate a portion of
      * the biomolecule.
@@ -187,7 +182,6 @@ public class StructBiolGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The number of the last residue to which the symmetry
      * operations have to be applied to generate a portion of
      * the biomolecule.

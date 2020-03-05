@@ -38,7 +38,6 @@ public class PdbxNmrSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal index for this category
      * @return IntColumn
      */
@@ -80,7 +79,6 @@ public class PdbxNmrSoftware extends DelegatingCategory {
     }
 
     /**
-     * 
      * Text description of the software.
      * @return StrColumn
      */

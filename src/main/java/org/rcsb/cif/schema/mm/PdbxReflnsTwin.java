@@ -65,7 +65,6 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     }
 
     /**
-     * 
      * There are two types of twinning: merohedral or hemihedral
      * non-merohedral or epitaxial
      * 
@@ -85,8 +84,6 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     }
 
     /**
-     * 
-     * 
      * The possible merohedral or hemihedral twinning operators for different
      * point groups are:
      * 
@@ -116,7 +113,6 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     }
 
     /**
-     * 
      * The twin fraction or twin factor represents a quantitative parameter for the
      * crystal twinning.  The value 0 represents no twinning, &lt; 0.5 partial twinning,
      * = 0.5 for perfect twinning.
@@ -127,7 +123,6 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     }
 
     /**
-     * 
      * The ideal statistics for twinned crystals. The values calculated with the
      * acentric data are given below.
      * 
@@ -150,7 +145,6 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     }
 
     /**
-     * 
      * The ideal statistics for twinned crystals. The values calculated with the
      * acentric data are given below.
      * 

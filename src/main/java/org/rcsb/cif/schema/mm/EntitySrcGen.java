@@ -355,7 +355,6 @@ public class EntitySrcGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The strain of the organism in which the entity was
      * expressed.
      * @return StrColumn
@@ -365,7 +364,6 @@ public class EntitySrcGen extends DelegatingCategory {
     }
 
     /**
-     * 
      * The fraction of the tissue which expressed the
      * molecule.
      * @return StrColumn

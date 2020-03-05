@@ -31,7 +31,7 @@ public class EmDiffraction extends DelegatingCategory {
     }
 
     /**
-     *
+     * 
      * @return FloatColumn
      */
     public FloatColumn getCameraLength() {

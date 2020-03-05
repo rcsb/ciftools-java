@@ -36,7 +36,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_assigned_chem_shift_list.ID'
      * @return IntColumn
      */
@@ -45,7 +44,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */
@@ -54,7 +52,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl.experiment.id'
      * @return IntColumn
      */
@@ -63,7 +60,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * The name of an experiment used to determine the data reported.
      * @return StrColumn
      */
@@ -72,7 +68,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * Physical state of the sample either anisotropic or isotropic.
      * @return StrColumn
      */
@@ -81,7 +76,6 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_pdbx_nmr_exptl_sample.solution_id'
      * @return IntColumn
      */

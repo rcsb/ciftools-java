@@ -34,7 +34,6 @@ public class PdbxNmrUpload extends DelegatingCategory {
     }
 
     /**
-     * 
      * Unique code assigned to the file being uploaded by the depositor and that
      * contains data that will be incorporated into this entry.
      * @return IntColumn
@@ -44,7 +43,6 @@ public class PdbxNmrUpload extends DelegatingCategory {
     }
 
     /**
-     * 
      * The directory path and file name for the data file that is to be uploaded.
      * @return StrColumn
      */
@@ -53,7 +51,6 @@ public class PdbxNmrUpload extends DelegatingCategory {
     }
 
     /**
-     * 
      * This item defines the kind of data in the file uploaded for deposition.
      * @return StrColumn
      */
@@ -62,7 +59,6 @@ public class PdbxNmrUpload extends DelegatingCategory {
     }
 
     /**
-     * 
      * The syntax or format of the file that is uploaded.
      * @return StrColumn
      */
@@ -71,7 +67,6 @@ public class PdbxNmrUpload extends DelegatingCategory {
     }
 
     /**
-     * 
      * Pointer to '_entry.id'
      * @return StrColumn
      */

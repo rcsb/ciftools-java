@@ -166,7 +166,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
@@ -177,7 +176,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
@@ -188,7 +186,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The average isotropic B factors for the group of atoms
      * (e.g. residue or ligand, side chain, main chain).
      * The B factors for each atom is given by _atom_site.B_iso_or_equiv
@@ -199,7 +196,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The tendency of the group of atoms (e.g. residue
      * or ligand, side chain, main chain)  to move away from its current position.
      * 
@@ -216,7 +212,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The tendency of the group of atoms (e.g. residue
      * or ligand, side chain, main chain)  to move away from its current position.
      * 
@@ -233,7 +228,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The tendency of the group of atoms (e.g. residue
      * or ligand, side chain, main chain)  to move away from its current position.
      * 
@@ -250,7 +244,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Correlation coefficient of electron density for each residue or ligand,
      * side chain, main chain
      * 
@@ -287,7 +280,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Correlation coefficient of electron density for each residue or ligand,
      * side chain, main chain
      * 
@@ -324,7 +316,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Correlation coefficient of electron density for each residue or ligand,
      * side chain, main chain
      * 
@@ -361,7 +352,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Real space R factor of electron density for each component,
      * residue side chain, or main chain.
      * 
@@ -382,7 +372,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Real space R factor of electron density for each component,
      * residue side chain, or main chain.
      * 
@@ -403,7 +392,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * Real space R factor of electron density for each component,
      * residue side chain, or main chain.
      * 
@@ -424,7 +412,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The index of connectivity is the product of the (2Fobs-Fcal) electron
      * density values for the backbone atoms (N, CA and C) divided by the
      * average value for the structure. Low values (less than 1.0) of this
@@ -446,7 +433,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The index of density is the product of the (2Fobs-Fcal) electron
      * density values for the group of atoms divided by the average value
      * for the structure. Low values (less than 1.0) may be problematic for
@@ -467,7 +453,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The index of density is the product of the (2Fobs-Fcal) electron
      * density values for the group of atoms divided by the average value
      * for the structure. Low values (less than 1.0) may be problematic for
@@ -488,7 +473,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The index of density is the product of the (2Fobs-Fcal) electron
      * density values for the group of atoms divided by the average value
      * for the structure. Low values (less than 1.0) may be problematic for
@@ -509,7 +493,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The density ratio is similar to the density index, but summation of the
      * density for the group is used for calculation.
      * 
@@ -533,7 +516,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The density ratio is similar to the density index, but summation of the
      * density for the group is used for calculation.
      * 
@@ -557,7 +539,6 @@ public class PdbxRefineComponent extends DelegatingCategory {
     }
 
     /**
-     * 
      * The density ratio is similar to the density index, but summation of the
      * density for the group is used for calculation.
      * 

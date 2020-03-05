@@ -74,7 +74,6 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Author provided residue number.
      * @return StrColumn
      */
@@ -83,7 +82,6 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Position in the sequence.
      * @return IntColumn
      */
@@ -92,7 +90,6 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * Chemical component identifier
      * @return StrColumn
      */
@@ -101,7 +98,6 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * The author provided chemical component identifier
      * @return StrColumn
      */
@@ -110,7 +106,6 @@ public class PdbxEntityInstanceFeature extends DelegatingCategory {
     }
 
     /**
-     * 
      * An ordinal index for this category
      * @return IntColumn
      */

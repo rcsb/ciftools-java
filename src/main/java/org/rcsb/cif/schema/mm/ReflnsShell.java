@@ -563,7 +563,6 @@ public class ReflnsShell extends DelegatingCategory {
     }
 
     /**
-     * 
      * R split measures the agreement between the sets of intensities created by merging
      * odd- and even-numbered images from the data within the resolution shell.
      * 
