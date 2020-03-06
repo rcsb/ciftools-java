@@ -2,7 +2,9 @@ package org.rcsb.cif;
 
 import org.junit.Test;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.StandardSchemata;
+import org.rcsb.cif.schema.core.Cell;
 import org.rcsb.cif.schema.core.CifCoreBlock;
 import org.rcsb.cif.schema.mm.ChemComp;
 import org.rcsb.cif.schema.mm.ChemCompAtom;
@@ -106,6 +108,30 @@ public class NonMmcifFormatTest {
                 .leaveCategory()
                 .leaveBlock()
                 .leaveFile();
+    }
+
+    @Test
+    public void shouldRetrieveCellParamters() throws IOException {
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/CBMZPN01.cif"));
+        CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
+
+        firstBlock.getCategories()
+                .entrySet()
+                .stream()
+                .map(entry -> entry.getKey() + " " + entry.getValue().getRowCount())
+                .forEach(System.out::println);
+
+        Cell cell = firstBlock.getCell();
+        assertEquals(cell.getLengthA().get(0), toDouble(firstBlock.getColumn("cell_length_a").getStringData(0)));
+        assertEquals(cell.getLengthB().get(0), toDouble(firstBlock.getColumn("cell_length_b").getStringData(0)));
+        assertEquals(cell.getLengthC().get(0), toDouble(firstBlock.getColumn("cell_length_c").getStringData(0)));
+        assertEquals(cell.getAngleAlpha().get(0), toDouble(firstBlock.getColumn("cell_angle_alpha").getStringData(0)));
+        assertEquals(cell.getAngleBeta().get(0), toDouble(firstBlock.getColumn("cell_angle_beta").getStringData(0)));
+        assertEquals(cell.getAngleGamma().get(0), toDouble(firstBlock.getColumn("cell_angle_gamma").getStringData(0)));
+    }
+
+    private static double toDouble(String raw) {
+        return FloatColumn.parseFloat(raw);
     }
 
     private void assertAliases(CifCoreBlock firstBlock) {
