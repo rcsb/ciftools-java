@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items recording co-editor details.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -72,4 +71,5 @@ public class JournalCoeditor extends DelegatingCategory.DelegatingCifCoreCategor
     public StrColumn getPhone() {
         return new DelegatingStrColumn(parentBlock.getColumn("journal_coeditor_phone"));
     }
+
 }

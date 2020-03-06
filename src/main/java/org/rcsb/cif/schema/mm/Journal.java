@@ -407,4 +407,5 @@ public class Journal extends DelegatingCategory {
     public StrColumn getYear() {
         return delegate.getColumn("year", DelegatingStrColumn::new);
     }
+
 }

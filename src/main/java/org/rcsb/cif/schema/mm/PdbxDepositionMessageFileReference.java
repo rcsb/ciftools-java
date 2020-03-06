@@ -103,4 +103,5 @@ public class PdbxDepositionMessageFileReference extends DelegatingCategory {
     public StrColumn getStorageType() {
         return delegate.getColumn("storage_type", DelegatingStrColumn::new);
     }
+
 }

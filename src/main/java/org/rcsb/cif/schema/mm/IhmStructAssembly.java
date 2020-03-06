@@ -53,4 +53,5 @@ public class IhmStructAssembly extends DelegatingCategory {
     public StrColumn getDescription() {
         return delegate.getColumn("description", DelegatingStrColumn::new);
     }
+
 }

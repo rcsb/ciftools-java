@@ -55,4 +55,5 @@ public class RefineLsRestrType extends DelegatingCategory {
     public StrColumn getType() {
         return delegate.getColumn("type", DelegatingStrColumn::new);
     }
+
 }

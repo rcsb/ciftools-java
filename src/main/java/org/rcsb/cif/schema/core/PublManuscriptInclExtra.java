@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of data items that allow the authors of a manuscript to
  * submit for publication data names that should be added to the
  * standard request list employed by journal printing software.
@@ -53,4 +52,5 @@ public class PublManuscriptInclExtra extends DelegatingCategory.DelegatingCifCor
     public StrColumn getItem() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_incl_extra_item"));
     }
+
 }

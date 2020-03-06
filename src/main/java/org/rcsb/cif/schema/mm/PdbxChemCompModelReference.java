@@ -51,4 +51,5 @@ public class PdbxChemCompModelReference extends DelegatingCategory {
     public StrColumn getDbCode() {
         return delegate.getColumn("db_code", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the details of the
  * diffraction measurement.
  */
@@ -81,4 +80,5 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
     public StrColumn getSpecimenSupport() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_specimen_support"));
     }
+
 }

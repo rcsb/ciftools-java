@@ -142,4 +142,5 @@ public class PdbxDepositionMessageInfo extends DelegatingCategory {
     public StrColumn getSendStatus() {
         return delegate.getColumn("send_status", DelegatingStrColumn::new);
     }
+
 }

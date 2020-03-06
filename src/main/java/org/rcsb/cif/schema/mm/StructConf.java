@@ -283,4 +283,5 @@ public class StructConf extends DelegatingCategory {
     public StrColumn getPdbxPDBHelixId() {
         return delegate.getColumn("pdbx_PDB_helix_id", DelegatingStrColumn::new);
     }
+
 }

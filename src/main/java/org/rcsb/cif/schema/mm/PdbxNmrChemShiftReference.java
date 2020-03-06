@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the chem_shift_reference category define a set of chemical shift referencing parameters.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -125,4 +124,5 @@ public class PdbxNmrChemShiftReference extends DelegatingCategory {
     public StrColumn getProtonShiftsFlag() {
         return delegate.getColumn("proton_shifts_flag", DelegatingStrColumn::new);
     }
+
 }

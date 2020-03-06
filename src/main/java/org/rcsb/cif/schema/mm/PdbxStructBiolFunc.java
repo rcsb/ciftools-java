@@ -54,4 +54,5 @@ public class PdbxStructBiolFunc extends DelegatingCategory {
     public StrColumn getFunction() {
         return delegate.getColumn("function", DelegatingStrColumn::new);
     }
+
 }

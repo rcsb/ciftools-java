@@ -347,4 +347,5 @@ public class PdbxSolventAtomSiteMapping extends DelegatingCategory {
     public StrColumn getSymmetryAsXyz() {
         return delegate.getColumn("symmetry_as_xyz", DelegatingStrColumn::new);
     }
+
 }

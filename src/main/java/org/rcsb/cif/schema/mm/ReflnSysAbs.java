@@ -96,4 +96,5 @@ public class ReflnSysAbs extends DelegatingCategory {
     public FloatColumn getSigmaI() {
         return delegate.getColumn("sigmaI", DelegatingFloatColumn::new);
     }
+
 }

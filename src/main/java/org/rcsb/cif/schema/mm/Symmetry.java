@@ -105,4 +105,5 @@ public class Symmetry extends DelegatingCategory {
     public StrColumn getPdbxFullSpaceGroupNameH_M() {
         return delegate.getColumn("pdbx_full_space_group_name_H-M", DelegatingStrColumn::new);
     }
+
 }

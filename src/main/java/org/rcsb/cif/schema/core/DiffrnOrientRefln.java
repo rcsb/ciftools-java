@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the reflections used to
  * calculate the matrix which gives the orientation of the crystal
  * axes to the diffractometer goniometer.
@@ -104,4 +103,5 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
     public IntColumn getIndexL() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_orient_refln_index_l"));
     }
+
 }

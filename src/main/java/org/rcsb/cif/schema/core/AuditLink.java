@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to record details about the
  * relationships between data blocks in the current CIF.
  */
@@ -37,4 +36,5 @@ public class AuditLink extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getBlockDescription() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_link_block_description"));
     }
+
 }

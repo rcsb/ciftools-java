@@ -332,4 +332,5 @@ public class Citation extends DelegatingCategory {
     public StrColumn getUnpublishedFlag() {
         return delegate.getColumn("unpublished_flag", DelegatingStrColumn::new);
     }
+
 }

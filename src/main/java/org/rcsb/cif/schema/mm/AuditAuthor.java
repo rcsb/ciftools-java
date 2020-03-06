@@ -68,4 +68,5 @@ public class AuditAuthor extends DelegatingCategory {
     public StrColumn getIdentifierORCID() {
         return delegate.getColumn("identifier_ORCID", DelegatingStrColumn::new);
     }
+
 }

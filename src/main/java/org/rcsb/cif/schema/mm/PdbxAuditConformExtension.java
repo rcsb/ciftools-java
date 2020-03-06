@@ -54,4 +54,5 @@ public class PdbxAuditConformExtension extends DelegatingCategory {
     public StrColumn getExtensionDictVersion() {
         return delegate.getColumn("extension_dict_version", DelegatingStrColumn::new);
     }
+
 }

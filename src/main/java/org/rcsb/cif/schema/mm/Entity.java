@@ -235,4 +235,5 @@ public class Entity extends DelegatingCategory {
     public FloatColumn getPdbxEntitiesPerBiologicalUnit() {
         return delegate.getColumn("pdbx_entities_per_biological_unit", DelegatingFloatColumn::new);
     }
+
 }

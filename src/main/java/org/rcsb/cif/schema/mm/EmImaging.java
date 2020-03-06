@@ -435,4 +435,5 @@ public class EmImaging extends DelegatingCategory {
     public StrColumn getCryogen() {
         return delegate.getColumn("cryogen", DelegatingStrColumn::new);
     }
+
 }

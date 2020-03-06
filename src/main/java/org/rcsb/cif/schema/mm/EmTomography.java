@@ -117,4 +117,5 @@ public class EmTomography extends DelegatingCategory {
     public StrColumn getImagingId() {
         return delegate.getColumn("imaging_id", DelegatingStrColumn::new);
     }
+
 }

@@ -49,4 +49,5 @@ public class ChemCompBond extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getValueOrder() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("chem_comp_bond_value_order", "chemical_conn_bond_type"));
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to record details about the
  * creation and subsequent updating of the data block.
  */
@@ -103,4 +102,5 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getBlockCode() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("audit_revision_id", "audit_block_code"));
     }
+
 }

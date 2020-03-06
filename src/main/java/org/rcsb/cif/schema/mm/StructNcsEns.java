@@ -63,4 +63,5 @@ public class StructNcsEns extends DelegatingCategory {
     public StrColumn getPointGroup() {
         return delegate.getColumn("point_group", DelegatingStrColumn::new);
     }
+
 }

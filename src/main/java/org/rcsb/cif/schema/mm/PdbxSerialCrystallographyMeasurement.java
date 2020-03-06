@@ -135,4 +135,5 @@ public class PdbxSerialCrystallographyMeasurement extends DelegatingCategory {
     public FloatColumn getCollectionTimeTotal() {
         return delegate.getColumn("collection_time_total", DelegatingFloatColumn::new);
     }
+
 }

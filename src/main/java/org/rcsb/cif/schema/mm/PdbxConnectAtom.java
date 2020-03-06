@@ -92,4 +92,5 @@ public class PdbxConnectAtom extends DelegatingCategory {
     public IntColumn getAlignPos() {
         return delegate.getColumn("align_pos", DelegatingIntColumn::new);
     }
+
 }

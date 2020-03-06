@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the electron density limits
  * in a difference Fourier map after the structure has been refined. The
  * rms value is with respect to the arithmetic mean density, and is derived
@@ -75,4 +74,5 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getDensityRmsSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_rms_esd", "refine_diff_density_rms_su"));
     }
+
 }

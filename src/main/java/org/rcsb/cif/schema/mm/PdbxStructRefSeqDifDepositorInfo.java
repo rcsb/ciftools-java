@@ -153,4 +153,5 @@ public class PdbxStructRefSeqDifDepositorInfo extends DelegatingCategory {
     public StrColumn getAnnotation() {
         return delegate.getColumn("annotation", DelegatingStrColumn::new);
     }
+
 }

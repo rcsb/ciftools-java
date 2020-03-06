@@ -657,4 +657,5 @@ public class PdbxVirtualTorsion extends DelegatingCategory {
     public FloatColumn getValueEsd() {
         return delegate.getColumn("value_esd", DelegatingFloatColumn::new);
     }
+
 }

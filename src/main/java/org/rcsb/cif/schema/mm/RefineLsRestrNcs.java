@@ -197,4 +197,5 @@ public class RefineLsRestrNcs extends DelegatingCategory {
     public StrColumn getPdbxEnsId() {
         return delegate.getColumn("pdbx_ens_id", DelegatingStrColumn::new);
     }
+
 }

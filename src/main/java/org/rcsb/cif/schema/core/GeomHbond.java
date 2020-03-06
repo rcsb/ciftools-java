@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the hydrogen bond
  * distances in the structural model as derived from atomic sites.
  */
@@ -313,4 +312,5 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getDistanceHASu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA_esd", "geom_hbond_distance_HA_su"));
     }
+
 }

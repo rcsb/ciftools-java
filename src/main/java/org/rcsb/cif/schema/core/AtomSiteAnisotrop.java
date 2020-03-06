@@ -393,4 +393,5 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     public FloatColumn getU33Esd() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]_esd", "atom_site_anisotrop_U[3][3]_esd", "atom_site_aniso_U_33_su"));
     }
+
 }

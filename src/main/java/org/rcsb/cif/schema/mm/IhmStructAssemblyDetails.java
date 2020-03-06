@@ -111,4 +111,5 @@ public class IhmStructAssemblyDetails extends DelegatingCategory {
     public IntColumn getEntityPolySegmentId() {
         return delegate.getColumn("entity_poly_segment_id", DelegatingIntColumn::new);
     }
+
 }

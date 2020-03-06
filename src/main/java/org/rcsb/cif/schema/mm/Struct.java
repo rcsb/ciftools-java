@@ -130,4 +130,5 @@ public class Struct extends DelegatingCategory {
     public StrColumn getPdbxTitleText() {
         return delegate.getColumn("pdbx_title_text", DelegatingStrColumn::new);
     }
+
 }

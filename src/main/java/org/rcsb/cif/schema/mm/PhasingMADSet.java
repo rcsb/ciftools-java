@@ -152,4 +152,5 @@ public class PhasingMADSet extends DelegatingCategory {
     public FloatColumn getPdbxFDoublePrimeRefined() {
         return delegate.getColumn("pdbx_f_double_prime_refined", DelegatingFloatColumn::new);
     }
+
 }

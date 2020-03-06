@@ -62,4 +62,5 @@ public class PdbxAuditRevisionCategory extends DelegatingCategory {
     public StrColumn getCategory() {
         return delegate.getColumn("category", DelegatingStrColumn::new);
     }
+
 }

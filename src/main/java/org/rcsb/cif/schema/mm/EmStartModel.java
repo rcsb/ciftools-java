@@ -152,4 +152,5 @@ public class EmStartModel extends DelegatingCategory {
     public StrColumn getType() {
         return delegate.getColumn("type", DelegatingStrColumn::new);
     }
+
 }

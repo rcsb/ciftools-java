@@ -104,4 +104,5 @@ public class PdbxDepuiUpload extends DelegatingCategory {
     public StrColumn getSequenceAlign() {
         return delegate.getColumn("sequence_align", DelegatingStrColumn::new);
     }
+
 }

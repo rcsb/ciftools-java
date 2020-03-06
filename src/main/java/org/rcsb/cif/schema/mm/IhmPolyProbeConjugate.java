@@ -113,4 +113,5 @@ public class IhmPolyProbeConjugate extends DelegatingCategory {
     public IntColumn getDatasetListId() {
         return delegate.getColumn("dataset_list_id", DelegatingIntColumn::new);
     }
+
 }

@@ -102,4 +102,5 @@ public class EmMaskDepositorInfo extends DelegatingCategory {
     public FloatColumn getPixelSpacingZ() {
         return delegate.getColumn("pixel_spacing_z", DelegatingFloatColumn::new);
     }
+
 }

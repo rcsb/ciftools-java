@@ -62,4 +62,5 @@ public class IhmGeometricObjectCenter extends DelegatingCategory {
     public FloatColumn getZcoord() {
         return delegate.getColumn("zcoord", DelegatingFloatColumn::new);
     }
+
 }

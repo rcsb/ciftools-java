@@ -137,4 +137,5 @@ public class Exptl extends DelegatingCategory {
     public StrColumn getMethodDetails() {
         return delegate.getColumn("method_details", DelegatingStrColumn::new);
     }
+
 }

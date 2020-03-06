@@ -81,4 +81,5 @@ public class EmUltramicrotomy extends DelegatingCategory {
     public IntColumn getTemperature() {
         return delegate.getColumn("temperature", DelegatingIntColumn::new);
     }
+
 }

@@ -178,4 +178,5 @@ public class PdbxNmrEnsemble extends DelegatingCategory {
     public StrColumn getTorsionAngleConstraintViolationMethod() {
         return delegate.getColumn("torsion_angle_constraint_violation_method", DelegatingStrColumn::new);
     }
+
 }

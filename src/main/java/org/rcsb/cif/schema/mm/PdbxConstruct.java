@@ -171,4 +171,5 @@ public class PdbxConstruct extends DelegatingCategory {
     public StrColumn getSeq() {
         return delegate.getColumn("seq", DelegatingStrColumn::new);
     }
+
 }

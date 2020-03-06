@@ -386,4 +386,5 @@ public class RefineAnalyze extends DelegatingCategory {
     public FloatColumn getPdbxLuzzatiDResHighObs() {
         return delegate.getColumn("pdbx_Luzzati_d_res_high_obs", DelegatingFloatColumn::new);
     }
+
 }

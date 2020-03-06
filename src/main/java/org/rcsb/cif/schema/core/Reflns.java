@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify parameters for the complete
  * set of reflections used in the structure refinement process. Note that
  * these parameters are often similar measures to those defined in the
@@ -260,4 +259,5 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getThresholdExpression() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("reflns_observed_criterion", "reflns_threshold_expression"));
     }
+
 }

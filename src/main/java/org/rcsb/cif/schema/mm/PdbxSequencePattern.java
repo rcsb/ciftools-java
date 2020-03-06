@@ -72,4 +72,5 @@ public class PdbxSequencePattern extends DelegatingCategory {
     public StrColumn getSequencePattern() {
         return delegate.getColumn("sequence_pattern", DelegatingStrColumn::new);
     }
+
 }

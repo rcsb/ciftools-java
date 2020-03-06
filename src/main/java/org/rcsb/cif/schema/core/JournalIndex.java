@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items describing publication indices.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -48,4 +47,5 @@ public class JournalIndex extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getType() {
         return new DelegatingStrColumn(parentBlock.getColumn("journal_index_type"));
     }
+
 }

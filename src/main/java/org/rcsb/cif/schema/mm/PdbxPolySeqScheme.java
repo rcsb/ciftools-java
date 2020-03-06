@@ -144,4 +144,5 @@ public class PdbxPolySeqScheme extends DelegatingCategory {
     public StrColumn getPdbInsCode() {
         return delegate.getColumn("pdb_ins_code", DelegatingStrColumn::new);
     }
+
 }

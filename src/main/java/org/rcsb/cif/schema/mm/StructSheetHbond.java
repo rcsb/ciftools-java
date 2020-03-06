@@ -459,4 +459,5 @@ public class StructSheetHbond extends DelegatingCategory {
     public StrColumn getPdbxRange2EndLabelInsCode() {
         return delegate.getColumn("pdbx_range_2_end_label_ins_code", DelegatingStrColumn::new);
     }
+
 }

@@ -82,4 +82,5 @@ public class IhmPseudoSite extends DelegatingCategory {
     public StrColumn getDescription() {
         return delegate.getColumn("description", DelegatingStrColumn::new);
     }
+
 }

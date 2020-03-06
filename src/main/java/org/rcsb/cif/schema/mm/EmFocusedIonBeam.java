@@ -141,4 +141,5 @@ public class EmFocusedIonBeam extends DelegatingCategory {
     public IntColumn getVoltage() {
         return delegate.getColumn("voltage", DelegatingIntColumn::new);
     }
+
 }

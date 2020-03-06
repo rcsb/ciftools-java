@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the wavelength of the
  * radiation used in measuring diffraction intensities. Items may be
  * looped to identify and assign weights to distinct wavelength
@@ -88,4 +87,5 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     public FloatColumn getValueSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_radiation_wavelength_wavelength_su", "diffrn_radiation_wavelength_value_su"));
     }
+
 }

@@ -200,4 +200,5 @@ public class Ihm2demClassAverageFitting extends DelegatingCategory {
     public FloatColumn getTrVector3() {
         return delegate.getColumn("tr_vector[3]", DelegatingFloatColumn::new);
     }
+
 }

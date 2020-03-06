@@ -72,4 +72,5 @@ public class ChemCompLink extends DelegatingCategory {
     public StrColumn getTypeComp2() {
         return delegate.getColumn("type_comp_2", DelegatingStrColumn::new);
     }
+
 }

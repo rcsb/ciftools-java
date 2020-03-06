@@ -91,4 +91,5 @@ public class Symmetry extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getSpaceGroupNameH_M() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_H-M", "space_group_name_H-M_full"));
     }
+
 }

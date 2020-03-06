@@ -6,8 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
- * 
  * A category of items recording entries in databases that describe
  * the same or related data. Databases wishing to insert their own
  * canonical codes when archiving and delivering data blocks should
@@ -65,4 +63,5 @@ public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategor
     public StrColumn getSpecialDetails() {
         return new DelegatingStrColumn(parentBlock.getColumn("database_related_special_details"));
     }
+
 }

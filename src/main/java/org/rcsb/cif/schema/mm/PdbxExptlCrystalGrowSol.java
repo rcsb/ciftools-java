@@ -74,4 +74,5 @@ public class PdbxExptlCrystalGrowSol extends DelegatingCategory {
     public FloatColumn getPH() {
         return delegate.getColumn("pH", DelegatingFloatColumn::new);
     }
+
 }

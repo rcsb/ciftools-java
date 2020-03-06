@@ -60,4 +60,5 @@ public class SymmetryEquiv extends DelegatingCategory.DelegatingCifCoreCategory 
     public StrColumn getPosAsXyz() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_equiv_pos_as_xyz", "space_group_symop_operation_xyz"));
     }
+
 }

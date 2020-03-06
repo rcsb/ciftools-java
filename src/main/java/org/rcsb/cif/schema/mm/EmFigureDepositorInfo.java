@@ -61,4 +61,5 @@ public class EmFigureDepositorInfo extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

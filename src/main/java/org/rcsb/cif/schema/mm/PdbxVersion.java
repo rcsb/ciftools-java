@@ -85,4 +85,5 @@ public class PdbxVersion extends DelegatingCategory {
     public StrColumn getRevisionType() {
         return delegate.getColumn("revision_type", DelegatingStrColumn::new);
     }
+
 }

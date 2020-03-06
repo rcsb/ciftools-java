@@ -145,4 +145,5 @@ public class IhmPolyResidueFeature extends DelegatingCategory {
     public StrColumn getInterfaceResidueFlag() {
         return delegate.getColumn("interface_residue_flag", DelegatingStrColumn::new);
     }
+
 }

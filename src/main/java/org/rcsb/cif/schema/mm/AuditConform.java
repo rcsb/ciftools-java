@@ -56,4 +56,5 @@ public class AuditConform extends DelegatingCategory {
     public StrColumn getDictVersion() {
         return delegate.getColumn("dict_version", DelegatingStrColumn::new);
     }
+
 }

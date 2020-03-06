@@ -54,4 +54,5 @@ public class StructConnType extends DelegatingCategory {
     public StrColumn getReference() {
         return delegate.getColumn("reference", DelegatingStrColumn::new);
     }
+
 }

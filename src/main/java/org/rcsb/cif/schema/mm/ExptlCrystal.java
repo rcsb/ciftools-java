@@ -488,4 +488,5 @@ public class ExptlCrystal extends DelegatingCategory {
     public FloatColumn getPdbxCrystalDirection3() {
         return delegate.getColumn("pdbx_crystal_direction_3", DelegatingFloatColumn::new);
     }
+
 }

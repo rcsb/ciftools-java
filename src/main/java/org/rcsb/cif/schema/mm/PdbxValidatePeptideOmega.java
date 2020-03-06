@@ -191,4 +191,5 @@ public class PdbxValidatePeptideOmega extends DelegatingCategory {
     public FloatColumn getOmega() {
         return delegate.getColumn("omega", DelegatingFloatColumn::new);
     }
+
 }

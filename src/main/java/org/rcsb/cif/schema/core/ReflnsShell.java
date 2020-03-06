@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the information about
  * reflections divided into shells bounded by d resolution limits.
  */
@@ -284,4 +283,5 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getRmergeIGt() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_Rmerge_I_gt"));
     }
+
 }

@@ -257,4 +257,5 @@ public class PdbxEntitySrcGenChrom extends DelegatingCategory {
     public StrColumn getPostTreatment() {
         return delegate.getColumn("post_treatment", DelegatingStrColumn::new);
     }
+
 }

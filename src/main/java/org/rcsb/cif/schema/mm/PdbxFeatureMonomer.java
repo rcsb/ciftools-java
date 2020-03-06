@@ -204,4 +204,5 @@ public class PdbxFeatureMonomer extends DelegatingCategory {
     public StrColumn getAuthSeqId() {
         return delegate.getColumn("auth_seq_id", DelegatingStrColumn::new);
     }
+
 }

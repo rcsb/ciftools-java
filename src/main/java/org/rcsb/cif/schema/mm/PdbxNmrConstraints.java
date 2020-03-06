@@ -284,4 +284,5 @@ public class PdbxNmrConstraints extends DelegatingCategory {
     public IntColumn getNASugarPuckerConstraintsTotalCount() {
         return delegate.getColumn("NA_sugar_pucker_constraints_total_count", DelegatingIntColumn::new);
     }
+
 }

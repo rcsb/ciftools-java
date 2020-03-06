@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the geometry
  * of the structural model as derived from the atomic sites.
  * The geometry is expressed in terms of the interatomic
@@ -82,4 +81,5 @@ public class Geom extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getSpecialDetails() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_details", "geom_special_details"));
     }
+
 }

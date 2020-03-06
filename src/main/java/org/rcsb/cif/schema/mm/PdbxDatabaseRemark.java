@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the PDBX_DATABASE_REMARK category record keep additional
  * information about the entry.  They are mostly used to create
  * 'non-standard' PDB REMARK annotations (6-99).
@@ -44,4 +43,5 @@ public class PdbxDatabaseRemark extends DelegatingCategory {
     public StrColumn getText() {
         return delegate.getColumn("text", DelegatingStrColumn::new);
     }
+
 }

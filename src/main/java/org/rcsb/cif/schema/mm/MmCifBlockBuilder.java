@@ -2547,4 +2547,5 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
     public MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
         return new MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
     }
+
 }

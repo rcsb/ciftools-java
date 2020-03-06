@@ -63,4 +63,5 @@ public class PdbxNaStructKeywds extends DelegatingCategory {
     public StrColumn getSpecialFeature() {
         return delegate.getColumn("special_feature", DelegatingStrColumn::new);
     }
+
 }

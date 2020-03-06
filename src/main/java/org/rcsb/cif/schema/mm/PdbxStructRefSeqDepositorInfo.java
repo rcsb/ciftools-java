@@ -138,4 +138,5 @@ public class PdbxStructRefSeqDepositorInfo extends DelegatingCategory {
     public StrColumn getSeqAlignEnd() {
         return delegate.getColumn("seq_align_end", DelegatingStrColumn::new);
     }
+
 }

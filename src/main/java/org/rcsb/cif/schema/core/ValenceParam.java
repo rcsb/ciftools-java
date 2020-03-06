@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of items for listing bond valences.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -95,4 +94,5 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getRo() {
         return new DelegatingFloatColumn(parentBlock.getColumn("valence_param_Ro"));
     }
+
 }

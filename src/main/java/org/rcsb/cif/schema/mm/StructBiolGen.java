@@ -190,4 +190,5 @@ public class StructBiolGen extends DelegatingCategory {
     public StrColumn getPdbxBeforeEndResidueNo() {
         return delegate.getColumn("pdbx_before_end_residue_no", DelegatingStrColumn::new);
     }
+
 }

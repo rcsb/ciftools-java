@@ -304,4 +304,5 @@ public class PhasingMIRDerSite extends DelegatingCategory {
     public FloatColumn getOccupancyIsoSu() {
         return delegate.getColumn("occupancy_iso_su", DelegatingFloatColumn::new);
     }
+
 }

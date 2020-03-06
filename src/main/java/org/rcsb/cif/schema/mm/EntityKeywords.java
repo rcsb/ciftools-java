@@ -89,4 +89,5 @@ public class EntityKeywords extends DelegatingCategory {
     public StrColumn getPdbxAntibodyIsotype() {
         return delegate.getColumn("pdbx_antibody_isotype", DelegatingStrColumn::new);
     }
+
 }

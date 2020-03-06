@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items recording details of the technical editor
  * processing this publication.
  */
@@ -73,4 +72,5 @@ public class JournalTecheditor extends DelegatingCategory.DelegatingCifCoreCateg
     public StrColumn getPhone() {
         return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_phone"));
     }
+
 }

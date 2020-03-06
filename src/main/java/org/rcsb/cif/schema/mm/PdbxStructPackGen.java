@@ -105,4 +105,5 @@ public class PdbxStructPackGen extends DelegatingCategory {
     public IntColumn getPackingType() {
         return delegate.getColumn("packing_type", DelegatingIntColumn::new);
     }
+
 }

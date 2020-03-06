@@ -85,4 +85,5 @@ public class PdbxReferenceMoleculeDetails extends DelegatingCategory {
     public StrColumn getText() {
         return delegate.getColumn("text", DelegatingStrColumn::new);
     }
+
 }

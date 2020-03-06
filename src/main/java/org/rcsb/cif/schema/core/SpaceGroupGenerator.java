@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to list generators for
  * the space group
  */
@@ -59,4 +58,5 @@ public class SpaceGroupGenerator extends DelegatingCategory.DelegatingCifCoreCat
     public StrColumn getXyz() {
         return new DelegatingStrColumn(parentBlock.getColumn("space_group_generator_xyz"));
     }
+
 }

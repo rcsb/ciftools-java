@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the "standard" reflections
  * measured repeatedly to monitor variations in intensity due to source
  * flux, environment conditions or crystal quality.
@@ -70,4 +69,5 @@ public class DiffrnStandardRefln extends DelegatingCategory.DelegatingCifCoreCat
     public StrColumn getCode() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_standard_refln_diffrn_id", "diffrn_standard_refln_code"));
     }
+
 }

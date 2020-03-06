@@ -63,4 +63,5 @@ public class PdbxEntityAssembly extends DelegatingCategory {
     public IntColumn getNumCopies() {
         return delegate.getColumn("num_copies", DelegatingIntColumn::new);
     }
+
 }

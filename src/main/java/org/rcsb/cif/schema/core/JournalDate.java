@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items recording dates of publication processing.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -96,4 +95,5 @@ public class JournalDate extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getToCoeditor() {
         return new DelegatingStrColumn(parentBlock.getColumn("journal_date_to_coeditor"));
     }
+
 }

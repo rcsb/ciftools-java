@@ -106,4 +106,5 @@ public class IhmProbeList extends DelegatingCategory {
     public IntColumn getReactiveProbeChemCompDescriptorId() {
         return delegate.getColumn("reactive_probe_chem_comp_descriptor_id", DelegatingIntColumn::new);
     }
+
 }

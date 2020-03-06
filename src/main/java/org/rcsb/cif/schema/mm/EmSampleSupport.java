@@ -125,4 +125,5 @@ public class EmSampleSupport extends DelegatingCategory {
     public StrColumn getCitationId() {
         return delegate.getColumn("citation_id", DelegatingStrColumn::new);
     }
+
 }

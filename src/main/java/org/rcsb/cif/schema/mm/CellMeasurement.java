@@ -135,4 +135,5 @@ public class CellMeasurement extends DelegatingCategory {
     public FloatColumn getWavelength() {
         return delegate.getColumn("wavelength", DelegatingFloatColumn::new);
     }
+
 }

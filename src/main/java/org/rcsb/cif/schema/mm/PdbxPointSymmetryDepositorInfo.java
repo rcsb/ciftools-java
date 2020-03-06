@@ -73,4 +73,5 @@ public class PdbxPointSymmetryDepositorInfo extends DelegatingCategory {
     public StrColumn getStatusFlag() {
         return delegate.getColumn("status_flag", DelegatingStrColumn::new);
     }
+
 }

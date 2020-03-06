@@ -63,4 +63,5 @@ public class StructKeywords extends DelegatingCategory {
     public StrColumn getPdbxDetails() {
         return delegate.getColumn("pdbx_details", DelegatingStrColumn::new);
     }
+
 }

@@ -44,4 +44,5 @@ public class PdbxEntityPolyProteinClass extends DelegatingCategory {
     public StrColumn getClazz() {
         return delegate.getColumn("class", DelegatingStrColumn::new);
     }
+
 }

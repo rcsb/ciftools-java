@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The details about each spectrometer used to collect data for this
  * deposition.
  */
@@ -95,4 +94,5 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     public StrColumn getName() {
         return delegate.getColumn("name", DelegatingStrColumn::new);
     }
+
 }

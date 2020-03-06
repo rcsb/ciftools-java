@@ -61,4 +61,5 @@ public class EmDiffraction extends DelegatingCategory {
     public StrColumn getTiltAngleList() {
         return delegate.getColumn("tilt_angle_list", DelegatingStrColumn::new);
     }
+
 }

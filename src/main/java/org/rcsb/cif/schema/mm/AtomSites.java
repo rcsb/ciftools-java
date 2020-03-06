@@ -555,4 +555,5 @@ public class AtomSites extends DelegatingCategory {
     public StrColumn getSpecialDetails() {
         return delegate.getColumn("special_details", DelegatingStrColumn::new);
     }
+
 }

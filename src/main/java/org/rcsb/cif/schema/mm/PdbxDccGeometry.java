@@ -295,4 +295,5 @@ public class PdbxDccGeometry extends DelegatingCategory {
     public FloatColumn getNon_bondedRms() {
         return delegate.getColumn("non-bonded_rms", DelegatingFloatColumn::new);
     }
+
 }

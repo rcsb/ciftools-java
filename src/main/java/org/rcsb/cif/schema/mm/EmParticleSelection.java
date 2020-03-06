@@ -84,4 +84,5 @@ public class EmParticleSelection extends DelegatingCategory {
     public StrColumn getReferenceModel() {
         return delegate.getColumn("reference_model", DelegatingStrColumn::new);
     }
+
 }

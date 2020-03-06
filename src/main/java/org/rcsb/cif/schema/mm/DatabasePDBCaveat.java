@@ -47,4 +47,5 @@ public class DatabasePDBCaveat extends DelegatingCategory {
     public StrColumn getText() {
         return delegate.getColumn("text", DelegatingStrColumn::new);
     }
+
 }

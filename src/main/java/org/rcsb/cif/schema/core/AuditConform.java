@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used describe dictionary versions
  * by which data names in the current data block are conformant.
  */
@@ -44,4 +43,5 @@ public class AuditConform extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getDictVersion() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_conform_dict_version"));
     }
+
 }

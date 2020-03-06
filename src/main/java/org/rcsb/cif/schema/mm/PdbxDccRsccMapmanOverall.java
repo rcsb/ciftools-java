@@ -76,4 +76,5 @@ public class PdbxDccRsccMapmanOverall extends DelegatingCategory {
     public FloatColumn getRealSpaceRSigma() {
         return delegate.getColumn("real_space_R_sigma", DelegatingFloatColumn::new);
     }
+
 }

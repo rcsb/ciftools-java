@@ -191,4 +191,5 @@ public class PdbxDataProcessingCell extends DelegatingCategory {
     public StrColumn getSpaceGroup() {
         return delegate.getColumn("space_group", DelegatingStrColumn::new);
     }
+
 }

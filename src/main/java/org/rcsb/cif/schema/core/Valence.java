@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of items used to specify bond valence parameters
  * used to calculate bond valences from bond lengths.
  */
@@ -17,5 +16,6 @@ public class Valence extends DelegatingCategory.DelegatingCifCoreCategory {
     public Valence(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
     }
+
 
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of ENUMERATION items used to specify information about the
  * crystal colour and appearance.
  */
@@ -42,4 +41,5 @@ public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCore
     public StrColumn getIntensity() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_modifier", "exptl_crystal_appearance_intensity"));
     }
+
 }

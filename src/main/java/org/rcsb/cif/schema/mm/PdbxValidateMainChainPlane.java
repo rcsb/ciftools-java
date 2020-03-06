@@ -128,4 +128,5 @@ public class PdbxValidateMainChainPlane extends DelegatingCategory {
     public FloatColumn getImproperTorsionAngle() {
         return delegate.getColumn("improper_torsion_angle", DelegatingFloatColumn::new);
     }
+
 }

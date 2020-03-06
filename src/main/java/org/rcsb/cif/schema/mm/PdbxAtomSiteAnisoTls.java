@@ -249,4 +249,5 @@ public class PdbxAtomSiteAnisoTls extends DelegatingCategory {
     public FloatColumn getUTls23() {
         return delegate.getColumn("U_tls[2][3]", DelegatingFloatColumn::new);
     }
+
 }

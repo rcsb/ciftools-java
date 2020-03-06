@@ -62,4 +62,5 @@ public class PdbxChemCompUploadDepositorInfo extends DelegatingCategory {
     public StrColumn getUploadFileName() {
         return delegate.getColumn("upload_file_name", DelegatingStrColumn::new);
     }
+
 }

@@ -53,4 +53,5 @@ public class Database2 extends DelegatingCategory {
     public StrColumn getDatabaseCode() {
         return delegate.getColumn("database_code", DelegatingStrColumn::new);
     }
+
 }

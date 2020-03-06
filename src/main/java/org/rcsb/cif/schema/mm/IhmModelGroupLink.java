@@ -46,4 +46,5 @@ public class IhmModelGroupLink extends DelegatingCategory {
     public IntColumn getGroupId() {
         return delegate.getColumn("group_id", DelegatingIntColumn::new);
     }
+
 }

@@ -165,4 +165,5 @@ public class PdbxReflnsTwin extends DelegatingCategory {
     public FloatColumn getMeanFSquareOverMeanF2() {
         return delegate.getColumn("mean_F_square_over_mean_F2", DelegatingFloatColumn::new);
     }
+
 }

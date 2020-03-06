@@ -253,4 +253,5 @@ public class StructBiolView extends DelegatingCategory {
     public FloatColumn getPdbxVector3() {
         return delegate.getColumn("pdbx_vector[3]", DelegatingFloatColumn::new);
     }
+
 }

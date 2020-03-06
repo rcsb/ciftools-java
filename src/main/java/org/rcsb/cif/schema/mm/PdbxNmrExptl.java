@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * In this section, enter information on those experiments that were
  * used to generate constraint data. For each NMR experiment indicate
  * which sample and which sample conditions were used for the experiment.
@@ -88,4 +87,5 @@ public class PdbxNmrExptl extends DelegatingCategory {
     public StrColumn getSampleState() {
         return delegate.getColumn("sample_state", DelegatingStrColumn::new);
     }
+
 }

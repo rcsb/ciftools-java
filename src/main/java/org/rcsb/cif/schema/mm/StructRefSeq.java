@@ -202,4 +202,5 @@ public class StructRefSeq extends DelegatingCategory {
     public StrColumn getPdbxSeqAlignEndInsCode() {
         return delegate.getColumn("pdbx_seq_align_end_ins_code", DelegatingStrColumn::new);
     }
+
 }

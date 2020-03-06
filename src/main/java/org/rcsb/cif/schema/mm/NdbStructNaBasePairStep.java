@@ -559,4 +559,5 @@ public class NdbStructNaBasePairStep extends DelegatingCategory {
     public FloatColumn getHelicalTwist() {
         return delegate.getColumn("helical_twist", DelegatingFloatColumn::new);
     }
+
 }

@@ -136,4 +136,5 @@ public class Ihm2demClassAverageRestraint extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe atom site information
  * used in crystallographic structure studies.
  */
@@ -1584,4 +1583,5 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getU33Su() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]_esd", "atom_site_anisotrop_U[3][3]_esd", "atom_site_aniso_U_33_su"));
     }
+
 }

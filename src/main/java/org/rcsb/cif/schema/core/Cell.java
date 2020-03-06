@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe the parameters of
  * the crystal unit cell and their measurement.
  */
@@ -517,4 +516,5 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getReciprocalLengthCSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_reciprocal_length_c_esd", "cell_reciprocal_length_c_su"));
     }
+
 }

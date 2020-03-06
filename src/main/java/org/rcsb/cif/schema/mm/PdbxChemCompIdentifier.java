@@ -86,4 +86,5 @@ public class PdbxChemCompIdentifier extends DelegatingCategory {
     public IntColumn getOrdinal() {
         return delegate.getColumn("ordinal", DelegatingIntColumn::new);
     }
+
 }

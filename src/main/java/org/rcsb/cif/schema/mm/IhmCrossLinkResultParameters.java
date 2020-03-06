@@ -89,4 +89,5 @@ public class IhmCrossLinkResultParameters extends DelegatingCategory {
     public FloatColumn getSigma2() {
         return delegate.getColumn("sigma_2", DelegatingFloatColumn::new);
     }
+
 }

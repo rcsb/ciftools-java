@@ -421,4 +421,5 @@ public class AtomType extends DelegatingCategory {
     public IntColumn getPdbxNElectrons() {
         return delegate.getColumn("pdbx_N_electrons", DelegatingIntColumn::new);
     }
+
 }

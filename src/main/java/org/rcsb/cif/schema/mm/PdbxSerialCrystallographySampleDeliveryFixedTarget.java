@@ -144,4 +144,5 @@ public class PdbxSerialCrystallographySampleDeliveryFixedTarget extends Delegati
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

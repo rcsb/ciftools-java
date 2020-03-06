@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe symmetry equivalent sites
  * in the crystal unit cell.
  */
@@ -118,4 +117,5 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
     public StrColumn getOperationXyz() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_equiv_pos_as_xyz", "space_group_symop_operation_xyz"));
     }
+
 }

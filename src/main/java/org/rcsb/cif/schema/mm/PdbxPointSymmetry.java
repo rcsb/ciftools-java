@@ -62,4 +62,5 @@ public class PdbxPointSymmetry extends DelegatingCategory {
     public StrColumn getH_MNotation() {
         return delegate.getColumn("H-M_notation", DelegatingStrColumn::new);
     }
+
 }

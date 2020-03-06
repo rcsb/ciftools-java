@@ -221,4 +221,5 @@ public class StructSiteView extends DelegatingCategory {
     public StrColumn getSiteId() {
         return delegate.getColumn("site_id", DelegatingStrColumn::new);
     }
+
 }

@@ -64,4 +64,5 @@ public class PdbxStructNcsVirusGen extends DelegatingCategory {
     public StrColumn getPdbChainId() {
         return delegate.getColumn("pdb_chain_id", DelegatingStrColumn::new);
     }
+
 }

@@ -1,12 +1,10 @@
 package org.rcsb.cif.schema.core;
 
-import org.rcsb.cif.model.*;
-import org.rcsb.cif.schema.*;
+import org.rcsb.cif.schema.DelegatingCategory;
 
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe atomic information
  * used in crystallographic structure studies.
  */
@@ -17,5 +15,6 @@ public class Atom extends DelegatingCategory.DelegatingCifCoreCategory {
     public Atom(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
     }
+
 
 }

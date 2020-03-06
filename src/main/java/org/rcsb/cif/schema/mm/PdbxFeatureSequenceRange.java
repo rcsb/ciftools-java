@@ -125,4 +125,5 @@ public class PdbxFeatureSequenceRange extends DelegatingCategory {
     public StrColumn getFeatureSoftwareId() {
         return delegate.getColumn("feature_software_id", DelegatingStrColumn::new);
     }
+
 }

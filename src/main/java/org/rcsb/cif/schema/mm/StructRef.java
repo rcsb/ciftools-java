@@ -198,4 +198,5 @@ public class StructRef extends DelegatingCategory {
     public StrColumn getPdbxAlignEnd() {
         return delegate.getColumn("pdbx_align_end", DelegatingStrColumn::new);
     }
+
 }

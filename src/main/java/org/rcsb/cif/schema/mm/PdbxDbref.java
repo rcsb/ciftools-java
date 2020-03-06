@@ -152,4 +152,5 @@ public class PdbxDbref extends DelegatingCategory {
     public StrColumn getDatabaseEndInsCode() {
         return delegate.getColumn("database_end_ins_code", DelegatingStrColumn::new);
     }
+
 }

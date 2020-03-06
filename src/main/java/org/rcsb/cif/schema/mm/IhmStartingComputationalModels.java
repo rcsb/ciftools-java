@@ -57,4 +57,5 @@ public class IhmStartingComputationalModels extends DelegatingCategory {
     public IntColumn getSoftwareId() {
         return delegate.getColumn("software_id", DelegatingIntColumn::new);
     }
+
 }

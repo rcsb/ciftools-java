@@ -81,4 +81,5 @@ public class EmShadowing extends DelegatingCategory {
     public FloatColumn getThickness() {
         return delegate.getColumn("thickness", DelegatingFloatColumn::new);
     }
+
 }

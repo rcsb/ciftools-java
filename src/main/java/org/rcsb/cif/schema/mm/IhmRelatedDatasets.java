@@ -45,4 +45,5 @@ public class IhmRelatedDatasets extends DelegatingCategory {
     public IntColumn getDatasetListIdPrimary() {
         return delegate.getColumn("dataset_list_id_primary", DelegatingIntColumn::new);
     }
+
 }

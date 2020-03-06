@@ -81,4 +81,5 @@ public class StructSheetOrder extends DelegatingCategory {
     public StrColumn getSheetId() {
         return delegate.getColumn("sheet_id", DelegatingStrColumn::new);
     }
+
 }

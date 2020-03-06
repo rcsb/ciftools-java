@@ -122,4 +122,5 @@ public class Em3dFitting extends DelegatingCategory {
     public StrColumn getRefProtocol() {
         return delegate.getColumn("ref_protocol", DelegatingStrColumn::new);
     }
+
 }

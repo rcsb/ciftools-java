@@ -79,4 +79,5 @@ public class PublBody extends DelegatingCategory {
     public StrColumn getTitle() {
         return delegate.getColumn("title", DelegatingStrColumn::new);
     }
+
 }

@@ -93,4 +93,5 @@ public class IhmLocalizationDensityFiles extends DelegatingCategory {
     public StrColumn getAsymId() {
         return delegate.getColumn("asym_id", DelegatingStrColumn::new);
     }
+
 }

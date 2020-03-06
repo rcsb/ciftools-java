@@ -57,4 +57,5 @@ public class IhmGeometricObjectAxis extends DelegatingCategory {
     public IntColumn getTransformationId() {
         return delegate.getColumn("transformation_id", DelegatingIntColumn::new);
     }
+
 }

@@ -46,4 +46,5 @@ public class IhmMultiStateModelGroupLink extends DelegatingCategory {
     public IntColumn getModelGroupId() {
         return delegate.getColumn("model_group_id", DelegatingIntColumn::new);
     }
+
 }

@@ -234,7 +234,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CIF_CORE group contains the definitions of data items that
      * are common to all domains of crystallographic studies.
      * @return CifCore
@@ -244,7 +243,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The DICTIONARY group encompassing the CORE DIFFRACTION data items defined
      * and used with in the Crystallographic Information Framework (CIF).
      * @return Diffraction
@@ -254,7 +252,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the diffraction experiment.
      * @return Diffrn
      */
@@ -263,7 +260,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the attenuators used in the
      * diffraction source.
      * @return DiffrnAttenuator
@@ -273,7 +269,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the detectors used in the
      * in the measurement of diffraction intensities.
      * @return DiffrnDetector
@@ -283,7 +278,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the details of the
      * diffraction measurement.
      * @return DiffrnMeasurement
@@ -293,7 +287,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the orientation of the crystal
      * axes to the diffractometer goniometer.
      * @return DiffrnOrient
@@ -303,7 +296,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the matrix specifying the
      * orientation of the crystal axes to the diffractometer goniometer.
      * @return DiffrnOrientMatrix
@@ -313,7 +305,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the reflections used to
      * calculate the matrix which gives the orientation of the crystal
      * axes to the diffractometer goniometer.
@@ -324,7 +315,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the wavelength of the
      * radiation used in measuring diffraction intensities. Items may be
      * looped to identify and assign weights to distinct wavelength
@@ -336,7 +326,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the wavelength of the
      * radiation used in measuring diffraction intensities. Items may be
      * looped to identify and assign weights to distinct wavelength
@@ -348,7 +337,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the reflection measurements,
      * prior to data reduction and merging.
      * @return DiffrnRefln
@@ -358,7 +346,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the overall reflection
      * measurement information.
      * @return DiffrnReflns
@@ -368,7 +355,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify different classes of
      * reflections in the raw measured diffraction data.
      * @return DiffrnReflnsClass
@@ -378,7 +364,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the elements of the matrix
      * used to transform the reflection indices _diffrn_refln.hkl
      * into _refln.hkl.
@@ -392,7 +377,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the groups of reflections in
      * the raw measured diffraction data with different relative scales.
      * @return DiffrnScaleGroup
@@ -402,7 +386,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify information about the
      * radiation source.
      * @return DiffrnSource
@@ -412,7 +395,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify information about the
      * standard reflections used in the diffraction measurement process.
      * @return DiffrnStandard
@@ -422,7 +404,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the "standard" reflections
      * measured repeatedly to monitor variations in intensity due to source
      * flux, environment conditions or crystal quality.
@@ -433,7 +414,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the reflection data
      * used in the refinement of a crystallographic structure model.
      * @return Refln
@@ -443,7 +423,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify parameters for the complete
      * set of reflections used in the structure refinement process. Note that
      * these parameters are often similar measures to those defined in the
@@ -458,7 +437,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the properties of reflections
      * in specific classes of reflections.
      * @return ReflnsClass
@@ -468,7 +446,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the scales needed to place
      * measured structure factor coefficients on the same absolute scale.
      * @return ReflnsScale
@@ -478,7 +455,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the information about
      * reflections divided into shells bounded by d resolution limits.
      * @return ReflnsShell
@@ -488,7 +464,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the experimental work
      * prior to diffraction measurements. These include crystallization
      * crystal measurements and absorption-correction techniques used..
@@ -499,7 +474,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the parameters of
      * the crystal unit cell and their measurement.
      * @return Cell
@@ -509,7 +483,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the angles between
      * the axes in the crystal unit cell.
      * @return CellMeasurement
@@ -519,7 +492,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the reflection data
      * used in the measurement of the crystal unit cell.
      * @return CellMeasurementRefln
@@ -529,7 +501,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which describe the composition and
      * chemical properties of the compound under study. The formula data
      * items must be consistent with the density, unit-cell and Z values.
@@ -540,7 +511,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which describe the 2D chemical structure of
      * the molecular species. They allow a 2D chemical diagram to be
      * reconstructed for use in a publication or in a database search
@@ -557,7 +527,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the connections between
      * the atoms sites in the chemical_conn_atom list and the nature
      * of the chemical bond between these atoms. These are details about
@@ -572,7 +541,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the composition and chemical
      * properties of the compound. The formula data items must agree
      * with those that specify the density, unit-cell and Z values.
@@ -623,7 +591,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the experimental details
      * of the  absorption measurements and corrections to the diffraction
      * data.
@@ -634,7 +601,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify information about
      * crystals used in the diffraction measurements.
      * @return ExptlCrystal
@@ -644,7 +610,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of ENUMERATION items used to specify information about the
      * crystal colour and appearance.
      * @return ExptlCrystalAppearance
@@ -654,7 +619,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the dimensions of the
      * crystal used in the diffraction measurements.
      * @return ExptlCrystalFace
@@ -664,7 +628,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify space group
      * information about the crystal used in the diffraction measurements.
      * 
@@ -693,7 +656,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to list generators for
      * the space group
      * @return SpaceGroupGenerator
@@ -703,7 +665,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe symmetry equivalent sites
      * in the crystal unit cell.
      * @return SpaceGroupSymop
@@ -713,7 +674,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Contains information about Wyckoff positions of a space group.
      * Only one site can be given for each special position but the
      * remainder can be generated by applying the symmetry operations
@@ -725,7 +685,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The crystallographic functions the invoked in the definition
      * methods of CORE STRUCTURE data items defined and used with in
      * the Crystallographic Information Framework (CIF).
@@ -736,7 +695,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the MODEL Category specify data for the crystal structure
      * postulated and modelled from the atomic coordinates derived and
      * refined from the diffraction information. The structural model is
@@ -749,7 +707,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the geometry
      * of the structural model as derived from the atomic sites.
      * The geometry is expressed in terms of the interatomic
@@ -770,7 +727,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the geometry angles in the
      * structural model as derived from the atomic sites.
      * @return GeomAngle
@@ -780,7 +736,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the geometry bonds in the
      * structural model as derived from the atomic sites.
      * @return GeomBond
@@ -790,7 +745,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the interatomic
      * contact distances in the structural model.
      * @return GeomContact
@@ -800,7 +754,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the hydrogen bond
      * distances in the structural model as derived from atomic sites.
      * @return GeomHbond
@@ -810,7 +763,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify the torsion angles in the
      * structural model as derived from the atomic sites.
      * @return GeomTorsion
@@ -820,7 +772,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe atomic sites and
      * connections in the proposed atomic model.
      * @return ModelSite
@@ -830,7 +781,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of items used to specify bond valence parameters
      * used to calculate bond valences from bond lengths.
      * @return Valence
@@ -840,7 +790,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of items for listing bond valences.
      * @return ValenceParam
      */
@@ -849,7 +798,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of items for listing valence references.
      * @return ValenceRef
      */
@@ -858,7 +806,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The DICTIONARY group encompassing the CORE PUBLICATION data items defined
      * and used with in the Crystallographic Information Framework (CIF).
      * @return Publication
@@ -868,7 +815,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to record details about the
      * creation and subsequent updating of the data block.
      * @return Audit
@@ -878,7 +824,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used for author(s) details.
      * @return AuditAuthor
      */
@@ -887,7 +832,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used describe dictionary versions
      * by which data names in the current data block are conformant.
      * @return AuditConform
@@ -897,7 +841,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used for contact author(s) details.
      * @return AuditContactAuthor
      */
@@ -906,7 +849,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to record details about the
      * relationships between data blocks in the current CIF.
      * @return AuditLink
@@ -916,7 +858,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the CITATION category record details about the
      * literature cited as being relevant to the contents of the data
      * block.
@@ -927,7 +868,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items describing citation author(s) details.
      * @return CitationAuthor
      */
@@ -936,7 +876,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items describing citation editor(s) details.
      * @return CitationEditor
      */
@@ -945,7 +884,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to record details of the
      * computer programs used in the crystal structure analysis.
      * @return Computing
@@ -955,7 +893,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items recording database deposition.
      * @return Database
      */
@@ -964,7 +901,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items recording database deposition. These data items
      * are assigned by database managers and should only appear in a CIF if they
      * originate from that source.
@@ -975,8 +911,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
-     * 
      * A category of items recording entries in databases that describe
      * the same or related data. Databases wishing to insert their own
      * canonical codes when archiving and delivering data blocks should
@@ -988,7 +922,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to enumerate the display
      * parameters used in the discipline.
      * @return Display
@@ -998,7 +931,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to enumerate the display
      * colour codes used in the discipline.
      * @return DisplayColour
@@ -1008,7 +940,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items recording details about the book-keeping
      * by the journal staff when processing a CIF submitted for
      * publication.  The creator of a CIF will not normally specify
@@ -1020,7 +951,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items recording co-editor details.
      * @return JournalCoeditor
      */
@@ -1029,7 +959,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items recording dates of publication processing.
      * @return JournalDate
      */
@@ -1038,7 +967,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items describing publication indices.
      * @return JournalIndex
      */
@@ -1047,7 +975,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items recording details of the technical editor
      * processing this publication.
      * @return JournalTecheditor
@@ -1057,7 +984,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the PUBL category are used when submitting a
      * manuscript for publication. They refer either to the paper as
      * a whole, or to specific named elements within a paper (such as
@@ -1074,7 +1000,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of data items recording the author information.
      * @return PublAuthor
      */
@@ -1083,7 +1008,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the PUBL_BODY category permit labelling of
      * different text sections within the body of a submitted paper.
      * Note that these should not be used in a paper which has
@@ -1098,7 +1022,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items describing contact author(s) details.
      * @return PublContactAuthor
      */
@@ -1107,7 +1030,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of items describing the publication manuscript.
      * @return PublManuscript
      */
@@ -1116,7 +1038,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Category of data items that allow the authors of a manuscript to
      * submit for publication data names that should be added to the
      * standard request list employed by journal printing software.
@@ -1132,7 +1053,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * CATEGORY of data items that enable the author to make
      * specific requests to the journal office for processing.
      * @return PublRequested
@@ -1142,7 +1062,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Manuscript section data if submitted in parts. see also
      * _publ_manuscript.text and _publ_manuscript.processed.
      * The _publ_section.exptl_prep, _publ_section.exptl_refinement
@@ -1156,7 +1075,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The DICTIONARY group encompassing the CORE STRUCTURE data items defined
      * and used with in the Crystallographic Information Framework (CIF).
      * @return Structure
@@ -1166,7 +1084,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe atomic information
      * used in crystallographic structure studies.
      * @return Atom
@@ -1176,7 +1093,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe atom site information
      * used in crystallographic structure studies.
      * @return AtomSite
@@ -1186,7 +1102,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the anisotropic
      * thermal parameters of the atomic sites in a crystal structure.
      * @return AtomSiteAniso
@@ -1196,7 +1111,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe information which applies
      * to all atom sites in a crystal structure.
      * @return AtomSites
@@ -1206,7 +1120,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the matrix elements
      * used to transform Cartesion coordinates into fractional coordinates
      * of all atom sites in a crystal structure.
@@ -1217,7 +1130,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe the matrix elements
      * used to transform Cartesion coordinates into fractional coordinates
      * of all atom sites in a crystal structure.
@@ -1228,7 +1140,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe atomic type information
      * used in crystallographic structure studies.
      * @return AtomType
@@ -1238,7 +1149,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to describe atomic scattering
      * information used in crystallographic structure studies.
      * @return AtomTypeScat
@@ -1248,7 +1158,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify information about the
      * refinement of the structural model.
      * @return Refine
@@ -1258,7 +1167,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items which specify the electron density limits
      * in a difference Fourier map after the structure has been refined. The
      * rms value is with respect to the arithmetic mean density, and is derived
@@ -1270,7 +1178,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify information about the
      * refinement of the structural model.
      * @return RefineLs
@@ -1280,7 +1187,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The CATEGORY of data items used to specify information about the
      * refinement of the structural model.
      * @return RefineLsClass
@@ -1344,4 +1250,5 @@ public class CifCoreBlock extends DelegatingBlock {
     public AtomSiteAnisotrop getAtomSiteAnisotrop() {
         return new AtomSiteAnisotrop(this);
     }
+
 }

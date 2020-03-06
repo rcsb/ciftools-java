@@ -576,4 +576,5 @@ public class GeomHbond extends DelegatingCategory {
     public StrColumn getSiteSymmetryH() {
         return delegate.getColumn("site_symmetry_H", DelegatingStrColumn::new);
     }
+
 }

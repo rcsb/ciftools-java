@@ -200,4 +200,5 @@ public class PdbxUnobsOrZeroOccAtoms extends DelegatingCategory {
     public IntColumn getLabelSeqId() {
         return delegate.getColumn("label_seq_id", DelegatingIntColumn::new);
     }
+
 }

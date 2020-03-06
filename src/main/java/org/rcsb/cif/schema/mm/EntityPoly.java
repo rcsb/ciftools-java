@@ -285,4 +285,5 @@ public class EntityPoly extends DelegatingCategory {
     public IntColumn getPdbxSeqAlignEnd() {
         return delegate.getColumn("pdbx_seq_align_end", DelegatingIntColumn::new);
     }
+
 }

@@ -115,4 +115,5 @@ public class DiffrnReflnsClass extends DelegatingCategory {
     public IntColumn getNumber() {
         return delegate.getColumn("number", DelegatingIntColumn::new);
     }
+
 }

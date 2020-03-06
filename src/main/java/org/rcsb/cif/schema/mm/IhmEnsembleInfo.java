@@ -171,4 +171,5 @@ public class IhmEnsembleInfo extends DelegatingCategory {
     public StrColumn getSubSamplingType() {
         return delegate.getColumn("sub_sampling_type", DelegatingStrColumn::new);
     }
+
 }

@@ -2344,4 +2344,5 @@ public class Refine extends DelegatingCategory {
     public FloatColumn getPdbxOverallESUML() {
         return delegate.getColumn("pdbx_overall_ESU_ML", DelegatingFloatColumn::new);
     }
+
 }

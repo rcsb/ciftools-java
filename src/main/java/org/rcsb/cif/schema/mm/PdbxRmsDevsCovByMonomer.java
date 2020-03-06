@@ -142,4 +142,5 @@ public class PdbxRmsDevsCovByMonomer extends DelegatingCategory {
     public IntColumn getNumAngles() {
         return delegate.getColumn("num_angles", DelegatingIntColumn::new);
     }
+
 }

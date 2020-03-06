@@ -135,4 +135,5 @@ public class RefineLsRestr extends DelegatingCategory {
     public StrColumn getPdbxRestraintFunction() {
         return delegate.getColumn("pdbx_restraint_function", DelegatingStrColumn::new);
     }
+
 }

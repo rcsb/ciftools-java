@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items recording details about the book-keeping
  * by the journal staff when processing a CIF submitted for
  * publication.  The creator of a CIF will not normally specify
@@ -467,4 +466,5 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getTecheditorPhone() {
         return new DelegatingStrColumn(parentBlock.getColumn("journal_techeditor_phone"));
     }
+
 }

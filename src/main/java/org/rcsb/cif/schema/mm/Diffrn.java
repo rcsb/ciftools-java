@@ -213,4 +213,5 @@ public class Diffrn extends DelegatingCategory {
     public StrColumn getPdbxSerialCrystalExperiment() {
         return delegate.getColumn("pdbx_serial_crystal_experiment", DelegatingStrColumn::new);
     }
+
 }

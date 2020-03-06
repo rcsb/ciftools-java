@@ -54,4 +54,5 @@ public class IhmGeometricObjectHalfTorus extends DelegatingCategory {
     public StrColumn getSection() {
         return delegate.getColumn("section", DelegatingStrColumn::new);
     }
+
 }

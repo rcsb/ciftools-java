@@ -68,4 +68,5 @@ public class PdbxPrereleaseSeq extends DelegatingCategory {
     public StrColumn getSeqOneLetterCode() {
         return delegate.getColumn("seq_one_letter_code", DelegatingStrColumn::new);
     }
+
 }

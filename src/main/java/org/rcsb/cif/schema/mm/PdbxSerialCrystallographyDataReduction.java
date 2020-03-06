@@ -138,4 +138,5 @@ public class PdbxSerialCrystallographyDataReduction extends DelegatingCategory {
     public StrColumn getXfelRunNumbers() {
         return delegate.getColumn("xfel_run_numbers", DelegatingStrColumn::new);
     }
+
 }

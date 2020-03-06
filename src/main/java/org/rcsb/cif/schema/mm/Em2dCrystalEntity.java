@@ -118,4 +118,5 @@ public class Em2dCrystalEntity extends DelegatingCategory {
     public StrColumn getSpaceGroupNameH_M() {
         return delegate.getColumn("space_group_name_H-M", DelegatingStrColumn::new);
     }
+
 }

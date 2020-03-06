@@ -84,4 +84,5 @@ public class PublAuthor extends DelegatingCategory {
     public StrColumn getIdIucr() {
         return delegate.getColumn("id_iucr", DelegatingStrColumn::new);
     }
+
 }

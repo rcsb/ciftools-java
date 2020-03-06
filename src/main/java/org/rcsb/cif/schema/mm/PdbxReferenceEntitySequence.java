@@ -73,4 +73,5 @@ public class PdbxReferenceEntitySequence extends DelegatingCategory {
     public StrColumn getOneLetterCodes() {
         return delegate.getColumn("one_letter_codes", DelegatingStrColumn::new);
     }
+
 }

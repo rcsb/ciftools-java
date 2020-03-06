@@ -209,4 +209,5 @@ public class PdbxRefine extends DelegatingCategory {
     public FloatColumn getFreeRValNoCutoff() {
         return delegate.getColumn("free_R_val_no_cutoff", DelegatingFloatColumn::new);
     }
+
 }

@@ -100,4 +100,5 @@ public class EntityLink extends DelegatingCategory {
     public IntColumn getEntitySeqNum2() {
         return delegate.getColumn("entity_seq_num_2", DelegatingIntColumn::new);
     }
+
 }

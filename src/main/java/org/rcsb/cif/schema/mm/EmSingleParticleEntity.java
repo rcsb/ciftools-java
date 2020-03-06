@@ -72,4 +72,5 @@ public class EmSingleParticleEntity extends DelegatingCategory {
     public StrColumn getPointSymmetry() {
         return delegate.getColumn("point_symmetry", DelegatingStrColumn::new);
     }
+
 }

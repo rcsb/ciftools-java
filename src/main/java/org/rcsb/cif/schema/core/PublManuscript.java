@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items describing the publication manuscript.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -45,4 +44,5 @@ public class PublManuscript extends DelegatingCategory.DelegatingCifCoreCategory
     public StrColumn getText() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_text"));
     }
+
 }

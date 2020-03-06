@@ -132,4 +132,5 @@ public class PdbxValidatePlanesAtom extends DelegatingCategory {
     public FloatColumn getAtomDeviation() {
         return delegate.getColumn("atom_deviation", DelegatingFloatColumn::new);
     }
+
 }

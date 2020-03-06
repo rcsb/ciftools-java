@@ -169,4 +169,5 @@ public class StructAsym extends DelegatingCategory {
     public IntColumn getPdbxMissingNumBeginOfChainInSeqres() {
         return delegate.getColumn("pdbx_missing_num_begin_of_chain_in_seqres", DelegatingIntColumn::new);
     }
+
 }

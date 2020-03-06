@@ -135,4 +135,5 @@ public class PdbxMissingAtomNonpoly extends DelegatingCategory {
     public StrColumn getAtomName() {
         return delegate.getColumn("atom_name", DelegatingStrColumn::new);
     }
+
 }

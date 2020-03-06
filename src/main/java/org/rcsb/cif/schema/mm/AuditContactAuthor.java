@@ -94,4 +94,5 @@ public class AuditContactAuthor extends DelegatingCategory {
     public StrColumn getPhone() {
         return delegate.getColumn("phone", DelegatingStrColumn::new);
     }
+
 }

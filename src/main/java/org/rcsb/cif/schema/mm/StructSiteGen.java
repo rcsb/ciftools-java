@@ -208,4 +208,5 @@ public class StructSiteGen extends DelegatingCategory {
     public IntColumn getPdbxNumRes() {
         return delegate.getColumn("pdbx_num_res", DelegatingIntColumn::new);
     }
+
 }

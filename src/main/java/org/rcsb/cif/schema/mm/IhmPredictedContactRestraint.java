@@ -255,4 +255,5 @@ public class IhmPredictedContactRestraint extends DelegatingCategory {
     public IntColumn getSoftwareId() {
         return delegate.getColumn("software_id", DelegatingIntColumn::new);
     }
+
 }

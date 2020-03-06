@@ -161,4 +161,5 @@ public class PdbxRmchOutlier extends DelegatingCategory {
     public FloatColumn getPsi() {
         return delegate.getColumn("psi", DelegatingFloatColumn::new);
     }
+
 }

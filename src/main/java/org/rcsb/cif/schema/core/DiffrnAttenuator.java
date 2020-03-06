@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the attenuators used in the
  * diffraction source.
  */
@@ -43,4 +42,5 @@ public class DiffrnAttenuator extends DelegatingCategory.DelegatingCifCoreCatego
     public FloatColumn getScale() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_attenuator_scale"));
     }
+
 }

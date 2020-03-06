@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe the reflection data
  * used in the measurement of the crystal unit cell.
  */
@@ -57,4 +56,5 @@ public class CellMeasurementRefln extends DelegatingCategory.DelegatingCifCoreCa
     public FloatColumn getTheta() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_refln_theta"));
     }
+
 }

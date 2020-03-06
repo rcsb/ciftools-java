@@ -164,4 +164,5 @@ public class PdbxSerialCrystallographySampleDeliveryInjection extends Delegating
     public FloatColumn getFilterSize() {
         return delegate.getColumn("filter_size", DelegatingFloatColumn::new);
     }
+
 }

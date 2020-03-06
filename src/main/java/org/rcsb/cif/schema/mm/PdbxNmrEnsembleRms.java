@@ -218,4 +218,5 @@ public class PdbxNmrEnsembleRms extends DelegatingCategory {
     public StrColumn getCoordAverageRmsdMethod() {
         return delegate.getColumn("coord_average_rmsd_method", DelegatingStrColumn::new);
     }
+
 }

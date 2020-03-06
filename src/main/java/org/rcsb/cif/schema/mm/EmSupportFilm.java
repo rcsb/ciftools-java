@@ -71,4 +71,5 @@ public class EmSupportFilm extends DelegatingCategory {
     public StrColumn getTopology() {
         return delegate.getColumn("topology", DelegatingStrColumn::new);
     }
+
 }

@@ -101,4 +101,5 @@ public class IhmPolyAtomFeature extends DelegatingCategory {
     public StrColumn getAtomId() {
         return delegate.getColumn("atom_id", DelegatingStrColumn::new);
     }
+
 }

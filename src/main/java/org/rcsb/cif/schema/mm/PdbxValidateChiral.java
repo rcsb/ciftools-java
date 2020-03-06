@@ -157,4 +157,5 @@ public class PdbxValidateChiral extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

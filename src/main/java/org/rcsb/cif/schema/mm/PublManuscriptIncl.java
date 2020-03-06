@@ -70,4 +70,5 @@ public class PublManuscriptIncl extends DelegatingCategory {
     public StrColumn getExtraItem() {
         return delegate.getColumn("extra_item", DelegatingStrColumn::new);
     }
+
 }

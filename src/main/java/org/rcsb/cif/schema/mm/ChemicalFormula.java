@@ -183,4 +183,5 @@ public class ChemicalFormula extends DelegatingCategory {
     public FloatColumn getWeightMeas() {
         return delegate.getColumn("weight_meas", DelegatingFloatColumn::new);
     }
+
 }

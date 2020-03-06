@@ -61,4 +61,5 @@ public class EmFiducialMarkers extends DelegatingCategory {
     public StrColumn getManufacturer() {
         return delegate.getColumn("manufacturer", DelegatingStrColumn::new);
     }
+
 }

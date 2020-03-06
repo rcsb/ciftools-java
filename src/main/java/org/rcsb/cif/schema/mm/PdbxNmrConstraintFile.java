@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_constraint_file category record the name of the constraint file, the software used
  * to calculate conformers with the constraint file, and the characteristics of the constraints in the constraint file.
  */
@@ -104,4 +103,5 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
     public IntColumn getSoftwareOrdinal() {
         return delegate.getColumn("software_ordinal", DelegatingIntColumn::new);
     }
+
 }

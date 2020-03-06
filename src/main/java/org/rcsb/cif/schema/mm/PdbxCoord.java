@@ -75,4 +75,5 @@ public class PdbxCoord extends DelegatingCategory {
     public StrColumn getStructureFactorsYN() {
         return delegate.getColumn("structure_factors_Y_N", DelegatingStrColumn::new);
     }
+
 }

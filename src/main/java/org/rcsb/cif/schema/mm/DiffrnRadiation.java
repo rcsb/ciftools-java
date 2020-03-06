@@ -230,4 +230,5 @@ public class DiffrnRadiation extends DelegatingCategory {
     public StrColumn getPdbxScatteringType() {
         return delegate.getColumn("pdbx_scattering_type", DelegatingStrColumn::new);
     }
+
 }

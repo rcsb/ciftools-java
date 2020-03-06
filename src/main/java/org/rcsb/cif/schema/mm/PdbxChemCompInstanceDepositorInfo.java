@@ -145,4 +145,5 @@ public class PdbxChemCompInstanceDepositorInfo extends DelegatingCategory {
     public StrColumn getFormula() {
         return delegate.getColumn("formula", DelegatingStrColumn::new);
     }
+
 }

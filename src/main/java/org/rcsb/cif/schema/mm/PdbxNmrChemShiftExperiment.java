@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the chem_shift_experiment category provide pointers to the NMR experiments and samples used to collect the data for a set of reported assigned chemical shifts.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -82,4 +81,5 @@ public class PdbxNmrChemShiftExperiment extends DelegatingCategory {
     public IntColumn getSolutionId() {
         return delegate.getColumn("solution_id", DelegatingIntColumn::new);
     }
+
 }

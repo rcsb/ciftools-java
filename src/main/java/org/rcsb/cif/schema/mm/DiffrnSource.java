@@ -190,4 +190,5 @@ public class DiffrnSource extends DelegatingCategory {
     public StrColumn getPdbxSourceSpecificBeamline() {
         return delegate.getColumn("pdbx_source_specific_beamline", DelegatingStrColumn::new);
     }
+
 }

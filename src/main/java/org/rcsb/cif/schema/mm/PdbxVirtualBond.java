@@ -355,4 +355,5 @@ public class PdbxVirtualBond extends DelegatingCategory {
     public StrColumn getSiteSymmetry2() {
         return delegate.getColumn("site_symmetry_2", DelegatingStrColumn::new);
     }
+
 }

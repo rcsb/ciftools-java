@@ -114,4 +114,5 @@ public class RefineBIso extends DelegatingCategory {
     public StrColumn getPdbxResidueNum() {
         return delegate.getColumn("pdbx_residue_num", DelegatingStrColumn::new);
     }
+
 }

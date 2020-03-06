@@ -79,4 +79,5 @@ public class SpaceGroupSymop extends DelegatingCategory {
     public StrColumn getSgId() {
         return delegate.getColumn("sg_id", DelegatingStrColumn::new);
     }
+
 }

@@ -150,4 +150,5 @@ public class ChemLinkTor extends DelegatingCategory {
     public StrColumn getLinkId() {
         return delegate.getColumn("link_id", DelegatingStrColumn::new);
     }
+
 }

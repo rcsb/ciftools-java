@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Description of the software that was used for data collection, data processing,
  * data analysis, structure calculations and refinement. The description should
  * include the name of the software, the author of the software and the version used.
@@ -85,4 +84,5 @@ public class PdbxNmrSoftware extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

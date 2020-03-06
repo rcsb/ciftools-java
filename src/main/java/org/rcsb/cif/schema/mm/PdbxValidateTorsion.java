@@ -134,4 +134,5 @@ public class PdbxValidateTorsion extends DelegatingCategory {
     public FloatColumn getPsi() {
         return delegate.getColumn("psi", DelegatingFloatColumn::new);
     }
+
 }

@@ -77,4 +77,5 @@ public class PhasingIsomorphous extends DelegatingCategory {
     public StrColumn getParent() {
         return delegate.getColumn("parent", DelegatingStrColumn::new);
     }
+
 }

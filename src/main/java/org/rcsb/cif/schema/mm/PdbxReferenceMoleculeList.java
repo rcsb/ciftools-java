@@ -49,4 +49,5 @@ public class PdbxReferenceMoleculeList extends DelegatingCategory {
     public StrColumn getFamilyPrdId() {
         return delegate.getColumn("family_prd_id", DelegatingStrColumn::new);
     }
+
 }

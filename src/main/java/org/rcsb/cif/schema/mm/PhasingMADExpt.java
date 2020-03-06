@@ -110,4 +110,5 @@ public class PhasingMADExpt extends DelegatingCategory {
     public FloatColumn getRNormalAnomScat() {
         return delegate.getColumn("R_normal_anom_scat", DelegatingFloatColumn::new);
     }
+
 }

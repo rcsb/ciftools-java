@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_chem_shift_ref category provide the chemical shift referencing values used in assigning the chemical shift positions for peaks in spectral peak lists and assigned atom chemical shifts.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -220,4 +219,5 @@ public class PdbxNmrChemShiftRef extends DelegatingCategory {
     public StrColumn getSolvent() {
         return delegate.getColumn("solvent", DelegatingStrColumn::new);
     }
+
 }

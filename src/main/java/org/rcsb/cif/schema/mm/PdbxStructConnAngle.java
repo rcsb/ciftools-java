@@ -524,4 +524,5 @@ public class PdbxStructConnAngle extends DelegatingCategory {
     public FloatColumn getValueEsd() {
         return delegate.getColumn("value_esd", DelegatingFloatColumn::new);
     }
+
 }

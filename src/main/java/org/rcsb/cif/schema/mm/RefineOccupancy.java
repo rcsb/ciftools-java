@@ -78,4 +78,5 @@ public class RefineOccupancy extends DelegatingCategory {
     public FloatColumn getValue() {
         return delegate.getColumn("value", DelegatingFloatColumn::new);
     }
+
 }

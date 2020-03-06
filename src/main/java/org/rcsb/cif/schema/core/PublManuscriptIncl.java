@@ -75,4 +75,5 @@ public class PublManuscriptIncl extends DelegatingCategory.DelegatingCifCoreCate
     public StrColumn getItem() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_manuscript_incl_extra_item"));
     }
+
 }

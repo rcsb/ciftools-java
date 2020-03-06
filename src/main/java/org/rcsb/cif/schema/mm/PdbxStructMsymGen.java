@@ -58,4 +58,5 @@ public class PdbxStructMsymGen extends DelegatingCategory {
     public StrColumn getOperExpression() {
         return delegate.getColumn("oper_expression", DelegatingStrColumn::new);
     }
+
 }

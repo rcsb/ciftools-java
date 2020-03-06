@@ -82,4 +82,5 @@ public class EmExperiment extends DelegatingCategory {
     public StrColumn getEntityAssemblyId() {
         return delegate.getColumn("entity_assembly_id", DelegatingStrColumn::new);
     }
+
 }

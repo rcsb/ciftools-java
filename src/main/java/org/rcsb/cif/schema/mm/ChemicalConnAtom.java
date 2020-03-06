@@ -125,4 +125,5 @@ public class ChemicalConnAtom extends DelegatingCategory {
     public StrColumn getTypeSymbol() {
         return delegate.getColumn("type_symbol", DelegatingStrColumn::new);
     }
+
 }

@@ -104,4 +104,5 @@ public class EmSpecimen extends DelegatingCategory {
     public StrColumn getVitrificationApplied() {
         return delegate.getColumn("vitrification_applied", DelegatingStrColumn::new);
     }
+
 }

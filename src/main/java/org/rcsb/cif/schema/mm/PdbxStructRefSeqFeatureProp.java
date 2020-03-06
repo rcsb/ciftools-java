@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the PDBX_STRUCT_REF_SEQ_FEATURE_PROP category provide a
  * mechanism for identifying and annotating properties of sequence features.
  */
@@ -125,4 +124,5 @@ public class PdbxStructRefSeqFeatureProp extends DelegatingCategory {
     public IntColumn getEndDbSeqId() {
         return delegate.getColumn("end_db_seq_id", DelegatingIntColumn::new);
     }
+
 }

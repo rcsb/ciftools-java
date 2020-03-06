@@ -110,4 +110,5 @@ public class PdbxBufferComponents extends DelegatingCategory {
     public StrColumn getIsotopicLabeling() {
         return delegate.getColumn("isotopic_labeling", DelegatingStrColumn::new);
     }
+
 }

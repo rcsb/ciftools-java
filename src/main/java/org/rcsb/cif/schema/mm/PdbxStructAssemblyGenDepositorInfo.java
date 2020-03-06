@@ -154,4 +154,5 @@ public class PdbxStructAssemblyGenDepositorInfo extends DelegatingCategory {
     public FloatColumn getHelicalRise() {
         return delegate.getColumn("helical_rise", DelegatingFloatColumn::new);
     }
+
 }

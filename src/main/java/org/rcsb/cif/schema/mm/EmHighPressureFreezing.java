@@ -61,4 +61,5 @@ public class EmHighPressureFreezing extends DelegatingCategory {
     public StrColumn getInstrument() {
         return delegate.getColumn("instrument", DelegatingStrColumn::new);
     }
+
 }

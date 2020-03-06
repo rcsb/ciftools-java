@@ -131,4 +131,5 @@ public class PdbxDiffrnReflnsShell extends DelegatingCategory {
     public IntColumn getNumberObs() {
         return delegate.getColumn("number_obs", DelegatingIntColumn::new);
     }
+
 }

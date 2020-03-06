@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the torsion angles in the
  * structural model as derived from the atomic sites.
  */
@@ -270,4 +269,5 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getAtomSiteLabel4() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_torsion_atom_site_id_4", "geom_torsion_atom_site_label_4"));
     }
+
 }

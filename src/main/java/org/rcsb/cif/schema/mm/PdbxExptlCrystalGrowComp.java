@@ -99,4 +99,5 @@ public class PdbxExptlCrystalGrowComp extends DelegatingCategory {
     public StrColumn getConcUnits() {
         return delegate.getColumn("conc_units", DelegatingStrColumn::new);
     }
+
 }

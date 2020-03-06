@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe the reflection data
  * used in the refinement of a crystallographic structure model.
  */
@@ -375,4 +374,5 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getSinThetaOverLambda() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_sint_over_lambda", "refln_sin_theta_over_lambda"));
     }
+
 }

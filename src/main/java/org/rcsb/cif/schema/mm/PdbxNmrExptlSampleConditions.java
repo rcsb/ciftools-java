@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The experimental conditions used to for each sample.  Each set of conditions
  * is identified by a numerical code.
  */
@@ -176,4 +175,5 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     public StrColumn getTemperatureUnits() {
         return delegate.getColumn("temperature_units", DelegatingStrColumn::new);
     }
+
 }

@@ -51,4 +51,5 @@ public class SymmetryEquiv extends DelegatingCategory {
     public StrColumn getPosAsXyz() {
         return delegate.getColumn("pos_as_xyz", DelegatingStrColumn::new);
     }
+
 }

@@ -69,4 +69,5 @@ public class PdbxEntityBranchList extends DelegatingCategory {
     public IntColumn getNum() {
         return delegate.getColumn("num", DelegatingIntColumn::new);
     }
+
 }

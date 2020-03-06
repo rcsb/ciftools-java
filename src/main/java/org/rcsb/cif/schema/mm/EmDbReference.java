@@ -72,4 +72,5 @@ public class EmDbReference extends DelegatingCategory {
     public StrColumn getRelationship() {
         return delegate.getColumn("relationship", DelegatingStrColumn::new);
     }
+
 }

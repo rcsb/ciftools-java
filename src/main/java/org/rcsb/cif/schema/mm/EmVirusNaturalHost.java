@@ -72,4 +72,5 @@ public class EmVirusNaturalHost extends DelegatingCategory {
     public StrColumn getStrain() {
         return delegate.getColumn("strain", DelegatingStrColumn::new);
     }
+
 }

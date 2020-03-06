@@ -103,4 +103,5 @@ public class PdbxDepuiValidationStatusFlags extends DelegatingCategory {
     public StrColumn getAdpOutliersZero() {
         return delegate.getColumn("adp_outliers_zero", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the detectors used in the
  * in the measurement of diffraction intensities.
  */
@@ -73,4 +72,5 @@ public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory
     public StrColumn getMake() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("diffrn_detector_type", "diffrn_detector_make"));
     }
+
 }

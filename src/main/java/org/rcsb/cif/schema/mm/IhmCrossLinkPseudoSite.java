@@ -78,4 +78,5 @@ public class IhmCrossLinkPseudoSite extends DelegatingCategory {
     public IntColumn getModelId() {
         return delegate.getColumn("model_id", DelegatingIntColumn::new);
     }
+
 }

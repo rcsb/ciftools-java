@@ -52,4 +52,5 @@ public class EmDepositorInfo extends DelegatingCategory {
     public StrColumn getMolecularDescriptionFlag() {
         return delegate.getColumn("molecular_description_flag", DelegatingStrColumn::new);
     }
+
 }

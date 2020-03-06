@@ -151,4 +151,5 @@ public class Computing extends DelegatingCategory {
     public StrColumn getPdbxDataReductionDs() {
         return delegate.getColumn("pdbx_data_reduction_ds", DelegatingStrColumn::new);
     }
+
 }

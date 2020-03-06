@@ -64,4 +64,5 @@ public class PdbxLinkedEntityList extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

@@ -83,4 +83,5 @@ public class PdbxFamilyPrdAudit extends DelegatingCategory {
     public StrColumn getActionType() {
         return delegate.getColumn("action_type", DelegatingStrColumn::new);
     }
+
 }

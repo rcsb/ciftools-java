@@ -42,4 +42,5 @@ public class PdbxStructAssemblyAuthClassification extends DelegatingCategory {
     public StrColumn getReasonForInterest() {
         return delegate.getColumn("reason_for_interest", DelegatingStrColumn::new);
     }
+
 }

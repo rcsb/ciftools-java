@@ -148,4 +148,5 @@ public class PdbxEntitySrcGenProdDigest extends DelegatingCategory {
     public StrColumn getSummary() {
         return delegate.getColumn("summary", DelegatingStrColumn::new);
     }
+
 }

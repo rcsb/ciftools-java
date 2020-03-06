@@ -121,4 +121,5 @@ public class IhmOrderedEnsemble extends DelegatingCategory {
     public IntColumn getModelGroupIdEnd() {
         return delegate.getColumn("model_group_id_end", DelegatingIntColumn::new);
     }
+
 }

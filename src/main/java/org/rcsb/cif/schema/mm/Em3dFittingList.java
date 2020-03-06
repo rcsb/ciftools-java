@@ -86,4 +86,5 @@ public class Em3dFittingList extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

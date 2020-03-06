@@ -249,4 +249,5 @@ public class PdbxValidateCloseContact extends DelegatingCategory {
     public FloatColumn getDist() {
         return delegate.getColumn("dist", DelegatingFloatColumn::new);
     }
+
 }

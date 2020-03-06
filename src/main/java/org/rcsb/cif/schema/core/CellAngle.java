@@ -31,4 +31,5 @@ public class CellAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getGammaSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_angle_gamma_su", "cell_angle_gamma_esd"));
     }
+
 }

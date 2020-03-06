@@ -84,4 +84,5 @@ public class PdbxChemCompAtomEdit extends DelegatingCategory {
     public StrColumn getEditAtomValue() {
         return delegate.getColumn("edit_atom_value", DelegatingStrColumn::new);
     }
+
 }

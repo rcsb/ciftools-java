@@ -54,4 +54,5 @@ public class PdbxEntityNameTaxonomy extends DelegatingCategory {
     public StrColumn getNameType() {
         return delegate.getColumn("name_type", DelegatingStrColumn::new);
     }
+
 }

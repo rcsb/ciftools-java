@@ -69,4 +69,5 @@ public class IhmDatasetList extends DelegatingCategory {
     public StrColumn getDatabaseHosted() {
         return delegate.getColumn("database_hosted", DelegatingStrColumn::new);
     }
+
 }

@@ -838,4 +838,5 @@ public class Refln extends DelegatingCategory {
     public FloatColumn getPdbxSinPhaseCalc() {
         return delegate.getColumn("pdbx_sin_phase_calc", DelegatingFloatColumn::new);
     }
+
 }

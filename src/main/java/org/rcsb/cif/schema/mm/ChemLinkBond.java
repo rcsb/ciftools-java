@@ -118,4 +118,5 @@ public class ChemLinkBond extends DelegatingCategory {
     public StrColumn getValueOrder() {
         return delegate.getColumn("value_order", DelegatingStrColumn::new);
     }
+
 }

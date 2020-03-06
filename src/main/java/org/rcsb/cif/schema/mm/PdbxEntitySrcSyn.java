@@ -144,4 +144,5 @@ public class PdbxEntitySrcSyn extends DelegatingCategory {
     public IntColumn getPdbxEndSeqNum() {
         return delegate.getColumn("pdbx_end_seq_num", DelegatingIntColumn::new);
     }
+
 }

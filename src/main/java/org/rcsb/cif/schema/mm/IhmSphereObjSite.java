@@ -139,4 +139,5 @@ public class IhmSphereObjSite extends DelegatingCategory {
     public IntColumn getModelId() {
         return delegate.getColumn("model_id", DelegatingIntColumn::new);
     }
+
 }

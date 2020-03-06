@@ -42,4 +42,5 @@ public class PdbxDataProcessingStatus extends DelegatingCategory {
     public StrColumn getStatus() {
         return delegate.getColumn("status", DelegatingStrColumn::new);
     }
+
 }

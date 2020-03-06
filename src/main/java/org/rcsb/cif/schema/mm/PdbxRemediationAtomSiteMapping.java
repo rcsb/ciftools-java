@@ -318,4 +318,5 @@ public class PdbxRemediationAtomSiteMapping extends DelegatingCategory {
     public FloatColumn getPreOccupancy() {
         return delegate.getColumn("pre_occupancy", DelegatingFloatColumn::new);
     }
+
 }

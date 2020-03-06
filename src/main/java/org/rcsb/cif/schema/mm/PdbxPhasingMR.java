@@ -336,4 +336,5 @@ public class PdbxPhasingMR extends DelegatingCategory {
     public FloatColumn getLLGainTranslation() {
         return delegate.getColumn("LL_gain_translation", DelegatingFloatColumn::new);
     }
+
 }

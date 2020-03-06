@@ -81,4 +81,5 @@ public class IhmGeometricObjectTorus extends DelegatingCategory {
     public FloatColumn getMinorRadiusR() {
         return delegate.getColumn("minor_radius_r", DelegatingFloatColumn::new);
     }
+
 }

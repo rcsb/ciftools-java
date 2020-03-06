@@ -216,4 +216,5 @@ public class PdbxRefineTlsGroup extends DelegatingCategory {
     public StrColumn getSelectionDetails() {
         return delegate.getColumn("selection_details", DelegatingStrColumn::new);
     }
+
 }

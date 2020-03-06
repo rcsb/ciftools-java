@@ -560,4 +560,5 @@ public class PdbxRefineComponent extends DelegatingCategory {
     public FloatColumn getDensityRatioSideChain() {
         return delegate.getColumn("density_ratio_side_chain", DelegatingFloatColumn::new);
     }
+
 }

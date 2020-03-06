@@ -57,4 +57,5 @@ public class DiffrnAttenuator extends DelegatingCategory {
     public StrColumn getMaterial() {
         return delegate.getColumn("material", DelegatingStrColumn::new);
     }
+
 }

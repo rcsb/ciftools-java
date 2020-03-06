@@ -52,4 +52,5 @@ public class EmImageProcessing extends DelegatingCategory {
     public StrColumn getImageRecordingId() {
         return delegate.getColumn("image_recording_id", DelegatingStrColumn::new);
     }
+
 }

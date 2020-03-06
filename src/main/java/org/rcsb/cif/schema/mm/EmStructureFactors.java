@@ -61,4 +61,5 @@ public class EmStructureFactors extends DelegatingCategory {
     public StrColumn getId() {
         return delegate.getColumn("id", DelegatingStrColumn::new);
     }
+
 }

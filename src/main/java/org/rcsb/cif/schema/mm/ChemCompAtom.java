@@ -386,4 +386,5 @@ public class ChemCompAtom extends DelegatingCategory {
     public StrColumn getPdbxStndAtomId() {
         return delegate.getColumn("pdbx_stnd_atom_id", DelegatingStrColumn::new);
     }
+
 }

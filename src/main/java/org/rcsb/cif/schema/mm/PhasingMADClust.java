@@ -59,4 +59,5 @@ public class PhasingMADClust extends DelegatingCategory {
     public IntColumn getNumberSet() {
         return delegate.getColumn("number_set", DelegatingIntColumn::new);
     }
+
 }

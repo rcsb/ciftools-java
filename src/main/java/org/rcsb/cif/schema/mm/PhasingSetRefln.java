@@ -110,4 +110,5 @@ public class PhasingSetRefln extends DelegatingCategory {
     public IntColumn getIndexL() {
         return delegate.getColumn("index_l", DelegatingIntColumn::new);
     }
+
 }

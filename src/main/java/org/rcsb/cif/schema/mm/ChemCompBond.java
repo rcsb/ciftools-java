@@ -126,4 +126,5 @@ public class ChemCompBond extends DelegatingCategory {
     public StrColumn getPdbxAromaticFlag() {
         return delegate.getColumn("pdbx_aromatic_flag", DelegatingStrColumn::new);
     }
+
 }

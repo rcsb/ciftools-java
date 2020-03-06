@@ -211,4 +211,5 @@ public class PdbxDataProcessingDetector extends DelegatingCategory {
     public StrColumn getProcessingFiles() {
         return delegate.getColumn("processing_files", DelegatingStrColumn::new);
     }
+
 }

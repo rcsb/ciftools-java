@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the reflection measurements,
  * prior to data reduction and merging.
  */
@@ -336,4 +335,5 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getSinThetaOverLambda() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_refln_sint_over_lambda", "diffrn_refln_sin_theta_over_lambda"));
     }
+
 }

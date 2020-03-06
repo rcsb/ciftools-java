@@ -95,4 +95,5 @@ public class EmDetector extends DelegatingCategory {
     public StrColumn getMode() {
         return delegate.getColumn("mode", DelegatingStrColumn::new);
     }
+
 }

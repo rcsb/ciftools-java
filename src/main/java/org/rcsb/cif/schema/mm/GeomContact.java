@@ -388,4 +388,5 @@ public class GeomContact extends DelegatingCategory {
     public IntColumn getPdbxPDBModelNum() {
         return delegate.getColumn("pdbx_PDB_model_num", DelegatingIntColumn::new);
     }
+
 }

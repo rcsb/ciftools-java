@@ -42,4 +42,5 @@ public class PdbxSequenceAnnotation extends DelegatingCategory {
     public StrColumn getNcbiTaxid() {
         return delegate.getColumn("ncbi_taxid", DelegatingStrColumn::new);
     }
+
 }

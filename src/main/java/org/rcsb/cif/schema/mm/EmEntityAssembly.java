@@ -279,4 +279,5 @@ public class EmEntityAssembly extends DelegatingCategory {
     public StrColumn getMutantFlag() {
         return delegate.getColumn("mutant_flag", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the spectral_dim category describe the parameters of each dimension in the NMR experiment used to generate the spectral peak list.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -160,4 +159,5 @@ public class PdbxNmrSpectralDim extends DelegatingCategory {
     public StrColumn getUnderSamplingType() {
         return delegate.getColumn("under_sampling_type", DelegatingStrColumn::new);
     }
+
 }

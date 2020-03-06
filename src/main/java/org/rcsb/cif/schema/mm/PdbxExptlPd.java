@@ -66,4 +66,5 @@ public class PdbxExptlPd extends DelegatingCategory {
     public StrColumn getSpecPreparation() {
         return delegate.getColumn("spec_preparation", DelegatingStrColumn::new);
     }
+
 }

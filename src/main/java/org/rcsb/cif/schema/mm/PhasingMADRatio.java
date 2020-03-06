@@ -126,4 +126,5 @@ public class PhasingMADRatio extends DelegatingCategory {
     public FloatColumn getWavelength2() {
         return delegate.getColumn("wavelength_2", DelegatingFloatColumn::new);
     }
+
 }

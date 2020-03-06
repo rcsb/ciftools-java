@@ -70,4 +70,5 @@ public class CellMeasurementRefln extends DelegatingCategory {
     public FloatColumn getTheta() {
         return delegate.getColumn("theta", DelegatingFloatColumn::new);
     }
+
 }

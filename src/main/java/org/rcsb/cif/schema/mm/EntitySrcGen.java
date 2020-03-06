@@ -656,4 +656,5 @@ public class EntitySrcGen extends DelegatingCategory {
     public StrColumn getPdbxGeneSrcCultureCollection() {
         return delegate.getColumn("pdbx_gene_src_culture_collection", DelegatingStrColumn::new);
     }
+
 }

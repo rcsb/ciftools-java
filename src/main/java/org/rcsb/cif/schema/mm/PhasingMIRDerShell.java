@@ -344,4 +344,5 @@ public class PhasingMIRDerShell extends DelegatingCategory {
     public IntColumn getPdbxReflnsAcentric() {
         return delegate.getColumn("pdbx_reflns_acentric", DelegatingIntColumn::new);
     }
+
 }

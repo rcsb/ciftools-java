@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the assigned_chem_shift_list category provide information about a list of reported assigned chemical shift values.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -192,4 +191,5 @@ public class PdbxNmrAssignedChemShiftList extends DelegatingCategory {
     public StrColumn getConditionsLabel() {
         return delegate.getColumn("conditions_label", DelegatingStrColumn::new);
     }
+
 }

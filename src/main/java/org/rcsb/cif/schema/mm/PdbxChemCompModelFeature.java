@@ -51,4 +51,5 @@ public class PdbxChemCompModelFeature extends DelegatingCategory {
     public StrColumn getFeatureValue() {
         return delegate.getColumn("feature_value", DelegatingStrColumn::new);
     }
+
 }

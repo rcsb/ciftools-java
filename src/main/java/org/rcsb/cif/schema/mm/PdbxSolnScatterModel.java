@@ -135,4 +135,5 @@ public class PdbxSolnScatterModel extends DelegatingCategory {
     public StrColumn getConformerSelectionCriteria() {
         return delegate.getColumn("conformer_selection_criteria", DelegatingStrColumn::new);
     }
+
 }

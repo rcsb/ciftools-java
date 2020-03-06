@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify information about the
  * radiation source.
  */
@@ -128,4 +127,5 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getTakeOffAngle() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_source_take-off_angle", "diffrn_source_take_off_angle"));
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the chem_shift_software category provide pointers to the software category and methods category.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -62,4 +61,5 @@ public class PdbxNmrChemShiftSoftware extends DelegatingCategory {
     public StrColumn getSoftwareLabel() {
         return delegate.getColumn("software_label", DelegatingStrColumn::new);
     }
+
 }

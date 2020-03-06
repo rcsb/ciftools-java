@@ -111,4 +111,5 @@ public class PdbxChemCompModelAtom extends DelegatingCategory {
     public StrColumn getTypeSymbol() {
         return delegate.getColumn("type_symbol", DelegatingStrColumn::new);
     }
+
 }

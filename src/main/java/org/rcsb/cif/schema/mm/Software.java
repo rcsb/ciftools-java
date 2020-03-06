@@ -229,4 +229,5 @@ public class Software extends DelegatingCategory {
     public IntColumn getPdbxOrdinal() {
         return delegate.getColumn("pdbx_ordinal", DelegatingIntColumn::new);
     }
+
 }

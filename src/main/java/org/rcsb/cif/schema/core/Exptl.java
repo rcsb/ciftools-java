@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the experimental work
  * prior to diffraction measurements. These include crystallization
  * crystal measurements and absorption-correction techniques used..
@@ -204,4 +203,5 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getProcessDetails() {
         return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_process_details"));
     }
+
 }

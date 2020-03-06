@@ -91,4 +91,5 @@ public class EmTomographySpecimen extends DelegatingCategory {
     public StrColumn getSpecimenId() {
         return delegate.getColumn("specimen_id", DelegatingStrColumn::new);
     }
+
 }

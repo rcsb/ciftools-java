@@ -59,4 +59,5 @@ public class ChemLinkPlaneAtom extends DelegatingCategory {
     public StrColumn getPlaneId() {
         return delegate.getColumn("plane_id", DelegatingStrColumn::new);
     }
+
 }

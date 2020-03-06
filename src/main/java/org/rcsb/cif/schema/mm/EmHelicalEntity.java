@@ -119,4 +119,5 @@ public class EmHelicalEntity extends DelegatingCategory {
     public StrColumn getHand() {
         return delegate.getColumn("hand", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Manuscript section data if submitted in parts. see also
  * _publ_manuscript.text and _publ_manuscript.processed.
  * The _publ_section.exptl_prep, _publ_section.exptl_refinement
@@ -157,4 +156,5 @@ public class PublSection extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getTitleFootnote() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_section_title_footnote"));
     }
+
 }

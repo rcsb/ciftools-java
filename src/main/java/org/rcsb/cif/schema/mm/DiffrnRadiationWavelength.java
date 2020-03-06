@@ -63,4 +63,5 @@ public class DiffrnRadiationWavelength extends DelegatingCategory {
     public FloatColumn getWt() {
         return delegate.getColumn("wt", DelegatingFloatColumn::new);
     }
+
 }

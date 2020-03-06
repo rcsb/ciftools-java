@@ -102,4 +102,5 @@ public class EmDiffractionShell extends DelegatingCategory {
     public FloatColumn getPhaseResidual() {
         return delegate.getColumn("phase_residual", DelegatingFloatColumn::new);
     }
+
 }

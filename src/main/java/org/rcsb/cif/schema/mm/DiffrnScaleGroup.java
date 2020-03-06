@@ -51,4 +51,5 @@ public class DiffrnScaleGroup extends DelegatingCategory {
     public FloatColumn getINet() {
         return delegate.getColumn("I_net", DelegatingFloatColumn::new);
     }
+
 }

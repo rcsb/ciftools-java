@@ -414,6 +414,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<AtomSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIhmModelId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ihm_model_id", this);
         }
+
     }
 
     public static class AtomSiteAnisotropBuilder extends MmCifCategoryBuilder {
@@ -606,6 +607,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSiteAnisotropBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxLabelInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_label_ins_code", this);
         }
+
     }
 
     public static class AtomSitesBuilder extends MmCifCategoryBuilder {
@@ -734,6 +736,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSitesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpecialDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "special_details", this);
         }
+
     }
 
     public static class AtomSitesAltBuilder extends MmCifCategoryBuilder {
@@ -750,6 +753,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSitesAltBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class AtomSitesAltEnsBuilder extends MmCifCategoryBuilder {
@@ -766,6 +770,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSitesAltEnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class AtomSitesAltGenBuilder extends MmCifCategoryBuilder {
@@ -782,6 +787,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSitesAltGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEnsId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ens_id", this);
         }
+
     }
 
     public static class AtomSitesFootnoteBuilder extends MmCifCategoryBuilder {
@@ -798,6 +804,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AtomSitesFootnoteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class AtomTypeBuilder extends MmCifCategoryBuilder {
@@ -918,6 +925,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<AtomTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNElectrons() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_N_electrons", this);
         }
+
     }
 
     public static class AuditBuilder extends MmCifCategoryBuilder {
@@ -942,6 +950,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUpdateRecord() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "update_record", this);
         }
+
     }
 
     public static class AuditAuthorBuilder extends MmCifCategoryBuilder {
@@ -966,6 +975,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AuditAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIdentifierORCID() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "identifier_ORCID", this);
         }
+
     }
 
     public static class AuditConformBuilder extends MmCifCategoryBuilder {
@@ -986,6 +996,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AuditConformBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDictVersion() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "dict_version", this);
         }
+
     }
 
     public static class AuditContactAuthorBuilder extends MmCifCategoryBuilder {
@@ -1014,6 +1025,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AuditContactAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPhone() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "phone", this);
         }
+
     }
 
     public static class CellBuilder extends MmCifCategoryBuilder {
@@ -1146,6 +1158,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<CellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxUniqueAxis() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_unique_axis", this);
         }
+
     }
 
     public static class CellMeasurementBuilder extends MmCifCategoryBuilder {
@@ -1194,6 +1207,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<CellMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWavelength() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wavelength", this);
         }
+
     }
 
     public static class CellMeasurementReflnBuilder extends MmCifCategoryBuilder {
@@ -1218,6 +1232,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<CellMeasurementReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTheta() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "theta", this);
         }
+
     }
 
     public static class ChemCompBuilder extends MmCifCategoryBuilder {
@@ -1406,6 +1421,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemCompBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNscnum() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_nscnum", this);
         }
+
     }
 
     public static class ChemCompAngleBuilder extends MmCifCategoryBuilder {
@@ -1446,6 +1462,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemCompAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueDistEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value_dist_esd", this);
         }
+
     }
 
     public static class ChemCompAtomBuilder extends MmCifCategoryBuilder {
@@ -1578,6 +1595,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemCompAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxStndAtomId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_stnd_atom_id", this);
         }
+
     }
 
     public static class ChemCompBondBuilder extends MmCifCategoryBuilder {
@@ -1622,6 +1640,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemCompBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAromaticFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_aromatic_flag", this);
         }
+
     }
 
     public static class ChemCompChirBuilder extends MmCifCategoryBuilder {
@@ -1666,6 +1685,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemCompChirBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVolumeThreeEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_three_esd", this);
         }
+
     }
 
     public static class ChemCompChirAtomBuilder extends MmCifCategoryBuilder {
@@ -1690,6 +1710,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemCompChirAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDev() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dev", this);
         }
+
     }
 
     public static class ChemCompLinkBuilder extends MmCifCategoryBuilder {
@@ -1714,6 +1735,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemCompLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTypeComp2() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type_comp_2", this);
         }
+
     }
 
     public static class ChemCompPlaneBuilder extends MmCifCategoryBuilder {
@@ -1738,6 +1760,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<ChemCompPlaneBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumberAtomsNh() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_atoms_nh", this);
         }
+
     }
 
     public static class ChemCompPlaneAtomBuilder extends MmCifCategoryBuilder {
@@ -1762,6 +1785,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemCompPlaneAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDistEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_esd", this);
         }
+
     }
 
     public static class ChemCompTorBuilder extends MmCifCategoryBuilder {
@@ -1794,6 +1818,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemCompTorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
         }
+
     }
 
     public static class ChemCompTorValueBuilder extends MmCifCategoryBuilder {
@@ -1826,6 +1851,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemCompTorValueBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDistEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_esd", this);
         }
+
     }
 
     public static class ChemLinkBuilder extends MmCifCategoryBuilder {
@@ -1842,6 +1868,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class ChemLinkAngleBuilder extends MmCifCategoryBuilder {
@@ -1894,6 +1921,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemLinkAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueDistEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value_dist_esd", this);
         }
+
     }
 
     public static class ChemLinkBondBuilder extends MmCifCategoryBuilder {
@@ -1934,6 +1962,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemLinkBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class ChemLinkChirBuilder extends MmCifCategoryBuilder {
@@ -1982,6 +2011,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemLinkChirBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVolumeThreeEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_three_esd", this);
         }
+
     }
 
     public static class ChemLinkChirAtomBuilder extends MmCifCategoryBuilder {
@@ -2006,6 +2036,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemLinkChirAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDev() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dev", this);
         }
+
     }
 
     public static class ChemLinkPlaneBuilder extends MmCifCategoryBuilder {
@@ -2030,6 +2061,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<ChemLinkPlaneBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumberAtomsNh() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_atoms_nh", this);
         }
+
     }
 
     public static class ChemLinkPlaneAtomBuilder extends MmCifCategoryBuilder {
@@ -2050,6 +2082,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemLinkPlaneAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPlaneId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "plane_id", this);
         }
+
     }
 
     public static class ChemLinkTorBuilder extends MmCifCategoryBuilder {
@@ -2098,6 +2131,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemLinkTorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "link_id", this);
         }
+
     }
 
     public static class ChemLinkTorValueBuilder extends MmCifCategoryBuilder {
@@ -2126,6 +2160,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemLinkTorValueBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDistEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_esd", this);
         }
+
     }
 
     public static class ChemicalBuilder extends MmCifCategoryBuilder {
@@ -2218,6 +2253,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemicalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTemperatureSublimationLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_lt", this);
         }
+
     }
 
     public static class ChemicalConnAtomBuilder extends MmCifCategoryBuilder {
@@ -2254,6 +2290,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemicalConnAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTypeSymbol() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type_symbol", this);
         }
+
     }
 
     public static class ChemicalConnBondBuilder extends MmCifCategoryBuilder {
@@ -2274,6 +2311,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ChemicalConnBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class ChemicalFormulaBuilder extends MmCifCategoryBuilder {
@@ -2314,6 +2352,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ChemicalFormulaBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWeightMeas() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "weight_meas", this);
         }
+
     }
 
     public static class CitationBuilder extends MmCifCategoryBuilder {
@@ -2430,6 +2469,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<CitationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUnpublishedFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "unpublished_flag", this);
         }
+
     }
 
     public static class CitationAuthorBuilder extends MmCifCategoryBuilder {
@@ -2454,6 +2494,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<CitationAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIdentifierORCID() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "identifier_ORCID", this);
         }
+
     }
 
     public static class CitationEditorBuilder extends MmCifCategoryBuilder {
@@ -2474,6 +2515,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<CitationEditorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class ComputingBuilder extends MmCifCategoryBuilder {
@@ -2526,6 +2568,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ComputingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDataReductionDs() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_data_reduction_ds", this);
         }
+
     }
 
     public static class DatabaseBuilder extends MmCifCategoryBuilder {
@@ -2602,6 +2645,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DatabaseBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRelatedCodesPDB() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_related_codes_PDB", this);
         }
+
     }
 
     public static class Database2Builder extends MmCifCategoryBuilder {
@@ -2618,6 +2662,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Database2Builder, MmCifBlockBuilder, MmCifFileBuilder> enterDatabaseCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_code", this);
         }
+
     }
 
     public static class DatabasePDBCaveatBuilder extends MmCifCategoryBuilder {
@@ -2634,6 +2679,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DatabasePDBCaveatBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class DatabasePDBMatrixBuilder extends MmCifCategoryBuilder {
@@ -2742,6 +2788,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DatabasePDBMatrixBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterScaleVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "scale_vector[3]", this);
         }
+
     }
 
     public static class DatabasePDBRemarkBuilder extends MmCifCategoryBuilder {
@@ -2758,6 +2805,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DatabasePDBRemarkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class DatabasePDBRevBuilder extends MmCifCategoryBuilder {
@@ -2814,6 +2862,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DatabasePDBRevBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRecordRevised4() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_record_revised_4", this);
         }
+
     }
 
     public static class DatabasePDBRevRecordBuilder extends MmCifCategoryBuilder {
@@ -2834,6 +2883,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DatabasePDBRevRecordBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class DatabasePDBTvectBuilder extends MmCifCategoryBuilder {
@@ -2862,6 +2912,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DatabasePDBTvectBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector[3]", this);
         }
+
     }
 
     public static class DiffrnBuilder extends MmCifCategoryBuilder {
@@ -2934,6 +2985,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DiffrnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSerialCrystalExperiment() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_serial_crystal_experiment", this);
         }
+
     }
 
     public static class DiffrnAttenuatorBuilder extends MmCifCategoryBuilder {
@@ -2954,6 +3006,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DiffrnAttenuatorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMaterial() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "material", this);
         }
+
     }
 
     public static class DiffrnDetectorBuilder extends MmCifCategoryBuilder {
@@ -3002,6 +3055,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnDetectorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxFrequency() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_frequency", this);
         }
+
     }
 
     public static class DiffrnMeasurementBuilder extends MmCifCategoryBuilder {
@@ -3042,6 +3096,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDate() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_date", this);
         }
+
     }
 
     public static class DiffrnOrientMatrixBuilder extends MmCifCategoryBuilder {
@@ -3094,6 +3149,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUB33() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[3][3]", this);
         }
+
     }
 
     public static class DiffrnOrientReflnBuilder extends MmCifCategoryBuilder {
@@ -3142,6 +3198,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<DiffrnOrientReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIndexL() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "index_l", this);
         }
+
     }
 
     public static class DiffrnRadiationBuilder extends MmCifCategoryBuilder {
@@ -3218,6 +3275,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DiffrnRadiationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxScatteringType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_scattering_type", this);
         }
+
     }
 
     public static class DiffrnRadiationWavelengthBuilder extends MmCifCategoryBuilder {
@@ -3238,6 +3296,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnRadiationWavelengthBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wt", this);
         }
+
     }
 
     public static class DiffrnReflnBuilder extends MmCifCategoryBuilder {
@@ -3382,6 +3441,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIntensityU() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "intensity_u", this);
         }
+
     }
 
     public static class DiffrnReflnsBuilder extends MmCifCategoryBuilder {
@@ -3522,6 +3582,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<DiffrnReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNumberObs() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_number_obs", this);
         }
+
     }
 
     public static class DiffrnScaleGroupBuilder extends MmCifCategoryBuilder {
@@ -3538,6 +3599,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnScaleGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterINet() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "I_net", this);
         }
+
     }
 
     public static class DiffrnSourceBuilder extends MmCifCategoryBuilder {
@@ -3610,6 +3672,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<DiffrnSourceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSourceSpecificBeamline() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_source_specific_beamline", this);
         }
+
     }
 
     public static class DiffrnStandardReflnBuilder extends MmCifCategoryBuilder {
@@ -3638,6 +3701,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<DiffrnStandardReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIndexL() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "index_l", this);
         }
+
     }
 
     public static class DiffrnStandardsBuilder extends MmCifCategoryBuilder {
@@ -3674,6 +3738,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<DiffrnStandardsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterScaleU() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "scale_u", this);
         }
+
     }
 
     public static class EntityBuilder extends MmCifCategoryBuilder {
@@ -3746,6 +3811,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEntitiesPerBiologicalUnit() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_entities_per_biological_unit", this);
         }
+
     }
 
     public static class EntityKeywordsBuilder extends MmCifCategoryBuilder {
@@ -3778,6 +3844,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntityKeywordsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAntibodyIsotype() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_antibody_isotype", this);
         }
+
     }
 
     public static class EntityLinkBuilder extends MmCifCategoryBuilder {
@@ -3810,6 +3877,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EntityLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEntitySeqNum2() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "entity_seq_num_2", this);
         }
+
     }
 
     public static class EntityNameComBuilder extends MmCifCategoryBuilder {
@@ -3830,6 +3898,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntityNameComBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxProvenance() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_provenance", this);
         }
+
     }
 
     public static class EntityNameSysBuilder extends MmCifCategoryBuilder {
@@ -3850,6 +3919,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntityNameSysBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSystem() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "system", this);
         }
+
     }
 
     public static class EntityPolyBuilder extends MmCifCategoryBuilder {
@@ -3946,6 +4016,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EntityPolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSeqAlignEnd() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_seq_align_end", this);
         }
+
     }
 
     public static class EntityPolySeqBuilder extends MmCifCategoryBuilder {
@@ -3970,6 +4041,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EntityPolySeqBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num", this);
         }
+
     }
 
     public static class EntryBuilder extends MmCifCategoryBuilder {
@@ -3986,6 +4058,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDOI() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_DOI", this);
         }
+
     }
 
     public static class EntryLinkBuilder extends MmCifCategoryBuilder {
@@ -4006,6 +4079,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntryLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class ExptlBuilder extends MmCifCategoryBuilder {
@@ -4054,6 +4128,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ExptlBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethodDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method_details", this);
         }
+
     }
 
     public static class ExptlCrystalBuilder extends MmCifCategoryBuilder {
@@ -4206,6 +4281,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ExptlCrystalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxCrystalDirection3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_crystal_direction_3", this);
         }
+
     }
 
     public static class ExptlCrystalFaceBuilder extends MmCifCategoryBuilder {
@@ -4250,6 +4326,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ExptlCrystalFaceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPerpDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "perp_dist", this);
         }
+
     }
 
     public static class ExptlCrystalGrowBuilder extends MmCifCategoryBuilder {
@@ -4326,6 +4403,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ExptlCrystalGrowBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPHRange() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_pH_range", this);
         }
+
     }
 
     public static class ExptlCrystalGrowCompBuilder extends MmCifCategoryBuilder {
@@ -4386,6 +4464,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ExptlCrystalGrowCompBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSolv() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_solv", this);
         }
+
     }
 
     public static class GeomBuilder extends MmCifCategoryBuilder {
@@ -4402,6 +4481,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<GeomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class GeomAngleBuilder extends MmCifCategoryBuilder {
@@ -4570,6 +4650,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<GeomAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPDBModelNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_PDB_model_num", this);
         }
+
     }
 
     public static class GeomBondBuilder extends MmCifCategoryBuilder {
@@ -4694,6 +4775,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<GeomBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPDBModelNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_PDB_model_num", this);
         }
+
     }
 
     public static class GeomContactBuilder extends MmCifCategoryBuilder {
@@ -4814,6 +4896,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<GeomContactBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPDBModelNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_PDB_model_num", this);
         }
+
     }
 
     public static class GeomHbondBuilder extends MmCifCategoryBuilder {
@@ -4990,6 +5073,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<GeomHbondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSiteSymmetryH() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_H", this);
         }
+
     }
 
     public static class GeomTorsionBuilder extends MmCifCategoryBuilder {
@@ -5206,6 +5290,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<GeomTorsionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPDBModelNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_PDB_model_num", this);
         }
+
     }
 
     public static class JournalBuilder extends MmCifCategoryBuilder {
@@ -5366,6 +5451,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<JournalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterYear() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "year", this);
         }
+
     }
 
     public static class JournalIndexBuilder extends MmCifCategoryBuilder {
@@ -5386,6 +5472,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<JournalIndexBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PhasingBuilder extends MmCifCategoryBuilder {
@@ -5398,6 +5485,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PhasingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method", this);
         }
+
     }
 
     public static class PhasingAveragingBuilder extends MmCifCategoryBuilder {
@@ -5418,6 +5506,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PhasingAveragingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method", this);
         }
+
     }
 
     public static class PhasingIsomorphousBuilder extends MmCifCategoryBuilder {
@@ -5442,6 +5531,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PhasingIsomorphousBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterParent() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "parent", this);
         }
+
     }
 
     public static class PhasingMADBuilder extends MmCifCategoryBuilder {
@@ -5550,6 +5640,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PhasingMADBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAnomScatMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_anom_scat_method", this);
         }
+
     }
 
     public static class PhasingMADClustBuilder extends MmCifCategoryBuilder {
@@ -5570,6 +5661,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PhasingMADClustBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumberSet() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_set", this);
         }
+
     }
 
     public static class PhasingMADExptBuilder extends MmCifCategoryBuilder {
@@ -5610,6 +5702,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingMADExptBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRNormalAnomScat() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_normal_anom_scat", this);
         }
+
     }
 
     public static class PhasingMADRatioBuilder extends MmCifCategoryBuilder {
@@ -5654,6 +5747,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingMADRatioBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWavelength2() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wavelength_2", this);
         }
+
     }
 
     public static class PhasingMADSetBuilder extends MmCifCategoryBuilder {
@@ -5710,6 +5804,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingMADSetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxFDoublePrimeRefined() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_f_double_prime_refined", this);
         }
+
     }
 
     public static class PhasingMIRBuilder extends MmCifCategoryBuilder {
@@ -5770,6 +5865,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PhasingMIRBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNumberDerivatives() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_number_derivatives", this);
         }
+
     }
 
     public static class PhasingMIRDerBuilder extends MmCifCategoryBuilder {
@@ -5890,6 +5986,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PhasingMIRDerBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxReflns() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_reflns", this);
         }
+
     }
 
     public static class PhasingMIRDerReflnBuilder extends MmCifCategoryBuilder {
@@ -5962,6 +6059,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PhasingMIRDerReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSetId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "set_id", this);
         }
+
     }
 
     public static class PhasingMIRDerShellBuilder extends MmCifCategoryBuilder {
@@ -6062,6 +6160,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PhasingMIRDerShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxReflnsAcentric() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_reflns_acentric", this);
         }
+
     }
 
     public static class PhasingMIRDerSiteBuilder extends MmCifCategoryBuilder {
@@ -6162,6 +6261,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingMIRDerSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOccupancyIsoSu() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "occupancy_iso_su", this);
         }
+
     }
 
     public static class PhasingMIRShellBuilder extends MmCifCategoryBuilder {
@@ -6258,6 +6358,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingMIRShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRCullisAcentric() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_R_cullis_acentric", this);
         }
+
     }
 
     public static class PhasingSetBuilder extends MmCifCategoryBuilder {
@@ -6326,6 +6427,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PhasingSetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDResLow() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_d_res_low", this);
         }
+
     }
 
     public static class PhasingSetReflnBuilder extends MmCifCategoryBuilder {
@@ -6366,6 +6468,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PhasingSetReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIndexL() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "index_l", this);
         }
+
     }
 
     public static class PublBuilder extends MmCifCategoryBuilder {
@@ -6490,6 +6593,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PublBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSectionTitleFootnote() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "section_title_footnote", this);
         }
+
     }
 
     public static class PublAuthorBuilder extends MmCifCategoryBuilder {
@@ -6518,6 +6622,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PublAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIdIucr() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id_iucr", this);
         }
+
     }
 
     public static class PublBodyBuilder extends MmCifCategoryBuilder {
@@ -6546,6 +6651,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PublBodyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTitle() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "title", this);
         }
+
     }
 
     public static class PublManuscriptInclBuilder extends MmCifCategoryBuilder {
@@ -6570,6 +6676,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PublManuscriptInclBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterExtraItem() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "extra_item", this);
         }
+
     }
 
     public static class RefineBuilder extends MmCifCategoryBuilder {
@@ -7078,6 +7185,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxOverallESUML() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_overall_ESU_ML", this);
         }
+
     }
 
     public static class RefineAnalyzeBuilder extends MmCifCategoryBuilder {
@@ -7162,6 +7270,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineAnalyzeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxLuzzatiDResHighObs() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Luzzati_d_res_high_obs", this);
         }
+
     }
 
     public static class RefineBIsoBuilder extends MmCifCategoryBuilder {
@@ -7202,6 +7311,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<RefineBIsoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxResidueNum() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_residue_num", this);
         }
+
     }
 
     public static class RefineFunctMinimizedBuilder extends MmCifCategoryBuilder {
@@ -7230,6 +7340,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineFunctMinimizedBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWeight() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "weight", this);
         }
+
     }
 
     public static class RefineHistBuilder extends MmCifCategoryBuilder {
@@ -7342,6 +7453,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<RefineHistBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNumberAtomsTotal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_number_atoms_total", this);
         }
+
     }
 
     public static class RefineLsRestrBuilder extends MmCifCategoryBuilder {
@@ -7386,6 +7498,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<RefineLsRestrBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRestraintFunction() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_restraint_function", this);
         }
+
     }
 
     public static class RefineLsRestrNcsBuilder extends MmCifCategoryBuilder {
@@ -7454,6 +7567,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<RefineLsRestrNcsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEnsId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_ens_id", this);
         }
+
     }
 
     public static class RefineLsRestrTypeBuilder extends MmCifCategoryBuilder {
@@ -7474,6 +7588,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<RefineLsRestrTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class RefineLsShellBuilder extends MmCifCategoryBuilder {
@@ -7582,6 +7697,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineLsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxFscFree() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_fsc_free", this);
         }
+
     }
 
     public static class RefineOccupancyBuilder extends MmCifCategoryBuilder {
@@ -7610,6 +7726,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineOccupancyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValue() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value", this);
         }
+
     }
 
     public static class ReflnBuilder extends MmCifCategoryBuilder {
@@ -7902,6 +8019,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSinPhaseCalc() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_sin_phase_calc", this);
         }
+
     }
 
     public static class ReflnSysAbsBuilder extends MmCifCategoryBuilder {
@@ -7934,6 +8052,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnSysAbsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSigmaI() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "sigmaI", this);
         }
+
     }
 
     public static class ReflnsBuilder extends MmCifCategoryBuilder {
@@ -8170,6 +8289,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAnomalous() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_anomalous", this);
         }
+
     }
 
     public static class ReflnsScaleBuilder extends MmCifCategoryBuilder {
@@ -8194,6 +8314,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnsScaleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMeasIntensity() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_intensity", this);
         }
+
     }
 
     public static class ReflnsShellBuilder extends MmCifCategoryBuilder {
@@ -8366,6 +8487,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAllAnomalous() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_all_anomalous", this);
         }
+
     }
 
     public static class SoftwareBuilder extends MmCifCategoryBuilder {
@@ -8450,6 +8572,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<SoftwareBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_ordinal", this);
         }
+
     }
 
     public static class StructBuilder extends MmCifCategoryBuilder {
@@ -8498,6 +8621,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxTitleText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_title_text", this);
         }
+
     }
 
     public static class StructAsymBuilder extends MmCifCategoryBuilder {
@@ -8558,6 +8682,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<StructAsymBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxMissingNumBeginOfChainInSeqres() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_missing_num_begin_of_chain_in_seqres", this);
         }
+
     }
 
     public static class StructBiolBuilder extends MmCifCategoryBuilder {
@@ -8594,6 +8719,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructBiolBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAssemblyMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_assembly_method", this);
         }
+
     }
 
     public static class StructBiolGenBuilder extends MmCifCategoryBuilder {
@@ -8662,6 +8788,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructBiolGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxBeforeEndResidueNo() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_before_end_residue_no", this);
         }
+
     }
 
     public static class StructBiolKeywordsBuilder extends MmCifCategoryBuilder {
@@ -8678,6 +8805,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructBiolKeywordsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class StructBiolViewBuilder extends MmCifCategoryBuilder {
@@ -8746,6 +8874,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<StructBiolViewBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_vector[3]", this);
         }
+
     }
 
     public static class StructConfBuilder extends MmCifCategoryBuilder {
@@ -8834,6 +8963,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructConfBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPDBHelixId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_PDB_helix_id", this);
         }
+
     }
 
     public static class StructConfTypeBuilder extends MmCifCategoryBuilder {
@@ -8854,6 +8984,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructConfTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReference() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference", this);
         }
+
     }
 
     public static class StructConnBuilder extends MmCifCategoryBuilder {
@@ -9086,6 +9217,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructConnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRole() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_role", this);
         }
+
     }
 
     public static class StructConnTypeBuilder extends MmCifCategoryBuilder {
@@ -9106,6 +9238,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructConnTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReference() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference", this);
         }
+
     }
 
     public static class StructKeywordsBuilder extends MmCifCategoryBuilder {
@@ -9130,6 +9263,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructKeywordsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_details", this);
         }
+
     }
 
     public static class StructMonDetailsBuilder extends MmCifCategoryBuilder {
@@ -9154,6 +9288,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructMonDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRSR() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "RSR", this);
         }
+
     }
 
     public static class StructMonNuclBuilder extends MmCifCategoryBuilder {
@@ -9322,6 +9457,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<StructMonNuclBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterZeta() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "zeta", this);
         }
+
     }
 
     public static class StructMonProtBuilder extends MmCifCategoryBuilder {
@@ -9430,6 +9566,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<StructMonProtBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPsi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "psi", this);
         }
+
     }
 
     public static class StructMonProtCisBuilder extends MmCifCategoryBuilder {
@@ -9518,6 +9655,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructMonProtCisBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAuthInsCode2() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_auth_ins_code_2", this);
         }
+
     }
 
     public static class StructNcsDomBuilder extends MmCifCategoryBuilder {
@@ -9538,6 +9676,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructNcsDomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEnsId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_ens_id", this);
         }
+
     }
 
     public static class StructNcsDomLimBuilder extends MmCifCategoryBuilder {
@@ -9622,6 +9761,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructNcsDomLimBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEnsId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_ens_id", this);
         }
+
     }
 
     public static class StructNcsEnsBuilder extends MmCifCategoryBuilder {
@@ -9642,6 +9782,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructNcsEnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPointGroup() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "point_group", this);
         }
+
     }
 
     public static class StructNcsEnsGenBuilder extends MmCifCategoryBuilder {
@@ -9666,6 +9807,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructNcsEnsGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOperId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "oper_id", this);
         }
+
     }
 
     public static class StructNcsOperBuilder extends MmCifCategoryBuilder {
@@ -9734,6 +9876,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<StructNcsOperBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector[3]", this);
         }
+
     }
 
     public static class StructRefBuilder extends MmCifCategoryBuilder {
@@ -9794,6 +9937,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructRefBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAlignEnd() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_align_end", this);
         }
+
     }
 
     public static class StructRefSeqBuilder extends MmCifCategoryBuilder {
@@ -9866,6 +10010,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructRefSeqBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxSeqAlignEndInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_seq_align_end_ins_code", this);
         }
+
     }
 
     public static class StructRefSeqDifBuilder extends MmCifCategoryBuilder {
@@ -9926,6 +10071,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<StructRefSeqDifBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_ordinal", this);
         }
+
     }
 
     public static class StructSheetBuilder extends MmCifCategoryBuilder {
@@ -9950,6 +10096,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSheetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class StructSheetHbondBuilder extends MmCifCategoryBuilder {
@@ -10098,6 +10245,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSheetHbondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRange2EndLabelInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_range_2_end_label_ins_code", this);
         }
+
     }
 
     public static class StructSheetOrderBuilder extends MmCifCategoryBuilder {
@@ -10126,6 +10274,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSheetOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSheetId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sheet_id", this);
         }
+
     }
 
     public static class StructSheetRangeBuilder extends MmCifCategoryBuilder {
@@ -10202,6 +10351,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSheetRangeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEndPDBInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_end_PDB_ins_code", this);
         }
+
     }
 
     public static class StructSheetTopologyBuilder extends MmCifCategoryBuilder {
@@ -10230,6 +10380,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSheetTopologyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSheetId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sheet_id", this);
         }
+
     }
 
     public static class StructSiteBuilder extends MmCifCategoryBuilder {
@@ -10270,6 +10421,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAuthInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_auth_ins_code", this);
         }
+
     }
 
     public static class StructSiteGenBuilder extends MmCifCategoryBuilder {
@@ -10338,6 +10490,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<StructSiteGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNumRes() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_num_res", this);
         }
+
     }
 
     public static class StructSiteKeywordsBuilder extends MmCifCategoryBuilder {
@@ -10354,6 +10507,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSiteKeywordsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class StructSiteViewBuilder extends MmCifCategoryBuilder {
@@ -10410,6 +10564,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<StructSiteViewBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSiteId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_id", this);
         }
+
     }
 
     public static class SymmetryBuilder extends MmCifCategoryBuilder {
@@ -10442,6 +10597,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<SymmetryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxFullSpaceGroupNameH_M() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_full_space_group_name_H-M", this);
         }
+
     }
 
     public static class SymmetryEquivBuilder extends MmCifCategoryBuilder {
@@ -10458,6 +10614,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<SymmetryEquivBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPosAsXyz() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pos_as_xyz", this);
         }
+
     }
 
     public static class AuditLinkBuilder extends MmCifCategoryBuilder {
@@ -10474,6 +10631,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<AuditLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterBlockDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "block_description", this);
         }
+
     }
 
     public static class DiffrnReflnsClassBuilder extends MmCifCategoryBuilder {
@@ -10514,6 +10672,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<DiffrnReflnsClassBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumber() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number", this);
         }
+
     }
 
     public static class RefineLsClassBuilder extends MmCifCategoryBuilder {
@@ -10554,6 +10713,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<RefineLsClassBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWRFactorAll() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
         }
+
     }
 
     public static class ReflnsClassBuilder extends MmCifCategoryBuilder {
@@ -10606,6 +10766,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ReflnsClassBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWRFactorAll() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
         }
+
     }
 
     public static class SpaceGroupBuilder extends MmCifCategoryBuilder {
@@ -10634,6 +10795,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<SpaceGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNameH_MAlt() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_H-M_alt", this);
         }
+
     }
 
     public static class SpaceGroupSymopBuilder extends MmCifCategoryBuilder {
@@ -10654,6 +10816,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<SpaceGroupSymopBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSgId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sg_id", this);
         }
+
     }
 
     public static class ValenceParamBuilder extends MmCifCategoryBuilder {
@@ -10698,6 +10861,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<ValenceParamBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRo() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Ro", this);
         }
+
     }
 
     public static class ValenceRefBuilder extends MmCifCategoryBuilder {
@@ -10714,6 +10878,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<ValenceRefBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReference() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference", this);
         }
+
     }
 
     public static class PdbxAuditBuilder extends MmCifCategoryBuilder {
@@ -10730,6 +10895,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCurrentVersion() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "current_version", this);
         }
+
     }
 
     public static class PdbxVersionBuilder extends MmCifCategoryBuilder {
@@ -10762,6 +10928,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxVersionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRevisionType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "revision_type", this);
         }
+
     }
 
     public static class PdbxAuditAuthorBuilder extends MmCifCategoryBuilder {
@@ -10782,6 +10949,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxAuditAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxDatabaseMessageBuilder extends MmCifCategoryBuilder {
@@ -10854,6 +11022,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseMessageBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMessage() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "message", this);
         }
+
     }
 
     public static class PdbxDatabasePDBObsSprBuilder extends MmCifCategoryBuilder {
@@ -10882,6 +11051,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabasePDBObsSprBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxDatabaseProcBuilder extends MmCifCategoryBuilder {
@@ -10910,6 +11080,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseProcBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxDatabaseRemarkBuilder extends MmCifCategoryBuilder {
@@ -10926,6 +11097,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseRemarkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class PdbxDatabaseStatusBuilder extends MmCifCategoryBuilder {
@@ -11226,6 +11398,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseStatusBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTitleSuppression() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "title_suppression", this);
         }
+
     }
 
     public static class PdbxEntityNameBuilder extends MmCifCategoryBuilder {
@@ -11246,6 +11419,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityNameBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNameType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_type", this);
         }
+
     }
 
     public static class PdbxPrereleaseSeqBuilder extends MmCifCategoryBuilder {
@@ -11262,6 +11436,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPrereleaseSeqBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSeqOneLetterCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "seq_one_letter_code", this);
         }
+
     }
 
     public static class PdbxPolySeqSchemeBuilder extends MmCifCategoryBuilder {
@@ -11318,6 +11493,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPolySeqSchemeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb_ins_code", this);
         }
+
     }
 
     public static class PdbxNonpolySchemeBuilder extends MmCifCategoryBuilder {
@@ -11366,6 +11542,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNonpolySchemeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb_ins_code", this);
         }
+
     }
 
     public static class PdbxRefineBuilder extends MmCifCategoryBuilder {
@@ -11442,6 +11619,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRefineBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFreeRValNoCutoff() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "free_R_val_no_cutoff", this);
         }
+
     }
 
     public static class PdbxStructSheetHbondBuilder extends MmCifCategoryBuilder {
@@ -11534,6 +11712,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructSheetHbondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRange2PDBInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "range_2_PDB_ins_code", this);
         }
+
     }
 
     public static class PdbxXplorFileBuilder extends MmCifCategoryBuilder {
@@ -11558,6 +11737,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxXplorFileBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTopolFile() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "topol_file", this);
         }
+
     }
 
     public static class PdbxRefineAuxFileBuilder extends MmCifCategoryBuilder {
@@ -11582,6 +11762,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxRefineAuxFileBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFileType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "file_type", this);
         }
+
     }
 
     public static class PdbxDatabaseRelatedBuilder extends MmCifCategoryBuilder {
@@ -11606,6 +11787,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseRelatedBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterContentType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "content_type", this);
         }
+
     }
 
     public static class PdbxEntityAssemblyBuilder extends MmCifCategoryBuilder {
@@ -11630,6 +11812,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntityAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumCopies() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_copies", this);
         }
+
     }
 
     public static class PdbxExptlCrystalGrowCompBuilder extends MmCifCategoryBuilder {
@@ -11666,6 +11849,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxExptlCrystalGrowCompBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConcUnits() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "conc_units", this);
         }
+
     }
 
     public static class PdbxExptlCrystalGrowSolBuilder extends MmCifCategoryBuilder {
@@ -11694,6 +11878,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxExptlCrystalGrowSolBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPH() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pH", this);
         }
+
     }
 
     public static class PdbxExptlCrystalCryoTreatmentBuilder extends MmCifCategoryBuilder {
@@ -11722,6 +11907,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxExptlCrystalCryoTreatmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAnnealingDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "annealing_details", this);
         }
+
     }
 
     public static class PdbxRefineTlsBuilder extends MmCifCategoryBuilder {
@@ -11926,6 +12112,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRefineTlsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterS33Esd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "S[3][3]_esd", this);
         }
+
     }
 
     public static class PdbxRefineTlsGroupBuilder extends MmCifCategoryBuilder {
@@ -11994,6 +12181,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxRefineTlsGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSelectionDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "selection_details", this);
         }
+
     }
 
     public static class PdbxContactAuthorBuilder extends MmCifCategoryBuilder {
@@ -12082,6 +12270,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxContactAuthorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIdentifierORCID() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "identifier_ORCID", this);
         }
+
     }
 
     public static class PdbxSGProjectBuilder extends MmCifCategoryBuilder {
@@ -12106,6 +12295,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSGProjectBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterInitialOfCenter() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "initial_of_center", this);
         }
+
     }
 
     public static class PdbxAtomSiteAnisoTlsBuilder extends MmCifCategoryBuilder {
@@ -12190,6 +12380,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxAtomSiteAnisoTlsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUTls23() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_tls[2][3]", this);
         }
+
     }
 
     public static class PdbxNmrDetailsBuilder extends MmCifCategoryBuilder {
@@ -12206,6 +12397,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class PdbxNmrSampleDetailsBuilder extends MmCifCategoryBuilder {
@@ -12238,6 +12430,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSampleDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxNmrExptlSampleBuilder extends MmCifCategoryBuilder {
@@ -12274,6 +12467,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxNmrExptlSampleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConcentrationErr() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "concentration_err", this);
         }
+
     }
 
     public static class PdbxNmrExptlSampleConditionsBuilder extends MmCifCategoryBuilder {
@@ -12342,6 +12536,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrExptlSampleConditionsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTemperatureUnits() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "temperature_units", this);
         }
+
     }
 
     public static class PdbxNmrSpectrometerBuilder extends MmCifCategoryBuilder {
@@ -12378,6 +12573,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSpectrometerBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name", this);
         }
+
     }
 
     public static class PdbxNmrExptlBuilder extends MmCifCategoryBuilder {
@@ -12410,6 +12606,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrExptlBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSampleState() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sample_state", this);
         }
+
     }
 
     public static class PdbxNmrSoftwareBuilder extends MmCifCategoryBuilder {
@@ -12442,6 +12639,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSoftwareBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxNmrConstraintsBuilder extends MmCifCategoryBuilder {
@@ -12546,6 +12744,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrConstraintsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNASugarPuckerConstraintsTotalCount() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "NA_sugar_pucker_constraints_total_count", this);
         }
+
     }
 
     public static class PdbxNmrEnsembleBuilder extends MmCifCategoryBuilder {
@@ -12614,6 +12813,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrEnsembleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTorsionAngleConstraintViolationMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "torsion_angle_constraint_violation_method", this);
         }
+
     }
 
     public static class PdbxNmrEnsembleRmsBuilder extends MmCifCategoryBuilder {
@@ -12698,6 +12898,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrEnsembleRmsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCoordAverageRmsdMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coord_average_rmsd_method", this);
         }
+
     }
 
     public static class PdbxNmrRepresentativeBuilder extends MmCifCategoryBuilder {
@@ -12718,6 +12919,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrRepresentativeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSelectionCriteria() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "selection_criteria", this);
         }
+
     }
 
     public static class PdbxNmrRefineBuilder extends MmCifCategoryBuilder {
@@ -12742,6 +12944,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrRefineBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "software_ordinal", this);
         }
+
     }
 
     public static class PdbxNmrForceConstantsBuilder extends MmCifCategoryBuilder {
@@ -12858,6 +13061,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrForceConstantsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNon_bondedInterRadiusOfGyrationTermUnits() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "non-bonded_inter_radius_of_gyration_term_units", this);
         }
+
     }
 
     public static class NdbStructConfNaBuilder extends MmCifCategoryBuilder {
@@ -12878,6 +13082,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<NdbStructConfNaBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureCount() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "feature_count", this);
         }
+
     }
 
     public static class NdbStructFeatureNaBuilder extends MmCifCategoryBuilder {
@@ -12898,6 +13103,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<NdbStructFeatureNaBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureCount() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "feature_count", this);
         }
+
     }
 
     public static class NdbStructNaBasePairBuilder extends MmCifCategoryBuilder {
@@ -13006,6 +13212,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<NdbStructNaBasePairBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHbondType28() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "hbond_type_28", this);
         }
+
     }
 
     public static class NdbStructNaBasePairStepBuilder extends MmCifCategoryBuilder {
@@ -13186,6 +13393,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<NdbStructNaBasePairStepBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHelicalTwist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "helical_twist", this);
         }
+
     }
 
     public static class NdbOriginalNdbCoordinatesBuilder extends MmCifCategoryBuilder {
@@ -13198,6 +13406,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<NdbOriginalNdbCoordinatesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCoordSection() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coord_section", this);
         }
+
     }
 
     public static class PdbxEntityNonpolyBuilder extends MmCifCategoryBuilder {
@@ -13218,6 +13427,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityNonpolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name", this);
         }
+
     }
 
     public static class PdbxPhasingDmBuilder extends MmCifCategoryBuilder {
@@ -13270,6 +13480,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingDmBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDeltaPhiFinal() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "delta_phi_final", this);
         }
+
     }
 
     public static class PdbxPhasingDmShellBuilder extends MmCifCategoryBuilder {
@@ -13318,6 +13529,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingDmShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDeltaPhiFinal() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "delta_phi_final", this);
         }
+
     }
 
     public static class PdbxPhasingMADShellBuilder extends MmCifCategoryBuilder {
@@ -13406,6 +13618,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingMADShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPower() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "power", this);
         }
+
     }
 
     public static class PdbxPhasingMADSetBuilder extends MmCifCategoryBuilder {
@@ -13502,6 +13715,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingMADSetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPower() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "power", this);
         }
+
     }
 
     public static class PdbxPhasingMADSetShellBuilder extends MmCifCategoryBuilder {
@@ -13594,6 +13808,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingMADSetShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPower() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "power", this);
         }
+
     }
 
     public static class PdbxPhasingMADSetSiteBuilder extends MmCifCategoryBuilder {
@@ -13682,6 +13897,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingMADSetSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOccupancyIso() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "occupancy_iso", this);
         }
+
     }
 
     public static class PdbxPhasingMRBuilder extends MmCifCategoryBuilder {
@@ -13794,6 +14010,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxPhasingMRBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLLGainTranslation() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "LL_gain_translation", this);
         }
+
     }
 
     public static class PdbxRefineComponentBuilder extends MmCifCategoryBuilder {
@@ -13910,6 +14127,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRefineComponentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDensityRatioSideChain() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_ratio_side_chain", this);
         }
+
     }
 
     public static class PdbxEntityProdProtocolBuilder extends MmCifCategoryBuilder {
@@ -13934,6 +14152,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityProdProtocolBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProtocolType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "protocol_type", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenProdOtherBuilder extends MmCifCategoryBuilder {
@@ -13978,6 +14197,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenProdOtherBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenProdOtherParameterBuilder extends MmCifCategoryBuilder {
@@ -14010,6 +14230,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenProdOtherParameterBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenProdPcrBuilder extends MmCifCategoryBuilder {
@@ -14066,6 +14287,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenProdPcrBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSummary() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "summary", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenProdDigestBuilder extends MmCifCategoryBuilder {
@@ -14118,6 +14340,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenProdDigestBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSummary() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "summary", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenCloneBuilder extends MmCifCategoryBuilder {
@@ -14186,6 +14409,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenCloneBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSummary() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "summary", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenCloneLigationBuilder extends MmCifCategoryBuilder {
@@ -14226,6 +14450,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenCloneLigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenCloneRecombinationBuilder extends MmCifCategoryBuilder {
@@ -14258,6 +14483,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenCloneRecombinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenExpressBuilder extends MmCifCategoryBuilder {
@@ -14406,6 +14632,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenExpressBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSummary() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "summary", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenExpressTimepointBuilder extends MmCifCategoryBuilder {
@@ -14438,6 +14665,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntitySrcGenExpressTimepointBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTime() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "time", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenLysisBuilder extends MmCifCategoryBuilder {
@@ -14498,6 +14726,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenLysisBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenRefoldBuilder extends MmCifCategoryBuilder {
@@ -14558,6 +14787,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenRefoldBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenProteolysisBuilder extends MmCifCategoryBuilder {
@@ -14618,6 +14848,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxEntitySrcGenProteolysisBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCleavageTime() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cleavage_time", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenChromBuilder extends MmCifCategoryBuilder {
@@ -14714,6 +14945,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenChromBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPostTreatment() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "post_treatment", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenFractBuilder extends MmCifCategoryBuilder {
@@ -14778,6 +15010,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenFractBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProteinYieldMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "protein_yield_method", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenPureBuilder extends MmCifCategoryBuilder {
@@ -14846,6 +15079,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenPureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSummary() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "summary", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenCharacterBuilder extends MmCifCategoryBuilder {
@@ -14886,6 +15120,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenCharacterBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxConstructBuilder extends MmCifCategoryBuilder {
@@ -14938,6 +15173,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxConstructBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSeq() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "seq", this);
         }
+
     }
 
     public static class PdbxConstructFeatureBuilder extends MmCifCategoryBuilder {
@@ -14974,6 +15210,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxConstructFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxRobotSystemBuilder extends MmCifCategoryBuilder {
@@ -14998,6 +15235,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxRobotSystemBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterManufacturer() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "manufacturer", this);
         }
+
     }
 
     public static class PdbxBufferBuilder extends MmCifCategoryBuilder {
@@ -15018,6 +15256,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxBufferBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxBufferComponentsBuilder extends MmCifCategoryBuilder {
@@ -15058,6 +15297,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxBufferComponentsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIsotopicLabeling() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "isotopic_labeling", this);
         }
+
     }
 
     public static class PdbxDomainBuilder extends MmCifCategoryBuilder {
@@ -15074,6 +15314,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDomainBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class PdbxDomainRangeBuilder extends MmCifCategoryBuilder {
@@ -15142,6 +15383,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDomainRangeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndAuthSeqId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "end_auth_seq_id", this);
         }
+
     }
 
     public static class PdbxSequenceRangeBuilder extends MmCifCategoryBuilder {
@@ -15210,6 +15452,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSequenceRangeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndAuthSeqId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "end_auth_seq_id", this);
         }
+
     }
 
     public static class PdbxFeatureEntryBuilder extends MmCifCategoryBuilder {
@@ -15250,6 +15493,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFeatureEntryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureSoftwareId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_software_id", this);
         }
+
     }
 
     public static class PdbxFeatureDomainBuilder extends MmCifCategoryBuilder {
@@ -15294,6 +15538,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFeatureDomainBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureSoftwareId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_software_id", this);
         }
+
     }
 
     public static class PdbxFeatureSequenceRangeBuilder extends MmCifCategoryBuilder {
@@ -15338,6 +15583,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFeatureSequenceRangeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureSoftwareId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_software_id", this);
         }
+
     }
 
     public static class PdbxFeatureAssemblyBuilder extends MmCifCategoryBuilder {
@@ -15382,6 +15628,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFeatureAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureSoftwareId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_software_id", this);
         }
+
     }
 
     public static class PdbxFeatureMonomerBuilder extends MmCifCategoryBuilder {
@@ -15450,6 +15697,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFeatureMonomerBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
         }
+
     }
 
     public static class PdbxExptlPdBuilder extends MmCifCategoryBuilder {
@@ -15474,6 +15722,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxExptlPdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpecPreparation() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "spec_preparation", this);
         }
+
     }
 
     public static class PdbxReflnsTwinBuilder extends MmCifCategoryBuilder {
@@ -15514,6 +15763,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxReflnsTwinBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMeanFSquareOverMeanF2() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mean_F_square_over_mean_F2", this);
         }
+
     }
 
     public static class PdbxStructInfoBuilder extends MmCifCategoryBuilder {
@@ -15534,6 +15784,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxReRefinementBuilder extends MmCifCategoryBuilder {
@@ -15554,6 +15805,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReRefinementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructAssemblyPropBuilder extends MmCifCategoryBuilder {
@@ -15578,6 +15830,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyPropBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructRefSeqFeatureBuilder extends MmCifCategoryBuilder {
@@ -15642,6 +15895,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructRefSeqFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndPdbInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "end_pdb_ins_code", this);
         }
+
     }
 
     public static class PdbxStructRefSeqFeaturePropBuilder extends MmCifCategoryBuilder {
@@ -15686,6 +15940,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxStructRefSeqFeaturePropBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndDbSeqId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "end_db_seq_id", this);
         }
+
     }
 
     public static class PdbxStructChemCompDiagnosticsBuilder extends MmCifCategoryBuilder {
@@ -15730,6 +15985,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxStructChemCompDiagnosticsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxChemCompSynonymsBuilder extends MmCifCategoryBuilder {
@@ -15758,6 +16014,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompSynonymsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxChemCompFeatureBuilder extends MmCifCategoryBuilder {
@@ -15786,6 +16043,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSource() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source", this);
         }
+
     }
 
     public static class PdbxCoordinateModelBuilder extends MmCifCategoryBuilder {
@@ -15802,6 +16060,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxCoordinateModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxStructChemCompFeatureBuilder extends MmCifCategoryBuilder {
@@ -15846,6 +16105,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxStructChemCompFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxDiffrnReflnsShellBuilder extends MmCifCategoryBuilder {
@@ -15894,6 +16154,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxDiffrnReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumberObs() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_obs", this);
         }
+
     }
 
     public static class PdbxBondDistanceLimitsBuilder extends MmCifCategoryBuilder {
@@ -15918,6 +16179,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxBondDistanceLimitsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUpperLimit() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "upper_limit", this);
         }
+
     }
 
     public static class PdbxSolnScatterBuilder extends MmCifCategoryBuilder {
@@ -16018,6 +16280,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSolnScatterBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDataAnalysisSoftwareList() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "data_analysis_software_list", this);
         }
+
     }
 
     public static class PdbxSolnScatterModelBuilder extends MmCifCategoryBuilder {
@@ -16070,6 +16333,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSolnScatterModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConformerSelectionCriteria() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "conformer_selection_criteria", this);
         }
+
     }
 
     public static class PdbxChemCompDescriptorBuilder extends MmCifCategoryBuilder {
@@ -16102,6 +16366,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxChemCompDescriptorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxChemCompIdentifierBuilder extends MmCifCategoryBuilder {
@@ -16134,6 +16399,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxChemCompIdentifierBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxChemCompImportBuilder extends MmCifCategoryBuilder {
@@ -16146,6 +16412,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompImportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
         }
+
     }
 
     public static class PdbxChemCompAtomEditBuilder extends MmCifCategoryBuilder {
@@ -16178,6 +16445,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompAtomEditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEditAtomValue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "edit_atom_value", this);
         }
+
     }
 
     public static class PdbxChemCompBondEditBuilder extends MmCifCategoryBuilder {
@@ -16210,6 +16478,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompBondEditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEditBondValue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "edit_bond_value", this);
         }
+
     }
 
     public static class PdbxChemCompAuditBuilder extends MmCifCategoryBuilder {
@@ -16242,6 +16511,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompAuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterActionType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "action_type", this);
         }
+
     }
 
     public static class PdbxValidateCloseContactBuilder extends MmCifCategoryBuilder {
@@ -16318,6 +16588,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidateCloseContactBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist", this);
         }
+
     }
 
     public static class PdbxValidateSymmContactBuilder extends MmCifCategoryBuilder {
@@ -16394,6 +16665,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidateSymmContactBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist", this);
         }
+
     }
 
     public static class PdbxValidateRmsdBondBuilder extends MmCifCategoryBuilder {
@@ -16478,6 +16750,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxValidateRmsdBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkerFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "linker_flag", this);
         }
+
     }
 
     public static class PdbxValidateRmsdAngleBuilder extends MmCifCategoryBuilder {
@@ -16586,6 +16859,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxValidateRmsdAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkerFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "linker_flag", this);
         }
+
     }
 
     public static class PdbxValidateTorsionBuilder extends MmCifCategoryBuilder {
@@ -16630,6 +16904,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidateTorsionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPsi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "psi", this);
         }
+
     }
 
     public static class PdbxValidatePeptideOmegaBuilder extends MmCifCategoryBuilder {
@@ -16690,6 +16965,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidatePeptideOmegaBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOmega() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "omega", this);
         }
+
     }
 
     public static class PdbxValidateChiralBuilder extends MmCifCategoryBuilder {
@@ -16738,6 +17014,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxValidateChiralBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxValidatePlanesBuilder extends MmCifCategoryBuilder {
@@ -16782,6 +17059,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxValidatePlanesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxValidatePlanesAtomBuilder extends MmCifCategoryBuilder {
@@ -16826,6 +17104,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidatePlanesAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomDeviation() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "atom_deviation", this);
         }
+
     }
 
     public static class PdbxValidateMainChainPlaneBuilder extends MmCifCategoryBuilder {
@@ -16866,6 +17145,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidateMainChainPlaneBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterImproperTorsionAngle() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "improper_torsion_angle", this);
         }
+
     }
 
     public static class PdbxStructConnAngleBuilder extends MmCifCategoryBuilder {
@@ -17030,6 +17310,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructConnAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value_esd", this);
         }
+
     }
 
     public static class PdbxUnobsOrZeroOccResiduesBuilder extends MmCifCategoryBuilder {
@@ -17082,6 +17363,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxUnobsOrZeroOccResiduesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
         }
+
     }
 
     public static class PdbxUnobsOrZeroOccAtomsBuilder extends MmCifCategoryBuilder {
@@ -17146,6 +17428,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxUnobsOrZeroOccAtomsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
         }
+
     }
 
     public static class PdbxEntryDetailsBuilder extends MmCifCategoryBuilder {
@@ -17178,6 +17461,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntryDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHasLigandOfInterest() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "has_ligand_of_interest", this);
         }
+
     }
 
     public static class PdbxStructModResidueBuilder extends MmCifCategoryBuilder {
@@ -17230,6 +17514,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructModResidueBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructRefSeqInsertionBuilder extends MmCifCategoryBuilder {
@@ -17278,6 +17563,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructRefSeqInsertionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDbName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "db_name", this);
         }
+
     }
 
     public static class PdbxStructRefSeqDeletionBuilder extends MmCifCategoryBuilder {
@@ -17314,6 +17600,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructRefSeqDeletionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDbName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "db_name", this);
         }
+
     }
 
     public static class PdbxRemediationAtomSiteMappingBuilder extends MmCifCategoryBuilder {
@@ -17418,6 +17705,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRemediationAtomSiteMappingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPreOccupancy() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pre_occupancy", this);
         }
+
     }
 
     public static class PdbxValidatePolymerLinkageBuilder extends MmCifCategoryBuilder {
@@ -17486,6 +17774,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValidatePolymerLinkageBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist", this);
         }
+
     }
 
     public static class PdbxHelicalSymmetryBuilder extends MmCifCategoryBuilder {
@@ -17522,6 +17811,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxHelicalSymmetryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCircularSymmetry() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "circular_symmetry", this);
         }
+
     }
 
     public static class PdbxPointSymmetryBuilder extends MmCifCategoryBuilder {
@@ -17546,6 +17836,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPointSymmetryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterH_MNotation() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "H-M_notation", this);
         }
+
     }
 
     public static class PdbxStructEntityInstBuilder extends MmCifCategoryBuilder {
@@ -17566,6 +17857,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructEntityInstBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class PdbxStructOperListBuilder extends MmCifCategoryBuilder {
@@ -17638,6 +17930,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructOperListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector[3]", this);
         }
+
     }
 
     public static class PdbxStructAssemblyBuilder extends MmCifCategoryBuilder {
@@ -17666,6 +17959,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class PdbxStructAssemblyGenBuilder extends MmCifCategoryBuilder {
@@ -17694,6 +17988,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOperExpression() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "oper_expression", this);
         }
+
     }
 
     public static class PdbxStructAsymGenBuilder extends MmCifCategoryBuilder {
@@ -17714,6 +18009,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAsymGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOperExpression() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "oper_expression", this);
         }
+
     }
 
     public static class PdbxStructMsymGenBuilder extends MmCifCategoryBuilder {
@@ -17734,6 +18030,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructMsymGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOperExpression() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "oper_expression", this);
         }
+
     }
 
     public static class PdbxStructLegacyOperListBuilder extends MmCifCategoryBuilder {
@@ -17798,6 +18095,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructLegacyOperListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector[3]", this);
         }
+
     }
 
     public static class PdbxChemCompAtomFeatureBuilder extends MmCifCategoryBuilder {
@@ -17818,6 +18116,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_type", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeFamilyBuilder extends MmCifCategoryBuilder {
@@ -17846,6 +18145,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeFamilyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReplacedBy() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "replaced_by", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeListBuilder extends MmCifCategoryBuilder {
@@ -17862,6 +18162,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFamilyPrdId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "family_prd_id", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeBuilder extends MmCifCategoryBuilder {
@@ -17934,6 +18235,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReplacedBy() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "replaced_by", this);
         }
+
     }
 
     public static class PdbxReferenceEntityListBuilder extends MmCifCategoryBuilder {
@@ -17962,6 +18264,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxReferenceEntityListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterComponentId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "component_id", this);
         }
+
     }
 
     public static class PdbxReferenceEntityNonpolyBuilder extends MmCifCategoryBuilder {
@@ -17990,6 +18293,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntityNonpolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChemCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chem_comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceEntityLinkBuilder extends MmCifCategoryBuilder {
@@ -18066,6 +18370,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntityLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkClass() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "link_class", this);
         }
+
     }
 
     public static class PdbxReferenceEntityPolyLinkBuilder extends MmCifCategoryBuilder {
@@ -18130,6 +18435,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntityPolyLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class PdbxReferenceEntityPolyBuilder extends MmCifCategoryBuilder {
@@ -18158,6 +18464,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntityPolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDbName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "db_name", this);
         }
+
     }
 
     public static class PdbxReferenceEntityPolySeqBuilder extends MmCifCategoryBuilder {
@@ -18194,6 +18501,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntityPolySeqBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHetero() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "hetero", this);
         }
+
     }
 
     public static class PdbxReferenceEntitySequenceBuilder extends MmCifCategoryBuilder {
@@ -18222,6 +18530,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntitySequenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOneLetterCodes() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "one_letter_codes", this);
         }
+
     }
 
     public static class PdbxReferenceEntitySrcNatBuilder extends MmCifCategoryBuilder {
@@ -18274,6 +18583,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntitySrcNatBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSourceId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source_id", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeDetailsBuilder extends MmCifCategoryBuilder {
@@ -18306,6 +18616,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeSynonymsBuilder extends MmCifCategoryBuilder {
@@ -18338,6 +18649,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeSynonymsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChemCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chem_comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceEntitySubcomponentsBuilder extends MmCifCategoryBuilder {
@@ -18358,6 +18670,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceEntitySubcomponentsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChemCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chem_comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeAnnotationBuilder extends MmCifCategoryBuilder {
@@ -18398,6 +18711,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeAnnotationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChemCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chem_comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeFeaturesBuilder extends MmCifCategoryBuilder {
@@ -18438,6 +18752,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeFeaturesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChemCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chem_comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceMoleculeRelatedStructuresBuilder extends MmCifCategoryBuilder {
@@ -18478,6 +18793,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceMoleculeRelatedStructuresBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCitationId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "citation_id", this);
         }
+
     }
 
     public static class PdbxStructGroupListBuilder extends MmCifCategoryBuilder {
@@ -18514,6 +18830,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructGroupListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSelectionDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "selection_details", this);
         }
+
     }
 
     public static class PdbxStructGroupComponentsBuilder extends MmCifCategoryBuilder {
@@ -18566,6 +18883,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructGroupComponentsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
         }
+
     }
 
     public static class PdbxStructGroupComponentRangeBuilder extends MmCifCategoryBuilder {
@@ -18650,6 +18968,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructGroupComponentRangeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndLabelAltId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "end_label_alt_id", this);
         }
+
     }
 
     public static class PdbxPrdAuditBuilder extends MmCifCategoryBuilder {
@@ -18682,6 +19001,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPrdAuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterActionType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "action_type", this);
         }
+
     }
 
     public static class PdbxFamilyPrdAuditBuilder extends MmCifCategoryBuilder {
@@ -18714,6 +19034,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFamilyPrdAuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterActionType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "action_type", this);
         }
+
     }
 
     public static class PdbxMoleculeBuilder extends MmCifCategoryBuilder {
@@ -18738,6 +19059,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxMoleculeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkedEntityId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "linked_entity_id", this);
         }
+
     }
 
     public static class PdbxMoleculeFeaturesBuilder extends MmCifCategoryBuilder {
@@ -18766,6 +19088,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxMoleculeFeaturesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxFamilyGroupIndexBuilder extends MmCifCategoryBuilder {
@@ -18782,6 +19105,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxFamilyGroupIndexBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFamilyPrdId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "family_prd_id", this);
         }
+
     }
 
     public static class PdbxDistantSolventAtomsBuilder extends MmCifCategoryBuilder {
@@ -18846,6 +19170,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxDistantSolventAtomsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNeighborLigandDistance() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "neighbor_ligand_distance", this);
         }
+
     }
 
     public static class PdbxStructSpecialSymmetryBuilder extends MmCifCategoryBuilder {
@@ -18894,6 +19219,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxStructSpecialSymmetryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
         }
+
     }
 
     public static class PdbxReferencePublicationListBuilder extends MmCifCategoryBuilder {
@@ -18934,6 +19260,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferencePublicationListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndYear() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "end_year", this);
         }
+
     }
 
     public static class PdbxNmrAssignedChemShiftListBuilder extends MmCifCategoryBuilder {
@@ -19002,6 +19329,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrAssignedChemShiftListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConditionsLabel() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "conditions_label", this);
         }
+
     }
 
     public static class PdbxNmrChemShiftExperimentBuilder extends MmCifCategoryBuilder {
@@ -19034,6 +19362,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrChemShiftExperimentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSolutionId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "solution_id", this);
         }
+
     }
 
     public static class PdbxNmrChemShiftRefBuilder extends MmCifCategoryBuilder {
@@ -19114,6 +19443,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrChemShiftRefBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSolvent() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "solvent", this);
         }
+
     }
 
     public static class PdbxNmrChemShiftReferenceBuilder extends MmCifCategoryBuilder {
@@ -19158,6 +19488,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrChemShiftReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProtonShiftsFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "proton_shifts_flag", this);
         }
+
     }
 
     public static class PdbxNmrChemShiftSoftwareBuilder extends MmCifCategoryBuilder {
@@ -19182,6 +19513,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrChemShiftSoftwareBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareLabel() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "software_label", this);
         }
+
     }
 
     public static class PdbxNmrConstraintFileBuilder extends MmCifCategoryBuilder {
@@ -19222,6 +19554,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrConstraintFileBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "software_ordinal", this);
         }
+
     }
 
     public static class PdbxNmrSoftwareTaskBuilder extends MmCifCategoryBuilder {
@@ -19242,6 +19575,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSoftwareTaskBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTask() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "task", this);
         }
+
     }
 
     public static class PdbxNmrSpectralDimBuilder extends MmCifCategoryBuilder {
@@ -19302,6 +19636,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSpectralDimBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUnderSamplingType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "under_sampling_type", this);
         }
+
     }
 
     public static class PdbxNmrSpectralPeakListBuilder extends MmCifCategoryBuilder {
@@ -19354,6 +19689,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrSpectralPeakListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConditionsLabel() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "conditions_label", this);
         }
+
     }
 
     public static class PdbxNmrSpectralPeakSoftwareBuilder extends MmCifCategoryBuilder {
@@ -19374,6 +19710,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrSpectralPeakSoftwareBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpectralPeakListId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "spectral_peak_list_id", this);
         }
+
     }
 
     public static class PdbxNmrSystematicChemShiftOffsetBuilder extends MmCifCategoryBuilder {
@@ -19414,6 +19751,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNmrSystematicChemShiftOffsetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxNmrUploadBuilder extends MmCifCategoryBuilder {
@@ -19442,6 +19780,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrUploadBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEntryId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "entry_id", this);
         }
+
     }
 
     public static class PdbxAuditSupportBuilder extends MmCifCategoryBuilder {
@@ -19470,6 +19809,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxChemCompSubcomponentStructConnBuilder extends MmCifCategoryBuilder {
@@ -19518,6 +19858,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxChemCompSubcomponentStructConnBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSeqId2() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "seq_id_2", this);
         }
+
     }
 
     public static class PdbxChemCompSubcomponentEntityListBuilder extends MmCifCategoryBuilder {
@@ -19542,6 +19883,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompSubcomponentEntityListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterClazz() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "class", this);
         }
+
     }
 
     public static class EntitySrcNatBuilder extends MmCifCategoryBuilder {
@@ -19654,6 +19996,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntitySrcNatBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxCultureCollection() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_culture_collection", this);
         }
+
     }
 
     public static class EntitySrcGenBuilder extends MmCifCategoryBuilder {
@@ -19878,6 +20221,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EntitySrcGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxGeneSrcCultureCollection() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_gene_src_culture_collection", this);
         }
+
     }
 
     public static class PdbxEntitySrcSynBuilder extends MmCifCategoryBuilder {
@@ -19926,6 +20270,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntitySrcSynBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxEndSeqNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_end_seq_num", this);
         }
+
     }
 
     public static class PdbxEntityPolyCompLinkListBuilder extends MmCifCategoryBuilder {
@@ -19990,6 +20335,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityPolyCompLinkListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class PdbxLinkedEntityBuilder extends MmCifCategoryBuilder {
@@ -20022,6 +20368,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxLinkedEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPrdId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "prd_id", this);
         }
+
     }
 
     public static class PdbxLinkedEntityInstanceListBuilder extends MmCifCategoryBuilder {
@@ -20042,6 +20389,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxLinkedEntityInstanceListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAsymId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "asym_id", this);
         }
+
     }
 
     public static class PdbxLinkedEntityListBuilder extends MmCifCategoryBuilder {
@@ -20066,6 +20414,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxLinkedEntityListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxLinkedEntityLinkListBuilder extends MmCifCategoryBuilder {
@@ -20134,6 +20483,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxLinkedEntityLinkListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkClass() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "link_class", this);
         }
+
     }
 
     public static class PdbxEntityBranchDescriptorBuilder extends MmCifCategoryBuilder {
@@ -20166,6 +20516,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntityBranchDescriptorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxReferenceLinkedEntityBuilder extends MmCifCategoryBuilder {
@@ -20206,6 +20557,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceLinkedEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkFromEntityType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "link_from_entity_type", this);
         }
+
     }
 
     public static class PdbxReferenceLinkedEntityCompListBuilder extends MmCifCategoryBuilder {
@@ -20230,6 +20582,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceLinkedEntityCompListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
         }
+
     }
 
     public static class PdbxReferenceLinkedEntityCompLinkBuilder extends MmCifCategoryBuilder {
@@ -20294,6 +20647,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceLinkedEntityCompLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class PdbxReferenceLinkedEntityLinkBuilder extends MmCifCategoryBuilder {
@@ -20346,6 +20700,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxReferenceLinkedEntityLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class PdbxRelatedExpDataSetBuilder extends MmCifCategoryBuilder {
@@ -20374,6 +20729,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxRelatedExpDataSetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxDatabaseStatusHistoryBuilder extends MmCifCategoryBuilder {
@@ -20406,6 +20762,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabaseStatusHistoryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmAssemblyBuilder extends MmCifCategoryBuilder {
@@ -20454,6 +20811,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmEntityAssemblyBuilder extends MmCifCategoryBuilder {
@@ -20558,6 +20916,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEntityAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMutantFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "mutant_flag", this);
         }
+
     }
 
     public static class EmVirusEntityBuilder extends MmCifCategoryBuilder {
@@ -20610,6 +20969,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmVirusEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmSamplePreparationBuilder extends MmCifCategoryBuilder {
@@ -20654,6 +21014,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSamplePreparationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmSampleSupportBuilder extends MmCifCategoryBuilder {
@@ -20702,6 +21063,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSampleSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCitationId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "citation_id", this);
         }
+
     }
 
     public static class EmBufferBuilder extends MmCifCategoryBuilder {
@@ -20730,6 +21092,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmBufferBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPH() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pH", this);
         }
+
     }
 
     public static class EmVitrificationBuilder extends MmCifCategoryBuilder {
@@ -20790,6 +21153,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmVitrificationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmImagingBuilder extends MmCifCategoryBuilder {
@@ -20954,6 +21318,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmImagingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCryogen() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cryogen", this);
         }
+
     }
 
     public static class EmDetectorBuilder extends MmCifCategoryBuilder {
@@ -20986,6 +21351,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDetectorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "mode", this);
         }
+
     }
 
     public static class EmImageScansBuilder extends MmCifCategoryBuilder {
@@ -21050,6 +21416,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmImageScansBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUsedFramesPerImage() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "used_frames_per_image", this);
         }
+
     }
 
     public static class Em2dProjectionSelectionBuilder extends MmCifCategoryBuilder {
@@ -21086,6 +21453,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Em2dProjectionSelectionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCitationId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "citation_id", this);
         }
+
     }
 
     public static class Em3dReconstructionBuilder extends MmCifCategoryBuilder {
@@ -21174,6 +21542,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Em3dReconstructionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSymmetryType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "symmetry_type", this);
         }
+
     }
 
     public static class Em3dFittingBuilder extends MmCifCategoryBuilder {
@@ -21218,6 +21587,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Em3dFittingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRefProtocol() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ref_protocol", this);
         }
+
     }
 
     public static class Em3dFittingListBuilder extends MmCifCategoryBuilder {
@@ -21250,6 +21620,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmHelicalEntityBuilder extends MmCifCategoryBuilder {
@@ -21294,6 +21665,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmHelicalEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHand() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "hand", this);
         }
+
     }
 
     public static class EmExperimentBuilder extends MmCifCategoryBuilder {
@@ -21326,6 +21698,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmExperimentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEntityAssemblyId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "entity_assembly_id", this);
         }
+
     }
 
     public static class EmSingleParticleEntityBuilder extends MmCifCategoryBuilder {
@@ -21354,6 +21727,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSingleParticleEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPointSymmetry() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "point_symmetry", this);
         }
+
     }
 
     public static class EmAdminBuilder extends MmCifCategoryBuilder {
@@ -21410,6 +21784,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmAdminBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTitle() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "title", this);
         }
+
     }
 
     public static class EmAuthorListBuilder extends MmCifCategoryBuilder {
@@ -21426,6 +21801,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EmAuthorListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class EmDbReferenceBuilder extends MmCifCategoryBuilder {
@@ -21454,6 +21830,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDbReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRelationship() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "relationship", this);
         }
+
     }
 
     public static class EmDbReferenceAuxiliaryBuilder extends MmCifCategoryBuilder {
@@ -21474,6 +21851,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDbReferenceAuxiliaryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLinkType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "link_type", this);
         }
+
     }
 
     public static class EmDepuiBuilder extends MmCifCategoryBuilder {
@@ -21506,6 +21884,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDepuiBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSameTitleAsPdb() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "same_title_as_pdb", this);
         }
+
     }
 
     public static class EmObsoleteBuilder extends MmCifCategoryBuilder {
@@ -21530,6 +21909,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmObsoleteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmSupersedeBuilder extends MmCifCategoryBuilder {
@@ -21554,6 +21934,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSupersedeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmEntityAssemblyMolwtBuilder extends MmCifCategoryBuilder {
@@ -21586,6 +21967,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEntityAssemblyMolwtBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method", this);
         }
+
     }
 
     public static class EmEntityAssemblyNaturalsourceBuilder extends MmCifCategoryBuilder {
@@ -21634,6 +22016,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEntityAssemblyNaturalsourceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTissue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "tissue", this);
         }
+
     }
 
     public static class EmEntityAssemblyRecombinantBuilder extends MmCifCategoryBuilder {
@@ -21670,6 +22053,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEntityAssemblyRecombinantBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStrain() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "strain", this);
         }
+
     }
 
     public static class EmVirusNaturalHostBuilder extends MmCifCategoryBuilder {
@@ -21698,6 +22082,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmVirusNaturalHostBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStrain() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "strain", this);
         }
+
     }
 
     public static class EmVirusShellBuilder extends MmCifCategoryBuilder {
@@ -21726,6 +22111,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EmVirusShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTriangulation() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "triangulation", this);
         }
+
     }
 
     public static class EmSpecimenBuilder extends MmCifCategoryBuilder {
@@ -21766,6 +22152,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSpecimenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVitrificationApplied() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "vitrification_applied", this);
         }
+
     }
 
     public static class EmEmbeddingBuilder extends MmCifCategoryBuilder {
@@ -21790,6 +22177,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEmbeddingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpecimenId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "specimen_id", this);
         }
+
     }
 
     public static class EmFiducialMarkersBuilder extends MmCifCategoryBuilder {
@@ -21814,6 +22202,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmFiducialMarkersBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterManufacturer() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "manufacturer", this);
         }
+
     }
 
     public static class EmFocusedIonBeamBuilder extends MmCifCategoryBuilder {
@@ -21870,6 +22259,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EmFocusedIonBeamBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVoltage() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "voltage", this);
         }
+
     }
 
     public static class EmGridPretreatmentBuilder extends MmCifCategoryBuilder {
@@ -21902,6 +22292,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmGridPretreatmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmUltramicrotomyBuilder extends MmCifCategoryBuilder {
@@ -21934,6 +22325,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EmUltramicrotomyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTemperature() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "temperature", this);
         }
+
     }
 
     public static class EmHighPressureFreezingBuilder extends MmCifCategoryBuilder {
@@ -21958,6 +22350,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmHighPressureFreezingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterInstrument() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "instrument", this);
         }
+
     }
 
     public static class EmShadowingBuilder extends MmCifCategoryBuilder {
@@ -21990,6 +22383,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmShadowingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterThickness() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "thickness", this);
         }
+
     }
 
     public static class EmTomographySpecimenBuilder extends MmCifCategoryBuilder {
@@ -22026,6 +22420,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmTomographySpecimenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpecimenId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "specimen_id", this);
         }
+
     }
 
     public static class EmCrystalFormationBuilder extends MmCifCategoryBuilder {
@@ -22074,6 +22469,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmCrystalFormationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTimeUnit() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "time_unit", this);
         }
+
     }
 
     public static class EmStainingBuilder extends MmCifCategoryBuilder {
@@ -22102,6 +22498,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmStainingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmSupportFilmBuilder extends MmCifCategoryBuilder {
@@ -22130,6 +22527,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSupportFilmBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTopology() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "topology", this);
         }
+
     }
 
     public static class EmBufferComponentBuilder extends MmCifCategoryBuilder {
@@ -22162,6 +22560,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmBufferComponentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name", this);
         }
+
     }
 
     public static class EmDiffractionBuilder extends MmCifCategoryBuilder {
@@ -22186,6 +22585,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDiffractionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTiltAngleList() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "tilt_angle_list", this);
         }
+
     }
 
     public static class EmDiffractionShellBuilder extends MmCifCategoryBuilder {
@@ -22226,6 +22626,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmDiffractionShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPhaseResidual() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "phase_residual", this);
         }
+
     }
 
     public static class EmDiffractionStatsBuilder extends MmCifCategoryBuilder {
@@ -22282,6 +22683,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmDiffractionStatsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRSym() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_sym", this);
         }
+
     }
 
     public static class EmTomographyBuilder extends MmCifCategoryBuilder {
@@ -22326,6 +22728,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmTomographyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterImagingId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "imaging_id", this);
         }
+
     }
 
     public static class EmImageRecordingBuilder extends MmCifCategoryBuilder {
@@ -22374,6 +22777,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<EmImageRecordingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumRealImages() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_real_images", this);
         }
+
     }
 
     public static class EmImagingOpticsBuilder extends MmCifCategoryBuilder {
@@ -22418,6 +22822,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmImagingOpticsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSphAberrationCorrector() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sph_aberration_corrector", this);
         }
+
     }
 
     public static class EmFinalClassificationBuilder extends MmCifCategoryBuilder {
@@ -22450,6 +22855,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmFinalClassificationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmStartModelBuilder extends MmCifCategoryBuilder {
@@ -22510,6 +22916,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmStartModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmSoftwareBuilder extends MmCifCategoryBuilder {
@@ -22550,6 +22957,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmSoftwareBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVersion() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "version", this);
         }
+
     }
 
     public static class EmEulerAngleAssignmentBuilder extends MmCifCategoryBuilder {
@@ -22590,6 +22998,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmEulerAngleAssignmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmCtfCorrectionBuilder extends MmCifCategoryBuilder {
@@ -22642,6 +23051,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmCtfCorrectionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmVolumeSelectionBuilder extends MmCifCategoryBuilder {
@@ -22678,6 +23088,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmVolumeSelectionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReferenceModel() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference_model", this);
         }
+
     }
 
     public static class Em3dCrystalEntityBuilder extends MmCifCategoryBuilder {
@@ -22726,6 +23137,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<Em3dCrystalEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpaceGroupNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "space_group_num", this);
         }
+
     }
 
     public static class Em2dCrystalEntityBuilder extends MmCifCategoryBuilder {
@@ -22770,6 +23182,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Em2dCrystalEntityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpaceGroupNameH_M() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "space_group_name_H-M", this);
         }
+
     }
 
     public static class EmImageProcessingBuilder extends MmCifCategoryBuilder {
@@ -22790,6 +23203,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmImageProcessingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterImageRecordingId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "image_recording_id", this);
         }
+
     }
 
     public static class EmParticleSelectionBuilder extends MmCifCategoryBuilder {
@@ -22822,6 +23236,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmParticleSelectionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReferenceModel() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference_model", this);
         }
+
     }
 
     public static class EmMapBuilder extends MmCifCategoryBuilder {
@@ -22998,6 +23413,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmMapBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class EmFscCurveBuilder extends MmCifCategoryBuilder {
@@ -23018,6 +23434,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmFscCurveBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmInterpretFigureBuilder extends MmCifCategoryBuilder {
@@ -23038,6 +23455,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmInterpretFigureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmLayerLinesBuilder extends MmCifCategoryBuilder {
@@ -23062,6 +23480,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmLayerLinesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmStructureFactorsBuilder extends MmCifCategoryBuilder {
@@ -23086,6 +23505,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmStructureFactorsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
+
     }
 
     public static class EmDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23106,6 +23526,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMolecularDescriptionFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "molecular_description_flag", this);
         }
+
     }
 
     public static class EmMapDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23158,6 +23579,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmMapDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPixelSpacingZ() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pixel_spacing_z", this);
         }
+
     }
 
     public static class EmMaskDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23198,6 +23620,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<EmMaskDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPixelSpacingZ() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pixel_spacing_z", this);
         }
+
     }
 
     public static class EmFigureDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23222,6 +23645,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmFigureDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmLayerLinesDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23246,6 +23670,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmLayerLinesDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class EmStructureFactorsDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23270,6 +23695,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<EmStructureFactorsDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxSeqMapDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23294,6 +23720,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSeqMapDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOneLetterCodeMod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "one_letter_code_mod", this);
         }
+
     }
 
     public static class PdbxChemCompDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23342,6 +23769,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructRefSeqDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23394,6 +23822,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructRefSeqDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSeqAlignEnd() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "seq_align_end", this);
         }
+
     }
 
     public static class PdbxStructRefSeqDifDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23450,6 +23879,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructRefSeqDifDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAnnotation() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "annotation", this);
         }
+
     }
 
     public static class PdbxStructAssemblyPropDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23474,6 +23904,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyPropDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructAssemblyDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23510,6 +23941,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUploadFileName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "upload_file_name", this);
         }
+
     }
 
     public static class PdbxStructAssemblyGenDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23562,6 +23994,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructAssemblyGenDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterHelicalRise() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "helical_rise", this);
         }
+
     }
 
     public static class PdbxStructOperListDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23634,6 +24067,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructOperListDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector[3]", this);
         }
+
     }
 
     public static class PdbxPointSymmetryDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23662,6 +24096,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPointSymmetryDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStatusFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "status_flag", this);
         }
+
     }
 
     public static class PdbxHelicalSymmetryDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23702,6 +24137,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxHelicalSymmetryDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStatusFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "status_flag", this);
         }
+
     }
 
     public static class PdbxStructAssemblyAuthEvidenceDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23726,6 +24162,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyAuthEvidenceDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxSolventAtomSiteMappingBuilder extends MmCifCategoryBuilder {
@@ -23842,6 +24279,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSolventAtomSiteMappingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSymmetryAsXyz() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "symmetry_as_xyz", this);
         }
+
     }
 
     public static class PdbxMoleculeFeaturesDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23870,6 +24308,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxMoleculeFeaturesDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxChemCompInstanceDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -23914,6 +24353,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompInstanceDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFormula() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "formula", this);
         }
+
     }
 
     public static class PdbxDepuiStatusFlagsBuilder extends MmCifCategoryBuilder {
@@ -24018,6 +24458,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiStatusFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPostRelReplacementReasonDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "post_rel_replacement_reason_details", this);
         }
+
     }
 
     public static class PdbxDepuiUploadBuilder extends MmCifCategoryBuilder {
@@ -24058,6 +24499,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiUploadBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSequenceAlign() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sequence_align", this);
         }
+
     }
 
     public static class PdbxDepuiValidationStatusFlagsBuilder extends MmCifCategoryBuilder {
@@ -24098,6 +24540,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiValidationStatusFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAdpOutliersZero() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "adp_outliers_zero", this);
         }
+
     }
 
     public static class PdbxChemCompUploadDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -24122,6 +24565,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompUploadDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterUploadFileName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "upload_file_name", this);
         }
+
     }
 
     public static class PdbxDepuiEntityStatusFlagsBuilder extends MmCifCategoryBuilder {
@@ -24146,6 +24590,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiEntityStatusFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSampleXyzSequenceAlignmentsValid() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sample_xyz_sequence_alignments_valid", this);
         }
+
     }
 
     public static class PdbxDepuiEntityFeaturesBuilder extends MmCifCategoryBuilder {
@@ -24166,6 +24611,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiEntityFeaturesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxDepositionMessageInfoBuilder extends MmCifCategoryBuilder {
@@ -24222,6 +24668,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepositionMessageInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSendStatus() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "send_status", this);
         }
+
     }
 
     public static class PdbxDepositionMessageFileReferenceBuilder extends MmCifCategoryBuilder {
@@ -24262,6 +24709,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepositionMessageFileReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStorageType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "storage_type", this);
         }
+
     }
 
     public static class PdbxDepuiEntryDetailsBuilder extends MmCifCategoryBuilder {
@@ -24310,6 +24758,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepuiEntryDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReplacePdbId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "replace_pdb_id", this);
         }
+
     }
 
     public static class PdbxDataProcessingStatusBuilder extends MmCifCategoryBuilder {
@@ -24326,6 +24775,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDataProcessingStatusBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStatus() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "status", this);
         }
+
     }
 
     public static class PdbxEntityInstanceFeatureBuilder extends MmCifCategoryBuilder {
@@ -24370,6 +24820,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntityInstanceFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
         }
+
     }
 
     public static class PdbxEntitySrcGenDepositorInfoBuilder extends MmCifCategoryBuilder {
@@ -24434,6 +24885,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntitySrcGenDepositorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPlasmidName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "plasmid_name", this);
         }
+
     }
 
     public static class PdbxChemCompModelBuilder extends MmCifCategoryBuilder {
@@ -24450,6 +24902,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
         }
+
     }
 
     public static class PdbxChemCompModelAtomBuilder extends MmCifCategoryBuilder {
@@ -24490,6 +24943,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTypeSymbol() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type_symbol", this);
         }
+
     }
 
     public static class PdbxChemCompModelBondBuilder extends MmCifCategoryBuilder {
@@ -24518,6 +24972,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxChemCompModelBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinalId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal_id", this);
         }
+
     }
 
     public static class PdbxChemCompModelFeatureBuilder extends MmCifCategoryBuilder {
@@ -24538,6 +24993,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeatureValue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature_value", this);
         }
+
     }
 
     public static class PdbxChemCompModelDescriptorBuilder extends MmCifCategoryBuilder {
@@ -24558,6 +25014,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelDescriptorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxChemCompModelAuditBuilder extends MmCifCategoryBuilder {
@@ -24590,6 +25047,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelAuditBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterActionType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "action_type", this);
         }
+
     }
 
     public static class PdbxChemCompModelReferenceBuilder extends MmCifCategoryBuilder {
@@ -24610,6 +25068,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompModelReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDbCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "db_code", this);
         }
+
     }
 
     public static class PdbxViewCategoryGroupBuilder extends MmCifCategoryBuilder {
@@ -24626,6 +25085,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxViewCategoryGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class PdbxViewCategoryBuilder extends MmCifCategoryBuilder {
@@ -24646,6 +25106,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxViewCategoryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCategoryViewName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "category_view_name", this);
         }
+
     }
 
     public static class PdbxViewItemBuilder extends MmCifCategoryBuilder {
@@ -24674,6 +25135,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxViewItemBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterItemViewAllowAlternateValue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "item_view_allow_alternate_value", this);
         }
+
     }
 
     public static class PdbxCoordBuilder extends MmCifCategoryBuilder {
@@ -24702,6 +25164,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxCoordBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterStructureFactorsYN() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "structure_factors_Y_N", this);
         }
+
     }
 
     public static class PdbxConnectBuilder extends MmCifCategoryBuilder {
@@ -24758,6 +25221,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxConnectBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModifiedDate() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "modified_date", this);
         }
+
     }
 
     public static class PdbxConnectTypeBuilder extends MmCifCategoryBuilder {
@@ -24778,6 +25242,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxConnectTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModified() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "modified", this);
         }
+
     }
 
     public static class PdbxConnectModificationBuilder extends MmCifCategoryBuilder {
@@ -24794,6 +25259,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxConnectModificationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModification() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "modification", this);
         }
+
     }
 
     public static class PdbxConnectAtomBuilder extends MmCifCategoryBuilder {
@@ -24830,6 +25296,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxConnectAtomBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAlignPos() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "align_pos", this);
         }
+
     }
 
     public static class PdbxDatabasePDBMasterBuilder extends MmCifCategoryBuilder {
@@ -24890,6 +25357,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxDatabasePDBMasterBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumSeqres() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_seqres", this);
         }
+
     }
 
     public static class PdbxDatabasePdbOmitBuilder extends MmCifCategoryBuilder {
@@ -24906,6 +25374,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDatabasePdbOmitBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRecordName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "record_name", this);
         }
+
     }
 
     public static class PdbxDbrefBuilder extends MmCifCategoryBuilder {
@@ -24966,6 +25435,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDbrefBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatabaseEndInsCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_end_ins_code", this);
         }
+
     }
 
     public static class PdbxDrugInfoBuilder extends MmCifCategoryBuilder {
@@ -24994,6 +25464,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDrugInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSizeOfMoleculePerAsymUnit() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "size_of_molecule_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxInhibitorInfoBuilder extends MmCifCategoryBuilder {
@@ -25014,6 +25485,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxInhibitorInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumPerAsymUnit() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxIonInfoBuilder extends MmCifCategoryBuilder {
@@ -25034,6 +25506,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxIonInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumbPerAsymUnit() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "numb_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxHybridBuilder extends MmCifCategoryBuilder {
@@ -25058,6 +25531,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxHybridBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterResidueNames() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "residue_names", this);
         }
+
     }
 
     public static class PdbxNaStrandInfoBuilder extends MmCifCategoryBuilder {
@@ -25082,6 +25556,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNaStrandInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFractNAStrandPerAsymUnit() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "fract_NA_strand_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxNonstandardListBuilder extends MmCifCategoryBuilder {
@@ -25122,6 +25597,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxNonstandardListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumberAtomsNh() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_atoms_nh", this);
         }
+
     }
 
     public static class PdbxPdbCompndBuilder extends MmCifCategoryBuilder {
@@ -25138,6 +25614,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPdbCompndBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class PdbxPdbSourceBuilder extends MmCifCategoryBuilder {
@@ -25154,6 +25631,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPdbSourceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterText() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "text", this);
         }
+
     }
 
     public static class PdbxProteinInfoBuilder extends MmCifCategoryBuilder {
@@ -25174,6 +25652,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxProteinInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumPerAsymUnit() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxSolventInfoBuilder extends MmCifCategoryBuilder {
@@ -25194,6 +25673,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxSolventInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumbPerAsymUnit() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "numb_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxSourceBuilder extends MmCifCategoryBuilder {
@@ -25206,6 +25686,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSourceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSrcMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "src_method", this);
         }
+
     }
 
     public static class PdbxStructBiolFuncBuilder extends MmCifCategoryBuilder {
@@ -25226,6 +25707,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructBiolFuncBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFunction() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "function", this);
         }
+
     }
 
     public static class PdbxStructPackGenBuilder extends MmCifCategoryBuilder {
@@ -25266,6 +25748,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxStructPackGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPackingType() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "packing_type", this);
         }
+
     }
 
     public static class PdbxTrnaInfoBuilder extends MmCifCategoryBuilder {
@@ -25286,6 +25769,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxTrnaInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumPerAsymUnit() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_per_asym_unit", this);
         }
+
     }
 
     public static class PdbxUnpairBuilder extends MmCifCategoryBuilder {
@@ -25306,6 +25790,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxUnpairBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterResidueNumber() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "residue_number", this);
         }
+
     }
 
     public static class PdbxRefineLsRestrNcsBuilder extends MmCifCategoryBuilder {
@@ -25334,6 +25819,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRefineLsRestrNcsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWeight() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "weight", this);
         }
+
     }
 
     public static class PdbxStructNcsVirusGenBuilder extends MmCifCategoryBuilder {
@@ -25358,6 +25844,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructNcsVirusGenBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbChainId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb_chain_id", this);
         }
+
     }
 
     public static class PdbxSequenceAnnotationBuilder extends MmCifCategoryBuilder {
@@ -25374,6 +25861,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSequenceAnnotationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNcbiTaxid() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ncbi_taxid", this);
         }
+
     }
 
     public static class PdbxPostProcessDetailsBuilder extends MmCifCategoryBuilder {
@@ -25394,6 +25882,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPostProcessDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSeqDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "seq_details", this);
         }
+
     }
 
     public static class PdbxPostProcessStatusBuilder extends MmCifCategoryBuilder {
@@ -25426,6 +25915,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxPostProcessStatusBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAnnotator() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "annotator", this);
         }
+
     }
 
     public static class PdbxStructLinkBuilder extends MmCifCategoryBuilder {
@@ -25506,6 +25996,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStructLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDistValue() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_dist_value", this);
         }
+
     }
 
     public static class PdbxMissingResidueListBuilder extends MmCifCategoryBuilder {
@@ -25538,6 +26029,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxMissingResidueListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
         }
+
     }
 
     public static class PdbxDataProcessingCellBuilder extends MmCifCategoryBuilder {
@@ -25614,6 +26106,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDataProcessingCellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpaceGroup() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "space_group", this);
         }
+
     }
 
     public static class PdbxDataProcessingReflnsBuilder extends MmCifCategoryBuilder {
@@ -25646,6 +26139,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxDataProcessingReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRFactorAllLinear() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_all_linear", this);
         }
+
     }
 
     public static class PdbxDataProcessingDetectorBuilder extends MmCifCategoryBuilder {
@@ -25730,6 +26224,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDataProcessingDetectorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProcessingFiles() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "processing_files", this);
         }
+
     }
 
     public static class PdbxChemCompNonstandardBuilder extends MmCifCategoryBuilder {
@@ -25746,6 +26241,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompNonstandardBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityPolyProteinClassBuilder extends MmCifCategoryBuilder {
@@ -25762,6 +26258,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityPolyProteinClassBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterClazz() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "class", this);
         }
+
     }
 
     public static class PdbxEntityNameTaxonomyTreeBuilder extends MmCifCategoryBuilder {
@@ -25778,6 +26275,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityNameTaxonomyTreeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterParentId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "parent_id", this);
         }
+
     }
 
     public static class PdbxEntityNameTaxonomyBuilder extends MmCifCategoryBuilder {
@@ -25798,6 +26296,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityNameTaxonomyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNameType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_type", this);
         }
+
     }
 
     public static class PdbxEntityNameInstanceBuilder extends MmCifCategoryBuilder {
@@ -25830,6 +26329,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityNameInstanceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbMolId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb_mol_id", this);
         }
+
     }
 
     public static class PdbxTableinfoBuilder extends MmCifCategoryBuilder {
@@ -25866,6 +26366,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxTableinfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWWWReportCriteria() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "WWW_Report_Criteria", this);
         }
+
     }
 
     public static class PdbxColumninfoBuilder extends MmCifCategoryBuilder {
@@ -25910,6 +26411,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxColumninfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterWWWReportCriteria() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "WWW_Report_Criteria", this);
         }
+
     }
 
     public static class PdbxValAngleBuilder extends MmCifCategoryBuilder {
@@ -26054,6 +26556,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAngleDeviation() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_deviation", this);
         }
+
     }
 
     public static class PdbxValBondBuilder extends MmCifCategoryBuilder {
@@ -26158,6 +26661,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterBondDeviation() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "bond_deviation", this);
         }
+
     }
 
     public static class PdbxValContactBuilder extends MmCifCategoryBuilder {
@@ -26258,6 +26762,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValContactBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist", this);
         }
+
     }
 
     public static class PdbxValSymContactBuilder extends MmCifCategoryBuilder {
@@ -26366,6 +26871,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxValSymContactBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDist() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist", this);
         }
+
     }
 
     public static class PdbxRmchOutlierBuilder extends MmCifCategoryBuilder {
@@ -26418,6 +26924,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxRmchOutlierBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPsi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "psi", this);
         }
+
     }
 
     public static class PdbxMissingAtomPolyBuilder extends MmCifCategoryBuilder {
@@ -26466,6 +26973,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxMissingAtomPolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_name", this);
         }
+
     }
 
     public static class PdbxMissingAtomNonpolyBuilder extends MmCifCategoryBuilder {
@@ -26510,6 +27018,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxMissingAtomNonpolyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_name", this);
         }
+
     }
 
     public static class PdbxValChiralBuilder extends MmCifCategoryBuilder {
@@ -26570,6 +27079,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxValChiralBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChiralNeighborAtomAltId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chiral_neighbor_atom_alt_id", this);
         }
+
     }
 
     public static class PdbxAtlasBuilder extends MmCifCategoryBuilder {
@@ -26590,6 +27100,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAtlasBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPageName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "page_name", this);
         }
+
     }
 
     public static class PdbxSummaryFlagsBuilder extends MmCifCategoryBuilder {
@@ -26610,6 +27121,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSummaryFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFlagValue() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "flag_value", this);
         }
+
     }
 
     public static class PdbxEntityFuncBindModeBuilder extends MmCifCategoryBuilder {
@@ -26638,6 +27150,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityFuncBindModeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityFuncEnzymeBuilder extends MmCifCategoryBuilder {
@@ -26654,6 +27167,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityFuncEnzymeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityFuncRegulatoryBuilder extends MmCifCategoryBuilder {
@@ -26670,6 +27184,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityFuncRegulatoryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityFuncStructuralBuilder extends MmCifCategoryBuilder {
@@ -26686,6 +27201,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityFuncStructuralBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityFuncOtherBuilder extends MmCifCategoryBuilder {
@@ -26702,6 +27218,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityFuncOtherBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityPolyDomainBuilder extends MmCifCategoryBuilder {
@@ -26734,6 +27251,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntityPolyDomainBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEndSeqNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "end_seq_num", this);
         }
+
     }
 
     public static class PdbxNaStructKeywdsBuilder extends MmCifCategoryBuilder {
@@ -26758,6 +27276,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNaStructKeywdsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSpecialFeature() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "special_feature", this);
         }
+
     }
 
     public static class PdbxEntityPolyNaTypeBuilder extends MmCifCategoryBuilder {
@@ -26774,6 +27293,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityPolyNaTypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxEntityPolyNaNonstandardBuilder extends MmCifCategoryBuilder {
@@ -26790,6 +27310,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityPolyNaNonstandardBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFeature() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "feature", this);
         }
+
     }
 
     public static class PdbxVirtualAngleBuilder extends MmCifCategoryBuilder {
@@ -26942,6 +27463,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxVirtualAngleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value_esd", this);
         }
+
     }
 
     public static class PdbxVirtualBondBuilder extends MmCifCategoryBuilder {
@@ -27050,6 +27572,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxVirtualBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSiteSymmetry2() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_2", this);
         }
+
     }
 
     public static class PdbxVirtualTorsionBuilder extends MmCifCategoryBuilder {
@@ -27246,6 +27769,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxVirtualTorsionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value_esd", this);
         }
+
     }
 
     public static class PdbxSequencePatternBuilder extends MmCifCategoryBuilder {
@@ -27270,6 +27794,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSequencePatternBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSequencePattern() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sequence_pattern", this);
         }
+
     }
 
     public static class PdbxStereochemistryBuilder extends MmCifCategoryBuilder {
@@ -27346,6 +27871,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxStereochemistryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAngleOutOfPlane() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_out_of_plane", this);
         }
+
     }
 
     public static class PdbxRmsDevsCovalentBuilder extends MmCifCategoryBuilder {
@@ -27422,6 +27948,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxRmsDevsCovalentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumAnglesPhosphate() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_angles_phosphate", this);
         }
+
     }
 
     public static class PdbxRmsDevsCovByMonomerBuilder extends MmCifCategoryBuilder {
@@ -27474,6 +28001,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxRmsDevsCovByMonomerBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumAngles() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num_angles", this);
         }
+
     }
 
     public static class PdbxSugarPhosphateGeometryBuilder extends MmCifCategoryBuilder {
@@ -27778,6 +28306,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxSugarPhosphateGeometryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterC1N19C68() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "c1_n1_9_c6_8", this);
         }
+
     }
 
     public static class PdbxNmrComputingBuilder extends MmCifCategoryBuilder {
@@ -27838,6 +28367,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxNmrComputingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIterativeRelaxationMatrixVersion() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "iterative_relaxation_matrix_version", this);
         }
+
     }
 
     public static class PdbxAuditConformExtensionBuilder extends MmCifCategoryBuilder {
@@ -27858,6 +28388,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditConformExtensionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterExtensionDictVersion() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "extension_dict_version", this);
         }
+
     }
 
     public static class PdbxDccMapmanBuilder extends MmCifCategoryBuilder {
@@ -27874,6 +28405,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDccMapmanBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxDccRsccMapmanBuilder extends MmCifCategoryBuilder {
@@ -27942,6 +28474,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDccRsccMapmanBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "flag", this);
         }
+
     }
 
     public static class PdbxDccRsccMapmanOverallBuilder extends MmCifCategoryBuilder {
@@ -27970,6 +28503,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxDccRsccMapmanOverallBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRealSpaceRSigma() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "real_space_R_sigma", this);
         }
+
     }
 
     public static class PdbxDccDensityBuilder extends MmCifCategoryBuilder {
@@ -28258,6 +28792,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDccDensityBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterError() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "error", this);
         }
+
     }
 
     public static class PdbxDccGeometryBuilder extends MmCifCategoryBuilder {
@@ -28374,6 +28909,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxDccGeometryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNon_bondedRms() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "non-bonded_rms", this);
         }
+
     }
 
     public static class PdbxDccDensityCorrBuilder extends MmCifCategoryBuilder {
@@ -28438,6 +28974,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDccDensityCorrBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxDccMapBuilder extends MmCifCategoryBuilder {
@@ -28658,6 +29195,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDccMapBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterQualityIndicator() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "quality_indicator", this);
         }
+
     }
 
     public static class PdbxDepositGroupBuilder extends MmCifCategoryBuilder {
@@ -28682,6 +29220,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxDepositGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGroupType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "group_type", this);
         }
+
     }
 
     public static class PdbxDepositGroupIndexBuilder extends MmCifCategoryBuilder {
@@ -28734,6 +29273,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxDepositGroupIndexBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthFileSize() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "auth_file_size", this);
         }
+
     }
 
     public static class PdbxStructAssemblyAuthEvidenceBuilder extends MmCifCategoryBuilder {
@@ -28758,6 +29298,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyAuthEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxStructAssemblyAuthClassificationBuilder extends MmCifCategoryBuilder {
@@ -28774,6 +29315,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxStructAssemblyAuthClassificationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReasonForInterest() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reason_for_interest", this);
         }
+
     }
 
     public static class PdbxCrystalAlignmentBuilder extends MmCifCategoryBuilder {
@@ -28870,6 +29412,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxCrystalAlignmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCrossfireXyEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "crossfire_xy_esd", this);
         }
+
     }
 
     public static class PdbxAuditRevisionHistoryBuilder extends MmCifCategoryBuilder {
@@ -28906,6 +29449,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditRevisionHistoryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterInternalDepositionId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "internal_deposition_id", this);
         }
+
     }
 
     public static class PdbxAuditRevisionGroupBuilder extends MmCifCategoryBuilder {
@@ -28930,6 +29474,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditRevisionGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGroup() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "group", this);
         }
+
     }
 
     public static class PdbxAuditRevisionCategoryBuilder extends MmCifCategoryBuilder {
@@ -28954,6 +29499,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditRevisionCategoryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCategory() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "category", this);
         }
+
     }
 
     public static class PdbxAuditRevisionDetailsBuilder extends MmCifCategoryBuilder {
@@ -28990,6 +29536,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditRevisionDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxAuditRevisionItemBuilder extends MmCifCategoryBuilder {
@@ -29014,6 +29561,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxAuditRevisionItemBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterItem() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "item", this);
         }
+
     }
 
     public static class PdbxSupportingExpDataSetBuilder extends MmCifCategoryBuilder {
@@ -29042,6 +29590,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSupportingExpDataSetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxSerialCrystallographyMeasurementBuilder extends MmCifCategoryBuilder {
@@ -29094,6 +29643,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxSerialCrystallographyMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCollectionTimeTotal() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "collection_time_total", this);
         }
+
     }
 
     public static class PdbxSerialCrystallographySampleDeliveryBuilder extends MmCifCategoryBuilder {
@@ -29114,6 +29664,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSerialCrystallographySampleDeliveryBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethod() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method", this);
         }
+
     }
 
     public static class PdbxSerialCrystallographySampleDeliveryInjectionBuilder extends MmCifCategoryBuilder {
@@ -29174,6 +29725,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<PdbxSerialCrystallographySampleDeliveryInjectionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFilterSize() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "filter_size", this);
         }
+
     }
 
     public static class PdbxSerialCrystallographySampleDeliveryFixedTargetBuilder extends MmCifCategoryBuilder {
@@ -29230,6 +29782,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSerialCrystallographySampleDeliveryFixedTargetBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxSerialCrystallographyDataReductionBuilder extends MmCifCategoryBuilder {
@@ -29278,6 +29831,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxSerialCrystallographyDataReductionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterXfelRunNumbers() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "xfel_run_numbers", this);
         }
+
     }
 
     public static class IhmEntityPolySegmentBuilder extends MmCifCategoryBuilder {
@@ -29310,6 +29864,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmEntityPolySegmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompIdEnd() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id_end", this);
         }
+
     }
 
     public static class IhmStartingModelDetailsBuilder extends MmCifCategoryBuilder {
@@ -29358,6 +29913,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmStartingModelDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmStartingComparativeModelsBuilder extends MmCifCategoryBuilder {
@@ -29418,6 +29974,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmStartingComparativeModelsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmStartingComputationalModelsBuilder extends MmCifCategoryBuilder {
@@ -29438,6 +29995,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmStartingComputationalModelsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "software_id", this);
         }
+
     }
 
     public static class IhmStartingModelSeqDifBuilder extends MmCifCategoryBuilder {
@@ -29490,6 +30048,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmStartingModelSeqDifBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmModelRepresentationBuilder extends MmCifCategoryBuilder {
@@ -29510,6 +30069,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelRepresentationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmModelRepresentationDetailsBuilder extends MmCifCategoryBuilder {
@@ -29566,6 +30126,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelRepresentationDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmStructAssemblyDetailsBuilder extends MmCifCategoryBuilder {
@@ -29602,6 +30163,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmStructAssemblyDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEntityPolySegmentId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "entity_poly_segment_id", this);
         }
+
     }
 
     public static class IhmStructAssemblyBuilder extends MmCifCategoryBuilder {
@@ -29622,6 +30184,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmStructAssemblyBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmStructAssemblyClassBuilder extends MmCifCategoryBuilder {
@@ -29646,6 +30209,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmStructAssemblyClassBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmStructAssemblyClassLinkBuilder extends MmCifCategoryBuilder {
@@ -29662,6 +30226,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmStructAssemblyClassLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAssemblyId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "assembly_id", this);
         }
+
     }
 
     public static class IhmModelingProtocolBuilder extends MmCifCategoryBuilder {
@@ -29686,6 +30251,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelingProtocolBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmModelingProtocolDetailsBuilder extends MmCifCategoryBuilder {
@@ -29762,6 +30328,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelingProtocolDetailsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmMultiStateModelingBuilder extends MmCifCategoryBuilder {
@@ -29802,6 +30369,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmMultiStateModelingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmMultiStateModelGroupLinkBuilder extends MmCifCategoryBuilder {
@@ -29818,6 +30386,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmMultiStateModelGroupLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModelGroupId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "model_group_id", this);
         }
+
     }
 
     public static class IhmOrderedEnsembleBuilder extends MmCifCategoryBuilder {
@@ -29862,6 +30431,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmOrderedEnsembleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModelGroupIdEnd() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "model_group_id_end", this);
         }
+
     }
 
     public static class IhmModelingPostProcessBuilder extends MmCifCategoryBuilder {
@@ -29926,6 +30496,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelingPostProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmEnsembleInfoBuilder extends MmCifCategoryBuilder {
@@ -29986,6 +30557,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmEnsembleInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSubSamplingType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sub_sampling_type", this);
         }
+
     }
 
     public static class IhmEnsembleSubSampleBuilder extends MmCifCategoryBuilder {
@@ -30022,6 +30594,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmEnsembleSubSampleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFileId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "file_id", this);
         }
+
     }
 
     public static class IhmModelListBuilder extends MmCifCategoryBuilder {
@@ -30050,6 +30623,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmModelListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRepresentationId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "representation_id", this);
         }
+
     }
 
     public static class IhmModelGroupBuilder extends MmCifCategoryBuilder {
@@ -30070,6 +30644,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmModelGroupLinkBuilder extends MmCifCategoryBuilder {
@@ -30086,6 +30661,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmModelGroupLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGroupId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "group_id", this);
         }
+
     }
 
     public static class IhmModelRepresentativeBuilder extends MmCifCategoryBuilder {
@@ -30110,6 +30686,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmModelRepresentativeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSelectionCriteria() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "selection_criteria", this);
         }
+
     }
 
     public static class IhmDatasetListBuilder extends MmCifCategoryBuilder {
@@ -30134,6 +30711,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmDatasetListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatabaseHosted() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_hosted", this);
         }
+
     }
 
     public static class IhmDatasetGroupBuilder extends MmCifCategoryBuilder {
@@ -30158,6 +30736,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmDatasetGroupBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmDatasetGroupLinkBuilder extends MmCifCategoryBuilder {
@@ -30174,6 +30753,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmDatasetGroupLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGroupId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "group_id", this);
         }
+
     }
 
     public static class IhmRelatedDatasetsBuilder extends MmCifCategoryBuilder {
@@ -30190,6 +30770,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmRelatedDatasetsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatasetListIdPrimary() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "dataset_list_id_primary", this);
         }
+
     }
 
     public static class IhmDatasetRelatedDbReferenceBuilder extends MmCifCategoryBuilder {
@@ -30222,6 +30803,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmDatasetRelatedDbReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmExternalReferenceInfoBuilder extends MmCifCategoryBuilder {
@@ -30258,6 +30840,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmExternalReferenceInfoBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmExternalFilesBuilder extends MmCifCategoryBuilder {
@@ -30294,6 +30877,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmExternalFilesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmDatasetExternalReferenceBuilder extends MmCifCategoryBuilder {
@@ -30314,6 +30898,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmDatasetExternalReferenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFileId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "file_id", this);
         }
+
     }
 
     public static class IhmLocalizationDensityFilesBuilder extends MmCifCategoryBuilder {
@@ -30346,6 +30931,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmLocalizationDensityFilesBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAsymId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "asym_id", this);
         }
+
     }
 
     public static class IhmPredictedContactRestraintBuilder extends MmCifCategoryBuilder {
@@ -30438,6 +31024,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmPredictedContactRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "software_id", this);
         }
+
     }
 
     public static class IhmHydroxylRadicalFpRestraintBuilder extends MmCifCategoryBuilder {
@@ -30502,6 +31089,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmHydroxylRadicalFpRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSoftwareId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "software_id", this);
         }
+
     }
 
     public static class IhmChemicalComponentDescriptorBuilder extends MmCifCategoryBuilder {
@@ -30546,6 +31134,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmChemicalComponentDescriptorBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmProbeListBuilder extends MmCifCategoryBuilder {
@@ -30586,6 +31175,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmProbeListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReactiveProbeChemCompDescriptorId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "reactive_probe_chem_comp_descriptor_id", this);
         }
+
     }
 
     public static class IhmPolyProbePositionBuilder extends MmCifCategoryBuilder {
@@ -30634,6 +31224,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmPolyProbePositionBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmPolyProbeConjugateBuilder extends MmCifCategoryBuilder {
@@ -30674,6 +31265,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmPolyProbeConjugateBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatasetListId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "dataset_list_id", this);
         }
+
     }
 
     public static class IhmLigandProbeBuilder extends MmCifCategoryBuilder {
@@ -30698,6 +31290,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmLigandProbeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatasetListId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "dataset_list_id", this);
         }
+
     }
 
     public static class IhmEprRestraintBuilder extends MmCifCategoryBuilder {
@@ -30746,6 +31339,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmEprRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmCrossLinkListBuilder extends MmCifCategoryBuilder {
@@ -30810,6 +31404,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmCrossLinkListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmCrossLinkRestraintBuilder extends MmCifCategoryBuilder {
@@ -30898,6 +31493,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmCrossLinkRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPseudoSiteFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pseudo_site_flag", this);
         }
+
     }
 
     public static class IhmCrossLinkPseudoSiteBuilder extends MmCifCategoryBuilder {
@@ -30926,6 +31522,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmCrossLinkPseudoSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModelId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "model_id", this);
         }
+
     }
 
     public static class IhmCrossLinkResultBuilder extends MmCifCategoryBuilder {
@@ -30962,6 +31559,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmCrossLinkResultBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmCrossLinkResultParametersBuilder extends MmCifCategoryBuilder {
@@ -30994,6 +31592,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<IhmCrossLinkResultParametersBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSigma2() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "sigma_2", this);
         }
+
     }
 
     public static class Ihm2demClassAverageRestraintBuilder extends MmCifCategoryBuilder {
@@ -31042,6 +31641,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Ihm2demClassAverageRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class Ihm2demClassAverageFittingBuilder extends MmCifCategoryBuilder {
@@ -31114,6 +31714,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<Ihm2demClassAverageFittingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTrVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "tr_vector[3]", this);
         }
+
     }
 
     public static class Ihm3demRestraintBuilder extends MmCifCategoryBuilder {
@@ -31162,6 +31763,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<Ihm3demRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmSasRestraintBuilder extends MmCifCategoryBuilder {
@@ -31214,6 +31816,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmSasRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmStartingModelCoordBuilder extends MmCifCategoryBuilder {
@@ -31282,6 +31885,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmStartingModelCoordBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFormalCharge() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "formal_charge", this);
         }
+
     }
 
     public static class IhmSphereObjSiteBuilder extends MmCifCategoryBuilder {
@@ -31334,6 +31938,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmSphereObjSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModelId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "model_id", this);
         }
+
     }
 
     public static class IhmGaussianObjSiteBuilder extends MmCifCategoryBuilder {
@@ -31418,6 +32023,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmGaussianObjSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterModelId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "model_id", this);
         }
+
     }
 
     public static class IhmGaussianObjEnsembleBuilder extends MmCifCategoryBuilder {
@@ -31502,6 +32108,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmGaussianObjEnsembleBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEnsembleId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ensemble_id", this);
         }
+
     }
 
     public static class IhmPseudoSiteBuilder extends MmCifCategoryBuilder {
@@ -31534,6 +32141,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmPseudoSiteBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "description", this);
         }
+
     }
 
     public static class IhmResiduesNotModeledBuilder extends MmCifCategoryBuilder {
@@ -31586,6 +32194,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmResiduesNotModeledBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmFeatureListBuilder extends MmCifCategoryBuilder {
@@ -31610,6 +32219,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmFeatureListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmPseudoSiteFeatureBuilder extends MmCifCategoryBuilder {
@@ -31626,6 +32236,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmPseudoSiteFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPseudoSiteId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "pseudo_site_id", this);
         }
+
     }
 
     public static class IhmPolyAtomFeatureBuilder extends MmCifCategoryBuilder {
@@ -31662,6 +32273,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmPolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_id", this);
         }
+
     }
 
     public static class IhmPolyResidueFeatureBuilder extends MmCifCategoryBuilder {
@@ -31714,6 +32326,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmPolyResidueFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterInterfaceResidueFlag() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "interface_residue_flag", this);
         }
+
     }
 
     public static class IhmNonPolyFeatureBuilder extends MmCifCategoryBuilder {
@@ -31746,6 +32359,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmNonPolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_id", this);
         }
+
     }
 
     public static class IhmInterfaceResidueFeatureBuilder extends MmCifCategoryBuilder {
@@ -31778,6 +32392,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmInterfaceResidueFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class IhmDerivedDistanceRestraintBuilder extends MmCifCategoryBuilder {
@@ -31842,6 +32457,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmDerivedDistanceRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDatasetListId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "dataset_list_id", this);
         }
+
     }
 
     public static class IhmGeometricObjectListBuilder extends MmCifCategoryBuilder {
@@ -31866,6 +32482,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmGeometricObjectListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterObjectDescription() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "object_description", this);
         }
+
     }
 
     public static class IhmGeometricObjectCenterBuilder extends MmCifCategoryBuilder {
@@ -31890,6 +32507,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<IhmGeometricObjectCenterBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterZcoord() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "zcoord", this);
         }
+
     }
 
     public static class IhmGeometricObjectTransformationBuilder extends MmCifCategoryBuilder {
@@ -31950,6 +32568,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<IhmGeometricObjectTransformationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTrVector3() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "tr_vector[3]", this);
         }
+
     }
 
     public static class IhmGeometricObjectSphereBuilder extends MmCifCategoryBuilder {
@@ -31974,6 +32593,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<IhmGeometricObjectSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRadiusR() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "radius_r", this);
         }
+
     }
 
     public static class IhmGeometricObjectTorusBuilder extends MmCifCategoryBuilder {
@@ -32002,6 +32622,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public FloatColumnBuilder<IhmGeometricObjectTorusBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMinorRadiusR() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "minor_radius_r", this);
         }
+
     }
 
     public static class IhmGeometricObjectHalfTorusBuilder extends MmCifCategoryBuilder {
@@ -32022,6 +32643,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmGeometricObjectHalfTorusBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSection() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "section", this);
         }
+
     }
 
     public static class IhmGeometricObjectAxisBuilder extends MmCifCategoryBuilder {
@@ -32042,6 +32664,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmGeometricObjectAxisBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTransformationId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "transformation_id", this);
         }
+
     }
 
     public static class IhmGeometricObjectPlaneBuilder extends MmCifCategoryBuilder {
@@ -32062,6 +32685,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<IhmGeometricObjectPlaneBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTransformationId() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "transformation_id", this);
         }
+
     }
 
     public static class IhmGeometricObjectDistanceRestraintBuilder extends MmCifCategoryBuilder {
@@ -32126,6 +32750,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<IhmGeometricObjectDistanceRestraintBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxEntityBranchListBuilder extends MmCifCategoryBuilder {
@@ -32150,6 +32775,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public IntColumnBuilder<PdbxEntityBranchListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNum() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "num", this);
         }
+
     }
 
     public static class PdbxEntityBranchLinkBuilder extends MmCifCategoryBuilder {
@@ -32214,6 +32840,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityBranchLinkBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValueOrder() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value_order", this);
         }
+
     }
 
     public static class PdbxEntityBranchBuilder extends MmCifCategoryBuilder {
@@ -32230,6 +32857,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxEntityBranchBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
+
     }
 
     public static class PdbxBranchSchemeBuilder extends MmCifCategoryBuilder {
@@ -32282,6 +32910,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxBranchSchemeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthMonId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_mon_id", this);
         }
+
     }
 
     public static class PdbxChemCompRelatedBuilder extends MmCifCategoryBuilder {
@@ -32306,6 +32935,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompRelatedBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
+
     }
 
     public static class PdbxChemCompAtomRelatedBuilder extends MmCifCategoryBuilder {
@@ -32338,5 +32968,7 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
         public StrColumnBuilder<PdbxChemCompAtomRelatedBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRelatedType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "related_type", this);
         }
+
     }
+
 }

@@ -437,4 +437,5 @@ public class PhasingMIRDer extends DelegatingCategory {
     public IntColumn getPdbxReflns() {
         return delegate.getColumn("pdbx_reflns", DelegatingIntColumn::new);
     }
+
 }

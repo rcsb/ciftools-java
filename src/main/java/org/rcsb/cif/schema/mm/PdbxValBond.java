@@ -329,4 +329,5 @@ public class PdbxValBond extends DelegatingCategory {
     public FloatColumn getBondDeviation() {
         return delegate.getColumn("bond_deviation", DelegatingFloatColumn::new);
     }
+
 }

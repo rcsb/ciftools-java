@@ -71,4 +71,5 @@ public class EmStaining extends DelegatingCategory {
     public StrColumn getType() {
         return delegate.getColumn("type", DelegatingStrColumn::new);
     }
+
 }

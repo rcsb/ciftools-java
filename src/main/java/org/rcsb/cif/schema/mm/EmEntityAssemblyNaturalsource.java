@@ -123,4 +123,5 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
     public StrColumn getTissue() {
         return delegate.getColumn("tissue", DelegatingStrColumn::new);
     }
+
 }

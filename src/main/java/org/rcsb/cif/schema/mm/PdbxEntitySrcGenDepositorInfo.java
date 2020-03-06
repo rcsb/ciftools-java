@@ -208,4 +208,5 @@ public class PdbxEntitySrcGenDepositorInfo extends DelegatingCategory {
     public StrColumn getPlasmidName() {
         return delegate.getColumn("plasmid_name", DelegatingStrColumn::new);
     }
+
 }

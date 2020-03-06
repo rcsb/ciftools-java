@@ -167,4 +167,5 @@ public class StructRefSeqDif extends DelegatingCategory {
     public IntColumn getPdbxOrdinal() {
         return delegate.getColumn("pdbx_ordinal", DelegatingIntColumn::new);
     }
+
 }

@@ -190,4 +190,5 @@ public class PdbxEntitySrcGenClone extends DelegatingCategory {
     public StrColumn getSummary() {
         return delegate.getColumn("summary", DelegatingStrColumn::new);
     }
+
 }

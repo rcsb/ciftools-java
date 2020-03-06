@@ -132,4 +132,5 @@ public class IhmPolyProbePosition extends DelegatingCategory {
     public StrColumn getDescription() {
         return delegate.getColumn("description", DelegatingStrColumn::new);
     }
+
 }

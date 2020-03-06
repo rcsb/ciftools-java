@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe atomic scattering
  * information used in crystallographic structure studies.
  */
@@ -321,4 +320,5 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getVersusStolList() {
         return new DelegatingStrColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
     }
+
 }

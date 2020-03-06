@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the PUBL_BODY category permit labelling of
  * different text sections within the body of a submitted paper.
  * Note that these should not be used in a paper which has
@@ -64,4 +63,5 @@ public class PublBody extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getTitle() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_body_title"));
     }
+
 }

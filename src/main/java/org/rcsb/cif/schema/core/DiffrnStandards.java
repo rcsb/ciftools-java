@@ -74,4 +74,5 @@ public class DiffrnStandards extends DelegatingCategory.DelegatingCifCoreCategor
     public FloatColumn getScaleU() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_standards_scale_sigma", "diffrn_standards_scale_u", "diffrn_standard_scale_su_average"));
     }
+
 }

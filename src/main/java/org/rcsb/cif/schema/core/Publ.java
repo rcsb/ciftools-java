@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the PUBL category are used when submitting a
  * manuscript for publication. They refer either to the paper as
  * a whole, or to specific named elements within a paper (such as
@@ -542,4 +541,5 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getTitleFootnote() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_section_title_footnote"));
     }
+
 }

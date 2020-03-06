@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The final force constants, including units, employed for the various
  * experimental constraints, covalent geometry constraints, and the non-bonded
  * interaction terms in the target function used for simulated annealing.
@@ -319,4 +318,5 @@ public class PdbxNmrForceConstants extends DelegatingCategory {
     public StrColumn getNon_bondedInterRadiusOfGyrationTermUnits() {
         return delegate.getColumn("non-bonded_inter_radius_of_gyration_term_units", DelegatingStrColumn::new);
     }
+
 }

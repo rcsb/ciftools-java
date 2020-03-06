@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the CITATION category record details about the
  * literature cited as being relevant to the contents of the data
  * block.
@@ -267,4 +266,5 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getSpecialDetails() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("citation_details", "citation_special_details"));
     }
+
 }

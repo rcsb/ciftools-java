@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_spectral_peak_software category provide pointers to the software category
  * and methods category where descriptions of software applications and methods can be found.
  */
@@ -53,4 +52,5 @@ public class PdbxNmrSpectralPeakSoftware extends DelegatingCategory {
     public IntColumn getSpectralPeakListId() {
         return delegate.getColumn("spectral_peak_list_id", DelegatingIntColumn::new);
     }
+
 }

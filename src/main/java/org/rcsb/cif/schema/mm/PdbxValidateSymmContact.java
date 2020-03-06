@@ -246,4 +246,5 @@ public class PdbxValidateSymmContact extends DelegatingCategory {
     public FloatColumn getDist() {
         return delegate.getColumn("dist", DelegatingFloatColumn::new);
     }
+
 }

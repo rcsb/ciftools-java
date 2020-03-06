@@ -62,4 +62,5 @@ public class PdbxStructAssemblyAuthEvidenceDepositorInfo extends DelegatingCateg
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

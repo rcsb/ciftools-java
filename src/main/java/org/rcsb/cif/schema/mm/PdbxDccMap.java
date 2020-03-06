@@ -591,4 +591,5 @@ public class PdbxDccMap extends DelegatingCategory {
     public StrColumn getQualityIndicator() {
         return delegate.getColumn("quality_indicator", DelegatingStrColumn::new);
     }
+
 }

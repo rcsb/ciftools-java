@@ -250,4 +250,5 @@ public class PdbxPhasingMADSetSite extends DelegatingCategory {
     public FloatColumn getOccupancyIso() {
         return delegate.getColumn("occupancy_iso", DelegatingFloatColumn::new);
     }
+
 }

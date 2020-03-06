@@ -264,4 +264,5 @@ public class PdbxValidateRmsdBond extends DelegatingCategory {
     public StrColumn getLinkerFlag() {
         return delegate.getColumn("linker_flag", DelegatingStrColumn::new);
     }
+
 }

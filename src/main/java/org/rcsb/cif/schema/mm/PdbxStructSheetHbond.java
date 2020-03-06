@@ -311,4 +311,5 @@ public class PdbxStructSheetHbond extends DelegatingCategory {
     public StrColumn getRange2PDBInsCode() {
         return delegate.getColumn("range_2_PDB_ins_code", DelegatingStrColumn::new);
     }
+
 }

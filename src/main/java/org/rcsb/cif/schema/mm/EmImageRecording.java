@@ -125,4 +125,5 @@ public class EmImageRecording extends DelegatingCategory {
     public IntColumn getNumRealImages() {
         return delegate.getColumn("num_real_images", DelegatingIntColumn::new);
     }
+
 }

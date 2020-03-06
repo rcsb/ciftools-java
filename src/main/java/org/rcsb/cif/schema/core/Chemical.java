@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which describe the composition and
  * chemical properties of the compound under study. The formula data
  * items must be consistent with the density, unit-cell and Z values.
@@ -308,4 +307,5 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getTemperatureSublimationSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("chemical_temperature_sublimation_esd", "chemical_temperature_sublimation_su"));
     }
+
 }

@@ -145,4 +145,5 @@ public class DiffrnOrientRefln extends DelegatingCategory {
     public IntColumn getIndexL() {
         return delegate.getColumn("index_l", DelegatingIntColumn::new);
     }
+
 }

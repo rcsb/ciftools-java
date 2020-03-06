@@ -406,4 +406,5 @@ public class PdbxEntitySrcGenExpress extends DelegatingCategory {
     public StrColumn getSummary() {
         return delegate.getColumn("summary", DelegatingStrColumn::new);
     }
+
 }

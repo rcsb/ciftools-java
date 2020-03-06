@@ -340,4 +340,5 @@ public class PdbxValContact extends DelegatingCategory {
     public FloatColumn getDist() {
         return delegate.getColumn("dist", DelegatingFloatColumn::new);
     }
+
 }

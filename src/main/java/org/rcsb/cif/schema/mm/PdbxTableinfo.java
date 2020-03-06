@@ -91,4 +91,5 @@ public class PdbxTableinfo extends DelegatingCategory {
     public IntColumn getWWWReportCriteria() {
         return delegate.getColumn("WWW_Report_Criteria", DelegatingIntColumn::new);
     }
+
 }

@@ -277,4 +277,5 @@ public class DatabasePDBMatrix extends DelegatingCategory {
     public FloatColumn getScaleVector3() {
         return delegate.getColumn("scale_vector[3]", DelegatingFloatColumn::new);
     }
+
 }

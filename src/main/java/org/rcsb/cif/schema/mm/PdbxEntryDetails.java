@@ -85,4 +85,5 @@ public class PdbxEntryDetails extends DelegatingCategory {
     public StrColumn getHasLigandOfInterest() {
         return delegate.getColumn("has_ligand_of_interest", DelegatingStrColumn::new);
     }
+
 }

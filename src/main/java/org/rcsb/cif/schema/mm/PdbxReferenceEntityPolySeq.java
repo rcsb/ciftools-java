@@ -98,4 +98,5 @@ public class PdbxReferenceEntityPolySeq extends DelegatingCategory {
     public StrColumn getHetero() {
         return delegate.getColumn("hetero", DelegatingStrColumn::new);
     }
+
 }

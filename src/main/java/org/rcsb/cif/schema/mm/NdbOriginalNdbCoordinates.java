@@ -31,4 +31,5 @@ public class NdbOriginalNdbCoordinates extends DelegatingCategory {
     public StrColumn getCoordSection() {
         return delegate.getColumn("coord_section", DelegatingStrColumn::new);
     }
+
 }

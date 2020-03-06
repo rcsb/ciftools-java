@@ -69,4 +69,5 @@ public class IhmGeometricObjectSphere extends DelegatingCategory {
     public FloatColumn getRadiusR() {
         return delegate.getColumn("radius_r", DelegatingFloatColumn::new);
     }
+
 }

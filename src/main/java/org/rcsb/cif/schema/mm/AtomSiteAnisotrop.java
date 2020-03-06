@@ -709,4 +709,5 @@ public class AtomSiteAnisotrop extends DelegatingCategory {
     public StrColumn getPdbxLabelInsCode() {
         return delegate.getColumn("pdbx_label_ins_code", DelegatingStrColumn::new);
     }
+
 }

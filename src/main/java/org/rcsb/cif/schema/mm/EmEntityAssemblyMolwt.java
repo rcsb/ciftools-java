@@ -83,4 +83,5 @@ public class EmEntityAssemblyMolwt extends DelegatingCategory {
     public StrColumn getMethod() {
         return delegate.getColumn("method", DelegatingStrColumn::new);
     }
+
 }

@@ -334,4 +334,5 @@ public class PhasingMIRShell extends DelegatingCategory {
     public FloatColumn getPdbxRCullisAcentric() {
         return delegate.getColumn("pdbx_R_cullis_acentric", DelegatingFloatColumn::new);
     }
+
 }

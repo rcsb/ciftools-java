@@ -3381,7 +3381,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the PDBX_DATABASE_REMARK category record keep additional
      * information about the entry.  They are mostly used to create
      * 'non-standard' PDB REMARK annotations (6-99).
@@ -3462,7 +3461,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Parameter and topology files used in X-PLOR/CNS refinement.
      * @return PdbxXplorFile
      */
@@ -3471,7 +3469,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Auxilary parameter and topology files used in refinement.
      * @return PdbxRefineAuxFile
      */
@@ -3582,7 +3579,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Experimental details of the NMR study that have not been
      * described elsewhere in this deposition.
      * @return PdbxNmrDetails
@@ -3592,7 +3588,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Complete description of each NMR sample, including the solvent
      * system used.
      * @return PdbxNmrSampleDetails
@@ -3612,7 +3607,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The experimental conditions used to for each sample.  Each set of conditions
      * is identified by a numerical code.
      * @return PdbxNmrExptlSampleConditions
@@ -3622,7 +3616,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The details about each spectrometer used to collect data for this
      * deposition.
      * @return PdbxNmrSpectrometer
@@ -3632,7 +3625,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * In this section, enter information on those experiments that were
      * used to generate constraint data. For each NMR experiment indicate
      * which sample and which sample conditions were used for the experiment.
@@ -3643,7 +3635,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Description of the software that was used for data collection, data processing,
      * data analysis, structure calculations and refinement. The description should
      * include the name of the software, the author of the software and the version used.
@@ -3691,7 +3682,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Describe the method and details of the refinement of the deposited structure.
      * @return PdbxNmrRefine
      */
@@ -3700,7 +3690,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * The final force constants, including units, employed for the various
      * experimental constraints, covalent geometry constraints, and the non-bonded
      * interaction terms in the target function used for simulated annealing.
@@ -4217,7 +4206,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the PDBX_STRUCT_REF_SEQ_FEATURE_PROP category provide a
      * mechanism for identifying and annotating properties of sequence features.
      * @return PdbxStructRefSeqFeatureProp
@@ -4940,7 +4928,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the assigned_chem_shift_list category provide information about a list of reported assigned chemical shift values.
      * @return PdbxNmrAssignedChemShiftList
      */
@@ -4949,7 +4936,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the chem_shift_experiment category provide pointers to the NMR experiments and samples used to collect the data for a set of reported assigned chemical shifts.
      * @return PdbxNmrChemShiftExperiment
      */
@@ -4958,7 +4944,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_chem_shift_ref category provide the chemical shift referencing values used in assigning the chemical shift positions for peaks in spectral peak lists and assigned atom chemical shifts.
      * @return PdbxNmrChemShiftRef
      */
@@ -4967,7 +4952,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the chem_shift_reference category define a set of chemical shift referencing parameters.
      * @return PdbxNmrChemShiftReference
      */
@@ -4976,7 +4960,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the chem_shift_software category provide pointers to the software category and methods category.
      * @return PdbxNmrChemShiftSoftware
      */
@@ -4985,7 +4968,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_constraint_file category record the name of the constraint file, the software used
      * to calculate conformers with the constraint file, and the characteristics of the constraints in the constraint file.
      * @return PdbxNmrConstraintFile
@@ -4995,7 +4977,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_software_task category provide information about software workflow in the NMR experiment.
      * @return PdbxNmrSoftwareTask
      */
@@ -5004,7 +4985,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the spectral_dim category describe the parameters of each dimension in the NMR experiment used to generate the spectral peak list.
      * @return PdbxNmrSpectralDim
      */
@@ -5013,7 +4993,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_spectral_peak_list category provide information about a list of reported spectral peak characteristic values.
      * @return PdbxNmrSpectralPeakList
      */
@@ -5022,7 +5001,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_spectral_peak_software category provide pointers to the software category
      * and methods category where descriptions of software applications and methods can be found.
      * @return PdbxNmrSpectralPeakSoftware
@@ -5032,7 +5010,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_systematic_chem_shift_offset category define chemical shift offsets that systematically affect all chemical shifts in a set of assigned chemical shifts for a specific nuclei.
      * @return PdbxNmrSystematicChemShiftOffset
      */
@@ -5041,7 +5018,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Items in the pdbx_nmr_upload category provide information about the data files uploaded by a depositor using the deposition system.
      * @return PdbxNmrUpload
      */
@@ -5660,7 +5636,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Description of the software that was used for data collection, data processing,
      * data analysis, structure calculations and refinement. The description should
      * include the name of the software, the author of the software and the version used.
@@ -6228,7 +6203,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
      * Data items in the PDBX_DATABASE_PDB_OMIT category record
      * list PDB record names that should be omitted in the PDB
      * format file.
@@ -7840,4 +7814,5 @@ public class MmCifBlock extends DelegatingBlock {
     public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
         return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
     }
+
 }

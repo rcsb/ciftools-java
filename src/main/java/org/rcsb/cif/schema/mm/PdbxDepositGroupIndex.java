@@ -132,4 +132,5 @@ public class PdbxDepositGroupIndex extends DelegatingCategory {
     public IntColumn getAuthFileSize() {
         return delegate.getColumn("auth_file_size", DelegatingIntColumn::new);
     }
+
 }

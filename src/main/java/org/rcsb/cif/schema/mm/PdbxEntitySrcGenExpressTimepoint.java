@@ -86,4 +86,5 @@ public class PdbxEntitySrcGenExpressTimepoint extends DelegatingCategory {
     public IntColumn getTime() {
         return delegate.getColumn("time", DelegatingIntColumn::new);
     }
+
 }

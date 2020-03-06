@@ -484,4 +484,5 @@ public class EmMap extends DelegatingCategory {
     public StrColumn getType() {
         return delegate.getColumn("type", DelegatingStrColumn::new);
     }
+
 }

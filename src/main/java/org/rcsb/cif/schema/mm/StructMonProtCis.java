@@ -246,4 +246,5 @@ public class StructMonProtCis extends DelegatingCategory {
     public StrColumn getPdbxAuthInsCode2() {
         return delegate.getColumn("pdbx_auth_ins_code_2", DelegatingStrColumn::new);
     }
+
 }

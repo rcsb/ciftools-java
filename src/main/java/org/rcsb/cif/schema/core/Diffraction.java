@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The DICTIONARY group encompassing the CORE DIFFRACTION data items defined
  * and used with in the Crystallographic Information Framework (CIF).
  */
@@ -17,5 +16,6 @@ public class Diffraction extends DelegatingCategory.DelegatingCifCoreCategory {
     public Diffraction(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
     }
+
 
 }

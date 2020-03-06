@@ -260,4 +260,5 @@ public class IhmCrossLinkRestraint extends DelegatingCategory {
     public StrColumn getPseudoSiteFlag() {
         return delegate.getColumn("pseudo_site_flag", DelegatingStrColumn::new);
     }
+
 }

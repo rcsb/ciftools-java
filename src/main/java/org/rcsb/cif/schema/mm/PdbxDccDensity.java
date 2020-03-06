@@ -757,4 +757,5 @@ public class PdbxDccDensity extends DelegatingCategory {
     public StrColumn getError() {
         return delegate.getColumn("error", DelegatingStrColumn::new);
     }
+
 }

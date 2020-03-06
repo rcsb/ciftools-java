@@ -196,4 +196,5 @@ public class PdbxStructOperList extends DelegatingCategory {
     public FloatColumn getVector3() {
         return delegate.getColumn("vector[3]", DelegatingFloatColumn::new);
     }
+
 }

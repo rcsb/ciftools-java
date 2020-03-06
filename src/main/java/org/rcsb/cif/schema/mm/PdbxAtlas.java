@@ -52,4 +52,5 @@ public class PdbxAtlas extends DelegatingCategory {
     public StrColumn getPageName() {
         return delegate.getColumn("page_name", DelegatingStrColumn::new);
     }
+
 }

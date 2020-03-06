@@ -104,4 +104,5 @@ public class PdbxReferencePublicationList extends DelegatingCategory {
     public StrColumn getEndYear() {
         return delegate.getColumn("end_year", DelegatingStrColumn::new);
     }
+
 }

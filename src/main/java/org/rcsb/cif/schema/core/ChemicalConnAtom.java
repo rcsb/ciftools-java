@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which describe the 2D chemical structure of
  * the molecular species. They allow a 2D chemical diagram to be
  * reconstructed for use in a publication or in a database search
@@ -87,4 +86,5 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
     public StrColumn getTypeSymbol() {
         return new DelegatingStrColumn(parentBlock.getColumn("chemical_conn_atom_type_symbol"));
     }
+
 }

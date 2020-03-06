@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Experimental details of the NMR study that have not been
  * described elsewhere in this deposition.
  */
@@ -43,4 +42,5 @@ public class PdbxNmrDetails extends DelegatingCategory {
     public StrColumn getText() {
         return delegate.getColumn("text", DelegatingStrColumn::new);
     }
+
 }

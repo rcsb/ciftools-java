@@ -53,4 +53,5 @@ public class PdbxChemCompAtomFeature extends DelegatingCategory {
     public StrColumn getFeatureType() {
         return delegate.getColumn("feature_type", DelegatingStrColumn::new);
     }
+
 }

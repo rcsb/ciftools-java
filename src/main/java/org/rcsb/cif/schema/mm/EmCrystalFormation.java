@@ -122,4 +122,5 @@ public class EmCrystalFormation extends DelegatingCategory {
     public StrColumn getTimeUnit() {
         return delegate.getColumn("time_unit", DelegatingStrColumn::new);
     }
+
 }

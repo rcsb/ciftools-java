@@ -44,4 +44,5 @@ public class PdbxEntityNameTaxonomyTree extends DelegatingCategory {
     public StrColumn getParentId() {
         return delegate.getColumn("parent_id", DelegatingStrColumn::new);
     }
+
 }

@@ -109,4 +109,5 @@ public class DiffrnMeasurement extends DelegatingCategory {
     public StrColumn getPdbxDate() {
         return delegate.getColumn("pdbx_date", DelegatingStrColumn::new);
     }
+
 }

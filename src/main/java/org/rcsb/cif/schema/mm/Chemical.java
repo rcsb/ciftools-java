@@ -306,4 +306,5 @@ public class Chemical extends DelegatingCategory {
     public FloatColumn getTemperatureSublimationLt() {
         return delegate.getColumn("temperature_sublimation_lt", DelegatingFloatColumn::new);
     }
+
 }

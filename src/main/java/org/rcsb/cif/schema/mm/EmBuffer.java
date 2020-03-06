@@ -73,4 +73,5 @@ public class EmBuffer extends DelegatingCategory {
     public FloatColumn getPH() {
         return delegate.getColumn("pH", DelegatingFloatColumn::new);
     }
+
 }

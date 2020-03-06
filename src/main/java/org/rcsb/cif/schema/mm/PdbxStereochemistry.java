@@ -219,4 +219,5 @@ public class PdbxStereochemistry extends DelegatingCategory {
     public FloatColumn getAngleOutOfPlane() {
         return delegate.getColumn("angle_out_of_plane", DelegatingFloatColumn::new);
     }
+
 }

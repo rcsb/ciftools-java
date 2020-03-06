@@ -802,4 +802,5 @@ public class PdbxDatabaseStatus extends DelegatingCategory {
     public StrColumn getTitleSuppression() {
         return delegate.getColumn("title_suppression", DelegatingStrColumn::new);
     }
+
 }

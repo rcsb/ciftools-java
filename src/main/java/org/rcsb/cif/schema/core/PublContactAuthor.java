@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items describing contact author(s) details.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -94,4 +93,5 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     public StrColumn getPhone() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_phone"));
     }
+
 }

@@ -73,4 +73,5 @@ public class EntityPolySeq extends DelegatingCategory {
     public IntColumn getNum() {
         return delegate.getColumn("num", DelegatingIntColumn::new);
     }
+
 }

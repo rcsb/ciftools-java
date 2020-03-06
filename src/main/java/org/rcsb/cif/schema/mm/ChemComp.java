@@ -547,4 +547,5 @@ public class ChemComp extends DelegatingCategory {
     public StrColumn getPdbxNscnum() {
         return delegate.getColumn("pdbx_nscnum", DelegatingStrColumn::new);
     }
+
 }

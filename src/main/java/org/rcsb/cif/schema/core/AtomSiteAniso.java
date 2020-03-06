@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe the anisotropic
  * thermal parameters of the atomic sites in a crystal structure.
  */
@@ -554,4 +553,5 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
     public FloatColumn getU33Su() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]_esd", "atom_site_anisotrop_U[3][3]_esd", "atom_site_aniso_U_33_su"));
     }
+
 }

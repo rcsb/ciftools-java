@@ -109,4 +109,5 @@ public class DiffrnStandards extends DelegatingCategory {
     public FloatColumn getScaleU() {
         return delegate.getColumn("scale_u", DelegatingFloatColumn::new);
     }
+
 }

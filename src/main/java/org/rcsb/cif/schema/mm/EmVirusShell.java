@@ -79,4 +79,5 @@ public class EmVirusShell extends DelegatingCategory {
     public IntColumn getTriangulation() {
         return delegate.getColumn("triangulation", DelegatingIntColumn::new);
     }
+
 }

@@ -53,4 +53,5 @@ public class PdbxSolventInfo extends DelegatingCategory {
     public IntColumn getNumbPerAsymUnit() {
         return delegate.getColumn("numb_per_asym_unit", DelegatingIntColumn::new);
     }
+
 }

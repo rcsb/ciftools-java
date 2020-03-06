@@ -141,4 +141,5 @@ public class PdbxBranchScheme extends DelegatingCategory {
     public StrColumn getAuthMonId() {
         return delegate.getColumn("auth_mon_id", DelegatingStrColumn::new);
     }
+
 }

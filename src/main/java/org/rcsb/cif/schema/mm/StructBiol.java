@@ -109,4 +109,5 @@ public class StructBiol extends DelegatingCategory {
     public StrColumn getPdbxAssemblyMethod() {
         return delegate.getColumn("pdbx_assembly_method", DelegatingStrColumn::new);
     }
+
 }

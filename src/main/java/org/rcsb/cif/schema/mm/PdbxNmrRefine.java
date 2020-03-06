@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Describe the method and details of the refinement of the deposited structure.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -63,4 +62,5 @@ public class PdbxNmrRefine extends DelegatingCategory {
     public IntColumn getSoftwareOrdinal() {
         return delegate.getColumn("software_ordinal", DelegatingIntColumn::new);
     }
+
 }

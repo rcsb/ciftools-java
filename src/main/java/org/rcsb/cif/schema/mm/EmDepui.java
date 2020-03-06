@@ -100,4 +100,5 @@ public class EmDepui extends DelegatingCategory {
     public StrColumn getSameTitleAsPdb() {
         return delegate.getColumn("same_title_as_pdb", DelegatingStrColumn::new);
     }
+
 }

@@ -442,4 +442,5 @@ public class Cell extends DelegatingCategory {
     public StrColumn getPdbxUniqueAxis() {
         return delegate.getColumn("pdbx_unique_axis", DelegatingStrColumn::new);
     }
+
 }

@@ -349,4 +349,5 @@ public class PdbxValidateRmsdAngle extends DelegatingCategory {
     public StrColumn getLinkerFlag() {
         return delegate.getColumn("linker_flag", DelegatingStrColumn::new);
     }
+
 }

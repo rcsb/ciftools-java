@@ -83,4 +83,5 @@ public class PdbxChemCompAudit extends DelegatingCategory {
     public StrColumn getActionType() {
         return delegate.getColumn("action_type", DelegatingStrColumn::new);
     }
+
 }

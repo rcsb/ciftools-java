@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_systematic_chem_shift_offset category define chemical shift offsets that systematically affect all chemical shifts in a set of assigned chemical shifts for a specific nuclei.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -106,4 +105,5 @@ public class PdbxNmrSystematicChemShiftOffset extends DelegatingCategory {
     public IntColumn getOrdinal() {
         return delegate.getColumn("ordinal", DelegatingIntColumn::new);
     }
+
 }

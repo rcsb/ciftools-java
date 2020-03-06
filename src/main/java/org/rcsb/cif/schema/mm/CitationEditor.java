@@ -59,4 +59,5 @@ public class CitationEditor extends DelegatingCategory {
     public IntColumn getOrdinal() {
         return delegate.getColumn("ordinal", DelegatingIntColumn::new);
     }
+
 }

@@ -262,4 +262,5 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
     public StrColumn getPostRelReplacementReasonDetails() {
         return delegate.getColumn("post_rel_replacement_reason_details", DelegatingStrColumn::new);
     }
+
 }

@@ -62,4 +62,5 @@ public class PdbxDepositGroup extends DelegatingCategory {
     public StrColumn getGroupType() {
         return delegate.getColumn("group_type", DelegatingStrColumn::new);
     }
+
 }

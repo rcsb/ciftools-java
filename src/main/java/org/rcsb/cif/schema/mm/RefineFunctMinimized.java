@@ -79,4 +79,5 @@ public class RefineFunctMinimized extends DelegatingCategory {
     public FloatColumn getWeight() {
         return delegate.getColumn("weight", DelegatingFloatColumn::new);
     }
+
 }

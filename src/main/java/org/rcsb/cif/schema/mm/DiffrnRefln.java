@@ -449,4 +449,5 @@ public class DiffrnRefln extends DelegatingCategory {
     public FloatColumn getIntensityU() {
         return delegate.getColumn("intensity_u", DelegatingFloatColumn::new);
     }
+
 }

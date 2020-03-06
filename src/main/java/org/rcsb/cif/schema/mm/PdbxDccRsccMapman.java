@@ -174,4 +174,5 @@ public class PdbxDccRsccMapman extends DelegatingCategory {
     public StrColumn getFlag() {
         return delegate.getColumn("flag", DelegatingStrColumn::new);
     }
+
 }

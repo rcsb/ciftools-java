@@ -144,4 +144,5 @@ public class PdbxStructRefSeqInsertion extends DelegatingCategory {
     public StrColumn getDbName() {
         return delegate.getColumn("db_name", DelegatingStrColumn::new);
     }
+
 }

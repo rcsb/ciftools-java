@@ -203,4 +203,5 @@ public class PdbxLinkedEntityLinkList extends DelegatingCategory {
     public StrColumn getLinkClass() {
         return delegate.getColumn("link_class", DelegatingStrColumn::new);
     }
+
 }

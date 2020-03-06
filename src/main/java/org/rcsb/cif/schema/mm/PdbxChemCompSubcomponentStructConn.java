@@ -123,4 +123,5 @@ public class PdbxChemCompSubcomponentStructConn extends DelegatingCategory {
     public IntColumn getSeqId2() {
         return delegate.getColumn("seq_id_2", DelegatingIntColumn::new);
     }
+
 }

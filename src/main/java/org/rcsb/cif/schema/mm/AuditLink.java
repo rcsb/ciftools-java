@@ -46,4 +46,5 @@ public class AuditLink extends DelegatingCategory {
     public StrColumn getBlockDescription() {
         return delegate.getColumn("block_description", DelegatingStrColumn::new);
     }
+
 }

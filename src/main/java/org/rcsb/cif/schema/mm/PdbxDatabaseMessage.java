@@ -182,4 +182,5 @@ public class PdbxDatabaseMessage extends DelegatingCategory {
     public StrColumn getMessage() {
         return delegate.getColumn("message", DelegatingStrColumn::new);
     }
+
 }

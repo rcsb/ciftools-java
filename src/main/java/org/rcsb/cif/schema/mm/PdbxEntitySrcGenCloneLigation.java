@@ -111,4 +111,5 @@ public class PdbxEntitySrcGenCloneLigation extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of items describing citation author(s) details.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -53,4 +52,5 @@ public class CitationAuthor extends DelegatingCategory.DelegatingCifCoreCategory
     public IntColumn getOrdinal() {
         return new DelegatingIntColumn(parentBlock.getColumn("citation_author_ordinal"));
     }
+
 }

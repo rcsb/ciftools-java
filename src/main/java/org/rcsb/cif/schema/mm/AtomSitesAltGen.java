@@ -45,4 +45,5 @@ public class AtomSitesAltGen extends DelegatingCategory {
     public StrColumn getEnsId() {
         return delegate.getColumn("ens_id", DelegatingStrColumn::new);
     }
+
 }

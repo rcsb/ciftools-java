@@ -54,4 +54,5 @@ public class PdbxChemCompModelDescriptor extends DelegatingCategory {
     public StrColumn getType() {
         return delegate.getColumn("type", DelegatingStrColumn::new);
     }
+
 }

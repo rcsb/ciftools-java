@@ -63,4 +63,5 @@ public class PdbxBondDistanceLimits extends DelegatingCategory {
     public FloatColumn getUpperLimit() {
         return delegate.getColumn("upper_limit", DelegatingFloatColumn::new);
     }
+
 }

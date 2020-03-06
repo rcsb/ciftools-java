@@ -184,4 +184,5 @@ public class RefineLsClass extends DelegatingCategory {
     public FloatColumn getWRFactorAll() {
         return delegate.getColumn("wR_factor_all", DelegatingFloatColumn::new);
     }
+
 }

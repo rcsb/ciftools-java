@@ -165,4 +165,5 @@ public class PdbxEntitySrcGenProteolysis extends DelegatingCategory {
     public FloatColumn getCleavageTime() {
         return delegate.getColumn("cleavage_time", DelegatingFloatColumn::new);
     }
+
 }

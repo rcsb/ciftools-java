@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the geometry bonds in the
  * structural model as derived from the atomic sites.
  */
@@ -181,4 +180,5 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getDistanceSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_bond_dist_esd", "geom_bond_distance_su"));
     }
+
 }

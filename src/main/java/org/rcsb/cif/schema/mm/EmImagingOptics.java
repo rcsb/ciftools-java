@@ -111,4 +111,5 @@ public class EmImagingOptics extends DelegatingCategory {
     public StrColumn getSphAberrationCorrector() {
         return delegate.getColumn("sph_aberration_corrector", DelegatingStrColumn::new);
     }
+
 }

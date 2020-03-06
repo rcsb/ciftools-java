@@ -44,4 +44,5 @@ public class PdbxEntityPolyNaNonstandard extends DelegatingCategory {
     public StrColumn getFeature() {
         return delegate.getColumn("feature", DelegatingStrColumn::new);
     }
+
 }

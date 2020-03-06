@@ -32,4 +32,5 @@ public class PdbxSource extends DelegatingCategory {
     public StrColumn getSrcMethod() {
         return delegate.getColumn("src_method", DelegatingStrColumn::new);
     }
+
 }

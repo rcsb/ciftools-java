@@ -73,4 +73,5 @@ public class PdbxDrugInfo extends DelegatingCategory {
     public StrColumn getSizeOfMoleculePerAsymUnit() {
         return delegate.getColumn("size_of_molecule_per_asym_unit", DelegatingStrColumn::new);
     }
+
 }

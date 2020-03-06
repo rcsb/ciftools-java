@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify space group
  * information about the crystal used in the diffraction measurements.
  * 
@@ -302,4 +301,5 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getNameH_MFull() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_H-M", "space_group_name_H-M_full"));
     }
+
 }

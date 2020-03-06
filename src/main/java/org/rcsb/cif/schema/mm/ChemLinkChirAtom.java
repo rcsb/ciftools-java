@@ -72,4 +72,5 @@ public class ChemLinkChirAtom extends DelegatingCategory {
     public FloatColumn getDev() {
         return delegate.getColumn("dev", DelegatingFloatColumn::new);
     }
+
 }

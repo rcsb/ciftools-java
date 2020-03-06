@@ -56,4 +56,5 @@ public class PdbxPostProcessDetails extends DelegatingCategory {
     public StrColumn getSeqDetails() {
         return delegate.getColumn("seq_details", DelegatingStrColumn::new);
     }
+
 }

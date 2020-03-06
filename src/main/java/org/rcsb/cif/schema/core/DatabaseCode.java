@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items recording database deposition. These data items
  * are assigned by database managers and should only appear in a CIF if they
  * originate from that source.
@@ -112,4 +111,5 @@ public class DatabaseCode extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getPDF() {
         return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDF"));
     }
+
 }

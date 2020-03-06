@@ -127,4 +127,5 @@ public class DiffrnDetector extends DelegatingCategory {
     public FloatColumn getPdbxFrequency() {
         return delegate.getColumn("pdbx_frequency", DelegatingFloatColumn::new);
     }
+
 }

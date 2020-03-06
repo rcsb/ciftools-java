@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_spectral_peak_list category provide information about a list of reported spectral peak characteristic values.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -134,4 +133,5 @@ public class PdbxNmrSpectralPeakList extends DelegatingCategory {
     public StrColumn getConditionsLabel() {
         return delegate.getColumn("conditions_label", DelegatingStrColumn::new);
     }
+
 }

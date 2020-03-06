@@ -122,4 +122,5 @@ public class ChemCompAngle extends DelegatingCategory {
     public FloatColumn getValueDistEsd() {
         return delegate.getColumn("value_dist_esd", DelegatingFloatColumn::new);
     }
+
 }

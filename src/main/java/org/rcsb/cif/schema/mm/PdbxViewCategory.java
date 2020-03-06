@@ -54,4 +54,5 @@ public class PdbxViewCategory extends DelegatingCategory {
     public StrColumn getCategoryViewName() {
         return delegate.getColumn("category_view_name", DelegatingStrColumn::new);
     }
+
 }

@@ -63,4 +63,5 @@ public class PdbxAuditRevisionGroup extends DelegatingCategory {
     public StrColumn getGroup() {
         return delegate.getColumn("group", DelegatingStrColumn::new);
     }
+
 }

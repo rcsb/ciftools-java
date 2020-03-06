@@ -717,4 +717,5 @@ public class StructConn extends DelegatingCategory {
     public StrColumn getPdbxRole() {
         return delegate.getColumn("pdbx_role", DelegatingStrColumn::new);
     }
+
 }

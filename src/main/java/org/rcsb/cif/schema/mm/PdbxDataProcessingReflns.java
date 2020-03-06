@@ -81,4 +81,5 @@ public class PdbxDataProcessingReflns extends DelegatingCategory {
     public FloatColumn getRFactorAllLinear() {
         return delegate.getColumn("R_factor_all_linear", DelegatingFloatColumn::new);
     }
+
 }

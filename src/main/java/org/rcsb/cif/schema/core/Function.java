@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The crystallographic functions the invoked in the definition
  * methods of CORE STRUCTURE data items defined and used with in
  * the Crystallographic Information Framework (CIF).
@@ -104,4 +103,5 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getSymop() {
         return new DelegatingStrColumn(parentBlock.getColumn("function_Symop"));
     }
+
 }

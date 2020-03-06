@@ -81,4 +81,5 @@ public class PdbxChemCompAtomRelated extends DelegatingCategory {
     public StrColumn getRelatedType() {
         return delegate.getColumn("related_type", DelegatingStrColumn::new);
     }
+
 }

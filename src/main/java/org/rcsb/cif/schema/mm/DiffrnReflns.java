@@ -415,4 +415,5 @@ public class DiffrnReflns extends DelegatingCategory {
     public IntColumn getPdbxNumberObs() {
         return delegate.getColumn("pdbx_number_obs", DelegatingIntColumn::new);
     }
+
 }

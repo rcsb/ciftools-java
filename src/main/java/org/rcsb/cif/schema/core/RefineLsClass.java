@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify information about the
  * refinement of the structural model.
  */
@@ -92,4 +91,5 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
     public FloatColumn getWRFactorAll() {
         return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_wR_factor_all"));
     }
+
 }

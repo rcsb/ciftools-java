@@ -55,4 +55,5 @@ public class EntityNameCom extends DelegatingCategory {
     public StrColumn getPdbxProvenance() {
         return delegate.getColumn("pdbx_provenance", DelegatingStrColumn::new);
     }
+
 }

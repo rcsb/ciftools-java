@@ -99,4 +99,5 @@ public class IhmEnsembleSubSample extends DelegatingCategory {
     public IntColumn getFileId() {
         return delegate.getColumn("file_id", DelegatingIntColumn::new);
     }
+
 }

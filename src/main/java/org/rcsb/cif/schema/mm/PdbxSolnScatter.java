@@ -476,4 +476,5 @@ public class PdbxSolnScatter extends DelegatingCategory {
     public StrColumn getDataAnalysisSoftwareList() {
         return delegate.getColumn("data_analysis_software_list", DelegatingStrColumn::new);
     }
+
 }

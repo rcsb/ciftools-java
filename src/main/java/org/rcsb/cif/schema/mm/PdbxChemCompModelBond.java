@@ -82,4 +82,5 @@ public class PdbxChemCompModelBond extends DelegatingCategory {
     public IntColumn getOrdinalId() {
         return delegate.getColumn("ordinal_id", DelegatingIntColumn::new);
     }
+
 }

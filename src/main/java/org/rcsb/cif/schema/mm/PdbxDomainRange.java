@@ -230,4 +230,5 @@ public class PdbxDomainRange extends DelegatingCategory {
     public StrColumn getEndAuthSeqId() {
         return delegate.getColumn("end_auth_seq_id", DelegatingStrColumn::new);
     }
+
 }

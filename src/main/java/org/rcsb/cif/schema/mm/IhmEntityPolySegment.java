@@ -88,4 +88,5 @@ public class IhmEntityPolySegment extends DelegatingCategory {
     public StrColumn getCompIdEnd() {
         return delegate.getColumn("comp_id_end", DelegatingStrColumn::new);
     }
+
 }

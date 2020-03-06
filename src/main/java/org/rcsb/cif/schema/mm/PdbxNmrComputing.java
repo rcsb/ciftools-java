@@ -154,4 +154,5 @@ public class PdbxNmrComputing extends DelegatingCategory {
     public StrColumn getIterativeRelaxationMatrixVersion() {
         return delegate.getColumn("iterative_relaxation_matrix_version", DelegatingStrColumn::new);
     }
+
 }

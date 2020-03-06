@@ -151,4 +151,5 @@ public class ChemLinkChir extends DelegatingCategory {
     public FloatColumn getVolumeThreeEsd() {
         return delegate.getColumn("volume_three_esd", DelegatingFloatColumn::new);
     }
+
 }

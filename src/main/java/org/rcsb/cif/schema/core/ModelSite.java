@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe atomic sites and
  * connections in the proposed atomic model.
  */
@@ -152,4 +151,5 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getTypeSymbol() {
         return new DelegatingStrColumn(parentBlock.getColumn("model_site_type_symbol"));
     }
+
 }

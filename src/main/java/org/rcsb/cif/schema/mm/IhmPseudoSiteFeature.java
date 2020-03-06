@@ -46,4 +46,5 @@ public class IhmPseudoSiteFeature extends DelegatingCategory {
     public IntColumn getPseudoSiteId() {
         return delegate.getColumn("pseudo_site_id", DelegatingIntColumn::new);
     }
+
 }

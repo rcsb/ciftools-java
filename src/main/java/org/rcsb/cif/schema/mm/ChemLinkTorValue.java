@@ -89,4 +89,5 @@ public class ChemLinkTorValue extends DelegatingCategory {
     public FloatColumn getDistEsd() {
         return delegate.getColumn("dist_esd", DelegatingFloatColumn::new);
     }
+
 }

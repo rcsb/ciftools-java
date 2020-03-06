@@ -131,4 +131,5 @@ public class IhmEprRestraint extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

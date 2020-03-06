@@ -63,4 +63,5 @@ public class PdbxNaStrandInfo extends DelegatingCategory {
     public StrColumn getFractNAStrandPerAsymUnit() {
         return delegate.getColumn("fract_NA_strand_per_asym_unit", DelegatingStrColumn::new);
     }
+
 }

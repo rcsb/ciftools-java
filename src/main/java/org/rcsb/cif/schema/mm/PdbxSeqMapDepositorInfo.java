@@ -63,4 +63,5 @@ public class PdbxSeqMapDepositorInfo extends DelegatingCategory {
     public StrColumn getOneLetterCodeMod() {
         return delegate.getColumn("one_letter_code_mod", DelegatingStrColumn::new);
     }
+
 }

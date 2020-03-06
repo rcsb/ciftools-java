@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Complete description of each NMR sample, including the solvent
  * system used.
  */
@@ -97,4 +96,5 @@ public class PdbxNmrSampleDetails extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

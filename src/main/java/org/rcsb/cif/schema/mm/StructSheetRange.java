@@ -252,4 +252,5 @@ public class StructSheetRange extends DelegatingCategory {
     public StrColumn getPdbxEndPDBInsCode() {
         return delegate.getColumn("pdbx_end_PDB_ins_code", DelegatingStrColumn::new);
     }
+
 }

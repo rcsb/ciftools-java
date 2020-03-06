@@ -164,4 +164,5 @@ public class PdbxStructRefSeqFeature extends DelegatingCategory {
     public StrColumn getEndPdbInsCode() {
         return delegate.getColumn("end_pdb_ins_code", DelegatingStrColumn::new);
     }
+
 }

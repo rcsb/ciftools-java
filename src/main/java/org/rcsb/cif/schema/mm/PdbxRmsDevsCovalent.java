@@ -201,4 +201,5 @@ public class PdbxRmsDevsCovalent extends DelegatingCategory {
     public IntColumn getNumAnglesPhosphate() {
         return delegate.getColumn("num_angles_phosphate", DelegatingIntColumn::new);
     }
+
 }

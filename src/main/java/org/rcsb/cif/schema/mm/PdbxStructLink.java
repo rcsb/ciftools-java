@@ -246,4 +246,5 @@ public class PdbxStructLink extends DelegatingCategory {
     public FloatColumn getPdbxDistValue() {
         return delegate.getColumn("pdbx_dist_value", DelegatingFloatColumn::new);
     }
+
 }

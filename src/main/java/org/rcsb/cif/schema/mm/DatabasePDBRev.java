@@ -167,4 +167,5 @@ public class DatabasePDBRev extends DelegatingCategory {
     public StrColumn getPdbxRecordRevised4() {
         return delegate.getColumn("pdbx_record_revised_4", DelegatingStrColumn::new);
     }
+
 }

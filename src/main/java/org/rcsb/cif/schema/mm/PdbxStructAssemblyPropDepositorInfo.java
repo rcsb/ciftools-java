@@ -63,4 +63,5 @@ public class PdbxStructAssemblyPropDepositorInfo extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

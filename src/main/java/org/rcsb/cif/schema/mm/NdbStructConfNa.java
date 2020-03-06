@@ -55,4 +55,5 @@ public class NdbStructConfNa extends DelegatingCategory {
     public IntColumn getFeatureCount() {
         return delegate.getColumn("feature_count", DelegatingIntColumn::new);
     }
+
 }

@@ -62,4 +62,5 @@ public class IhmGeometricObjectList extends DelegatingCategory {
     public StrColumn getObjectDescription() {
         return delegate.getColumn("object_description", DelegatingStrColumn::new);
     }
+
 }

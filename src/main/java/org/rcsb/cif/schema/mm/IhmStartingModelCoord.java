@@ -185,4 +185,5 @@ public class IhmStartingModelCoord extends DelegatingCategory {
     public IntColumn getFormalCharge() {
         return delegate.getColumn("formal_charge", DelegatingIntColumn::new);
     }
+
 }

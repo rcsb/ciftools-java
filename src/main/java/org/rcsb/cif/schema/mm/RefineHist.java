@@ -375,4 +375,5 @@ public class RefineHist extends DelegatingCategory {
     public IntColumn getPdbxNumberAtomsTotal() {
         return delegate.getColumn("pdbx_number_atoms_total", DelegatingIntColumn::new);
     }
+
 }

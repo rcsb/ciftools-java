@@ -55,4 +55,5 @@ public class EntityNameSys extends DelegatingCategory {
     public StrColumn getSystem() {
         return delegate.getColumn("system", DelegatingStrColumn::new);
     }
+
 }

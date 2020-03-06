@@ -136,4 +136,5 @@ public class SpaceGroup extends DelegatingCategory {
     public StrColumn getNameH_MAlt() {
         return delegate.getColumn("name_H-M_alt", DelegatingStrColumn::new);
     }
+
 }

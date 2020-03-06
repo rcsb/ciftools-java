@@ -63,4 +63,5 @@ public class PdbxHybrid extends DelegatingCategory {
     public StrColumn getResidueNames() {
         return delegate.getColumn("residue_names", DelegatingStrColumn::new);
     }
+
 }

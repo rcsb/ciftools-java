@@ -135,4 +135,5 @@ public class PdbxReferenceEntitySrcNat extends DelegatingCategory {
     public StrColumn getSourceId() {
         return delegate.getColumn("source_id", DelegatingStrColumn::new);
     }
+
 }

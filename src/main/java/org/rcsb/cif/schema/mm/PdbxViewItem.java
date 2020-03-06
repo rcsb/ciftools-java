@@ -76,4 +76,5 @@ public class PdbxViewItem extends DelegatingCategory {
     public StrColumn getItemViewAllowAlternateValue() {
         return delegate.getColumn("item_view_allow_alternate_value", DelegatingStrColumn::new);
     }
+
 }

@@ -66,4 +66,5 @@ public class IhmModelRepresentative extends DelegatingCategory {
     public StrColumn getSelectionCriteria() {
         return delegate.getColumn("selection_criteria", DelegatingStrColumn::new);
     }
+
 }

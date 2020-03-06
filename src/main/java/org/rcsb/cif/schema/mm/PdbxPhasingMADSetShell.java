@@ -253,4 +253,5 @@ public class PdbxPhasingMADSetShell extends DelegatingCategory {
     public FloatColumn getPower() {
         return delegate.getColumn("power", DelegatingFloatColumn::new);
     }
+
 }

@@ -53,4 +53,5 @@ public class PdbxProteinInfo extends DelegatingCategory {
     public IntColumn getNumPerAsymUnit() {
         return delegate.getColumn("num_per_asym_unit", DelegatingIntColumn::new);
     }
+
 }

@@ -178,4 +178,5 @@ public class PdbxValChiral extends DelegatingCategory {
     public StrColumn getChiralNeighborAtomAltId() {
         return delegate.getColumn("chiral_neighbor_atom_alt_id", DelegatingStrColumn::new);
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Category of data items recording the author information.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -95,4 +94,5 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getPhone() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_author_phone"));
     }
+
 }

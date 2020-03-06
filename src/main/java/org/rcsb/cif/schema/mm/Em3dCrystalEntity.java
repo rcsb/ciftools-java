@@ -122,4 +122,5 @@ public class Em3dCrystalEntity extends DelegatingCategory {
     public IntColumn getSpaceGroupNum() {
         return delegate.getColumn("space_group_num", DelegatingIntColumn::new);
     }
+
 }

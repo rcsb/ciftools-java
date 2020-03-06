@@ -92,4 +92,5 @@ public class PdbxAuditRevisionHistory extends DelegatingCategory {
     public StrColumn getInternalDepositionId() {
         return delegate.getColumn("internal_deposition_id", DelegatingStrColumn::new);
     }
+
 }

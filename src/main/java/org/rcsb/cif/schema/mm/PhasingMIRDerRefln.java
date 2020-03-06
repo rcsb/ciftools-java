@@ -316,4 +316,5 @@ public class PhasingMIRDerRefln extends DelegatingCategory {
     public StrColumn getSetId() {
         return delegate.getColumn("set_id", DelegatingStrColumn::new);
     }
+
 }

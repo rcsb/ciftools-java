@@ -99,4 +99,5 @@ public class PdbxStructGroupList extends DelegatingCategory {
     public StrColumn getSelectionDetails() {
         return delegate.getColumn("selection_details", DelegatingStrColumn::new);
     }
+
 }

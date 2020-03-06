@@ -87,4 +87,5 @@ public class PdbxEntityNameInstance extends DelegatingCategory {
     public StrColumn getPdbMolId() {
         return delegate.getColumn("pdb_mol_id", DelegatingStrColumn::new);
     }
+
 }

@@ -52,4 +52,5 @@ public class EmFscCurve extends DelegatingCategory {
     public StrColumn getId() {
         return delegate.getColumn("id", DelegatingStrColumn::new);
     }
+
 }

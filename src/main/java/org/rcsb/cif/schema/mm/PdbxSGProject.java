@@ -63,4 +63,5 @@ public class PdbxSGProject extends DelegatingCategory {
     public StrColumn getInitialOfCenter() {
         return delegate.getColumn("initial_of_center", DelegatingStrColumn::new);
     }
+
 }

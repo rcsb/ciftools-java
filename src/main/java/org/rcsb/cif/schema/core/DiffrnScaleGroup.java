@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the groups of reflections in
  * the raw measured diffraction data with different relative scales.
  */
@@ -36,4 +35,5 @@ public class DiffrnScaleGroup extends DelegatingCategory.DelegatingCifCoreCatego
     public FloatColumn getINet() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_I_net"));
     }
+
 }

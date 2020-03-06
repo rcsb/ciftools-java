@@ -66,4 +66,5 @@ public class ChemLinkPlane extends DelegatingCategory {
     public IntColumn getNumberAtomsNh() {
         return delegate.getColumn("number_atoms_nh", DelegatingIntColumn::new);
     }
+
 }

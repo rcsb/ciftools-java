@@ -240,4 +240,5 @@ public class Em3dReconstruction extends DelegatingCategory {
     public StrColumn getSymmetryType() {
         return delegate.getColumn("symmetry_type", DelegatingStrColumn::new);
     }
+
 }

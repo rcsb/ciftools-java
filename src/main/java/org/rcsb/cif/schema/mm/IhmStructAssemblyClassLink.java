@@ -48,4 +48,5 @@ public class IhmStructAssemblyClassLink extends DelegatingCategory {
     public IntColumn getAssemblyId() {
         return delegate.getColumn("assembly_id", DelegatingIntColumn::new);
     }
+
 }

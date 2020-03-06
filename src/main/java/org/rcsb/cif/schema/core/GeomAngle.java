@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the geometry angles in the
  * structural model as derived from the atomic sites.
  */
@@ -204,4 +203,5 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getValueSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_angle_value_esd", "geom_angle_value_su"));
     }
+
 }

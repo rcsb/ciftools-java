@@ -203,4 +203,5 @@ public class Database extends DelegatingCategory {
     public StrColumn getPdbxRelatedCodesPDB() {
         return delegate.getColumn("pdbx_related_codes_PDB", DelegatingStrColumn::new);
     }
+
 }

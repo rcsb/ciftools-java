@@ -382,4 +382,5 @@ public class Publ extends DelegatingCategory {
     public StrColumn getSectionTitleFootnote() {
         return delegate.getColumn("section_title_footnote", DelegatingStrColumn::new);
     }
+
 }

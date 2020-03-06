@@ -52,4 +52,5 @@ public class EmDbReferenceAuxiliary extends DelegatingCategory {
     public StrColumn getLinkType() {
         return delegate.getColumn("link_type", DelegatingStrColumn::new);
     }
+
 }

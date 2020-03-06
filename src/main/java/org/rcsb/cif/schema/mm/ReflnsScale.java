@@ -67,4 +67,5 @@ public class ReflnsScale extends DelegatingCategory {
     public FloatColumn getMeasIntensity() {
         return delegate.getColumn("meas_intensity", DelegatingFloatColumn::new);
     }
+
 }

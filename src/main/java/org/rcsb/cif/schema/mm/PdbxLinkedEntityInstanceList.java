@@ -54,4 +54,5 @@ public class PdbxLinkedEntityInstanceList extends DelegatingCategory {
     public StrColumn getAsymId() {
         return delegate.getColumn("asym_id", DelegatingStrColumn::new);
     }
+
 }

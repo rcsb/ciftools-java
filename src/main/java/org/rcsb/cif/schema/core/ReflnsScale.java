@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the scales needed to place
  * measured structure factor coefficients on the same absolute scale.
  */
@@ -50,4 +49,5 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getMeasIntensity() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_intensity"));
     }
+
 }

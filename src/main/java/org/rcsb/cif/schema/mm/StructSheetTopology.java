@@ -84,4 +84,5 @@ public class StructSheetTopology extends DelegatingCategory {
     public StrColumn getSheetId() {
         return delegate.getColumn("sheet_id", DelegatingStrColumn::new);
     }
+
 }

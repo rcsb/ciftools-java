@@ -176,4 +176,5 @@ public class ExptlCrystalGrowComp extends DelegatingCategory {
     public StrColumn getPdbxSolv() {
         return delegate.getColumn("pdbx_solv", DelegatingStrColumn::new);
     }
+
 }

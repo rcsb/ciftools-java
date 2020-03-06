@@ -141,4 +141,5 @@ public class EmAdmin extends DelegatingCategory {
     public StrColumn getTitle() {
         return delegate.getColumn("title", DelegatingStrColumn::new);
     }
+
 }

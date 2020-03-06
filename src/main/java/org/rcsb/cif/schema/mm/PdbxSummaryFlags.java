@@ -52,4 +52,5 @@ public class PdbxSummaryFlags extends DelegatingCategory {
     public StrColumn getFlagValue() {
         return delegate.getColumn("flag_value", DelegatingStrColumn::new);
     }
+
 }

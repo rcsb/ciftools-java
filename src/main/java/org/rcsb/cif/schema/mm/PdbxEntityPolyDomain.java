@@ -94,4 +94,5 @@ public class PdbxEntityPolyDomain extends DelegatingCategory {
     public IntColumn getEndSeqNum() {
         return delegate.getColumn("end_seq_num", DelegatingIntColumn::new);
     }
+
 }

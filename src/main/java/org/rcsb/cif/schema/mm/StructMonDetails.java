@@ -78,4 +78,5 @@ public class StructMonDetails extends DelegatingCategory {
     public StrColumn getRSR() {
         return delegate.getColumn("RSR", DelegatingStrColumn::new);
     }
+
 }

@@ -86,4 +86,5 @@ public class PdbxReferenceMoleculeSynonyms extends DelegatingCategory {
     public StrColumn getChemCompId() {
         return delegate.getColumn("chem_comp_id", DelegatingStrColumn::new);
     }
+
 }

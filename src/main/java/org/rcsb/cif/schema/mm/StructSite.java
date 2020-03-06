@@ -117,4 +117,5 @@ public class StructSite extends DelegatingCategory {
     public StrColumn getPdbxAuthInsCode() {
         return delegate.getColumn("pdbx_auth_ins_code", DelegatingStrColumn::new);
     }
+
 }

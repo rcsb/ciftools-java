@@ -74,4 +74,5 @@ public class PdbxReferenceEntityList extends DelegatingCategory {
     public IntColumn getComponentId() {
         return delegate.getColumn("component_id", DelegatingIntColumn::new);
     }
+
 }

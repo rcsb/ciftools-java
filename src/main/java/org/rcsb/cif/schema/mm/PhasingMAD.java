@@ -303,4 +303,5 @@ public class PhasingMAD extends DelegatingCategory {
     public StrColumn getPdbxAnomScatMethod() {
         return delegate.getColumn("pdbx_anom_scat_method", DelegatingStrColumn::new);
     }
+
 }

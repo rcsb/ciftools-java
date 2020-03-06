@@ -218,4 +218,5 @@ public class IhmGaussianObjEnsemble extends DelegatingCategory {
     public IntColumn getEnsembleId() {
         return delegate.getColumn("ensemble_id", DelegatingIntColumn::new);
     }
+
 }

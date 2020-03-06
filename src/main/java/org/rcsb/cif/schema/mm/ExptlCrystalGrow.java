@@ -210,4 +210,5 @@ public class ExptlCrystalGrow extends DelegatingCategory {
     public StrColumn getPdbxPHRange() {
         return delegate.getColumn("pdbx_pH_range", DelegatingStrColumn::new);
     }
+
 }

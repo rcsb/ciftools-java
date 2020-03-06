@@ -113,4 +113,5 @@ public class PdbxFeatureEntry extends DelegatingCategory {
     public StrColumn getFeatureSoftwareId() {
         return delegate.getColumn("feature_software_id", DelegatingStrColumn::new);
     }
+
 }

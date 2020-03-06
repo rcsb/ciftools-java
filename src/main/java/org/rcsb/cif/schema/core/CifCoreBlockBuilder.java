@@ -451,4 +451,5 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
     public CifCoreCategoryBuilder.AtomSiteAnisotropBuilder enterAtomSiteAnisotrop() {
         return new CifCoreCategoryBuilder.AtomSiteAnisotropBuilder(this);
     }
+
 }

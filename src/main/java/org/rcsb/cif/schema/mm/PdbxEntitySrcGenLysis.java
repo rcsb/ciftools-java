@@ -163,4 +163,5 @@ public class PdbxEntitySrcGenLysis extends DelegatingCategory {
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
     }
+
 }

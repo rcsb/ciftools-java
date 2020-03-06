@@ -69,4 +69,5 @@ public class PdbxEntityProdProtocol extends DelegatingCategory {
     public StrColumn getProtocolType() {
         return delegate.getColumn("protocol_type", DelegatingStrColumn::new);
     }
+
 }

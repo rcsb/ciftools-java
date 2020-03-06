@@ -608,4 +608,5 @@ public class PdbxRefineTls extends DelegatingCategory {
     public FloatColumn getS33Esd() {
         return delegate.getColumn("S[3][3]_esd", DelegatingFloatColumn::new);
     }
+
 }

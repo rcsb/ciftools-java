@@ -62,4 +62,5 @@ public class PdbxDepuiEntityStatusFlags extends DelegatingCategory {
     public StrColumn getSampleXyzSequenceAlignmentsValid() {
         return delegate.getColumn("sample_xyz_sequence_alignments_valid", DelegatingStrColumn::new);
     }
+
 }

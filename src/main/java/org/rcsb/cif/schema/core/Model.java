@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the MODEL Category specify data for the crystal structure
  * postulated and modelled from the atomic coordinates derived and
  * refined from the diffraction information. The structural model is
@@ -20,5 +19,6 @@ public class Model extends DelegatingCategory.DelegatingCifCoreCategory {
     public Model(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
     }
+
 
 }

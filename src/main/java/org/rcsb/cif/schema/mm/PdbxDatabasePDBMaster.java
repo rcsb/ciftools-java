@@ -152,4 +152,5 @@ public class PdbxDatabasePDBMaster extends DelegatingCategory {
     public IntColumn getNumSeqres() {
         return delegate.getColumn("num_seqres", DelegatingIntColumn::new);
     }
+
 }

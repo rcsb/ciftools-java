@@ -102,4 +102,5 @@ public class PdbxNmrExptlSample extends DelegatingCategory {
     public FloatColumn getConcentrationErr() {
         return delegate.getColumn("concentration_err", DelegatingFloatColumn::new);
     }
+
 }

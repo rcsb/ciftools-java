@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to describe information which applies
  * to all atom sites in a crystal structure.
  */
@@ -796,4 +795,5 @@ public class AtomSites extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getFractTransfVector3() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_sites_fract_transf_vector[3]", "atom_sites_fract_transform_vec_3"));
     }
+
 }

@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Items in the pdbx_nmr_software_task category provide information about software workflow in the NMR experiment.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -53,4 +52,5 @@ public class PdbxNmrSoftwareTask extends DelegatingCategory {
     public StrColumn getTask() {
         return delegate.getColumn("task", DelegatingStrColumn::new);
     }
+
 }

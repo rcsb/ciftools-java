@@ -82,4 +82,5 @@ public class PdbxPostProcessStatus extends DelegatingCategory {
     public StrColumn getAnnotator() {
         return delegate.getColumn("annotator", DelegatingStrColumn::new);
     }
+
 }

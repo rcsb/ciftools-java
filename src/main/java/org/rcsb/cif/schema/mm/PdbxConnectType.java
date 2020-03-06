@@ -52,4 +52,5 @@ public class PdbxConnectType extends DelegatingCategory {
     public StrColumn getModified() {
         return delegate.getColumn("modified", DelegatingStrColumn::new);
     }
+
 }

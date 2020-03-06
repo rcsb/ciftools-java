@@ -142,4 +142,5 @@ public class PdbxConnect extends DelegatingCategory {
     public StrColumn getModifiedDate() {
         return delegate.getColumn("modified_date", DelegatingStrColumn::new);
     }
+
 }

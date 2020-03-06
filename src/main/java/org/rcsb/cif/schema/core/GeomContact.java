@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the interatomic
  * contact distances in the structural model.
  */
@@ -162,4 +161,5 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn getDistanceSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_contact_dist_esd", "geom_contact_distance_su"));
     }
+
 }

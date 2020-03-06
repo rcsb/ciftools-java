@@ -81,4 +81,5 @@ public class EmBufferComponent extends DelegatingCategory {
     public StrColumn getName() {
         return delegate.getColumn("name", DelegatingStrColumn::new);
     }
+
 }

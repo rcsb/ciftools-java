@@ -55,4 +55,5 @@ public class PdbxUnpair extends DelegatingCategory {
     public StrColumn getResidueNumber() {
         return delegate.getColumn("residue_number", DelegatingStrColumn::new);
     }
+
 }

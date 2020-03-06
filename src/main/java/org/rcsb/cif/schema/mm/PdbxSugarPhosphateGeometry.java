@@ -776,4 +776,5 @@ public class PdbxSugarPhosphateGeometry extends DelegatingCategory {
     public FloatColumn getC1N19C68() {
         return delegate.getColumn("c1_n1_9_c6_8", DelegatingFloatColumn::new);
     }
+
 }

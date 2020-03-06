@@ -86,4 +86,5 @@ public class PdbxChemCompBondEdit extends DelegatingCategory {
     public StrColumn getEditBondValue() {
         return delegate.getColumn("edit_bond_value", DelegatingStrColumn::new);
     }
+
 }

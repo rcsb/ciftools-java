@@ -73,4 +73,5 @@ public class PdbxExptlCrystalCryoTreatment extends DelegatingCategory {
     public StrColumn getAnnealingDetails() {
         return delegate.getColumn("annealing_details", DelegatingStrColumn::new);
     }
+
 }

@@ -142,4 +142,5 @@ public class EmDiffractionStats extends DelegatingCategory {
     public FloatColumn getRSym() {
         return delegate.getColumn("r_sym", DelegatingFloatColumn::new);
     }
+
 }

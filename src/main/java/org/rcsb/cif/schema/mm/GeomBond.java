@@ -398,4 +398,5 @@ public class GeomBond extends DelegatingCategory {
     public IntColumn getPdbxPDBModelNum() {
         return delegate.getColumn("pdbx_PDB_model_num", DelegatingIntColumn::new);
     }
+
 }

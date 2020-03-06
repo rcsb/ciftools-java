@@ -48,4 +48,5 @@ public class Entry extends DelegatingCategory {
     public StrColumn getPdbxDOI() {
         return delegate.getColumn("pdbx_DOI", DelegatingStrColumn::new);
     }
+
 }

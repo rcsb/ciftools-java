@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify information about
  * crystals used in the diffraction measurements.
  */
@@ -305,4 +304,5 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getIntensity() {
         return new DelegatingStrColumn(parentBlock.getAliasedColumn("exptl_crystal_colour_modifier", "exptl_crystal_appearance_intensity"));
     }
+
 }

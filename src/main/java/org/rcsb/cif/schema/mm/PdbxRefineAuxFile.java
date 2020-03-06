@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Auxilary parameter and topology files used in refinement.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -64,4 +63,5 @@ public class PdbxRefineAuxFile extends DelegatingCategory {
     public StrColumn getFileType() {
         return delegate.getColumn("file_type", DelegatingStrColumn::new);
     }
+
 }

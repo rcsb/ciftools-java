@@ -174,4 +174,5 @@ public class PdbxEntitySrcGenFract extends DelegatingCategory {
     public StrColumn getProteinYieldMethod() {
         return delegate.getColumn("protein_yield_method", DelegatingStrColumn::new);
     }
+
 }

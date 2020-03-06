@@ -64,4 +64,5 @@ public class PdbxMolecule extends DelegatingCategory {
     public StrColumn getLinkedEntityId() {
         return delegate.getColumn("linked_entity_id", DelegatingStrColumn::new);
     }
+
 }

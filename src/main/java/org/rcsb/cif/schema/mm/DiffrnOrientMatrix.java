@@ -154,4 +154,5 @@ public class DiffrnOrientMatrix extends DelegatingCategory {
     public FloatColumn getUB33() {
         return delegate.getColumn("UB[3][3]", DelegatingFloatColumn::new);
     }
+
 }

@@ -78,4 +78,5 @@ public class IhmModelList extends DelegatingCategory {
     public IntColumn getRepresentationId() {
         return delegate.getColumn("representation_id", DelegatingIntColumn::new);
     }
+
 }

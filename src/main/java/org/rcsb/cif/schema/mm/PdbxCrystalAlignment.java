@@ -248,4 +248,5 @@ public class PdbxCrystalAlignment extends DelegatingCategory {
     public FloatColumn getCrossfireXyEsd() {
         return delegate.getColumn("crossfire_xy_esd", DelegatingFloatColumn::new);
     }
+
 }

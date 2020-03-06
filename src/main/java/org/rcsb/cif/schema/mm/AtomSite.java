@@ -1418,4 +1418,5 @@ public class AtomSite extends DelegatingCategory {
     public IntColumn getIhmModelId() {
         return delegate.getColumn("ihm_model_id", DelegatingIntColumn::new);
     }
+
 }

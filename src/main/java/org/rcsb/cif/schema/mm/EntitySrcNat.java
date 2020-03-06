@@ -303,4 +303,5 @@ public class EntitySrcNat extends DelegatingCategory {
     public StrColumn getPdbxCultureCollection() {
         return delegate.getColumn("pdbx_culture_collection", DelegatingStrColumn::new);
     }
+
 }

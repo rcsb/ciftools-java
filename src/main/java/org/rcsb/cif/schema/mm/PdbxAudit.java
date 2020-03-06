@@ -41,4 +41,5 @@ public class PdbxAudit extends DelegatingCategory {
     public StrColumn getCurrentVersion() {
         return delegate.getColumn("current_version", DelegatingStrColumn::new);
     }
+
 }

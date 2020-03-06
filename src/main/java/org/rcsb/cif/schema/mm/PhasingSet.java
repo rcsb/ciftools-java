@@ -205,4 +205,5 @@ public class PhasingSet extends DelegatingCategory {
     public FloatColumn getPdbxDResLow() {
         return delegate.getColumn("pdbx_d_res_low", DelegatingFloatColumn::new);
     }
+
 }

@@ -198,4 +198,5 @@ public class PdbxDistantSolventAtoms extends DelegatingCategory {
     public FloatColumn getNeighborLigandDistance() {
         return delegate.getColumn("neighbor_ligand_distance", DelegatingFloatColumn::new);
     }
+
 }

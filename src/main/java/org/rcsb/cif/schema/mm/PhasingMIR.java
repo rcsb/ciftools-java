@@ -201,4 +201,5 @@ public class PhasingMIR extends DelegatingCategory {
     public IntColumn getPdbxNumberDerivatives() {
         return delegate.getColumn("pdbx_number_derivatives", DelegatingIntColumn::new);
     }
+
 }

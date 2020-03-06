@@ -71,4 +71,5 @@ public class PdbxChemCompFeature extends DelegatingCategory {
     public StrColumn getSource() {
         return delegate.getColumn("source", DelegatingStrColumn::new);
     }
+
 }

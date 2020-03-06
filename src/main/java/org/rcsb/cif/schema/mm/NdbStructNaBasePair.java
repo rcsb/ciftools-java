@@ -315,4 +315,5 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     public IntColumn getHbondType28() {
         return delegate.getColumn("hbond_type_28", DelegatingIntColumn::new);
     }
+
 }

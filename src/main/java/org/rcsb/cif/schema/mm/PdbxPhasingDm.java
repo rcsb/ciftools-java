@@ -142,4 +142,5 @@ public class PdbxPhasingDm extends DelegatingCategory {
     public FloatColumn getDeltaPhiFinal() {
         return delegate.getColumn("delta_phi_final", DelegatingFloatColumn::new);
     }
+
 }

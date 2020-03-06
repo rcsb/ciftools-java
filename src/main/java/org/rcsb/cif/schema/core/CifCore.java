@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CIF_CORE group contains the definitions of data items that
  * are common to all domains of crystallographic studies.
  */
@@ -17,5 +16,6 @@ public class CifCore extends DelegatingCategory.DelegatingCifCoreCategory {
     public CifCore(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
     }
+
 
 }

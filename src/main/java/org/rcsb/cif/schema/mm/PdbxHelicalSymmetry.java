@@ -93,4 +93,5 @@ public class PdbxHelicalSymmetry extends DelegatingCategory {
     public IntColumn getCircularSymmetry() {
         return delegate.getColumn("circular_symmetry", DelegatingIntColumn::new);
     }
+
 }

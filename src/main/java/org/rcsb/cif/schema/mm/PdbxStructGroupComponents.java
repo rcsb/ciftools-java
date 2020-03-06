@@ -165,4 +165,5 @@ public class PdbxStructGroupComponents extends DelegatingCategory {
     public StrColumn getLabelAltId() {
         return delegate.getColumn("label_alt_id", DelegatingStrColumn::new);
     }
+
 }

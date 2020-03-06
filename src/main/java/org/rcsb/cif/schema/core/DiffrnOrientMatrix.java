@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the matrix specifying the
  * orientation of the crystal axes to the diffractometer goniometer.
  */
@@ -116,4 +115,5 @@ public class DiffrnOrientMatrix extends DelegatingCategory.DelegatingCifCoreCate
     public FloatColumn getUB33() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_orient_matrix_UB[3][3]", "diffrn_orient_matrix_UB_33"));
     }
+
 }

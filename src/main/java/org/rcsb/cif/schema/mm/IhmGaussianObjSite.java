@@ -218,4 +218,5 @@ public class IhmGaussianObjSite extends DelegatingCategory {
     public IntColumn getModelId() {
         return delegate.getColumn("model_id", DelegatingIntColumn::new);
     }
+
 }

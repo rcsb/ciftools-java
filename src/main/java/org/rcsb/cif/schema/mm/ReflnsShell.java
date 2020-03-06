@@ -618,4 +618,5 @@ public class ReflnsShell extends DelegatingCategory {
     public FloatColumn getPdbxRmergeIAllAnomalous() {
         return delegate.getColumn("pdbx_Rmerge_I_all_anomalous", DelegatingFloatColumn::new);
     }
+
 }

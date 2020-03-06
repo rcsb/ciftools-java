@@ -92,4 +92,5 @@ public class EmVolumeSelection extends DelegatingCategory {
     public StrColumn getReferenceModel() {
         return delegate.getColumn("reference_model", DelegatingStrColumn::new);
     }
+
 }

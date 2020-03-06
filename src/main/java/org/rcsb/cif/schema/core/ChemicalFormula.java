@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the composition and chemical
  * properties of the compound. The formula data items must agree
  * with those that specify the density, unit-cell and Z values.
@@ -149,4 +148,5 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
     public FloatColumn getWeightMeas() {
         return new DelegatingFloatColumn(parentBlock.getColumn("chemical_formula_weight_meas"));
     }
+
 }

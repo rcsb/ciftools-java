@@ -73,4 +73,5 @@ public class StructNcsEnsGen extends DelegatingCategory {
     public StrColumn getOperId() {
         return delegate.getColumn("oper_id", DelegatingStrColumn::new);
     }
+
 }

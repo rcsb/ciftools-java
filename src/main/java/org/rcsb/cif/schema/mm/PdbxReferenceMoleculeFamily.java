@@ -79,4 +79,5 @@ public class PdbxReferenceMoleculeFamily extends DelegatingCategory {
     public StrColumn getReplacedBy() {
         return delegate.getColumn("replaced_by", DelegatingStrColumn::new);
     }
+
 }

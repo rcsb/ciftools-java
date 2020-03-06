@@ -71,4 +71,5 @@ public class Audit extends DelegatingCategory {
     public StrColumn getUpdateRecord() {
         return delegate.getColumn("update_record", DelegatingStrColumn::new);
     }
+
 }

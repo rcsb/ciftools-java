@@ -44,4 +44,5 @@ public class ValenceRef extends DelegatingCategory {
     public StrColumn getReference() {
         return delegate.getColumn("reference", DelegatingStrColumn::new);
     }
+
 }

@@ -154,4 +154,5 @@ public class IhmGeometricObjectTransformation extends DelegatingCategory {
     public FloatColumn getTrVector3() {
         return delegate.getColumn("tr_vector[3]", DelegatingFloatColumn::new);
     }
+
 }

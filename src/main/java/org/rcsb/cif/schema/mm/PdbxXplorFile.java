@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Parameter and topology files used in X-PLOR/CNS refinement.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -64,4 +63,5 @@ public class PdbxXplorFile extends DelegatingCategory {
     public StrColumn getTopolFile() {
         return delegate.getColumn("topol_file", DelegatingStrColumn::new);
     }
+
 }

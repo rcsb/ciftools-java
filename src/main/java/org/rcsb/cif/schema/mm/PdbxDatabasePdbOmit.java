@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * Data items in the PDBX_DATABASE_PDB_OMIT category record
  * list PDB record names that should be omitted in the PDB
  * format file.
@@ -44,4 +43,5 @@ public class PdbxDatabasePdbOmit extends DelegatingCategory {
     public StrColumn getRecordName() {
         return delegate.getColumn("record_name", DelegatingStrColumn::new);
     }
+
 }

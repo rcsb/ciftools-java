@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items used to specify the experimental details
  * of the  absorption measurements and corrections to the diffraction
  * data.
@@ -77,4 +76,5 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
     public StrColumn getProcessDetails() {
         return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_process_details"));
     }
+
 }

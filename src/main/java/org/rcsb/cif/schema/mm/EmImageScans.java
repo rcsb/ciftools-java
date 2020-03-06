@@ -167,4 +167,5 @@ public class EmImageScans extends DelegatingCategory {
     public StrColumn getUsedFramesPerImage() {
         return delegate.getColumn("used_frames_per_image", DelegatingStrColumn::new);
     }
+
 }

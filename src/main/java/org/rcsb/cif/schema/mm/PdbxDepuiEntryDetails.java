@@ -123,4 +123,5 @@ public class PdbxDepuiEntryDetails extends DelegatingCategory {
     public StrColumn getReplacePdbId() {
         return delegate.getColumn("replace_pdb_id", DelegatingStrColumn::new);
     }
+
 }

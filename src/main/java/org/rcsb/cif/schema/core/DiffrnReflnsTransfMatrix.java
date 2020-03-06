@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the elements of the matrix
  * used to transform the reflection indices _diffrn_refln.hkl
  * into _refln.hkl.
@@ -123,4 +122,5 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
     public FloatColumn get_33() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][3]", "diffrn_reflns_transf_matrix_33"));
     }
+
 }

@@ -492,4 +492,5 @@ public class RefineLsShell extends DelegatingCategory {
     public FloatColumn getPdbxFscFree() {
         return delegate.getColumn("pdbx_fsc_free", DelegatingFloatColumn::new);
     }
+
 }

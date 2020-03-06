@@ -64,4 +64,5 @@ public class PdbxReferenceLinkedEntityCompList extends DelegatingCategory {
     public StrColumn getCompId() {
         return delegate.getColumn("comp_id", DelegatingStrColumn::new);
     }
+
 }

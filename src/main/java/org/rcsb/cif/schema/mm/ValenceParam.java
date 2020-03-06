@@ -130,4 +130,5 @@ public class ValenceParam extends DelegatingCategory {
     public FloatColumn getRo() {
         return delegate.getColumn("Ro", DelegatingFloatColumn::new);
     }
+
 }

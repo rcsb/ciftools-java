@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * CATEGORY of data items that enable the author to make
  * specific requests to the journal office for processing.
  */
@@ -45,4 +44,5 @@ public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory 
     public StrColumn getJournal() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_requested_journal"));
     }
+
 }

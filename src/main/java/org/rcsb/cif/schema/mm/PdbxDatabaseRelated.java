@@ -62,4 +62,5 @@ public class PdbxDatabaseRelated extends DelegatingCategory {
     public StrColumn getContentType() {
         return delegate.getColumn("content_type", DelegatingStrColumn::new);
     }
+
 }

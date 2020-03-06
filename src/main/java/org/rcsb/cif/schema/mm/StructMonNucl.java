@@ -654,4 +654,5 @@ public class StructMonNucl extends DelegatingCategory {
     public FloatColumn getZeta() {
         return delegate.getColumn("zeta", DelegatingFloatColumn::new);
     }
+
 }

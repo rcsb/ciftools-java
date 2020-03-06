@@ -6,7 +6,6 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
  * The CATEGORY of data items which specify the overall reflection
  * measurement information.
  */
@@ -418,4 +417,5 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     public FloatColumn get_33() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_transf_matrix[3][3]", "diffrn_reflns_transf_matrix_33"));
     }
+
 }

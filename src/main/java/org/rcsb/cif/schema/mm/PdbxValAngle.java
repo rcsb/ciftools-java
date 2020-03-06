@@ -460,4 +460,5 @@ public class PdbxValAngle extends DelegatingCategory {
     public FloatColumn getAngleDeviation() {
         return delegate.getColumn("angle_deviation", DelegatingFloatColumn::new);
     }
+
 }
