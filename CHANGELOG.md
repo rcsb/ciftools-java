@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.9.1
+-------------
+### Bug fixes
+* adds missing cifcore categories/columns
+
 ciftools-java 0.9.0
 -------------
 ### New features
