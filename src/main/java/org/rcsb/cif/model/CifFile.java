@@ -1,5 +1,6 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.SchemaMismatchException;
 import org.rcsb.cif.schema.SchemaProvider;
 
 import java.util.List;
@@ -45,8 +46,22 @@ public interface CifFile {
      * @param <F> the file type
      * @param <B> the builder type
      * @return this file, honoring a given schema
+     * @throws SchemaMismatchException if schema is mismatching
      */
-    default <F extends CifFile, B extends CifFileBuilder> F as(SchemaProvider<F, B> schemaProvider) {
+    default <F extends CifFile, B extends CifFileBuilder> F as(SchemaProvider<F, B> schemaProvider) throws SchemaMismatchException {
+        schemaProvider.validate(this);
+        return asButWithoutValidation(schemaProvider);
+    }
+
+    /**
+     * Convenience method to access this file wrapped by a given schema. Don't perform any checks whether the
+     * {@link SchemaProvider} is appropriate for this file.
+     * @param schemaProvider the schema provider to enforce on this file
+     * @param <F> the file type
+     * @param <B> the builder type
+     * @return this file, honoring a given schema
+     */
+    default <F extends CifFile, B extends CifFileBuilder> F asButWithoutValidation(SchemaProvider<F, B> schemaProvider) throws SchemaMismatchException {
         return schemaProvider.createTypedFile(this);
     }
 }

@@ -1,5 +1,6 @@
 package org.rcsb.cif.schema;
 
+import org.rcsb.cif.SchemaMismatchException;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.CifFileBuilder;
 
@@ -21,4 +22,11 @@ public interface SchemaProvider<F extends CifFile, B extends CifFileBuilder> {
      * @return a schema-aware builder instance
      */
     B createTypedBuilder();
+
+    /**
+     * Perform an optional check if the provided argument matches this schema.
+     * @param cifFile the CifFile to check
+     * @throws SchemaMismatchException if the argument fails this test
+     */
+    default void validate(CifFile cifFile) throws SchemaMismatchException {}
 }

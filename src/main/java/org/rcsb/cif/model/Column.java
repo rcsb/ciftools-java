@@ -1,5 +1,7 @@
 package org.rcsb.cif.model;
 
+import org.rcsb.cif.EmptyColumnException;
+
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -79,12 +81,12 @@ public interface Column<T> {
         public static final EmptyColumn UNNAMED_COLUMN = new EmptyColumn("") {
             @Override
             public String getStringData(int row) {
-                throw new IllegalArgumentException("anonymous column is undefined");
+                throw new EmptyColumnException("anonymous column is undefined");
             }
 
             @Override
             public ValueKind getValueKind(int row) {
-                throw new IllegalArgumentException("anonymous column is undefined");
+                throw new EmptyColumnException("anonymous column is undefined");
             }
         };
 
@@ -106,12 +108,12 @@ public interface Column<T> {
 
         @Override
         public String getStringData(int row) {
-            throw new IllegalArgumentException("column " + name + " is undefined");
+            throw new EmptyColumnException("column " + name + " is undefined");
         }
 
         @Override
         public ValueKind getValueKind(int row) {
-            throw new IllegalArgumentException("column " + name + " is undefined");
+            throw new EmptyColumnException("column " + name + " is undefined");
         }
 
         @Override
