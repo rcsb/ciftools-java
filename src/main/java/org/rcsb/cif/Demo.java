@@ -37,7 +37,8 @@ public class Demo {
         }
         // fine-grained options are available in the CifOptions class
 
-        // access can be generic or using a specified schema - you can even use a custom dictionary
+        // access can be generic or using a specified schema - currently supports MMCIF and CIF_CORE
+        // you can even use a custom dictionary
         MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
 
         // get first block of CIF

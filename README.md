@@ -38,9 +38,10 @@ class Demo {
         }
         // fine-grained options are available in the CifOptions class
 
-        // access can be generic or using a specified schema - you can even use a custom dictionary
-        MmCifFile mmCifFile = cifFile.as(StandardSchemas.MMCIF);
-        
+        // access can be generic or using a specified schema - currently supports MMCIF and CIF_CORE
+        // you can even use a custom dictionary
+        MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
+
         // get first block of CIF
         MmCifBlock data = mmCifFile.getFirstBlock();
 
@@ -84,7 +85,7 @@ class Demo {
     public static void main(String[] args) {
         // all builder functionality is exposed by the CifBuilder class
         // again access can be generic or following a given schema
-        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemas.MMCIF)
+        MmCifFile cifFile = CifBuilder.enterFile(StandardSchemata.MMCIF)
                 // create a block
                 .enterBlock("1EXP")
                 // create a category with name 'entry'
