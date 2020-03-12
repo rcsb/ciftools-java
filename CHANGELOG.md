@@ -1,6 +1,17 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.10.0
+-------------
+### New features
+* schema now validates that it is compatible to the provided `CifFile` instance
+
+### Breaking API changes
+* added `SchemaProvider#validate(CifFile)` that allows providers to set up hooks for validation
+* introduces custom exceptions 
+    * accessing an empty column throws `EmptyColumnException`
+    * trying to apply an incorrect schema to a file throws `SchemaMismatchException`
+
 ciftools-java 0.9.1
 -------------
 ### Bug fixes
