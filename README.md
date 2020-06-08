@@ -141,17 +141,17 @@ not overloaded, but rather will only accept `String` values while in `entry.id` 
 `atom_site.Cartn_x`.
 
 ## Performance
-The implementation can read the full PDB archive (151,579 files) in 2 minutes. This is achieved by lazy decoding and 
+The implementation can read the full PDB archive (154,015 files) in little over 2 minutes. This is achieved by lazy decoding and 
 parsing - all columns are decoded the first time when they are actually requested. Thus, the parsing overhead is kept 
-minimal.
+minimal. Ciftools-java combines the compression and read performance of MMTF and the convenience of the CIF format.
 
 ![alt performance](https://raw.githubusercontent.com/rcsb/ciftools-java/master/img/performance.png)
 
-All files are stored in gzip format. The reduced files are either native MMTF files or contain a similar selection of 
+Handling gzipped files slows down parsing in most cases. The reduced files are either native MMTF files or contain a similar selection of 
 CIF categories (i.e. they provide primarily atomic coordinates).
 
-Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed in parallel with 8 GB 
-heap. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
+Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed in using a single 
+thread. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
 
 ## Contributions & Related Projects
 - [molstar/ciftools](https://github.com/molstar/ciftools) a TypeScript/JavaScript implementation
