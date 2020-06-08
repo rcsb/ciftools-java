@@ -150,7 +150,7 @@ minimal. Ciftools-java combines the compression and read performance of MMTF and
 Handling gzipped files slows down parsing in most cases. The reduced files are either native MMTF files or contain a similar selection of 
 CIF categories (i.e. they provide primarily atomic coordinates).
 
-Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed in using a single 
+Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed using a single 
 thread. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
 
 ## Contributions & Related Projects
