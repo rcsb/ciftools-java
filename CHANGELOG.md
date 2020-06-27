@@ -34,6 +34,7 @@ ciftools-java 0.8.0
     * schema support also during CifFile building
 
 ### Breaking API changes
+* not compatible with java 8 anymore
 * detaches CIF model from any schema - type-safe access now requires to specify SchemaProvider
 * several package and class names changed
 
