@@ -44,56 +44,56 @@ public abstract class ByteArrayEncoding<T extends NumberArray<?>> implements Enc
         return map;
     }
 
-    public static final ByteArrayEncoding<Int8Array> INT8 = new ByteArrayEncoding<>(createMap(1)) {
+    public static final ByteArrayEncoding<Int8Array> INT8 = new ByteArrayEncoding<Int8Array>(createMap(1)) {
         @Override
         public Int8Array decode(ByteArray data) {
             return new Int8Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Int16Array> INT16 = new ByteArrayEncoding<>(createMap(2)) {
+    public static final ByteArrayEncoding<Int16Array> INT16 = new ByteArrayEncoding<Int16Array>(createMap(2)) {
         @Override
         public Int16Array decode(ByteArray data) {
             return new Int16Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Int32Array> INT32 = new ByteArrayEncoding<>(createMap(3)) {
+    public static final ByteArrayEncoding<Int32Array> INT32 = new ByteArrayEncoding<Int32Array>(createMap(3)) {
         @Override
         public Int32Array decode(ByteArray data) {
             return new Int32Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Uint8Array> UINT8 = new ByteArrayEncoding<>(createMap(4)) {
+    public static final ByteArrayEncoding<Uint8Array> UINT8 = new ByteArrayEncoding<Uint8Array>(createMap(4)) {
         @Override
         public Uint8Array decode(ByteArray data) {
             return new Uint8Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Uint16Array> UINT16 = new ByteArrayEncoding<>(createMap(5)) {
+    public static final ByteArrayEncoding<Uint16Array> UINT16 = new ByteArrayEncoding<Uint16Array>(createMap(5)) {
         @Override
         public Uint16Array decode(ByteArray data) {
             return new Uint16Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Uint32Array> UINT32 = new ByteArrayEncoding<>(createMap(6)) {
+    public static final ByteArrayEncoding<Uint32Array> UINT32 = new ByteArrayEncoding<Uint32Array>(createMap(6)) {
         @Override
         public Uint32Array decode(ByteArray data) {
             return new Uint32Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Float32Array> FLOAT32 = new ByteArrayEncoding<>(createMap(32)) {
+    public static final ByteArrayEncoding<Float32Array> FLOAT32 = new ByteArrayEncoding<Float32Array>(createMap(32)) {
         @Override
         public Float32Array decode(ByteArray data) {
             return new Float32Array(data);
         }
     };
 
-    public static final ByteArrayEncoding<Float64Array> FLOAT64 = new ByteArrayEncoding<>(createMap(33)) {
+    public static final ByteArrayEncoding<Float64Array> FLOAT64 = new ByteArrayEncoding<Float64Array>(createMap(33)) {
         @Override
         public Float64Array decode(ByteArray data) {
             return new Float64Array(data);

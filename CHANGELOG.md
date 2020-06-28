@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 0.10.1
+-------------
+### New features
+* reintroduce Java 8 support
+
 ciftools-java 0.10.0
 -------------
 ### New features
