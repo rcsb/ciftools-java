@@ -19,7 +19,8 @@ public interface IntColumn extends Column<int[]> {
      * @return ints
      */
     default IntStream values() {
-        return Arrays.stream(getArray());
+        int[] array = getArray();
+        return array != null ? Arrays.stream(getArray()) : IntStream.empty();
     }
 
     /**

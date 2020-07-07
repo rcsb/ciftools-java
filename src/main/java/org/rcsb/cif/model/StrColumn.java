@@ -19,6 +19,7 @@ public interface StrColumn extends Column<String[]> {
      * @return Strings
      */
     default Stream<String> values() {
-        return Arrays.stream(getArray());
+        String[] array = getArray();
+        return array != null ? Arrays.stream(getArray()) : Stream.empty();
     }
 }

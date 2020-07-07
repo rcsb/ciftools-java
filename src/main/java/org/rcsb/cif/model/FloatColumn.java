@@ -19,7 +19,8 @@ public interface FloatColumn extends Column<double[]> {
      * @return doubles
      */
     default DoubleStream values() {
-        return Arrays.stream(getArray());
+        double[] array = getArray();
+        return array != null ? Arrays.stream(getArray()) : DoubleStream.empty();
     }
 
     /**
