@@ -147,7 +147,7 @@ The implementation can read the full PDB archive (154,015 files) in little over 
 parsing - all columns are decoded the first time when they are actually requested. Thus, the parsing overhead is kept 
 minimal. Ciftools-java combines the compression and read performance of MMTF and the convenience of the CIF format.
 
-![alt performance](https://raw.githubusercontent.com/rcsb/ciftools-java/master/img/performance.png)
+![alt performance](https://raw.githubusercontent.com/rcsb/ciftools-java/master/performance.png)
 
 Handling gzipped files slows down parsing in most cases. The reduced files are either native MMTF files or contain a similar selection of 
 CIF categories (i.e. they provide primarily atomic coordinates).
