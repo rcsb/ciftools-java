@@ -26,18 +26,12 @@ public class BinaryCifReader {
     @SuppressWarnings("unchecked")
     public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
-        try {
+        try (inputStream) {
             unpacked = MessagePackCodec.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
             throw new ParsingException("Parsing failed.", e);
-        } finally {
-            try {
-                inputStream.close();
-            } catch (IOException ignored) {
-
-            }
         }
 
         String versionString = (String) unpacked.get("version");
