@@ -197,6 +197,7 @@ public class IntegrationTest {
         assertEquals("Cartn_x", cartnX.getColumnName());
         assertEquals(0, cartnX.getRowCount());
         assertFalse(cartnX.isDefined());
+        assertEquals(0, cartnX.values().count());
     }
 
     @Test
