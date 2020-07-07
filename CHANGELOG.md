@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 1.0.0
+-------------
+### General
+* stable release that targets Java 11
+
 ciftools-java 0.10.1
 -------------
 ### New features

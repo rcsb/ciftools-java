@@ -14,9 +14,11 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 <dependency>
   <groupId>org.rcsb</groupId>
   <artifactId>ciftools-java</artifactId>
-  <version>0.10.1</version>
+  <version>1.0.0</version>
 </dependency>
 ```
+
+Requires Java 11 (0.10.1 supports Java 8).
 
 ## File Parsing Example
 
@@ -150,9 +152,6 @@ minimal. Ciftools-java combines the compression and read performance of MMTF and
 Handling gzipped files slows down parsing in most cases. The reduced files are either native MMTF files or contain a similar selection of 
 CIF categories (i.e. they provide primarily atomic coordinates).
 
-Parsing times were measured on a 3.2 GHz Intel Core i7 machine with 16 GB RAM and a SSD. Executed using a single 
-thread. Performance was measured by JMH using 1 fork, 5 warm-up, and 10 measurement iterations.
-
 ## Contributions & Related Projects
 - [molstar/ciftools](https://github.com/molstar/ciftools) a TypeScript/JavaScript implementation
 
@@ -160,3 +159,6 @@ These implementations are based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
 - [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
 - [MMTF](https://mmtf.rcsb.org/) by RCSB
+
+## References
+Publication in preparation
