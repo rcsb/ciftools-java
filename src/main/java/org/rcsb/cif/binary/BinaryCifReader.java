@@ -12,7 +12,6 @@ import org.rcsb.cif.model.binary.BinaryBlock;
 import org.rcsb.cif.model.binary.BinaryCategory;
 import org.rcsb.cif.model.binary.BinaryFile;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
