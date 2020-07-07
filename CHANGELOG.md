@@ -1,7 +1,7 @@
 CIFTools Changelog
 =============
 
-ciftools-java 1.1.0
+ciftools-java 2.0.0
 -------------
 ### Bug fixes
 * avoid enigmatic NullPointerException for #values() of empty columns - now returned Stream will be empty
