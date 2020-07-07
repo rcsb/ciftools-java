@@ -1124,6 +1124,18 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxSerialCrystallographySampleDeliveryFixedTarget();
             case "pdbx_serial_crystallography_data_reduction":
                 return getPdbxSerialCrystallographyDataReduction();
+            case "pdbx_entity_branch_list":
+                return getPdbxEntityBranchList();
+            case "pdbx_entity_branch_link":
+                return getPdbxEntityBranchLink();
+            case "pdbx_entity_branch":
+                return getPdbxEntityBranch();
+            case "pdbx_branch_scheme":
+                return getPdbxBranchScheme();
+            case "pdbx_chem_comp_related":
+                return getPdbxChemCompRelated();
+            case "pdbx_chem_comp_atom_related":
+                return getPdbxChemCompAtomRelated();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -1178,6 +1190,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmDatasetGroupLink();
             case "ihm_related_datasets":
                 return getIhmRelatedDatasets();
+            case "ihm_data_transformation":
+                return getIhmDataTransformation();
             case "ihm_dataset_related_db_reference":
                 return getIhmDatasetRelatedDbReference();
             case "ihm_external_reference_info":
@@ -1222,6 +1236,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhm3demRestraint();
             case "ihm_sas_restraint":
                 return getIhmSasRestraint();
+            case "ihm_hdx_restraint":
+                return getIhmHdxRestraint();
             case "ihm_starting_model_coord":
                 return getIhmStartingModelCoord();
             case "ihm_sphere_obj_site":
@@ -1248,6 +1264,10 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmInterfaceResidueFeature();
             case "ihm_derived_distance_restraint":
                 return getIhmDerivedDistanceRestraint();
+            case "ihm_derived_angle_restraint":
+                return getIhmDerivedAngleRestraint();
+            case "ihm_derived_dihedral_restraint":
+                return getIhmDerivedDihedralRestraint();
             case "ihm_geometric_object_list":
                 return getIhmGeometricObjectList();
             case "ihm_geometric_object_center":
@@ -1266,18 +1286,6 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmGeometricObjectPlane();
             case "ihm_geometric_object_distance_restraint":
                 return getIhmGeometricObjectDistanceRestraint();
-            case "pdbx_entity_branch_list":
-                return getPdbxEntityBranchList();
-            case "pdbx_entity_branch_link":
-                return getPdbxEntityBranchLink();
-            case "pdbx_entity_branch":
-                return getPdbxEntityBranch();
-            case "pdbx_branch_scheme":
-                return getPdbxBranchScheme();
-            case "pdbx_chem_comp_related":
-                return getPdbxChemCompRelated();
-            case "pdbx_chem_comp_atom_related":
-                return getPdbxChemCompAtomRelated();
             default:
                 return new DelegatingCategory(category);
         }
@@ -7034,6 +7042,62 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
+     * of monomers in a branched entity.  Allowance is made for the possibility
+     * of microheterogeneity in a sample by allowing a given sequence
+     * number to be correlated with more than one monomer ID. The
+     * corresponding ATOM_SITE entries should reflect this
+     * heterogeneity.
+     * @return PdbxEntityBranchList
+     */
+    public PdbxEntityBranchList getPdbxEntityBranchList() {
+        return delegate.getCategory("pdbx_entity_branch_list", PdbxEntityBranchList::new);
+    }
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
+     * the linkages between components within a branched entity.
+     * @return PdbxEntityBranchLink
+     */
+    public PdbxEntityBranchLink getPdbxEntityBranchLink() {
+        return delegate.getCategory("pdbx_entity_branch_link", PdbxEntityBranchLink::new);
+    }
+
+    /**
+     * Data items in the PDBX_ENTITY_BRANCH category specify the list
+     * of branched entities and the type.
+     * @return PdbxEntityBranch
+     */
+    public PdbxEntityBranch getPdbxEntityBranch() {
+        return delegate.getCategory("pdbx_entity_branch", PdbxEntityBranch::new);
+    }
+
+    /**
+     * The PDBX_BRANCH_SCHEME category provides residue level nomenclature
+     * mapping for branch chain entities.
+     * @return PdbxBranchScheme
+     */
+    public PdbxBranchScheme getPdbxBranchScheme() {
+        return delegate.getCategory("pdbx_branch_scheme", PdbxBranchScheme::new);
+    }
+
+    /**
+     * PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.
+     * @return PdbxChemCompRelated
+     */
+    public PdbxChemCompRelated getPdbxChemCompRelated() {
+        return delegate.getCategory("pdbx_chem_comp_related", PdbxChemCompRelated::new);
+    }
+
+    /**
+     * PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.
+     * @return PdbxChemCompAtomRelated
+     */
+    public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
+        return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
+    }
+
+    /**
      * Data items in the IHM_ENTITY_POLY_SEGMENT category identifies
      * segments of polymeric entities.
      * @return IhmEntityPolySegment
@@ -7300,6 +7364,16 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_DATA_TRANSFORMATION category records the
+     * details of the rotation matrix and translation vector that can be
+     * applied to transform the data.
+     * @return IhmDataTransformation
+     */
+    public IhmDataTransformation getIhmDataTransformation() {
+        return delegate.getCategory("ihm_data_transformation", IhmDataTransformation::new);
+    }
+
+    /**
      * Category holds information related to data sources for the entry.
      * These can be datasets archived in other related databases such as
      * BMRB, EMDB, EMPIAR, SASBDB, PRIDE etc.
@@ -7542,6 +7616,16 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_HDX_RESTRAINT category captures the
+     * details of restraints derived from Hydrogen-Deuterium
+     * Exchange experiments.
+     * @return IhmHdxRestraint
+     */
+    public IhmHdxRestraint getIhmHdxRestraint() {
+        return delegate.getCategory("ihm_hdx_restraint", IhmHdxRestraint::new);
+    }
+
+    /**
      * Data items in the IHM_STARTING_MODEL_COORD category records the coordinates
      * for structural templates used as starting inputs in the integrative model
      * building tasks.
@@ -7669,6 +7753,26 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_DERIVED_ANGLE_RESTRAINT category records the
+     * list of angle restraints used in the integrative modeling experiment.
+     * These angle restraints may be derived from various kinds of experiments.
+     * @return IhmDerivedAngleRestraint
+     */
+    public IhmDerivedAngleRestraint getIhmDerivedAngleRestraint() {
+        return delegate.getCategory("ihm_derived_angle_restraint", IhmDerivedAngleRestraint::new);
+    }
+
+    /**
+     * Data items in the IHM_DERIVED_DIHEDRAL_RESTRAINT category records the
+     * list of dihedral restraints used in the integrative modeling experiment.
+     * These dihedral restraints may be derived from various kinds of experiments.
+     * @return IhmDerivedDihedralRestraint
+     */
+    public IhmDerivedDihedralRestraint getIhmDerivedDihedralRestraint() {
+        return delegate.getCategory("ihm_derived_dihedral_restraint", IhmDerivedDihedralRestraint::new);
+    }
+
+    /**
      * Data items in the IHM_GEOMETRIC_OBJECT_LIST category records the list of
      * geometric objects used as restraints in the integrative modeling study.
      * @return IhmGeometricObjectList
@@ -7757,62 +7861,6 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint() {
         return delegate.getCategory("ihm_geometric_object_distance_restraint", IhmGeometricObjectDistanceRestraint::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH_LIST category specify the list
-     * of monomers in a branched entity.  Allowance is made for the possibility
-     * of microheterogeneity in a sample by allowing a given sequence
-     * number to be correlated with more than one monomer ID. The
-     * corresponding ATOM_SITE entries should reflect this
-     * heterogeneity.
-     * @return PdbxEntityBranchList
-     */
-    public PdbxEntityBranchList getPdbxEntityBranchList() {
-        return delegate.getCategory("pdbx_entity_branch_list", PdbxEntityBranchList::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH_LINK category give details about
-     * the linkages between components within a branched entity.
-     * @return PdbxEntityBranchLink
-     */
-    public PdbxEntityBranchLink getPdbxEntityBranchLink() {
-        return delegate.getCategory("pdbx_entity_branch_link", PdbxEntityBranchLink::new);
-    }
-
-    /**
-     * Data items in the PDBX_ENTITY_BRANCH category specify the list
-     * of branched entities and the type.
-     * @return PdbxEntityBranch
-     */
-    public PdbxEntityBranch getPdbxEntityBranch() {
-        return delegate.getCategory("pdbx_entity_branch", PdbxEntityBranch::new);
-    }
-
-    /**
-     * The PDBX_BRANCH_SCHEME category provides residue level nomenclature
-     * mapping for branch chain entities.
-     * @return PdbxBranchScheme
-     */
-    public PdbxBranchScheme getPdbxBranchScheme() {
-        return delegate.getCategory("pdbx_branch_scheme", PdbxBranchScheme::new);
-    }
-
-    /**
-     * PDBX_CHEM_COMP_RELATED describes the relationship between two chemical components.
-     * @return PdbxChemCompRelated
-     */
-    public PdbxChemCompRelated getPdbxChemCompRelated() {
-        return delegate.getCategory("pdbx_chem_comp_related", PdbxChemCompRelated::new);
-    }
-
-    /**
-     * PDBX_CHEM_COMP_ATOM_RELATED provides atom level nomenclature mapping between two related chemical components.
-     * @return PdbxChemCompAtomRelated
-     */
-    public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
-        return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
     }
 
 }

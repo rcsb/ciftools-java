@@ -45,6 +45,10 @@ public class IhmDerivedDistanceRestraint extends DelegatingCategory {
                 return getRestraintType();
             case "mic_value":
                 return getMicValue();
+            case "distance_threshold_mean":
+                return getDistanceThresholdMean();
+            case "distance_threshold_esd":
+                return getDistanceThresholdEsd();
             case "dataset_list_id":
                 return getDatasetListId();
             default:
@@ -171,6 +175,22 @@ public class IhmDerivedDistanceRestraint extends DelegatingCategory {
      */
     public FloatColumn getMicValue() {
         return delegate.getColumn("mic_value", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The distance threshold mean applied to the restraint.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistanceThresholdMean() {
+        return delegate.getColumn("distance_threshold_mean", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The estimated standard deviation of the distance threshold applied to the restraint.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistanceThresholdEsd() {
+        return delegate.getColumn("distance_threshold_esd", DelegatingFloatColumn::new);
     }
 
     /**

@@ -43,10 +43,10 @@ public class EmSingleParticleEntity extends DelegatingCategory {
 
     /**
      * Unique category label.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getId() {
-        return delegate.getColumn("id", DelegatingStrColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**

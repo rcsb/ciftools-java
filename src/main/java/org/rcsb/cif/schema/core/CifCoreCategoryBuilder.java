@@ -2124,6 +2124,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<ChemicalConnBondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
         public IntColumnBuilder<ChemicalConnBondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtom1() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "atom_1", this);
         }

@@ -27,9 +27,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Atom site labels and symmetry operators as pairs for each of the
-     * three atom sites which define the hydrogen angle and distances.
-     * Site H is at the apex of the angle.
+     * An identifier for the hydrogen bond that is unique within the loop.
      * @return StrColumn
      */
     public StrColumn getId() {

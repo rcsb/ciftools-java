@@ -26,8 +26,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Atom site labels and symmetry operators as pairs for each of the
-     * four atom sites which define the torsion angle.
+     * An identifier for the torsion angle that is unique within its loop.
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -21,6 +21,8 @@ public class IhmRelatedDatasets extends DelegatingCategory {
                 return getDatasetListIdDerived();
             case "dataset_list_id_primary":
                 return getDatasetListIdPrimary();
+            case "transformation_id":
+                return getTransformationId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -44,6 +46,20 @@ public class IhmRelatedDatasets extends DelegatingCategory {
      */
     public IntColumn getDatasetListIdPrimary() {
         return delegate.getColumn("dataset_list_id_primary", DelegatingIntColumn::new);
+    }
+
+    /**
+     * A pointer to the transformation matrix, if applicable.
+     * The transformation matrix is to be applied to the derived dataset
+     * in order to transform it to the primary dataset from which it is
+     * derived. Examples include segmented 3DEM maps, Gaussian Mixture Models
+     * derived from 3DEM maps, starting comparative models.
+     * This data item is a pointer to _ihm_data_transformation.id
+     * in the IHM_DATA_TRANSFORMATION category.
+     * @return IntColumn
+     */
+    public IntColumn getTransformationId() {
+        return delegate.getColumn("transformation_id", DelegatingIntColumn::new);
     }
 
 }

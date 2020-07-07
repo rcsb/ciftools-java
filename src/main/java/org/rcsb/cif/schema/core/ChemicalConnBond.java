@@ -23,6 +23,14 @@ public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCatego
     }
 
     /**
+     * Unique identifier for the bond.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("chemical_conn_bond_id"));
+    }
+
+    /**
      * Index id of first atom in a bond connecting two atom sites.
      * @return IntColumn
      */

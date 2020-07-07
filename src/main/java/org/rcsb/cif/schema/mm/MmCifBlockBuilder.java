@@ -2240,6 +2240,30 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxSerialCrystallographyDataReductionBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder enterPdbxEntityBranchLink() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityBranchBuilder enterPdbxEntityBranch() {
+        return new MmCifCategoryBuilder.PdbxEntityBranchBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxBranchSchemeBuilder enterPdbxBranchScheme() {
+        return new MmCifCategoryBuilder.PdbxBranchSchemeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompRelatedBuilder enterPdbxChemCompRelated() {
+        return new MmCifCategoryBuilder.PdbxChemCompRelatedBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
+        return new MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {
         return new MmCifCategoryBuilder.IhmEntityPolySegmentBuilder(this);
     }
@@ -2348,6 +2372,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.IhmRelatedDatasetsBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmDataTransformationBuilder enterIhmDataTransformation() {
+        return new MmCifCategoryBuilder.IhmDataTransformationBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmDatasetRelatedDbReferenceBuilder enterIhmDatasetRelatedDbReference() {
         return new MmCifCategoryBuilder.IhmDatasetRelatedDbReferenceBuilder(this);
     }
@@ -2436,6 +2464,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.IhmSasRestraintBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmHdxRestraintBuilder enterIhmHdxRestraint() {
+        return new MmCifCategoryBuilder.IhmHdxRestraintBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmStartingModelCoordBuilder enterIhmStartingModelCoord() {
         return new MmCifCategoryBuilder.IhmStartingModelCoordBuilder(this);
     }
@@ -2488,6 +2520,14 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.IhmDerivedDistanceRestraintBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmDerivedAngleRestraintBuilder enterIhmDerivedAngleRestraint() {
+        return new MmCifCategoryBuilder.IhmDerivedAngleRestraintBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmDerivedDihedralRestraintBuilder enterIhmDerivedDihedralRestraint() {
+        return new MmCifCategoryBuilder.IhmDerivedDihedralRestraintBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmGeometricObjectListBuilder enterIhmGeometricObjectList() {
         return new MmCifCategoryBuilder.IhmGeometricObjectListBuilder(this);
     }
@@ -2522,30 +2562,6 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder enterIhmGeometricObjectDistanceRestraint() {
         return new MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchListBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder enterPdbxEntityBranchLink() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchLinkBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxEntityBranchBuilder enterPdbxEntityBranch() {
-        return new MmCifCategoryBuilder.PdbxEntityBranchBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxBranchSchemeBuilder enterPdbxBranchScheme() {
-        return new MmCifCategoryBuilder.PdbxBranchSchemeBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxChemCompRelatedBuilder enterPdbxChemCompRelated() {
-        return new MmCifCategoryBuilder.PdbxChemCompRelatedBuilder(this);
-    }
-
-    public MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder enterPdbxChemCompAtomRelated() {
-        return new MmCifCategoryBuilder.PdbxChemCompAtomRelatedBuilder(this);
     }
 
 }

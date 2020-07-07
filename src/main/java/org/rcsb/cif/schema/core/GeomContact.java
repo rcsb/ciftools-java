@@ -18,8 +18,7 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Atom site labels and symmetry operators as pairs for each of the
-     * two atom sites which define the geom_contact bond.
+     * An identifier for the contact that is unique within the loop.
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -18,8 +18,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Identity of bond distance in terms of the atom site labels and
-     * symmetry operators as pairs for each of the two "bonded" atom sites.
+     * Unique identifier for the bond.
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -49,7 +49,7 @@ public class EntityNameCom extends DelegatingCategory {
     }
 
     /**
-     * Provides the provenance of the name in the _entity_name_com.name field/
+     * Provides the provenance of the name in the _entity_name_com.name field
      * @return StrColumn
      */
     public StrColumn getPdbxProvenance() {

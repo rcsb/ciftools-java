@@ -68,8 +68,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Identifier of model site in terms of the atom site label and
-     * symmetry operator.
+     * An identifier for the model site that is unique within its loop.
      * @return StrColumn
      */
     public StrColumn getId() {

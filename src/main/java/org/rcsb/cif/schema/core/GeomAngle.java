@@ -26,9 +26,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Atom site labels and symmetry operators as pairs for each of the
-     * three atom sites which identify the angle. The second label-symop
-     * pair in the list identifies the site at the apex of the angle.
+     * An arbitrary, unique identifier for the angle formed by the
+     * three atoms.
      * @return StrColumn
      */
     public StrColumn getId() {

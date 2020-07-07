@@ -40,7 +40,7 @@ public class IhmGeometricObjectList extends DelegatingCategory {
     }
 
     /**
-     * The type of geomtric object.
+     * The type of geometric object.
      * @return StrColumn
      */
     public StrColumn getObjectType() {

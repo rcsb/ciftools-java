@@ -32,6 +32,8 @@ public class PdbxBranchScheme extends DelegatingCategory {
                 return getPdbAsymId();
             case "pdb_seq_num":
                 return getPdbSeqNum();
+            case "pdb_ins_code":
+                return getPdbInsCode();
             case "pdb_mon_id":
                 return getPdbMonId();
             case "auth_asym_id":
@@ -104,6 +106,15 @@ public class PdbxBranchScheme extends DelegatingCategory {
      */
     public StrColumn getPdbSeqNum() {
         return delegate.getColumn("pdb_seq_num", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item is a pointer to _atom_site.pdbx_PDB_ins_code in the
+     * ATOM_SITE category.
+     * @return StrColumn
+     */
+    public StrColumn getPdbInsCode() {
+        return delegate.getColumn("pdb_ins_code", DelegatingStrColumn::new);
     }
 
     /**
