@@ -1,6 +1,11 @@
 CIFTools Changelog
 =============
 
+ciftools-java 2.0.1
+-------------
+### Bug fixes
+* overflow could result in allocation of arrays with negative size
+
 ciftools-java 2.0.0
 -------------
 ### Bug fixes
