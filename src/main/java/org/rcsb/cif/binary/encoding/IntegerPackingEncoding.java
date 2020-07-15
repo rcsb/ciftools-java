@@ -1,5 +1,6 @@
 package org.rcsb.cif.binary.encoding;
 
+import org.rcsb.cif.EncodingException;
 import org.rcsb.cif.binary.data.Int16Array;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.Int8Array;
@@ -114,7 +115,10 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
                 packing.bytesPerElement == 1 ? 0xFF : 0xFFFF;
 
         int lowerLimit = -upperLimit - 1;
-        int[] outputArray = new int[packing.size];
+        if (packing.size > Integer.MAX_VALUE) {
+            throw new EncodingException("too much data - cannot allocate array large enough to encode " + data.length() + " elements");
+        }
+        int[] outputArray = new int[(int) packing.size];
         int j = 0;
 
         for (int i1 : input) {
@@ -163,10 +167,10 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
 
     static class Packing {
         final boolean signed;
-        final int size;
+        final long size;
         final int bytesPerElement;
 
-        Packing(boolean signed, int size, int bytesPerElement) {
+        Packing(boolean signed, long size, int bytesPerElement) {
             this.signed = signed;
             this.size = size;
             this.bytesPerElement = bytesPerElement;
@@ -175,8 +179,8 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
 
     private Packing determinePacking(int[] input) {
         boolean signed = IntStream.of(input).anyMatch(i -> i < 0);
-        int size8 = packingSize(input, signed ? 0x7F : 0xFF);
-        int size16 = packingSize(input, signed ? 0x7FFF : 0xFFFF);
+        long size8 = packingSize(input, signed ? 0x7F : 0xFF);
+        long size16 = packingSize(input, signed ? 0x7FFF : 0xFFFF);
 
         if (input.length * 4 < size16 * 2) {
             // 4 byte packing is the most effective
@@ -189,9 +193,9 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         }
     }
 
-    private int packingSize(int[] input, int upperLimit) {
+    private long packingSize(int[] input, int upperLimit) {
         int lowerLimit = -upperLimit - 1;
-        int size = 0;
+        long size = 0;
         for (int value : input) {
             if (value == 0) {
                 size += 1;
@@ -206,6 +210,11 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
                     size += 1;
                 }
             }
+        }
+
+        // hard check for negative array sizes overflow
+        if (size < 0) {
+            return Long.MAX_VALUE;
         }
         return size;
     }
