@@ -5,6 +5,7 @@ import org.rcsb.cif.model.Column;
 import org.rcsb.cif.schema.core.CifCoreBlock;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -46,6 +47,11 @@ public class DelegatingCategory implements Category {
         return columns;
     }
 
+    @Override
+    public List<String> getColumnNames() {
+        return delegate.getColumnNames();
+    }
+
     protected Column<?> createDelegate(String columnName, Column<?> column) {
         return new DelegatingColumn<>(column);
     }
@@ -85,6 +91,12 @@ public class DelegatingCategory implements Category {
                     .filter(category -> category.getCategoryName().startsWith(categoryName))
                     // they are stored as categories with that name, those categories report a single column with an empty name
                     .collect(Collectors.toMap(this::extractName, category -> category.getColumn("")));
+        }
+
+        private final List<String> CIF_CORE_COLUMN_NAMES = List.of("");
+        @Override
+        public List<String> getColumnNames() {
+            return CIF_CORE_COLUMN_NAMES;
         }
 
         private String extractName(Category category) {

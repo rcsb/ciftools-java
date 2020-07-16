@@ -1,6 +1,7 @@
 package org.rcsb.cif.model;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Stream;
@@ -28,11 +29,24 @@ public interface Category {
      */
     Column<?> getColumn(String name);
 
+    /**
+     * Retrieve the names of all columns. The use-case of this method is to inquire about present columns in an
+     * efficient way: be aware that access via {@link Category#getColumns()}
+     * @return an ordered set containing all registered columns
+     */
+    List<String> getColumnNames();
+
     default <C extends Column<?>> C getColumn(String name, Function<Column<?>, C> wrapper) {
         Column<?> column = getColumn(name);
         return wrapper.apply(column != null ? column : new Column.EmptyColumn(name));
     }
 
+    /**
+     * Access to all columns in this category. Invoking this method ensures that all binary columns are decoded. Call
+     * this only if you are fine with this. Otherwise use {@link Category#getColumnNames()} to access registered columns
+     * and {@link Category#getColumn(String)} to retrieve single columns efficiently.
+     * @return a map of all columns (key: column_name, value: column).
+     */
     Map<String, Column<?>> getColumns();
 
     /**
@@ -79,6 +93,11 @@ public interface Category {
         @Override
         public Map<String, Column<?>> getColumns() {
             return Collections.emptyMap();
+        }
+
+        @Override
+        public List<String> getColumnNames() {
+            return Collections.emptyList();
         }
     }
 }

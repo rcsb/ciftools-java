@@ -28,8 +28,8 @@ public class MmCifSchemaProvider implements SchemaProvider<MmCifFile, MmCifFileB
                 .getCategories()
                 .values()
                 .stream()
-                .map(Category::getColumns)
-                .anyMatch(map -> map.size() == 1 && map.containsKey(""));
+                .map(Category::getColumnNames)
+                .anyMatch(list -> list.size() == 1 && list.contains(""));
         if (flatColumns) {
             throw new SchemaMismatchException("MMCIF schema should not contain flat column names - format: category_name.column_name");
         }

@@ -28,8 +28,8 @@ public class CifCoreSchemaProvider implements SchemaProvider<CifCoreFile, CifCor
                 .getCategories()
                 .values()
                 .stream()
-                .map(Category::getColumns)
-                .allMatch(map -> map.size() == 1 && map.containsKey(""));
+                .map(Category::getColumnNames)
+                .allMatch(list -> list.size() == 1 && list.contains(""));
         if (!flatColumns) {
             throw new SchemaMismatchException("CIF_CORE schema should contain exclusively flat column names - format: category_name_column_name");
         }

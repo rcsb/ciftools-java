@@ -3,6 +3,8 @@ package org.rcsb.cif.model.text;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.Column;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class TextCategory implements Category {
@@ -32,11 +34,18 @@ public class TextCategory implements Category {
 
     @Override
     public Column<?> getColumn(String name) {
-        return textFields.computeIfAbsent(name, Column.EmptyColumn::new);
+        // let's switch to getOrDefault to not introduce any meaningless columns when called for missing data
+        return textFields.getOrDefault(name, new Column.EmptyColumn(name));
     }
 
     @Override
     public Map<String, Column<?>> getColumns() {
         return textFields;
+    }
+
+    @Override
+    public List<String> getColumnNames() {
+        // this could cause issues when users call getColumn and introduce empty columns
+        return new ArrayList<>(textFields.keySet());
     }
 }
