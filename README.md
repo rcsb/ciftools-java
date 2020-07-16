@@ -155,8 +155,9 @@ CIF categories (i.e. they provide primarily atomic coordinates).
 
 ## Contributions & Related Projects
 - [molstar/ciftools](https://github.com/molstar/ciftools) a TypeScript/JavaScript implementation
+- [molstar/BinaryCIF](https://github.com/molstar/BinaryCIF) BinaryCIF format specification
 
-These implementations are based on a number of other projects, namely:
+The implementation is based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
 - [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
 - [MMTF](https://mmtf.rcsb.org/) by RCSB
