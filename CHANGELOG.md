@@ -1,6 +1,12 @@
 CIFTools Changelog
 =============
 
+ciftools-java 2.0.2
+-------------
+* expose #getColumnNames for categories
+* minimized overhead by schema validation that implicitly happens when files are requested in a certain schema 
+(previously validation would trigger decoding of all columns)
+
 ciftools-java 2.0.1
 -------------
 ### Bug fixes
