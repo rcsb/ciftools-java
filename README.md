@@ -1,6 +1,7 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.rcsb/ciftools-java/badge.svg)](https://maven-badges.herokuapp.com/maven-central/org.rcsb/ciftools-java)
 [![Build Status](https://travis-ci.com/rcsb/ciftools-java.svg?branch=master)](https://travis-ci.com/rcsb/ciftools-java)
 [![Changelog](https://img.shields.io/badge/changelog--lightgrey.svg?style=flat)](https://github.com/rcsb/ciftools-java/blob/master/CHANGELOG.md)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3948501.svg)](https://doi.org/10.5281/zenodo.3948501)
 
 # CIFTools
 CIFTools implements reading and writing of CIF files ([specification](http://www.iucr.org/resources/cif/spec/version1.1/cifsyntax))
