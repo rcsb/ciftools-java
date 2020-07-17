@@ -1,6 +1,8 @@
 CIFTools Changelog
 =============
 
+This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
+
 ciftools-java 2.0.2
 -------------
 * expose #getColumnNames for categories
@@ -17,8 +19,8 @@ ciftools-java 2.0.0
 ### Bug fixes
 * avoid enigmatic NullPointerException for #values() of empty columns - now returned Stream will be empty
 
-### Breaking API changes
-* updates schemata
+### Breaking schema changes
+* mmCIF: changes to IHM, EM, and branched entities (see https://github.com/rcsb/ciftools-java/commit/caf1bd678dc89d73291e344e2c8ec999735ffc87)
 
 ciftools-java 1.0.0
 -------------
