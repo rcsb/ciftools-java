@@ -5,6 +5,7 @@ This project uses semantic versioning. Furthermore, this project provides code t
 
 ciftools-java 2.0.2
 -------------
+### General
 * expose #getColumnNames for categories
 * minimized overhead by schema validation that implicitly happens when files are requested in a certain schema 
 (previously validation would trigger decoding of all columns)
