@@ -27,6 +27,7 @@ import java.util.HashSet;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 import java.util.Set;
 import java.util.StringJoiner;
@@ -47,7 +48,7 @@ public class SchemaGenerator {
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
     private static final String RE_VECTOR_FIELD = "\\[[1-3]]";
     private static final List<String> FORCE_INT_FIELDS =
-            List.of("_atom_site.id",
+            Stream.of("_atom_site.id",
             "_atom_site.auth_seq_id",
             "_pdbx_struct_mod_residue.auth_seq_id",
             "_struct_conf.beg_auth_seq_id",
@@ -55,7 +56,7 @@ public class SchemaGenerator {
             "_struct_conn.ptnr1_auth_seq_id",
             "_struct_conn.ptnr2_auth_seq_id",
             "_struct_sheet_range.beg_auth_seq_id",
-            "_struct_sheet_range.end_auth_seq_id");
+            "_struct_sheet_range.end_auth_seq_id").collect(Collectors.toList());
 
     private static final String BLOCK = loadTemplate("Block.tpl");
     private static final String BLOCK_FLAT = loadTemplate("BlockFlat.tpl");
@@ -267,7 +268,7 @@ public class SchemaGenerator {
                                         .filter(s -> schema.containsKey(s[0]) && schema.get(s[0]).getColumns().containsKey(s[1]))
                                         .findFirst()
                                         .map(s -> schema.get(s[0]).getColumns().get(s[1]))
-                                        .orElseThrow();
+                                        .orElseThrow(() -> new NoSuchElementException());
                                 String columnClassName = toClassName(cn.split("\\.")[1]);
                                 if (processed.contains(columnClassName)) {
                                     return;

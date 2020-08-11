@@ -45,7 +45,7 @@ public class BinaryCategory implements Category {
     @SuppressWarnings("unchecked")
     public Column<?> getColumn(String name) {
         Optional<Map<String, Object>> optional = find(name);
-        if (optional.isEmpty()) {
+        if (!optional.isPresent()) {
             return new Column.EmptyColumn(name);
         }
         // cache decoded fields to reuse them if applicable

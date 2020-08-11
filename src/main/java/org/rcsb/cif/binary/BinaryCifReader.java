@@ -12,6 +12,7 @@ import org.rcsb.cif.model.binary.BinaryBlock;
 import org.rcsb.cif.model.binary.BinaryCategory;
 import org.rcsb.cif.model.binary.BinaryFile;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -25,12 +26,18 @@ public class BinaryCifReader {
     @SuppressWarnings("unchecked")
     public CifFile read(InputStream inputStream) throws ParsingException {
         Map<String, Object> unpacked;
-        try (inputStream) {
+        try {
             unpacked = MessagePackCodec.decode(inputStream);
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {
             throw new ParsingException("Parsing failed.", e);
+        } finally {
+            try {
+                inputStream.close();
+            } catch (IOException ignored) {
+
+            }
         }
 
         String versionString = (String) unpacked.get("version");

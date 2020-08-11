@@ -8,6 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class DelegatingCategory implements Category {
     protected final Category delegate;
@@ -93,7 +94,7 @@ public class DelegatingCategory implements Category {
                     .collect(Collectors.toMap(this::extractName, category -> category.getColumn("")));
         }
 
-        private final List<String> CIF_CORE_COLUMN_NAMES = List.of("");
+        private final List<String> CIF_CORE_COLUMN_NAMES = Stream.of("").collect(Collectors.toList());
         @Override
         public List<String> getColumnNames() {
             return CIF_CORE_COLUMN_NAMES;

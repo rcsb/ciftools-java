@@ -5,6 +5,7 @@ import org.rcsb.cif.model.builder.BlockBuilderImpl;
 import org.rcsb.cif.model.text.TextCategory;
 
 import javax.annotation.Generated;
+import java.util.HashMap;
 import java.util.Map;
 
 import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
@@ -37,19 +38,25 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
     public void digest(IntColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
         String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
         Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), IntColumn.class);
-        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
+        categories.put(flatName, new TextCategory(flatName, mapOf("", column)));
     }
 
     public void digest(FloatColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
         String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
         Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), FloatColumn.class);
-        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
+        categories.put(flatName, new TextCategory(flatName, mapOf("", column)));
     }
 
     public void digest(StrColumnBuilder<? extends CategoryBuilder<CifCoreBlockBuilder, CifCoreFileBuilder>, CifCoreBlockBuilder, CifCoreFileBuilder> builder) {
         String flatName = builder.getCategoryName() + "_" + builder.getColumnName();
         Column column = createColumnText(builder.getColumnName(), builder.getValues(), builder.getMask(), StrColumn.class);
-        categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
+        categories.put(flatName, new TextCategory(flatName, mapOf("", column)));
+    }
+
+    private static Map<String, Column<?>> mapOf(String name, Column column) {
+        Map<String, Column<?>> re = new HashMap<>(2);
+        re.put(name, column);
+        return re;
     }
 
     public CifCoreCategoryBuilder.CifCoreBuilder enterCifCore() {
