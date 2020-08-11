@@ -19,7 +19,7 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 </dependency>
 ```
 
-Requires Java 11 (0.10.1 supports Java 8).
+Requires Java 11.
 
 ## File Parsing Example
 
