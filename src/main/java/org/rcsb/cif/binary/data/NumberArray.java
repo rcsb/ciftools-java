@@ -14,7 +14,7 @@ public interface NumberArray<D> extends EncodedData<D> {
     /**
      * The number of bytes used in this representation to describe a single value (e.g. 1 for {@link Int8Array} and up
      * to 8 for {@link Float64Array}).
-     * @return a number between 1 and 4
+     * @return a number between 1 and 8
      */
     int getNumberOfBytes();
 
