@@ -43,11 +43,6 @@ public class Float64Array extends AbstractEncodedData<double[]> implements Float
     }
 
     @Override
-    public int length() {
-        return getData().length;
-    }
-
-    @Override
     public byte[] toByteArray() {
         ByteBuffer buffer = ByteBuffer.allocate(length() * NUMBER_OF_BYTES);
         buffer.order(ByteOrder.LITTLE_ENDIAN);
