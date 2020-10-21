@@ -163,4 +163,4 @@ The implementation is based on a number of other projects, namely:
 - [MMTF](https://mmtf.rcsb.org/) by RCSB
 
 ## References
-Publication in preparation
+- Sehnal D, Bittrich S, Velankar S, Koča J, Svobodová R, Burley SK, Rose AS (2020) BinaryCIF and CIFTools—Lightweight, efficient and extensible macromolecular data management. PLoS Comput Biol 16(10): e1008247. https://doi.org/10.1371/journal.pcbi.1008247
