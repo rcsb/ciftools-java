@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.StandardSchemata;
@@ -12,7 +12,7 @@ import org.rcsb.cif.schema.mm.MmCifBlock;
 
 import java.io.IOException;
 
-import static junit.framework.TestCase.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class NonMmcifFormatTest {
     @Test

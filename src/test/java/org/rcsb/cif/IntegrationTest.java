@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
@@ -21,7 +21,7 @@ import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 
@@ -98,12 +98,12 @@ public class IntegrationTest {
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
         textCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> assertTrue("no delegation for text after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
+                .forEach(category -> assertTrue(category instanceof DelegatingCategory, "no delegation for text after schema was imposed for " + category.getCategoryName()));
 
         MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         binaryCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> assertTrue("no delegation for binary after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
+                .forEach(category -> assertTrue(category instanceof DelegatingCategory, "no delegation for binary after schema was imposed for " + category.getCategoryName()));
     }
 
     @Test
@@ -176,7 +176,7 @@ public class IntegrationTest {
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
         MmCifBlock block = cifFile.as(StandardSchemata.MMCIF).getFirstBlock();
-        assertNotNull("header is corrupted", block.getBlockHeader());
+        assertNotNull(block.getBlockHeader(), "header is corrupted");
 
         assertTrue(block.getEntry().isDefined());
 
@@ -288,8 +288,8 @@ public class IntegrationTest {
         byte[] output = CifIO.writeBinary(originalFile);
 
         assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
-        assertArrayEquals("binary write output does not match snapshot of output for " + testCase +
-                " - did the implementation change? if so, update snapshot files in bcif/ciftools/", original, output);
+        assertArrayEquals(original, output, "binary write output does not match snapshot of output for " + testCase +
+                " - did the implementation change? if so, update snapshot files in bcif/ciftools/");
     }
 
     @Test

@@ -1,11 +1,11 @@
 package org.rcsb.cif.binary.codec;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.TestHelper;
 import org.rcsb.cif.binary.data.*;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class ByteArrayCodecTest {
     @Test

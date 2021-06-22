@@ -1,12 +1,12 @@
 package org.rcsb.cif.binary.codec;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.data.Float32Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class IntervalQuantizationCodecTest {
     @Test

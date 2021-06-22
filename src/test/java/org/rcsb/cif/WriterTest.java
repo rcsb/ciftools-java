@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CategoryBuilder;
@@ -27,7 +27,7 @@ import java.io.InputStream;
 import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 
@@ -200,10 +200,10 @@ public class WriterTest {
         assertEquals("failed (gzip) for " + testCase, new String(originalGzip), new String(outputGzip));
 
         // cannot match to David's bcif data as column types differ slightly
-        assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
-                " if so, update snapshot files in snapshot/", original, output);
-        assertArrayEquals("binary write output does not match snapshot of output - did the implementation change?" +
-                " if so, update snapshot files in snapshot/", originalGzip, outputGzip);
+        assertArrayEquals(original, output, "binary write output does not match snapshot of output - did the implementation change?" +
+                " if so, update snapshot files in snapshot/");
+        assertArrayEquals(originalGzip, outputGzip, "binary write output does not match snapshot of output - did the implementation change?" +
+                " if so, update snapshot files in snapshot/");
     }
 
     public static void main(String[] args) throws IOException {

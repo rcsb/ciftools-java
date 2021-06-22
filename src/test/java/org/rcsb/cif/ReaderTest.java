@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.schema.StandardSchemata;
@@ -12,7 +12,8 @@ import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
@@ -62,35 +63,42 @@ public class ReaderTest {
         MmCifBlock data = cifFile.as(StandardSchemata.MMCIF).getFirstBlock();
         AtomSite _atom_site = data.getAtomSite();
         double firstCoordinate = _atom_site.getCartnX().get(0);
-        assertEquals("coordinate parsing corrupted", (double) testData.get(0), firstCoordinate, ERROR_MARGIN);
+        assertEquals((double) testData.get(0), firstCoordinate, ERROR_MARGIN, "coordinate parsing corrupted");
 
         // the last residue sequence id
         IntColumn label_seq_id = _atom_site.getLabelSeqId();
-        label_seq_id.values().max().ifPresent(i -> assertEquals("sequence id parsing corrupted", (int) testData.get(1), i));
+        label_seq_id.values().max().ifPresent(i -> assertEquals((int) testData.get(1), i, "sequence id parsing corrupted"));
 
         String stringValue = data.getCategory("entry").getColumn("id").getStringData(0);
-        assertEquals("id parsing corrupted", testData.get(2), stringValue);
+        assertEquals(testData.get(2), stringValue, "id parsing corrupted");
     }
 
-    @Test(expected = ParsingException.class)
+    @Test
     public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0emp.bcif"));
+        assertThrows(ParsingException.class, () ->
+                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0emp.bcif"))
+        );
     }
 
-    @Test(expected = ParsingException.class)
-    public void shouldReportExceptionForEmptyTextFile() throws ParsingException, IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("cif/0emp.cif"));
+    @Test
+    public void shouldReportExceptionForEmptyTextFile() throws ParsingException {
+        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(TestHelper.getInputStream("cif/0emp.cif")));
     }
 
-    @Test(expected = ParsingException.class)
-    public void shouldHonorFileFormatAndFailWhenMismatching1() throws ParsingException, IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
-                CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED).build());
+    @Test
+    public void shouldHonorFileFormatAndFailWhenMismatching1() throws ParsingException {
+        assertThrows(ParsingException.class, () ->
+                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
+                        CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED).build())
+        );
     }
 
-    @Test(expected = ParsingException.class)
-    public void shouldHonorFileFormatAndFailWhenMismatching2() throws ParsingException, IOException {
-        CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
-                CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build());
+    @Test
+    public void shouldHonorFileFormatAndFailWhenMismatching2() throws ParsingException {
+        assertThrows(ParsingException.class, () ->
+                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
+                        CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build())
+
+        );
     }
 }
