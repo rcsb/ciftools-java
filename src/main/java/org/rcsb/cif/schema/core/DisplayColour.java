@@ -59,8 +59,8 @@ public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory 
      * The red-green-blue intensities, bases 256, for each colour code.
      * @return IntColumn
      */
-    public IntColumn getRGB() {
-        return new DelegatingIntColumn(parentBlock.getColumn("display_colour_RGB"));
+    public IntColumn getRgb() {
+        return new DelegatingIntColumn(parentBlock.getColumn("display_colour_rgb"));
     }
 
 }

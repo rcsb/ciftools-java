@@ -31,7 +31,7 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeasF() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_F"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f"));
     }
 
     /**
@@ -39,7 +39,7 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeasFSquared() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_F_squared"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_squared"));
     }
 
     /**

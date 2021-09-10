@@ -100,8 +100,8 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Mean hydrostatic  pressure at which intensities were measured.
+     * Standard uncertainty of the mean hydrostatic pressure
+     * at which intensities were measured.
      * @return FloatColumn
      */
     public FloatColumn getAmbientPressureEsd() {
@@ -109,8 +109,8 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Mean hydrostatic  pressure at which intensities were measured.
+     * Standard uncertainty of the mean hydrostatic pressure
+     * at which intensities were measured.
      * @return FloatColumn
      */
     public FloatColumn getAmbientPressureSu() {
@@ -131,6 +131,24 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getAmbientTemperature() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp", "diffrn_ambient_temperature"));
+    }
+
+    /**
+     * Standard uncertainty of the mean temperature
+     * at which intensities were measured.
+     * @return FloatColumn
+     */
+    public FloatColumn getAmbientTempEsd() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp_esd", "diffrn_ambient_temperature_su"));
+    }
+
+    /**
+     * Standard uncertainty of the mean temperature
+     * at which intensities were measured.
+     * @return FloatColumn
+     */
+    public FloatColumn getAmbientTemperatureSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp_esd", "diffrn_ambient_temperature_su"));
     }
 
     /**
@@ -193,24 +211,6 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getAmbientTemperatureLt() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp_lt", "diffrn_ambient_temperature_lt"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * mean temperature at which intensities were measured.
-     * @return FloatColumn
-     */
-    public FloatColumn getAmbientTempEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp_esd", "diffrn_ambient_temperature_su"));
-    }
-
-    /**
-     * Standard Uncertainty of the
-     * mean temperature at which intensities were measured.
-     * @return FloatColumn
-     */
-    public FloatColumn getAmbientTemperatureSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_ambient_temp_esd", "diffrn_ambient_temperature_su"));
     }
 
     /**
@@ -320,7 +320,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Mounting method for the crystal specimum during data collection.
+     * Mounting method for the crystal specimen during data collection.
      * @return StrColumn
      */
     public StrColumn getMeasurementSpecimenSupport() {
@@ -328,7 +328,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Mounting method for the crystal specimum during data collection.
+     * Mounting method for the crystal specimen during data collection.
      * @return StrColumn
      */
     public StrColumn getSpecimenSupport() {

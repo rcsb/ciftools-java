@@ -22,7 +22,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getACalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_A_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_calc"));
     }
 
     /**
@@ -30,7 +30,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_A_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_meas"));
     }
 
     /**
@@ -38,7 +38,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getBCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_B_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_calc"));
     }
 
     /**
@@ -46,7 +46,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getBMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_B_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_meas"));
     }
 
     /**
@@ -79,7 +79,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_calc"));
     }
 
     /**
@@ -88,7 +88,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getFComplex() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refln_F_complex"));
+        return new DelegatingStrColumn(parentBlock.getColumn("refln_f_complex"));
     }
 
     /**
@@ -97,7 +97,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_meas"));
     }
 
     /**
@@ -106,7 +106,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFSquaredCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_squared_calc"));
     }
 
     /**
@@ -115,7 +115,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_squared_meas"));
     }
 
     /**
@@ -198,7 +198,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLpFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_Lp_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_lp_factor"));
     }
 
     /**
@@ -285,35 +285,35 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of the measured structure factor amplitude.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSigma() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_f_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of the measured structure factor amplitude.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_f_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of the measured structure factor squared.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredSigma() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_f_squared_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of the measured structure factor squared.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_f_squared_meas_su"));
     }
 
     /**
@@ -344,7 +344,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * standard uncertainty of the measured intensity.
+     * Standard uncertainty of the measured intensity.
      * @return FloatColumn
      */
     public FloatColumn getIntensitySigma() {
@@ -352,7 +352,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * standard uncertainty of the measured intensity.
+     * Standard uncertainty of the measured intensity.
      * @return FloatColumn
      */
     public FloatColumn getIntensityMeasSu() {

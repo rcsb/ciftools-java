@@ -106,7 +106,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Description of the quality and habit of the crystal. The crystal
-     * dimensions should be provided using the exptl_crystal.size_* datanames.
+     * dimensions should be provided using the exptl_crystal.size_* data items.
      * @return StrColumn
      */
     public StrColumn getDescription() {
@@ -132,7 +132,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getF000() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_F_000"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_f_000"));
     }
 
     /**
@@ -220,8 +220,8 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Crystal density measured using standard chemical and physical methods.
+     * Standard uncertainty of the crystal density measured
+     * using standard chemical and physical methods.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasEsd() {
@@ -229,8 +229,8 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Crystal density measured using standard chemical and physical methods.
+     * Standard uncertainty of the crystal density measured
+     * using standard chemical and physical methods.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasSu() {
@@ -238,8 +238,8 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Temperature at which _exptl_crystal.density_meas was determined.
+     * Standard uncertainty of the temperature at
+     * which _exptl_crystal.density_meas was determined.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempEsd() {
@@ -247,8 +247,8 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Temperature at which _exptl_crystal.density_meas was determined.
+     * Standard uncertainty of the temperature at
+     * which _exptl_crystal.density_meas was determined.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempSu() {

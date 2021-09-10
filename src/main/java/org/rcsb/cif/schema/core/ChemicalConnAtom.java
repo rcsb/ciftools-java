@@ -55,8 +55,8 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
      * Total number of connected atoms excluding terminal hydrogen atoms.
      * @return IntColumn
      */
-    public IntColumn getNCA() {
-        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_atom_NCA"));
+    public IntColumn getNca() {
+        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_atom_nca"));
     }
 
     /**
@@ -67,8 +67,8 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
      * atoms appear in the atom_site list.
      * @return IntColumn
      */
-    public IntColumn getNH() {
-        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_atom_NH"));
+    public IntColumn getNh() {
+        return new DelegatingIntColumn(parentBlock.getColumn("chemical_conn_atom_nh"));
     }
 
     /**
