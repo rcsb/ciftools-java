@@ -196,8 +196,8 @@ public class WriterTest {
         byte[] output = CifIO.writeBinary(binary);
         byte[] outputGzip = CifIO.writeBinary(binary, CifOptions.builder().gzip(true).build());
 
-        assertEquals("failed for " + testCase, new String(original), new String(output));
-        assertEquals("failed (gzip) for " + testCase, new String(originalGzip), new String(outputGzip));
+        assertEquals(new String(original), new String(output), "failed for " + testCase);
+        assertEquals(new String(originalGzip), new String(outputGzip), "failed (gzip) for " + testCase);
 
         // cannot match to David's bcif data as column types differ slightly
         assertArrayEquals(original, output, "binary write output does not match snapshot of output - did the implementation change?" +
