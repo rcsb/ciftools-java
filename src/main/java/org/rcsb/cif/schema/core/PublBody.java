@@ -49,7 +49,7 @@ public class PublBody extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Unique identifier for each part of the body of the paper.
+     * Unigue identifier for each part of the body of the paper.
      * @return StrColumn
      */
     public StrColumn getLabel() {

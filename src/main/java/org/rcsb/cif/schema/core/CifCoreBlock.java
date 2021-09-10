@@ -108,6 +108,8 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getSpaceGroupSymop();
             case "space_group_wyckoff":
                 return getSpaceGroupWyckoff();
+            case "function":
+                return getFunction();
             case "model":
                 return getModel();
             case "geom":
@@ -136,16 +138,12 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getAudit();
             case "audit_author":
                 return getAuditAuthor();
-            case "audit_author_role":
-                return getAuditAuthorRole();
             case "audit_conform":
                 return getAuditConform();
             case "audit_contact_author":
                 return getAuditContactAuthor();
             case "audit_link":
                 return getAuditLink();
-            case "audit_support":
-                return getAuditSupport();
             case "citation":
                 return getCitation();
             case "citation_author":
@@ -216,8 +214,6 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getRefineLs();
             case "refine_ls_class":
                 return getRefineLsClass();
-            case "function":
-                return getFunction();
             case "symmetry":
                 return getSymmetry();
             case "diffrn_standards":
@@ -689,6 +685,16 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
+     * The crystallographic functions the invoked in the definition
+     * methods of CORE STRUCTURE data items defined and used with in
+     * the Crystallographic Information Framework (CIF).
+     * @return Function
+     */
+    public Function getFunction() {
+        return new Function(this);
+    }
+
+    /**
      * Items in the MODEL Category specify data for the crystal structure
      * postulated and modelled from the atomic coordinates derived and
      * refined from the diffraction information. The structural model is
@@ -826,15 +832,6 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * The CATEGORY of data items used to describe the role that
-     * authors took in the production of the dataset.
-     * @return AuditAuthorRole
-     */
-    public AuditAuthorRole getAuditAuthorRole() {
-        return new AuditAuthorRole(this);
-    }
-
-    /**
      * The CATEGORY of data items used describe dictionary versions
      * by which data names in the current data block are conformant.
      * @return AuditConform
@@ -858,15 +855,6 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public AuditLink getAuditLink() {
         return new AuditLink(this);
-    }
-
-    /**
-     * Data items in the AUDIT_SUPPORT category record details about the
-     * funding support for the data collected and analysed in the data set.
-     * @return AuditSupport
-     */
-    public AuditSupport getAuditSupport() {
-        return new AuditSupport(this);
     }
 
     /**
@@ -963,7 +951,7 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * Category of items recording coeditor details.
+     * Category of items recording co-editor details.
      * @return JournalCoeditor
      */
     public JournalCoeditor getJournalCoeditor() {
@@ -1133,7 +1121,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The CATEGORY of data items used to describe the matrix elements
-     * used to transform fractional coordinates into Cartesian coordinates
+     * used to transform Cartesion coordinates into fractional coordinates
      * of all atom sites in a crystal structure.
      * @return AtomSitesCartnTransform
      */
@@ -1143,7 +1131,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The CATEGORY of data items used to describe the matrix elements
-     * used to transform Cartesian coordinates into fractional coordinates
+     * used to transform Cartesion coordinates into fractional coordinates
      * of all atom sites in a crystal structure.
      * @return AtomSitesFractTransform
      */
@@ -1205,16 +1193,6 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public RefineLsClass getRefineLsClass() {
         return new RefineLsClass(this);
-    }
-
-    /**
-     * The crystallographic functions the invoked in the definition
-     * methods of CORE STRUCTURE data items defined and used with in
-     * the Crystallographic Information Framework (CIF).
-     * @return Function
-     */
-    public Function getFunction() {
-        return new Function(this);
     }
 
     /**

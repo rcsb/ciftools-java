@@ -52,7 +52,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getBravaisType() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_bravais_type"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Bravais_type"));
     }
 
     /**
@@ -88,8 +88,8 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * Dordrecht: Kluwer Academic Publishers.
      * @return StrColumn
      */
-    public StrColumn getItCoordinateSystemCode() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_it_coordinate_system_code"));
+    public StrColumn getITCoordinateSystemCode() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_IT_coordinate_system_code"));
     }
 
     /**
@@ -99,7 +99,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getLaueClass() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_laue_class"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Laue_class"));
     }
 
     /**
@@ -136,17 +136,8 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * list the symmetry operations.
      * @return StrColumn
      */
-    public StrColumn getNameH_mAlt() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_h-m_alt"));
-    }
-
-    /**
-     * A free-text description of the code appearing in
-     * _space_group.name_H-M_alt.
-     * @return StrColumn
-     */
-    public StrColumn getNameH_mAltDescription() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_h-m_alt_description"));
+    public StrColumn getNameH_MAlt() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_alt"));
     }
 
     /**
@@ -183,8 +174,17 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * Dordrecht: Kluwer Academic Publishers.
      * @return StrColumn
      */
-    public StrColumn getNameH_mRef() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_h-m_ref"));
+    public StrColumn getNameH_MRef() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_ref"));
+    }
+
+    /**
+     * A free-text description of the code appearing in
+     * _space_group.name_H-M_alt.
+     * @return StrColumn
+     */
+    public StrColumn getNameH_MAltDescription() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_H-M_alt_description"));
     }
 
     /**
@@ -204,7 +204,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getNameSchoenflies() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_schoenflies"));
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_name_Schoenflies"));
     }
 
     /**
@@ -224,8 +224,8 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * Table 2.2.5.1. Dordrecht: Kluwer Academic Publishers.
      * @return StrColumn
      */
-    public StrColumn getPattersonNameH_m() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_patterson_name_h-m"));
+    public StrColumn getPattersonNameH_M() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_Patterson_name_H-M"));
     }
 
     /**
@@ -235,20 +235,36 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * point group of the space group belongs.
      * @return StrColumn
      */
-    public StrColumn getPointGroupH_m() {
-        return new DelegatingStrColumn(parentBlock.getColumn("space_group_point_group_h-m"));
+    public StrColumn getPointGroupH_M() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_point_group_H-M"));
     }
 
     /**
      * The number as assigned in International Tables for Crystallography
-     * Vol. A, specifying the proper affine class (i.e. the orientation
+     * Vol A, specifying the proper affine class (i.e. the orientation
      * preserving affine class) of space groups (crystallographic space
      * group type) to which the space group belongs. This number defines
      * the space group type but not the coordinate system expressed.
      * @return IntColumn
      */
-    public IntColumn getItNumber() {
-        return new DelegatingIntColumn(parentBlock.getAliasedColumn("symmetry_Int_Tables_number", "space_group_it_number"));
+    public IntColumn getITNumber() {
+        return new DelegatingIntColumn(parentBlock.getAliasedColumn("symmetry_Int_Tables_number", "space_group_IT_number"));
+    }
+
+    /**
+     * Space group symbol defined by Hall. Each component of the
+     * space group name is separated by a space or an underscore.
+     * The use of space is strongly recommended because it specifies
+     * the coordinate system. The underscore in the name is only
+     * retained because it was used in earlier archived files. It
+     * should not be used in new CIFs.
+     * Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525
+     * [See also International Tables for Crystallography,
+     * Vol.B (1993) 1.4 Appendix B]
+     * @return StrColumn
+     */
+    public StrColumn getNameHall() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_Hall", "space_group_name_Hall"));
     }
 
     /**
@@ -282,24 +298,8 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * Dordrecht: Kluwer Academic Publishers.
      * @return StrColumn
      */
-    public StrColumn getNameH_mFull() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_H-M", "space_group_name_h-m_full"));
-    }
-
-    /**
-     * Space group symbol defined by Hall. Each component of the
-     * space group name is separated by a space or an underscore.
-     * The use of space is strongly recommended because it specifies
-     * the coordinate system. The underscore in the name is only
-     * retained because it was used in earlier archived files. It
-     * should not be used in new CIFs.
-     * Ref: Hall, S. R. (1981). Acta Cryst. A37, 517-525
-     * [See also International Tables for Crystallography,
-     * Vol. B (1993) 1.4 Appendix B]
-     * @return StrColumn
-     */
-    public StrColumn getNameHall() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_Hall", "space_group_name_hall"));
+    public StrColumn getNameH_MFull() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("symmetry_space_group_name_H-M", "space_group_name_H-M_full"));
     }
 
 }

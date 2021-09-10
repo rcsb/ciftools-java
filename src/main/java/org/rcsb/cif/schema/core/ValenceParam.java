@@ -58,7 +58,7 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getB() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("valence_param_b"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("valence_param_B"));
     }
 
     /**
@@ -92,7 +92,7 @@ public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRo() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("valence_param_ro"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("valence_param_Ro"));
     }
 
 }

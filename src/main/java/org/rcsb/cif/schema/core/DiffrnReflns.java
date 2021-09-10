@@ -25,7 +25,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAvREquivalents() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_r_equivalents"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_av_R_equivalents"));
     }
 
     /**
@@ -41,11 +41,11 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLaueMeasuredFractionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_laue_measured_fraction_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_Laue_measured_fraction_full"));
     }
 
     /**
-     * Fraction of Laue group unique reflections (symmetry-independent in
+     * Fraction of Laue-group unique reflections (symmetry-independent in
      * the Laue group) measured out to the resolution given in
      * _diffrn_reflns.resolution_max or _diffrn_reflns.theta_max.
      * The Laue group always contains a centre of symmetry so that the
@@ -54,7 +54,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLaueMeasuredFractionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_laue_measured_fraction_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_Laue_measured_fraction_max"));
     }
 
     /**
@@ -114,7 +114,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Minimum Miller indices of measured diffraction reflections.
+     * Minimum Miller indices of meas.ued diffraction reflections.
      * @return FloatColumn
      */
     public FloatColumn getLimitMin() {
@@ -219,7 +219,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAvUnetI_netI() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_suneti_over_neti"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
     }
 
     /**
@@ -227,15 +227,15 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAvSigmaIOverNetI() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_suneti_over_neti"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
     }
 
     /**
      * Recorded [sum |su(netI)| / sum |netI|] for all measured reflections.
      * @return FloatColumn
      */
-    public FloatColumn getAvSunetiOverNeti() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_suneti_over_neti"));
+    public FloatColumn getAvSunetIOverNetI() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("diffrn_reflns_av_unetI/netI", "diffrn_reflns_av_sigmaI_over_netI", "diffrn_reflns_av_sunetI_over_netI"));
     }
 
     /**

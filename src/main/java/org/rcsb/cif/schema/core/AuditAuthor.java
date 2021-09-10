@@ -27,25 +27,6 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Arbitrary identifier for this author
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_id"));
-    }
-
-    /**
-     * Identifier in the ORCID Registry of a publication
-     * author. ORCID is an open, non-profit, community-driven
-     * service to provide a registry of unique researcher
-     * identifiers (http://orcid.org).
-     * @return StrColumn
-     */
-    public StrColumn getIdOrcid() {
-        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_id_orcid"));
-    }
-
-    /**
      * The name of an author of this data block. If there are multiple
      * authors, _audit_author.name is looped with _audit_author.address.
      * The family name(s), followed by a comma and including any

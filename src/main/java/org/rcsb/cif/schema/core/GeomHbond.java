@@ -22,8 +22,8 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * The hydrogen at site H is at the apex of the angle.
      * @return FloatColumn
      */
-    public FloatColumn getAngleDha() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_angle_dha"));
+    public FloatColumn getAngleDHA() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_hbond_angle_DHA"));
     }
 
     /**
@@ -68,7 +68,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryA() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_a"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_A"));
     }
 
     /**
@@ -95,7 +95,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_d"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_D"));
     }
 
     /**
@@ -122,25 +122,25 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSiteSymmetryH() {
-        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_h"));
+        return new DelegatingStrColumn(parentBlock.getColumn("geom_hbond_site_symmetry_H"));
     }
 
     /**
-     * Standard uncertainty of the angle subtended by the sites identified
+     * The standard uncertainty of the angle subtended by the sites identified
      * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
      * @return FloatColumn
      */
     public FloatColumn getAngleDHAEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_angle_DHA_esd", "geom_hbond_angle_dha_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_angle_DHA_esd", "geom_hbond_angle_DHA_su"));
     }
 
     /**
-     * Standard uncertainty of the angle subtended by the sites identified
+     * The standard uncertainty of the angle subtended by the sites identified
      * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
      * @return FloatColumn
      */
-    public FloatColumn getAngleDhaSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_angle_DHA_esd", "geom_hbond_angle_dha_su"));
+    public FloatColumn getAngleDHASu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_angle_DHA_esd", "geom_hbond_angle_DHA_su"));
     }
 
     /**
@@ -149,7 +149,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteIdA() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_A", "geom_hbond_atom_site_label_a"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_A", "geom_hbond_atom_site_label_A"));
     }
 
     /**
@@ -158,7 +158,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelA() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_A", "geom_hbond_atom_site_label_a"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_A", "geom_hbond_atom_site_label_A"));
     }
 
     /**
@@ -167,7 +167,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteIdD() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_D", "geom_hbond_atom_site_label_d"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_D", "geom_hbond_atom_site_label_D"));
     }
 
     /**
@@ -176,7 +176,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelD() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_D", "geom_hbond_atom_site_label_d"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_D", "geom_hbond_atom_site_label_D"));
     }
 
     /**
@@ -185,7 +185,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteIdH() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_H", "geom_hbond_atom_site_label_h"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_H", "geom_hbond_atom_site_label_H"));
     }
 
     /**
@@ -194,7 +194,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getAtomSiteLabelH() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_H", "geom_hbond_atom_site_label_h"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("geom_hbond_atom_site_id_H", "geom_hbond_atom_site_label_H"));
     }
 
     /**
@@ -203,7 +203,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDistDA() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA", "geom_hbond_distance_da"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA", "geom_hbond_distance_DA"));
     }
 
     /**
@@ -211,26 +211,28 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceDa() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA", "geom_hbond_distance_da"));
+    public FloatColumn getDistanceDA() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA", "geom_hbond_distance_DA"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistDAEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA_esd", "geom_hbond_distance_da_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA_esd", "geom_hbond_distance_DA_su"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceDaSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA_esd", "geom_hbond_distance_da_su"));
+    public FloatColumn getDistanceDASu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DA_esd", "geom_hbond_distance_DA_su"));
     }
 
     /**
@@ -239,7 +241,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDistDH() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH", "geom_hbond_distance_dh"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH", "geom_hbond_distance_DH"));
     }
 
     /**
@@ -247,26 +249,28 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceDh() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH", "geom_hbond_distance_dh"));
+    public FloatColumn getDistanceDH() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH", "geom_hbond_distance_DH"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistDHEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH_esd", "geom_hbond_distance_dh_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH_esd", "geom_hbond_distance_DH_su"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceDhSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH_esd", "geom_hbond_distance_dh_su"));
+    public FloatColumn getDistanceDHSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_DH_esd", "geom_hbond_distance_DH_su"));
     }
 
     /**
@@ -275,7 +279,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDistHA() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA", "geom_hbond_distance_ha"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA", "geom_hbond_distance_HA"));
     }
 
     /**
@@ -283,26 +287,28 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
      * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceHa() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA", "geom_hbond_distance_ha"));
+    public FloatColumn getDistanceHA() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA", "geom_hbond_distance_HA"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistHAEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA_esd", "geom_hbond_distance_ha_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA_esd", "geom_hbond_distance_HA_su"));
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard Uncertainty of the
+     * set of data items which specify the distance between the
+     * three atom sites identified by _geom_hbond.id.
      * @return FloatColumn
      */
-    public FloatColumn getDistanceHaSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA_esd", "geom_hbond_distance_ha_su"));
+    public FloatColumn getDistanceHASu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("geom_hbond_dist_HA_esd", "geom_hbond_distance_HA_su"));
     }
 
 }

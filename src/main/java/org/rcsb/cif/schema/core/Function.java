@@ -25,8 +25,8 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * returns an atom type symbol (element name) from the atom site label.
      * @return StrColumn
      */
-    public StrColumn getAtomtype() {
-        return new DelegatingStrColumn(parentBlock.getColumn("function_atomtype"));
+    public StrColumn getAtomType() {
+        return new DelegatingStrColumn(parentBlock.getColumn("function_AtomType"));
     }
 
     /**
@@ -34,12 +34,12 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * d  =  Closest( v, w )
      * 
      * returns the cell translation vector required to obtain the
-     * closest cell-translated occurrence of the vector V to the vector
+     * closest cell-translated occurence of the vector V to the vector
      * W.
      * @return FloatColumn
      */
     public FloatColumn getClosest() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("function_closest"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_Closest"));
     }
 
     /**
@@ -50,8 +50,8 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * the equivalent position which is a character string e.g. 1/2+x,-x,z.
      * @return FloatColumn
      */
-    public FloatColumn getSeitzfromjones() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("function_seitzfromjones"));
+    public FloatColumn getSeitzFromJones() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_SeitzFromJones"));
     }
 
     /**
@@ -63,8 +63,8 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * equivalent matrix extracted from the category space_group_symop.
      * @return FloatColumn
      */
-    public FloatColumn getSymequiv() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("function_symequiv"));
+    public FloatColumn getSymEquiv() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("function_SymEquiv"));
     }
 
     /**
@@ -75,8 +75,8 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * string of the form 'n_pqr'.
      * @return IntColumn
      */
-    public IntColumn getSymkey() {
-        return new DelegatingIntColumn(parentBlock.getColumn("function_symkey"));
+    public IntColumn getSymKey() {
+        return new DelegatingIntColumn(parentBlock.getColumn("function_SymKey"));
     }
 
     /**
@@ -87,8 +87,8 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * from the character string of the form 'n_pqr'. i.e. p-5, q-5, r-5.
      * @return IntColumn
      */
-    public IntColumn getSymlat() {
-        return new DelegatingIntColumn(parentBlock.getColumn("function_symlat"));
+    public IntColumn getSymLat() {
+        return new DelegatingIntColumn(parentBlock.getColumn("function_SymLat"));
     }
 
     /**
@@ -101,7 +101,7 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getSymop() {
-        return new DelegatingStrColumn(parentBlock.getColumn("function_symop"));
+        return new DelegatingStrColumn(parentBlock.getColumn("function_Symop"));
     }
 
 }

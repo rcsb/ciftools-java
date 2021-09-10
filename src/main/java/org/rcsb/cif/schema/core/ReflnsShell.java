@@ -19,7 +19,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Highest resolution for the reflections in this shell.
-     * This corresponds to the smallest interplanar d value.
+     * This corresponds to the smallest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResHigh() {
@@ -38,7 +38,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Lowest resolution for the reflections in this shell.
-     * This corresponds to the largest interplanar d value.
+     * This corresponds to the largest interpanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResLow() {
@@ -85,7 +85,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeFAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_rmerge_f_all"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_Rmerge_F_all"));
     }
 
     /**
@@ -104,7 +104,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeIAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_rmerge_i_all"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_shell_Rmerge_I_all"));
     }
 
     /**
@@ -113,7 +113,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeanIOverSigIAll() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meani_over_sui_all"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
     }
 
     /**
@@ -122,7 +122,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeanIOverUIAll() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meani_over_sui_all"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
     }
 
     /**
@@ -130,8 +130,8 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * of the intensities in the shell.
      * @return FloatColumn
      */
-    public FloatColumn getMeaniOverSuiAll() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meani_over_sui_all"));
+    public FloatColumn getMeanIOverSuIAll() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_all", "reflns_shell_meanI_over_uI_all", "reflns_shell_meanI_over_suI_all"));
     }
 
     /**
@@ -141,7 +141,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeanIOverSigIObs() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meani_over_sui_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
     }
 
     /**
@@ -151,7 +151,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeanIOverSigIGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meani_over_sui_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
     }
 
     /**
@@ -161,7 +161,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getMeanIOverUIGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meani_over_sui_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
     }
 
     /**
@@ -170,8 +170,8 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * uncertainty of the intensities in the shell.
      * @return FloatColumn
      */
-    public FloatColumn getMeaniOverSuiGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meani_over_sui_gt"));
+    public FloatColumn getMeanIOverSuIGt() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_meanI_over_sigI_obs", "reflns_shell_meanI_over_sigI_gt", "reflns_shell_meanI_over_uI_gt", "reflns_shell_meanI_over_suI_gt"));
     }
 
     /**
@@ -251,7 +251,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeFObs() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_rmerge_f_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_Rmerge_F_gt"));
     }
 
     /**
@@ -261,7 +261,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeFGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_rmerge_f_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_F_obs", "reflns_shell_Rmerge_F_gt"));
     }
 
     /**
@@ -271,7 +271,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeIObs() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_rmerge_i_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_Rmerge_I_gt"));
     }
 
     /**
@@ -281,7 +281,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getRmergeIGt() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_rmerge_i_gt"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("reflns_shell_Rmerge_I_obs", "reflns_shell_Rmerge_I_gt"));
     }
 
 }

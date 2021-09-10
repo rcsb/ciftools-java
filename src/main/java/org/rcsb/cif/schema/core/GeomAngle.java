@@ -186,8 +186,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the angle defined by
-     * the sites identified by _geom_angle.id.
+     * Standard Uncertainty of the
+     * angle defined by the sites identified by _geom_angle.id
      * @return FloatColumn
      */
     public FloatColumn getValueEsd() {
@@ -195,8 +195,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the angle defined by
-     * the sites identified by _geom_angle.id.
+     * Standard Uncertainty of the
+     * angle defined by the sites identified by _geom_angle.id
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {

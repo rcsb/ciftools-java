@@ -18,20 +18,6 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * The way in which the sample is attached to the sample holder,
-     * including the type of adhesive material used if relevant. The sample
-     * holder is usually wholly outside the beam, whereas the attachment
-     * method may cause non-sample material to be illuminated. If the
-     * attachment method is not included in the list below, 'Other' should be
-     * chosen and details provided in
-     * _diffrn_measurement.specimen_support
-     * @return StrColumn
-     */
-    public StrColumn getSpecimenAttachmentType() {
-        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_measurement_specimen_attachment_type"));
-    }
-
-    /**
      * Description of special aspects of the diffraction measurement.
      * @return StrColumn
      */
@@ -88,7 +74,7 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * Mounting method for the crystal specimen during data collection.
+     * Mounting method for the crystal specimum during data collection.
      * @return StrColumn
      */
     public StrColumn getSpecimenSupport() {

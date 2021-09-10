@@ -163,8 +163,8 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id.
+     * Standard Uncertainty of the intramolecular bond distance
+     * between the sites identified by _geom_bond.id
      * @return FloatColumn
      */
     public FloatColumn getDistEsd() {
@@ -172,8 +172,8 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id.
+     * Standard Uncertainty of the intramolecular bond distance
+     * between the sites identified by _geom_bond.id
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {

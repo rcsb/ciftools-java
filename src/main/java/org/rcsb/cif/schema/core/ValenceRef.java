@@ -26,7 +26,7 @@ public class ValenceRef extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Literature reference from which the valence parameters
-     * identified by _valence_param.id were taken.
+     * identified by _valence_param.id were taken
      * @return StrColumn
      */
     public StrColumn getReference() {

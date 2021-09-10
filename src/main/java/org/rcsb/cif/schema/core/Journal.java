@@ -23,8 +23,8 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
      * ASTM code assigned to journal.
      * @return StrColumn
      */
-    public StrColumn getCodenAstm() {
-        return new DelegatingStrColumn(parentBlock.getColumn("journal_coden_astm"));
+    public StrColumn getCodenASTM() {
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coden_ASTM"));
     }
 
     /**
@@ -32,7 +32,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodenCambridge() {
-        return new DelegatingStrColumn(parentBlock.getColumn("journal_coden_cambridge"));
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_coden_Cambridge"));
     }
 
     /**
@@ -100,7 +100,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Number of the supplementary publication.
+     * Number of supplementary publication.
      * @return StrColumn
      */
     public StrColumn getSupplPublNumber() {
@@ -252,7 +252,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was accepted.
+     * Date the publication was accepted.
      * @return StrColumn
      */
     public StrColumn getDateAccepted() {
@@ -260,7 +260,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was accepted.
+     * Date the publication was accepted.
      * @return StrColumn
      */
     public StrColumn getAccepted() {
@@ -268,7 +268,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received from the coeditor.
+     * Date the publication recieved from coeditor.
      * @return StrColumn
      */
     public StrColumn getDateFromCoeditor() {
@@ -276,7 +276,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received from the coeditor.
+     * Date the publication recieved from coeditor.
      * @return StrColumn
      */
     public StrColumn getFromCoeditor() {
@@ -284,7 +284,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was last sent to the printers.
+     * Date the publication last sent to the printers.
      * @return StrColumn
      */
     public StrColumn getDatePrintersFinal() {
@@ -292,7 +292,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was last sent to the printers.
+     * Date the publication last sent to the printers.
      * @return StrColumn
      */
     public StrColumn getPrintersFinal() {
@@ -300,7 +300,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was first sent to the printers.
+     * Date the publication first sent to the printers.
      * @return StrColumn
      */
     public StrColumn getDatePrintersFirst() {
@@ -308,7 +308,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was first sent to the printers.
+     * Date the publication first sent to the printers.
      * @return StrColumn
      */
     public StrColumn getPrintersFirst() {
@@ -316,7 +316,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication proofs were received.
+     * Date the publication proofs recieved.
      * @return StrColumn
      */
     public StrColumn getDateProofsIn() {
@@ -324,7 +324,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication proofs were received.
+     * Date the publication proofs recieved.
      * @return StrColumn
      */
     public StrColumn getProofsIn() {
@@ -332,7 +332,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication proofs were sent out.
+     * Date the publication proofs sent out.
      * @return StrColumn
      */
     public StrColumn getDateProofsOut() {
@@ -340,7 +340,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication proofs were sent out.
+     * Date the publication proofs sent out.
      * @return StrColumn
      */
     public StrColumn getProofsOut() {
@@ -348,7 +348,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the completed copyright was received.
+     * Date completed copyright recieved.
      * @return StrColumn
      */
     public StrColumn getDateRecdCopyright() {
@@ -356,7 +356,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the completed copyright was received.
+     * Date completed copyright recieved.
      * @return StrColumn
      */
     public StrColumn getRecdCopyright() {
@@ -364,7 +364,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received electronically.
+     * Date publication recieved electronically.
      * @return StrColumn
      */
     public StrColumn getDateRecdElectronic() {
@@ -372,7 +372,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received electronically.
+     * Date publication recieved electronically.
      * @return StrColumn
      */
     public StrColumn getRecdElectronic() {
@@ -380,7 +380,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received as hard copy.
+     * Date publication recieved as hard copy.
      * @return StrColumn
      */
     public StrColumn getDateRecdHardCopy() {
@@ -388,7 +388,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was received as hard copy.
+     * Date publication recieved as hard copy.
      * @return StrColumn
      */
     public StrColumn getRecdHardCopy() {
@@ -396,7 +396,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was sent to the coeditor.
+     * Date the publication sent to the coeditor.
      * @return StrColumn
      */
     public StrColumn getDateToCoeditor() {
@@ -404,7 +404,7 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Date when the publication was sent to the coeditor.
+     * Date the publication sent to the coeditor.
      * @return StrColumn
      */
     public StrColumn getToCoeditor() {

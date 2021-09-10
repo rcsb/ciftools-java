@@ -32,16 +32,16 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * Chemical Abstracts Service (CAS) abstract identifier.
      * @return StrColumn
      */
-    public StrColumn getAbstractIdCas() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_abstract_id_cas"));
+    public StrColumn getAbstractIdCAS() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_abstract_id_CAS"));
     }
 
     /**
      * International Standard Book Number (ISBN) for book chap. cited.
      * @return StrColumn
      */
-    public StrColumn getBookIdIsbn() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_book_id_isbn"));
+    public StrColumn getBookIdISBN() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_book_id_ISBN"));
     }
 
     /**
@@ -93,16 +93,16 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * Structural Database containing details of the cited structure.
      * @return StrColumn
      */
-    public StrColumn getDatabaseIdCsd() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_database_id_csd"));
+    public StrColumn getDatabaseIdCSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_database_id_CSD"));
     }
 
     /**
-     * MEDLINE accession number categorizing a bibliographic entry.
+     * i    Medline accession number categorizing a bibliographic entry.
      * @return StrColumn
      */
     public StrColumn getDatabaseIdMedline() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_database_id_medline"));
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_database_id_Medline"));
     }
 
     /**
@@ -115,8 +115,8 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * structured extensible way. A DOI is an implementation
      * of the Internet concepts of Uniform Resource Name and
      * Universal Resource Locator managed according to the
-     * specifications of the International DOI Foundation
-     * (see http://www.doi.org).
+     * specifications of the International DOI Foundation (see
+     * http://www.doi.org).
      * @return StrColumn
      */
     public StrColumn getDoi() {
@@ -158,8 +158,8 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * the Chemical Abstracts Service); relevant for journal articles.
      * @return StrColumn
      */
-    public StrColumn getJournalIdAstm() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_astm"));
+    public StrColumn getJournalIdASTM() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_ASTM"));
     }
 
     /**
@@ -168,8 +168,8 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * system used at the Protein Data Bank (PDB).
      * @return StrColumn
      */
-    public StrColumn getJournalIdCsd() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_csd"));
+    public StrColumn getJournalIdCSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_CSD"));
     }
 
     /**
@@ -177,8 +177,8 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * the journal cited;  relevant for journal articles.
      * @return StrColumn
      */
-    public StrColumn getJournalIdIssn() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_issn"));
+    public StrColumn getJournalIdISSN() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_id_ISSN"));
     }
 
     /**
@@ -222,10 +222,11 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The name of the publisher of the cited work. This should be used
-     * for citations of journal articles or datasets (in the latter case
-     * the publisher could be a curated database). For books or book chapters
-     * use _citation.book_publisher.
+     * The name of the publisher of the cited work. This
+     * should be used for citations of journal articles or
+     * datasets (in the latter case the publisher could be a
+     * curated database). For books or book chapters use
+     * _citation.book_publisher.
      * @return StrColumn
      */
     public StrColumn getPublisher() {

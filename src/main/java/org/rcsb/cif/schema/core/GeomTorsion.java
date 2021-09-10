@@ -182,7 +182,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the torsion angle.
+     * Standard Uncertainty of the torsion angle.
      * @return FloatColumn
      */
     public FloatColumn getValueEsd() {
@@ -190,7 +190,7 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the torsion angle.
+     * Standard Uncertainty of the torsion angle.
      * @return FloatColumn
      */
     public FloatColumn getAngleSu() {

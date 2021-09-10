@@ -52,14 +52,6 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
     }
 
     /**
-     * Arbitrary identifier for this author
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("audit_contact_author_id"));
-    }
-
-    /**
      * The name of the author of the data block to whom correspondence
      * should be addressed. The family name(s), followed by a comma and
      * including any dynastic components, precedes the first name(s) or

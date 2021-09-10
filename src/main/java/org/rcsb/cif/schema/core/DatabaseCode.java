@@ -22,24 +22,24 @@ public class DatabaseCode extends DelegatingCategory.DelegatingCifCoreCategory {
      * Code assigned by the Chemical Abstracts Service.
      * @return StrColumn
      */
-    public StrColumn getCas() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CAS", "database_code_cas"));
+    public StrColumn getCAS() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CAS"));
     }
 
     /**
-     * Code assigned by the Crystallography Open Database (COD).
+     * Code assigned by Crystallography Open Database (COD).
      * @return StrColumn
      */
-    public StrColumn getCod() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_COD", "database_code_cod"));
+    public StrColumn getCOD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_COD"));
     }
 
     /**
      * Code assigned by the Cambridge Structural Database.
      * @return StrColumn
      */
-    public StrColumn getCsd() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CSD", "database_code_csd"));
+    public StrColumn getCSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CSD"));
     }
 
     /**
@@ -76,40 +76,40 @@ public class DatabaseCode extends DelegatingCategory.DelegatingCifCoreCategory {
      * Code assigned by the Inorganic Crystal Structure Database.
      * @return StrColumn
      */
-    public StrColumn getIcsd() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_ICSD", "database_code_icsd"));
+    public StrColumn getICSD() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_ICSD"));
     }
 
     /**
      * Code assigned in the Metals Data File.
      * @return StrColumn
      */
-    public StrColumn getMdf() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_MDF", "database_code_mdf"));
+    public StrColumn getMDF() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_MDF"));
     }
 
     /**
      * Code assigned by the NBS (NIST) Crystal Data Database.
      * @return StrColumn
      */
-    public StrColumn getNbs() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_NBS", "database_code_nbs"));
+    public StrColumn getNBS() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_NBS"));
     }
 
     /**
-     * Code assigned by the Protein Data Bank.
+     * Code assigned by the Protein Data Base.
      * @return StrColumn
      */
-    public StrColumn getPdb() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDB", "database_code_pdb"));
+    public StrColumn getPDB() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDB"));
     }
 
     /**
      * Code assigned in the Powder Diffraction File.
      * @return StrColumn
      */
-    public StrColumn getPdf() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDF", "database_code_pdf"));
+    public StrColumn getPDF() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDF"));
     }
 
 }

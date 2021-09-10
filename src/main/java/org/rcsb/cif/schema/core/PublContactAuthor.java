@@ -17,16 +17,8 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * Arbitrary identifier for this author
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_id"));
-    }
-
-    /**
      * Identifier in the IUCr contact database of the author submitting
-     * the manuscript and data block. This identifier may be available
+     * the manuscript and datablock. This identifier may be available
      * from the World Directory of Crystallographers (http://wdc.iucr.org).
      * @return StrColumn
      */
