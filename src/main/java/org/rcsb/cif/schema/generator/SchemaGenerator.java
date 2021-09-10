@@ -96,7 +96,8 @@ public class SchemaGenerator {
                 "https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
                 "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
+                "https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_ma.dic"); // model-extension for predicted models
 //        new SchemaGenerator("CifCore", "core", true,
 //                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
 //                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
