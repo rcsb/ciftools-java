@@ -43,7 +43,7 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * The the type of restraint applied to the domain
+     * The type of restraint applied to the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id and in the domains
      * against which it was restrained.
      * @return StrColumn
@@ -53,7 +53,7 @@ public class PdbxRefineLsRestrNcs extends DelegatingCategory {
     }
 
     /**
-     * The the number of this type of restraint applied to the domain
+     * The number of this type of restraint applied to the domain
      * specified by _pdbx_refine_ls_restr_ncs.dom_id and in the domains
      * against which it was restrained.
      * @return IntColumn

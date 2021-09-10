@@ -782,10 +782,14 @@ public class MmCifBlock extends DelegatingBlock {
                 return getEmEntityAssemblyMolwt();
             case "em_entity_assembly_naturalsource":
                 return getEmEntityAssemblyNaturalsource();
+            case "em_entity_assembly_synthetic":
+                return getEmEntityAssemblySynthetic();
             case "em_entity_assembly_recombinant":
                 return getEmEntityAssemblyRecombinant();
             case "em_virus_natural_host":
                 return getEmVirusNaturalHost();
+            case "em_virus_synthetic":
+                return getEmVirusSynthetic();
             case "em_virus_shell":
                 return getEmVirusShell();
             case "em_specimen":
@@ -1114,6 +1118,10 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxAuditRevisionItem();
             case "pdbx_supporting_exp_data_set":
                 return getPdbxSupportingExpDataSet();
+            case "pdbx_database_doi":
+                return getPdbxDatabaseDoi();
+            case "pdbx_audit_conform":
+                return getPdbxAuditConform();
             case "pdbx_serial_crystallography_measurement":
                 return getPdbxSerialCrystallographyMeasurement();
             case "pdbx_serial_crystallography_sample_delivery":
@@ -1136,6 +1144,14 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxChemCompRelated();
             case "pdbx_chem_comp_atom_related":
                 return getPdbxChemCompAtomRelated();
+            case "pdbx_refln_signal_binning":
+                return getPdbxReflnSignalBinning();
+            case "pdbx_sifts_xref_db":
+                return getPdbxSiftsXrefDb();
+            case "pdbx_sifts_xref_db_segments":
+                return getPdbxSiftsXrefDbSegments();
+            case "pdbx_sifts_unp_segments":
+                return getPdbxSiftsUnpSegments();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -1286,6 +1302,80 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmGeometricObjectPlane();
             case "ihm_geometric_object_distance_restraint":
                 return getIhmGeometricObjectDistanceRestraint();
+            case "ma_model_list":
+                return getMaModelList();
+            case "ma_template_details":
+                return getMaTemplateDetails();
+            case "ma_template_poly":
+                return getMaTemplatePoly();
+            case "ma_template_non_poly":
+                return getMaTemplateNonPoly();
+            case "ma_template_poly_segment":
+                return getMaTemplatePolySegment();
+            case "ma_template_ref_db_details":
+                return getMaTemplateRefDbDetails();
+            case "ma_template_customized":
+                return getMaTemplateCustomized();
+            case "ma_template_trans_matrix":
+                return getMaTemplateTransMatrix();
+            case "ma_target_entity":
+                return getMaTargetEntity();
+            case "ma_target_entity_instance":
+                return getMaTargetEntityInstance();
+            case "ma_target_ref_db_details":
+                return getMaTargetRefDbDetails();
+            case "ma_target_template_poly_mapping":
+                return getMaTargetTemplatePolyMapping();
+            case "ma_struct_assembly":
+                return getMaStructAssembly();
+            case "ma_struct_assembly_details":
+                return getMaStructAssemblyDetails();
+            case "ma_alignment_info":
+                return getMaAlignmentInfo();
+            case "ma_alignment_details":
+                return getMaAlignmentDetails();
+            case "ma_alignment":
+                return getMaAlignment();
+            case "ma_template_coord":
+                return getMaTemplateCoord();
+            case "ma_data":
+                return getMaData();
+            case "ma_data_group":
+                return getMaDataGroup();
+            case "ma_coevolution_seq_db_ref":
+                return getMaCoevolutionSeqDbRef();
+            case "ma_coevolution_msa":
+                return getMaCoevolutionMsa();
+            case "ma_coevolution_msa_details":
+                return getMaCoevolutionMsaDetails();
+            case "ma_restraints":
+                return getMaRestraints();
+            case "ma_distance_restraints":
+                return getMaDistanceRestraints();
+            case "ma_angle_restraints":
+                return getMaAngleRestraints();
+            case "ma_dihedral_restraints":
+                return getMaDihedralRestraints();
+            case "ma_restraints_group":
+                return getMaRestraintsGroup();
+            case "ma_protocol_step":
+                return getMaProtocolStep();
+            case "ma_software_group":
+                return getMaSoftwareGroup();
+            case "ma_software_parameter":
+                return getMaSoftwareParameter();
+            case "ma_poly_template_library_details":
+                return getMaPolyTemplateLibraryDetails();
+            case "ma_poly_template_library_list":
+                return getMaPolyTemplateLibraryList();
+            case "ma_poly_template_library_components":
+                return getMaPolyTemplateLibraryComponents();
+            case "ma_qa_metric":
+                return getMaQaMetric();
+            case "ma_qa_metric_global":
+                return getMaQaMetricGlobal();
+            case "ma_qa_metric_local":
+                return getMaQaMetricLocal();
             default:
                 return new DelegatingCategory(category);
         }
@@ -1300,6 +1390,11 @@ public class MmCifBlock extends DelegatingBlock {
      * The data items for describing anisotropic atomic
      * displacement factors are only used if the corresponding items
      * are not given in the ATOM_SITE_ANISOTROP category.
+     * 
+     * wwPDB recommends wwPDB-assigned residue number, residue ID,
+     * and chain ID, _atom_site.auth_seq_id _atom_site.auth_comp_id, and
+     * _atom_site.auth_asym_id, respectively, to be used for publication
+     * materials.
      * @return AtomSite
      */
     public AtomSite getAtomSite() {
@@ -3753,7 +3848,8 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * 
+     * The PDBX_ENTITY_NONPOLY category provides a mapping between
+     * entity and the nonpolymer component
      * @return PdbxEntityNonpoly
      */
     public PdbxEntityNonpoly getPdbxEntityNonpoly() {
@@ -4402,7 +4498,7 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the PDBX_VALIDATE_RMSD_ANGLE category list the
+     * Data items in the PDBX_VALIDATE_RMSD_ANGLE category list
      * the covalent bond angles found in an entry that have
      * values which deviate from expected values by more
      * than 6*rmsd for the particular entry from the expected standard
@@ -5095,7 +5191,7 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate the
+     * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate
      * the linkages between components within the polymer entity.
      * @return PdbxEntityPolyCompLinkList
      */
@@ -5445,6 +5541,15 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in this category record taxonomic details about the synthetic source for EM
+     * assemblies and assembly components.
+     * @return EmEntityAssemblySynthetic
+     */
+    public EmEntityAssemblySynthetic getEmEntityAssemblySynthetic() {
+        return delegate.getCategory("em_entity_assembly_synthetic", EmEntityAssemblySynthetic::new);
+    }
+
+    /**
      * Data items in this category record details
      * about recombinant expression of the assembly or assembly component.
      * @return EmEntityAssemblyRecombinant
@@ -5459,6 +5564,14 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public EmVirusNaturalHost getEmVirusNaturalHost() {
         return delegate.getCategory("em_virus_natural_host", EmVirusNaturalHost::new);
+    }
+
+    /**
+     * Data items in this category record details of a synthetic virus entity.
+     * @return EmVirusSynthetic
+     */
+    public EmVirusSynthetic getEmVirusSynthetic() {
+        return delegate.getCategory("em_virus_synthetic", EmVirusSynthetic::new);
     }
 
     /**
@@ -6137,8 +6250,8 @@ public class MmCifBlock extends DelegatingBlock {
     /**
      * Data items in the PDBX_VIEW_CATEGORY specify the categories
      * belonging to a category view group.  An alias name for the
-     * the mmCIF category may also be specified for the each
-     * category in the view.
+     * mmCIF category may also be specified for the each category
+     * in the view.
      * @return PdbxViewCategory
      */
     public PdbxViewCategory getPdbxViewCategory() {
@@ -6148,8 +6261,8 @@ public class MmCifBlock extends DelegatingBlock {
     /**
      * Data items in the PDBX_VIEW_ITEM specify the mmCIF data items
      * belonging to a view category.  An alias name for the
-     * the mmCIF item may be specified for the each item in the
-     * view category.  The role of the item in the view category
+     * mmCIF item may be specified for the each item in the view
+     * category.  The role of the item in the view category
      * can be designated as mandatory, optional, or hidden.
      * @return PdbxViewItem
      */
@@ -6996,6 +7109,25 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the PDBX_DATABASE_DOI category record the
+     * DOI of this entry.
+     * @return PdbxDatabaseDoi
+     */
+    public PdbxDatabaseDoi getPdbxDatabaseDoi() {
+        return delegate.getCategory("pdbx_database_doi", PdbxDatabaseDoi::new);
+    }
+
+    /**
+     * Data items in the PDBX_AUDIT_CONFORM category describe the
+     * dictionary versions against which the data names appearing in
+     * the current data block are conformant.
+     * @return PdbxAuditConform
+     */
+    public PdbxAuditConform getPdbxAuditConform() {
+        return delegate.getCategory("pdbx_audit_conform", PdbxAuditConform::new);
+    }
+
+    /**
      * Data items in the PDBX_SERIAL_CRYSTALLOGRAPHY_MEASUREMENT category record
      * details the beam that is impinging on the sample
      * @return PdbxSerialCrystallographyMeasurement
@@ -7095,6 +7227,41 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public PdbxChemCompAtomRelated getPdbxChemCompAtomRelated() {
         return delegate.getCategory("pdbx_chem_comp_atom_related", PdbxChemCompAtomRelated::new);
+    }
+
+    /**
+     * The binning of the per-reflection signal generated by the
+     * software specified by _reflns.pdbx_signal_software_id.
+     * If any reflections have a signal &gt;= to the highest threshold
+     * specified, an additional bin should be inferred to hold them.
+     * @return PdbxReflnSignalBinning
+     */
+    public PdbxReflnSignalBinning getPdbxReflnSignalBinning() {
+        return delegate.getCategory("pdbx_refln_signal_binning", PdbxReflnSignalBinning::new);
+    }
+
+    /**
+     * pdbx_sifts_xref_db describes residue-level cross-references to external databases.
+     * @return PdbxSiftsXrefDb
+     */
+    public PdbxSiftsXrefDb getPdbxSiftsXrefDb() {
+        return delegate.getCategory("pdbx_sifts_xref_db", PdbxSiftsXrefDb::new);
+    }
+
+    /**
+     * pdbx_sifts_xref_db_segments describes residue-range based cross-references to external databases.
+     * @return PdbxSiftsXrefDbSegments
+     */
+    public PdbxSiftsXrefDbSegments getPdbxSiftsXrefDbSegments() {
+        return delegate.getCategory("pdbx_sifts_xref_db_segments", PdbxSiftsXrefDbSegments::new);
+    }
+
+    /**
+     * pdbx_sifts_unp_segments describes residue-range based cross-references specific to UniProt.
+     * @return PdbxSiftsUnpSegments
+     */
+    public PdbxSiftsUnpSegments getPdbxSiftsUnpSegments() {
+        return delegate.getCategory("pdbx_sifts_unp_segments", PdbxSiftsUnpSegments::new);
     }
 
     /**
@@ -7861,6 +8028,373 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint() {
         return delegate.getCategory("ihm_geometric_object_distance_restraint", IhmGeometricObjectDistanceRestraint::new);
+    }
+
+    /**
+     * Data items in the MA_MODEL_LIST category record the
+     * details of the models being deposited.
+     * @return MaModelList
+     */
+    public MaModelList getMaModelList() {
+        return delegate.getCategory("ma_model_list", MaModelList::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_DETAILS category record details about
+     * the structural templates used in to obtain the homology/comparative models.
+     * The template can be a polymer or a non-polymer and can be either
+     * referenced from an existing database or can be a customized
+     * template provided by the user.
+     * @return MaTemplateDetails
+     */
+    public MaTemplateDetails getMaTemplateDetails() {
+        return delegate.getCategory("ma_template_details", MaTemplateDetails::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_POLY category record details about
+     * the polymeric structural templates used in homology/comparative modeling.
+     * @return MaTemplatePoly
+     */
+    public MaTemplatePoly getMaTemplatePoly() {
+        return delegate.getCategory("ma_template_poly", MaTemplatePoly::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_NON_POLY category record details about
+     * the non-polymeric structural templates used in the homology/comparative
+     * modeling.
+     * @return MaTemplateNonPoly
+     */
+    public MaTemplateNonPoly getMaTemplateNonPoly() {
+        return delegate.getCategory("ma_template_non_poly", MaTemplateNonPoly::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_POLY_SEGMENT category record details about
+     * the segments of the structural templates used in the homology/comparative
+     * modeling.
+     * @return MaTemplatePolySegment
+     */
+    public MaTemplatePolySegment getMaTemplatePolySegment() {
+        return delegate.getCategory("ma_template_poly_segment", MaTemplatePolySegment::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_REF_DB_DETAILS category record details about
+     * the structural templates obtained from the reference database.
+     * @return MaTemplateRefDbDetails
+     */
+    public MaTemplateRefDbDetails getMaTemplateRefDbDetails() {
+        return delegate.getCategory("ma_template_ref_db_details", MaTemplateRefDbDetails::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_CUSTOMIZED category record details about
+     * the customized structural templates that are not from a reference database.
+     * @return MaTemplateCustomized
+     */
+    public MaTemplateCustomized getMaTemplateCustomized() {
+        return delegate.getCategory("ma_template_customized", MaTemplateCustomized::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_TRANS_MATRIX category records the
+     * details of the transformation matrix applied to the structural template
+     * to generate the starting structure used in the current modeling.
+     * The template can be a polymer or a non-polymer and can be either
+     * referenced from an existing database or can be a customized
+     * template provided by the user.
+     * @return MaTemplateTransMatrix
+     */
+    public MaTemplateTransMatrix getMaTemplateTransMatrix() {
+        return delegate.getCategory("ma_template_trans_matrix", MaTemplateTransMatrix::new);
+    }
+
+    /**
+     * Data items in the MA_TARGET_ENTITY category record details about
+     * the target entities. The details are provided for each entity
+     * being modeled.
+     * @return MaTargetEntity
+     */
+    public MaTargetEntity getMaTargetEntity() {
+        return delegate.getCategory("ma_target_entity", MaTargetEntity::new);
+    }
+
+    /**
+     * Data items in the MA_TARGET_ENTITY_INSTANCE category record details about
+     * the instances of target entities modeled.
+     * @return MaTargetEntityInstance
+     */
+    public MaTargetEntityInstance getMaTargetEntityInstance() {
+        return delegate.getCategory("ma_target_entity_instance", MaTargetEntityInstance::new);
+    }
+
+    /**
+     * Data items in the MA_TARGET_REF_DB_DETAILS category record details about
+     * the reference databases for the target sequences.
+     * @return MaTargetRefDbDetails
+     */
+    public MaTargetRefDbDetails getMaTargetRefDbDetails() {
+        return delegate.getCategory("ma_target_ref_db_details", MaTargetRefDbDetails::new);
+    }
+
+    /**
+     * Data items in the MA_TARGET_TEMPLATE_MAPPING category record details about
+     * the mappings of the polymeric targets to the structural templates.
+     * @return MaTargetTemplatePolyMapping
+     */
+    public MaTargetTemplatePolyMapping getMaTargetTemplatePolyMapping() {
+        return delegate.getCategory("ma_target_template_poly_mapping", MaTargetTemplatePolyMapping::new);
+    }
+
+    /**
+     * Data items in the MA_STRUCT_ASSEMBLY category records the
+     * details of the structural assemblies modeled.
+     * @return MaStructAssembly
+     */
+    public MaStructAssembly getMaStructAssembly() {
+        return delegate.getCategory("ma_struct_assembly", MaStructAssembly::new);
+    }
+
+    /**
+     * Data items in the MA_STRUCT_ASSEMBLY_DETAILS category provides
+     * additional details regarding the structure assembly.
+     * @return MaStructAssemblyDetails
+     */
+    public MaStructAssemblyDetails getMaStructAssemblyDetails() {
+        return delegate.getCategory("ma_struct_assembly_details", MaStructAssemblyDetails::new);
+    }
+
+    /**
+     * Data items in the MA_ALIGNMENT_INFO category record
+     * list of target-template alignments (pairwise as well as
+     * multiple-sequence alignments) used in the homology/comparative modeling.
+     * Additional details are included in the MA_ALIGNMENT_DETAILS category
+     * and the actual alignments are captured in the MA_ALIGNMENT category.
+     * @return MaAlignmentInfo
+     */
+    public MaAlignmentInfo getMaAlignmentInfo() {
+        return delegate.getCategory("ma_alignment_info", MaAlignmentInfo::new);
+    }
+
+    /**
+     * Data items in the MA_ALIGNMENT_DETAILS category record
+     * details of the target-template pairwise and multiple sequence
+     * alignments used in the homology/comparative modeling.
+     * The actual alignments are captured in the MA_ALIGNMENT category.
+     * @return MaAlignmentDetails
+     */
+    public MaAlignmentDetails getMaAlignmentDetails() {
+        return delegate.getCategory("ma_alignment_details", MaAlignmentDetails::new);
+    }
+
+    /**
+     * Data items in the MA_ALIGMNENT category record details about
+     * the relationship between the sequences of the target and the
+     * structural template obtained through multiple sequence alignment
+     * methods. Alignments can be fully gapped or partial.
+     * @return MaAlignment
+     */
+    public MaAlignment getMaAlignment() {
+        return delegate.getCategory("ma_alignment", MaAlignment::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_COORD category records the coordinates
+     * for customized structural templates used in model building. These are
+     * provided by the user and not referenced from an existing database.
+     * @return MaTemplateCoord
+     */
+    public MaTemplateCoord getMaTemplateCoord() {
+        return delegate.getCategory("ma_template_coord", MaTemplateCoord::new);
+    }
+
+    /**
+     * Data items in the MA_DATA category capture the different kinds of
+     * data used in the modeling. These can be multiple sequence
+     * alignments, spatial restraints, template structures etc.
+     * @return MaData
+     */
+    public MaData getMaData() {
+        return delegate.getCategory("ma_data", MaData::new);
+    }
+
+    /**
+     * Data items in the MA_DATA_GROUP category describes the
+     * collection of data into groups so that they can be used
+     * efficiently in the MA_PROTOCOL_STEP category.
+     * @return MaDataGroup
+     */
+    public MaDataGroup getMaDataGroup() {
+        return delegate.getCategory("ma_data_group", MaDataGroup::new);
+    }
+
+    /**
+     * Data items in the MA_COEVOLUTION_SEQ_DB_REF category record details about
+     * the reference database identifiers for the sequences in the coevolution
+     * multiple sequence alignments.
+     * @return MaCoevolutionSeqDbRef
+     */
+    public MaCoevolutionSeqDbRef getMaCoevolutionSeqDbRef() {
+        return delegate.getCategory("ma_coevolution_seq_db_ref", MaCoevolutionSeqDbRef::new);
+    }
+
+    /**
+     * Data items in the MA_COEVOLUTION_MSA category record details about
+     * the coevolution multiple sequence alignments.
+     * @return MaCoevolutionMsa
+     */
+    public MaCoevolutionMsa getMaCoevolutionMsa() {
+        return delegate.getCategory("ma_coevolution_msa", MaCoevolutionMsa::new);
+    }
+
+    /**
+     * Data items in the MA_COEVOLUTION_MSA_DETAILS category record details about
+     * the coevolution MSA used in the modeling.
+     * @return MaCoevolutionMsaDetails
+     */
+    public MaCoevolutionMsaDetails getMaCoevolutionMsaDetails() {
+        return delegate.getCategory("ma_coevolution_msa_details", MaCoevolutionMsaDetails::new);
+    }
+
+    /**
+     * Data items in the MA_RESTRAINTS category provides the
+     * list of the different types of spatial restraints used
+     * in the modeling.
+     * @return MaRestraints
+     */
+    public MaRestraints getMaRestraints() {
+        return delegate.getCategory("ma_restraints", MaRestraints::new);
+    }
+
+    /**
+     * Data items in the MA_DISTANCE_RESTRAINTS category records the
+     * list of distance restraints used in the modeling.
+     * These distances can be atomic or residue-wise distances.
+     * This has been adapted from the widely used CASP RR format
+     * (http://www.predictioncenter.org/casp8/index.cgi?page=format#RR).
+     * These distances may be derived from various coevolution MSA or other
+     * exeperimental or computational methods.
+     * @return MaDistanceRestraints
+     */
+    public MaDistanceRestraints getMaDistanceRestraints() {
+        return delegate.getCategory("ma_distance_restraints", MaDistanceRestraints::new);
+    }
+
+    /**
+     * Data items in the MA_ANGLE_RESTRAINTS category captures the
+     * details of angle restraints between atoms. Each angle is spanned
+     * from atom one to atom three. Each atom defining the angle can be
+     * part of any entity present and does not originate in the same
+     * entity.
+     * @return MaAngleRestraints
+     */
+    public MaAngleRestraints getMaAngleRestraints() {
+        return delegate.getCategory("ma_angle_restraints", MaAngleRestraints::new);
+    }
+
+    /**
+     * Data items in the MA_DIHEDRAL_RESTRAINTS category captures the
+     * details of dihedral restraints between atoms. A dihedral is spanned
+     * sequentially from atom one to atom four.
+     * @return MaDihedralRestraints
+     */
+    public MaDihedralRestraints getMaDihedralRestraints() {
+        return delegate.getCategory("ma_dihedral_restraints", MaDihedralRestraints::new);
+    }
+
+    /**
+     * Data items in the MA_RESTRAINTS_GROUP category captures the
+     * details of groups of restraints used in the modeling.
+     * @return MaRestraintsGroup
+     */
+    public MaRestraintsGroup getMaRestraintsGroup() {
+        return delegate.getCategory("ma_restraints_group", MaRestraintsGroup::new);
+    }
+
+    /**
+     * Data items in the MA_PROTOCOL_STEP category captures the
+     * details of the modeling protocol and individial steps
+     * within each protocol.
+     * @return MaProtocolStep
+     */
+    public MaProtocolStep getMaProtocolStep() {
+        return delegate.getCategory("ma_protocol_step", MaProtocolStep::new);
+    }
+
+    /**
+     * Data items in the MA_SOFTWARE_GROUP category describes the
+     * collection of software into groups so that they can be used
+     * efficiently in the MA_PROTOCOL_STEP category.
+     * @return MaSoftwareGroup
+     */
+    public MaSoftwareGroup getMaSoftwareGroup() {
+        return delegate.getCategory("ma_software_group", MaSoftwareGroup::new);
+    }
+
+    /**
+     * Data items in the MA_SOFTWARE_PARAMETER category record the
+     * details of the software parameters used in the modeling
+     * protocol steps.
+     * @return MaSoftwareParameter
+     */
+    public MaSoftwareParameter getMaSoftwareParameter() {
+        return delegate.getCategory("ma_software_parameter", MaSoftwareParameter::new);
+    }
+
+    /**
+     * Data items in the MA_POLY_TEMPLATE_LIBRARY_DETAILS category record details
+     * about the polymeric template libraries used in the modeling.
+     * @return MaPolyTemplateLibraryDetails
+     */
+    public MaPolyTemplateLibraryDetails getMaPolyTemplateLibraryDetails() {
+        return delegate.getCategory("ma_poly_template_library_details", MaPolyTemplateLibraryDetails::new);
+    }
+
+    /**
+     * Data items in the MA_POLY_TEMPLATE_LIBRARY_LIST category carries the list of
+     * templates used to build a template library.
+     * @return MaPolyTemplateLibraryList
+     */
+    public MaPolyTemplateLibraryList getMaPolyTemplateLibraryList() {
+        return delegate.getCategory("ma_poly_template_library_list", MaPolyTemplateLibraryList::new);
+    }
+
+    /**
+     * Data items in the MA_POLY_TEMPLATE_LIBRARY_COMPONENTS category record details about
+     * the components in a template library.
+     * @return MaPolyTemplateLibraryComponents
+     */
+    public MaPolyTemplateLibraryComponents getMaPolyTemplateLibraryComponents() {
+        return delegate.getCategory("ma_poly_template_library_components", MaPolyTemplateLibraryComponents::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC category record the
+     * details of the metrics use to assess model quality.
+     * @return MaQaMetric
+     */
+    public MaQaMetric getMaQaMetric() {
+        return delegate.getCategory("ma_qa_metric", MaQaMetric::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC_GLOBAL category captures the
+     * details of the global QA metrics, calculated at the model-level.
+     * @return MaQaMetricGlobal
+     */
+    public MaQaMetricGlobal getMaQaMetricGlobal() {
+        return delegate.getCategory("ma_qa_metric_global", MaQaMetricGlobal::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC_LOCAL category captures the
+     * details of the local QA metrics, calculated at the residue-level.
+     * @return MaQaMetricLocal
+     */
+    public MaQaMetricLocal getMaQaMetricLocal() {
+        return delegate.getCategory("ma_qa_metric_local", MaQaMetricLocal::new);
     }
 
 }

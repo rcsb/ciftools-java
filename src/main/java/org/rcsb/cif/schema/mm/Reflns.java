@@ -138,6 +138,80 @@ public class Reflns extends DelegatingCategory {
                 return getPdbxRpimIAllAnomalous();
             case "pdbx_Rmerge_I_anomalous":
                 return getPdbxRmergeIAnomalous();
+            case "pdbx_aniso_diffraction_limit_axis_1_ortho[1]":
+                return getPdbxAnisoDiffractionLimitAxis1Ortho1();
+            case "pdbx_aniso_diffraction_limit_axis_1_ortho[2]":
+                return getPdbxAnisoDiffractionLimitAxis1Ortho2();
+            case "pdbx_aniso_diffraction_limit_axis_1_ortho[3]":
+                return getPdbxAnisoDiffractionLimitAxis1Ortho3();
+            case "pdbx_aniso_diffraction_limit_axis_2_ortho[1]":
+                return getPdbxAnisoDiffractionLimitAxis2Ortho1();
+            case "pdbx_aniso_diffraction_limit_axis_2_ortho[2]":
+                return getPdbxAnisoDiffractionLimitAxis2Ortho2();
+            case "pdbx_aniso_diffraction_limit_axis_2_ortho[3]":
+                return getPdbxAnisoDiffractionLimitAxis2Ortho3();
+            case "pdbx_aniso_diffraction_limit_axis_3_ortho[1]":
+                return getPdbxAnisoDiffractionLimitAxis3Ortho1();
+            case "pdbx_aniso_diffraction_limit_axis_3_ortho[2]":
+                return getPdbxAnisoDiffractionLimitAxis3Ortho2();
+            case "pdbx_aniso_diffraction_limit_axis_3_ortho[3]":
+                return getPdbxAnisoDiffractionLimitAxis3Ortho3();
+            case "pdbx_aniso_diffraction_limit_1":
+                return getPdbxAnisoDiffractionLimit1();
+            case "pdbx_aniso_diffraction_limit_2":
+                return getPdbxAnisoDiffractionLimit2();
+            case "pdbx_aniso_diffraction_limit_3":
+                return getPdbxAnisoDiffractionLimit3();
+            case "pdbx_aniso_B_tensor_eigenvector_1_ortho[1]":
+                return getPdbxAnisoBTensorEigenvector1Ortho1();
+            case "pdbx_aniso_B_tensor_eigenvector_1_ortho[2]":
+                return getPdbxAnisoBTensorEigenvector1Ortho2();
+            case "pdbx_aniso_B_tensor_eigenvector_1_ortho[3]":
+                return getPdbxAnisoBTensorEigenvector1Ortho3();
+            case "pdbx_aniso_B_tensor_eigenvector_2_ortho[1]":
+                return getPdbxAnisoBTensorEigenvector2Ortho1();
+            case "pdbx_aniso_B_tensor_eigenvector_2_ortho[2]":
+                return getPdbxAnisoBTensorEigenvector2Ortho2();
+            case "pdbx_aniso_B_tensor_eigenvector_2_ortho[3]":
+                return getPdbxAnisoBTensorEigenvector2Ortho3();
+            case "pdbx_aniso_B_tensor_eigenvector_3_ortho[1]":
+                return getPdbxAnisoBTensorEigenvector3Ortho1();
+            case "pdbx_aniso_B_tensor_eigenvector_3_ortho[2]":
+                return getPdbxAnisoBTensorEigenvector3Ortho2();
+            case "pdbx_aniso_B_tensor_eigenvector_3_ortho[3]":
+                return getPdbxAnisoBTensorEigenvector3Ortho3();
+            case "pdbx_aniso_B_tensor_eigenvalue_1":
+                return getPdbxAnisoBTensorEigenvalue1();
+            case "pdbx_aniso_B_tensor_eigenvalue_2":
+                return getPdbxAnisoBTensorEigenvalue2();
+            case "pdbx_aniso_B_tensor_eigenvalue_3":
+                return getPdbxAnisoBTensorEigenvalue3();
+            case "pdbx_orthogonalization_convention":
+                return getPdbxOrthogonalizationConvention();
+            case "pdbx_percent_possible_ellipsoidal":
+                return getPdbxPercentPossibleEllipsoidal();
+            case "pdbx_percent_possible_spherical":
+                return getPdbxPercentPossibleSpherical();
+            case "pdbx_percent_possible_ellipsoidal_anomalous":
+                return getPdbxPercentPossibleEllipsoidalAnomalous();
+            case "pdbx_percent_possible_spherical_anomalous":
+                return getPdbxPercentPossibleSphericalAnomalous();
+            case "pdbx_redundancy_anomalous":
+                return getPdbxRedundancyAnomalous();
+            case "pdbx_CC_half_anomalous":
+                return getPdbxCCHalfAnomalous();
+            case "pdbx_absDiff_over_sigma_anomalous":
+                return getPdbxAbsDiffOverSigmaAnomalous();
+            case "pdbx_percent_possible_anomalous":
+                return getPdbxPercentPossibleAnomalous();
+            case "pdbx_observed_signal_threshold":
+                return getPdbxObservedSignalThreshold();
+            case "pdbx_signal_type":
+                return getPdbxSignalType();
+            case "pdbx_signal_details":
+                return getPdbxSignalDetails();
+            case "pdbx_signal_software_id":
+                return getPdbxSignalSoftwareId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -185,8 +259,8 @@ public class Reflns extends DelegatingCategory {
     }
 
     /**
-     * The smallest value for the interplanar spacings for
-     * the reflection data. This is called the highest resolution.
+     * The smallest value in angstroms for the interplanar spacings
+     * for the reflection data. This is called the highest resolution.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionHigh() {
@@ -194,8 +268,8 @@ public class Reflns extends DelegatingCategory {
     }
 
     /**
-     * The largest value for the interplanar spacings for the
-     * reflection data. This is called the lowest resolution.
+     * The largest value in angstroms for the interplanar spacings
+     * for the reflection data. This is called the lowest resolution.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionLow() {
@@ -488,7 +562,7 @@ public class Reflns extends DelegatingCategory {
     }
 
     /**
-     * Overall redundancy for this data set (%).
+     * Overall redundancy for this data set.
      * @return FloatColumn
      */
     public FloatColumn getPdbxRedundancy() {
@@ -794,6 +868,439 @@ public class Reflns extends DelegatingCategory {
      */
     public FloatColumn getPdbxRmergeIAnomalous() {
         return delegate.getColumn("pdbx_Rmerge_I_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 1 (X component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis1Ortho1() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_1_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 1 (Y component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis1Ortho2() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_1_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 1 (Z component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis1Ortho3() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_1_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 2 (X component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis2Ortho1() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_2_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 2 (Y component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis2Ortho2() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_2_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 2 (Z component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis2Ortho3() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_2_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 3 (X component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis3Ortho1() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_3_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 3 (Y component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis3Ortho2() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_3_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Principal axis 3 (Z component) of ellipsoid fitted to the
+     * diffraction cut-off surface. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimitAxis3Ortho3() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_axis_3_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Anisotropic diffraction limit along principal axis 1 (of
+     * ellipsoid fitted to the diffraction cut-off surface).
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimit1() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_1", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Anisotropic diffraction limit along principal axis 2 (of
+     * ellipsoid fitted to the diffraction cut-off surface)
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimit2() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_2", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Anisotropic diffraction limit along principal axis 3 (of
+     * ellipsoid fitted to the diffraction cut-off surface)
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoDiffractionLimit3() {
+        return delegate.getColumn("pdbx_aniso_diffraction_limit_3", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * X component of the first eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector1Ortho1() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_1_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Y component of the first eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector1Ortho2() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_1_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Z component of the first eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector1Ortho3() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_1_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * X component of the second eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector2Ortho1() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_2_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Y component of the second eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector2Ortho2() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_2_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Z component of the second eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector2Ortho3() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_2_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * X component of the third eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector3Ortho1() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_3_ortho[1]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Y component of the third eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector3Ortho2() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_3_ortho[2]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Z component of the third eigenvector of the diffraction
+     * anisotropy tensor. The applicable orthogonalization
+     * convention is that specified by
+     * _reflns.pdbx_orthogonalization_convention.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvector3Ortho3() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvector_3_ortho[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Eigen-B-factor along the first eigenvector of the
+     * diffraction anisotropy tensor
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvalue1() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvalue_1", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Eigen-B-factor along the second eigenvector of the
+     * diffraction anisotropy tensor
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvalue2() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvalue_2", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Eigen-B-factor along the third eigenvector of the
+     * diffraction anisotropy tensor
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAnisoBTensorEigenvalue3() {
+        return delegate.getColumn("pdbx_aniso_B_tensor_eigenvalue_3", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Description of orthogonalization convention used. The
+     * notation can make use of unit cell axes "a", "b" and "c"
+     * and the reciprocal unit cell axes "astar", "bstar" and
+     * "cstar". Upper case letters "X", "Y" and "Z" denote the
+     * orthogonal axes, while lower case "x" stands for "cross
+     * product".
+     * @return StrColumn
+     */
+    public StrColumn getPdbxOrthogonalizationConvention() {
+        return delegate.getColumn("pdbx_orthogonalization_convention", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique data
+     * within the intersection of (1) a sphere (defined by the
+     * diffraction limits, _reflns.d_resolution_high and
+     * _reflns.d_resolution_low) and (2) the ellipsoid
+     * (described by __reflns.pdbx_aniso_diffraction_limit_*
+     * items), relative to all possible symmetry-unique
+     * reflections within that intersection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleEllipsoidal() {
+        return delegate.getColumn("pdbx_percent_possible_ellipsoidal", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique data
+     * within the sphere defined by the diffraction limits
+     * (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low) relative to all possible
+     * symmetry-unique reflections within that sphere.
+     * 
+     * In the absence of an anisotropy description this is
+     * identical to _reflns.percent_possible_obs.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleSpherical() {
+        return delegate.getColumn("pdbx_percent_possible_spherical", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the intersection of
+     * (1) a sphere (defined by the diffraction limits,
+     * _reflns.d_resolution_high and _reflns.d_resolution_low)
+     * and (2) the ellipsoid (described by
+     * __reflns.pdbx_aniso_diffraction_limit_* items),
+     * relative to all possible symmetry-unique anomalous
+     * difference data within that intersection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleEllipsoidalAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_ellipsoidal_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the sphere defined by
+     * the diffraction limits (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low) relative to all possible
+     * symmetry-unique anomalous difference data within that
+     * sphere.
+     * 
+     * In the absence of an anisotropy description this is
+     * identical to _reflns.pdbx_percent_possible_anomalous.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleSphericalAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_spherical_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The overall redundancy of anomalous difference data
+     * within the sphere defined by the diffraction limits
+     * (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low), i.e. data for which
+     * intensities for both instances of a Friedel pair are
+     * available for an acentric reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRedundancyAnomalous() {
+        return delegate.getColumn("pdbx_redundancy_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The overall correlation coefficient between two randomly
+     * chosen half-sets of anomalous intensity differences,
+     * I(+)-I(-) for anomalous data within the sphere defined
+     * by the diffraction limits (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low), i.e. data for which
+     * intensities for both instances of a Friedel pair are
+     * available for an acentric reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCCHalfAnomalous() {
+        return delegate.getColumn("pdbx_CC_half_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The overall mean ratio of absolute anomalous intensity
+     * differences to their standard deviation within the
+     * sphere defined by the diffraction limits
+     * (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low) and using data for which
+     * intensities for both instances of a Friedel pair are
+     * available for an acentric reflection.
+     * 
+     * |Dano|
+     * -------------
+     * sigma(Dano)
+     * 
+     * with
+     * 
+     * Dano        = I(+) - I(-)
+     * sigma(Dano) = sqrt( sigma(I(+))^2 + sigma(I(-))^2 )
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAbsDiffOverSigmaAnomalous() {
+        return delegate.getColumn("pdbx_absDiff_over_sigma_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the sphere defined by
+     * the diffraction limits (_reflns.d_resolution_high and
+     * _reflns.d_resolution_low) relative to all possible
+     * symmetry-unique anomalous difference data within that
+     * sphere.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The threshold value for _refln.pdbx_signal as used to
+     * define the status of an individual reflection according
+     * to the description in _refln.pdbx_signal_status.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxObservedSignalThreshold() {
+        return delegate.getColumn("pdbx_observed_signal_threshold", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Type of signal used for
+     * _reflns.pdbx_observed_signal_threshold and _refln.pdbx_signal
+     * 
+     * In the enumeration details:
+     * 
+     * Imean is the inverse-variance weighted mean intensity of all
+     * measurements for a given symmetry-unique reflection
+     * 
+     * Ihalf is the inverse-variance weighted mean intensity of a
+     * random half-selection of all measurements for a
+     * given symmetry-unique reflection
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSignalType() {
+        return delegate.getColumn("pdbx_signal_type", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Further details about the calculation of the values
+     * assigned to _refln.pdbx_signal
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSignalDetails() {
+        return delegate.getColumn("pdbx_signal_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The software used to calculate the values of _refln.pdbx_signal
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSignalSoftwareId() {
+        return delegate.getColumn("pdbx_signal_software_id", DelegatingStrColumn::new);
     }
 
 }

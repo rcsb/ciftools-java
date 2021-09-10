@@ -19,6 +19,8 @@ public class EmAuthorList extends DelegatingCategory {
         switch (columnName) {
             case "author":
                 return getAuthor();
+            case "identifier_ORCID":
+                return getIdentifierORCID();
             case "ordinal":
                 return getOrdinal();
             default:
@@ -32,6 +34,14 @@ public class EmAuthorList extends DelegatingCategory {
      */
     public StrColumn getAuthor() {
         return delegate.getColumn("author", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The Open Researcher and Contributor ID (ORCID).
+     * @return StrColumn
+     */
+    public StrColumn getIdentifierORCID() {
+        return delegate.getColumn("identifier_ORCID", DelegatingStrColumn::new);
     }
 
     /**

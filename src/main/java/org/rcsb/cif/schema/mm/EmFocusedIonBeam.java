@@ -72,10 +72,10 @@ public class EmFocusedIonBeam extends DelegatingCategory {
 
     /**
      * Milling time in seconds (is seconds most appropriate unit?)
-     * @return IntColumn
+     * @return FloatColumn
      */
-    public IntColumn getDuration() {
-        return delegate.getColumn("duration", DelegatingIntColumn::new);
+    public FloatColumn getDuration() {
+        return delegate.getColumn("duration", DelegatingFloatColumn::new);
     }
 
     /**

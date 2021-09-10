@@ -166,6 +166,10 @@ public class Refln extends DelegatingCategory {
                 return getPdbxCosPhaseCalc();
             case "pdbx_sin_phase_calc":
                 return getPdbxSinPhaseCalc();
+            case "pdbx_signal":
+                return getPdbxSignal();
+            case "pdbx_signal_status":
+                return getPdbxSignalStatus();
             default:
                 return new DelegatingColumn(column);
         }
@@ -598,7 +602,7 @@ public class Refln extends DelegatingCategory {
     }
 
     /**
-     * The the standard deviation of the amplitude difference
+     * The standard deviation of the amplitude difference
      * of the Friedel pair,  D(hkl) = F(hkl) - F(-h-k-l).
      * @return FloatColumn
      */
@@ -837,6 +841,41 @@ public class Refln extends DelegatingCategory {
      */
     public FloatColumn getPdbxSinPhaseCalc() {
         return delegate.getColumn("pdbx_sin_phase_calc", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The signal value for this reflection as defined by
+     * _reflns.pdbx_signal_type and _reflns.pdbx_signal_details
+     * as calculated by _reflns.pdbx_signal_software_id.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxSignal() {
+        return delegate.getColumn("pdbx_signal", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The status of a reflection related to _refln.pdbx_signal.
+     * 
+     * A measured reflection counts as observed if:
+     * _refln.pdbx_signal &gt;= _reflns.pdbx_observed_signal_threshold
+     * and unobserved if:
+     * _refln.pdbx_signal &lt;  _reflns.pdbx_observed_signal_threshold
+     * 
+     * An unmeasured but observable reflection is one that has not
+     * been measured, but the data processing has determined that it
+     * would have been expected to be observed had it been measured.
+     * 
+     * An unmeasured and unobservable reflection is one that the data
+     * processing has determined would not have been expected to be
+     * observed.
+     * 
+     * In datasets in which _refln.pdbx_signal has been populated, a null
+     * (?) value for this item indicates an unmeasured reflection for
+     * which it is not known whether it is observable or not.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSignalStatus() {
+        return delegate.getColumn("pdbx_signal_status", DelegatingStrColumn::new);
     }
 
 }

@@ -8,8 +8,8 @@ import javax.annotation.Generated;
 /**
  * Data items in the PDBX_VIEW_ITEM specify the mmCIF data items
  * belonging to a view category.  An alias name for the
- * the mmCIF item may be specified for the each item in the
- * view category.  The role of the item in the view category
+ * mmCIF item may be specified for the each item in the view
+ * category.  The role of the item in the view category
  * can be designated as mandatory, optional, or hidden.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")

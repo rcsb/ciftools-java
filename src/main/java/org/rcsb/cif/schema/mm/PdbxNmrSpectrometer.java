@@ -71,7 +71,7 @@ public class PdbxNmrSpectrometer extends DelegatingCategory {
     }
 
     /**
-     * Select the field strength for protons in MHz.
+     * The field strength in MHz of the spectrometer
      * @return FloatColumn
      */
     public FloatColumn getFieldStrength() {

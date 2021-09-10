@@ -90,10 +90,22 @@ public class DiffrnRefln extends DelegatingCategory {
                 return getWavelength();
             case "wavelength_id":
                 return getWavelengthId();
+            case "pdbx_image_id":
+                return getPdbxImageId();
+            case "pdbx_scan_angle":
+                return getPdbxScanAngle();
             case "class_code":
                 return getClassCode();
             case "intensity_u":
                 return getIntensityU();
+            case "pdbx_detector_x":
+                return getPdbxDetectorX();
+            case "pdbx_detector_y":
+                return getPdbxDetectorY();
+            case "pdbx_rotation_angle":
+                return getPdbxRotationAngle();
+            case "pdbx_scale_value":
+                return getPdbxScaleValue();
             default:
                 return new DelegatingColumn(column);
         }
@@ -426,6 +438,26 @@ public class DiffrnRefln extends DelegatingCategory {
     }
 
     /**
+     * The identifier of the diffraction image this reflection
+     * is associated with. This is often the image where the
+     * calculated reflection centroid is predicted to occur.
+     * @return IntColumn
+     */
+    public IntColumn getPdbxImageId() {
+        return delegate.getColumn("pdbx_image_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * The value of the angle around the scan axis for this
+     * reflection. This is often the scan angle at which the
+     * calculated reflection centroid is predicted to occur.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxScanAngle() {
+        return delegate.getColumn("pdbx_scan_angle", DelegatingFloatColumn::new);
+    }
+
+    /**
      * The code identifying the class to which this reflection has
      * been assigned. This code must match a value of
      * _diffrn_reflns_class.code. Reflections may be grouped into
@@ -448,6 +480,57 @@ public class DiffrnRefln extends DelegatingCategory {
      */
     public FloatColumn getIntensityU() {
         return delegate.getColumn("intensity_u", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the X-direction
+     * for this reflection. This is often the position where
+     * the calculated reflection centroid is predicted to occur.
+     * 
+     * The detector X-direction is most often along the fast
+     * changing array index of the 2D diffraction array, while
+     * the Y-coordinate is along the slow changing array
+     * index.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorX() {
+        return delegate.getColumn("pdbx_detector_x", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the Y-direction
+     * for this reflection. This is often the position where
+     * the calculated reflection centroid is predicted to occur.
+     * 
+     * The detector X-direction is most often along the fast
+     * changing array index of the 2D diffraction array, while
+     * the Y-coordinate is along the slow changing array
+     * index.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorY() {
+        return delegate.getColumn("pdbx_detector_y", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The value of the angle around the scan axis for this
+     * reflection. This is often the scan angle at which the
+     * calculated reflection centroid is predicted to occur.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRotationAngle() {
+        return delegate.getColumn("pdbx_rotation_angle", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The scale factor applied to an individual reflection
+     * intensity at the last scaling step before merging
+     * all measurements belonging to symmetry-unique
+     * reflections into a merged intensity.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxScaleValue() {
+        return delegate.getColumn("pdbx_scale_value", DelegatingFloatColumn::new);
     }
 
 }

@@ -66,6 +66,8 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
                 return getPostRelReplacementReason();
             case "post_rel_replacement_reason_details":
                 return getPostRelReplacementReasonDetails();
+            case "has_accepted_assemblies":
+                return getHasAcceptedAssemblies();
             default:
                 return new DelegatingColumn(column);
         }
@@ -168,7 +170,7 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
     }
 
     /**
-     * The the last validation report operation, the name of the model file last validated.
+     * The last validation report operation, the name of the model file last validated.
      * @return StrColumn
      */
     public StrColumn getValidatedModelFileName() {
@@ -261,6 +263,14 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
      */
     public StrColumn getPostRelReplacementReasonDetails() {
         return delegate.getColumn("post_rel_replacement_reason_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag to indicate that depositor has accepted the presented assemblies.
+     * @return StrColumn
+     */
+    public StrColumn getHasAcceptedAssemblies() {
+        return delegate.getColumn("has_accepted_assemblies", DelegatingStrColumn::new);
     }
 
 }

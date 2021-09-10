@@ -557,7 +557,7 @@ public class PdbxDccDensity extends DelegatingCategory {
     }
 
     /**
-     * Whether the the conversion of partial B to full B factor is
+     * Whether the conversion of partial B to full B factor is
      * successful (Y) or not (N).
      * @return StrColumn
      */
