@@ -3,6 +3,26 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 3.0.0 - September 2021
+-------------
+### New features
+* add support for the CIF model extension (https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_ma.dic), relevant for AlphaFold models and other predicted structures
+
+### Bug fixes
+* names in cifcore implementation now follow spec and are case-insensitive
+
+### Breaking schema changes
+* mmCIF:
+  * `em_focused_ion_beam.duration` changed from int to float type
+  * `em_map.symmetry_space_group` changed from String to int type
+  * `pdbx_struct_ncs_virus_gen.oper_id` changed from String to int type
+  * `struct_ncs_ens_gen.oper_id` changed from String to int type
+  * `struct_ncs_oper.id` changed from String to int type
+* cif-core:
+  * case changes for many column names, this affects Java access methods unless explicitly aliased by the dictionary
+  * `atom_type_scat_versus_stol_list` changed from String to float type
+  * `model_site_adp_eigen_system` changed from String to `model_site_adp_eigenvalues` and `model_site_adp_eigenvectors` of float type
+
 ciftools-java 2.0.2
 -------------
 ### General
