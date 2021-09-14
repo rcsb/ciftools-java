@@ -14,8 +14,10 @@ import org.rcsb.cif.schema.DelegatingIntColumn;
 import org.rcsb.cif.schema.DelegatingStrColumn;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -42,20 +44,19 @@ import java.util.stream.Stream;
  */
 @SuppressWarnings("ALL")
 public class SchemaGenerator {
-    private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
     private static final String RE_VECTOR_FIELD = "\\[[1-3]]";
     private static final List<String> FORCE_INT_FIELDS =
             List.of("_atom_site.id",
-            "_atom_site.auth_seq_id",
-            "_pdbx_struct_mod_residue.auth_seq_id",
-            "_struct_conf.beg_auth_seq_id",
-            "_struct_conf.end_auth_seq_id",
-            "_struct_conn.ptnr1_auth_seq_id",
-            "_struct_conn.ptnr2_auth_seq_id",
-            "_struct_sheet_range.beg_auth_seq_id",
-            "_struct_sheet_range.end_auth_seq_id");
+                    "_atom_site.auth_seq_id",
+                    "_pdbx_struct_mod_residue.auth_seq_id",
+                    "_struct_conf.beg_auth_seq_id",
+                    "_struct_conf.end_auth_seq_id",
+                    "_struct_conn.ptnr1_auth_seq_id",
+                    "_struct_conn.ptnr2_auth_seq_id",
+                    "_struct_sheet_range.beg_auth_seq_id",
+                    "_struct_sheet_range.end_auth_seq_id");
 
     private static final String BLOCK = loadTemplate("Block.tpl");
     private static final String BLOCK_FLAT = loadTemplate("BlockFlat.tpl");
@@ -98,10 +99,10 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
                 "https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_ma.dic"); // model-extension for predicted models
-//        new SchemaGenerator("CifCore", "core", true,
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+        new SchemaGenerator("CifCore", "core", true,
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
     }
 
     static String toClassName(String rawName) {
@@ -125,7 +126,29 @@ public class SchemaGenerator {
     }
 
     private void writeClasses() throws IOException {
-        writeBlockImpl(schema, OUTPUT_PATH);
+        // create or clear out destination directory
+        // be careful with this and point to temp directory when in trouble - the impl must be in a heavily state to bootstrap itself and generate schema-related code
+        Path projectPath = Paths.get(new File("").getAbsolutePath());
+        String basePackagePath = BASE_PACKAGE.substring(0, BASE_PACKAGE.length() - 1).replace(".", "/");
+        Path packagePath = projectPath.resolve("src").resolve("main").resolve("java").resolve(basePackagePath).resolve(packageName);
+
+        if (Files.exists(packagePath)) {
+            Files.list(packagePath)
+                    .filter(p -> !Files.isDirectory(p))
+                    // don't delete 'special' root files that won't get re-generated
+                    .filter(p -> !p.toFile().getName().contains(schemaName))
+                    .forEach(p -> {
+                        try {
+                            Files.delete(p);
+                        } catch (IOException e) {
+                            throw new UncheckedIOException(e);
+                        }
+                    });
+        } else {
+            Files.createDirectories(packagePath);
+        }
+
+        writeBlockImpl(schema, packagePath);
     }
 
     private void writeBlockImpl(Map<String, Table> content, Path path) throws IOException {
@@ -198,10 +221,6 @@ public class SchemaGenerator {
         if (!Files.exists(path)) {
             Files.createDirectory(path);
         }
-        Path generatedPath = path.resolve("generated");
-        if (!Files.exists(generatedPath)) {
-            Files.createDirectory(generatedPath);
-        }
 
         categoryDescription = prepareDescription(categoryDescription, " * ");
         String category = (flat ? CATEGORY_FLAT : CATEGORY).replace("{packageName}", packageName)
@@ -219,7 +238,7 @@ public class SchemaGenerator {
             String flatName = categoryName + "_" + columnName;
             Col column = (Col) entry.getValue();
 
-            // check if this is a alias in place here - if so handled specifically lateron
+            // check if there is a alias in place here - if so handled specifically lateron
             if (aliases.stream()
                     .anyMatch(list -> list.contains(categoryName + "." + columnName))) {
                 continue;
@@ -302,7 +321,7 @@ public class SchemaGenerator {
                 .replace("{categoryName}", categoryName)
                 .replace("{columnEnters}", enters.toString()));
 
-        Files.write(path.resolve("generated").resolve(className + ".java"), category.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), category.toString().getBytes());
     }
 
     private Class<? extends Column> getBaseClass(String type) {
@@ -363,13 +382,20 @@ public class SchemaGenerator {
         this.rawAliases = new LinkedHashMap<>();
         this.aliases = new ArrayList<>();
         for (String res : resource) {
-            System.out.println(res);
+            System.out.println("Loading dictionary from: " + res);
             CifFile cifFile = CifIO.readFromURL(new URL(res));
             if (schemaName.equals("MmCif")) {
                 getCategoryMetadataMmcif(cifFile);
             } else if (schemaName.equals("CifCore")) {
                 getCategoryMetadataCifCore(cifFile);
             }
+
+            // acquire metadata
+            Category dictionary = cifFile.getBlocks().get(0).getCategory("dictionary");
+            String title = dictionary.isDefined() ? dictionary.getColumn("title").getStringData(0) : res.substring(res.lastIndexOf("/") + 1);
+            String version = dictionary.isDefined() ? dictionary.getColumn("version").getStringData(0) : "draft";
+            System.out.println(title + " with version " + version);
+
             buildListOfLinksBetweenCategories(cifFile);
         }
         getFieldData();
