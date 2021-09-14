@@ -20,8 +20,8 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The digital object identifier (DOI) registered to identify
      * the data set publication represented by the current
-     * datablock. This can be used as a unique identifier for
-     * the datablock so long as the code used is a valid DOI
+     * data block. This can be used as a unique identifier for
+     * the data block so long as the code used is a valid DOI
      * (i.e. begins with a valid publisher prefix assigned by a
      * Registration Agency and a suffix guaranteed to be unique
      * by the publisher) and has had its metadata deposited
@@ -34,8 +34,8 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      * structured extensible way. A DOI is an implementation
      * of the Internet concepts of Uniform Resource Name and
      * Universal Resource Locator managed according to the
-     * specifications of the International DOI Foundation (see
-     * http://www.doi.org).
+     * specifications of the International DOI Foundation
+     * (see http://www.doi.org).
      * @return StrColumn
      */
     public StrColumn getBlockDoi() {
@@ -59,8 +59,8 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * This dataname identifies the type of information contained in the
-     * datablock. Software written for one schema will not, in general,
+     * This data item identifies the type of information contained in the
+     * data block. Software written for one schema will not, in general,
      * correctly interpret datafiles written against a different schema.
      * 
      * Specifically, each value of _audit.schema corresponds to a list
@@ -71,8 +71,8 @@ public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {
      * multiple packets and do not need to be listed.
      * 
      * The category list for each schema may instead be determined from
-     * examination of the dictionaries that this datablock conforms to (see
-     * _audit_conform.dict_name).
+     * examination of the dictionaries that this data block conforms to
+     * (see _audit_conform.dict_name).
      * @return StrColumn
      */
     public StrColumn getSchema() {

@@ -29,8 +29,8 @@ public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCo
      * |31 32 33|
      * @return FloatColumn
      */
-    public FloatColumn getTIJ() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_TIJ"));
+    public FloatColumn getTij() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_transf_matrix_tij"));
     }
 
     /**

@@ -32,18 +32,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB11() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][1]", "atom_site_anisotrop_B[1][1]", "atom_site_aniso_B_11"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][1]", "atom_site_anisotrop_B[1][1]", "atom_site_aniso_b_11"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB11Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][1]_esd", "atom_site_anisotrop_B[1][1]_esd", "atom_site_aniso_B_11_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][1]_esd", "atom_site_anisotrop_B[1][1]_esd", "atom_site_aniso_b_11_su"));
     }
 
     /**
@@ -62,18 +62,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB12() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][2]", "atom_site_anisotrop_B[1][2]", "atom_site_aniso_B_12"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][2]", "atom_site_anisotrop_B[1][2]", "atom_site_aniso_b_12"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB12Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][2]_esd", "atom_site_anisotrop_B[1][2]_esd", "atom_site_aniso_B_12_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][2]_esd", "atom_site_anisotrop_B[1][2]_esd", "atom_site_aniso_b_12_su"));
     }
 
     /**
@@ -92,18 +92,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB13() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][3]", "atom_site_anisotrop_B[1][3]", "atom_site_aniso_B_13"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][3]", "atom_site_anisotrop_B[1][3]", "atom_site_aniso_b_13"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB13Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][3]_esd", "atom_site_anisotrop_B[1][3]_esd", "atom_site_aniso_B_13_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[1][3]_esd", "atom_site_anisotrop_B[1][3]_esd", "atom_site_aniso_b_13_su"));
     }
 
     /**
@@ -122,18 +122,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB22() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][2]", "atom_site_anisotrop_B[2][2]", "atom_site_aniso_B_22"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][2]", "atom_site_anisotrop_B[2][2]", "atom_site_aniso_b_22"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB22Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][2]_esd", "atom_site_anisotrop_B[2][2]_esd", "atom_site_aniso_B_22_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][2]_esd", "atom_site_anisotrop_B[2][2]_esd", "atom_site_aniso_b_22_su"));
     }
 
     /**
@@ -152,18 +152,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB23() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][3]", "atom_site_anisotrop_B[2][3]", "atom_site_aniso_B_23"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][3]", "atom_site_anisotrop_B[2][3]", "atom_site_aniso_b_23"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB23Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][3]_esd", "atom_site_anisotrop_B[2][3]_esd", "atom_site_aniso_B_23_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[2][3]_esd", "atom_site_anisotrop_B[2][3]_esd", "atom_site_aniso_b_23_su"));
     }
 
     /**
@@ -182,18 +182,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getB33() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[3][3]", "atom_site_anisotrop_B[3][3]", "atom_site_aniso_B_33"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[3][3]", "atom_site_anisotrop_B[3][3]", "atom_site_aniso_b_33"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ. Because these values are TYPE measurand, the su values
+     * _aniso_BIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Bij calculation.
      * @return FloatColumn
      */
     public FloatColumn getB33Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[3][3]_esd", "atom_site_anisotrop_B[3][3]_esd", "atom_site_aniso_B_33_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_B[3][3]_esd", "atom_site_anisotrop_B[3][3]_esd", "atom_site_aniso_b_33_su"));
     }
 
     /**
@@ -240,18 +240,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU11() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][1]", "atom_site_anisotrop_U[1][1]", "atom_site_aniso_U_11"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][1]", "atom_site_anisotrop_U[1][1]", "atom_site_aniso_u_11"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU11Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][1]_esd", "atom_site_anisotrop_U[1][1]_esd", "atom_site_aniso_U_11_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][1]_esd", "atom_site_anisotrop_U[1][1]_esd", "atom_site_aniso_u_11_su"));
     }
 
     /**
@@ -268,18 +268,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU12() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][2]", "atom_site_anisotrop_U[1][2]", "atom_site_aniso_U_12"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][2]", "atom_site_anisotrop_U[1][2]", "atom_site_aniso_u_12"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU12Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][2]_esd", "atom_site_anisotrop_U[1][2]_esd", "atom_site_aniso_U_12_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][2]_esd", "atom_site_anisotrop_U[1][2]_esd", "atom_site_aniso_u_12_su"));
     }
 
     /**
@@ -296,18 +296,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU13() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][3]", "atom_site_anisotrop_U[1][3]", "atom_site_aniso_U_13"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][3]", "atom_site_anisotrop_U[1][3]", "atom_site_aniso_u_13"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU13Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][3]_esd", "atom_site_anisotrop_U[1][3]_esd", "atom_site_aniso_U_13_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[1][3]_esd", "atom_site_anisotrop_U[1][3]_esd", "atom_site_aniso_u_13_su"));
     }
 
     /**
@@ -324,18 +324,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU22() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][2]", "atom_site_anisotrop_U[2][2]", "atom_site_aniso_U_22"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][2]", "atom_site_anisotrop_U[2][2]", "atom_site_aniso_u_22"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU22Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][2]_esd", "atom_site_anisotrop_U[2][2]_esd", "atom_site_aniso_U_22_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][2]_esd", "atom_site_anisotrop_U[2][2]_esd", "atom_site_aniso_u_22_su"));
     }
 
     /**
@@ -352,18 +352,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU23() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][3]", "atom_site_anisotrop_U[2][3]", "atom_site_aniso_U_23"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][3]", "atom_site_anisotrop_U[2][3]", "atom_site_aniso_u_23"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU23Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][3]_esd", "atom_site_anisotrop_U[2][3]_esd", "atom_site_aniso_U_23_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[2][3]_esd", "atom_site_anisotrop_U[2][3]_esd", "atom_site_aniso_u_23_su"));
     }
 
     /**
@@ -380,18 +380,18 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * @return FloatColumn
      */
     public FloatColumn getU33() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]", "atom_site_anisotrop_U[3][3]", "atom_site_aniso_U_33"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]", "atom_site_anisotrop_U[3][3]", "atom_site_aniso_u_33"));
     }
 
     /**
      * These are the standard uncertainty values (SU) for the standard
      * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ. Because these values are TYPE measurand, the su values
+     * _aniso_UIJ). Because these values are TYPE measurand, the su values
      * may in practice be auto generated as part of the Uij calculation.
      * @return FloatColumn
      */
     public FloatColumn getU33Esd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]_esd", "atom_site_anisotrop_U[3][3]_esd", "atom_site_aniso_U_33_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_site_aniso_U[3][3]_esd", "atom_site_anisotrop_U[3][3]_esd", "atom_site_aniso_u_33_su"));
     }
 
 }

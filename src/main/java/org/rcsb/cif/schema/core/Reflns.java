@@ -29,12 +29,12 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getApplyDispersionToFcalc() {
-        return new DelegatingStrColumn(parentBlock.getColumn("reflns_apply_dispersion_to_Fcalc"));
+        return new DelegatingStrColumn(parentBlock.getColumn("reflns_apply_dispersion_to_fcalc"));
     }
 
     /**
      * Highest resolution for the final REFLN data set.
-     * This corresponds to the smallest interpanar d value.
+     * This corresponds to the smallest interplanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionHigh() {
@@ -43,7 +43,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Lowest resolution for the final REFLN data set.
-     * This corresponds to the largest interpanar d value.
+     * This corresponds to the largest interplanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResolutionLow() {
@@ -85,7 +85,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelCoverage() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_coverage"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_friedel_coverage"));
     }
 
     /**
@@ -100,7 +100,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelFractionFull() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_fraction_full"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_friedel_fraction_full"));
     }
 
     /**
@@ -115,7 +115,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFriedelFractionMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_Friedel_fraction_max"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_friedel_fraction_max"));
     }
 
     /**
@@ -172,6 +172,14 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getLimitMax() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_limit_max"));
+    }
+
+    /**
+     * Minimum Miller indices of refined diffraction reflections.
+     * @return FloatColumn
+     */
+    public FloatColumn getLimitMin() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_limit_min"));
     }
 
     /**

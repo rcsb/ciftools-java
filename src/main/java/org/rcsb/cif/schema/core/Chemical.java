@@ -273,8 +273,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid decomposes.
+     * Standard uncertainty of the temperature at which
+     * a crystalline solid decomposes.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionEsd() {
@@ -282,8 +282,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid decomposes.
+     * Standard uncertainty of the temperature at which
+     * a crystalline solid decomposes.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionSu() {
@@ -291,8 +291,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid sublimates.
+     * Standard uncertainty of the temperature at which
+     * a crystalline solid sublimates.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationEsd() {
@@ -300,8 +300,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * temperature at which a crystalline solid sublimates.
+     * Standard uncertainty of the temperature at which
+     * a crystalline solid sublimates.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationSu() {

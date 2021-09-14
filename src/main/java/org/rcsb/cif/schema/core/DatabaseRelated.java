@@ -20,14 +20,6 @@ public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * An identifer for this database reference
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_related_id"));
-    }
-
-    /**
      * An identifier for the database that contains the
      * related dataset.
      * @return StrColumn
@@ -44,6 +36,14 @@ public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategor
      */
     public StrColumn getEntryCode() {
         return new DelegatingStrColumn(parentBlock.getColumn("database_related_entry_code"));
+    }
+
+    /**
+     * An identifier for this database reference.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_related_id"));
     }
 
     /**

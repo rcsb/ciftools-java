@@ -18,19 +18,26 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of three adp eigenvales and associated eigenvectors
-     * in the form of 4 element List. Each list has the form
-     * 
-     * (val, vecX, vecY, vecZ)
-     * 
-     * where the vector elements are direction cosines to the orthogonal
-     * axes X,Y,Z. The lists are sorted in descending magnitude of val.
-     * That is, the list with the largest val is first, and the smallest
-     * val is last.
-     * @return StrColumn
+     * The set of three adp eigenvalues for the associated eigenvectors
+     * given by _model_site.adp_eigenvectors. The eigenvalues are
+     * sorted in order of magnitude with the largest first.
+     * @return FloatColumn
      */
-    public StrColumn getAdpEigenSystem() {
-        return new DelegatingStrColumn(parentBlock.getColumn("model_site_adp_eigen_system"));
+    public FloatColumn getAdpEigenvalues() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_eigenvalues"));
+    }
+
+    /**
+     * The set of three adp eigenvectors corresponding to the values
+     * given in _model_site.adp_eigenvalues. The eigenvectors are
+     * contained in the rows of a matrix ordered from top to bottom
+     * in order largest to smallest corresponding eigenvalue. The
+     * eigenvector elements are direction cosines to the orthogonal
+     * axes X,Y,Z.
+     * @return FloatColumn
+     */
+    public FloatColumn getAdpEigenvectors() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_eigenvectors"));
     }
 
     /**
@@ -46,7 +53,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCartnXyz() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_Cartn_xyz"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_cartn_xyz"));
     }
 
     /**

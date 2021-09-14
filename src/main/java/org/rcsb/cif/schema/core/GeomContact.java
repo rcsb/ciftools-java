@@ -144,8 +144,8 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the intermolecular distance between
-     * the atomic sites identified by _geom_contact.id
+     * Standard uncertainty of the intermolecular distance between
+     * the atomic sites identified by _geom_contact.id.
      * @return FloatColumn
      */
     public FloatColumn getDistEsd() {
@@ -153,8 +153,8 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the intermolecular distance between
-     * the atomic sites identified by _geom_contact.id
+     * Standard uncertainty of the intermolecular distance between
+     * the atomic sites identified by _geom_contact.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {

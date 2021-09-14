@@ -27,7 +27,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
 
     /**
      * Highest resolution for the reflections in this class.
-     * This corresponds to the smallest interpanar d value.
+     * This corresponds to the smallest interplanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResHigh() {
@@ -36,7 +36,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
 
     /**
      * Lowest resolution for the reflections in this class.
-     * This corresponds to the largest interpanar d value.
+     * This corresponds to the largest interplanar d value.
      * @return FloatColumn
      */
     public FloatColumn getDResLow() {
@@ -49,7 +49,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return FloatColumn
      */
     public FloatColumn getRFactorAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_R_factor_all"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_r_factor_all"));
     }
 
     /**
@@ -59,7 +59,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return FloatColumn
      */
     public FloatColumn getRFactorGt() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_R_factor_gt"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_r_factor_gt"));
     }
 
     /**
@@ -69,7 +69,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return FloatColumn
      */
     public FloatColumn getRFsqdFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_R_Fsqd_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_r_fsqd_factor"));
     }
 
     /**
@@ -79,7 +79,7 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * @return FloatColumn
      */
     public FloatColumn getRIFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_R_I_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_r_i_factor"));
     }
 
     /**
@@ -88,8 +88,8 @@ public class RefineLsClass extends DelegatingCategory.DelegatingCifCoreCategory 
      * included in refinement. See _refine_ls.wR_factor_all for details.
      * @return FloatColumn
      */
-    public FloatColumn getWRFactorAll() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_wR_factor_all"));
+    public FloatColumn getWrFactorAll() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_class_wr_factor_all"));
     }
 
 }
