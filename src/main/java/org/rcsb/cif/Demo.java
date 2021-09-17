@@ -2,7 +2,6 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
-import org.rcsb.cif.schema.DelegatingFloatColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
@@ -129,7 +128,7 @@ class Demo {
         // print average quality score
         System.out.println(mmCifFile.getFirstBlock()
                 .getMaQaMetricLocal()
-                .getColumn("metric_value", DelegatingFloatColumn::new) // TODO fix
+                .getMetricValue()
                 .values()
                 .average()
                 .orElseThrow());

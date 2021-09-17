@@ -30,8 +30,8 @@ public class MaQaMetricLocal extends DelegatingCategory {
                 return getLabelCompId();
             case "metric_id":
                 return getMetricId();
-            case "value":
-                return getValue();
+            case "metric_value":
+                return getMetricValue();
             default:
                 return new DelegatingColumn(column);
         }
@@ -102,8 +102,8 @@ public class MaQaMetricLocal extends DelegatingCategory {
      * The value of the local QA metric.
      * @return FloatColumn
      */
-    public FloatColumn getValue() {
-        return delegate.getColumn("value", DelegatingFloatColumn::new);
+    public FloatColumn getMetricValue() {
+        return delegate.getColumn("metric_value", DelegatingFloatColumn::new);
     }
 
 }

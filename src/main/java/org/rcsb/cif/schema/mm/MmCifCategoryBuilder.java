@@ -35281,8 +35281,8 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "metric_id", this);
         }
 
-        public FloatColumnBuilder<MaQaMetricGlobalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValue() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value", this);
+        public FloatColumnBuilder<MaQaMetricGlobalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMetricValue() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "metric_value", this);
         }
 
     }
@@ -35318,8 +35318,8 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "metric_id", this);
         }
 
-        public FloatColumnBuilder<MaQaMetricLocalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValue() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "value", this);
+        public FloatColumnBuilder<MaQaMetricLocalBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMetricValue() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "metric_value", this);
         }
 
     }
