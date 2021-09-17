@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
+import org.rcsb.cif.schema.DelegatingFloatColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
@@ -13,11 +14,13 @@ import java.util.Optional;
 import java.util.OptionalDouble;
 import java.util.OptionalInt;
 
-public class Demo {
+class Demo {
     public static void main(String[] args) throws IOException {
         parseFile();
         System.out.println();
         buildModel();
+        System.out.println();
+        convertAlphaFold();
     }
 
     private static void parseFile() throws IOException {
@@ -115,5 +118,23 @@ public class Demo {
                 .getCartnX()
                 .values()
                 .forEach(System.out::println);
+    }
+
+    private static void convertAlphaFold() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v1";
+
+        CifFile cifFile = CifIO.readFromURL(new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif"));
+        MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
+
+        // print average quality score
+        System.out.println(mmCifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getColumn("metric_value", DelegatingFloatColumn::new) // TODO fix
+                .values()
+                .average()
+                .orElseThrow());
+
+        // convert to BinaryCIF representation
+        byte[] output = CifIO.writeBinary(mmCifFile);
     }
 }

@@ -143,6 +143,34 @@ of category and column names and the corresponding type described by a column (e
 not overloaded, but rather will only accept `String` values while in `entry.id` and only `double` values in 
 `atom_site.Cartn_x`.
 
+## Read AlphaFold Model & Convert to BinaryCIF
+```Java
+class Demo {
+    public static void main(String[] args) {
+        String id = "AF-Q76EI6-F1-model_v1";
+
+        CifFile cifFile = CifIO.readFromURL(new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif"));
+        MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
+
+        // access to properties from the model-extension is provided
+        // print average per-residue confidence score provided by AlphaFold
+        System.out.println(mmCifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average()
+                .orElseThrow());
+
+        // convert to BinaryCIF representation
+        byte[] output = CifIO.writeBinary(mmCifFile);
+    }
+}
+```
+
+Computed structure models, e.g. from [AlphaFold](https://alphafold.ebi.ac.uk/), are supported. Access to categories and 
+columns defined by the mmCIF model extension is provided. This includes e.g. quality/confidence scores of the prediction.
+Structure data can be converted to BinaryCIF files for more efficient storage & parsing of millions of files.
+
 ## Performance
 The implementation can read the full PDB archive (154,015 files) in little over 2 minutes. This is achieved by lazy decoding and 
 parsing - all columns are decoded the first time when they are actually requested. Thus, the parsing overhead is kept 
