@@ -50,9 +50,9 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * atomic displacement parameter, B(equiv), in angstroms squared,
      * calculated from anisotropic temperature factor parameters.
      * 
-     * B(equiv) = (1/3) sum~i~[sum~j~(B^ij^ a*~i~ a*~j~ a~i~ a~j~)]
+     * B(equiv) = (1/3) sum~i~[sum~j~(B^ij^ a*~i~ a*~j~ a~i~.a~j~)]
      * 
-     * a     = the real-space cell lengths
+     * a     = the real-space cell vectors
      * a*    = the reciprocal-space cell lengths
      * B^ij^ = 8 pi^2^ U^ij^
      * Ref: Fischer, R. X. &amp; Tillmanns, E. (1988). Acta Cryst. C44, 775-776.
@@ -394,9 +394,9 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * atomic  displacement parameter, U(equiv), in angstroms squared,
      * calculated from anisotropic atomic displacement  parameters.
      * 
-     * U(equiv) = (1/3) sum~i~[sum~j~(U^ij^ a*~i~ a*~j~ a~i~ a~j~)]
+     * U(equiv) = (1/3) sum~i~[sum~j~(U^ij^ a*~i~ a*~j~ a~i~.a~j~)]
      * 
-     * a  = the real-space cell lengths
+     * a  = the real-space cell vectors
      * a* = the reciprocal-space cell lengths
      * Ref: Fischer, R. X. &amp; Tillmanns, E. (1988). Acta Cryst. C44, 775-776.
      * @return FloatColumn
