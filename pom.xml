@@ -33,7 +33,7 @@
 
     <scm>
         <connection>scm:git:git://github.com/rcsb/ciftools-java.git</connection>
-        <developerConnection>scm:git:https://github.com/rcsb/ciftools-java.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:rcsb/ciftools-java.git</developerConnection>
         <url>https://github.com/rcsb/ciftools-java</url>
       <tag>HEAD</tag>
   </scm>
