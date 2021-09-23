@@ -43,11 +43,35 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _reflns_scale.meas_F_squared.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeasFSquaredSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_squared_su"));
+    }
+
+    /**
+     * Standard uncertainty of _reflns_scale.meas_F.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeasFSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_su"));
+    }
+
+    /**
      * Net intensity scale for this scale group.
      * @return FloatColumn
      */
     public FloatColumn getMeasIntensity() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_intensity"));
+    }
+
+    /**
+     * Standard uncertainty of _reflns_scale.meas_intensity.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeasIntensitySu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_intensity_su"));
     }
 
 }

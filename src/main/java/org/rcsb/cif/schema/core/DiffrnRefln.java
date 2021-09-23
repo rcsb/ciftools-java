@@ -105,6 +105,14 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _diffrn_refln.counts_bg_1.
+     * @return FloatColumn
+     */
+    public FloatColumn getCountsBg1Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_bg_1_su"));
+    }
+
+    /**
      * The set of data items which specify the diffractometer counts.
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
@@ -113,6 +121,14 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public IntColumn getCountsBg2() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_refln_counts_bg_2"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.counts_bg_2.
+     * @return FloatColumn
+     */
+    public FloatColumn getCountsBg2Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_bg_2_su"));
     }
 
     /**
@@ -127,6 +143,14 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _diffrn_refln.counts_net.
+     * @return FloatColumn
+     */
+    public FloatColumn getCountsNetSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_net_su"));
+    }
+
+    /**
      * The set of data items which specify the diffractometer counts.
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
@@ -138,6 +162,14 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _diffrn_refln.counts_peak.
+     * @return FloatColumn
+     */
+    public FloatColumn getCountsPeakSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_peak_su"));
+    }
+
+    /**
      * The set of data items which specify the diffractometer counts.
      * Background counts before the peak, background after the peak,
      * net counts after background removed, counts for peak scan or position,
@@ -146,6 +178,14 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public IntColumn getCountsTotal() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_refln_counts_total"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.counts_total.
+     * @return FloatColumn
+     */
+    public FloatColumn getCountsTotalSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_total_su"));
     }
 
     /**

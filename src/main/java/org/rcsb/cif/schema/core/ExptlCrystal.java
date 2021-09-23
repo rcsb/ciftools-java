@@ -35,6 +35,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.density_diffrn.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityDiffrnSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_diffrn_su"));
+    }
+
+    /**
      * Crystal density measured using standard chemical and physical methods.
      * @return FloatColumn
      */
@@ -55,6 +63,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.density_meas_gt.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasGtSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_gt_su"));
+    }
+
+    /**
      * The value below which the density measured using standard
      * chemical and physical methods lies. This item is used only
      * when _exptl_crystal.density_meas cannot be employed. It is
@@ -64,6 +80,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getDensityMeasLt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_lt"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal.density_meas_lt.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasLtSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_lt_su"));
     }
 
     /**
@@ -86,6 +110,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.density_meas_temp_gt.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasTempGtSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_gt_su"));
+    }
+
+    /**
      * Temperature below which the measured density was determined.
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
@@ -94,6 +126,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getDensityMeasTempLt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal.density_meas_temp_lt.
+     * @return FloatColumn
+     */
+    public FloatColumn getDensityMeasTempLtSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt_su"));
     }
 
     /**
@@ -180,11 +220,27 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.size_length.
+     * @return FloatColumn
+     */
+    public FloatColumn getSizeLengthSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_length_su"));
+    }
+
+    /**
      * The maximum dimension of a crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeMax() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_max"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal.size_max.
+     * @return FloatColumn
+     */
+    public FloatColumn getSizeMaxSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_max_su"));
     }
 
     /**
@@ -196,6 +252,14 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.size_mid.
+     * @return FloatColumn
+     */
+    public FloatColumn getSizeMidSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_mid_su"));
+    }
+
+    /**
      * The minimum dimension of a crystal.
      * @return FloatColumn
      */
@@ -204,11 +268,27 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal.size_min.
+     * @return FloatColumn
+     */
+    public FloatColumn getSizeMinSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_min_su"));
+    }
+
+    /**
      * The radius of a spherical or cylindrical crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeRad() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_rad"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal.size_rad.
+     * @return FloatColumn
+     */
+    public FloatColumn getSizeRadSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_size_rad_su"));
     }
 
     /**

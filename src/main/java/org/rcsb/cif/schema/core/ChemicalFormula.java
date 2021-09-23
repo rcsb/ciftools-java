@@ -149,4 +149,12 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
         return new DelegatingFloatColumn(parentBlock.getColumn("chemical_formula_weight_meas"));
     }
 
+    /**
+     * Standard uncertainty of _chemical_formula.weight_meas.
+     * @return FloatColumn
+     */
+    public FloatColumn getWeightMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("chemical_formula_weight_meas_su"));
+    }
+
 }

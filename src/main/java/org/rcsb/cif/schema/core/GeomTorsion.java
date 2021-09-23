@@ -26,6 +26,14 @@ public class GeomTorsion extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _geom_torsion.distances.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistancesSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_torsion_distances_su"));
+    }
+
+    /**
      * An identifier for the torsion angle that is unique within its loop.
      * @return StrColumn
      */

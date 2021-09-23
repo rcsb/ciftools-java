@@ -28,12 +28,28 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_chi.
+     * @return FloatColumn
+     */
+    public FloatColumn getAngleChiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_chi_su"));
+    }
+
+    /**
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleKappa() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_kappa"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_kappa.
+     * @return FloatColumn
+     */
+    public FloatColumn getAngleKappaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_kappa_su"));
     }
 
     /**
@@ -46,12 +62,28 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_omega.
+     * @return FloatColumn
+     */
+    public FloatColumn getAngleOmegaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_omega_su"));
+    }
+
+    /**
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAnglePhi() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_phi"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_phi.
+     * @return FloatColumn
+     */
+    public FloatColumn getAnglePhiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_phi_su"));
     }
 
     /**
@@ -64,12 +96,28 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_psi.
+     * @return FloatColumn
+     */
+    public FloatColumn getAnglePsiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_psi_su"));
+    }
+
+    /**
      * Diffractometer angle of a reflection measured at the centre of the
      * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
      * @return FloatColumn
      */
     public FloatColumn getAngleTheta() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_theta"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_orient_refln.angle_theta.
+     * @return FloatColumn
+     */
+    public FloatColumn getAngleThetaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_orient_refln_angle_theta_su"));
     }
 
     /**

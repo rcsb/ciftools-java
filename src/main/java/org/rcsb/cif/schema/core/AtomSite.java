@@ -104,6 +104,14 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _atom_site.Cartn_xyz.
+     * @return FloatColumn
+     */
+    public FloatColumn getCartnXyzSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_cartn_xyz_su"));
+    }
+
+    /**
      * The atom site coordinates in angstroms specified according to a
      * set of orthogonal Cartesian axes related to the cell axes as
      * specified by the _atom_sites_Cartn_transform.axes description.
@@ -185,6 +193,14 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getFractXyz() {
         return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_fract_xyz"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_site.fract_xyz.
+     * @return FloatColumn
+     */
+    public FloatColumn getFractXyzSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_fract_xyz_su"));
     }
 
     /**
@@ -362,6 +378,14 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getTensorBeta() {
         return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_tensor_beta"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_site.tensor_beta.
+     * @return FloatColumn
+     */
+    public FloatColumn getTensorBetaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_tensor_beta_su"));
     }
 
     /**

@@ -72,6 +72,14 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.convert_Uij_to_betaij.
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUijToBetaijSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uij_to_betaij_su"));
+    }
+
+    /**
      * The reciprocal space matrix for converting the isotropic Uiso
      * atomic displacement parameter to the anisotropic matrix Uij.
      * 
@@ -82,6 +90,14 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getConvertUisoToUij() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uiso_to_uij"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.convert_Uiso_to_Uij.
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUisoToUijSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uiso_to_uij_su"));
     }
 
     /**
@@ -202,6 +218,14 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.reciprocal_metric_tensor.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalMetricTensorSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_metric_tensor_su"));
+    }
+
+    /**
      * Orthogonal matrix of the reciprocal space. The matrix may be
      * used to transform the non-orthogonal vector h = (h,k,l) into
      * the orthogonal indices p = (p,q,r)
@@ -214,11 +238,27 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.reciprocal_orthogonal_matrix.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalOrthogonalMatrixSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_orthogonal_matrix_su"));
+    }
+
+    /**
      * Reciprocal of the _cell.vector_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalVectorA() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_a"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_vector_a.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_a_su"));
     }
 
     /**
@@ -230,11 +270,27 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.reciprocal_vector_b.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorBSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_b_su"));
+    }
+
+    /**
      * Reciprocal of the _cell.vector_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalVectorC() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_c"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_vector_c.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_c_su"));
     }
 
     /**
@@ -246,6 +302,14 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.vector_a.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_a_su"));
+    }
+
+    /**
      * The cell vector along the y axis.
      * @return FloatColumn
      */
@@ -254,11 +318,27 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.vector_b.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorBSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_b_su"));
+    }
+
+    /**
      * The cell vector along the z axis.
      * @return FloatColumn
      */
     public FloatColumn getVectorC() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_c"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.vector_c.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_c_su"));
     }
 
     /**

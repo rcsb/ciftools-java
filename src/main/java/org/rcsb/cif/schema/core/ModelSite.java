@@ -28,6 +28,14 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _model_site.adp_eigenvalues.
+     * @return FloatColumn
+     */
+    public FloatColumn getAdpEigenvaluesSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_eigenvalues_su"));
+    }
+
+    /**
      * The set of three adp eigenvectors corresponding to the values
      * given in _model_site.adp_eigenvalues. The eigenvectors are
      * contained in the rows of a matrix ordered from top to bottom
@@ -41,6 +49,14 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _model_site.adp_eigenvectors.
+     * @return FloatColumn
+     */
+    public FloatColumn getAdpEigenvectorsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_eigenvectors_su"));
+    }
+
+    /**
      * Matrix of dimensionless anisotropic atomic displacement parameters.
      * @return FloatColumn
      */
@@ -49,11 +65,27 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _model_site.adp_matrix_beta.
+     * @return FloatColumn
+     */
+    public FloatColumn getAdpMatrixBetaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_adp_matrix_beta_su"));
+    }
+
+    /**
      * Vector of Cartesian (orthogonal angstrom) atom site coordinates.
      * @return FloatColumn
      */
     public FloatColumn getCartnXyz() {
         return new DelegatingFloatColumn(parentBlock.getColumn("model_site_cartn_xyz"));
+    }
+
+    /**
+     * Standard uncertainty of _model_site.Cartn_xyz.
+     * @return FloatColumn
+     */
+    public FloatColumn getCartnXyzSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_cartn_xyz_su"));
     }
 
     /**
@@ -72,6 +104,14 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getFractXyz() {
         return new DelegatingFloatColumn(parentBlock.getColumn("model_site_fract_xyz"));
+    }
+
+    /**
+     * Standard uncertainty of _model_site.fract_xyz.
+     * @return FloatColumn
+     */
+    public FloatColumn getFractXyzSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("model_site_fract_xyz_su"));
     }
 
     /**

@@ -109,6 +109,14 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _geom_bond.valence.
+     * @return FloatColumn
+     */
+    public FloatColumn getValenceSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_valence_su"));
+    }
+
+    /**
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn

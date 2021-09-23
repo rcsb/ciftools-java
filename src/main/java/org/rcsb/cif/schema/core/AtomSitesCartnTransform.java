@@ -19,6 +19,78 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_11.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat11Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_11_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_12.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat12Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_12_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_13.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat13Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_13_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_21.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat21Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_21_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_22.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat22Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_22_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_23.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat23Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_23_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_31.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat31Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_31_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_32.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat32Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_32_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.mat_33.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat33Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_mat_33_su"));
+    }
+
+    /**
      * Matrix used to transform fractional coordinates in the ATOM_SITE
      * category to Cartesian coordinates. The axial alignments of this
      * transformation are described in _atom_sites_Cartn_transform.axes.
@@ -38,6 +110,38 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.matrix.
+     * @return FloatColumn
+     */
+    public FloatColumn getMatrixSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_matrix_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.vec_1.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec1Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_vec_1_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.vec_2.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec2Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_vec_2_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.vec_3.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec3Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_vec_3_su"));
+    }
+
+    /**
      * The 3x1 translation is used with _atom_sites_Cartn_transform.matrix
      * used to transform fractional coordinates to Cartesian coordinates.
      * The axial alignments of this transformation are described in
@@ -46,6 +150,14 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
      */
     public FloatColumn getVector() {
         return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_vector"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_Cartn_transform.vector.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_cartn_transform_vector_su"));
     }
 
     /**

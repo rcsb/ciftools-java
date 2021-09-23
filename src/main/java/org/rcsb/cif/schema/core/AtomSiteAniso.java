@@ -26,11 +26,27 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
     }
 
     /**
+     * Standard uncertainty of _atom_site_aniso.matrix_B.
+     * @return FloatColumn
+     */
+    public FloatColumn getMatrixBSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_aniso_matrix_b_su"));
+    }
+
+    /**
      * The symmetric anisotropic atomic displacement matrix U.
      * @return FloatColumn
      */
     public FloatColumn getMatrixU() {
         return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_aniso_matrix_u"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_site_aniso.matrix_U.
+     * @return FloatColumn
+     */
+    public FloatColumn getMatrixUSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_site_aniso_matrix_u_su"));
     }
 
     /**

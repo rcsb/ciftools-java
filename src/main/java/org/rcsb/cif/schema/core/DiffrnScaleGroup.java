@@ -36,4 +36,12 @@ public class DiffrnScaleGroup extends DelegatingCategory.DelegatingCifCoreCatego
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_i_net"));
     }
 
+    /**
+     * Standard uncertainty of _diffrn_scale_group.I_net.
+     * @return FloatColumn
+     */
+    public FloatColumn getINetSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_i_net_su"));
+    }
+
 }

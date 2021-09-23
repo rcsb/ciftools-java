@@ -18,6 +18,22 @@ public class DiffrnStandard extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
+     * Standard uncertainty of _diffrn_standard.decay_percent.
+     * @return FloatColumn
+     */
+    public FloatColumn getDecayPercentSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_decay_percent_su"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_standard.scale_su_average.
+     * @return FloatColumn
+     */
+    public FloatColumn getScaleSuAverageSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_standard_scale_su_average_su"));
+    }
+
+    /**
      * The percentage decrease in the mean of the intensities for the
      * standard reflections at the start to the finish of the measurement
      * process. This value affords a measure of the overall decay in

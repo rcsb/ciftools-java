@@ -56,6 +56,14 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl.transmission_factor_max.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransmissionFactorMaxSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_max_su"));
+    }
+
+    /**
      * The calculated minimum value of the transmission factor for
      * the specimen. Its value does not include the effects of
      * absorption in the specimen mount. The presence of this
@@ -66,6 +74,14 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getTransmissionFactorMin() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_min"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl.transmission_factor_min.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransmissionFactorMinSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_min_su"));
     }
 
     /**

@@ -46,6 +46,38 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _refine_ls.F_calc_precision.
+     * @return FloatColumn
+     */
+    public FloatColumn getFCalcPrecisionSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_f_calc_precision_su"));
+    }
+
+    /**
+     * Standard uncertainty of _refine_ls.goodness_of_fit_ref.
+     * @return FloatColumn
+     */
+    public FloatColumn getGoodnessOfFitRefSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_goodness_of_fit_ref_su"));
+    }
+
+    /**
+     * Standard uncertainty of _refine_ls.restrained_S_all.
+     * @return FloatColumn
+     */
+    public FloatColumn getRestrainedSAllSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_restrained_s_all_su"));
+    }
+
+    /**
+     * Standard uncertainty of _refine_ls.restrained_S_gt.
+     * @return FloatColumn
+     */
+    public FloatColumn getRestrainedSGtSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refine_ls_restrained_s_gt_su"));
+    }
+
+    /**
      * Weighted residual factors for reflections included in the refinement
      * which satisfy the limits specified by _refine_ls.d_res_high and
      * _refine_ls.d_res_low.

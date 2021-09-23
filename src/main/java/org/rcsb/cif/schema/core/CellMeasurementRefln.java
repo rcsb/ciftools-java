@@ -57,4 +57,12 @@ public class CellMeasurementRefln extends DelegatingCategory.DelegatingCifCoreCa
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_refln_theta"));
     }
 
+    /**
+     * Standard uncertainty of _cell_measurement_refln.theta.
+     * @return FloatColumn
+     */
+    public FloatColumn getThetaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_refln_theta_su"));
+    }
+
 }

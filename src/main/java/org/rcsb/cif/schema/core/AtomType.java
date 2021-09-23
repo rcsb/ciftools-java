@@ -18,6 +18,14 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _atom_type.analytical_mass_percent.
+     * @return FloatColumn
+     */
+    public FloatColumn getAnalyticalMassPercentSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_analytical_mass_percent_su"));
+    }
+
+    /**
      * Mass of this atom type.
      * @return FloatColumn
      */
