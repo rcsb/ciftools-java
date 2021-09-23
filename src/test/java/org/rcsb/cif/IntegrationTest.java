@@ -19,7 +19,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.OptionalDouble;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
@@ -342,5 +344,20 @@ public class IntegrationTest {
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
         assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v1";
+        URL url = new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromURL(url).as(StandardSchemata.MMCIF);
+
+        OptionalDouble averageLocal = cifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average();
+
+        assertTrue(averageLocal.isPresent());
     }
 }
