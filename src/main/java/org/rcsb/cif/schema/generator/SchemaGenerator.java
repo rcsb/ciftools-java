@@ -110,6 +110,7 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
 
+        // NMR Exchange Format - TODO special usage of save-frames
 //        new SchemaGenerator("Nef", "NEF", "nef", false,
 //                "https://raw.githubusercontent.com/NMRExchangeFormat/NEF/master/specification/mmcif_nef.dic");
     }

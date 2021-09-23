@@ -6,7 +6,7 @@ This project uses semantic versioning. Furthermore, this project provides code t
 ciftools-java 3.0.0 - September 2021
 -------------
 ### New features
-* add support for the CIF model extension (https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_ma.dic), relevant for AlphaFold models and other predicted structures
+* add support for the CIF model extension (https://raw.githubusercontent.com/ihmwg/MA-dictionary/master/mmcif_ma.dic), relevant for AlphaFold models and other predicted structures
 
 ### Bug fixes
 * names in cifcore implementation now follow spec and are case-insensitive
