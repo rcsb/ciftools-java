@@ -8,8 +8,8 @@ import javax.annotation.Generated;
 /**
  * Data items in the PDBX_VIEW_CATEGORY specify the categories
  * belonging to a category view group.  An alias name for the
- * the mmCIF category may also be specified for the each
- * category in the view.
+ * mmCIF category may also be specified for the each category
+ * in the view.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PdbxViewCategory extends DelegatingCategory {

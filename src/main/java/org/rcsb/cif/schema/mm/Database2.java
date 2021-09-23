@@ -32,6 +32,10 @@ public class Database2 extends DelegatingCategory {
                 return getDatabaseId();
             case "database_code":
                 return getDatabaseCode();
+            case "pdbx_database_accession":
+                return getPdbxDatabaseAccession();
+            case "pdbx_DOI":
+                return getPdbxDOI();
             default:
                 return new DelegatingColumn(column);
         }
@@ -52,6 +56,24 @@ public class Database2 extends DelegatingCategory {
      */
     public StrColumn getDatabaseCode() {
         return delegate.getColumn("database_code", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Extended accession code issued for for _database_2.database_code assigned by the database identified in
+     * _database_2.database_id.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxDatabaseAccession() {
+        return delegate.getColumn("pdbx_database_accession", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Document Object Identifier (DOI) for this entry registered
+     * with http://crossref.org.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxDOI() {
+        return delegate.getColumn("pdbx_DOI", DelegatingStrColumn::new);
     }
 
 }

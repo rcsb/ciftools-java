@@ -71,6 +71,8 @@ public class Citation extends DelegatingCategory {
                 return getPdbxDatabaseIdDOI();
             case "pdbx_database_id_PubMed":
                 return getPdbxDatabaseIdPubMed();
+            case "pdbx_database_id_patent":
+                return getPdbxDatabaseIdPatent();
             case "unpublished_flag":
                 return getUnpublishedFlag();
             default:
@@ -323,6 +325,15 @@ public class Citation extends DelegatingCategory {
      */
     public IntColumn getPdbxDatabaseIdPubMed() {
         return delegate.getColumn("pdbx_database_id_PubMed", DelegatingIntColumn::new);
+    }
+
+    /**
+     * If citation is a patent, the accession issued by a
+     * patent office.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxDatabaseIdPatent() {
+        return delegate.getColumn("pdbx_database_id_patent", DelegatingStrColumn::new);
     }
 
     /**

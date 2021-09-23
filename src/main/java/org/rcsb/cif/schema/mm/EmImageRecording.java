@@ -21,6 +21,8 @@ public class EmImageRecording extends DelegatingCategory {
         switch (columnName) {
             case "average_exposure_time":
                 return getAverageExposureTime();
+            case "avg_electron_dose_per_subtomogram":
+                return getAvgElectronDosePerSubtomogram();
             case "avg_electron_dose_per_image":
                 return getAvgElectronDosePerImage();
             case "details":
@@ -50,6 +52,14 @@ public class EmImageRecording extends DelegatingCategory {
      */
     public FloatColumn getAverageExposureTime() {
         return delegate.getColumn("average_exposure_time", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The average total electron dose received by the specimen for each subtomogram (electrons per square angstrom).
+     * @return FloatColumn
+     */
+    public FloatColumn getAvgElectronDosePerSubtomogram() {
+        return delegate.getColumn("avg_electron_dose_per_subtomogram", DelegatingFloatColumn::new);
     }
 
     /**

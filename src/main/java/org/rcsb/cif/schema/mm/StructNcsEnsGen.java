@@ -68,10 +68,10 @@ public class StructNcsEnsGen extends DelegatingCategory {
     /**
      * This data item is a pointer to _struct_ncs_oper.id in the
      * STRUCT_NCS_OPER category.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getOperId() {
-        return delegate.getColumn("oper_id", DelegatingStrColumn::new);
+    public IntColumn getOperId() {
+        return delegate.getColumn("oper_id", DelegatingIntColumn::new);
     }
 
 }

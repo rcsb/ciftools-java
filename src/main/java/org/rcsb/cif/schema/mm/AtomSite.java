@@ -14,6 +14,11 @@ import javax.annotation.Generated;
  * The data items for describing anisotropic atomic
  * displacement factors are only used if the corresponding items
  * are not given in the ATOM_SITE_ANISOTROP category.
+ * 
+ * wwPDB recommends wwPDB-assigned residue number, residue ID,
+ * and chain ID, _atom_site.auth_seq_id _atom_site.auth_comp_id, and
+ * _atom_site.auth_asym_id, respectively, to be used for publication
+ * materials.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSite extends DelegatingCategory {
@@ -170,6 +175,8 @@ public class AtomSite extends DelegatingCategory {
                 return getUIsoOrEquivEsd();
             case "Wyckoff_symbol":
                 return getWyckoffSymbol();
+            case "pdbx_atom_ambiguity":
+                return getPdbxAtomAmbiguity();
             case "adp_type":
                 return getAdpType();
             case "refinement_flags":
@@ -218,6 +225,16 @@ public class AtomSite extends DelegatingCategory {
                 return getPdbxLabelSeqNum();
             case "pdbx_not_in_asym":
                 return getPdbxNotInAsym();
+            case "pdbx_label_index":
+                return getPdbxLabelIndex();
+            case "pdbx_sifts_xref_db_name":
+                return getPdbxSiftsXrefDbName();
+            case "pdbx_sifts_xref_db_acc":
+                return getPdbxSiftsXrefDbAcc();
+            case "pdbx_sifts_xref_db_num":
+                return getPdbxSiftsXrefDbNum();
+            case "pdbx_sifts_xref_db_res":
+                return getPdbxSiftsXrefDbRes();
             case "ihm_model_id":
                 return getIhmModelId();
             default:
@@ -1011,6 +1028,10 @@ public class AtomSite extends DelegatingCategory {
      * introduced that was independent of the different modes of
      * identifying the atoms. For compatibility with older CIFs,
      * _atom_site_label is aliased to _atom_site.id.
+     * 
+     * In general, this aggregate identifier does not uniquely
+     * identify an atom site as for non-polymers _atom_site.label_seq_id
+     * is '.'.
      * @return IntColumn
      */
     public IntColumn getId() {
@@ -1195,6 +1216,15 @@ public class AtomSite extends DelegatingCategory {
      */
     public StrColumn getWyckoffSymbol() {
         return delegate.getColumn("Wyckoff_symbol", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The optional value of _atom_site.pdbx_atom_ambiguity atoms that differ only by stereochemistry but
+     * are not stereospecifically assigned by the experiment.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxAtomAmbiguity() {
+        return delegate.getColumn("pdbx_atom_ambiguity", DelegatingStrColumn::new);
     }
 
     /**
@@ -1407,6 +1437,48 @@ public class AtomSite extends DelegatingCategory {
      */
     public StrColumn getPdbxNotInAsym() {
         return delegate.getColumn("pdbx_not_in_asym", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item is an ordinal which identifies distinct chemical components in the atom_site category, both
+     * polymeric and non-polymeric.
+     * @return IntColumn
+     */
+    public IntColumn getPdbxLabelIndex() {
+        return delegate.getColumn("pdbx_label_index", DelegatingIntColumn::new);
+    }
+
+    /**
+     * The name of additional external databases with residue level mapping.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSiftsXrefDbName() {
+        return delegate.getColumn("pdbx_sifts_xref_db_name", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The accession code related to the additional external database entry.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSiftsXrefDbAcc() {
+        return delegate.getColumn("pdbx_sifts_xref_db_acc", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The sequence position of the external database entry that corresponds
+     * to the residue mapping defined by the SIFTS process.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSiftsXrefDbNum() {
+        return delegate.getColumn("pdbx_sifts_xref_db_num", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Describes the residue type of the given UniProt match
+     * @return StrColumn
+     */
+    public StrColumn getPdbxSiftsXrefDbRes() {
+        return delegate.getColumn("pdbx_sifts_xref_db_res", DelegatingStrColumn::new);
     }
 
     /**

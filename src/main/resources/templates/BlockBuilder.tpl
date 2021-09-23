@@ -1,4 +1,4 @@
-package {packageName};
+package org.rcsb.cif.schema.{packageName};
 
 import org.rcsb.cif.model.builder.BlockBuilderImpl;
 

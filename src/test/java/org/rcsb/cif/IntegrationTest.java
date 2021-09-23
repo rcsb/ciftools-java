@@ -19,7 +19,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.OptionalDouble;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
@@ -306,5 +308,56 @@ public class IntegrationTest {
         String copyContent = new String(CifIO.writeText(originalFile));
 
         assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+    }
+
+    /**
+     * BinaryCIF might slightly violate the schema and lead to a ClassCastException if not handled.
+     */
+    @Test
+    public void readRcsbAndEbiGeneric() throws IOException {
+        CifFile rcsb = CifIO.readById("1acj");
+        Column<?> rcsbNdbSeqNum = rcsb.getBlocks().get(0)
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
+        assertEquals(83, rcsbNdbSeqNum.getRowCount());
+
+        CifFile ebi = CifIO.readById("1acj",
+                new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
+        Column<?> ebiNdbSeqNum = ebi.getBlocks().get(0)
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
+        assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    public void readRcsbAndEbiWithSchema() throws IOException {
+        MmCifFile rcsb = CifIO.readById("1acj").as(StandardSchemata.MMCIF);
+        StrColumn rcsbNdbSeqNum = rcsb.getFirstBlock()
+                .getPdbxNonpolyScheme()
+                .getNdbSeqNum();
+        assertEquals(83, rcsbNdbSeqNum.getRowCount());
+
+        MmCifFile ebi = CifIO.readById("1acj",
+                        new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build())
+                .as(StandardSchemata.MMCIF);
+        StrColumn ebiNdbSeqNum = ebi.getFirstBlock()
+                .getPdbxNonpolyScheme()
+                .getNdbSeqNum();
+        assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v1";
+        URL url = new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromURL(url).as(StandardSchemata.MMCIF);
+
+        OptionalDouble averageLocal = cifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average();
+
+        assertTrue(averageLocal.isPresent());
     }
 }

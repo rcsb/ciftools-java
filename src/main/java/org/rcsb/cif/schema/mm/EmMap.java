@@ -471,10 +471,10 @@ public class EmMap extends DelegatingCategory {
      * The space group number for the map.
      * The value is 1 unless the sample is crystalline.
      * (CCP4 map header word 23 ISPG)
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getSymmetrySpaceGroup() {
-        return delegate.getColumn("symmetry_space_group", DelegatingStrColumn::new);
+    public IntColumn getSymmetrySpaceGroup() {
+        return delegate.getColumn("symmetry_space_group", DelegatingIntColumn::new);
     }
 
     /**

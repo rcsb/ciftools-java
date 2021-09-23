@@ -74,7 +74,7 @@ public class NdbStructNaBasePair extends DelegatingCategory {
     }
 
     /**
-     * Describes the model number of the the base pair.
+     * Describes the model number of the base pair.
      * 
      * This data item is a pointer to _atom_site.pdbx_PDB_model_num in the
      * ATOM_SITE category.

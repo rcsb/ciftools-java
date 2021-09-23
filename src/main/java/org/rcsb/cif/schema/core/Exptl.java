@@ -56,6 +56,14 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl.transmission_factor_max.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransmissionFactorMaxSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_max_su"));
+    }
+
+    /**
      * The calculated minimum value of the transmission factor for
      * the specimen. Its value does not include the effects of
      * absorption in the specimen mount. The presence of this
@@ -66,6 +74,14 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getTransmissionFactorMin() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_min"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl.transmission_factor_min.
+     * @return FloatColumn
+     */
+    public FloatColumn getTransmissionFactorMinSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_transmission_factor_min_su"));
     }
 
     /**
@@ -116,7 +132,7 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAbsorptCorrectionTMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_max"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_absorpt_correction_T_max", "exptl_absorpt_correction_t_max"));
     }
 
     /**
@@ -131,37 +147,37 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCorrectionTMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_max"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_absorpt_correction_T_max", "exptl_absorpt_correction_t_max"));
     }
 
     /**
-     * Maximum transmission factor for the crystal and radiation applied
+     * Minimum transmission factor for the crystal and radiation applied
      * to the measured intensities, it includes the correction for
      * absorption by the specimen mount and diffractometer as well
      * as by the specimen itself. These values give the transmission (T)
      * factor by which measured intensities have been REDUCED due to
-     * absorption. Sometimes referred to as absorption correction A ori
+     * absorption. Sometimes referred to as absorption correction A or
      * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
      * by J.P. Glusker et al., Wiley)
      * @return FloatColumn
      */
     public FloatColumn getAbsorptCorrectionTMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_min"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_absorpt_correction_T_min", "exptl_absorpt_correction_t_min"));
     }
 
     /**
-     * Maximum transmission factor for the crystal and radiation applied
+     * Minimum transmission factor for the crystal and radiation applied
      * to the measured intensities, it includes the correction for
      * absorption by the specimen mount and diffractometer as well
      * as by the specimen itself. These values give the transmission (T)
      * factor by which measured intensities have been REDUCED due to
-     * absorption. Sometimes referred to as absorption correction A ori
+     * absorption. Sometimes referred to as absorption correction A or
      * 1/A* (see "Crystal Structure Analysis for Chemists and Biologists"
      * by J.P. Glusker et al., Wiley)
      * @return FloatColumn
      */
     public FloatColumn getCorrectionTMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_correction_T_min"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("exptl_absorpt_correction_T_min", "exptl_absorpt_correction_t_min"));
     }
 
     /**

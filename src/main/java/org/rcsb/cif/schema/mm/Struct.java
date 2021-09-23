@@ -22,6 +22,12 @@ public class Struct extends DelegatingCategory {
                 return getEntryId();
             case "title":
                 return getTitle();
+            case "pdbx_center_of_mass_x":
+                return getPdbxCenterOfMassX();
+            case "pdbx_center_of_mass_y":
+                return getPdbxCenterOfMassY();
+            case "pdbx_center_of_mass_z":
+                return getPdbxCenterOfMassZ();
             case "pdbx_descriptor":
                 return getPdbxDescriptor();
             case "pdbx_model_details":
@@ -59,6 +65,30 @@ public class Struct extends DelegatingCategory {
      */
     public StrColumn getTitle() {
         return delegate.getColumn("title", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item is the X component of a calculation of the center of mass of polymer chains
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCenterOfMassX() {
+        return delegate.getColumn("pdbx_center_of_mass_x", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * This data item is the Y component of a calculation of the center of mass of polymer chains
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCenterOfMassY() {
+        return delegate.getColumn("pdbx_center_of_mass_y", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * This data item is the Z component of a calculation of the center of mass of polymer chains
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCenterOfMassZ() {
+        return delegate.getColumn("pdbx_center_of_mass_z", DelegatingFloatColumn::new);
     }
 
     /**

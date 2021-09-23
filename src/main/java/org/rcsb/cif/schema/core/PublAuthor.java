@@ -48,6 +48,23 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Arbitrary identifier for this author
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_id"));
+    }
+
+    /**
+     * Identifier corresponding to this author in the audit_author
+     * list, if present.
+     * @return StrColumn
+     */
+    public StrColumn getIdAudit() {
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_author_id_audit"));
+    }
+
+    /**
      * Identifier in the IUCr contact database of a publication
      * author.  This identifier may be available from the World
      * Directory of Crystallographers (http://wdc.iucr.org).

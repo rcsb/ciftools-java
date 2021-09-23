@@ -111,6 +111,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temperature", this);
         }
 
+        public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTempEsd() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temp_esd", this);
+        }
+
+        public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTemperatureSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temperature_su", this);
+        }
+
         public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTempDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temp_details", this);
         }
@@ -133,14 +141,6 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTemperatureLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temperature_lt", this);
-        }
-
-        public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTempEsd() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temp_esd", this);
-        }
-
-        public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAmbientTemperatureSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_temperature_su", this);
         }
 
         public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
@@ -270,6 +270,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<DiffrnMeasurementBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpecimenAttachmentType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "specimen_attachment_type", this);
+        }
+
         public StrColumnBuilder<DiffrnMeasurementBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
@@ -325,44 +329,80 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
         }
 
-        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUBIJ() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UBIJ", this);
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUbij() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ubij", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB11() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[1][1]", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb11() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_11", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB12() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[1][2]", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb12() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_12", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB13() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[1][3]", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb13() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_13", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB21() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[2][1]", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb21() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_21", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB22() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[2][2]", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb22() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_22", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB23() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[2][3]", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb23() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_23", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB31() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[3][1]", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb31() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_31", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB32() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[3][2]", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb32() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_32", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUB33() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "UB[3][3]", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUb33() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ub_33", this);
         }
 
     }
@@ -378,24 +418,48 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_chi", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleChiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_chi_su", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleKappa() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_kappa", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleKappaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_kappa_su", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleOmega() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_omega", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleOmegaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_omega_su", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnglePhi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_phi", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnglePhiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_phi_su", this);
         }
 
         public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnglePsi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_psi", this);
         }
 
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnglePsiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_psi_su", this);
+        }
+
         public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleTheta() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_theta", this);
+        }
+
+        public FloatColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleThetaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_theta_su", this);
         }
 
         public IntColumnBuilder<DiffrnOrientReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHkl() {
@@ -573,20 +637,40 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "counts_bg_1", this);
         }
 
+        public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsBg1Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "counts_bg_1_su", this);
+        }
+
         public IntColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsBg2() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "counts_bg_2", this);
+        }
+
+        public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsBg2Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "counts_bg_2_su", this);
         }
 
         public IntColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsNet() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "counts_net", this);
         }
 
+        public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsNetSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "counts_net_su", this);
+        }
+
         public IntColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsPeak() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "counts_peak", this);
         }
 
+        public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsPeakSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "counts_peak_su", this);
+        }
+
         public IntColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsTotal() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "counts_total", this);
+        }
+
+        public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCountsTotalSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "counts_total_su", this);
         }
 
         public FloatColumnBuilder<DiffrnReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetectSlitHoriz() {
@@ -687,15 +771,15 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvREquivalents() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_R_equivalents", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_r_equivalents", this);
         }
 
         public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLaueMeasuredFractionFull() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Laue_measured_fraction_full", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "laue_measured_fraction_full", this);
         }
 
         public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLaueMeasuredFractionMax() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Laue_measured_fraction_max", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "laue_measured_fraction_max", this);
         }
 
         public IntColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLimitHMax() {
@@ -774,8 +858,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_sigmaI_over_netI", this);
         }
 
-        public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvSunetIOverNetI() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_sunetI_over_netI", this);
+        public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvSunetiOverNeti() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_suneti_over_neti", this);
         }
 
         public FloatColumnBuilder<DiffrnReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTransfMatrix11() {
@@ -860,7 +944,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<DiffrnReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvREq() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_R_eq", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_r_eq", this);
         }
 
         public StrColumnBuilder<DiffrnReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCode() {
@@ -891,8 +975,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_sgI/I", this);
         }
 
-        public FloatColumnBuilder<DiffrnReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvSuIOverI() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_suI_over_I", this);
+        public FloatColumnBuilder<DiffrnReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAvSuiOverI() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "av_sui_over_i", this);
         }
 
     }
@@ -904,8 +988,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public FloatColumnBuilder<DiffrnReflnsTransfMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTIJ() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "TIJ", this);
+        public FloatColumnBuilder<DiffrnReflnsTransfMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTij() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "tij", this);
         }
 
         public FloatColumnBuilder<DiffrnReflnsTransfMatrixBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enter_11() {
@@ -958,7 +1042,11 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<DiffrnScaleGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterINet() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "I_net", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "i_net", this);
+        }
+
+        public FloatColumnBuilder<DiffrnScaleGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterINetSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "i_net_su", this);
         }
 
     }
@@ -968,6 +1056,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public DiffrnSourceBuilder(CifCoreBlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<DiffrnSourceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBeamline() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "beamline", this);
         }
 
         public FloatColumnBuilder<DiffrnSourceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCurrent() {
@@ -980,6 +1072,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public StrColumnBuilder<DiffrnSourceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDevice() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "device", this);
+        }
+
+        public StrColumnBuilder<DiffrnSourceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFacility() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "facility", this);
         }
 
         public FloatColumnBuilder<DiffrnSourceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPower() {
@@ -1029,6 +1125,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public DiffrnStandardBuilder(CifCoreBlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public FloatColumnBuilder<DiffrnStandardBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDecayPercentSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "decay_percent_su", this);
+        }
+
+        public FloatColumnBuilder<DiffrnStandardBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScaleSuAverageSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "scale_su_average_su", this);
         }
 
         public FloatColumnBuilder<DiffrnStandardBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDecay() {
@@ -1106,19 +1210,35 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterACalc() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "A_calc", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "a_calc", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterACalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "a_calc_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAMeas() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "A_meas", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "a_meas", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAMeasSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "a_meas_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBCalc() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_calc", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_calc", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBCalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_calc_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBMeas() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_meas", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_meas", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBMeasSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_meas_su", this);
         }
 
         public StrColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterClassCode() {
@@ -1130,23 +1250,35 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalc() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_calc", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_calc", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_calc_su", this);
         }
 
         public StrColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFComplex() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "F_complex", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "f_complex", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFComplexSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_complex_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFMeas() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_meas", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_meas", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFSquaredCalc() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_squared_calc", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_squared_calc", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFSquaredCalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_squared_calc_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFSquaredMeas() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_squared_meas", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_squared_meas", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFom() {
@@ -1177,12 +1309,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "intensity_calc", this);
         }
 
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIntensityCalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "intensity_calc_su", this);
+        }
+
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIntensityMeas() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "intensity_meas", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLpFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Lp_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "lp_factor", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeanPathLengthTbar() {
@@ -1193,8 +1329,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "phase_calc", this);
         }
 
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPhaseCalcSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "phase_calc_su", this);
+        }
+
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPhaseMeas() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "phase_meas", this);
+        }
+
+        public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPhaseMeasSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "phase_meas_su", this);
         }
 
         public StrColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRefinementStatus() {
@@ -1226,7 +1370,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFMeasSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_meas_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_meas_su", this);
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFSquaredSigma() {
@@ -1234,7 +1378,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFSquaredMeasSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_squared_meas_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_squared_meas_su", this);
         }
 
         public StrColumnBuilder<ReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterObservedStatus() {
@@ -1275,7 +1419,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterApplyDispersionToFcalc() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "apply_dispersion_to_Fcalc", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "apply_dispersion_to_fcalc", this);
         }
 
         public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDResolutionHigh() {
@@ -1287,15 +1431,15 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFriedelCoverage() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Friedel_coverage", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "friedel_coverage", this);
         }
 
         public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFriedelFractionFull() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Friedel_fraction_full", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "friedel_fraction_full", this);
         }
 
         public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFriedelFractionMax() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Friedel_fraction_max", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "friedel_fraction_max", this);
         }
 
         public IntColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLimitHMax() {
@@ -1324,6 +1468,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLimitMax() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "limit_max", this);
+        }
+
+        public FloatColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLimitMin() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "limit_min", this);
         }
 
         public IntColumnBuilder<ReflnsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNumberObs() {
@@ -1392,23 +1540,23 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_all", this);
         }
 
         public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_gt", this);
         }
 
         public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFsqdFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_Fsqd_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_fsqd_factor", this);
         }
 
         public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRIFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_I_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_i_factor", this);
         }
 
-        public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
+        public FloatColumnBuilder<ReflnsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_all", this);
         }
 
     }
@@ -1425,15 +1573,27 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasF() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_F", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f", this);
         }
 
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSquared() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_F_squared", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_squared", this);
+        }
+
+        public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSquaredSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_squared_su", this);
+        }
+
+        public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_su", this);
         }
 
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasIntensity() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_intensity", this);
+        }
+
+        public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasIntensitySu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_intensity_su", this);
         }
 
     }
@@ -1470,11 +1630,11 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRmergeFAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_F_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "rmerge_f_all", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRmergeIAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "rmerge_i_all", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeanIOverSigIAll() {
@@ -1485,8 +1645,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meanI_over_uI_all", this);
         }
 
-        public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeanIOverSuIAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meanI_over_suI_all", this);
+        public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeaniOverSuiAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meani_over_sui_all", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeanIOverSigIObs() {
@@ -1501,8 +1661,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meanI_over_uI_gt", this);
         }
 
-        public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeanIOverSuIGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meanI_over_suI_gt", this);
+        public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeaniOverSuiGt() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meani_over_sui_gt", this);
         }
 
         public IntColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNumberMeasuredObs() {
@@ -1542,7 +1702,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRmergeFGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_F_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "rmerge_f_gt", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRmergeIObs() {
@@ -1550,7 +1710,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRmergeIGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "rmerge_i_gt", this);
         }
 
     }
@@ -1578,8 +1738,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "transmission_factor_max", this);
         }
 
+        public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTransmissionFactorMaxSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "transmission_factor_max_su", this);
+        }
+
         public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTransmissionFactorMin() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "transmission_factor_min", this);
+        }
+
+        public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTransmissionFactorMinSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "transmission_factor_min_su", this);
         }
 
         public StrColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
@@ -1603,7 +1771,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCorrectionTMax() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_T_max", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_t_max", this);
         }
 
         public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsorptCorrectionTMin() {
@@ -1611,7 +1779,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCorrectionTMin() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_T_min", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_t_min", this);
         }
 
         public StrColumnBuilder<ExptlBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsorptCorrectionType() {
@@ -1639,26 +1807,6 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomicMass() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "atomic_mass", this);
-        }
-
-        public IntColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFormulaUnitsZ() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "formula_units_Z", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMetricTensor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "metric_tensor", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterOrthogonalMatrix() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "orthogonal_matrix", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolume() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume", this);
-        }
-
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleAlpha() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_alpha", this);
         }
@@ -1669,6 +1817,30 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleGamma() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_gamma", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomicMass() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "atomic_mass", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUijToBetaij() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_uij_to_betaij", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUijToBetaijSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_uij_to_betaij_su", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUisoToUij() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_uiso_to_uij", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUisoToUijSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_uiso_to_uij_su", this);
+        }
+
+        public IntColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFormulaUnitsZ() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "formula_units_z", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLengthA() {
@@ -1683,20 +1855,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "length_c", this);
         }
 
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUijToBetaij() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_Uij_to_betaij", this);
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMetricTensor() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "metric_tensor", this);
         }
 
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterConvertUisoToUij() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "convert_Uiso_to_Uij", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalMetricTensor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_metric_tensor", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalOrthogonalMatrix() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_orthogonal_matrix", this);
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterOrthogonalMatrix() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "orthogonal_matrix", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalAngleAlpha() {
@@ -1723,44 +1887,72 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_length_c", this);
         }
 
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalMetricTensor() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_metric_tensor", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalMetricTensorSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_metric_tensor_su", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalOrthogonalMatrix() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_orthogonal_matrix", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalOrthogonalMatrixSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_orthogonal_matrix_su", this);
+        }
+
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorA() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_a", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorASu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_a_su", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorB() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_b", this);
         }
 
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorBSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_b_su", this);
+        }
+
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorC() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_c", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterReciprocalVectorCSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_vector_c_su", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorA() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_a", this);
         }
 
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorASu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_a_su", this);
+        }
+
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorB() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_b", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorBSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_b_su", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorC() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_c", this);
         }
 
-        public StrColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorCSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_c_su", this);
         }
 
-        public StrColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpecialDetails() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "special_details", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolumeEsd() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_esd", this);
-        }
-
-        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolumeSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_su", this);
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolume() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume", this);
         }
 
         public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleAlphaEsd() {
@@ -1867,6 +2059,22 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "reciprocal_length_c_su", this);
         }
 
+        public StrColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+        public StrColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpecialDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "special_details", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolumeEsd() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_esd", this);
+        }
+
+        public FloatColumnBuilder<CellBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVolumeSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "volume_su", this);
+        }
+
     }
 
     public static class CellMeasurementBuilder extends CifCoreCategoryBuilder {
@@ -1953,6 +2161,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "theta", this);
         }
 
+        public FloatColumnBuilder<CellMeasurementReflnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterThetaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "theta_su", this);
+        }
+
     }
 
     public static class ChemicalBuilder extends CifCoreCategoryBuilder {
@@ -1974,12 +2186,20 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "enantioexcess_bulk", this);
         }
 
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEnantioexcessBulkSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "enantioexcess_bulk_su", this);
+        }
+
         public StrColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEnantioexcessBulkTechnique() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "enantioexcess_bulk_technique", this);
         }
 
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEnantioexcessCrystal() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "enantioexcess_crystal", this);
+        }
+
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEnantioexcessCrystalSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "enantioexcess_crystal_su", this);
         }
 
         public StrColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEnantioexcessCrystalTechnique() {
@@ -2006,8 +2226,20 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_gt", this);
         }
 
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_gt_su", this);
+        }
+
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_lt", this);
+        }
+
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointLtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_lt_su", this);
+        }
+
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_su", this);
         }
 
         public StrColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameCommon() {
@@ -2046,8 +2278,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_gt", this);
         }
 
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_gt_su", this);
+        }
+
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_lt", this);
+        }
+
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionLtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_lt_su", this);
         }
 
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimation() {
@@ -2058,8 +2298,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_gt", this);
         }
 
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_gt_su", this);
+        }
+
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_lt", this);
+        }
+
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationLtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_lt_su", this);
         }
 
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionEsd() {
@@ -2099,12 +2347,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "display_y", this);
         }
 
-        public IntColumnBuilder<ChemicalConnAtomBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNCA() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "NCA", this);
+        public IntColumnBuilder<ChemicalConnAtomBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNca() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "nca", this);
         }
 
-        public IntColumnBuilder<ChemicalConnAtomBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNH() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "NH", this);
+        public IntColumnBuilder<ChemicalConnAtomBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNh() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "nh", this);
         }
 
         public IntColumnBuilder<ChemicalConnAtomBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNumber() {
@@ -2181,6 +2429,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "weight_meas", this);
         }
 
+        public FloatColumnBuilder<ChemicalFormulaBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWeightMeasSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "weight_meas_su", this);
+        }
+
     }
 
     public static class ExptlAbsorptBuilder extends CifCoreCategoryBuilder {
@@ -2195,11 +2447,11 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ExptlAbsorptBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCorrectionTMax() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_T_max", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_t_max", this);
         }
 
         public FloatColumnBuilder<ExptlAbsorptBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCorrectionTMin() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_T_min", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "correction_t_min", this);
         }
 
         public StrColumnBuilder<ExptlAbsorptBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCorrectionType() {
@@ -2227,6 +2479,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_diffrn", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityDiffrnSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_diffrn_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeas() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas", this);
         }
@@ -2235,8 +2491,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_gt", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_gt_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_lt", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasLtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_lt_su", this);
         }
 
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTemp() {
@@ -2247,8 +2511,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_gt", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_gt_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_lt", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempLtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_lt_su", this);
         }
 
         public StrColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMethod() {
@@ -2260,7 +2532,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterF000() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_000", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_000", this);
         }
 
         public StrColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -2283,20 +2555,40 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_length", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeLengthSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_length_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMax() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_max", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMaxSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_max_su", this);
         }
 
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMid() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_mid", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMidSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_mid_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMin() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_min", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeMinSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_min_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeRad() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_rad", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSizeRadSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "size_rad_su", this);
         }
 
         public StrColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterThermalHistory() {
@@ -2377,16 +2669,32 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_chi", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrChiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_chi_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrKappa() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_kappa", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrKappaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_kappa_su", this);
         }
 
         public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrPhi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_phi", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrPhiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_phi_su", this);
+        }
+
         public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrPsi() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_psi", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffrPsiSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diffr_psi_su", this);
         }
 
         public IntColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHkl() {
@@ -2409,6 +2717,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "perp_dist", this);
         }
 
+        public FloatColumnBuilder<ExptlCrystalFaceBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPerpDistSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "perp_dist_su", this);
+        }
+
     }
 
     public static class SpaceGroupBuilder extends CifCoreCategoryBuilder {
@@ -2419,7 +2731,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBravaisType() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "Bravais_type", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "bravais_type", this);
         }
 
         public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCentringType() {
@@ -2430,52 +2742,52 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "crystal_system", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterITCoordinateSystemCode() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "IT_coordinate_system_code", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterItCoordinateSystemCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "it_coordinate_system_code", this);
         }
 
         public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLaueClass() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "Laue_class", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "laue_class", this);
         }
 
         public IntColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMultiplicity() {
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "multiplicity", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_MAlt() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_H-M_alt", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_mAlt() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_h-m_alt", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_MRef() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_H-M_ref", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_mAltDescription() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_h-m_alt_description", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_MAltDescription() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_H-M_alt_description", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_mRef() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_h-m_ref", this);
         }
 
         public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameSchoenflies() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_Schoenflies", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_schoenflies", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPattersonNameH_M() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "Patterson_name_H-M", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPattersonNameH_m() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "patterson_name_h-m", this);
         }
 
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPointGroupH_M() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "point_group_H-M", this);
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPointGroupH_m() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "point_group_h-m", this);
         }
 
-        public IntColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterITNumber() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "IT_number", this);
+        public IntColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterItNumber() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "it_number", this);
+        }
+
+        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_mFull() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_h-m_full", this);
         }
 
         public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameHall() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_Hall", this);
-        }
-
-        public StrColumnBuilder<SpaceGroupBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameH_MFull() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_H-M_full", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name_hall", this);
         }
 
     }
@@ -2509,19 +2821,19 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterR() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r", this);
         }
 
-        public FloatColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRT() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "RT", this);
+        public FloatColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRt() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "rt", this);
         }
 
         public FloatColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSeitzMatrix() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Seitz_matrix", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "seitz_matrix", this);
         }
 
         public FloatColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterT() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "T", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "t", this);
         }
 
         public IntColumnBuilder<SpaceGroupSymopBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -2559,43 +2871,6 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public StrColumnBuilder<SpaceGroupWyckoffBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSiteSymmetry() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry", this);
-        }
-
-    }
-
-    public static class FunctionBuilder extends CifCoreCategoryBuilder {
-        private static final String CATEGORY_NAME = "function";
-
-        public FunctionBuilder(CifCoreBlockBuilder parent) {
-            super(CATEGORY_NAME, parent);
-        }
-
-        public StrColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomType() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "AtomType", this);
-        }
-
-        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterClosest() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Closest", this);
-        }
-
-        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSeitzFromJones() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "SeitzFromJones", this);
-        }
-
-        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymEquiv() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "SymEquiv", this);
-        }
-
-        public IntColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymKey() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "SymKey", this);
-        }
-
-        public IntColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymLat() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "SymLat", this);
-        }
-
-        public StrColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymop() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "Symop", this);
         }
 
     }
@@ -2652,6 +2927,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<GeomAngleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistances() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distances", this);
+        }
+
+        public FloatColumnBuilder<GeomAngleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistancesSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distances_su", this);
         }
 
         public StrColumnBuilder<GeomAngleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -2741,6 +3020,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<GeomBondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterValence() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "valence", this);
+        }
+
+        public FloatColumnBuilder<GeomBondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterValenceSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "valence_su", this);
         }
 
         public StrColumnBuilder<GeomBondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteId1() {
@@ -2841,8 +3124,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleDHA() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_DHA", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleDha() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_dha", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -2854,23 +3137,23 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSiteSymmetryA() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_A", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_a", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSiteSymmetryD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_D", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_d", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSiteSymmetryH() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_H", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "site_symmetry_h", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleDHAEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_DHA_esd", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleDHASu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_DHA_su", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAngleDhaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "angle_dha_su", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteIdA() {
@@ -2878,7 +3161,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteLabelA() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_A", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_a", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteIdD() {
@@ -2886,7 +3169,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteLabelD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_D", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_d", this);
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteIdH() {
@@ -2894,55 +3177,55 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomSiteLabelH() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_H", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_site_label_h", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistDA() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_DA", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDA() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_DA", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDa() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_da", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistDAEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_DA_esd", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDASu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_DA_su", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_da_su", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistDH() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_DH", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDH() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_DH", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDh() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_dh", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistDHEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_DH_esd", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDHSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_DH_su", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceDhSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_dh_su", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistHA() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_HA", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceHA() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_HA", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceHa() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_ha", this);
         }
 
         public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistHAEsd() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "dist_HA_esd", this);
         }
 
-        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceHASu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_HA_su", this);
+        public FloatColumnBuilder<GeomHbondBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistanceHaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distance_ha_su", this);
         }
 
     }
@@ -2956,6 +3239,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<GeomTorsionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistances() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distances", this);
+        }
+
+        public FloatColumnBuilder<GeomTorsionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDistancesSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "distances_su", this);
         }
 
         public StrColumnBuilder<GeomTorsionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -3039,16 +3326,36 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpEigenSystem() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "adp_eigen_system", this);
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpEigenvalues() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_eigenvalues", this);
+        }
+
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpEigenvaluesSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_eigenvalues_su", this);
+        }
+
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpEigenvectors() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_eigenvectors", this);
+        }
+
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpEigenvectorsSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_eigenvectors_su", this);
         }
 
         public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpMatrixBeta() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_matrix_beta", this);
         }
 
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAdpMatrixBetaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "adp_matrix_beta_su", this);
+        }
+
         public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXyz() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_xyz", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_xyz", this);
+        }
+
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXyzSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_xyz_su", this);
         }
 
         public StrColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDisplayColour() {
@@ -3057,6 +3364,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFractXyz() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fract_xyz", this);
+        }
+
+        public FloatColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFractXyzSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fract_xyz_su", this);
         }
 
         public StrColumnBuilder<ModelSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -3127,7 +3438,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ValenceParamBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b", this);
         }
 
         public StrColumnBuilder<ValenceParamBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
@@ -3143,7 +3454,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<ValenceParamBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRo() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Ro", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ro", this);
         }
 
     }
@@ -3223,8 +3534,37 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "address", this);
         }
 
+        public StrColumnBuilder<AuditAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<AuditAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIdOrcid() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id_orcid", this);
+        }
+
         public StrColumnBuilder<AuditAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name", this);
+        }
+
+    }
+
+    public static class AuditAuthorRoleBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "audit_author_role";
+
+        public AuditAuthorRoleBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<AuditAuthorRoleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<AuditAuthorRoleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRole() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "role", this);
+        }
+
+        public StrColumnBuilder<AuditAuthorRoleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpecialDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "special_details", this);
         }
 
     }
@@ -3269,6 +3609,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "fax", this);
         }
 
+        public StrColumnBuilder<AuditContactAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
         public StrColumnBuilder<AuditContactAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterName() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "name", this);
         }
@@ -3296,6 +3640,39 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
     }
 
+    public static class AuditSupportBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "audit_support";
+
+        public AuditSupportBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAwardNumber() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "award_number", this);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAwardRecipient() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "award_recipient", this);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAwardType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "award_type", this);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFundingOrganization() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "funding_organization", this);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFundingOrganizationDoi() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "funding_organization_doi", this);
+        }
+
+        public StrColumnBuilder<AuditSupportBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+    }
+
     public static class CitationBuilder extends CifCoreCategoryBuilder {
         private static final String CATEGORY_NAME = "citation";
 
@@ -3307,12 +3684,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "abstract", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbstractIdCAS() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "abstract_id_CAS", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbstractIdCas() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "abstract_id_cas", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBookIdISBN() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "book_id_ISBN", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBookIdIsbn() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "book_id_isbn", this);
         }
 
         public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBookPublisher() {
@@ -3335,12 +3712,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "country", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDatabaseIdCSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_id_CSD", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDatabaseIdCsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_id_csd", this);
         }
 
         public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDatabaseIdMedline() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_id_Medline", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_id_medline", this);
         }
 
         public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDoi() {
@@ -3359,16 +3736,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_full", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdASTM() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_ASTM", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdAstm() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_astm", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdCSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_CSD", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdCsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_csd", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdISSN() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_ISSN", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIdIssn() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_issn", this);
         }
 
         public IntColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIssue() {
@@ -3420,12 +3797,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<CitationAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterKey() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "key", this);
-        }
-
         public StrColumnBuilder<CitationAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCitationId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "citation_id", this);
+        }
+
+        public StrColumnBuilder<CitationAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterKey() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "key", this);
         }
 
         public StrColumnBuilder<CitationAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterName() {
@@ -3515,44 +3892,44 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCSDHistory() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "CSD_history", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCsdHistory() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "csd_history", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDatasetDoi() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "dataset_doi", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalASTM() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_ASTM", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalAstm() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_astm", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalCSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_CSD", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalCsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_csd", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeCAS() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_CAS", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCAS() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "CAS", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCas() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cas", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeCOD() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_COD", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCOD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "COD", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCod() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cod", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeCSD() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_CSD", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "CSD", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "csd", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCcdcArchive() {
@@ -3583,40 +3960,40 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_ICSD", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterICSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ICSD", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIcsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "icsd", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeMDF() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_MDF", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMDF() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "MDF", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMdf() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "mdf", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeNBS() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_NBS", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNBS() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "NBS", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNbs() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "nbs", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodePDB() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_PDB", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPDB() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPdb() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodePDF() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_PDF", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPDF() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDF", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPdf() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdf", this);
         }
 
     }
@@ -3628,16 +4005,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCAS() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "CAS", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCas() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cas", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCOD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "COD", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCod() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cod", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "CSD", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "csd", this);
         }
 
         public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDepnumCcdcArchive() {
@@ -3652,24 +4029,24 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "depnum_ccdc_journal", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterICSD() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ICSD", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIcsd() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "icsd", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMDF() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "MDF", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMdf() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "mdf", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNBS() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "NBS", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNbs() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "nbs", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPDB() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPdb() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb", this);
         }
 
-        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPDF() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDF", this);
+        public StrColumnBuilder<DatabaseCodeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterPdf() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdf", this);
         }
 
     }
@@ -3681,16 +4058,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<DatabaseRelatedBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
-        }
-
         public StrColumnBuilder<DatabaseRelatedBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDatabaseId() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "database_id", this);
         }
 
         public StrColumnBuilder<DatabaseRelatedBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterEntryCode() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "entry_code", this);
+        }
+
+        public StrColumnBuilder<DatabaseRelatedBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
 
         public StrColumnBuilder<DatabaseRelatedBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRelation() {
@@ -3736,8 +4113,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "red", this);
         }
 
-        public IntColumnBuilder<DisplayColourBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRGB() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "RGB", this);
+        public IntColumnBuilder<DisplayColourBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRgb() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "rgb", this);
         }
 
     }
@@ -3749,12 +4126,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
-        public StrColumnBuilder<JournalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodenASTM() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coden_ASTM", this);
+        public StrColumnBuilder<JournalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodenAstm() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coden_astm", this);
         }
 
         public StrColumnBuilder<JournalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodenCambridge() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coden_Cambridge", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "coden_cambridge", this);
         }
 
         public StrColumnBuilder<JournalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDataValidationNumber() {
@@ -4383,6 +4760,14 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "footnote", this);
         }
 
+        public StrColumnBuilder<PublAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<PublAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIdAudit() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id_audit", this);
+        }
+
         public StrColumnBuilder<PublAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIdIucr() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id_iucr", this);
         }
@@ -4435,6 +4820,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public PublContactAuthorBuilder(CifCoreBlockBuilder parent) {
             super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PublContactAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
 
         public StrColumnBuilder<PublContactAuthorBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterIdIucr() {
@@ -4639,11 +5028,11 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBEquivGeomMean() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_equiv_geom_mean", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_equiv_geom_mean", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBIsoOrEquiv() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_iso_or_equiv", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_iso_or_equiv", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCalcAttachedAtom() {
@@ -4655,19 +5044,23 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnX() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_x", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_x", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXyz() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_xyz", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_xyz", this);
+        }
+
+        public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXyzSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_xyz_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnY() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_y", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_y", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnZ() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_z", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_z", this);
         }
 
         public IntColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterChemicalConnNumber() {
@@ -4692,6 +5085,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFractXyz() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fract_xyz", this);
+        }
+
+        public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFractXyzSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fract_xyz_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFractY() {
@@ -4762,20 +5159,24 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "tensor_beta", this);
         }
 
+        public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTensorBetaSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "tensor_beta_su", this);
+        }
+
         public StrColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTypeSymbol() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type_symbol", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUEquivGeomMean() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_equiv_geom_mean", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_equiv_geom_mean", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUIsoOrEquiv() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_iso_or_equiv", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_iso_or_equiv", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWyckoffSymbol() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "Wyckoff_symbol", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "wyckoff_symbol", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterThermalDisplaceType() {
@@ -4791,7 +5192,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBEquivGeomMeanSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_equiv_geom_mean_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_equiv_geom_mean_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBIsoOrEquivEsd() {
@@ -4799,7 +5200,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterBIsoOrEquivSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_iso_or_equiv_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_iso_or_equiv_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXEsd() {
@@ -4807,7 +5208,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnXSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_x_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_x_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnYEsd() {
@@ -4815,7 +5216,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnYSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_y_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_y_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnZEsd() {
@@ -4823,7 +5224,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCartnZSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cartn_z_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cartn_z_su", this);
         }
 
         public StrColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
@@ -4887,7 +5288,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUEquivGeomMeanSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_equiv_geom_mean_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_equiv_geom_mean_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUIsoOrEquivEsd() {
@@ -4895,7 +5296,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterUIsoOrEquivSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_iso_or_equiv_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_iso_or_equiv_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB11() {
@@ -4915,7 +5316,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB11Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_11_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_11_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB12() {
@@ -4935,7 +5336,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB12Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_12_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_12_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB13() {
@@ -4955,7 +5356,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB13Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_13_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_13_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB22() {
@@ -4975,7 +5376,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB22Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_22_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_22_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB23() {
@@ -4995,7 +5396,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB23Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_23_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_23_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoB33() {
@@ -5015,7 +5416,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB33Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_33_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_33_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRatio() {
@@ -5043,7 +5444,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU11Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_11_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_11_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoU12() {
@@ -5063,7 +5464,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU12Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_12_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_12_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoU13() {
@@ -5083,7 +5484,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU13Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_13_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_13_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoU22() {
@@ -5103,7 +5504,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU22Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_22_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_22_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoU23() {
@@ -5123,7 +5524,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU23Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_23_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_23_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnisoU33() {
@@ -5143,7 +5544,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU33Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_33_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_33_su", this);
         }
 
     }
@@ -5156,11 +5557,19 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixB() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_B", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_b", this);
+        }
+
+        public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixBSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_b_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixU() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_U", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_u", this);
+        }
+
+        public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixUSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_u_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB11() {
@@ -5172,7 +5581,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB11Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_11_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_11_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB12() {
@@ -5184,7 +5593,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB12Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_12_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_12_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB13() {
@@ -5196,7 +5605,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB13Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_13_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_13_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB22() {
@@ -5208,7 +5617,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB22Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_22_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_22_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB23() {
@@ -5220,7 +5629,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB23Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_23_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_23_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB33() {
@@ -5232,7 +5641,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterB33Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "B_33_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "b_33_su", this);
         }
 
         public StrColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
@@ -5260,7 +5669,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU11Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_11_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_11_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU12() {
@@ -5272,7 +5681,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU12Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_12_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_12_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU13() {
@@ -5284,7 +5693,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU13Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_13_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_13_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU22() {
@@ -5296,7 +5705,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU22Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_22_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_22_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU23() {
@@ -5308,7 +5717,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU23Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_23_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_23_su", this);
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU33() {
@@ -5320,7 +5729,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomSiteAnisoBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterU33Su() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "U_33_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "u_33_su", this);
         }
 
     }
@@ -5513,6 +5922,70 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat11Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_11_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat12Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_12_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat13Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_13_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat21Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_21_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat22Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_22_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat23Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_23_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat31Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_31_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat32Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_32_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat33Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_33_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrix() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec1Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_1_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec2Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_2_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec3Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_3_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVector() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_su", this);
+        }
+
         public StrColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAxes() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "axes", this);
         }
@@ -5553,10 +6026,6 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_33", this);
         }
 
-        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrix() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix", this);
-        }
-
         public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec1() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_1", this);
         }
@@ -5569,10 +6038,6 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_3", this);
         }
 
-        public FloatColumnBuilder<AtomSitesCartnTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVector() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector", this);
-        }
-
     }
 
     public static class AtomSitesFractTransformBuilder extends CifCoreCategoryBuilder {
@@ -5582,12 +6047,68 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat11Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_11_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat12Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_12_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat13Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_13_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat21Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_21_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat22Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_22_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat23Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_23_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat31Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_31_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat32Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_32_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMat33Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "mat_33_su", this);
+        }
+
         public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrix() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix", this);
         }
 
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMatrixSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "matrix_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec1Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_1_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec2Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_2_su", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVec3Su() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vec_3_su", this);
+        }
+
         public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVector() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector", this);
+        }
+
+        public FloatColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVectorSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "vector_su", this);
         }
 
         public StrColumnBuilder<AtomSitesFractTransformBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAxes() {
@@ -5651,6 +6172,10 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAnalyticalMassPercentSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "analytical_mass_percent_su", this);
+        }
+
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomicMass() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "atomic_mass", this);
         }
@@ -5712,7 +6237,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA1() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a1", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a1", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannA2() {
@@ -5720,7 +6245,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA2() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a2", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a2", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannA3() {
@@ -5728,7 +6253,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA3() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a3", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a3", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannA4() {
@@ -5736,7 +6261,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA4() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a4", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a4", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannB1() {
@@ -5744,7 +6269,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB1() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b1", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b1", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannB2() {
@@ -5752,7 +6277,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB2() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b2", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b2", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannB3() {
@@ -5760,7 +6285,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB3() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b3", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b3", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannB4() {
@@ -5768,7 +6293,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB4() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b4", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b4", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatCromerMannC() {
@@ -5776,7 +6301,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannC() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_c", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_c", this);
         }
 
         public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatDispersionImag() {
@@ -5819,12 +6344,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source", this);
         }
 
-        public StrColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatVersusStolList() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "scat_versus_stol_list", this);
+        public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterScatVersusStolList() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "scat_versus_stol_list", this);
         }
 
-        public StrColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVersusStolList() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "versus_stol_list", this);
+        public FloatColumnBuilder<AtomTypeBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVersusStolList() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "versus_stol_list", this);
         }
 
     }
@@ -5837,7 +6362,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannCoeffs() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_coeffs", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_coeffs", this);
         }
 
         public StrColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDispersion() {
@@ -5861,23 +6386,23 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHiAngFoxC0() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_Fox_c0", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_fox_c0", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHiAngFoxC1() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_Fox_c1", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_fox_c1", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHiAngFoxC2() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_Fox_c2", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_fox_c2", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHiAngFoxC3() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_Fox_c3", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_fox_c3", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterHiAngFoxCoeffs() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_Fox_coeffs", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "hi_ang_fox_coeffs", this);
         }
 
         public StrColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymbol() {
@@ -5885,39 +6410,39 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA1() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a1", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a1", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA2() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a2", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a2", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA3() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a3", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a3", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannA4() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_a4", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_a4", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB1() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b1", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b1", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB2() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b2", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b2", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB3() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b3", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b3", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannB4() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_b4", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_b4", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCromerMannC() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Cromer_Mann_c", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "cromer_mann_c", this);
         }
 
         public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDispersionImag() {
@@ -5940,8 +6465,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source", this);
         }
 
-        public StrColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVersusStolList() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "versus_stol_list", this);
+        public FloatColumnBuilder<AtomTypeScatBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterVersusStolList() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "versus_stol_list", this);
         }
 
     }
@@ -6022,7 +6547,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureFlack() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Flack", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_flack", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsAbsStructureFlackEsd() {
@@ -6030,7 +6555,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureFlackSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Flack_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_flack_su", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsAbsStructureRogers() {
@@ -6038,7 +6563,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureRogers() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Rogers", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_rogers", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsAbsStructureRogersEsd() {
@@ -6046,7 +6571,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureRogersSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Rogers_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_rogers_su", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsDResHigh() {
@@ -6206,7 +6731,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_all", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsRFactorObs() {
@@ -6218,7 +6743,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_gt", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsRFsqdFactorObs() {
@@ -6226,7 +6751,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFsqdFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_Fsqd_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_fsqd_factor", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsRIFactorObs() {
@@ -6234,7 +6759,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRIFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_I_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_i_factor", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsRestrainedSAll() {
@@ -6242,7 +6767,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_S_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_all", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsRestrainedSObs() {
@@ -6250,7 +6775,7 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_S_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_gt", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsShiftOverEsdMax() {
@@ -6321,16 +6846,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ls_wR_factor_all", this);
         }
 
-        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
+        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_all", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterLsWRFactorObs() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ls_wR_factor_obs", this);
         }
 
-        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_gt", this);
+        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorGt() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_gt", this);
         }
 
     }
@@ -6376,19 +6901,35 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public StrColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalcDetails() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "F_calc_details", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "f_calc_details", this);
         }
 
         public StrColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalcFormula() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "F_calc_formula", this);
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "f_calc_formula", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalcPrecision() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "F_calc_precision", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_calc_precision", this);
         }
 
-        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorRef() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_ref", this);
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterFCalcPrecisionSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "f_calc_precision_su", this);
+        }
+
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterGoodnessOfFitRefSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "goodness_of_fit_ref_su", this);
+        }
+
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSAllSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_all_su", this);
+        }
+
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSGtSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_gt_su", this);
+        }
+
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorRef() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_ref", this);
         }
 
         public StrColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureDetails() {
@@ -6396,19 +6937,19 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureFlack() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Flack", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_flack", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureFlackSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Flack_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_flack_su", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureRogers() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Rogers", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_rogers", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAbsStructureRogersSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_Rogers_su", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "abs_structure_rogers_su", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDResHigh() {
@@ -6484,27 +7025,27 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_all", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_gt", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFsqdFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_Fsqd_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_fsqd_factor", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRIFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_I_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_i_factor", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_S_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_all", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRestrainedSGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_S_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "restrained_s_gt", this);
         }
 
         public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterShiftOverSuMax() {
@@ -6535,12 +7076,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "weighting_scheme", this);
         }
 
-        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_all", this);
         }
 
-        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_gt", this);
+        public FloatColumnBuilder<RefineLsBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorGt() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_gt", this);
         }
 
     }
@@ -6565,23 +7106,60 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
         }
 
         public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_all", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_all", this);
         }
 
         public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFactorGt() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_gt", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_factor_gt", this);
         }
 
         public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRFsqdFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_Fsqd_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_fsqd_factor", this);
         }
 
         public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterRIFactor() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_I_factor", this);
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "r_i_factor", this);
         }
 
-        public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWRFactorAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wR_factor_all", this);
+        public FloatColumnBuilder<RefineLsClassBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWrFactorAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wr_factor_all", this);
+        }
+
+    }
+
+    public static class FunctionBuilder extends CifCoreCategoryBuilder {
+        private static final String CATEGORY_NAME = "function";
+
+        public FunctionBuilder(CifCoreBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterAtomtype() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atomtype", this);
+        }
+
+        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterClosest() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "closest", this);
+        }
+
+        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSeitzfromjones() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "seitzfromjones", this);
+        }
+
+        public FloatColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymequiv() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "symequiv", this);
+        }
+
+        public IntColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymkey() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "symkey", this);
+        }
+
+        public IntColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymlat() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "symlat", this);
+        }
+
+        public StrColumnBuilder<FunctionBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSymop() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "symop", this);
         }
 
     }
@@ -6601,12 +7179,12 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "Int_Tables_number", this);
         }
 
-        public StrColumnBuilder<SymmetryBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpaceGroupNameHall() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "space_group_name_Hall", this);
-        }
-
         public StrColumnBuilder<SymmetryBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpaceGroupNameH_M() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "space_group_name_H-M", this);
+        }
+
+        public StrColumnBuilder<SymmetryBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterSpaceGroupNameHall() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "space_group_name_Hall", this);
         }
 
     }

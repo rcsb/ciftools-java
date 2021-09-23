@@ -448,7 +448,7 @@ public class PdbxSolnScatter extends DelegatingCategory {
     /**
      * The length (or range) of the protein sample under study.
      * If the solution structure is approximated as an elongated elliptical
-     * cyclinder the the length L is determined from,
+     * cyclinder the length L is determined from,
      * 
      * L = sqrt [12( (R_G)^2  -  (R_XS)^2 ) ]
      * 

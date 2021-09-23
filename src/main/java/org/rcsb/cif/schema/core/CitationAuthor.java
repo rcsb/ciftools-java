@@ -17,21 +17,21 @@ public class CitationAuthor extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * Value is a unique key to a set of CITATION_AUTHOR items
-     * in a looped list.
-     * @return StrColumn
-     */
-    public StrColumn getKey() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_author_key"));
-    }
-
-    /**
      * Code identifier in the CITATION data list. The value of must match
      * an identifier specified in the CITATION list.
      * @return StrColumn
      */
     public StrColumn getCitationId() {
         return new DelegatingStrColumn(parentBlock.getColumn("citation_author_citation_id"));
+    }
+
+    /**
+     * Value is a unique key to a set of CITATION_AUTHOR items
+     * in a looped list.
+     * @return StrColumn
+     */
+    public StrColumn getKey() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_author_key"));
     }
 
     /**

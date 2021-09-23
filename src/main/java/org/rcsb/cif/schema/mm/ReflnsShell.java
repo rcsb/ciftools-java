@@ -101,6 +101,22 @@ public class ReflnsShell extends DelegatingCategory {
                 return getPdbxRpimIAllAnomalous();
             case "pdbx_Rmerge_I_all_anomalous":
                 return getPdbxRmergeIAllAnomalous();
+            case "pdbx_percent_possible_ellipsoidal":
+                return getPdbxPercentPossibleEllipsoidal();
+            case "pdbx_percent_possible_spherical":
+                return getPdbxPercentPossibleSpherical();
+            case "pdbx_percent_possible_ellipsoidal_anomalous":
+                return getPdbxPercentPossibleEllipsoidalAnomalous();
+            case "pdbx_percent_possible_spherical_anomalous":
+                return getPdbxPercentPossibleSphericalAnomalous();
+            case "pdbx_redundancy_anomalous":
+                return getPdbxRedundancyAnomalous();
+            case "pdbx_CC_half_anomalous":
+                return getPdbxCCHalfAnomalous();
+            case "pdbx_absDiff_over_sigma_anomalous":
+                return getPdbxAbsDiffOverSigmaAnomalous();
+            case "pdbx_percent_possible_anomalous":
+                return getPdbxPercentPossibleAnomalous();
             default:
                 return new DelegatingColumn(column);
         }
@@ -617,6 +633,131 @@ public class ReflnsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxRmergeIAllAnomalous() {
         return delegate.getColumn("pdbx_Rmerge_I_all_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique data
+     * within the intersection of (1) a spherical shell
+     * (defined by its diffraction limits,
+     * _reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) and (2) the ellipsoid
+     * (described by __reflns.pdbx_aniso_diffraction_limit_*
+     * items), relative to all possible symmetry-unique
+     * reflections within that intersection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleEllipsoidal() {
+        return delegate.getColumn("pdbx_percent_possible_ellipsoidal", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique data
+     * within the spherical shell defined by its diffraction
+     * limits (_reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) relative to all
+     * possible symmetry-unique reflections within that shell.
+     * 
+     * In the absence of an anisotropy description this is
+     * identical to _reflns_shell.percent_possible_all.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleSpherical() {
+        return delegate.getColumn("pdbx_percent_possible_spherical", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the intersection of
+     * (1) a spherical shell (defined by its diffraction
+     * limits, _reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) and (2) the ellipsoid
+     * (described by __reflns.pdbx_aniso_diffraction_limit_*
+     * items), relative to all possible symmetry-unique
+     * anomalous difference data within that intersection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleEllipsoidalAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_ellipsoidal_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the spherical shell
+     * defined by its diffraction limits
+     * (_reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) relative to all
+     * possible symmetry-unique anomalous difference data
+     * within that shell.
+     * 
+     * In the absence of an anisotropy description this is
+     * identical to _reflns.pdbx_percent_possible_anomalous.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleSphericalAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_spherical_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The redundancy of anomalous difference data within the
+     * spherical shell (defined by its diffraction limits
+     * _reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low), i.e. data for which
+     * intensities for both instances of a Friedel pair are
+     * available for an acentric reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRedundancyAnomalous() {
+        return delegate.getColumn("pdbx_redundancy_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The correlation coefficient within the spherical shell
+     * (defined by its diffraction limits
+     * _reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) between two randomly
+     * chosen half-sets of anomalous intensity differences,
+     * I(+)-I(-) for anomalous data, i.e. data for which
+     * intensities for both instances of a Friedel pair are
+     * available for an acentric reflection.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxCCHalfAnomalous() {
+        return delegate.getColumn("pdbx_CC_half_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The mean ratio of absolute anomalous intensity
+     * differences to their standard deviation within the
+     * spherical shell (defined by its diffraction limits
+     * _reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low).
+     * 
+     * |Dano|
+     * -------------
+     * sigma(Dano)
+     * 
+     * with
+     * 
+     * Dano        = I(+) - I(-)
+     * sigma(Dano) = sqrt( sigma(I(+))^2 + sigma(I(-))^2 )
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxAbsDiffOverSigmaAnomalous() {
+        return delegate.getColumn("pdbx_absDiff_over_sigma_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Completeness (as a percentage) of symmetry-unique
+     * anomalous difference data within the spherical shell
+     * defined by its diffraction limits
+     * (_reflns_shell.d_resolution_high and
+     * _reflns_shell.d_resolution_low) relative to all
+     * possible symmetry-unique anomalous difference data
+     * within that shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxPercentPossibleAnomalous() {
+        return delegate.getColumn("pdbx_percent_possible_anomalous", DelegatingFloatColumn::new);
     }
 
 }

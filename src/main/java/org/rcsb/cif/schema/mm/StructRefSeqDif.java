@@ -129,7 +129,7 @@ public class StructRefSeqDif extends DelegatingCategory {
     }
 
     /**
-     * Insertion code in PDB sequence
+     * The PDB sequence residue number.
      * @return StrColumn
      */
     public StrColumn getPdbxAuthSeqNum() {

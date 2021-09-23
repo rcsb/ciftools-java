@@ -39,8 +39,8 @@ public class PdbxReRefinement extends DelegatingCategory {
 
     /**
      * A pointer to _citation.id in category CITATION describing the
-     * the citation of the entry from from which the experimental data
-     * was obtained.
+     * citation of the entry from from which the experimental data
+     * were obtained.
      * @return StrColumn
      */
     public StrColumn getCitationId() {

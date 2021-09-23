@@ -72,7 +72,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * The standard uncertainty of the pressure at which
+     * Standard uncertainty of the pressure at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
      */
@@ -81,7 +81,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * The standard uncertainty of the pressure at which
+     * Standard uncertainty of the pressure at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
      */
@@ -108,7 +108,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * The standard uncertainty of the temperature of at which
+     * Standard uncertainty of the temperature of at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
      */
@@ -117,7 +117,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * The standard uncertainty of the temperature of at which
+     * Standard uncertainty of the temperature of at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
      */
