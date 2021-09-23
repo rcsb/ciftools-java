@@ -28,12 +28,20 @@ public class DiffrnScaleGroup extends DelegatingCategory.DelegatingCifCoreCatego
     }
 
     /**
-     * Scale for a specific measurement group of eflections. Is multiplied
+     * Scale for a specific measurement group of reflections. Is multiplied
      * with the net intensity to place all intensities on a common scale.
      * @return FloatColumn
      */
     public FloatColumn getINet() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_I_net"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_i_net"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_scale_group.I_net.
+     * @return FloatColumn
+     */
+    public FloatColumn getINetSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_scale_group_i_net_su"));
     }
 
 }

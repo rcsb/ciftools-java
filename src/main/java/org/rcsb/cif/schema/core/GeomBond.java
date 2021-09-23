@@ -109,6 +109,14 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _geom_bond.valence.
+     * @return FloatColumn
+     */
+    public FloatColumn getValenceSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_bond_valence_su"));
+    }
+
+    /**
      * This label is a unique identifier for a particular site in the
      * asymmetric unit of the crystal unit cell.
      * @return StrColumn
@@ -163,8 +171,8 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id
+     * Standard uncertainty of the intramolecular bond distance
+     * between the sites identified by _geom_bond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistEsd() {
@@ -172,8 +180,8 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id
+     * Standard uncertainty of the intramolecular bond distance
+     * between the sites identified by _geom_bond.id.
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {

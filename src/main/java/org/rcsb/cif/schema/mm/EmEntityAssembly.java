@@ -67,6 +67,8 @@ public class EmEntityAssembly extends DelegatingCategory {
                 return getEbiExpressionSystemPlasmid();
             case "mutant_flag":
                 return getMutantFlag();
+            case "chimera":
+                return getChimera();
             default:
                 return new DelegatingColumn(column);
         }
@@ -278,6 +280,14 @@ public class EmEntityAssembly extends DelegatingCategory {
      */
     public StrColumn getMutantFlag() {
         return delegate.getColumn("mutant_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * An indication if an assembly is contains a chimeric polymer
+     * @return StrColumn
+     */
+    public StrColumn getChimera() {
+        return delegate.getColumn("chimera", DelegatingStrColumn::new);
     }
 
 }

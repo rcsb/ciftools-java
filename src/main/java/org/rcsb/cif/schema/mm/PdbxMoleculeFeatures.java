@@ -34,7 +34,7 @@ public class PdbxMoleculeFeatures extends DelegatingCategory {
     }
 
     /**
-     * The value of _pdbx_molecule_features.prd_id is the PDB accession code for this
+     * The value of _pdbx_molecule_features.prd_id is the accession code for this
      * reference molecule.
      * @return StrColumn
      */

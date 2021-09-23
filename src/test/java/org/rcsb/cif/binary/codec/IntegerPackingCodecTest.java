@@ -1,11 +1,11 @@
 package org.rcsb.cif.binary.codec;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class IntegerPackingCodecTest {
     @Test

@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.data.ByteArray;
 
 import java.io.ByteArrayOutputStream;
@@ -13,8 +13,9 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import static junit.framework.TestCase.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 
 /**
  * Origin of files:
@@ -81,7 +82,7 @@ public class TestHelper {
 
     @Test
     public void shouldAcquireInputStream() {
-        assertNotNull("Could not acquire inputstream of local resource", getInputStream("cif/1pga.cif"));
+        assertNotNull(getInputStream("cif/1pga.cif"), "Could not acquire inputstream of local resource");
     }
 
     @Test

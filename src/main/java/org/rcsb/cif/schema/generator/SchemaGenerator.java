@@ -12,10 +12,14 @@ import org.rcsb.cif.schema.DelegatingColumn;
 import org.rcsb.cif.schema.DelegatingFloatColumn;
 import org.rcsb.cif.schema.DelegatingIntColumn;
 import org.rcsb.cif.schema.DelegatingStrColumn;
+import org.rcsb.cif.schema.StandardSchemata;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.UncheckedIOException;
+import java.lang.reflect.Field;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -43,7 +47,6 @@ import java.util.stream.Stream;
  */
 @SuppressWarnings("ALL")
 public class SchemaGenerator {
-    private static final Path OUTPUT_PATH = Paths.get("/Users/sebastian/model/");
     private static final String BASE_PACKAGE = "org.rcsb.cif.schema.";
     private static final String RE_MATRIX_FIELD = "\\[[1-3]]\\[[1-3]]";
     private static final String RE_VECTOR_FIELD = "\\[[1-3]]";
@@ -58,6 +61,8 @@ public class SchemaGenerator {
             "_struct_sheet_range.beg_auth_seq_id",
             "_struct_sheet_range.end_auth_seq_id").collect(Collectors.toList());
 
+    private static final String FILE = loadTemplate("File.tpl");
+    private static final String FILE_BUILDER = loadTemplate("FileBuilder.tpl");
     private static final String BLOCK = loadTemplate("Block.tpl");
     private static final String BLOCK_FLAT = loadTemplate("BlockFlat.tpl");
     private static final String CASE = loadTemplate("Case.tpl");
@@ -83,6 +88,7 @@ public class SchemaGenerator {
     }
 
     private final String schemaName;
+    private final String schemaEnum;
     private final String packageName;
     private final boolean flat;
     private final Map<String, Table> schema;
@@ -93,15 +99,21 @@ public class SchemaGenerator {
     private final List<List<String>> aliases;
 
     public static void main(String[] args) throws IOException {
-        new SchemaGenerator("MmCif", "mm", false,
-                "http://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
+        new SchemaGenerator("MmCif", "MMCIF", "mm", false,
+                "https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
                 "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
-                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic");
-//        new SchemaGenerator("CifCore", "core", true,
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-//                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+                "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
+                "https://raw.githubusercontent.com/ihmwg/MA-dictionary/master/mmcif_ma.dic"); // model-extension for predicted models
+
+        new SchemaGenerator("CifCore", "CIF_CORE", "core", true,
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+
+        // NMR Exchange Format - TODO special usage of save-frames
+//        new SchemaGenerator("Nef", "NEF", "nef", false,
+//                "https://raw.githubusercontent.com/NMRExchangeFormat/NEF/master/specification/mmcif_nef.dic");
     }
 
     static String toClassName(String rawName) {
@@ -125,12 +137,37 @@ public class SchemaGenerator {
     }
 
     private void writeClasses() throws IOException {
-        writeBlockImpl(schema, OUTPUT_PATH);
+        // create or clear out destination directory
+        // be careful with this and point to temp directory when in trouble - the impl must be in a heavily state to bootstrap itself and generate schema-related code
+        Path projectPath = Paths.get(new File("").getAbsolutePath());
+        String basePackagePath = BASE_PACKAGE.substring(0, BASE_PACKAGE.length() - 1).replace(".", "/");
+        Path packagePath = projectPath.resolve("src").resolve("main").resolve("java").resolve(basePackagePath).resolve(packageName);
+
+        if (Files.exists(packagePath)) {
+            Files.list(packagePath)
+                    .filter(p -> !Files.isDirectory(p))
+                    .forEach(p -> {
+                        try {
+                            Files.delete(p);
+                        } catch (IOException e) {
+                            throw new UncheckedIOException(e);
+                        }
+                    });
+        } else {
+            Files.createDirectories(packagePath);
+        }
+
+        writeFiles(schema, packagePath);
     }
 
-    private void writeBlockImpl(Map<String, Table> content, Path path) throws IOException {
+    private void writeFiles(Map<String, Table> content, Path path) throws IOException {
         Set<String> alreadyWritten = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-        String className = schemaName + "Block";
+        String blockName = schemaName + "Block";
+        String file = FILE.replace("{packageName}", packageName)
+                .replace("{schemaName}", schemaName);
+        String fileBuilder = FILE_BUILDER.replace("{packageName}", packageName)
+                .replace("{schemaName}", schemaName)
+                .replace("{schemaEnum}", schemaEnum);
         String block = (flat ? BLOCK_FLAT : BLOCK).replace("{packageName}", packageName)
                 .replace("{schemaName}", schemaName);
         String blockBuilder = (flat ? BLOCK_BUILDER_FLAT : BLOCK_BUILDER).replace("{packageName}", packageName)
@@ -181,9 +218,11 @@ public class SchemaGenerator {
         blockBuilder = blockBuilder.replace("{enters}", enters.toString());
         categoryBuilder = categoryBuilder.replace("{enters}", categoryEnters.toString());
 
+        Files.write(path.resolve(schemaName + "File.java"), file.getBytes());
+        Files.write(path.resolve(schemaName + "FileBuilder.java"), fileBuilder.getBytes());
         Files.write(path.resolve(schemaName + "BlockBuilder.java"), blockBuilder.toString().getBytes());
         Files.write(path.resolve(schemaName + "CategoryBuilder.java"), categoryBuilder.toString().getBytes());
-        Files.write(path.resolve(className + ".java"), block.toString().getBytes());
+        Files.write(path.resolve(blockName + ".java"), block.toString().getBytes());
     }
 
     private String prepareDescription(String description, String prefix) {
@@ -197,10 +236,6 @@ public class SchemaGenerator {
                                String categoryClassName, StringJoiner categoryEnters) throws IOException {
         if (!Files.exists(path)) {
             Files.createDirectory(path);
-        }
-        Path generatedPath = path.resolve("generated");
-        if (!Files.exists(generatedPath)) {
-            Files.createDirectory(generatedPath);
         }
 
         categoryDescription = prepareDescription(categoryDescription, " * ");
@@ -219,7 +254,7 @@ public class SchemaGenerator {
             String flatName = categoryName + "_" + columnName;
             Col column = (Col) entry.getValue();
 
-            // check if this is a alias in place here - if so handled specifically lateron
+            // check if there is a alias in place here - if so handled specifically lateron
             if (aliases.stream()
                     .anyMatch(list -> list.contains(categoryName + "." + columnName))) {
                 continue;
@@ -302,7 +337,7 @@ public class SchemaGenerator {
                 .replace("{categoryName}", categoryName)
                 .replace("{columnEnters}", enters.toString()));
 
-        Files.write(path.resolve("generated").resolve(className + ".java"), category.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), category.toString().getBytes());
     }
 
     private Class<? extends Column> getBaseClass(String type) {
@@ -352,8 +387,9 @@ public class SchemaGenerator {
         }
     }
 
-    private SchemaGenerator(String schemaName, String packageName, boolean flat, String... resource) throws IOException {
+    private SchemaGenerator(String schemaName, String schemaEnum, String packageName, boolean flat, String... resource) throws IOException {
         this.schemaName = schemaName;
+        this.schemaEnum = schemaEnum;
         this.packageName = packageName;
         this.flat = flat;
         this.schema = new LinkedHashMap<>();
@@ -363,13 +399,20 @@ public class SchemaGenerator {
         this.rawAliases = new LinkedHashMap<>();
         this.aliases = new ArrayList<>();
         for (String res : resource) {
-            System.out.println(res);
+            System.out.println("Loading dictionary from: " + res);
             CifFile cifFile = CifIO.readFromURL(new URL(res));
             if (schemaName.equals("MmCif")) {
                 getCategoryMetadataMmcif(cifFile);
             } else if (schemaName.equals("CifCore")) {
                 getCategoryMetadataCifCore(cifFile);
             }
+
+            // acquire metadata
+            Category dictionary = cifFile.getBlocks().get(0).getCategory("dictionary");
+            String title = dictionary.isDefined() ? dictionary.getColumn("title").getStringData(0) : res.substring(res.lastIndexOf("/") + 1);
+            String version = dictionary.isDefined() ? dictionary.getColumn("version").getStringData(0) : "draft";
+            System.out.println(title + " with version " + version);
+
             buildListOfLinksBetweenCategories(cifFile);
         }
         getFieldData();
@@ -377,6 +420,14 @@ public class SchemaGenerator {
             prepareAliases();
         }
         writeClasses();
+
+        System.out.println("Finished file generation");
+        try {
+            Field field = StandardSchemata.class.getField(schemaEnum);
+        } catch (Exception e) {
+            System.err.println("Schema with name '" + schemaEnum + "' must be explicitly added to StandardSchemata.java!");
+        }
+        System.out.println();
     }
 
     private void getFieldData() {

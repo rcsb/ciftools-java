@@ -1,10 +1,11 @@
 package org.rcsb.cif.binary.codec;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.data.Int8Array;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
+
 
 public class DeltaCodecTest {
     @Test

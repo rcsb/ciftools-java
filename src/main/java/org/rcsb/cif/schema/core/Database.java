@@ -21,14 +21,14 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * Centre and incorporated into the Cambridge Structural Database (CSD).
      * @return StrColumn
      */
-    public StrColumn getCSDHistory() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_CSD_history"));
+    public StrColumn getCsdHistory() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_csd_history"));
     }
 
     /**
      * The digital object identifier (DOI) registered to identify
      * a data set publication associated with the structure
-     * described in the current datablock. This should be used
+     * described in the current data block. This should be used
      * for a dataset obtained from a curated database such as
      * CSD or PDB.
      * 
@@ -39,8 +39,8 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * structured extensible way. A DOI is an implementation
      * of the Internet concepts of Uniform Resource Name and
      * Universal Resource Locator managed according to the
-     * specifications of the International DOI Foundation (see
-     * http://www.doi.org).
+     * specifications of the International DOI Foundation
+     * (see http://www.doi.org).
      * @return StrColumn
      */
     public StrColumn getDatasetDoi() {
@@ -52,16 +52,16 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * Source List maintained by the Chemical Abstracts Service.
      * @return StrColumn
      */
-    public StrColumn getJournalASTM() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_ASTM"));
+    public StrColumn getJournalAstm() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_astm"));
     }
 
     /**
      * The journal code used in the Cambridge Structural Database.
      * @return StrColumn
      */
-    public StrColumn getJournalCSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_CSD"));
+    public StrColumn getJournalCsd() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_journal_csd"));
     }
 
     /**
@@ -69,31 +69,31 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodeCAS() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CAS"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CAS", "database_code_cas"));
     }
 
     /**
      * Code assigned by the Chemical Abstracts Service.
      * @return StrColumn
      */
-    public StrColumn getCAS() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CAS"));
+    public StrColumn getCas() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CAS", "database_code_cas"));
     }
 
     /**
-     * Code assigned by Crystallography Open Database (COD).
+     * Code assigned by the Crystallography Open Database (COD).
      * @return StrColumn
      */
     public StrColumn getCodeCOD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_COD"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_COD", "database_code_cod"));
     }
 
     /**
-     * Code assigned by Crystallography Open Database (COD).
+     * Code assigned by the Crystallography Open Database (COD).
      * @return StrColumn
      */
-    public StrColumn getCOD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_COD"));
+    public StrColumn getCod() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_COD", "database_code_cod"));
     }
 
     /**
@@ -101,15 +101,15 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodeCSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CSD"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CSD", "database_code_csd"));
     }
 
     /**
      * Code assigned by the Cambridge Structural Database.
      * @return StrColumn
      */
-    public StrColumn getCSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_CSD"));
+    public StrColumn getCsd() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_CSD", "database_code_csd"));
     }
 
     /**
@@ -177,15 +177,15 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodeICSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_ICSD"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_ICSD", "database_code_icsd"));
     }
 
     /**
      * Code assigned by the Inorganic Crystal Structure Database.
      * @return StrColumn
      */
-    public StrColumn getICSD() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_ICSD"));
+    public StrColumn getIcsd() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_ICSD", "database_code_icsd"));
     }
 
     /**
@@ -193,15 +193,15 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodeMDF() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_MDF"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_MDF", "database_code_mdf"));
     }
 
     /**
      * Code assigned in the Metals Data File.
      * @return StrColumn
      */
-    public StrColumn getMDF() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_MDF"));
+    public StrColumn getMdf() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_MDF", "database_code_mdf"));
     }
 
     /**
@@ -209,31 +209,31 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodeNBS() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_NBS"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_NBS", "database_code_nbs"));
     }
 
     /**
      * Code assigned by the NBS (NIST) Crystal Data Database.
      * @return StrColumn
      */
-    public StrColumn getNBS() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_NBS"));
+    public StrColumn getNbs() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_NBS", "database_code_nbs"));
     }
 
     /**
-     * Code assigned by the Protein Data Base.
+     * Code assigned by the Protein Data Bank.
      * @return StrColumn
      */
     public StrColumn getCodePDB() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDB"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDB", "database_code_pdb"));
     }
 
     /**
-     * Code assigned by the Protein Data Base.
+     * Code assigned by the Protein Data Bank.
      * @return StrColumn
      */
-    public StrColumn getPDB() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDB"));
+    public StrColumn getPdb() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDB", "database_code_pdb"));
     }
 
     /**
@@ -241,15 +241,15 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getCodePDF() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDF"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDF", "database_code_pdf"));
     }
 
     /**
      * Code assigned in the Powder Diffraction File.
      * @return StrColumn
      */
-    public StrColumn getPDF() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_PDF"));
+    public StrColumn getPdf() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_PDF", "database_code_pdf"));
     }
 
 }

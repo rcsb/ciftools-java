@@ -22,7 +22,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getACalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_A_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_calc"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.A_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getACalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_calc_su"));
     }
 
     /**
@@ -30,7 +38,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getAMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_A_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_meas"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.A_meas.
+     * @return FloatColumn
+     */
+    public FloatColumn getAMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_a_meas_su"));
     }
 
     /**
@@ -38,7 +54,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getBCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_B_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_calc"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.B_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getBCalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_calc_su"));
     }
 
     /**
@@ -46,7 +70,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getBMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_B_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_meas"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.B_meas.
+     * @return FloatColumn
+     */
+    public FloatColumn getBMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_b_meas_su"));
     }
 
     /**
@@ -79,7 +111,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_calc"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.F_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getFCalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_calc_su"));
     }
 
     /**
@@ -88,7 +128,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getFComplex() {
-        return new DelegatingStrColumn(parentBlock.getColumn("refln_F_complex"));
+        return new DelegatingStrColumn(parentBlock.getColumn("refln_f_complex"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.F_complex.
+     * @return FloatColumn
+     */
+    public FloatColumn getFComplexSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_complex_su"));
     }
 
     /**
@@ -97,7 +145,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_meas"));
     }
 
     /**
@@ -106,7 +154,15 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFSquaredCalc() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_calc"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_squared_calc"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.F_squared_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getFSquaredCalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_squared_calc_su"));
     }
 
     /**
@@ -115,7 +171,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeas() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_F_squared_meas"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_squared_meas"));
     }
 
     /**
@@ -184,6 +240,14 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _refln.intensity_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityCalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_intensity_calc_su"));
+    }
+
+    /**
      * The intensity of the reflection derived from the diffraction measurements.
      * @return FloatColumn
      */
@@ -198,7 +262,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getLpFactor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_Lp_factor"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_lp_factor"));
     }
 
     /**
@@ -218,6 +282,14 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _refln.phase_calc.
+     * @return FloatColumn
+     */
+    public FloatColumn getPhaseCalcSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_phase_calc_su"));
+    }
+
+    /**
      * The phase of the measured structure-factor. This may be derived from
      * the atom site data if available or from the phase solution process
      * prior to determination of the structure.
@@ -225,6 +297,14 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getPhaseMeas() {
         return new DelegatingFloatColumn(parentBlock.getColumn("refln_phase_meas"));
+    }
+
+    /**
+     * Standard uncertainty of _refln.phase_meas.
+     * @return FloatColumn
+     */
+    public FloatColumn getPhaseMeasSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("refln_phase_meas_su"));
     }
 
     /**
@@ -285,35 +365,35 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of the measured structure factor amplitude.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSigma() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_f_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of the measured structure factor amplitude.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_F_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_meas_sigma", "refln_f_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of the measured structure factor squared.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredSigma() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_f_squared_meas_su"));
     }
 
     /**
-     * The standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of the measured structure factor squared.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeasSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_F_squared_meas_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refln_F_squared_sigma", "refln_f_squared_meas_su"));
     }
 
     /**
@@ -344,7 +424,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * standard uncertainty of the measured intensity.
+     * Standard uncertainty of the measured intensity.
      * @return FloatColumn
      */
     public FloatColumn getIntensitySigma() {
@@ -352,7 +432,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * standard uncertainty of the measured intensity.
+     * Standard uncertainty of the measured intensity.
      * @return FloatColumn
      */
     public FloatColumn getIntensityMeasSu() {

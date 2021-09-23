@@ -18,53 +18,6 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Atomic mass of the contents of the unit cell. This calculated
-     * from the atom sites present in the ATOM_TYPE list, rather than
-     * the ATOM_SITE lists of atoms in the refined model.
-     * @return FloatColumn
-     */
-    public FloatColumn getAtomicMass() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_atomic_mass"));
-    }
-
-    /**
-     * The number of the formula units in the unit cell as specified
-     * by _chemical_formula.structural, _chemical_formula.moiety or
-     * _chemical_formula.sum.
-     * @return IntColumn
-     */
-    public IntColumn getFormulaUnitsZ() {
-        return new DelegatingIntColumn(parentBlock.getColumn("cell_formula_units_Z"));
-    }
-
-    /**
-     * The direct space (covariant) metric tensor used to transform
-     * vectors and coordinates from real (direct) to reciprocal space.
-     * @return FloatColumn
-     */
-    public FloatColumn getMetricTensor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_metric_tensor"));
-    }
-
-    /**
-     * Orthogonal matrix of the crystal unit cell. Definition uses
-     * Rollet's axial assignments with cell vectors a,b,c aligned
-     * with orthogonal axes X,Y,Z so that c||Z and b in plane YZ.
-     * @return FloatColumn
-     */
-    public FloatColumn getOrthogonalMatrix() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_orthogonal_matrix"));
-    }
-
-    /**
-     * Volume of the crystal unit cell.
-     * @return FloatColumn
-     */
-    public FloatColumn getVolume() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_volume"));
-    }
-
-    /**
      * The angle between the bounding cell axes.
      * @return FloatColumn
      */
@@ -86,6 +39,75 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getAngleGamma() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_angle_gamma"));
+    }
+
+    /**
+     * Atomic mass of the contents of the unit cell. This calculated
+     * from the atom sites present in the ATOM_TYPE list, rather than
+     * the ATOM_SITE lists of atoms in the refined model.
+     * @return FloatColumn
+     */
+    public FloatColumn getAtomicMass() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_atomic_mass"));
+    }
+
+    /**
+     * The reciprocal space matrix for converting the U(ij) matrix of
+     * atomic displacement parameters to a dimensionless beta(IJ) matrix.
+     * The adp factor in a structure factor expression:
+     * 
+     * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
+     * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )
+     * = exp -       ( beta11 h h + ............ 2 beta23 k l )
+     * 
+     * The conversion of the U or B matrices to the beta matrix
+     * 
+     * beta =   C U C   =    C B C /8pi**2
+     * 
+     * where C is conversion matrix defined here.
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUijToBetaij() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uij_to_betaij"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.convert_Uij_to_betaij.
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUijToBetaijSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uij_to_betaij_su"));
+    }
+
+    /**
+     * The reciprocal space matrix for converting the isotropic Uiso
+     * atomic displacement parameter to the anisotropic matrix Uij.
+     * 
+     * | 1            cos(gamma*)   cos(beta*)  |
+     * U[i,j]  = Uiso * | cos(gamma*)  1             cos(alpha*) |
+     * | cos(beta*)   cos(alpha*)   1           |
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUisoToUij() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uiso_to_uij"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.convert_Uiso_to_Uij.
+     * @return FloatColumn
+     */
+    public FloatColumn getConvertUisoToUijSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uiso_to_uij_su"));
+    }
+
+    /**
+     * The number of the formula units in the unit cell as specified
+     * by _chemical_formula.structural, _chemical_formula.moiety or
+     * _chemical_formula.sum.
+     * @return IntColumn
+     */
+    public IntColumn getFormulaUnitsZ() {
+        return new DelegatingIntColumn(parentBlock.getColumn("cell_formula_units_z"));
     }
 
     /**
@@ -113,58 +135,22 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The reciprocal space matrix for converting the U(ij) matrix of
-     * atomic displacement parameters to a dimensionless beta(IJ) matrix.
-     * The adp factor in a structure factor expression:
-     * 
-     * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
-     * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )
-     * = exp -       ( beta11 h h + ............ 2 beta23 k l )
-     * 
-     * The conversion of the U or B matrices to the beta matrix
-     * 
-     * beta =   C U C   =    C B C /8pi**2
-     * 
-     * where C is conversion matrix defined here.
+     * The direct space (covariant) metric tensor used to transform
+     * vectors and coordinates from real (direct) to reciprocal space.
      * @return FloatColumn
      */
-    public FloatColumn getConvertUijToBetaij() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_Uij_to_betaij"));
+    public FloatColumn getMetricTensor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_metric_tensor"));
     }
 
     /**
-     * The reciprocal space matrix for converting the isotropic Uiso
-     * atomic displacement parameter to the anisotropic matrix Uij.
-     * 
-     * | 1            cos(gamma*)   cos(beta*)  |
-     * U[i,j]  = Uiso * | cos(gamma*)  1             cos(alpha*) |
-     * | cos(beta*)   cos(alpha*)   1           |
+     * Orthogonal matrix of the crystal unit cell. Definition uses
+     * Rollet's axial assignments with cell vectors a,b,c aligned
+     * with orthogonal axes X,Y,Z so that c||Z and b in plane YZ.
      * @return FloatColumn
      */
-    public FloatColumn getConvertUisoToUij() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_Uiso_to_Uij"));
-    }
-
-    /**
-     * The reciprocal (contravariant) metric tensor used to transform
-     * vectors and coordinates from reciprocal space to real (direct)
-     * space.
-     * @return FloatColumn
-     */
-    public FloatColumn getReciprocalMetricTensor() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_metric_tensor"));
-    }
-
-    /**
-     * Orthogonal matrix of the reciprocal space. The matrix may be
-     * used to transform the non-orthogonal vector h = (h,k,l) into
-     * the orthogonal indices p = (p,q,r)
-     * 
-     * M h = p
-     * @return FloatColumn
-     */
-    public FloatColumn getReciprocalOrthogonalMatrix() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_orthogonal_matrix"));
+    public FloatColumn getOrthogonalMatrix() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_orthogonal_matrix"));
     }
 
     /**
@@ -222,11 +208,57 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * The reciprocal (contravariant) metric tensor used to transform
+     * vectors and coordinates from reciprocal space to real (direct)
+     * space.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalMetricTensor() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_metric_tensor"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_metric_tensor.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalMetricTensorSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_metric_tensor_su"));
+    }
+
+    /**
+     * Orthogonal matrix of the reciprocal space. The matrix may be
+     * used to transform the non-orthogonal vector h = (h,k,l) into
+     * the orthogonal indices p = (p,q,r)
+     * 
+     * M h = p
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalOrthogonalMatrix() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_orthogonal_matrix"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_orthogonal_matrix.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalOrthogonalMatrixSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_orthogonal_matrix_su"));
+    }
+
+    /**
      * Reciprocal of the _cell.vector_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalVectorA() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_a"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_vector_a.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_a_su"));
     }
 
     /**
@@ -238,11 +270,27 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.reciprocal_vector_b.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorBSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_b_su"));
+    }
+
+    /**
      * Reciprocal of the _cell.vector_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalVectorC() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_c"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.reciprocal_vector_c.
+     * @return FloatColumn
+     */
+    public FloatColumn getReciprocalVectorCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_reciprocal_vector_c_su"));
     }
 
     /**
@@ -254,11 +302,27 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _cell.vector_a.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorASu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_a_su"));
+    }
+
+    /**
      * The cell vector along the y axis.
      * @return FloatColumn
      */
     public FloatColumn getVectorB() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_b"));
+    }
+
+    /**
+     * Standard uncertainty of _cell.vector_b.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorBSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_b_su"));
     }
 
     /**
@@ -270,37 +334,19 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Description of special aspects of the cell choice, noting
-     * possible alternative settings.
-     * @return StrColumn
-     */
-    public StrColumn getDetails() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("cell_details", "cell_special_details"));
-    }
-
-    /**
-     * Description of special aspects of the cell choice, noting
-     * possible alternative settings.
-     * @return StrColumn
-     */
-    public StrColumn getSpecialDetails() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("cell_details", "cell_special_details"));
-    }
-
-    /**
-     * Standard uncertainty of the volume of the crystal unit cell.
+     * Standard uncertainty of _cell.vector_c.
      * @return FloatColumn
      */
-    public FloatColumn getVolumeEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_volume_esd", "cell_volume_su"));
+    public FloatColumn getVectorCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_vector_c_su"));
     }
 
     /**
-     * Standard uncertainty of the volume of the crystal unit cell.
+     * Volume of the crystal unit cell.
      * @return FloatColumn
      */
-    public FloatColumn getVolumeSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_volume_esd", "cell_volume_su"));
+    public FloatColumn getVolume() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_volume"));
     }
 
     /**
@@ -416,8 +462,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_b and _cell.length_c.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_b and _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleAlphaEsd() {
@@ -425,8 +471,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_b and _cell.length_c.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_b and _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleAlphaSu() {
@@ -434,8 +480,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_a and _cell.length_c.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_a and _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleBetaEsd() {
@@ -443,8 +489,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_a and _cell.length_c.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_a and _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleBetaSu() {
@@ -452,8 +498,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_a and _cell.length_b.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_a and _cell.length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleGammaEsd() {
@@ -461,8 +507,8 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Reciprocal of the angle between _cell.length_a and _cell.length_b.
+     * Standard uncertainty of the reciprocal of the angle
+     * between _cell.length_a and _cell.length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleGammaSu() {
@@ -470,7 +516,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_a.
+     * Standard uncertainty of the reciprocal of the _cell.length_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthAEsd() {
@@ -478,7 +524,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_a.
+     * Standard uncertainty of the reciprocal of the _cell.length_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthASu() {
@@ -486,7 +532,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_b.
+     * Standard uncertainty of the reciprocal of the _cell.length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthBEsd() {
@@ -494,7 +540,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_b.
+     * Standard uncertainty of the reciprocal of the _cell.length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthBSu() {
@@ -502,7 +548,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_c.
+     * Standard uncertainty of the reciprocal of the _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthCEsd() {
@@ -510,11 +556,45 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the reciprocal of the _cell.length_c.
+     * Standard uncertainty of the reciprocal of the _cell.length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthCSu() {
         return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_reciprocal_length_c_esd", "cell_reciprocal_length_c_su"));
+    }
+
+    /**
+     * Description of special aspects of the cell choice, noting
+     * possible alternative settings.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("cell_details", "cell_special_details"));
+    }
+
+    /**
+     * Description of special aspects of the cell choice, noting
+     * possible alternative settings.
+     * @return StrColumn
+     */
+    public StrColumn getSpecialDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("cell_details", "cell_special_details"));
+    }
+
+    /**
+     * Standard uncertainty of the volume of the crystal unit cell.
+     * @return FloatColumn
+     */
+    public FloatColumn getVolumeEsd() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_volume_esd", "cell_volume_su"));
+    }
+
+    /**
+     * Standard uncertainty of the volume of the crystal unit cell.
+     * @return FloatColumn
+     */
+    public FloatColumn getVolumeSu() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("cell_volume_esd", "cell_volume_su"));
     }
 
 }

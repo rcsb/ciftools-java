@@ -18,6 +18,16 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * The name of the beamline at the synchrotron or other
+     * large-scale experimental facility at which the experiment
+     * was conducted.
+     * @return StrColumn
+     */
+    public StrColumn getBeamline() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_source_beamline"));
+    }
+
+    /**
      * Generator current at which the radiation source device was operated.
      * @return FloatColumn
      */
@@ -26,7 +36,8 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * A description of special aspects of the source.
+     * A description of special aspects of the source not covered by
+     * other data items.
      * @return StrColumn
      */
     public StrColumn getDetails() {
@@ -39,6 +50,19 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getDevice() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_source_device"));
+    }
+
+    /**
+     * The name of the synchrotron or other large-scale
+     * experimental facility at which the experiment was
+     * conducted. Names should conform to the spelling and
+     * format used in the 'Light Sources of the World' listing
+     * of lightsources.org
+     * (https://lightsources.org/lightsources-of-the-world/)
+     * @return StrColumn
+     */
+    public StrColumn getFacility() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_source_facility"));
     }
 
     /**
@@ -94,6 +118,8 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Description of the make, model or name of the source device.
+     * Large scale facilities should use _diffrn_source.facility and
+     * _diffrn_source.beamline to identify the source of radiation.
      * @return StrColumn
      */
     public StrColumn getType() {
@@ -102,6 +128,8 @@ public class DiffrnSource extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Description of the make, model or name of the source device.
+     * Large scale facilities should use _diffrn_source.facility and
+     * _diffrn_source.beamline to identify the source of radiation.
      * @return StrColumn
      */
     public StrColumn getMake() {

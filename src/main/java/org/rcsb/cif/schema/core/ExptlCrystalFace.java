@@ -28,6 +28,14 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal_face.diffr_chi.
+     * @return FloatColumn
+     */
+    public FloatColumn getDiffrChiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_chi_su"));
+    }
+
+    /**
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
@@ -35,6 +43,14 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
      */
     public FloatColumn getDiffrKappa() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_kappa"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal_face.diffr_kappa.
+     * @return FloatColumn
+     */
+    public FloatColumn getDiffrKappaSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_kappa_su"));
     }
 
     /**
@@ -48,6 +64,14 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
     }
 
     /**
+     * Standard uncertainty of _exptl_crystal_face.diffr_phi.
+     * @return FloatColumn
+     */
+    public FloatColumn getDiffrPhiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_phi_su"));
+    }
+
+    /**
      * Diffractometer angle setting when the perpendicular to the specified
      * crystal face is aligned along a specified direction (e.g. the
      * bisector of the incident and reflected beams in an optical goniometer.
@@ -55,6 +79,14 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
      */
     public FloatColumn getDiffrPsi() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_psi"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal_face.diffr_psi.
+     * @return FloatColumn
+     */
+    public FloatColumn getDiffrPsiSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_diffr_psi_su"));
     }
 
     /**
@@ -95,6 +127,14 @@ public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCatego
      */
     public FloatColumn getPerpDist() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_perp_dist"));
+    }
+
+    /**
+     * Standard uncertainty of _exptl_crystal_face.perp_dist.
+     * @return FloatColumn
+     */
+    public FloatColumn getPerpDistSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_face_perp_dist_su"));
     }
 
 }

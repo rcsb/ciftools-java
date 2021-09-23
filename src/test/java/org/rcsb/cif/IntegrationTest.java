@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
@@ -19,9 +19,11 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.OptionalDouble;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
 
@@ -98,12 +100,12 @@ public class IntegrationTest {
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
         textCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> assertTrue("no delegation for text after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
+                .forEach(category -> assertTrue(category instanceof DelegatingCategory, "no delegation for text after schema was imposed for " + category.getCategoryName()));
 
         MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         binaryCifFile.getFirstBlock()
                 .categories()
-                .forEach(category -> assertTrue("no delegation for binary after schema was imposed for " + category.getCategoryName(), category instanceof DelegatingCategory));
+                .forEach(category -> assertTrue(category instanceof DelegatingCategory, "no delegation for binary after schema was imposed for " + category.getCategoryName()));
     }
 
     @Test
@@ -176,7 +178,7 @@ public class IntegrationTest {
 
     private void testUndefinedColumnBehavior(CifFile cifFile) {
         MmCifBlock block = cifFile.as(StandardSchemata.MMCIF).getFirstBlock();
-        assertNotNull("header is corrupted", block.getBlockHeader());
+        assertNotNull(block.getBlockHeader(), "header is corrupted");
 
         assertTrue(block.getEntry().isDefined());
 
@@ -288,8 +290,8 @@ public class IntegrationTest {
         byte[] output = CifIO.writeBinary(originalFile);
 
         assertEquals(new String(original, StandardCharsets.UTF_8), new String(output, StandardCharsets.UTF_8));
-        assertArrayEquals("binary write output does not match snapshot of output for " + testCase +
-                " - did the implementation change? if so, update snapshot files in bcif/ciftools/", original, output);
+        assertArrayEquals(original, output, "binary write output does not match snapshot of output for " + testCase +
+                " - did the implementation change? if so, update snapshot files in bcif/ciftools/");
     }
 
     @Test
@@ -306,5 +308,56 @@ public class IntegrationTest {
         String copyContent = new String(CifIO.writeText(originalFile));
 
         assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+    }
+
+    /**
+     * BinaryCIF might slightly violate the schema and lead to a ClassCastException if not handled.
+     */
+    @Test
+    public void readRcsbAndEbiGeneric() throws IOException {
+        CifFile rcsb = CifIO.readById("1acj");
+        Column<?> rcsbNdbSeqNum = rcsb.getBlocks().get(0)
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
+        assertEquals(83, rcsbNdbSeqNum.getRowCount());
+
+        CifFile ebi = CifIO.readById("1acj",
+                new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
+        Column<?> ebiNdbSeqNum = ebi.getBlocks().get(0)
+                .getCategory("pdbx_nonpoly_scheme")
+                .getColumn("ndb_seq_num");
+        assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    public void readRcsbAndEbiWithSchema() throws IOException {
+        MmCifFile rcsb = CifIO.readById("1acj").as(StandardSchemata.MMCIF);
+        StrColumn rcsbNdbSeqNum = rcsb.getFirstBlock()
+                .getPdbxNonpolyScheme()
+                .getNdbSeqNum();
+        assertEquals(83, rcsbNdbSeqNum.getRowCount());
+
+        MmCifFile ebi = CifIO.readById("1acj",
+                        new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build())
+                .as(StandardSchemata.MMCIF);
+        StrColumn ebiNdbSeqNum = ebi.getFirstBlock()
+                .getPdbxNonpolyScheme()
+                .getNdbSeqNum();
+        assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v1";
+        URL url = new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromURL(url).as(StandardSchemata.MMCIF);
+
+        OptionalDouble averageLocal = cifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average();
+
+        assertTrue(averageLocal.isPresent());
     }
 }

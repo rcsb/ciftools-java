@@ -219,10 +219,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.SpaceGroupWyckoffBuilder(this);
     }
 
-    public CifCoreCategoryBuilder.FunctionBuilder enterFunction() {
-        return new CifCoreCategoryBuilder.FunctionBuilder(this);
-    }
-
     public CifCoreCategoryBuilder.ModelBuilder enterModel() {
         return new CifCoreCategoryBuilder.ModelBuilder(this);
     }
@@ -279,6 +275,10 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.AuditAuthorBuilder(this);
     }
 
+    public CifCoreCategoryBuilder.AuditAuthorRoleBuilder enterAuditAuthorRole() {
+        return new CifCoreCategoryBuilder.AuditAuthorRoleBuilder(this);
+    }
+
     public CifCoreCategoryBuilder.AuditConformBuilder enterAuditConform() {
         return new CifCoreCategoryBuilder.AuditConformBuilder(this);
     }
@@ -289,6 +289,10 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.AuditLinkBuilder enterAuditLink() {
         return new CifCoreCategoryBuilder.AuditLinkBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.AuditSupportBuilder enterAuditSupport() {
+        return new CifCoreCategoryBuilder.AuditSupportBuilder(this);
     }
 
     public CifCoreCategoryBuilder.CitationBuilder enterCitation() {
@@ -429,6 +433,10 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.RefineLsClassBuilder enterRefineLsClass() {
         return new CifCoreCategoryBuilder.RefineLsClassBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.FunctionBuilder enterFunction() {
+        return new CifCoreCategoryBuilder.FunctionBuilder(this);
     }
 
     public CifCoreCategoryBuilder.SymmetryBuilder enterSymmetry() {

@@ -83,12 +83,11 @@ public class StructNcsOper extends DelegatingCategory {
      * The value of _struct_ncs_oper.id must uniquely identify a
      * record in the STRUCT_NCS_OPER list.
      * 
-     * Note that this item need not be a number; it can be any unique
-     * identifier.
-     * @return StrColumn
+     * Note that for PDB _struct_ncs_oper.id must be a number.
+     * @return IntColumn
      */
-    public StrColumn getId() {
-        return delegate.getColumn("id", DelegatingStrColumn::new);
+    public IntColumn getId() {
+        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**

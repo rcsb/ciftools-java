@@ -237,7 +237,7 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The name of the Co-editor whom the authors would like to
+     * The name of the coeditor whom the authors would like to
      * process the submitted manuscript.
      * @return StrColumn
      */
@@ -246,7 +246,7 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The name of the Co-editor whom the authors would like to
+     * The name of the coeditor whom the authors would like to
      * process the submitted manuscript.
      * @return StrColumn
      */

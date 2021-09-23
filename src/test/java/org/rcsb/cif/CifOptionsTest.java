@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.binary.BinaryFile;
@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Map;
 import java.util.zip.GZIPInputStream;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
 public class CifOptionsTest {

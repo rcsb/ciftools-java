@@ -1,6 +1,6 @@
 package org.rcsb.cif;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.Block;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.IntStream;
 
-import static junit.framework.TestCase.fail;
+import static org.junit.jupiter.api.Assertions.fail;
 
 /**
  * CIF specification states that case does not matter. This test defines the behavior of the implementation: case should

@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * The CATEGORY of data items used to describe the matrix elements
- * used to transform Cartesion coordinates into fractional coordinates
+ * used to transform Cartesian coordinates into fractional coordinates
  * of all atom sites in a crystal structure.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -19,8 +19,80 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform fractional coordinates in the ATOM_SITE
-     * category to Cartesian  coordinates. The axial alignments of this
+     * Standard uncertainty of _atom_sites_fract_transform.mat_11.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat11Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_11_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_12.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat12Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_12_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_13.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat13Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_13_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_21.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat21Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_21_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_22.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat22Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_22_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_23.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat23Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_23_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_31.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat31Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_31_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_32.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat32Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_32_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.mat_33.
+     * @return FloatColumn
+     */
+    public FloatColumn getMat33Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_mat_33_su"));
+    }
+
+    /**
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
+     * category to fractional coordinates. The axial alignments of this
      * transformation are described in _atom_sites_fract_transform.axes.
      * The 3 x 1 translation is defined in _atom_sites_fract_transform.vector.
      * 
@@ -38,14 +110,54 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
+     * Standard uncertainty of _atom_sites_fract_transform.matrix.
+     * @return FloatColumn
+     */
+    public FloatColumn getMatrixSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_matrix_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.vec_1.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec1Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_1_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.vec_2.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec2Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_2_su"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.vec_3.
+     * @return FloatColumn
+     */
+    public FloatColumn getVec3Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vec_3_su"));
+    }
+
+    /**
      * The 3x1 translation is used with _atom_sites_fract_transform.matrix
-     * used to transform Cartesian coordinates to fractional  coordinates.
+     * used to transform Cartesian coordinates to fractional coordinates.
      * The axial alignments of this transformation are described in
      * _atom_sites_fract_transform.axes.
      * @return FloatColumn
      */
     public FloatColumn getVector() {
         return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vector"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_sites_fract_transform.vector.
+     * @return FloatColumn
+     */
+    public FloatColumn getVectorSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_sites_fract_transform_vector_su"));
     }
 
     /**
@@ -59,18 +171,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat11() {
@@ -78,18 +190,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat12() {
@@ -97,18 +209,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat13() {
@@ -116,18 +228,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat21() {
@@ -135,18 +247,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat22() {
@@ -154,18 +266,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat23() {
@@ -173,18 +285,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat31() {
@@ -192,18 +304,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat32() {
@@ -211,18 +323,18 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
+     * Matrix used to transform Cartesian coordinates in the ATOM_SITE category
+     * to fractional coordinates. The axial alignments of this transformation are
+     * described in _atom_sites_fract_transform.axes. The 3x1 translation is
+     * defined in _atom_sites_fract_transform.vector.
      * 
      * x'                  |11 12 13|     x                  | 1 |
      * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
      * z'                  |31 32 33|     z                  | 3 |
      * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The default transformation matrix uses Rollet's axial assignments with
+     * cell vectors a,b,c aligned with orthogonal axes X,Y,Z so that c||Z and
+     * b in plane YZ.
      * @return FloatColumn
      */
     public FloatColumn getMat33() {
@@ -230,18 +342,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
-     * 
-     * x'                  |11 12 13|     x                  | 1 |
-     * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
-     * z'                  |31 32 33|     z                  | 3 |
-     * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The 3x1 translation that is used with _atom_sites_fract_transform.matrix
+     * to transform Cartesian coordinates in the ATOM_SITE category to fractional
+     * coordinates. The axial alignments of this transformation are described
+     * in _atom_sites_fract_transform.axes.
      * @return FloatColumn
      */
     public FloatColumn getVec1() {
@@ -249,18 +353,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
-     * 
-     * x'                  |11 12 13|     x                  | 1 |
-     * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
-     * z'                  |31 32 33|     z                  | 3 |
-     * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The 3x1 translation that is used with _atom_sites_fract_transform.matrix
+     * to transform Cartesian coordinates in the ATOM_SITE category to fractional
+     * coordinates. The axial alignments of this transformation are described
+     * in _atom_sites_fract_transform.axes.
      * @return FloatColumn
      */
     public FloatColumn getVec2() {
@@ -268,18 +364,10 @@ public class AtomSitesFractTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * Matrix used to transform Cartesian coordinates in the ATOM_SITE
-     * category to fractional coordinates. The axial alignments of this
-     * transformation are described in _atom_sites_fract_transform.axes.
-     * The 3x1 translation is defined in _atom_sites_fract_transform.vector.
-     * 
-     * x'                  |11 12 13|     x                  | 1 |
-     * ( y' )fractional = mat|21 22 23| * ( y )Cartesian +  vec| 2 |
-     * z'                  |31 32 33|     z                  | 3 |
-     * 
-     * The default transformation matrix uses Rollet's axial
-     * assignments with cell vectors a,b,c aligned with orthogonal
-     * axes X,Y,Z so that c||Z and b in plane YZ.
+     * The 3x1 translation that is used with _atom_sites_fract_transform.matrix
+     * to transform Cartesian coordinates in the ATOM_SITE category to fractional
+     * coordinates. The axial alignments of this transformation are described
+     * in _atom_sites_fract_transform.axes.
      * @return FloatColumn
      */
     public FloatColumn getVec3() {

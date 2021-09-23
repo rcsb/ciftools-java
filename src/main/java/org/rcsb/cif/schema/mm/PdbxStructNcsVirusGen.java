@@ -41,10 +41,10 @@ public class PdbxStructNcsVirusGen extends DelegatingCategory {
 
     /**
      * Identifies the NCS operation (_struct_ncs_oper.id)
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getOperId() {
-        return delegate.getColumn("oper_id", DelegatingStrColumn::new);
+    public IntColumn getOperId() {
+        return delegate.getColumn("oper_id", DelegatingIntColumn::new);
     }
 
     /**

@@ -1,6 +1,6 @@
 package org.rcsb.cif.binary.codec;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.StringArray;
 import org.rcsb.cif.binary.encoding.StringArrayEncoding;
@@ -8,7 +8,7 @@ import org.rcsb.cif.binary.encoding.StringArrayEncoding;
 import java.util.regex.Pattern;
 import java.util.stream.IntStream;
 
-import static org.junit.Assert.assertArrayEquals;
+import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
 public class StringArrayCodecTest {
     @Test

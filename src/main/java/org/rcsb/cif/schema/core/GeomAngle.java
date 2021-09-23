@@ -26,6 +26,14 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _geom_angle.distances.
+     * @return FloatColumn
+     */
+    public FloatColumn getDistancesSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("geom_angle_distances_su"));
+    }
+
+    /**
      * An arbitrary, unique identifier for the angle formed by the
      * three atoms.
      * @return StrColumn
@@ -186,8 +194,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * angle defined by the sites identified by _geom_angle.id
+     * Standard uncertainty of the angle defined by
+     * the sites identified by _geom_angle.id.
      * @return FloatColumn
      */
     public FloatColumn getValueEsd() {
@@ -195,8 +203,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * angle defined by the sites identified by _geom_angle.id
+     * Standard uncertainty of the angle defined by
+     * the sites identified by _geom_angle.id.
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {

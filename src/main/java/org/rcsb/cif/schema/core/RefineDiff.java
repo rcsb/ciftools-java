@@ -28,8 +28,8 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Maximum density value in a difference Fourier map.
+     * Standard uncertainty of the maximum density value
+     * in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMaxSu() {
@@ -37,7 +37,7 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Miniumum density value in a difference Fourier map.
+     * Minimum density value in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMin() {
@@ -45,8 +45,8 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Miniumum density value in a difference Fourier map.
+     * Standard uncertainty of the minimum density value
+     * in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityMinSu() {
@@ -67,8 +67,8 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard Uncertainty of the
-     * Root mean square density value in a difference Fourier map.
+     * Standard uncertainty of the root mean square density value
+     * in a difference Fourier map.
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {

@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate the
+ * Data items in the PDBX_ENTITY_POLY_COMP_LINK_LIST category enumerate
  * the linkages between components within the polymer entity.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")

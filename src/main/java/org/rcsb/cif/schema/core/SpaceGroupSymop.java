@@ -35,20 +35,20 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getR() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_R"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_r"));
     }
 
     /**
      * The TRANSPOSE of the symmetry rotation matrix representing the point
-     * group opertions of the space group
+     * group operations of the space group
      * 
      * |  r11  r21  r31  |
      * RT  =  |  r12  r22  r32  |
      * |  r13  r23  r33  |
      * @return FloatColumn
      */
-    public FloatColumn getRT() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_RT"));
+    public FloatColumn getRt() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_rt"));
     }
 
     /**
@@ -62,7 +62,7 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getSeitzMatrix() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_Seitz_matrix"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_seitz_matrix"));
     }
 
     /**
@@ -70,7 +70,7 @@ public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategor
      * @return FloatColumn
      */
     public FloatColumn getT() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_T"));
+        return new DelegatingFloatColumn(parentBlock.getColumn("space_group_symop_t"));
     }
 
     /**

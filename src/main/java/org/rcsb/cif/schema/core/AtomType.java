@@ -18,6 +18,14 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _atom_type.analytical_mass_percent.
+     * @return FloatColumn
+     */
+    public FloatColumn getAnalyticalMassPercentSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_analytical_mass_percent_su"));
+    }
+
+    /**
      * Mass of this atom type.
      * @return FloatColumn
      */
@@ -152,7 +160,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannA1() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a1"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a1", "atom_type_scat_cromer_mann_a1"));
     }
 
     /**
@@ -166,7 +174,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannA1() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a1"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a1", "atom_type_scat_cromer_mann_a1"));
     }
 
     /**
@@ -180,7 +188,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannA2() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a2"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a2", "atom_type_scat_cromer_mann_a2"));
     }
 
     /**
@@ -194,7 +202,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannA2() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a2"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a2", "atom_type_scat_cromer_mann_a2"));
     }
 
     /**
@@ -208,7 +216,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannA3() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a3"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a3", "atom_type_scat_cromer_mann_a3"));
     }
 
     /**
@@ -222,7 +230,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannA3() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a3"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a3", "atom_type_scat_cromer_mann_a3"));
     }
 
     /**
@@ -236,7 +244,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannA4() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a4"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a4", "atom_type_scat_cromer_mann_a4"));
     }
 
     /**
@@ -250,7 +258,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannA4() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_a4"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_a4", "atom_type_scat_cromer_mann_a4"));
     }
 
     /**
@@ -264,7 +272,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannB1() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b1"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b1", "atom_type_scat_cromer_mann_b1"));
     }
 
     /**
@@ -278,7 +286,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannB1() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b1"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b1", "atom_type_scat_cromer_mann_b1"));
     }
 
     /**
@@ -292,7 +300,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannB2() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b2"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b2", "atom_type_scat_cromer_mann_b2"));
     }
 
     /**
@@ -306,7 +314,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannB2() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b2"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b2", "atom_type_scat_cromer_mann_b2"));
     }
 
     /**
@@ -320,7 +328,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannB3() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b3"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b3", "atom_type_scat_cromer_mann_b3"));
     }
 
     /**
@@ -334,7 +342,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannB3() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b3"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b3", "atom_type_scat_cromer_mann_b3"));
     }
 
     /**
@@ -348,7 +356,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannB4() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b4"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b4", "atom_type_scat_cromer_mann_b4"));
     }
 
     /**
@@ -362,7 +370,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannB4() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_b4"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_b4", "atom_type_scat_cromer_mann_b4"));
     }
 
     /**
@@ -376,7 +384,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getScatCromerMannC() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_c"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_c", "atom_type_scat_cromer_mann_c"));
     }
 
     /**
@@ -390,7 +398,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getCromerMannC() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_Cromer_Mann_c"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("atom_type_scat_Cromer_Mann_c", "atom_type_scat_cromer_mann_c"));
     }
 
     /**
@@ -483,22 +491,22 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * List of scattering factors as a function of sin theta on lambda.
-     * List has the form [[&lt;stol value 1&gt; &lt;scatfac 1&gt;] [&lt;stol value 2&gt; &lt;scatfac 2&gt;] ....] in
-     * increments of 0.01, increasing from 0.0.
-     * @return StrColumn
+     * List has the form [[&lt;stol value 1&gt; &lt;scatfac 1&gt;] [&lt;stol value 2&gt; &lt;scatfac
+     * 2&gt;] ....] in increments of 0.01, increasing from 0.0.
+     * @return FloatColumn
      */
-    public StrColumn getScatVersusStolList() {
-        return new DelegatingStrColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
+    public FloatColumn getScatVersusStolList() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
     }
 
     /**
      * List of scattering factors as a function of sin theta on lambda.
-     * List has the form [[&lt;stol value 1&gt; &lt;scatfac 1&gt;] [&lt;stol value 2&gt; &lt;scatfac 2&gt;] ....] in
-     * increments of 0.01, increasing from 0.0.
-     * @return StrColumn
+     * List has the form [[&lt;stol value 1&gt; &lt;scatfac 1&gt;] [&lt;stol value 2&gt; &lt;scatfac
+     * 2&gt;] ....] in increments of 0.01, increasing from 0.0.
+     * @return FloatColumn
      */
-    public StrColumn getVersusStolList() {
-        return new DelegatingStrColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
+    public FloatColumn getVersusStolList() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
     }
 
 }

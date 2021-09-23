@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the PDBX_VALIDATE_RMSD_ANGLE category list the
+ * Data items in the PDBX_VALIDATE_RMSD_ANGLE category list
  * the covalent bond angles found in an entry that have
  * values which deviate from expected values by more
  * than 6*rmsd for the particular entry from the expected standard

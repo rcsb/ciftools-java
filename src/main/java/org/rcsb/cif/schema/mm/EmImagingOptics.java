@@ -35,6 +35,8 @@ public class EmImagingOptics extends DelegatingCategory {
                 return getPhasePlate();
             case "sph_aberration_corrector":
                 return getSphAberrationCorrector();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -110,6 +112,14 @@ public class EmImagingOptics extends DelegatingCategory {
      */
     public StrColumn getSphAberrationCorrector() {
         return delegate.getColumn("sph_aberration_corrector", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Details on the use of the phase plate specified in _em_imaging_optics.phase_plate
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 
 }
