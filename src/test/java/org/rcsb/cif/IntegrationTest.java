@@ -19,7 +19,6 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
-import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.OptionalDouble;
 
@@ -349,8 +348,26 @@ public class IntegrationTest {
     @Test
     public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
         String id = "AF-Q76EI6-F1-model_v1";
-        URL url = new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif");
-        MmCifFile cifFile = CifIO.readFromURL(url).as(StandardSchemata.MMCIF);
+        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
+
+        OptionalDouble averageLocal = cifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average();
+
+        assertTrue(averageLocal.isPresent());
+    }
+
+    @Test
+    public void whenReadingAFO49373F1_thenAfTargetRefDbDetailsGeneAndConfidenceScoresAvailable() throws IOException {
+        String id = "AF-O49373-F1-model_v1";
+        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
+
+        String gene = cifFile.getFirstBlock().getCategory("af_target_ref_db_details").getColumn("gene").getStringData(0);
+        assertEquals("''cytochrome P450", gene, "Gene name with additional quotes not parsed correctly");
 
         OptionalDouble averageLocal = cifFile.getFirstBlock()
                 .getMaQaMetricLocal()
