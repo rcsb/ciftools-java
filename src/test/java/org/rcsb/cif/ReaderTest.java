@@ -6,14 +6,16 @@ import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
+import org.rcsb.cif.schema.mm.MmCifFile;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.OptionalDouble;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
@@ -100,5 +102,31 @@ public class ReaderTest {
                         CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build())
 
         );
+    }
+
+
+    @Test
+    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v1";
+        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
+
+        OptionalDouble averageLocal = cifFile.getFirstBlock()
+                .getMaQaMetricLocal()
+                .getMetricValue()
+                .values()
+                .average();
+
+        assertTrue(averageLocal.isPresent());
+    }
+
+    @Test
+    public void whenReadingStringWithEmptyQuotation_thenValueAvailable() throws IOException {
+        String id = "AF-O49373-F1-model_v1";
+        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
+        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
+
+        String gene = cifFile.getFirstBlock().getCategory("af_target_ref_db_details").getColumn("gene").getStringData(0);
+        assertEquals("''cytochrome P450", gene, "Gene name with additional quotes not parsed correctly");
     }
 }

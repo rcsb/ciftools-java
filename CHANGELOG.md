@@ -3,6 +3,11 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 3.0.1 - November 2021
+-------------
+### Bug fixes
+* proper handling of strings such as: `''cytochrome P450`
+
 ciftools-java 3.0.0 - September 2021
 -------------
 ### New features

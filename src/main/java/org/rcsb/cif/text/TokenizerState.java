@@ -343,7 +343,7 @@ class TokenizerState {
                 tokenType = CifTokenType.COMMENT;
                 break;
             case '"': case '\'':
-                if (isTripleQuoteAtPosition()) {
+                if (c == '\'' && isTripleQuoteAtPosition()) {
                     eatTripleQuote();
                     tokenType = CifTokenType.VALUE;
                     break;
