@@ -20,7 +20,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
-import java.util.OptionalDouble;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
@@ -343,38 +342,5 @@ public class IntegrationTest {
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
         assertEquals(83, ebiNdbSeqNum.getRowCount());
-    }
-
-    @Test
-    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
-        String id = "AF-Q76EI6-F1-model_v1";
-        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
-
-        OptionalDouble averageLocal = cifFile.getFirstBlock()
-                .getMaQaMetricLocal()
-                .getMetricValue()
-                .values()
-                .average();
-
-        assertTrue(averageLocal.isPresent());
-    }
-
-    @Test
-    public void whenReadingAFO49373F1_thenAfTargetRefDbDetailsGeneAndConfidenceScoresAvailable() throws IOException {
-        String id = "AF-O49373-F1-model_v1";
-        InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-        MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
-
-        String gene = cifFile.getFirstBlock().getCategory("af_target_ref_db_details").getColumn("gene").getStringData(0);
-        assertEquals("''cytochrome P450", gene, "Gene name with additional quotes not parsed correctly");
-
-        OptionalDouble averageLocal = cifFile.getFirstBlock()
-                .getMaQaMetricLocal()
-                .getMetricValue()
-                .values()
-                .average();
-
-        assertTrue(averageLocal.isPresent());
     }
 }
