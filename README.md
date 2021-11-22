@@ -14,7 +14,7 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 ```xml
 <dependency>
   <groupId>org.rcsb</groupId>
-  <artifactId>ciftools-java</artifactId>
+  <artifactId>ciftools-java-jdk8</artifactId>
   <version>3.0.1</version>
 </dependency>
 ```
