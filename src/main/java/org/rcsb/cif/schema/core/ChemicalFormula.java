@@ -44,7 +44,7 @@ import javax.annotation.Generated;
  * Abstracts. This ordering is used in _chemical_formula.moiety
  * and _chemical_formula.sum.
  * 
- * _chemical_formula.iupac      '[Mo (C O)4 (C18 H33 P)2]'
+ * _chemical_formula.IUPAC      '[Mo (C O)4 (C18 H33 P)2]'
  * _chemical_formula.moiety     'C40 H66 Mo O4 P2'
  * _chemical_formula.structural '((C O)4 (P (C6 H11)3)2)Mo'
  * _chemical_formula.sum         'C40 H66 Mo O4 P2'
@@ -133,7 +133,7 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
 
     /**
      * Mass corresponding to the formulae _chemical_formula.structural,
-     * *_iupac, *_moiety or *_sum and, together with the Z value and cell
+     * *_IUPAC, *_moiety or *_sum and, together with the Z value and cell
      * parameters yield the density given as _exptl_crystal.density_diffrn.
      * @return FloatColumn
      */

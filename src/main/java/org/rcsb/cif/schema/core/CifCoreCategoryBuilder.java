@@ -75,12 +75,20 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "ambient_pressure_lt", this);
         }
 
+        public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCrystalId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "crystal_id", this);
+        }
+
         public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCrystalSupport() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "crystal_support", this);
         }
 
         public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCrystalTreatment() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "crystal_treatment", this);
+        }
+
+        public StrColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
         }
 
         public FloatColumnBuilder<DiffrnBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasuredFractionThetaFull() {
@@ -1576,16 +1584,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f", this);
         }
 
+        public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_su", this);
+        }
+
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSquared() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_squared", this);
         }
 
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSquaredSu() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_squared_su", this);
-        }
-
-        public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasFSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "meas_f_su", this);
         }
 
         public FloatColumnBuilder<ReflnsScaleBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeasIntensity() {
@@ -2222,24 +2230,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point", this);
         }
 
+        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointSu() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_su", this);
+        }
+
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointGt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_gt", this);
         }
 
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointGtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_gt_su", this);
-        }
-
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_lt", this);
-        }
-
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointLtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_lt_su", this);
-        }
-
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterMeltingPointSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "melting_point_su", this);
         }
 
         public StrColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterNameCommon() {
@@ -2278,16 +2278,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_gt", this);
         }
 
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionGtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_gt_su", this);
-        }
-
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_lt", this);
-        }
-
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionLtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_decomposition_lt_su", this);
         }
 
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimation() {
@@ -2298,16 +2290,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_gt", this);
         }
 
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationGtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_gt_su", this);
-        }
-
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_lt", this);
-        }
-
-        public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureSublimationLtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temperature_sublimation_lt_su", this);
         }
 
         public FloatColumnBuilder<ChemicalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterTemperatureDecompositionEsd() {
@@ -2491,16 +2475,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_gt", this);
         }
 
-        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasGtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_gt_su", this);
-        }
-
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_lt", this);
-        }
-
-        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasLtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_lt_su", this);
         }
 
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTemp() {
@@ -2511,16 +2487,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_gt", this);
         }
 
-        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempGtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_gt_su", this);
-        }
-
         public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempLt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_lt", this);
-        }
-
-        public FloatColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMeasTempLtSu() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_meas_temp_lt_su", this);
         }
 
         public StrColumnBuilder<ExptlCrystalBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityMethod() {
@@ -3748,8 +3716,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_id_issn", this);
         }
 
-        public IntColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIssue() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "journal_issue", this);
+        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalIssue() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "journal_issue", this);
         }
 
         public IntColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterJournalVolume() {
@@ -3776,8 +3744,8 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "title", this);
         }
 
-        public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterYear() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "year", this);
+        public IntColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterYear() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "year", this);
         }
 
         public StrColumnBuilder<CitationBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {
@@ -3932,24 +3900,24 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "csd", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCcdcArchive() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_ccdc_archive", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCCDCArchive() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_CCDC_archive", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDepnumCcdcArchive() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "depnum_ccdc_archive", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCcdcFiz() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_ccdc_fiz", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCCDCFiz() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_CCDC_fiz", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDepnumCcdcFiz() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "depnum_ccdc_fiz", this);
         }
 
-        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCcdcJournal() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_ccdc_journal", this);
+        public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterCodeDepnumCCDCJournal() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "code_depnum_CCDC_journal", this);
         }
 
         public StrColumnBuilder<DatabaseBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDepnumCcdcJournal() {
@@ -6518,16 +6486,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_min_su", this);
         }
 
-        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffDensityRms() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diff_density_rms", this);
+        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffDensityRMS() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diff_density_RMS", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityRms() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "density_rms", this);
         }
 
-        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffDensityRmsEsd() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diff_density_rms_esd", this);
+        public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDiffDensityRMSEsd() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "diff_density_RMS_esd", this);
         }
 
         public FloatColumnBuilder<RefineBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDensityRmsSu() {

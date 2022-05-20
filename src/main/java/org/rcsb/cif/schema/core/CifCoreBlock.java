@@ -583,7 +583,7 @@ public class CifCoreBlock extends DelegatingBlock {
      * Abstracts. This ordering is used in _chemical_formula.moiety
      * and _chemical_formula.sum.
      * 
-     * _chemical_formula.iupac      '[Mo (C O)4 (C18 H33 P)2]'
+     * _chemical_formula.IUPAC      '[Mo (C O)4 (C18 H33 P)2]'
      * _chemical_formula.moiety     'C40 H66 Mo O4 P2'
      * _chemical_formula.structural '((C O)4 (P (C6 H11)3)2)Mo'
      * _chemical_formula.sum         'C40 H66 Mo O4 P2'
@@ -1181,7 +1181,7 @@ public class CifCoreBlock extends DelegatingBlock {
     /**
      * The CATEGORY of data items which specify the electron density limits
      * in a difference Fourier map after the structure has been refined. The
-     * rms value is with respect to the arithmetic mean density, and is derived
+     * RMS value is with respect to the arithmetic mean density, and is derived
      * from summations over each grid point in the asymmetric unit of the cell.
      * @return RefineDiff
      */

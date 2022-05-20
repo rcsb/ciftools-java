@@ -63,14 +63,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _exptl_crystal.density_meas_gt.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasGtSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_gt_su"));
-    }
-
-    /**
      * The value below which the density measured using standard
      * chemical and physical methods lies. This item is used only
      * when _exptl_crystal.density_meas cannot be employed. It is
@@ -80,14 +72,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getDensityMeasLt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_lt"));
-    }
-
-    /**
-     * Standard uncertainty of _exptl_crystal.density_meas_lt.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasLtSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_lt_su"));
     }
 
     /**
@@ -110,14 +94,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _exptl_crystal.density_meas_temp_gt.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasTempGtSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_gt_su"));
-    }
-
-    /**
      * Temperature below which the measured density was determined.
      * This item is used only when _exptl_crystal.density_meas_temp
      * cannot be employed. It is intended for use in reporting values
@@ -126,14 +102,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getDensityMeasTempLt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt"));
-    }
-
-    /**
-     * Standard uncertainty of _exptl_crystal.density_meas_temp_lt.
-     * @return FloatColumn
-     */
-    public FloatColumn getDensityMeasTempLtSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_density_meas_temp_lt_su"));
     }
 
     /**

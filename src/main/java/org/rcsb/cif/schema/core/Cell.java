@@ -54,7 +54,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The reciprocal space matrix for converting the U(ij) matrix of
      * atomic displacement parameters to a dimensionless beta(IJ) matrix.
-     * The adp factor in a structure factor expression:
+     * The ADP factor in a structure factor expression:
      * 
      * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
      * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )

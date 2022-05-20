@@ -182,11 +182,11 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Issue number of the journal cited;  relevant for articles.
-     * @return IntColumn
+     * Issue identifier of the journal cited;  relevant for articles.
+     * @return StrColumn
      */
-    public IntColumn getJournalIssue() {
-        return new DelegatingIntColumn(parentBlock.getColumn("citation_journal_issue"));
+    public StrColumn getJournalIssue() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_journal_issue"));
     }
 
     /**
@@ -242,10 +242,10 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Year of citation; relevant for articles and book chapters.
-     * @return StrColumn
+     * @return IntColumn
      */
-    public StrColumn getYear() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_year"));
+    public IntColumn getYear() {
+        return new DelegatingIntColumn(parentBlock.getColumn("citation_year"));
     }
 
     /**

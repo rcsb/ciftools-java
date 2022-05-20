@@ -55,6 +55,15 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Identifier for the crystal from which diffraction data were
+     * collected. This is a pointer to _exptl_crystal.id.
+     * @return StrColumn
+     */
+    public StrColumn getCrystalId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_crystal_id"));
+    }
+
+    /**
      * The physical device used to support the crystal during data
      * collection.
      * @return StrColumn
@@ -70,6 +79,15 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getCrystalTreatment() {
         return new DelegatingStrColumn(parentBlock.getColumn("diffrn_crystal_treatment"));
+    }
+
+    /**
+     * Unique identifier for a diffraction data set collected under
+     * particular diffraction conditions.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_id"));
     }
 
     /**
