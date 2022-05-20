@@ -75,7 +75,7 @@ public class EmShadowing extends DelegatingCategory {
     }
 
     /**
-     * Thickness of the deposited shadow coat, in Angstroms.
+     * Thickness of the deposited shadow coat, in angstroms.
      * @return FloatColumn
      */
     public FloatColumn getThickness() {

@@ -24,6 +24,8 @@ public class Entry extends DelegatingCategory {
                 return getId();
             case "pdbx_DOI":
                 return getPdbxDOI();
+            case "ma_collection_id":
+                return getMaCollectionId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -47,6 +49,14 @@ public class Entry extends DelegatingCategory {
      */
     public StrColumn getPdbxDOI() {
         return delegate.getColumn("pdbx_DOI", DelegatingStrColumn::new);
+    }
+
+    /**
+     * An identifier for the model collection associated with the entry.
+     * @return StrColumn
+     */
+    public StrColumn getMaCollectionId() {
+        return delegate.getColumn("ma_collection_id", DelegatingStrColumn::new);
     }
 
 }

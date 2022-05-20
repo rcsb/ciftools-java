@@ -91,6 +91,12 @@ public class ExptlCrystal extends DelegatingCategory {
                 return getPdbxCrystalDirection2();
             case "pdbx_crystal_direction_3":
                 return getPdbxCrystalDirection3();
+            case "pdbx_mosaic_method":
+                return getPdbxMosaicMethod();
+            case "pdbx_mosaic_block_size":
+                return getPdbxMosaicBlockSize();
+            case "pdbx_mosaic_block_size_esd":
+                return getPdbxMosaicBlockSizeEsd();
             default:
                 return new DelegatingColumn(column);
         }
@@ -406,9 +412,19 @@ public class ExptlCrystal extends DelegatingCategory {
     }
 
     /**
-     * The of the distribution of mis-orientation angles specified in degrees
-     * of all the unit cells in the crystal. Lower mosaicity indicates better
-     * ordered crystals.
+     * Isotropic approximation of the distribution of mis-orientation angles
+     * specified in degrees of all the mosaic domain blocks in the crystal,
+     * represented as a standard deviation. Here, a mosaic block is a set of
+     * contiguous unit cells assumed to be perfectly aligned. Lower mosaicity
+     * indicates better ordered crystals. See for example:
+     * 
+     * Nave, C. (1998). Acta Cryst. D54, 848-853.
+     * 
+     * Note that many software packages estimate the mosaic rotation distribution
+     * differently and may combine several physical properties of the experiment
+     * into a single mosaic term. This term will help fit the modeled spots
+     * to the observed spots without necessarily being directly related to the
+     * physics of the crystal itself.
      * @return FloatColumn
      */
     public FloatColumn getPdbxMosaicity() {
@@ -487,6 +503,42 @@ public class ExptlCrystal extends DelegatingCategory {
      */
     public FloatColumn getPdbxCrystalDirection3() {
         return delegate.getColumn("pdbx_crystal_direction_3", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * How parameters derived from the spot shape (such as mosaic block
+     * size and rotation, beam divergence, and crossfire) and their
+     * errors were estimated. See the related items section.
+     * 
+     * This can be a written description or a citation to a specific
+     * software package that determined these parameters.
+     * 
+     * Note, these parameters are considered derived terms from the
+     * data, as opposed to measured terms from the instrument (such
+     * as diffrn_radiation.div_x_source, a term similar to
+     * pdbx_crystal_alignment.crossfire_x).
+     * @return StrColumn
+     */
+    public StrColumn getPdbxMosaicMethod() {
+        return delegate.getColumn("pdbx_mosaic_method", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Isotropic and resolution-independent term representing the average size of
+     * mosaic domains in the crystal specified in Angstroms.  Larger size indicates
+     * better ordered crystals.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxMosaicBlockSize() {
+        return delegate.getColumn("pdbx_mosaic_block_size", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The uncertainty in the mosaic block size estimate for the crystal.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxMosaicBlockSizeEsd() {
+        return delegate.getColumn("pdbx_mosaic_block_size_esd", DelegatingFloatColumn::new);
     }
 
 }

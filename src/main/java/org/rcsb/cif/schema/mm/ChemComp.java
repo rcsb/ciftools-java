@@ -113,6 +113,8 @@ public class ChemComp extends DelegatingCategory {
                 return getPdbxSmiles();
             case "pdbx_nscnum":
                 return getPdbxNscnum();
+            case "ma_provenance":
+                return getMaProvenance();
             default:
                 return new DelegatingColumn(column);
         }
@@ -546,6 +548,14 @@ public class ChemComp extends DelegatingCategory {
      */
     public StrColumn getPdbxNscnum() {
         return delegate.getColumn("pdbx_nscnum", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The provenance information for the chemical component definition.
+     * @return StrColumn
+     */
+    public StrColumn getMaProvenance() {
+        return delegate.getColumn("ma_provenance", DelegatingStrColumn::new);
     }
 
 }

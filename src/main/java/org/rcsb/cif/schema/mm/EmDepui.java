@@ -17,6 +17,8 @@ public class EmDepui extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
+            case "composite_map_deposition":
+                return getCompositeMapDeposition();
             case "depositor_hold_instructions":
                 return getDepositorHoldInstructions();
             case "entry_id":
@@ -32,6 +34,14 @@ public class EmDepui extends DelegatingCategory {
             default:
                 return new DelegatingColumn(column);
         }
+    }
+
+    /**
+     * Indicates whether the authors have declared that this is a composite map deposition
+     * @return StrColumn
+     */
+    public StrColumn getCompositeMapDeposition() {
+        return delegate.getColumn("composite_map_deposition", DelegatingStrColumn::new);
     }
 
     /**

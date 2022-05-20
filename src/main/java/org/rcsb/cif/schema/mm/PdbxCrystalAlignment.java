@@ -62,6 +62,10 @@ public class PdbxCrystalAlignment extends DelegatingCategory {
                 return getCrossfireXy();
             case "crossfire_xy_esd":
                 return getCrossfireXyEsd();
+            case "overall_beam_divergence":
+                return getOverallBeamDivergence();
+            case "overall_beam_divergence_esd":
+                return getOverallBeamDivergenceEsd();
             default:
                 return new DelegatingColumn(column);
         }
@@ -247,6 +251,25 @@ public class PdbxCrystalAlignment extends DelegatingCategory {
      */
     public FloatColumn getCrossfireXyEsd() {
         return delegate.getColumn("crossfire_xy_esd", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Isotropic distribution of photon angles from the source impacting on the
+     * crystal in degrees. Note this is typically a derived quantity, inferred
+     * from measuring the radial profile of the measured reflections, and it may
+     * be convolved with effects from the bandpass.
+     * @return FloatColumn
+     */
+    public FloatColumn getOverallBeamDivergence() {
+        return delegate.getColumn("overall_beam_divergence", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The uncertainty in the beam divergence estimate.
+     * @return FloatColumn
+     */
+    public FloatColumn getOverallBeamDivergenceEsd() {
+        return delegate.getColumn("overall_beam_divergence_esd", DelegatingFloatColumn::new);
     }
 
 }

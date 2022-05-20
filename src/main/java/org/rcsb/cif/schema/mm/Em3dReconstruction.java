@@ -114,7 +114,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The final resolution (in Angstroms)of the 3D reconstruction.
+     * The final resolution (in angstroms)of the 3D reconstruction.
      * @return FloatColumn
      */
     public FloatColumn getResolution() {

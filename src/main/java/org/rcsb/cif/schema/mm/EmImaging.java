@@ -365,7 +365,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The mean specimen stage temperature (degrees Kelvin) during imaging
+     * The mean specimen stage temperature (in kelvin) during imaging
      * in the microscope.
      * @return FloatColumn
      */
@@ -385,7 +385,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The specimen temperature minimum (degrees Kelvin) for the duration
+     * The specimen temperature minimum (kelvin) for the duration
      * of imaging.
      * @return FloatColumn
      */
@@ -394,7 +394,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The specimen temperature maximum (degrees Kelvin) for the duration
+     * The specimen temperature maximum (kelvin) for the duration
      * of imaging.
      * @return FloatColumn
      */

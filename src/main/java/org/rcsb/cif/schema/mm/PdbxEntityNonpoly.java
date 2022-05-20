@@ -57,7 +57,7 @@ public class PdbxEntityNonpoly extends DelegatingCategory {
 
     /**
      * The data item provides information on whether the non-polymeric entity
-     * was explicity modeled or implicitly derived from the template.
+     * was explicitly modeled or implicitly derived from the template.
      * @return StrColumn
      */
     public StrColumn getMaModelMode() {

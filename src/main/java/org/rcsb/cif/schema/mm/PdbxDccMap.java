@@ -522,7 +522,7 @@ public class PdbxDccMap extends DelegatingCategory {
     /**
      * It is the Ligand Local Density Function defined as the
      * (&lt;RsR&gt;_local - RsR_Ligand)/sigma_RsR, where &lt;RsR&gt;_local is the
-     * mean RSR of polymer residues in 5 Angstrom (including the
+     * mean RSR of polymer residues in 5 angstroms (including the
      * crystallographic symmetry) surrounding the ligand, and sigma_RsR
      * is sigma value calculated from the surrounding residues.
      * @return FloatColumn

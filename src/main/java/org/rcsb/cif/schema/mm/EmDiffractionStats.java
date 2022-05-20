@@ -64,7 +64,7 @@ public class EmDiffractionStats extends DelegatingCategory {
     }
 
     /**
-     * High resolution limit of the structure factor data, in Angstroms
+     * High resolution limit of the structure factor data, in angstroms
      * @return FloatColumn
      */
     public FloatColumn getHighResolution() {

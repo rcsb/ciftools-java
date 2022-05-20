@@ -26,6 +26,8 @@ public class MaTemplateRefDbDetails extends DelegatingCategory {
                 return getDbNameOtherDetails();
             case "db_accession_code":
                 return getDbAccessionCode();
+            case "db_version_date":
+                return getDbVersionDate();
             default:
                 return new DelegatingColumn(column);
         }
@@ -63,6 +65,14 @@ public class MaTemplateRefDbDetails extends DelegatingCategory {
      */
     public StrColumn getDbAccessionCode() {
         return delegate.getColumn("db_accession_code", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The version date of the reference database entry.
+     * @return StrColumn
+     */
+    public StrColumn getDbVersionDate() {
+        return delegate.getColumn("db_version_date", DelegatingStrColumn::new);
     }
 
 }

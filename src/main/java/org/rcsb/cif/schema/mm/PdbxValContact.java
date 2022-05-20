@@ -10,8 +10,8 @@ import javax.annotation.Generated;
  * assymetric unit of the entry that are in close contact.
  * 
  * For those contacts not involving hydrogen a limit of
- * 2.2 Angstroms is used. For contacts involving a hydrogen atom
- * a cutoff of 1.6 Angstrom is used.
+ * 2.2 angstroms is used. For contacts involving a hydrogen atom
+ * a cutoff of 1.6 angstroms is used.
  * 
  * This is a completely derived category.  Do not edit.
  */

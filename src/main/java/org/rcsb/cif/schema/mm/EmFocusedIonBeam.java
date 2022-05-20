@@ -127,7 +127,7 @@ public class EmFocusedIonBeam extends DelegatingCategory {
     }
 
     /**
-     * Temperature of the sample during milling, in degrees Kelvin
+     * Temperature of the sample during milling, in kelvins
      * @return IntColumn
      */
     public IntColumn getTemperature() {

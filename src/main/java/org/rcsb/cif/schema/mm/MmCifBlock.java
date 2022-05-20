@@ -1152,6 +1152,12 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxSiftsXrefDbSegments();
             case "pdbx_sifts_unp_segments":
                 return getPdbxSiftsUnpSegments();
+            case "pdbx_data_usage":
+                return getPdbxDataUsage();
+            case "pdbx_entity_remapping":
+                return getPdbxEntityRemapping();
+            case "pdbx_chain_remapping":
+                return getPdbxChainRemapping();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -1342,6 +1348,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getMaData();
             case "ma_data_group":
                 return getMaDataGroup();
+            case "ma_data_ref_db":
+                return getMaDataRefDb();
             case "ma_coevolution_seq_db_ref":
                 return getMaCoevolutionSeqDbRef();
             case "ma_coevolution_msa":
@@ -1376,6 +1384,14 @@ public class MmCifBlock extends DelegatingBlock {
                 return getMaQaMetricGlobal();
             case "ma_qa_metric_local":
                 return getMaQaMetricLocal();
+            case "ma_qa_metric_local_pairwise":
+                return getMaQaMetricLocalPairwise();
+            case "ma_entry_associated_files":
+                return getMaEntryAssociatedFiles();
+            case "ma_associated_archive_file_details":
+                return getMaAssociatedArchiveFileDetails();
+            case "ma_chem_comp_descriptor":
+                return getMaChemCompDescriptor();
             default:
                 return new DelegatingCategory(category);
         }
@@ -4464,8 +4480,8 @@ public class MmCifBlock extends DelegatingBlock {
      * the asymmetric unit are considered.
      * 
      * For those contacts not involving hydrogen a limit of
-     * 2.2 Angstroms is used. For contacts involving a hydrogen atom
-     * a cutoff of 1.6 Angstroms is used.
+     * 2.2 angstroms is used. For contacts involving a hydrogen atom
+     * a cutoff of 1.6 angstroms is used.
      * @return PdbxValidateCloseContact
      */
     public PdbxValidateCloseContact getPdbxValidateCloseContact() {
@@ -4479,8 +4495,8 @@ public class MmCifBlock extends DelegatingBlock {
      * approach by van der Waals contacts. Contacts with
      * for symmetry related contacts are considered.
      * For those contacts not involving hydrogen a limit of
-     * 2.2 Angstroms is used. For contacts involving a hydrogen atom
-     * a cutoff of 1.6Angstrom is used.
+     * 2.2 angstroms is used. For contacts involving a hydrogen atom
+     * a cutoff of 1.6 angstrom is used.
      * @return PdbxValidateSymmContact
      */
     public PdbxValidateSymmContact getPdbxValidateSymmContact() {
@@ -6665,8 +6681,8 @@ public class MmCifBlock extends DelegatingBlock {
      * assymetric unit of the entry that are in close contact.
      * 
      * For those contacts not involving hydrogen a limit of
-     * 2.2 Angstroms is used. For contacts involving a hydrogen atom
-     * a cutoff of 1.6 Angstrom is used.
+     * 2.2 angstroms is used. For contacts involving a hydrogen atom
+     * a cutoff of 1.6 angstroms is used.
      * 
      * This is a completely derived category.  Do not edit.
      * @return PdbxValContact
@@ -6680,8 +6696,8 @@ public class MmCifBlock extends DelegatingBlock {
      * contacts amoung non-bonded atoms.
      * 
      * For those contacts not involving hydrogen a limit of
-     * 2.2 Angstroms is used. For contacts involving a hydrogen atom
-     * a cutoff of 1.6 Angstrom is used.
+     * 2.2 angstroms is used. For contacts involving a hydrogen atom
+     * a cutoff of 1.6 angstroms is used.
      * 
      * This is a completely derived category.  Do not edit.
      * @return PdbxValSymContact
@@ -7262,6 +7278,33 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public PdbxSiftsUnpSegments getPdbxSiftsUnpSegments() {
         return delegate.getCategory("pdbx_sifts_unp_segments", PdbxSiftsUnpSegments::new);
+    }
+
+    /**
+     * The PDBX_DATA_USAGE category provides information on licensing
+     * an disclaimers of the file it is in
+     * @return PdbxDataUsage
+     */
+    public PdbxDataUsage getPdbxDataUsage() {
+        return delegate.getCategory("pdbx_data_usage", PdbxDataUsage::new);
+    }
+
+    /**
+     * When producing a biological assembly model file, data items in the pdbx_entity_remapping provide a mapping
+     * from the entity in original model file to this data file.
+     * @return PdbxEntityRemapping
+     */
+    public PdbxEntityRemapping getPdbxEntityRemapping() {
+        return delegate.getCategory("pdbx_entity_remapping", PdbxEntityRemapping::new);
+    }
+
+    /**
+     * When producing a biological assembly model file, data items in the pdbx_chain_remapping provide a mapping
+     * from the entity in original model file to this data file.
+     * @return PdbxChainRemapping
+     */
+    public PdbxChainRemapping getPdbxChainRemapping() {
+        return delegate.getCategory("pdbx_chain_remapping", PdbxChainRemapping::new);
     }
 
     /**
@@ -8231,6 +8274,16 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the MA_DATA_REF_DB category capture the details regarding
+     * reference databases used in the modeling. These include the
+     * sequence databases used for template search, alignments, etc.
+     * @return MaDataRefDb
+     */
+    public MaDataRefDb getMaDataRefDb() {
+        return delegate.getCategory("ma_data_ref_db", MaDataRefDb::new);
+    }
+
+    /**
      * Data items in the MA_COEVOLUTION_SEQ_DB_REF category record details about
      * the reference database identifiers for the sequences in the coevolution
      * multiple sequence alignments.
@@ -8395,6 +8448,48 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public MaQaMetricLocal getMaQaMetricLocal() {
         return delegate.getCategory("ma_qa_metric_local", MaQaMetricLocal::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC_LOCAL_PAIRWISE category captures the
+     * details of the local QA metrics, calculated at the pairwise residue level.
+     * @return MaQaMetricLocalPairwise
+     */
+    public MaQaMetricLocalPairwise getMaQaMetricLocalPairwise() {
+        return delegate.getCategory("ma_qa_metric_local_pairwise", MaQaMetricLocalPairwise::new);
+    }
+
+    /**
+     * Data items in the MA_ENTRY_ASSOCIATED_FILES category record the
+     * details of additional files associated with the entry. These may
+     * be multiple sequence alignment files, restraint data files, files
+     * containing quality assessment scores, or validation reports. The
+     * files may be listed separately or as an archive file (zip/gzip).
+     * @return MaEntryAssociatedFiles
+     */
+    public MaEntryAssociatedFiles getMaEntryAssociatedFiles() {
+        return delegate.getCategory("ma_entry_associated_files", MaEntryAssociatedFiles::new);
+    }
+
+    /**
+     * Data items in the MA_ASSOCIATED_ARCHIVE_FILE_DETAILS category record the
+     * details of files within an associated archive file (zip/gzip). These may
+     * be multiple sequence alignment files, restraint data files, files
+     * containing quality assessment scores, or validation reports.
+     * @return MaAssociatedArchiveFileDetails
+     */
+    public MaAssociatedArchiveFileDetails getMaAssociatedArchiveFileDetails() {
+        return delegate.getCategory("ma_associated_archive_file_details", MaAssociatedArchiveFileDetails::new);
+    }
+
+    /**
+     * Data items in the MA_CHEM_COMP_DESCRIPTOR category record the
+     * details of the chemical components that are defined locally
+     * within the mmCIF file instance.
+     * @return MaChemCompDescriptor
+     */
+    public MaChemCompDescriptor getMaChemCompDescriptor() {
+        return delegate.getCategory("ma_chem_comp_descriptor", MaChemCompDescriptor::new);
     }
 
 }

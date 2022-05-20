@@ -62,7 +62,7 @@ public class PdbxNmrExptlSampleConditions extends DelegatingCategory {
     }
 
     /**
-     * The temperature (in Kelvin) at which NMR data were
+     * The temperature (in kelvin) at which NMR data were
      * collected.
      * @return StrColumn
      */

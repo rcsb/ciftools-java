@@ -80,6 +80,8 @@ public class Cell extends DelegatingCategory {
                 return getReciprocalLengthCEsd();
             case "pdbx_unique_axis":
                 return getPdbxUniqueAxis();
+            case "pdbx_esd_method":
+                return getPdbxEsdMethod();
             default:
                 return new DelegatingColumn(column);
         }
@@ -348,7 +350,7 @@ public class Cell extends DelegatingCategory {
     }
 
     /**
-     * The reciprocal cell length (recip-a) in inverse Angstroms.
+     * The reciprocal cell length (recip-a) in inverse angstroms.
      * (recip-a), (recip-b) and (recip-c) are related to the real cell
      * by the following equation:
      * 
@@ -369,7 +371,7 @@ public class Cell extends DelegatingCategory {
     }
 
     /**
-     * The reciprocal cell length (recip-b) in inverse Angstroms.
+     * The reciprocal cell length (recip-b) in inverse angstroms.
      * (recip-a), (recip-b) and (recip-c) are related to the real cell
      * by the following equation:
      * 
@@ -390,7 +392,7 @@ public class Cell extends DelegatingCategory {
     }
 
     /**
-     * The reciprocal cell length (recip-c) in inverse Angstroms.
+     * The reciprocal cell length (recip-c) in inverse angstroms.
      * (recip-a), (recip-b) and (recip-c) are related to the real cell
      * by the following equation:
      * 
@@ -441,6 +443,14 @@ public class Cell extends DelegatingCategory {
      */
     public StrColumn getPdbxUniqueAxis() {
         return delegate.getColumn("pdbx_unique_axis", DelegatingStrColumn::new);
+    }
+
+    /**
+     * How the estimated standard deviation was determined.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxEsdMethod() {
+        return delegate.getColumn("pdbx_esd_method", DelegatingStrColumn::new);
     }
 
 }

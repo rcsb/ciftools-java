@@ -82,7 +82,7 @@ public class Em2dCrystalEntity extends DelegatingCategory {
     }
 
     /**
-     * Unit-cell length a in Angstroms.
+     * Unit-cell length a in angstroms.
      * @return FloatColumn
      */
     public FloatColumn getLengthA() {
@@ -90,7 +90,7 @@ public class Em2dCrystalEntity extends DelegatingCategory {
     }
 
     /**
-     * Unit-cell length b in Angstroms.
+     * Unit-cell length b in angstroms.
      * @return FloatColumn
      */
     public FloatColumn getLengthB() {

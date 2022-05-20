@@ -57,7 +57,7 @@ public class EmSupportFilm extends DelegatingCategory {
     }
 
     /**
-     * Thickness of the support film, in Angstroms
+     * Thickness of the support film, in angstroms
      * @return FloatColumn
      */
     public FloatColumn getThickness() {

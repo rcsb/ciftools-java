@@ -80,7 +80,7 @@ public class EmMaskDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * The length in Angstroms of one voxel along the X axis.
+     * The length in angstroms of one voxel along the X axis.
      * @return FloatColumn
      */
     public FloatColumn getPixelSpacingX() {
@@ -88,7 +88,7 @@ public class EmMaskDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * The length in Angstroms of one voxel along the Y axis.
+     * The length in angstroms of one voxel along the Y axis.
      * @return FloatColumn
      */
     public FloatColumn getPixelSpacingY() {
@@ -96,7 +96,7 @@ public class EmMaskDepositorInfo extends DelegatingCategory {
     }
 
     /**
-     * The length in Angstroms of one voxel along the Z axis.
+     * The length in angstroms of one voxel along the Z axis.
      * @return FloatColumn
      */
     public FloatColumn getPixelSpacingZ() {
