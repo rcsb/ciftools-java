@@ -105,6 +105,7 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
                 "https://raw.githubusercontent.com/ihmwg/ModelCIF/master/dist/mmcif_ma.dic"); // model-extension for predicted models
 
+        // TODO pre-process cif_core files which are CIF 2.0 - TODO proper CIF 2.0 (or at least list support)
         new SchemaGenerator("CifCore", "CIF_CORE", "core", true,
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
