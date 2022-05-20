@@ -34,6 +34,16 @@ public class MaTargetRefDbDetails extends DelegatingCategory {
                 return getSeqDbAlignBegin();
             case "seq_db_align_end":
                 return getSeqDbAlignEnd();
+            case "ncbi_taxonomy_id":
+                return getNcbiTaxonomyId();
+            case "organism_scientific":
+                return getOrganismScientific();
+            case "gene_name":
+                return getGeneName();
+            case "seq_db_sequence_checksum":
+                return getSeqDbSequenceChecksum();
+            case "seq_db_sequence_version_date":
+                return getSeqDbSequenceVersionDate();
             default:
                 return new DelegatingColumn(column);
         }
@@ -109,6 +119,46 @@ public class MaTargetRefDbDetails extends DelegatingCategory {
      */
     public StrColumn getSeqDbAlignEnd() {
         return delegate.getColumn("seq_db_align_end", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Taxonomy identifier provided by NCBI.
+     * @return StrColumn
+     */
+    public StrColumn getNcbiTaxonomyId() {
+        return delegate.getColumn("ncbi_taxonomy_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Scientific name of the organism.
+     * @return StrColumn
+     */
+    public StrColumn getOrganismScientific() {
+        return delegate.getColumn("organism_scientific", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Name of the gene corresponding to the target entity.
+     * @return StrColumn
+     */
+    public StrColumn getGeneName() {
+        return delegate.getColumn("gene_name", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Checksum (CRC64) for the sequence in the reference sequence database.
+     * @return StrColumn
+     */
+    public StrColumn getSeqDbSequenceChecksum() {
+        return delegate.getColumn("seq_db_sequence_checksum", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The version date of the sequence in the reference sequence database.
+     * @return StrColumn
+     */
+    public StrColumn getSeqDbSequenceVersionDate() {
+        return delegate.getColumn("seq_db_sequence_version_date", DelegatingStrColumn::new);
     }
 
 }

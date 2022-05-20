@@ -13,8 +13,8 @@ import javax.annotation.Generated;
  * the asymmetric unit are considered.
  * 
  * For those contacts not involving hydrogen a limit of
- * 2.2 Angstroms is used. For contacts involving a hydrogen atom
- * a cutoff of 1.6 Angstroms is used.
+ * 2.2 angstroms is used. For contacts involving a hydrogen atom
+ * a cutoff of 1.6 angstroms is used.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PdbxValidateCloseContact extends DelegatingCategory {

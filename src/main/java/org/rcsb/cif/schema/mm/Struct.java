@@ -28,6 +28,8 @@ public class Struct extends DelegatingCategory {
                 return getPdbxCenterOfMassY();
             case "pdbx_center_of_mass_z":
                 return getPdbxCenterOfMassZ();
+            case "pdbx_structure_determination_methodology":
+                return getPdbxStructureDeterminationMethodology();
             case "pdbx_descriptor":
                 return getPdbxDescriptor();
             case "pdbx_model_details":
@@ -89,6 +91,14 @@ public class Struct extends DelegatingCategory {
      */
     public FloatColumn getPdbxCenterOfMassZ() {
         return delegate.getColumn("pdbx_center_of_mass_z", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Indicates if the structure was determined using experimental, computational, or integrative methods
+     * @return StrColumn
+     */
+    public StrColumn getPdbxStructureDeterminationMethodology() {
+        return delegate.getColumn("pdbx_structure_determination_methodology", DelegatingStrColumn::new);
     }
 
     /**

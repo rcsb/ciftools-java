@@ -2296,6 +2296,18 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxSiftsUnpSegmentsBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxDataUsageBuilder enterPdbxDataUsage() {
+        return new MmCifCategoryBuilder.PdbxDataUsageBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxEntityRemappingBuilder enterPdbxEntityRemapping() {
+        return new MmCifCategoryBuilder.PdbxEntityRemappingBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChainRemappingBuilder enterPdbxChainRemapping() {
+        return new MmCifCategoryBuilder.PdbxChainRemappingBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {
         return new MmCifCategoryBuilder.IhmEntityPolySegmentBuilder(this);
     }
@@ -2676,6 +2688,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.MaDataGroupBuilder(this);
     }
 
+    public MmCifCategoryBuilder.MaDataRefDbBuilder enterMaDataRefDb() {
+        return new MmCifCategoryBuilder.MaDataRefDbBuilder(this);
+    }
+
     public MmCifCategoryBuilder.MaCoevolutionSeqDbRefBuilder enterMaCoevolutionSeqDbRef() {
         return new MmCifCategoryBuilder.MaCoevolutionSeqDbRefBuilder(this);
     }
@@ -2742,6 +2758,22 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.MaQaMetricLocalBuilder enterMaQaMetricLocal() {
         return new MmCifCategoryBuilder.MaQaMetricLocalBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaQaMetricLocalPairwiseBuilder enterMaQaMetricLocalPairwise() {
+        return new MmCifCategoryBuilder.MaQaMetricLocalPairwiseBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaEntryAssociatedFilesBuilder enterMaEntryAssociatedFiles() {
+        return new MmCifCategoryBuilder.MaEntryAssociatedFilesBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaAssociatedArchiveFileDetailsBuilder enterMaAssociatedArchiveFileDetails() {
+        return new MmCifCategoryBuilder.MaAssociatedArchiveFileDetailsBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaChemCompDescriptorBuilder enterMaChemCompDescriptor() {
+        return new MmCifCategoryBuilder.MaChemCompDescriptorBuilder(this);
     }
 
 }

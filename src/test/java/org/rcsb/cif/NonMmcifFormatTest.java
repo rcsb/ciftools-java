@@ -50,7 +50,7 @@ public class NonMmcifFormatTest {
         assertEquals("10.1002/chem.201202070", firstBlock.getColumn("citation_doi").getStringData(0));
         assertEquals("10.1002/chem.201202070", firstBlock.getCitation().getDoi().get(0));
         assertEquals("2012", firstBlock.getColumn("citation_year").getStringData(0));
-        assertEquals("2012", firstBlock.getCitation().getYear().get(0));
+        assertEquals(2012, firstBlock.getCitation().getYear().get(0));
 
         // a 'number'
         assertEquals("11.0829(8)", firstBlock.getColumn("cell_length_a").getStringData(0));

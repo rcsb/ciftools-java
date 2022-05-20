@@ -201,6 +201,10 @@ public class EntityPoly extends DelegatingCategory {
      * parent is not specified. Deoxynucleotides are
      * represented by their canonical one-letter codes of A,
      * C, G, or T.
+     * 
+     * For modifications with several parent amino acids,
+     * all corresponding parent amino acid codes will be listed
+     * (ex. chromophores).
      * @return StrColumn
      */
     public StrColumn getPdbxSeqOneLetterCodeCan() {

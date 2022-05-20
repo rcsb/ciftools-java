@@ -12,8 +12,8 @@ import javax.annotation.Generated;
  * approach by van der Waals contacts. Contacts with
  * for symmetry related contacts are considered.
  * For those contacts not involving hydrogen a limit of
- * 2.2 Angstroms is used. For contacts involving a hydrogen atom
- * a cutoff of 1.6Angstrom is used.
+ * 2.2 angstroms is used. For contacts involving a hydrogen atom
+ * a cutoff of 1.6 angstrom is used.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PdbxValidateSymmContact extends DelegatingCategory {

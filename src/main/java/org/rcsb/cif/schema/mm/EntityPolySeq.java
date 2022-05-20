@@ -36,8 +36,7 @@ public class EntityPolySeq extends DelegatingCategory {
     }
 
     /**
-     * This data item is a pointer to _entity_poly.entity_id in the
-     * ENTITY_POLY category.
+     * This data item is a pointer to _entity.id in the ENTITY category.
      * @return StrColumn
      */
     public StrColumn getEntityId() {

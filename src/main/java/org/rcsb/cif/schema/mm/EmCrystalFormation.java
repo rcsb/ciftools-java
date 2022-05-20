@@ -99,7 +99,7 @@ public class EmCrystalFormation extends DelegatingCategory {
     }
 
     /**
-     * The value of the temperature in degrees Kelvin used for
+     * The value of the temperature in kelvins used for
      * growing the crystals.
      * @return IntColumn
      */

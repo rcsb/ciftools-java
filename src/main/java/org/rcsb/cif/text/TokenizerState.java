@@ -336,7 +336,7 @@ class TokenizerState {
         tokenStart = position;
         tokenEnd = position;
         isEscaped = false;
-        int c = data.charAt(position);
+        char c = data.charAt(position);
         switch (c) {
             case '#':
                 skipCommentLine();

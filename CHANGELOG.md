@@ -3,6 +3,20 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+Unreleased
+-------------
+### Bug fixes
+* update gson dependency to 2.8.9
+
+### Breaking schema changes
+* mmCIF/modelCIF:
+  * `ma_protocol_step.method_type_other_details` -> `ma_protocol_step.details`
+* cif-core:
+  * case changes for many column names, this affects Java access methods unless explicitly aliased by the dictionary
+  * changes to handling of value ranges and standard uncertainty values (e.g. for melting points & temperature values in `chemical` category)
+  * `citation_journal_issue` changed from int to String type
+  * `citation_year` changes from String to int type
+
 ciftools-java 3.0.1 - November 2021
 -------------
 ### Bug fixes

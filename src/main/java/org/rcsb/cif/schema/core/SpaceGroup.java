@@ -156,21 +156,18 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * for Crystallography Volume A (2002).
      * 
      * Each component of the space-group name is separated by a
-     * space or an underscore character. The use of a space is
-     * strongly recommended.  The underscore is only retained
-     * because it was used in old CIFs. It should
-     * not be used in new CIFs.
+     * space character. Subscripts appear without special symbols.
+     * Bars are given as negative signs before the numbers to which
+     * they apply.
      * 
-     * Subscripts should appear without special symbols. Bars
-     * should be given as negative signs before the numbers to which
-     * they apply.  The short international Hermann-Mauguin symbol
-     * determines the space-group type uniquely. However, the
-     * space-group type is better described using
-     * _space_group.IT_number or _space_group.name_Schoenflies. The
-     * short international Hermann-Mauguin symbol contains no
-     * information on the choice of basis or origin. To define the
-     * setting uniquely use _space_group.name_Hall, or list the symmetry
-     * operations or generators.
+     * The short international Hermann-Mauguin symbol determines
+     * the space-group type uniquely. However, the space-group
+     * type is better described using _space_group.IT_number or
+     * _space_group.name_Schoenflies. The short international
+     * Hermann-Mauguin symbol contains no information on the
+     * choice of basis or origin. To define the setting uniquely
+     * use _space_group.name_Hall, or list the symmetry operations
+     * or generators.
      * 
      * _space_group.name_H-M_alt may be used to give the
      * Hermann-Mauguin symbol corresponding to the setting used.

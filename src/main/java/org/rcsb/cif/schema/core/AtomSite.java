@@ -305,7 +305,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * A concatenated series of single-letter codes which indicate the
      * refinement restraints or constraints applied to this site. This
      * item should not be used. It has been replaced by
-     * _atom_site.refinement_flags_posn, _adp and _occupancy. It is
+     * _atom_site.refinement_flags_posn, _ADP and _occupancy. It is
      * retained in this dictionary only to provide compatibility with
      * legacy CIFs.
      * @return StrColumn
@@ -370,7 +370,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * t = exp -[ beta11 h h + ............ 2 beta23 k l ]
      * 
-     * It is related to the adp matrices U(IJ) and B(IJ) as follows:
+     * It is related to the ADP matrices U(IJ) and B(IJ) as follows:
      * 
      * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
      * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )

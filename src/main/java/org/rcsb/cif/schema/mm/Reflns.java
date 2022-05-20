@@ -212,6 +212,8 @@ public class Reflns extends DelegatingCategory {
                 return getPdbxSignalDetails();
             case "pdbx_signal_software_id":
                 return getPdbxSignalSoftwareId();
+            case "pdbx_CC_split_method":
+                return getPdbxCCSplitMethod();
             default:
                 return new DelegatingColumn(column);
         }
@@ -1301,6 +1303,26 @@ public class Reflns extends DelegatingCategory {
      */
     public StrColumn getPdbxSignalSoftwareId() {
         return delegate.getColumn("pdbx_signal_software_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Method for selecting half datasets used in computing Rsplit,
+     * CC1/2 and CCstar.
+     * 
+     * The following enumerated values are used:
+     * 
+     * by_observation: unmerged reflection intensities are randomly
+     * divided into two half-sets of nearly equal size. As recommended
+     * in Karplus PA, Diederichs K. Linking crystallographic model and
+     * data quality. Science. 2012;336(6084):1030-1033.
+     * 
+     * by_lattice: often used in serial crystallography, crystals are
+     * pre-sorted into two half datasets of nearly equal size (such as
+     * by odd vs. even crystal number).
+     * @return StrColumn
+     */
+    public StrColumn getPdbxCCSplitMethod() {
+        return delegate.getColumn("pdbx_CC_split_method", DelegatingStrColumn::new);
     }
 
 }

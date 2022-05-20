@@ -18,8 +18,8 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of three adp eigenvalues for the associated eigenvectors
-     * given by _model_site.adp_eigenvectors. The eigenvalues are
+     * The set of three ADP eigenvalues for the associated eigenvectors
+     * given by _model_site.ADP_eigenvectors. The eigenvalues are
      * sorted in order of magnitude with the largest first.
      * @return FloatColumn
      */
@@ -28,7 +28,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _model_site.adp_eigenvalues.
+     * Standard uncertainty of _model_site.ADP_eigenvalues.
      * @return FloatColumn
      */
     public FloatColumn getAdpEigenvaluesSu() {
@@ -36,8 +36,8 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of three adp eigenvectors corresponding to the values
-     * given in _model_site.adp_eigenvalues. The eigenvectors are
+     * The set of three ADP eigenvectors corresponding to the values
+     * given in _model_site.ADP_eigenvalues. The eigenvectors are
      * contained in the rows of a matrix ordered from top to bottom
      * in order largest to smallest corresponding eigenvalue. The
      * eigenvector elements are direction cosines to the orthogonal
@@ -49,7 +49,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _model_site.adp_eigenvectors.
+     * Standard uncertainty of _model_site.ADP_eigenvectors.
      * @return FloatColumn
      */
     public FloatColumn getAdpEigenvectorsSu() {
@@ -65,7 +65,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _model_site.adp_matrix_beta.
+     * Standard uncertainty of _model_site.ADP_matrix_beta.
      * @return FloatColumn
      */
     public FloatColumn getAdpMatrixBetaSu() {

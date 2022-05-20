@@ -33,6 +33,8 @@ public class MaTemplateDetails extends DelegatingCategory {
                 return getTemplateDataId();
             case "target_asym_id":
                 return getTargetAsymId();
+            case "template_auth_asym_id":
+                return getTemplateAuthAsymId();
             case "template_label_asym_id":
                 return getTemplateLabelAsymId();
             case "template_label_entity_id":
@@ -103,7 +105,20 @@ public class MaTemplateDetails extends DelegatingCategory {
     }
 
     /**
-     * The asym ID corresponding to the template.
+     * The author provided chain ID corresponding to the template. This is the
+     * author provided chain ID as found at the source of the template, e.g. the
+     * external mmCIF file storing the template coordinates. If the external
+     * source is a PDB formatted file, template_auth_asym_id is the chain ID.
+     * @return StrColumn
+     */
+    public StrColumn getTemplateAuthAsymId() {
+        return delegate.getColumn("template_auth_asym_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The label asym ID corresponding to the template. This is the asym ID as
+     * found at the source of the template, e.g. the external mmCIF file storing
+     * the template coordinates.
      * @return StrColumn
      */
     public StrColumn getTemplateLabelAsymId() {
@@ -111,7 +126,9 @@ public class MaTemplateDetails extends DelegatingCategory {
     }
 
     /**
-     * The entity ID corresponding to the template.
+     * The entity ID corresponding to the template. This is the entity ID as
+     * found at the source of the template, e.g. the external mmCIF file storing
+     * the template coordinates.
      * @return StrColumn
      */
     public StrColumn getTemplateLabelEntityId() {

@@ -118,8 +118,8 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * archived by the CCDC.
      * @return StrColumn
      */
-    public StrColumn getCodeDepnumCcdcArchive() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_archive"));
+    public StrColumn getCodeDepnumCCDCArchive() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_archive", "database_code_depnum_ccdc_archive"));
     }
 
     /**
@@ -129,7 +129,7 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDepnumCcdcArchive() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_archive"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_archive", "database_code_depnum_ccdc_archive"));
     }
 
     /**
@@ -138,8 +138,8 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * archived by the Cambridge Crystallographic Data Centre (CCDC).
      * @return StrColumn
      */
-    public StrColumn getCodeDepnumCcdcFiz() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_fiz"));
+    public StrColumn getCodeDepnumCCDCFiz() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_fiz", "database_code_depnum_ccdc_fiz"));
     }
 
     /**
@@ -149,7 +149,7 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDepnumCcdcFiz() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_fiz"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_fiz", "database_code_depnum_ccdc_fiz"));
     }
 
     /**
@@ -158,8 +158,8 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * Crystallographic Data Centre (CCDC).
      * @return StrColumn
      */
-    public StrColumn getCodeDepnumCcdcJournal() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_journal"));
+    public StrColumn getCodeDepnumCCDCJournal() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_journal", "database_code_depnum_ccdc_journal"));
     }
 
     /**
@@ -169,7 +169,7 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getDepnumCcdcJournal() {
-        return new DelegatingStrColumn(parentBlock.getColumn("database_code_depnum_ccdc_journal"));
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("database_code_depnum_CCDC_journal", "database_code_depnum_ccdc_journal"));
     }
 
     /**

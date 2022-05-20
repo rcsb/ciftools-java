@@ -110,8 +110,8 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * and also for defining suitable contour levels.
      * @return FloatColumn
      */
-    public FloatColumn getDiffDensityRms() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms"));
+    public FloatColumn getDiffDensityRMS() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS", "refine_diff_density_rms"));
     }
 
     /**
@@ -124,7 +124,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRms() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS", "refine_diff_density_rms"));
     }
 
     /**
@@ -132,8 +132,8 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * in a difference Fourier map.
      * @return FloatColumn
      */
-    public FloatColumn getDiffDensityRmsEsd() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_rms_esd", "refine_diff_density_rms_su"));
+    public FloatColumn getDiffDensityRMSEsd() {
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS_esd", "refine_diff_density_rms_su"));
     }
 
     /**
@@ -142,7 +142,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_rms_esd", "refine_diff_density_rms_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS_esd", "refine_diff_density_rms_su"));
     }
 
     /**

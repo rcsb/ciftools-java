@@ -35,6 +35,14 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _reflns_scale.meas_F.
+     * @return FloatColumn
+     */
+    public FloatColumn getMeasFSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_su"));
+    }
+
+    /**
      * Structure factor squared scale for this scale group.
      * @return FloatColumn
      */
@@ -48,14 +56,6 @@ public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getMeasFSquaredSu() {
         return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_squared_su"));
-    }
-
-    /**
-     * Standard uncertainty of _reflns_scale.meas_F.
-     * @return FloatColumn
-     */
-    public FloatColumn getMeasFSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_scale_meas_f_su"));
     }
 
     /**

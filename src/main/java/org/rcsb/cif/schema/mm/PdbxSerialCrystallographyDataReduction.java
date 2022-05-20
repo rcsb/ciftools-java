@@ -39,6 +39,8 @@ public class PdbxSerialCrystallographyDataReduction extends DelegatingCategory {
                 return getLatticesIndexed();
             case "xfel_run_numbers":
                 return getXfelRunNumbers();
+            case "lattices_merged":
+                return getLatticesMerged();
             default:
                 return new DelegatingColumn(column);
         }
@@ -137,6 +139,19 @@ public class PdbxSerialCrystallographyDataReduction extends DelegatingCategory {
      */
     public StrColumn getXfelRunNumbers() {
         return delegate.getColumn("xfel_run_numbers", DelegatingStrColumn::new);
+    }
+
+    /**
+     * For experiments in which samples are provided in a
+     * continuous stream, the total number of crystal lattices
+     * that were merged in the final dataset.  Can be
+     * less than frames_indexed depending on filtering during merging or
+     * can be more than frames_indexed if there are multiple lattices.
+     * per frame.
+     * @return IntColumn
+     */
+    public IntColumn getLatticesMerged() {
+        return delegate.getColumn("lattices_merged", DelegatingIntColumn::new);
     }
 
 }

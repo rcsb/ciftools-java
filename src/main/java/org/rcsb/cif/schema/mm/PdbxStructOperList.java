@@ -51,6 +51,8 @@ public class PdbxStructOperList extends DelegatingCategory {
                 return getVector2();
             case "vector[3]":
                 return getVector3();
+            case "full_matrix":
+                return getFullMatrix();
             default:
                 return new DelegatingColumn(column);
         }
@@ -195,6 +197,14 @@ public class PdbxStructOperList extends DelegatingCategory {
      */
     public FloatColumn getVector3() {
         return delegate.getColumn("vector[3]", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Transformation matrix as provided by depositor
+     * @return StrColumn
+     */
+    public StrColumn getFullMatrix() {
+        return delegate.getColumn("full_matrix", DelegatingStrColumn::new);
     }
 
 }

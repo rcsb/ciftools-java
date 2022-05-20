@@ -102,7 +102,7 @@ public class EmVitrification extends DelegatingCategory {
     }
 
     /**
-     * The vitrification temperature (in degrees Kelvin), e.g.,
+     * The vitrification temperature (in kelvin), e.g.,
      * temperature of the plunge instrument cryogen bath.
      * @return FloatColumn
      */
@@ -111,7 +111,7 @@ public class EmVitrification extends DelegatingCategory {
     }
 
     /**
-     * The temperature (in degrees Kelvin) of the sample just prior to vitrification.
+     * The temperature (in kelvin) of the sample just prior to vitrification.
      * @return FloatColumn
      */
     public FloatColumn getChamberTemperature() {

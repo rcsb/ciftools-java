@@ -27,8 +27,8 @@ public class MaProtocolStep extends DelegatingCategory {
                 return getStepId();
             case "method_type":
                 return getMethodType();
-            case "method_type_other_details":
-                return getMethodTypeOtherDetails();
+            case "details":
+                return getDetails();
             case "step_name":
                 return getStepName();
             case "software_group_id":
@@ -75,11 +75,11 @@ public class MaProtocolStep extends DelegatingCategory {
     }
 
     /**
-     * Details for other method type.
+     * Details of the protocol step.
      * @return StrColumn
      */
-    public StrColumn getMethodTypeOtherDetails() {
-        return delegate.getColumn("method_type_other_details", DelegatingStrColumn::new);
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 
     /**

@@ -8,7 +8,7 @@ import javax.annotation.Generated;
 /**
  * The CATEGORY of data items which specify the electron density limits
  * in a difference Fourier map after the structure has been refined. The
- * rms value is with respect to the arithmetic mean density, and is derived
+ * RMS value is with respect to the arithmetic mean density, and is derived
  * from summations over each grid point in the asymmetric unit of the cell.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -63,7 +63,7 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRms() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refine_diff_density_rms"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS", "refine_diff_density_rms"));
     }
 
     /**
@@ -72,7 +72,7 @@ public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {
-        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_rms_esd", "refine_diff_density_rms_su"));
+        return new DelegatingFloatColumn(parentBlock.getAliasedColumn("refine_diff_density_RMS_esd", "refine_diff_density_rms_su"));
     }
 
 }

@@ -56,7 +56,7 @@ public class EmDiffractionShell extends DelegatingCategory {
     }
 
     /**
-     * High resolution limit for this shell (Angstroms)
+     * High resolution limit for this shell (angstroms)
      * @return FloatColumn
      */
     public FloatColumn getHighResolution() {
@@ -72,7 +72,7 @@ public class EmDiffractionShell extends DelegatingCategory {
     }
 
     /**
-     * Low resolution limit for this shell (Angstroms)
+     * Low resolution limit for this shell (angstroms)
      * @return FloatColumn
      */
     public FloatColumn getLowResolution() {

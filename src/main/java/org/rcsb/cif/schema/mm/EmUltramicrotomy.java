@@ -75,7 +75,7 @@ public class EmUltramicrotomy extends DelegatingCategory {
     }
 
     /**
-     * Temperature of the sample during microtome sectioning, in degrees Kelvin
+     * Temperature of the sample during microtome sectioning, in kelvins
      * @return IntColumn
      */
     public IntColumn getTemperature() {
