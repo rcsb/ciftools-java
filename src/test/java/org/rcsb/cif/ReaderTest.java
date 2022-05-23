@@ -76,7 +76,7 @@ public class ReaderTest {
     }
 
     @Test
-    public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException, IOException {
+    public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException {
         assertThrows(ParsingException.class, () ->
                 CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0emp.bcif"))
         );
