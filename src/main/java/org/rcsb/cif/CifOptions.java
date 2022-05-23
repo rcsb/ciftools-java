@@ -145,7 +145,6 @@ public class CifOptions {
     public static class CifOptionsBuilder {
         private static final String FETCH_URL = "https://models.rcsb.org/%s.bcif";
 
-        private boolean generic = false;
         private boolean gzip = false;
         private String encoder = BinaryCifCodec.CODEC_NAME;
         private String fetchUrl = FETCH_URL;
