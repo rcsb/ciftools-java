@@ -319,8 +319,7 @@ class IntegrationTest {
                 .getColumn("ndb_seq_num");
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
-        CifFile ebi = CifIO.readById("1acj",
-                new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
+        CifFile ebi = CifIO.readFromInputStream(TestHelper.getInputStream("ebi/1acj.bcif"));
         Column<?> ebiNdbSeqNum = ebi.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
@@ -335,8 +334,7 @@ class IntegrationTest {
                 .getNdbSeqNum();
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
-        MmCifFile ebi = CifIO.readById("1acj",
-                        new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build())
+        MmCifFile ebi = CifIO.readFromInputStream(TestHelper.getInputStream("ebi/1acj.bcif"))
                 .as(StandardSchemata.MMCIF);
         StrColumn ebiNdbSeqNum = ebi.getFirstBlock()
                 .getPdbxNonpolyScheme()
