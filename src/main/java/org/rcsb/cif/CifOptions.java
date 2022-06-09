@@ -91,7 +91,7 @@ public class CifOptions {
     public boolean filterCategory(String categoryName) {
         if (categoryBlacklist.contains(categoryName)) {
             return false;
-        } else return categoryWhitelist.size() <= 0 || categoryWhitelist.contains(categoryName);
+        } else return categoryWhitelist.isEmpty() || categoryWhitelist.contains(categoryName);
     }
 
     /**

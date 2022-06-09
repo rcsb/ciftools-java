@@ -16,7 +16,6 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
 /**
  * Origin of files:
  * - bcif created by Mol* encoder
@@ -81,12 +80,12 @@ public class TestHelper {
     }
 
     @Test
-    public void shouldAcquireInputStream() {
+    void shouldAcquireInputStream() {
         assertNotNull(getInputStream("cif/1pga.cif"), "Could not acquire inputstream of local resource");
     }
 
     @Test
-    public void messagePackToUint8Array() throws IOException {
+    void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
         assertNotNull(new ByteArray(TestHelper.getBytes("bcif/" + id))
                 .decode()

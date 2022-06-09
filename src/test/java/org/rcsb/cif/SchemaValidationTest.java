@@ -1,15 +1,17 @@
 package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class SchemaValidationTest {
+class SchemaValidationTest {
     @Test
-    public void shouldPassForMmCifFileWithMmCifSchema() throws IOException {
+    void shouldPassForMmCifFileWithMmCifSchema() throws IOException {
         CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
                 .as(StandardSchemata.MMCIF)
                 .getFirstBlock()
@@ -19,7 +21,7 @@ public class SchemaValidationTest {
     }
 
     @Test
-    public void shouldPassForCifCoreFileWithCifCoreSchema() throws IOException {
+    void shouldPassForCifCoreFileWithCifCoreSchema() throws IOException {
         CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"))
                 .as(StandardSchemata.CIF_CORE)
                 .getFirstBlock()
@@ -29,15 +31,11 @@ public class SchemaValidationTest {
     }
 
     @Test
-    public void shouldFailForMmCifFileWithCifCoreSchema() {
+    void shouldFailForMmCifFileWithCifCoreSchema() throws IOException {
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
         assertThrows(SchemaMismatchException.class, () -> {
             try {
-                CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
-                        .as(StandardSchemata.CIF_CORE)
-                        .getFirstBlock()
-                        .getCell()
-                        .getLengthA()
-                        .get(0);
+                cifFile.as(StandardSchemata.CIF_CORE);
             } catch (SchemaMismatchException e) {
                 System.out.println("observed exception as expected: " + e);
                 throw e;
@@ -46,15 +44,11 @@ public class SchemaValidationTest {
     }
 
     @Test
-    public void shouldFailForCifCoreFileWithMmCifSchema() {
+    void shouldFailForCifCoreFileWithMmCifSchema() throws IOException {
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
         assertThrows(SchemaMismatchException.class, () -> {
             try {
-                CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"))
-                        .as(StandardSchemata.MMCIF)
-                        .getFirstBlock()
-                        .getCell()
-                        .getLengthA()
-                        .get(0);
+                cifFile.as(StandardSchemata.MMCIF);
             } catch (SchemaMismatchException e) {
                 System.out.println("observed exception as expected: " + e);
                 throw e;
@@ -63,15 +57,15 @@ public class SchemaValidationTest {
     }
 
     @Test
-    public void shouldFailForMmCifFileWithCifCoreSchemaWithoutValidationWhenEmptyColumnIsAccessed() {
+    void shouldFailForMmCifFileWithCifCoreSchemaWithoutValidationWhenEmptyColumnIsAccessed() throws IOException {
+        FloatColumn lengthA =  CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
+                .asButWithoutValidation(StandardSchemata.CIF_CORE)
+                .getFirstBlock()
+                .getCell()
+                .getLengthA();
         assertThrows(EmptyColumnException.class, () -> {
             try {
-                CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"))
-                        .asButWithoutValidation(StandardSchemata.CIF_CORE)
-                        .getFirstBlock()
-                        .getCell()
-                        .getLengthA()
-                        .get(0);
+               lengthA.get(0);
             } catch (EmptyColumnException e) {
                 System.out.println("observed exception as expected: " + e);
                 throw e;
@@ -80,15 +74,15 @@ public class SchemaValidationTest {
     }
 
     @Test
-    public void shouldFailForCifCoreFileWithMmCifSchemaWithoutValidationWhenEmptyColumnIsAccessed() {
+    void shouldFailForCifCoreFileWithMmCifSchemaWithoutValidationWhenEmptyColumnIsAccessed() throws IOException {
+        FloatColumn lengthA = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"))
+                .asButWithoutValidation(StandardSchemata.MMCIF)
+                .getFirstBlock()
+                .getCell()
+                .getLengthA();
         assertThrows(EmptyColumnException.class, () -> {
             try {
-                CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"))
-                        .asButWithoutValidation(StandardSchemata.MMCIF)
-                        .getFirstBlock()
-                        .getCell()
-                        .getLengthA()
-                        .get(0);
+                lengthA.get(0);
             } catch (EmptyColumnException e) {
                 System.out.println("observed exception as expected: " + e);
                 throw e;

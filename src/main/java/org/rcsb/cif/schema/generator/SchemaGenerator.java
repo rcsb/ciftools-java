@@ -220,9 +220,9 @@ public class SchemaGenerator {
 
         Files.write(path.resolve(schemaName + "File.java"), file.getBytes());
         Files.write(path.resolve(schemaName + "FileBuilder.java"), fileBuilder.getBytes());
-        Files.write(path.resolve(schemaName + "BlockBuilder.java"), blockBuilder.toString().getBytes());
-        Files.write(path.resolve(schemaName + "CategoryBuilder.java"), categoryBuilder.toString().getBytes());
-        Files.write(path.resolve(blockName + ".java"), block.toString().getBytes());
+        Files.write(path.resolve(schemaName + "BlockBuilder.java"), blockBuilder.getBytes());
+        Files.write(path.resolve(schemaName + "CategoryBuilder.java"), categoryBuilder.getBytes());
+        Files.write(path.resolve(blockName + ".java"), block.getBytes());
     }
 
     private String prepareDescription(String description, String prefix) {
@@ -264,7 +264,6 @@ public class SchemaGenerator {
             Class<? extends Column> baseClass = getBaseClass(column.getType());
             Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
             String baseClassName = baseClass.getSimpleName();
-            String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
             String description = prepareDescription(column.getDescription(), "     * ");
             getters.add((flat ? CATEGORY_GETTER_FLAT : CATEGORY_GETTER).replace("{columnDescription}", description)
@@ -312,7 +311,6 @@ public class SchemaGenerator {
                                 Class<? extends Column> baseClass = getBaseClass(column.getType());
                                 Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
                                 String baseClassName = baseClass.getSimpleName();
-                                String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
                                 String description = prepareDescription(column.getDescription(), "     * ");
                                 getters.add(CATEGORY_GETTER_FLAT.replace("{columnDescription}", description)
@@ -337,7 +335,7 @@ public class SchemaGenerator {
                 .replace("{categoryName}", categoryName)
                 .replace("{columnEnters}", enters.toString()));
 
-        Files.write(path.resolve(className + ".java"), category.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), category.getBytes());
     }
 
     private Class<? extends Column> getBaseClass(String type) {
@@ -441,7 +439,7 @@ public class SchemaGenerator {
             if (saveFrame.getCategories().containsKey("import")) {
                 parseImportGet(saveFrame.getCategory("import").getColumn("get").getStringData(0))
                         .filter(Import::isValid)
-                        .filter(i -> imports.containsKey(i.save) && imports.get(i.save).size() > 0)
+                        .filter(i -> imports.containsKey(i.save) && !imports.get(i.save).isEmpty())
                         .map(i -> imports.get(i.save))
                         .forEach(i -> saveFrame.getCategories().putAll(i));
             }
@@ -484,7 +482,7 @@ public class SchemaGenerator {
                     fields.put(itemName, new VectorCol(description));
                 } else {
                     List<String> code = getCode(saveFrame);
-                    if (code.size() > 0) {
+                    if (!code.isEmpty()) {
                         Col fieldType = getFieldType(code.get(0), description, code.subList(1, code.size()));
                         fields.put(itemName, fieldType);
                     }
@@ -520,7 +518,7 @@ public class SchemaGenerator {
             case "uchar3":
             case "uchar1":
             case "boolean":
-                return values.size() > 0 ? new EnumCol(values, "str", description) : new StrCol(description);
+                return values.isEmpty() ? new StrCol(description) : new EnumCol(values, "str", description);
             case "aliasname":
             case "name":
             case "idname":
@@ -559,7 +557,7 @@ public class SchemaGenerator {
             case "int":
             case "non_negative_int":
             case "positive_int":
-                return values.size() > 0 ? new EnumCol(values, "int", description) : new IntCol(description);
+                return values.isEmpty() ? new IntCol(description) : new EnumCol(values, "int", description);
             case "float":
                 return new FloatCol(description);
             case "ec-type":
@@ -747,8 +745,8 @@ public class SchemaGenerator {
         }
     }
 
-    private static final Pattern savePattern = Pattern.compile("('save'|'save'):([^ \t\n]+)");
-    private static final Pattern filePattern = Pattern.compile("('file'|'file'):([^ \t\n]+)");
+    private static final Pattern savePattern = Pattern.compile("('save'|\"save\"):([^ \t\n]+)");
+    private static final Pattern filePattern = Pattern.compile("('file'|\"file\"):([^ \t\n]+)");
 
     private Stream<Import> parseImportGet(String s) {
         // [{'save':hi_ang_Fox_coeffs  'file':templ_attr.cif}   {'save':hi_ang_Fox_c0  'file':templ_enum.cif}]
@@ -840,7 +838,7 @@ public class SchemaGenerator {
                 .filter(categoryName -> !schema.containsKey(categoryName))
                 .forEach(categoryName -> {
 //                    System.out.println("additional category: " + categoryName);
-                    Table table = schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
+                    schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
                 });
     }
 }

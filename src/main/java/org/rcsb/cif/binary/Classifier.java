@@ -20,6 +20,10 @@ import java.util.stream.Stream;
  * efficient encoding strategy which results in the most compact storage of the data.
  */
 public class Classifier {
+    private Classifier() {
+        // nothing here
+    }
+
     /**
      * Auto-encodes this {@link Int32Array} by the encoding strategy with the minimal size.
      * @param data the data to encode
@@ -192,8 +196,8 @@ public class Classifier {
     }
 
     static class IntColumnInfo {
-        final static IntColumnInfo SIGNED_INFO = new IntColumnInfo(true, 0x7F, 0x7FFF);
-        final static IntColumnInfo UNSIGNED_INFO = new IntColumnInfo(false, 0xFF, 0xFFFF);
+        static final IntColumnInfo SIGNED_INFO = new IntColumnInfo(true, 0x7F, 0x7FFF);
+        static final IntColumnInfo UNSIGNED_INFO = new IntColumnInfo(false, 0xFF, 0xFFFF);
 
         final boolean signed;
         final int limit8;
@@ -310,8 +314,8 @@ public class Classifier {
      * If no such M exists, return -1.
      */
     private static int getMantissaMultiplier(double v, int maxDigits) {
-        int m = 1, i;
-        for (i = 0; i < maxDigits; i++) {
+        int m = 1;
+        for (int i = 0; i < maxDigits; i++) {
             double mv = m * v;
             if (Math.abs(Math.round(mv) - mv) <= DELTA) {
                 return i;

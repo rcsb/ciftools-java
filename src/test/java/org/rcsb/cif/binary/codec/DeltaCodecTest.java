@@ -6,10 +6,9 @@ import org.rcsb.cif.binary.encoding.DeltaEncoding;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-
-public class DeltaCodecTest {
+class DeltaCodecTest {
     @Test
-    public void testForward() {
+    void testForward() {
         // create test case
         Int8Array plainArray = new Int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
 
@@ -24,7 +23,7 @@ public class DeltaCodecTest {
     }
 
     @Test
-    public void honorSrcType() {
+    void honorSrcType() {
         // create test case
         Int8Array plainArray = new Int8Array(new int[] { 1, 2, 3, 4, 5, 6 });
 
@@ -39,7 +38,7 @@ public class DeltaCodecTest {
     }
 
     @Test
-    public void emptyCase() {
+    void emptyCase() {
         Int8Array plainArray = new Int8Array(new int[0]);
 
         // encode

@@ -6,9 +6,9 @@ import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class RunLengthCodecTest {
+class RunLengthCodecTest {
     @Test
-    public void testForward() {
+    void testForward() {
         // create test case
         Int32Array plainArray = new Int32Array(new int[] { 15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000 });
 
@@ -23,7 +23,7 @@ public class RunLengthCodecTest {
     }
 
     @Test
-    public void testEncode() {
+    void testEncode() {
         int[] expected = new int[] { 1, 3, 2, 1, 3, 2 };
         Int8Array plainArray = new Int8Array(new int[] { 1, 1, 1, 2, 3, 3 });
 
@@ -34,7 +34,7 @@ public class RunLengthCodecTest {
     }
 
     @Test
-    public void testDecode() {
+    void testDecode() {
         int[] expected = new int[] { 15, 15, 15, 100, 100, 111, 111, 111, 111, 10000, 10000, 10000, 10000, 10000, 10000 };
         Int32Array encodedArray = new Int32Array(new int[] { 15, 3, 100, 2, 111, 4, 10000, 6 });
 

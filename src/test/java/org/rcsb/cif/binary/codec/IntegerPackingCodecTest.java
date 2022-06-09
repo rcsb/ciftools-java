@@ -7,9 +7,9 @@ import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class IntegerPackingCodecTest {
+class IntegerPackingCodecTest {
     @Test
-    public void testForward() {
+    void testForward() {
         // create test case
         Int32Array plainArray = new Int32Array(new int[] { -1, 2, -100, 42, 126 });
 

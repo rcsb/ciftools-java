@@ -12,10 +12,9 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.fail;
 
-
-public class FootprintTest {
+class FootprintTest {
     @Test
-    public void printFootprint() throws IOException {
+    void printFootprint() throws IOException {
         byte[] bytes = CifIO.writeBinary(CifIO.readFromInputStream(TestHelper.getInputStream("source/200l_rcsb.cif")));
         Map<String, String> writtenFootprint = getFootprint(bytes);
 

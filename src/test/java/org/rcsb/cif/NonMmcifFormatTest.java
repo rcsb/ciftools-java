@@ -14,9 +14,9 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class NonMmcifFormatTest {
+class NonMmcifFormatTest {
     @Test
-    public void shouldHandleLigandCif() throws IOException {
+    void shouldHandleLigandCif() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/atp.cif"));
         MmCifBlock firstBlock = cifFile.as(StandardSchemata.MMCIF).getFirstBlock();
@@ -33,7 +33,7 @@ public class NonMmcifFormatTest {
     }
 
     @Test
-    public void shouldHandleCcdcFile() throws IOException {
+    void shouldHandleCcdcFile() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/867861-core.cif"));
         CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
@@ -70,7 +70,7 @@ public class NonMmcifFormatTest {
     }
 
     @Test
-    public void shouldSupportCifCoreAliases() throws IOException {
+    void shouldSupportCifCoreAliases() throws IOException {
         // read CIF describing ligand
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/CBMZPN01.cif"));
         CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
@@ -111,7 +111,7 @@ public class NonMmcifFormatTest {
     }
 
     @Test
-    public void shouldRetrieveCellParamters() throws IOException {
+    void shouldRetrieveCellParamters() throws IOException {
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("non-mmcif/CBMZPN01.cif"));
         CifCoreBlock firstBlock = cifFile.as(StandardSchemata.CIF_CORE).getFirstBlock();
 

@@ -19,9 +19,9 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
-public class ReaderTest {
+class ReaderTest {
     @Test
-    public void testGzipReadingBehavior() throws IOException {
+    void testGzipReadingBehavior() throws IOException {
         // should recognize gzipped formats and decode them without specifying
         for (String id : TEST_CASES.keySet()) {
             testGzipReadingBehavior(id);
@@ -44,7 +44,7 @@ public class ReaderTest {
 
     @Test
     @SuppressWarnings("rawtypes")
-    public void parseBinary() throws IOException, ParsingException {
+    void parseBinary() throws IOException, ParsingException {
         for (Map.Entry<String, List> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("bcif/" + testCase.getKey() + ".bcif");
             checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
@@ -53,7 +53,7 @@ public class ReaderTest {
 
     @Test
     @SuppressWarnings("rawtypes")
-    public void parseText() throws ParsingException, IOException {
+    void parseText() throws ParsingException, IOException {
         for (Map.Entry<String, List> testCase : TEST_CASES.entrySet()) {
             InputStream inputStream = TestHelper.getInputStream("cif/" + testCase.getKey() + ".cif");
             checkParsedEntity(CifIO.readFromInputStream(inputStream), testCase.getValue());
@@ -76,37 +76,34 @@ public class ReaderTest {
     }
 
     @Test
-    public void shouldReportExceptionForEmptyBinaryFile() throws ParsingException {
-        assertThrows(ParsingException.class, () ->
-                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/0emp.bcif"))
-        );
+    void shouldReportExceptionForEmptyBinaryFile() throws ParsingException {
+        InputStream inputStream = TestHelper.getInputStream("bcif/0emp.bcif");
+        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(inputStream));
     }
 
     @Test
-    public void shouldReportExceptionForEmptyTextFile() throws ParsingException {
-        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(TestHelper.getInputStream("cif/0emp.cif")));
+    void shouldReportExceptionForEmptyTextFile() throws ParsingException {
+        InputStream inputStream = TestHelper.getInputStream("cif/0emp.cif");
+        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(inputStream));
     }
 
     @Test
-    public void shouldHonorFileFormatAndFailWhenMismatching1() throws ParsingException {
-        assertThrows(ParsingException.class, () ->
-                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
-                        CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED).build())
-        );
+    void shouldHonorFileFormatAndFailWhenMismatching1() throws ParsingException {
+        InputStream inputStream = TestHelper.getInputStream("bcif/1a2c.bcif");
+        CifOptions options = CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.BCIF_GZIPPED).build();
+        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(inputStream, options));
     }
 
     @Test
-    public void shouldHonorFileFormatAndFailWhenMismatching2() throws ParsingException {
-        assertThrows(ParsingException.class, () ->
-                CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1a2c.bcif"),
-                        CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build())
-
-        );
+    void shouldHonorFileFormatAndFailWhenMismatching2() throws ParsingException {
+        InputStream inputStream = TestHelper.getInputStream("bcif/1a2c.bcif");
+        CifOptions options = CifOptions.builder().fileFormatHint(CifOptions.CifOptionsBuilder.FileFormat.CIF_PLAIN).build();
+        assertThrows(ParsingException.class, () -> CifIO.readFromInputStream(inputStream, options));
     }
 
 
     @Test
-    public void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
+    void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
         String id = "AF-Q76EI6-F1-model_v1";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
@@ -121,7 +118,7 @@ public class ReaderTest {
     }
 
     @Test
-    public void whenReadingStringWithEmptyQuotation_thenValueAvailable() throws IOException {
+    void whenReadingStringWithEmptyQuotation_thenValueAvailable() throws IOException {
         String id = "AF-O49373-F1-model_v1";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);

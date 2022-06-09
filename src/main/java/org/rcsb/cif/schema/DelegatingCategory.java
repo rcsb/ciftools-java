@@ -93,7 +93,7 @@ public class DelegatingCategory implements Category {
                     .collect(Collectors.toMap(this::extractName, category -> category.getColumn(""), (i, j) -> i, LinkedCaseInsensitiveMap::new));
         }
 
-        private final List<String> CIF_CORE_COLUMN_NAMES = List.of("");
+        private static final List<String> CIF_CORE_COLUMN_NAMES = List.of("");
         @Override
         public List<String> getColumnNames() {
             return CIF_CORE_COLUMN_NAMES;

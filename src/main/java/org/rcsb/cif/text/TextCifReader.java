@@ -51,7 +51,7 @@ public class TextCifReader {
                 if (tokenizer.inSaveFrame) {
                     throw new ParsingException("Unexpected data block inside a save frame.", tokenizer.getLineNumber());
                 }
-                if (blockCtx.getCategories().size() > 0) {
+                if (!blockCtx.getCategories().isEmpty()) {
                     Block block = new TextBlock(blockCtx.getCategories(), blockHeader);
                     dataBlocks.add(block);
                     block.getSaveFrames().addAll(saveFrames);
@@ -64,7 +64,7 @@ public class TextCifReader {
             } else if (tokenizer.getTokenType() == CifTokenType.SAVE) {
                 final String saveHeader = tokenizer.getData().substring(tokenizer.getTokenStart() + 5, tokenizer.getTokenEnd());
                 if (saveHeader.isEmpty()) {
-                    if (saveCtx.getCategories().size() > 0) {
+                    if (!saveCtx.getCategories().isEmpty()) {
                         saveFrames.add(saveFrame);
                     }
                     tokenizer.inSaveFrame = false;
@@ -95,7 +95,7 @@ public class TextCifReader {
             throw new ParsingException("Unfinished save frame (" + saveFrame.getBlockHeader() + ").", tokenizer.getLineNumber());
         }
 
-        if (blockCtx.getCategories().size() > 0 || saveFrames.size() > 0) {
+        if (!blockCtx.getCategories().isEmpty() || !saveFrames.isEmpty()) {
             Block block = new TextBlock(blockCtx.getCategories(), blockHeader);
             dataBlocks.add(block);
             block.getSaveFrames().addAll(saveFrames);

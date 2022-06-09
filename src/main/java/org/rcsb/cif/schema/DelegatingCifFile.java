@@ -21,7 +21,7 @@ public abstract class DelegatingCifFile<B extends DelegatingBlock> implements Ci
     protected final CifFile delegate;
     private final List<B> blocks;
 
-    public DelegatingCifFile(CifFile delegate) {
+    protected DelegatingCifFile(CifFile delegate) {
         this.delegate = delegate;
         this.blocks = delegate.getBlocks()
                 .stream()
@@ -44,5 +44,5 @@ public abstract class DelegatingCifFile<B extends DelegatingBlock> implements Ci
         return blocks.get(0);
     }
 
-    abstract protected B getTypedBlock(Block block);
+    protected abstract B getTypedBlock(Block block);
 }
