@@ -15,12 +15,16 @@ import org.rcsb.cif.schema.DelegatingStrColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Field;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -105,7 +109,6 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
                 "https://raw.githubusercontent.com/ihmwg/ModelCIF/master/dist/mmcif_ma.dic"); // model-extension for predicted models
 
-        // TODO pre-process cif_core files which are CIF 2.0 - TODO proper CIF 2.0 (or at least list support)
         new SchemaGenerator("CifCore", "CIF_CORE", "core", true,
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
@@ -144,15 +147,16 @@ public class SchemaGenerator {
         Path packagePath = projectPath.resolve("src").resolve("main").resolve("java").resolve(basePackagePath).resolve(packageName);
 
         if (Files.exists(packagePath)) {
-            Files.list(packagePath)
-                    .filter(p -> !Files.isDirectory(p))
-                    .forEach(p -> {
-                        try {
-                            Files.delete(p);
-                        } catch (IOException e) {
-                            throw new UncheckedIOException(e);
-                        }
-                    });
+            try (Stream<Path> paths = Files.list(packagePath)) {
+                paths.filter(p -> !Files.isDirectory(p))
+                        .forEach(p -> {
+                            try {
+                                Files.delete(p);
+                            } catch (IOException e) {
+                                throw new UncheckedIOException(e);
+                            }
+                        });
+            }
         } else {
             Files.createDirectories(packagePath);
         }
@@ -398,7 +402,7 @@ public class SchemaGenerator {
         this.aliases = new ArrayList<>();
         for (String res : resource) {
             System.out.println("Loading dictionary from: " + res);
-            CifFile cifFile = CifIO.readFromURL(new URL(res));
+            CifFile cifFile = CifIO.readFromInputStream(preprocess(res));
             if (schemaName.equals("MmCif")) {
                 getCategoryMetadataMmcif(cifFile);
             } else if (schemaName.equals("CifCore")) {
@@ -426,6 +430,16 @@ public class SchemaGenerator {
             System.err.println("Schema with name '" + schemaEnum + "' must be explicitly added to StandardSchemata.java!");
         }
         System.out.println();
+    }
+
+    private InputStream preprocess(String res) throws IOException {
+        try (InputStream inputStream = new URL(res).openStream()) {
+            String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            // this is needed for https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic
+            // TODO proper CIF 2.0 (or at least list support, or at the very least don't hard-code this here...)
+            content = content.replace("[translucent  pale  green]", "'[translucent  pale  green]'");
+            return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
+        }
     }
 
     private void getFieldData() {
@@ -617,12 +631,11 @@ public class SchemaGenerator {
     }
 
     private String getSubCategory(Block saveFrame) {
-        try {
-            Column value = getField("item_sub_category", "id", saveFrame);
-            return value.getStringData(0);
-        } catch (NullPointerException e) {
+        Column value = getField("item_sub_category", "id", saveFrame);
+        if (value == null) {
             return "";
         }
+        return value.getStringData(0);
     }
 
     private String getDescription(Block saveFrame) {
