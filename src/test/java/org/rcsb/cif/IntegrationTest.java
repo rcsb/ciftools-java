@@ -313,7 +313,7 @@ class IntegrationTest {
      */
     @Test
     void readRcsbAndEbiGeneric() throws IOException {
-        CifFile rcsb = CifIO.readById("1acj");
+        CifFile rcsb = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
         Column<?> rcsbNdbSeqNum = rcsb.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
@@ -328,7 +328,7 @@ class IntegrationTest {
 
     @Test
     void readRcsbAndEbiWithSchema() throws IOException {
-        MmCifFile rcsb = CifIO.readById("1acj").as(StandardSchemata.MMCIF);
+        MmCifFile rcsb = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         StrColumn rcsbNdbSeqNum = rcsb.getFirstBlock()
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
