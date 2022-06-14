@@ -15,7 +15,6 @@ import java.util.Map;
 import java.util.OptionalDouble;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.rcsb.cif.TestHelper.ERROR_MARGIN;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
