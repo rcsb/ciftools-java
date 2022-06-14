@@ -265,7 +265,6 @@ public class SchemaGenerator {
 
             String columnClassName = toClassName(columnName);
             Class<? extends Column> baseClass = getBaseClass(column.getType());
-            Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
             String baseClassName = baseClass.getSimpleName();
 
             String description = prepareDescription(column.getDescription(), "     * ");
@@ -514,7 +513,7 @@ public class SchemaGenerator {
             return Collections.emptyList();
         }
         return IntStream.range(0, field.getRowCount())
-                .mapToObj(i -> column.getStringData(i))
+                .mapToObj(column::getStringData)
                 .map(s -> s.substring(1))
                 .collect(Collectors.toList());
     }
@@ -832,7 +831,7 @@ public class SchemaGenerator {
 
                     Optional<List<String>> optional = aliases.stream()
                             // find sets of name referencing this
-                            .filter(set -> alias.stream().anyMatch(a -> set.contains(a)))
+                            .filter(set -> alias.stream().anyMatch(set::contains))
                             .findFirst();
 
                     if (optional.isPresent()) {
