@@ -146,7 +146,7 @@ not overloaded, but rather will only accept `String` values while in `entry.id` 
 ```Java
 class Demo {
     public static void main(String[] args) {
-        String id = "AF-Q76EI6-F1-model_v1";
+        String id = "AF-Q76EI6-F1-model_v2";
 
         CifFile cifFile = CifIO.readFromURL(new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif"));
         MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
