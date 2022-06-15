@@ -205,32 +205,4 @@ class WriterTest {
         assertArrayEquals(originalGzip, outputGzip, "binary write output does not match snapshot of output - did the implementation change?" +
                 " if so, update snapshot files in snapshot/");
     }
-
-    public static void main(String[] args) throws IOException {
-        // run to update snapshot files
-        for (String id : TEST_CASES.keySet()) {
-            InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-            CifFile data = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
-
-            CifOptions options = CifOptions.builder().build();
-            CifOptions optionsGzip = CifOptions.builder().gzip(true).build();
-
-            // convert to cif/bcif
-            CifIO.writeText(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif"),
-                    options);
-
-            CifIO.writeText(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif.gz"),
-                    optionsGzip);
-
-            CifIO.writeBinary(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif"),
-                    options);
-
-            CifIO.writeBinary(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif.gz"),
-                    optionsGzip);
-        }
-    }
 }

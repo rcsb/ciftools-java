@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
@@ -15,11 +16,14 @@ import org.rcsb.cif.schema.mm.Cell;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 import org.rcsb.cif.schema.mm.MmCifFile;
 
+import javax.management.ObjectName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
@@ -340,5 +344,38 @@ class IntegrationTest {
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
         assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void testTypeInferenceWhenSchemaIsAbsent() throws IOException {
+        CifFile text = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
+        Column<?> textColumn = text.getBlocks().get(0).getCategory("pdbx_struct_assembly_gen").getColumn("assembly_id");
+        assertEquals("1", textColumn.getStringData(0));
+
+//        byte[] bytes = CifIO.writeBinary(text);
+//        Map<String, Object> binaryMap = MessagePackCodec.decode(new ByteArrayInputStream(bytes));
+        Map<String, Object> binaryMap = MessagePackCodec.decode(TestHelper.getInputStream("bcif/1acj.bcif"));
+        Map<String, Object> blocks = (Map<String, Object>) ((Object[]) binaryMap.get("dataBlocks"))[0];
+        Map<String, Object> structAssemblyGen = find(blocks.get("categories"), "_pdbx_struct_assembly_gen");
+        Map<String, Object> assemblyId = find(structAssemblyGen.get("columns"), "assembly_id");
+        Object[] encoding = (Object[]) ((Map<String, Object>) assemblyId.get("data")).get("encoding");
+        System.out.println(structAssemblyGen);
+        System.out.println(assemblyId);
+        System.out.println(Arrays.toString(encoding));
+
+//        CifFile binary = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+//        Column<?> binaryColumn = binary.getBlocks().get(0).getCategory("pdbx_struct_assembly_gen").getColumn("assembly_id");
+//        assertEquals("1", binaryColumn.getStringData(0));
+//        assertTrue(binaryColumn instanceof StrColumn);
+    }
+
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> find(Object data, String name) {
+        return Arrays.stream((Object[]) data)
+                .map(c -> (Map<String, Object>) c)
+                .filter(m -> name.equals(m.get("name")))
+                .findFirst()
+                .orElseThrow();
     }
 }

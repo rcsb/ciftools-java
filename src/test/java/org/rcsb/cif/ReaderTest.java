@@ -103,7 +103,7 @@ class ReaderTest {
 
     @Test
     void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
-        String id = "AF-Q76EI6-F1-model_v1";
+        String id = "AF-Q76EI6-F1-model_v2";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
@@ -118,11 +118,11 @@ class ReaderTest {
 
     @Test
     void whenReadingStringWithEmptyQuotation_thenValueAvailable() throws IOException {
-        String id = "AF-O49373-F1-model_v1";
+        String id = "AF-O49373-F1-model_v2";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
-        String gene = cifFile.getFirstBlock().getCategory("af_target_ref_db_details").getColumn("gene").getStringData(0);
+        String gene = cifFile.getFirstBlock().getCategory("ma_target_ref_db_details").getColumn("gene_name").getStringData(0);
         assertEquals("''cytochrome P450", gene, "Gene name with additional quotes not parsed correctly");
     }
 }

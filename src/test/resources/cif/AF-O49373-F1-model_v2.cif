@@ -2,10 +2,6 @@ data_AF-O49373-F1
 #
 _entry.id AF-O49373-F1
 #
-_af_target_ref_db_details.gene                         "''cytochrome P450"
-_af_target_ref_db_details.seq_db_sequence_checksum     730E120A45C88888
-_af_target_ref_db_details.seq_db_sequence_version_date 1998-06-01
-#
 loop_
 _atom_type.symbol
 C 
@@ -50,9 +46,9 @@ _audit_author.pdbx_ordinal
 "Kohli, Pushmeet"            32 
 "Hassabis, Demis"            33 
 #
-_audit_conform.dict_location http://mmcif.pdb.org/dictionaries/ascii/mmcif_pdbx.dic
-_audit_conform.dict_name     mmcif_pdbx.dic
-_audit_conform.dict_version  5.279
+_audit_conform.dict_location https://raw.githubusercontent.com/PDBeurope/AFDB-Dictionary/main/mmcif_af.V1.0.2.dic
+_audit_conform.dict_name     mmcif_af.dic
+_audit_conform.dict_version  1.0.2
 #
 loop_
 _chem_comp.formula
@@ -90,11 +86,11 @@ _citation.journal_full            Nature
 _citation.journal_id_ASTM         NATUAS
 _citation.journal_id_CSD          0006
 _citation.journal_id_ISSN         0028-0836
-_citation.journal_volume          ?
-_citation.page_first              ?
-_citation.page_last               ?
-_citation.pdbx_database_id_DOI    ?
-_citation.pdbx_database_id_PubMed ?
+_citation.journal_volume          596
+_citation.page_first              583
+_citation.page_last               589
+_citation.pdbx_database_id_DOI    10.1038/s41586-021-03819-2
+_citation.pdbx_database_id_PubMed 34265844
 _citation.title                   "Highly accurate protein structure prediction with AlphaFold"
 _citation.year                    2021
 #
@@ -703,7 +699,7 @@ _ma_data.name                       Model
 #
 _ma_model_list.data_id          1
 _ma_model_list.model_group_id   1
-_ma_model_list.model_group_name "AlphaFold model"
+_ma_model_list.model_group_name "AlphaFold Monomer v2.0 model"
 _ma_model_list.model_id         1
 _ma_model_list.model_name       "Top ranked model"
 _ma_model_list.model_type       "Ab initio model"
@@ -1250,28 +1246,34 @@ _ma_target_entity_instance.asym_id   A
 _ma_target_entity_instance.details   .
 _ma_target_entity_instance.entity_id 1
 #
-_ma_target_ref_db_details.db_accession        O49373
-_ma_target_ref_db_details.db_code             O49373_ARATH
-_ma_target_ref_db_details.db_name             UNP
-_ma_target_ref_db_details.ncbi_taxonomy_id    3702
-_ma_target_ref_db_details.organism_scientific "Arabidopsis thaliana"
-_ma_target_ref_db_details.seq_db_align_begin  1
-_ma_target_ref_db_details.seq_db_align_end    506
-_ma_target_ref_db_details.seq_db_isoform      ?
-_ma_target_ref_db_details.target_entity_id    1
+_ma_target_ref_db_details.db_accession                 O49373
+_ma_target_ref_db_details.db_code                      O49373_ARATH
+_ma_target_ref_db_details.db_name                      UNP
+_ma_target_ref_db_details.gene_name                    "''cytochrome P450"
+_ma_target_ref_db_details.ncbi_taxonomy_id             3702
+_ma_target_ref_db_details.organism_scientific          "Arabidopsis thaliana"
+_ma_target_ref_db_details.seq_db_align_begin           1
+_ma_target_ref_db_details.seq_db_align_end             506
+_ma_target_ref_db_details.seq_db_isoform               ?
+_ma_target_ref_db_details.seq_db_sequence_checksum     730E120A45C88888
+_ma_target_ref_db_details.seq_db_sequence_version_date 1998-06-01
+_ma_target_ref_db_details.target_entity_id             1
 #
 _pdbx_audit_revision_details.data_content_type "Structure model"
-_pdbx_audit_revision_details.description       ?
-_pdbx_audit_revision_details.ordinal           1
+_pdbx_audit_revision_details.description       "Format fixes, new metadata, initial SwissProt release"
+_pdbx_audit_revision_details.ordinal           2
 _pdbx_audit_revision_details.provider          repository
-_pdbx_audit_revision_details.revision_ordinal  1
-_pdbx_audit_revision_details.type              "Initial release"
+_pdbx_audit_revision_details.revision_ordinal  2
+_pdbx_audit_revision_details.type              Remediation
 #
-_pdbx_audit_revision_history.data_content_type "Structure model"
-_pdbx_audit_revision_history.major_revision    1
-_pdbx_audit_revision_history.minor_revision    0
-_pdbx_audit_revision_history.ordinal           1
-_pdbx_audit_revision_history.revision_date     2021-07-01
+loop_
+_pdbx_audit_revision_history.data_content_type
+_pdbx_audit_revision_history.major_revision
+_pdbx_audit_revision_history.minor_revision
+_pdbx_audit_revision_history.ordinal
+_pdbx_audit_revision_history.revision_date
+"Structure model" 1 0 1 2021-07-01 
+"Structure model" 2 0 2 2021-12-09 
 #
 _pdbx_database_status.entry_id                      AF-O49373-F1
 _pdbx_database_status.recvd_initial_deposition_date 2021-07-01
@@ -1284,514 +1286,515 @@ _pdbx_poly_seq_scheme.entity_id
 _pdbx_poly_seq_scheme.hetero
 _pdbx_poly_seq_scheme.mon_id
 _pdbx_poly_seq_scheme.pdb_ins_code
+_pdbx_poly_seq_scheme.pdb_seq_num
 _pdbx_poly_seq_scheme.pdb_strand_id
 _pdbx_poly_seq_scheme.seq_id
-A 1   1 n MET . A 1   
-A 2   1 n ALA . A 2   
-A 3   1 n SER . A 3   
-A 4   1 n ILE . A 4   
-A 5   1 n SER . A 5   
-A 6   1 n LEU . A 6   
-A 7   1 n LEU . A 7   
-A 8   1 n GLN . A 8   
-A 9   1 n VAL . A 9   
-A 10  1 n SER . A 10  
-A 11  1 n VAL . A 11  
-A 12  1 n ALA . A 12  
-A 13  1 n ILE . A 13  
-A 14  1 n LEU . A 14  
-A 15  1 n CYS . A 15  
-A 16  1 n PHE . A 16  
-A 17  1 n LEU . A 17  
-A 18  1 n ILE . A 18  
-A 19  1 n LEU . A 19  
-A 20  1 n HIS . A 20  
-A 21  1 n TYR . A 21  
-A 22  1 n PHE . A 22  
-A 23  1 n LEU . A 23  
-A 24  1 n PHE . A 24  
-A 25  1 n LYS . A 25  
-A 26  1 n LYS . A 26  
-A 27  1 n PRO . A 27  
-A 28  1 n HIS . A 28  
-A 29  1 n GLY . A 29  
-A 30  1 n ARG . A 30  
-A 31  1 n TYR . A 31  
-A 32  1 n PRO . A 32  
-A 33  1 n ARG . A 33  
-A 34  1 n ASN . A 34  
-A 35  1 n TRP . A 35  
-A 36  1 n PRO . A 36  
-A 37  1 n VAL . A 37  
-A 38  1 n LEU . A 38  
-A 39  1 n ARG . A 39  
-A 40  1 n MET . A 40  
-A 41  1 n LEU . A 41  
-A 42  1 n PRO . A 42  
-A 43  1 n ALA . A 43  
-A 44  1 n MET . A 44  
-A 45  1 n LEU . A 45  
-A 46  1 n LYS . A 46  
-A 47  1 n ALA . A 47  
-A 48  1 n LEU . A 48  
-A 49  1 n HIS . A 49  
-A 50  1 n ARG . A 50  
-A 51  1 n ILE . A 51  
-A 52  1 n TYR . A 52  
-A 53  1 n ASP . A 53  
-A 54  1 n TYR . A 54  
-A 55  1 n SER . A 55  
-A 56  1 n VAL . A 56  
-A 57  1 n LYS . A 57  
-A 58  1 n ILE . A 58  
-A 59  1 n LEU . A 59  
-A 60  1 n GLU . A 60  
-A 61  1 n THR . A 61  
-A 62  1 n SER . A 62  
-A 63  1 n ASP . A 63  
-A 64  1 n LEU . A 64  
-A 65  1 n THR . A 65  
-A 66  1 n PHE . A 66  
-A 67  1 n PRO . A 67  
-A 68  1 n PHE . A 68  
-A 69  1 n LYS . A 69  
-A 70  1 n GLY . A 70  
-A 71  1 n PRO . A 71  
-A 72  1 n ARG . A 72  
-A 73  1 n PHE . A 73  
-A 74  1 n THR . A 74  
-A 75  1 n GLY . A 75  
-A 76  1 n MET . A 76  
-A 77  1 n ASP . A 77  
-A 78  1 n MET . A 78  
-A 79  1 n LEU . A 79  
-A 80  1 n LEU . A 80  
-A 81  1 n THR . A 81  
-A 82  1 n VAL . A 82  
-A 83  1 n ASP . A 83  
-A 84  1 n PRO . A 84  
-A 85  1 n ALA . A 85  
-A 86  1 n ASN . A 86  
-A 87  1 n ILE . A 87  
-A 88  1 n HIS . A 88  
-A 89  1 n HIS . A 89  
-A 90  1 n ILE . A 90  
-A 91  1 n MET . A 91  
-A 92  1 n SER . A 92  
-A 93  1 n SER . A 93  
-A 94  1 n ASN . A 94  
-A 95  1 n PHE . A 95  
-A 96  1 n SER . A 96  
-A 97  1 n ASN . A 97  
-A 98  1 n TYR . A 98  
-A 99  1 n ILE . A 99  
-A 100 1 n LYS . A 100 
-A 101 1 n GLY . A 101 
-A 102 1 n PRO . A 102 
-A 103 1 n GLU . A 103 
-A 104 1 n PHE . A 104 
-A 105 1 n GLN . A 105 
-A 106 1 n ASP . A 106 
-A 107 1 n VAL . A 107 
-A 108 1 n PHE . A 108 
-A 109 1 n ASP . A 109 
-A 110 1 n VAL . A 110 
-A 111 1 n LEU . A 111 
-A 112 1 n GLY . A 112 
-A 113 1 n ASP . A 113 
-A 114 1 n SER . A 114 
-A 115 1 n PHE . A 115 
-A 116 1 n ILE . A 116 
-A 117 1 n THR . A 117 
-A 118 1 n THR . A 118 
-A 119 1 n ASP . A 119 
-A 120 1 n SER . A 120 
-A 121 1 n GLU . A 121 
-A 122 1 n LEU . A 122 
-A 123 1 n TRP . A 123 
-A 124 1 n LYS . A 124 
-A 125 1 n ASN . A 125 
-A 126 1 n MET . A 126 
-A 127 1 n ARG . A 127 
-A 128 1 n LYS . A 128 
-A 129 1 n SER . A 129 
-A 130 1 n TYR . A 130 
-A 131 1 n GLN . A 131 
-A 132 1 n ALA . A 132 
-A 133 1 n MET . A 133 
-A 134 1 n LEU . A 134 
-A 135 1 n HIS . A 135 
-A 136 1 n SER . A 136 
-A 137 1 n GLN . A 137 
-A 138 1 n GLU . A 138 
-A 139 1 n PHE . A 139 
-A 140 1 n GLN . A 140 
-A 141 1 n ARG . A 141 
-A 142 1 n PHE . A 142 
-A 143 1 n SER . A 143 
-A 144 1 n MET . A 144 
-A 145 1 n SER . A 145 
-A 146 1 n THR . A 146 
-A 147 1 n MET . A 147 
-A 148 1 n THR . A 148 
-A 149 1 n SER . A 149 
-A 150 1 n LYS . A 150 
-A 151 1 n LEU . A 151 
-A 152 1 n LYS . A 152 
-A 153 1 n TYR . A 153 
-A 154 1 n GLY . A 154 
-A 155 1 n LEU . A 155 
-A 156 1 n VAL . A 156 
-A 157 1 n PRO . A 157 
-A 158 1 n LEU . A 158 
-A 159 1 n LEU . A 159 
-A 160 1 n ASN . A 160 
-A 161 1 n HIS . A 161 
-A 162 1 n PHE . A 162 
-A 163 1 n ALA . A 163 
-A 164 1 n GLU . A 164 
-A 165 1 n GLU . A 165 
-A 166 1 n GLY . A 166 
-A 167 1 n THR . A 167 
-A 168 1 n THR . A 168 
-A 169 1 n LEU . A 169 
-A 170 1 n ASP . A 170 
-A 171 1 n LEU . A 171 
-A 172 1 n GLN . A 172 
-A 173 1 n SER . A 173 
-A 174 1 n VAL . A 174 
-A 175 1 n PHE . A 175 
-A 176 1 n GLY . A 176 
-A 177 1 n ARG . A 177 
-A 178 1 n PHE . A 178 
-A 179 1 n THR . A 179 
-A 180 1 n PHE . A 180 
-A 181 1 n ASP . A 181 
-A 182 1 n THR . A 182 
-A 183 1 n ILE . A 183 
-A 184 1 n PHE . A 184 
-A 185 1 n ILE . A 185 
-A 186 1 n LEU . A 186 
-A 187 1 n VAL . A 187 
-A 188 1 n THR . A 188 
-A 189 1 n GLY . A 189 
-A 190 1 n SER . A 190 
-A 191 1 n ASP . A 191 
-A 192 1 n PRO . A 192 
-A 193 1 n ARG . A 193 
-A 194 1 n SER . A 194 
-A 195 1 n LEU . A 195 
-A 196 1 n SER . A 196 
-A 197 1 n ILE . A 197 
-A 198 1 n GLU . A 198 
-A 199 1 n MET . A 199 
-A 200 1 n PRO . A 200 
-A 201 1 n GLU . A 201 
-A 202 1 n ASP . A 202 
-A 203 1 n GLU . A 203 
-A 204 1 n PHE . A 204 
-A 205 1 n ALA . A 205 
-A 206 1 n LYS . A 206 
-A 207 1 n ALA . A 207 
-A 208 1 n LEU . A 208 
-A 209 1 n ASP . A 209 
-A 210 1 n ASP . A 210 
-A 211 1 n VAL . A 211 
-A 212 1 n GLY . A 212 
-A 213 1 n GLU . A 213 
-A 214 1 n GLY . A 214 
-A 215 1 n ILE . A 215 
-A 216 1 n LEU . A 216 
-A 217 1 n TYR . A 217 
-A 218 1 n ARG . A 218 
-A 219 1 n HIS . A 219 
-A 220 1 n PHE . A 220 
-A 221 1 n LYS . A 221 
-A 222 1 n PRO . A 222 
-A 223 1 n ARG . A 223 
-A 224 1 n PHE . A 224 
-A 225 1 n LEU . A 225 
-A 226 1 n TRP . A 226 
-A 227 1 n LYS . A 227 
-A 228 1 n LEU . A 228 
-A 229 1 n GLN . A 229 
-A 230 1 n ASN . A 230 
-A 231 1 n TRP . A 231 
-A 232 1 n ILE . A 232 
-A 233 1 n GLY . A 233 
-A 234 1 n PHE . A 234 
-A 235 1 n GLY . A 235 
-A 236 1 n GLN . A 236 
-A 237 1 n GLU . A 237 
-A 238 1 n LYS . A 238 
-A 239 1 n LYS . A 239 
-A 240 1 n LEU . A 240 
-A 241 1 n THR . A 241 
-A 242 1 n GLU . A 242 
-A 243 1 n ALA . A 243 
-A 244 1 n ASN . A 244 
-A 245 1 n ALA . A 245 
-A 246 1 n THR . A 246 
-A 247 1 n PHE . A 247 
-A 248 1 n ASP . A 248 
-A 249 1 n ARG . A 249 
-A 250 1 n VAL . A 250 
-A 251 1 n CYS . A 251 
-A 252 1 n ALA . A 252 
-A 253 1 n LYS . A 253 
-A 254 1 n TYR . A 254 
-A 255 1 n ILE . A 255 
-A 256 1 n SER . A 256 
-A 257 1 n ALA . A 257 
-A 258 1 n LYS . A 258 
-A 259 1 n ARG . A 259 
-A 260 1 n GLU . A 260 
-A 261 1 n GLU . A 261 
-A 262 1 n ILE . A 262 
-A 263 1 n LYS . A 263 
-A 264 1 n ARG . A 264 
-A 265 1 n SER . A 265 
-A 266 1 n GLN . A 266 
-A 267 1 n GLY . A 267 
-A 268 1 n THR . A 268 
-A 269 1 n SER . A 269 
-A 270 1 n ASN . A 270 
-A 271 1 n GLY . A 271 
-A 272 1 n GLY . A 272 
-A 273 1 n SER . A 273 
-A 274 1 n GLN . A 274 
-A 275 1 n ASP . A 275 
-A 276 1 n LEU . A 276 
-A 277 1 n LEU . A 277 
-A 278 1 n THR . A 278 
-A 279 1 n SER . A 279 
-A 280 1 n PHE . A 280 
-A 281 1 n ILE . A 281 
-A 282 1 n LYS . A 282 
-A 283 1 n LEU . A 283 
-A 284 1 n ASP . A 284 
-A 285 1 n THR . A 285 
-A 286 1 n THR . A 286 
-A 287 1 n LYS . A 287 
-A 288 1 n TYR . A 288 
-A 289 1 n LYS . A 289 
-A 290 1 n LEU . A 290 
-A 291 1 n LEU . A 291 
-A 292 1 n ASN . A 292 
-A 293 1 n PRO . A 293 
-A 294 1 n SER . A 294 
-A 295 1 n ASP . A 295 
-A 296 1 n ASP . A 296 
-A 297 1 n LYS . A 297 
-A 298 1 n PHE . A 298 
-A 299 1 n LEU . A 299 
-A 300 1 n ARG . A 300 
-A 301 1 n ASP . A 301 
-A 302 1 n ASN . A 302 
-A 303 1 n ILE . A 303 
-A 304 1 n LEU . A 304 
-A 305 1 n ALA . A 305 
-A 306 1 n PHE . A 306 
-A 307 1 n ILE . A 307 
-A 308 1 n LEU . A 308 
-A 309 1 n ALA . A 309 
-A 310 1 n GLY . A 310 
-A 311 1 n ARG . A 311 
-A 312 1 n ASP . A 312 
-A 313 1 n THR . A 313 
-A 314 1 n THR . A 314 
-A 315 1 n ALA . A 315 
-A 316 1 n THR . A 316 
-A 317 1 n ALA . A 317 
-A 318 1 n LEU . A 318 
-A 319 1 n SER . A 319 
-A 320 1 n TRP . A 320 
-A 321 1 n PHE . A 321 
-A 322 1 n PHE . A 322 
-A 323 1 n TRP . A 323 
-A 324 1 n LEU . A 324 
-A 325 1 n LEU . A 325 
-A 326 1 n SER . A 326 
-A 327 1 n GLU . A 327 
-A 328 1 n ASN . A 328 
-A 329 1 n PRO . A 329 
-A 330 1 n HIS . A 330 
-A 331 1 n VAL . A 331 
-A 332 1 n VAL . A 332 
-A 333 1 n ALA . A 333 
-A 334 1 n LYS . A 334 
-A 335 1 n ILE . A 335 
-A 336 1 n HIS . A 336 
-A 337 1 n GLN . A 337 
-A 338 1 n GLU . A 338 
-A 339 1 n ILE . A 339 
-A 340 1 n ASN . A 340 
-A 341 1 n ILE . A 341 
-A 342 1 n ASN . A 342 
-A 343 1 n THR . A 343 
-A 344 1 n ASP . A 344 
-A 345 1 n LEU . A 345 
-A 346 1 n SER . A 346 
-A 347 1 n ARG . A 347 
-A 348 1 n THR . A 348 
-A 349 1 n GLY . A 349 
-A 350 1 n ASN . A 350 
-A 351 1 n SER . A 351 
-A 352 1 n GLN . A 352 
-A 353 1 n GLU . A 353 
-A 354 1 n ASN . A 354 
-A 355 1 n VAL . A 355 
-A 356 1 n ASP . A 356 
-A 357 1 n LYS . A 357 
-A 358 1 n LEU . A 358 
-A 359 1 n VAL . A 359 
-A 360 1 n TYR . A 360 
-A 361 1 n LEU . A 361 
-A 362 1 n HIS . A 362 
-A 363 1 n GLY . A 363 
-A 364 1 n ALA . A 364 
-A 365 1 n LEU . A 365 
-A 366 1 n CYS . A 366 
-A 367 1 n GLU . A 367 
-A 368 1 n ALA . A 368 
-A 369 1 n MET . A 369 
-A 370 1 n ARG . A 370 
-A 371 1 n LEU . A 371 
-A 372 1 n TYR . A 372 
-A 373 1 n PRO . A 373 
-A 374 1 n PRO . A 374 
-A 375 1 n VAL . A 375 
-A 376 1 n SER . A 376 
-A 377 1 n PHE . A 377 
-A 378 1 n GLY . A 378 
-A 379 1 n ARG . A 379 
-A 380 1 n LYS . A 380 
-A 381 1 n SER . A 381 
-A 382 1 n PRO . A 382 
-A 383 1 n ILE . A 383 
-A 384 1 n LYS . A 384 
-A 385 1 n SER . A 385 
-A 386 1 n ASP . A 386 
-A 387 1 n VAL . A 387 
-A 388 1 n LEU . A 388 
-A 389 1 n PRO . A 389 
-A 390 1 n SER . A 390 
-A 391 1 n GLY . A 391 
-A 392 1 n HIS . A 392 
-A 393 1 n LYS . A 393 
-A 394 1 n VAL . A 394 
-A 395 1 n ASP . A 395 
-A 396 1 n ALA . A 396 
-A 397 1 n ASN . A 397 
-A 398 1 n SER . A 398 
-A 399 1 n LYS . A 399 
-A 400 1 n ILE . A 400 
-A 401 1 n ILE . A 401 
-A 402 1 n ILE . A 402 
-A 403 1 n CYS . A 403 
-A 404 1 n LEU . A 404 
-A 405 1 n TYR . A 405 
-A 406 1 n ALA . A 406 
-A 407 1 n LEU . A 407 
-A 408 1 n GLY . A 408 
-A 409 1 n ARG . A 409 
-A 410 1 n MET . A 410 
-A 411 1 n ARG . A 411 
-A 412 1 n ALA . A 412 
-A 413 1 n VAL . A 413 
-A 414 1 n TRP . A 414 
-A 415 1 n GLY . A 415 
-A 416 1 n GLU . A 416 
-A 417 1 n ASP . A 417 
-A 418 1 n ALA . A 418 
-A 419 1 n SER . A 419 
-A 420 1 n GLN . A 420 
-A 421 1 n PHE . A 421 
-A 422 1 n LYS . A 422 
-A 423 1 n PRO . A 423 
-A 424 1 n GLU . A 424 
-A 425 1 n ARG . A 425 
-A 426 1 n TRP . A 426 
-A 427 1 n ILE . A 427 
-A 428 1 n SER . A 428 
-A 429 1 n GLU . A 429 
-A 430 1 n ASN . A 430 
-A 431 1 n GLY . A 431 
-A 432 1 n GLY . A 432 
-A 433 1 n ILE . A 433 
-A 434 1 n LYS . A 434 
-A 435 1 n HIS . A 435 
-A 436 1 n GLU . A 436 
-A 437 1 n PRO . A 437 
-A 438 1 n SER . A 438 
-A 439 1 n PHE . A 439 
-A 440 1 n LYS . A 440 
-A 441 1 n PHE . A 441 
-A 442 1 n LEU . A 442 
-A 443 1 n SER . A 443 
-A 444 1 n PHE . A 444 
-A 445 1 n ASN . A 445 
-A 446 1 n ALA . A 446 
-A 447 1 n GLY . A 447 
-A 448 1 n PRO . A 448 
-A 449 1 n ARG . A 449 
-A 450 1 n THR . A 450 
-A 451 1 n CYS . A 451 
-A 452 1 n LEU . A 452 
-A 453 1 n GLY . A 453 
-A 454 1 n LYS . A 454 
-A 455 1 n HIS . A 455 
-A 456 1 n LEU . A 456 
-A 457 1 n ALA . A 457 
-A 458 1 n MET . A 458 
-A 459 1 n THR . A 459 
-A 460 1 n GLN . A 460 
-A 461 1 n MET . A 461 
-A 462 1 n LYS . A 462 
-A 463 1 n ILE . A 463 
-A 464 1 n VAL . A 464 
-A 465 1 n ALA . A 465 
-A 466 1 n VAL . A 466 
-A 467 1 n GLU . A 467 
-A 468 1 n ILE . A 468 
-A 469 1 n LEU . A 469 
-A 470 1 n ARG . A 470 
-A 471 1 n ASN . A 471 
-A 472 1 n TYR . A 472 
-A 473 1 n ASP . A 473 
-A 474 1 n ILE . A 474 
-A 475 1 n LYS . A 475 
-A 476 1 n VAL . A 476 
-A 477 1 n LEU . A 477 
-A 478 1 n GLN . A 478 
-A 479 1 n GLY . A 479 
-A 480 1 n GLN . A 480 
-A 481 1 n LYS . A 481 
-A 482 1 n ILE . A 482 
-A 483 1 n VAL . A 483 
-A 484 1 n PRO . A 484 
-A 485 1 n ALA . A 485 
-A 486 1 n LEU . A 486 
-A 487 1 n GLY . A 487 
-A 488 1 n PHE . A 488 
-A 489 1 n ILE . A 489 
-A 490 1 n LEU . A 490 
-A 491 1 n SER . A 491 
-A 492 1 n MET . A 492 
-A 493 1 n LYS . A 493 
-A 494 1 n HIS . A 494 
-A 495 1 n GLY . A 495 
-A 496 1 n LEU . A 496 
-A 497 1 n GLN . A 497 
-A 498 1 n ILE . A 498 
-A 499 1 n THR . A 499 
-A 500 1 n VAL . A 500 
-A 501 1 n THR . A 501 
-A 502 1 n LYS . A 502 
-A 503 1 n ARG . A 503 
-A 504 1 n CYS . A 504 
-A 505 1 n SER . A 505 
-A 506 1 n ALA . A 506 
+A 1   1 n MET . 1   A 1   
+A 2   1 n ALA . 2   A 2   
+A 3   1 n SER . 3   A 3   
+A 4   1 n ILE . 4   A 4   
+A 5   1 n SER . 5   A 5   
+A 6   1 n LEU . 6   A 6   
+A 7   1 n LEU . 7   A 7   
+A 8   1 n GLN . 8   A 8   
+A 9   1 n VAL . 9   A 9   
+A 10  1 n SER . 10  A 10  
+A 11  1 n VAL . 11  A 11  
+A 12  1 n ALA . 12  A 12  
+A 13  1 n ILE . 13  A 13  
+A 14  1 n LEU . 14  A 14  
+A 15  1 n CYS . 15  A 15  
+A 16  1 n PHE . 16  A 16  
+A 17  1 n LEU . 17  A 17  
+A 18  1 n ILE . 18  A 18  
+A 19  1 n LEU . 19  A 19  
+A 20  1 n HIS . 20  A 20  
+A 21  1 n TYR . 21  A 21  
+A 22  1 n PHE . 22  A 22  
+A 23  1 n LEU . 23  A 23  
+A 24  1 n PHE . 24  A 24  
+A 25  1 n LYS . 25  A 25  
+A 26  1 n LYS . 26  A 26  
+A 27  1 n PRO . 27  A 27  
+A 28  1 n HIS . 28  A 28  
+A 29  1 n GLY . 29  A 29  
+A 30  1 n ARG . 30  A 30  
+A 31  1 n TYR . 31  A 31  
+A 32  1 n PRO . 32  A 32  
+A 33  1 n ARG . 33  A 33  
+A 34  1 n ASN . 34  A 34  
+A 35  1 n TRP . 35  A 35  
+A 36  1 n PRO . 36  A 36  
+A 37  1 n VAL . 37  A 37  
+A 38  1 n LEU . 38  A 38  
+A 39  1 n ARG . 39  A 39  
+A 40  1 n MET . 40  A 40  
+A 41  1 n LEU . 41  A 41  
+A 42  1 n PRO . 42  A 42  
+A 43  1 n ALA . 43  A 43  
+A 44  1 n MET . 44  A 44  
+A 45  1 n LEU . 45  A 45  
+A 46  1 n LYS . 46  A 46  
+A 47  1 n ALA . 47  A 47  
+A 48  1 n LEU . 48  A 48  
+A 49  1 n HIS . 49  A 49  
+A 50  1 n ARG . 50  A 50  
+A 51  1 n ILE . 51  A 51  
+A 52  1 n TYR . 52  A 52  
+A 53  1 n ASP . 53  A 53  
+A 54  1 n TYR . 54  A 54  
+A 55  1 n SER . 55  A 55  
+A 56  1 n VAL . 56  A 56  
+A 57  1 n LYS . 57  A 57  
+A 58  1 n ILE . 58  A 58  
+A 59  1 n LEU . 59  A 59  
+A 60  1 n GLU . 60  A 60  
+A 61  1 n THR . 61  A 61  
+A 62  1 n SER . 62  A 62  
+A 63  1 n ASP . 63  A 63  
+A 64  1 n LEU . 64  A 64  
+A 65  1 n THR . 65  A 65  
+A 66  1 n PHE . 66  A 66  
+A 67  1 n PRO . 67  A 67  
+A 68  1 n PHE . 68  A 68  
+A 69  1 n LYS . 69  A 69  
+A 70  1 n GLY . 70  A 70  
+A 71  1 n PRO . 71  A 71  
+A 72  1 n ARG . 72  A 72  
+A 73  1 n PHE . 73  A 73  
+A 74  1 n THR . 74  A 74  
+A 75  1 n GLY . 75  A 75  
+A 76  1 n MET . 76  A 76  
+A 77  1 n ASP . 77  A 77  
+A 78  1 n MET . 78  A 78  
+A 79  1 n LEU . 79  A 79  
+A 80  1 n LEU . 80  A 80  
+A 81  1 n THR . 81  A 81  
+A 82  1 n VAL . 82  A 82  
+A 83  1 n ASP . 83  A 83  
+A 84  1 n PRO . 84  A 84  
+A 85  1 n ALA . 85  A 85  
+A 86  1 n ASN . 86  A 86  
+A 87  1 n ILE . 87  A 87  
+A 88  1 n HIS . 88  A 88  
+A 89  1 n HIS . 89  A 89  
+A 90  1 n ILE . 90  A 90  
+A 91  1 n MET . 91  A 91  
+A 92  1 n SER . 92  A 92  
+A 93  1 n SER . 93  A 93  
+A 94  1 n ASN . 94  A 94  
+A 95  1 n PHE . 95  A 95  
+A 96  1 n SER . 96  A 96  
+A 97  1 n ASN . 97  A 97  
+A 98  1 n TYR . 98  A 98  
+A 99  1 n ILE . 99  A 99  
+A 100 1 n LYS . 100 A 100 
+A 101 1 n GLY . 101 A 101 
+A 102 1 n PRO . 102 A 102 
+A 103 1 n GLU . 103 A 103 
+A 104 1 n PHE . 104 A 104 
+A 105 1 n GLN . 105 A 105 
+A 106 1 n ASP . 106 A 106 
+A 107 1 n VAL . 107 A 107 
+A 108 1 n PHE . 108 A 108 
+A 109 1 n ASP . 109 A 109 
+A 110 1 n VAL . 110 A 110 
+A 111 1 n LEU . 111 A 111 
+A 112 1 n GLY . 112 A 112 
+A 113 1 n ASP . 113 A 113 
+A 114 1 n SER . 114 A 114 
+A 115 1 n PHE . 115 A 115 
+A 116 1 n ILE . 116 A 116 
+A 117 1 n THR . 117 A 117 
+A 118 1 n THR . 118 A 118 
+A 119 1 n ASP . 119 A 119 
+A 120 1 n SER . 120 A 120 
+A 121 1 n GLU . 121 A 121 
+A 122 1 n LEU . 122 A 122 
+A 123 1 n TRP . 123 A 123 
+A 124 1 n LYS . 124 A 124 
+A 125 1 n ASN . 125 A 125 
+A 126 1 n MET . 126 A 126 
+A 127 1 n ARG . 127 A 127 
+A 128 1 n LYS . 128 A 128 
+A 129 1 n SER . 129 A 129 
+A 130 1 n TYR . 130 A 130 
+A 131 1 n GLN . 131 A 131 
+A 132 1 n ALA . 132 A 132 
+A 133 1 n MET . 133 A 133 
+A 134 1 n LEU . 134 A 134 
+A 135 1 n HIS . 135 A 135 
+A 136 1 n SER . 136 A 136 
+A 137 1 n GLN . 137 A 137 
+A 138 1 n GLU . 138 A 138 
+A 139 1 n PHE . 139 A 139 
+A 140 1 n GLN . 140 A 140 
+A 141 1 n ARG . 141 A 141 
+A 142 1 n PHE . 142 A 142 
+A 143 1 n SER . 143 A 143 
+A 144 1 n MET . 144 A 144 
+A 145 1 n SER . 145 A 145 
+A 146 1 n THR . 146 A 146 
+A 147 1 n MET . 147 A 147 
+A 148 1 n THR . 148 A 148 
+A 149 1 n SER . 149 A 149 
+A 150 1 n LYS . 150 A 150 
+A 151 1 n LEU . 151 A 151 
+A 152 1 n LYS . 152 A 152 
+A 153 1 n TYR . 153 A 153 
+A 154 1 n GLY . 154 A 154 
+A 155 1 n LEU . 155 A 155 
+A 156 1 n VAL . 156 A 156 
+A 157 1 n PRO . 157 A 157 
+A 158 1 n LEU . 158 A 158 
+A 159 1 n LEU . 159 A 159 
+A 160 1 n ASN . 160 A 160 
+A 161 1 n HIS . 161 A 161 
+A 162 1 n PHE . 162 A 162 
+A 163 1 n ALA . 163 A 163 
+A 164 1 n GLU . 164 A 164 
+A 165 1 n GLU . 165 A 165 
+A 166 1 n GLY . 166 A 166 
+A 167 1 n THR . 167 A 167 
+A 168 1 n THR . 168 A 168 
+A 169 1 n LEU . 169 A 169 
+A 170 1 n ASP . 170 A 170 
+A 171 1 n LEU . 171 A 171 
+A 172 1 n GLN . 172 A 172 
+A 173 1 n SER . 173 A 173 
+A 174 1 n VAL . 174 A 174 
+A 175 1 n PHE . 175 A 175 
+A 176 1 n GLY . 176 A 176 
+A 177 1 n ARG . 177 A 177 
+A 178 1 n PHE . 178 A 178 
+A 179 1 n THR . 179 A 179 
+A 180 1 n PHE . 180 A 180 
+A 181 1 n ASP . 181 A 181 
+A 182 1 n THR . 182 A 182 
+A 183 1 n ILE . 183 A 183 
+A 184 1 n PHE . 184 A 184 
+A 185 1 n ILE . 185 A 185 
+A 186 1 n LEU . 186 A 186 
+A 187 1 n VAL . 187 A 187 
+A 188 1 n THR . 188 A 188 
+A 189 1 n GLY . 189 A 189 
+A 190 1 n SER . 190 A 190 
+A 191 1 n ASP . 191 A 191 
+A 192 1 n PRO . 192 A 192 
+A 193 1 n ARG . 193 A 193 
+A 194 1 n SER . 194 A 194 
+A 195 1 n LEU . 195 A 195 
+A 196 1 n SER . 196 A 196 
+A 197 1 n ILE . 197 A 197 
+A 198 1 n GLU . 198 A 198 
+A 199 1 n MET . 199 A 199 
+A 200 1 n PRO . 200 A 200 
+A 201 1 n GLU . 201 A 201 
+A 202 1 n ASP . 202 A 202 
+A 203 1 n GLU . 203 A 203 
+A 204 1 n PHE . 204 A 204 
+A 205 1 n ALA . 205 A 205 
+A 206 1 n LYS . 206 A 206 
+A 207 1 n ALA . 207 A 207 
+A 208 1 n LEU . 208 A 208 
+A 209 1 n ASP . 209 A 209 
+A 210 1 n ASP . 210 A 210 
+A 211 1 n VAL . 211 A 211 
+A 212 1 n GLY . 212 A 212 
+A 213 1 n GLU . 213 A 213 
+A 214 1 n GLY . 214 A 214 
+A 215 1 n ILE . 215 A 215 
+A 216 1 n LEU . 216 A 216 
+A 217 1 n TYR . 217 A 217 
+A 218 1 n ARG . 218 A 218 
+A 219 1 n HIS . 219 A 219 
+A 220 1 n PHE . 220 A 220 
+A 221 1 n LYS . 221 A 221 
+A 222 1 n PRO . 222 A 222 
+A 223 1 n ARG . 223 A 223 
+A 224 1 n PHE . 224 A 224 
+A 225 1 n LEU . 225 A 225 
+A 226 1 n TRP . 226 A 226 
+A 227 1 n LYS . 227 A 227 
+A 228 1 n LEU . 228 A 228 
+A 229 1 n GLN . 229 A 229 
+A 230 1 n ASN . 230 A 230 
+A 231 1 n TRP . 231 A 231 
+A 232 1 n ILE . 232 A 232 
+A 233 1 n GLY . 233 A 233 
+A 234 1 n PHE . 234 A 234 
+A 235 1 n GLY . 235 A 235 
+A 236 1 n GLN . 236 A 236 
+A 237 1 n GLU . 237 A 237 
+A 238 1 n LYS . 238 A 238 
+A 239 1 n LYS . 239 A 239 
+A 240 1 n LEU . 240 A 240 
+A 241 1 n THR . 241 A 241 
+A 242 1 n GLU . 242 A 242 
+A 243 1 n ALA . 243 A 243 
+A 244 1 n ASN . 244 A 244 
+A 245 1 n ALA . 245 A 245 
+A 246 1 n THR . 246 A 246 
+A 247 1 n PHE . 247 A 247 
+A 248 1 n ASP . 248 A 248 
+A 249 1 n ARG . 249 A 249 
+A 250 1 n VAL . 250 A 250 
+A 251 1 n CYS . 251 A 251 
+A 252 1 n ALA . 252 A 252 
+A 253 1 n LYS . 253 A 253 
+A 254 1 n TYR . 254 A 254 
+A 255 1 n ILE . 255 A 255 
+A 256 1 n SER . 256 A 256 
+A 257 1 n ALA . 257 A 257 
+A 258 1 n LYS . 258 A 258 
+A 259 1 n ARG . 259 A 259 
+A 260 1 n GLU . 260 A 260 
+A 261 1 n GLU . 261 A 261 
+A 262 1 n ILE . 262 A 262 
+A 263 1 n LYS . 263 A 263 
+A 264 1 n ARG . 264 A 264 
+A 265 1 n SER . 265 A 265 
+A 266 1 n GLN . 266 A 266 
+A 267 1 n GLY . 267 A 267 
+A 268 1 n THR . 268 A 268 
+A 269 1 n SER . 269 A 269 
+A 270 1 n ASN . 270 A 270 
+A 271 1 n GLY . 271 A 271 
+A 272 1 n GLY . 272 A 272 
+A 273 1 n SER . 273 A 273 
+A 274 1 n GLN . 274 A 274 
+A 275 1 n ASP . 275 A 275 
+A 276 1 n LEU . 276 A 276 
+A 277 1 n LEU . 277 A 277 
+A 278 1 n THR . 278 A 278 
+A 279 1 n SER . 279 A 279 
+A 280 1 n PHE . 280 A 280 
+A 281 1 n ILE . 281 A 281 
+A 282 1 n LYS . 282 A 282 
+A 283 1 n LEU . 283 A 283 
+A 284 1 n ASP . 284 A 284 
+A 285 1 n THR . 285 A 285 
+A 286 1 n THR . 286 A 286 
+A 287 1 n LYS . 287 A 287 
+A 288 1 n TYR . 288 A 288 
+A 289 1 n LYS . 289 A 289 
+A 290 1 n LEU . 290 A 290 
+A 291 1 n LEU . 291 A 291 
+A 292 1 n ASN . 292 A 292 
+A 293 1 n PRO . 293 A 293 
+A 294 1 n SER . 294 A 294 
+A 295 1 n ASP . 295 A 295 
+A 296 1 n ASP . 296 A 296 
+A 297 1 n LYS . 297 A 297 
+A 298 1 n PHE . 298 A 298 
+A 299 1 n LEU . 299 A 299 
+A 300 1 n ARG . 300 A 300 
+A 301 1 n ASP . 301 A 301 
+A 302 1 n ASN . 302 A 302 
+A 303 1 n ILE . 303 A 303 
+A 304 1 n LEU . 304 A 304 
+A 305 1 n ALA . 305 A 305 
+A 306 1 n PHE . 306 A 306 
+A 307 1 n ILE . 307 A 307 
+A 308 1 n LEU . 308 A 308 
+A 309 1 n ALA . 309 A 309 
+A 310 1 n GLY . 310 A 310 
+A 311 1 n ARG . 311 A 311 
+A 312 1 n ASP . 312 A 312 
+A 313 1 n THR . 313 A 313 
+A 314 1 n THR . 314 A 314 
+A 315 1 n ALA . 315 A 315 
+A 316 1 n THR . 316 A 316 
+A 317 1 n ALA . 317 A 317 
+A 318 1 n LEU . 318 A 318 
+A 319 1 n SER . 319 A 319 
+A 320 1 n TRP . 320 A 320 
+A 321 1 n PHE . 321 A 321 
+A 322 1 n PHE . 322 A 322 
+A 323 1 n TRP . 323 A 323 
+A 324 1 n LEU . 324 A 324 
+A 325 1 n LEU . 325 A 325 
+A 326 1 n SER . 326 A 326 
+A 327 1 n GLU . 327 A 327 
+A 328 1 n ASN . 328 A 328 
+A 329 1 n PRO . 329 A 329 
+A 330 1 n HIS . 330 A 330 
+A 331 1 n VAL . 331 A 331 
+A 332 1 n VAL . 332 A 332 
+A 333 1 n ALA . 333 A 333 
+A 334 1 n LYS . 334 A 334 
+A 335 1 n ILE . 335 A 335 
+A 336 1 n HIS . 336 A 336 
+A 337 1 n GLN . 337 A 337 
+A 338 1 n GLU . 338 A 338 
+A 339 1 n ILE . 339 A 339 
+A 340 1 n ASN . 340 A 340 
+A 341 1 n ILE . 341 A 341 
+A 342 1 n ASN . 342 A 342 
+A 343 1 n THR . 343 A 343 
+A 344 1 n ASP . 344 A 344 
+A 345 1 n LEU . 345 A 345 
+A 346 1 n SER . 346 A 346 
+A 347 1 n ARG . 347 A 347 
+A 348 1 n THR . 348 A 348 
+A 349 1 n GLY . 349 A 349 
+A 350 1 n ASN . 350 A 350 
+A 351 1 n SER . 351 A 351 
+A 352 1 n GLN . 352 A 352 
+A 353 1 n GLU . 353 A 353 
+A 354 1 n ASN . 354 A 354 
+A 355 1 n VAL . 355 A 355 
+A 356 1 n ASP . 356 A 356 
+A 357 1 n LYS . 357 A 357 
+A 358 1 n LEU . 358 A 358 
+A 359 1 n VAL . 359 A 359 
+A 360 1 n TYR . 360 A 360 
+A 361 1 n LEU . 361 A 361 
+A 362 1 n HIS . 362 A 362 
+A 363 1 n GLY . 363 A 363 
+A 364 1 n ALA . 364 A 364 
+A 365 1 n LEU . 365 A 365 
+A 366 1 n CYS . 366 A 366 
+A 367 1 n GLU . 367 A 367 
+A 368 1 n ALA . 368 A 368 
+A 369 1 n MET . 369 A 369 
+A 370 1 n ARG . 370 A 370 
+A 371 1 n LEU . 371 A 371 
+A 372 1 n TYR . 372 A 372 
+A 373 1 n PRO . 373 A 373 
+A 374 1 n PRO . 374 A 374 
+A 375 1 n VAL . 375 A 375 
+A 376 1 n SER . 376 A 376 
+A 377 1 n PHE . 377 A 377 
+A 378 1 n GLY . 378 A 378 
+A 379 1 n ARG . 379 A 379 
+A 380 1 n LYS . 380 A 380 
+A 381 1 n SER . 381 A 381 
+A 382 1 n PRO . 382 A 382 
+A 383 1 n ILE . 383 A 383 
+A 384 1 n LYS . 384 A 384 
+A 385 1 n SER . 385 A 385 
+A 386 1 n ASP . 386 A 386 
+A 387 1 n VAL . 387 A 387 
+A 388 1 n LEU . 388 A 388 
+A 389 1 n PRO . 389 A 389 
+A 390 1 n SER . 390 A 390 
+A 391 1 n GLY . 391 A 391 
+A 392 1 n HIS . 392 A 392 
+A 393 1 n LYS . 393 A 393 
+A 394 1 n VAL . 394 A 394 
+A 395 1 n ASP . 395 A 395 
+A 396 1 n ALA . 396 A 396 
+A 397 1 n ASN . 397 A 397 
+A 398 1 n SER . 398 A 398 
+A 399 1 n LYS . 399 A 399 
+A 400 1 n ILE . 400 A 400 
+A 401 1 n ILE . 401 A 401 
+A 402 1 n ILE . 402 A 402 
+A 403 1 n CYS . 403 A 403 
+A 404 1 n LEU . 404 A 404 
+A 405 1 n TYR . 405 A 405 
+A 406 1 n ALA . 406 A 406 
+A 407 1 n LEU . 407 A 407 
+A 408 1 n GLY . 408 A 408 
+A 409 1 n ARG . 409 A 409 
+A 410 1 n MET . 410 A 410 
+A 411 1 n ARG . 411 A 411 
+A 412 1 n ALA . 412 A 412 
+A 413 1 n VAL . 413 A 413 
+A 414 1 n TRP . 414 A 414 
+A 415 1 n GLY . 415 A 415 
+A 416 1 n GLU . 416 A 416 
+A 417 1 n ASP . 417 A 417 
+A 418 1 n ALA . 418 A 418 
+A 419 1 n SER . 419 A 419 
+A 420 1 n GLN . 420 A 420 
+A 421 1 n PHE . 421 A 421 
+A 422 1 n LYS . 422 A 422 
+A 423 1 n PRO . 423 A 423 
+A 424 1 n GLU . 424 A 424 
+A 425 1 n ARG . 425 A 425 
+A 426 1 n TRP . 426 A 426 
+A 427 1 n ILE . 427 A 427 
+A 428 1 n SER . 428 A 428 
+A 429 1 n GLU . 429 A 429 
+A 430 1 n ASN . 430 A 430 
+A 431 1 n GLY . 431 A 431 
+A 432 1 n GLY . 432 A 432 
+A 433 1 n ILE . 433 A 433 
+A 434 1 n LYS . 434 A 434 
+A 435 1 n HIS . 435 A 435 
+A 436 1 n GLU . 436 A 436 
+A 437 1 n PRO . 437 A 437 
+A 438 1 n SER . 438 A 438 
+A 439 1 n PHE . 439 A 439 
+A 440 1 n LYS . 440 A 440 
+A 441 1 n PHE . 441 A 441 
+A 442 1 n LEU . 442 A 442 
+A 443 1 n SER . 443 A 443 
+A 444 1 n PHE . 444 A 444 
+A 445 1 n ASN . 445 A 445 
+A 446 1 n ALA . 446 A 446 
+A 447 1 n GLY . 447 A 447 
+A 448 1 n PRO . 448 A 448 
+A 449 1 n ARG . 449 A 449 
+A 450 1 n THR . 450 A 450 
+A 451 1 n CYS . 451 A 451 
+A 452 1 n LEU . 452 A 452 
+A 453 1 n GLY . 453 A 453 
+A 454 1 n LYS . 454 A 454 
+A 455 1 n HIS . 455 A 455 
+A 456 1 n LEU . 456 A 456 
+A 457 1 n ALA . 457 A 457 
+A 458 1 n MET . 458 A 458 
+A 459 1 n THR . 459 A 459 
+A 460 1 n GLN . 460 A 460 
+A 461 1 n MET . 461 A 461 
+A 462 1 n LYS . 462 A 462 
+A 463 1 n ILE . 463 A 463 
+A 464 1 n VAL . 464 A 464 
+A 465 1 n ALA . 465 A 465 
+A 466 1 n VAL . 466 A 466 
+A 467 1 n GLU . 467 A 467 
+A 468 1 n ILE . 468 A 468 
+A 469 1 n LEU . 469 A 469 
+A 470 1 n ARG . 470 A 470 
+A 471 1 n ASN . 471 A 471 
+A 472 1 n TYR . 472 A 472 
+A 473 1 n ASP . 473 A 473 
+A 474 1 n ILE . 474 A 474 
+A 475 1 n LYS . 475 A 475 
+A 476 1 n VAL . 476 A 476 
+A 477 1 n LEU . 477 A 477 
+A 478 1 n GLN . 478 A 478 
+A 479 1 n GLY . 479 A 479 
+A 480 1 n GLN . 480 A 480 
+A 481 1 n LYS . 481 A 481 
+A 482 1 n ILE . 482 A 482 
+A 483 1 n VAL . 483 A 483 
+A 484 1 n PRO . 484 A 484 
+A 485 1 n ALA . 485 A 485 
+A 486 1 n LEU . 486 A 486 
+A 487 1 n GLY . 487 A 487 
+A 488 1 n PHE . 488 A 488 
+A 489 1 n ILE . 489 A 489 
+A 490 1 n LEU . 490 A 490 
+A 491 1 n SER . 491 A 491 
+A 492 1 n MET . 492 A 492 
+A 493 1 n LYS . 493 A 493 
+A 494 1 n HIS . 494 A 494 
+A 495 1 n GLY . 495 A 495 
+A 496 1 n LEU . 496 A 496 
+A 497 1 n GLN . 497 A 497 
+A 498 1 n ILE . 498 A 498 
+A 499 1 n THR . 499 A 499 
+A 500 1 n VAL . 500 A 500 
+A 501 1 n THR . 501 A 501 
+A 502 1 n LYS . 502 A 502 
+A 503 1 n ARG . 503 A 503 
+A 504 1 n CYS . 504 A 504 
+A 505 1 n SER . 505 A 505 
+A 506 1 n ALA . 506 A 506 
 #
 loop_
 _software.classification
@@ -1824,107 +1827,107 @@ _struct_conf.end_label_seq_id
 _struct_conf.id
 _struct_conf.pdbx_beg_PDB_ins_code
 _struct_conf.pdbx_end_PDB_ins_code
-A LEU 0 A LEU 6   HELX_RH_AL_P A PHE 0 A PHE 24  HELX_RH_AL_P1  ? ? 
-A LYS 0 A LYS 25  BEND         A LYS 0 A LYS 25  BEND1          ? ? 
-A LYS 0 A LYS 26  HELX_LH_PP_P A PRO 0 A PRO 27  HELX_LH_PP_P1  ? ? 
-A HIS 0 A HIS 28  BEND         A TYR 0 A TYR 31  BEND2          ? ? 
-A PRO 0 A PRO 32  HELX_LH_PP_P A ARG 0 A ARG 33  HELX_LH_PP_P2  ? ? 
-A TRP 0 A TRP 35  STRN         A TRP 0 A TRP 35  STRN1          ? ? 
-A PRO 0 A PRO 36  TURN_TY1_P   A LEU 0 A LEU 38  TURN_TY1_P1    ? ? 
-A ARG 0 A ARG 39  STRN         A ARG 0 A ARG 39  STRN2          ? ? 
-A MET 0 A MET 40  TURN_TY1_P   A MET 0 A MET 40  TURN_TY1_P2    ? ? 
-A LEU 0 A LEU 41  HELX_RH_AL_P A ALA 0 A ALA 47  HELX_RH_AL_P2  ? ? 
-A LEU 0 A LEU 48  HELX_RH_3T_P A ARG 0 A ARG 50  HELX_RH_3T_P1  ? ? 
-A ILE 0 A ILE 51  HELX_RH_AL_P A THR 0 A THR 61  HELX_RH_AL_P3  ? ? 
-A SER 0 A SER 62  TURN_TY1_P   A LEU 0 A LEU 64  TURN_TY1_P3    ? ? 
-A THR 0 A THR 65  STRN         A PHE 0 A PHE 68  STRN3          ? ? 
-A GLY 0 A GLY 70  HELX_LH_PP_P A GLY 0 A GLY 70  HELX_LH_PP_P3  ? ? 
-A PRO 0 A PRO 71  BEND         A PRO 0 A PRO 71  BEND3          ? ? 
-A ARG 0 A ARG 72  TURN_TY1_P   A GLY 0 A GLY 75  TURN_TY1_P4    ? ? 
-A MET 0 A MET 78  STRN         A THR 0 A THR 81  STRN4          ? ? 
-A PRO 0 A PRO 84  HELX_RH_AL_P A HIS 0 A HIS 88  HELX_RH_AL_P4  ? ? 
-A HIS 0 A HIS 89  HELX_RH_PI_P A SER 0 A SER 93  HELX_RH_PI_P1  ? ? 
-A ASN 0 A ASN 94  TURN_TY1_P   A ASN 0 A ASN 94  TURN_TY1_P5    ? ? 
-A PHE 0 A PHE 95  HELX_RH_3T_P A ASN 0 A ASN 97  HELX_RH_3T_P2  ? ? 
-A TYR 0 A TYR 98  STRN         A ILE 0 A ILE 99  STRN5          ? ? 
-A PRO 0 A PRO 102 HELX_RH_AL_P A VAL 0 A VAL 107 HELX_RH_AL_P5  ? ? 
-A PHE 0 A PHE 108 BEND         A PHE 0 A PHE 108 BEND4          ? ? 
-A ASP 0 A ASP 109 HELX_RH_3T_P A LEU 0 A LEU 111 HELX_RH_3T_P3  ? ? 
-A GLY 0 A GLY 112 TURN_TY1_P   A ASP 0 A ASP 113 TURN_TY1_P6    ? ? 
-A PHE 0 A PHE 115 TURN_TY1_P   A THR 0 A THR 117 TURN_TY1_P7    ? ? 
-A SER 0 A SER 120 HELX_RH_AL_P A LEU 0 A LEU 134 HELX_RH_AL_P6  ? ? 
-A HIS 0 A HIS 135 TURN_TY1_P   A HIS 0 A HIS 135 TURN_TY1_P8    ? ? 
-A SER 0 A SER 136 BEND         A SER 0 A SER 136 BEND5          ? ? 
-A GLN 0 A GLN 137 HELX_RH_AL_P A LYS 0 A LYS 150 HELX_RH_AL_P7  ? ? 
-A LEU 0 A LEU 151 HELX_RH_PI_P A LEU 0 A LEU 155 HELX_RH_PI_P2  ? ? 
-A VAL 0 A VAL 156 HELX_RH_AL_P A GLU 0 A GLU 165 HELX_RH_AL_P8  ? ? 
-A GLY 0 A GLY 166 TURN_TY1_P   A GLY 0 A GLY 166 TURN_TY1_P9    ? ? 
-A THR 0 A THR 168 STRN         A ASP 0 A ASP 170 STRN6          ? ? 
-A LEU 0 A LEU 171 HELX_RH_AL_P A THR 0 A THR 188 HELX_RH_AL_P9  ? ? 
-A GLY 0 A GLY 189 BEND         A GLY 0 A GLY 189 BEND6          ? ? 
-A SER 0 A SER 196 BEND         A SER 0 A SER 196 BEND7          ? ? 
-A ILE 0 A ILE 197 TURN_TY1_P   A GLU 0 A GLU 198 TURN_TY1_P10   ? ? 
-A GLU 0 A GLU 203 HELX_RH_AL_P A HIS 0 A HIS 219 HELX_RH_AL_P10 ? ? 
-A PHE 0 A PHE 220 TURN_TY1_P   A PHE 0 A PHE 220 TURN_TY1_P11   ? ? 
-A LYS 0 A LYS 221 BEND         A LYS 0 A LYS 221 BEND8          ? ? 
-A ARG 0 A ARG 223 HELX_RH_AL_P A ILE 0 A ILE 232 HELX_RH_AL_P11 ? ? 
-A GLY 0 A GLY 233 TURN_TY1_P   A GLY 0 A GLY 233 TURN_TY1_P12   ? ? 
-A GLY 0 A GLY 235 TURN_TY1_P   A GLY 0 A GLY 235 TURN_TY1_P13   ? ? 
-A GLN 0 A GLN 236 HELX_RH_AL_P A SER 0 A SER 265 HELX_RH_AL_P12 ? ? 
-A GLN 0 A GLN 266 TURN_TY1_P   A GLY 0 A GLY 267 TURN_TY1_P14   ? ? 
-A ASN 0 A ASN 270 BEND         A ASN 0 A ASN 270 BEND9          ? ? 
-A ASP 0 A ASP 275 BEND         A ASP 0 A ASP 275 BEND10         ? ? 
-A LEU 0 A LEU 276 HELX_RH_AL_P A ILE 0 A ILE 281 HELX_RH_AL_P13 ? ? 
-A LYS 0 A LYS 282 TURN_TY1_P   A LYS 0 A LYS 282 TURN_TY1_P15   ? ? 
-A THR 0 A THR 285 TURN_TY1_P   A LYS 0 A LYS 287 TURN_TY1_P16   ? ? 
-A TYR 0 A TYR 288 BEND         A TYR 0 A TYR 288 BEND11         ? ? 
-A LYS 0 A LYS 289 TURN_TY1_P   A LEU 0 A LEU 290 TURN_TY1_P17   ? ? 
-A PRO 0 A PRO 293 TURN_TY1_P   A SER 0 A SER 294 TURN_TY1_P18   ? ? 
-A ASP 0 A ASP 296 HELX_RH_AL_P A SER 0 A SER 326 HELX_RH_AL_P14 ? ? 
-A GLU 0 A GLU 327 TURN_TY1_P   A GLU 0 A GLU 327 TURN_TY1_P19   ? ? 
-A PRO 0 A PRO 329 HELX_RH_AL_P A THR 0 A THR 343 HELX_RH_AL_P15 ? ? 
-A ASP 0 A ASP 344 TURN_TY1_P   A LEU 0 A LEU 345 TURN_TY1_P20   ? ? 
-A ARG 0 A ARG 347 BEND         A GLY 0 A GLY 349 BEND12         ? ? 
-A SER 0 A SER 351 HELX_RH_AL_P A ASP 0 A ASP 356 HELX_RH_AL_P16 ? ? 
-A LYS 0 A LYS 357 TURN_TY1_P   A LYS 0 A LYS 357 TURN_TY1_P21   ? ? 
-A VAL 0 A VAL 359 HELX_RH_AL_P A LEU 0 A LEU 371 HELX_RH_AL_P17 ? ? 
-A TYR 0 A TYR 372 BEND         A TYR 0 A TYR 372 BEND13         ? ? 
-A PRO 0 A PRO 374 BEND         A PRO 0 A PRO 374 BEND14         ? ? 
-A VAL 0 A VAL 375 STRN         A VAL 0 A VAL 375 STRN7          ? ? 
-A GLY 0 A GLY 378 STRN         A PRO 0 A PRO 382 STRN8          ? ? 
-A ILE 0 A ILE 383 BEND         A LYS 0 A LYS 384 BEND15         ? ? 
-A ASP 0 A ASP 386 STRN         A VAL 0 A VAL 387 STRN9          ? ? 
-A PRO 0 A PRO 389 TURN_TY1_P   A SER 0 A SER 390 TURN_TY1_P22   ? ? 
-A GLY 0 A GLY 391 BEND         A GLY 0 A GLY 391 BEND16         ? ? 
-A LYS 0 A LYS 393 STRN         A VAL 0 A VAL 394 STRN10         ? ? 
-A ALA 0 A ALA 396 TURN_TY1_P   A ASN 0 A ASN 397 TURN_TY1_P23   ? ? 
-A LYS 0 A LYS 399 STRN         A ILE 0 A ILE 402 STRN11         ? ? 
-A LEU 0 A LEU 404 HELX_RH_AL_P A LEU 0 A LEU 407 HELX_RH_AL_P18 ? ? 
-A GLY 0 A GLY 408 TURN_TY1_P   A ARG 0 A ARG 409 TURN_TY1_P24   ? ? 
-A ARG 0 A ARG 411 HELX_RH_AL_P A TRP 0 A TRP 414 HELX_RH_AL_P19 ? ? 
-A GLU 0 A GLU 416 TURN_TY1_P   A SER 0 A SER 419 TURN_TY1_P25   ? ? 
-A GLN 0 A GLN 420 BEND         A GLN 0 A GLN 420 BEND17         ? ? 
-A PRO 0 A PRO 423 HELX_RH_3T_P A TRP 0 A TRP 426 HELX_RH_3T_P4  ? ? 
-A ILE 0 A ILE 427 STRN         A ILE 0 A ILE 427 STRN12         ? ? 
-A GLU 0 A GLU 429 TURN_TY1_P   A ASN 0 A ASN 430 TURN_TY1_P26   ? ? 
-A GLY 0 A GLY 431 BEND         A GLY 0 A GLY 432 BEND18         ? ? 
-A ILE 0 A ILE 433 STRN         A ILE 0 A ILE 433 STRN13         ? ? 
-A LYS 0 A LYS 434 HELX_LH_PP_P A PRO 0 A PRO 437 HELX_LH_PP_P4  ? ? 
-A SER 0 A SER 438 TURN_TY1_P   A LYS 0 A LYS 440 TURN_TY1_P27   ? ? 
-A LEU 0 A LEU 442 HELX_RH_3T_P A PHE 0 A PHE 444 HELX_RH_3T_P5  ? ? 
-A GLY 0 A GLY 447 HELX_RH_3T_P A ARG 0 A ARG 449 HELX_RH_3T_P6  ? ? 
-A LEU 0 A LEU 452 TURN_TY1_P   A GLY 0 A GLY 453 TURN_TY1_P28   ? ? 
-A LYS 0 A LYS 454 HELX_RH_AL_P A ASN 0 A ASN 471 HELX_RH_AL_P20 ? ? 
-A TYR 0 A TYR 472 STRN         A VAL 0 A VAL 476 STRN14         ? ? 
-A LEU 0 A LEU 477 HELX_LH_PP_P A LEU 0 A LEU 477 HELX_LH_PP_P5  ? ? 
-A GLN 0 A GLN 478 TURN_TY1_P   A GLY 0 A GLY 479 TURN_TY1_P29   ? ? 
-A PRO 0 A PRO 484 STRN         A PRO 0 A PRO 484 STRN15         ? ? 
-A LEU 0 A LEU 486 BEND         A PHE 0 A PHE 488 BEND19         ? ? 
-A ILE 0 A ILE 489 STRN         A ILE 0 A ILE 489 STRN16         ? ? 
-A MET 0 A MET 492 STRN         A MET 0 A MET 492 STRN17         ? ? 
-A LYS 0 A LYS 493 TURN_TY1_P   A HIS 0 A HIS 494 TURN_TY1_P30   ? ? 
-A GLN 0 A GLN 497 STRN         A LYS 0 A LYS 502 STRN18         ? ? 
-A ARG 0 A ARG 503 HELX_LH_PP_P A CYS 0 A CYS 504 HELX_LH_PP_P6  ? ? 
+A LEU 6   A LEU 6   HELX_RH_AL_P A PHE 24  A PHE 24  HELX_RH_AL_P1  ? ? 
+A LYS 25  A LYS 25  BEND         A LYS 25  A LYS 25  BEND1          ? ? 
+A LYS 26  A LYS 26  HELX_LH_PP_P A PRO 27  A PRO 27  HELX_LH_PP_P1  ? ? 
+A HIS 28  A HIS 28  BEND         A TYR 31  A TYR 31  BEND2          ? ? 
+A PRO 32  A PRO 32  HELX_LH_PP_P A ARG 33  A ARG 33  HELX_LH_PP_P2  ? ? 
+A TRP 35  A TRP 35  STRN         A TRP 35  A TRP 35  STRN1          ? ? 
+A PRO 36  A PRO 36  TURN_TY1_P   A LEU 38  A LEU 38  TURN_TY1_P1    ? ? 
+A ARG 39  A ARG 39  STRN         A ARG 39  A ARG 39  STRN2          ? ? 
+A MET 40  A MET 40  TURN_TY1_P   A MET 40  A MET 40  TURN_TY1_P2    ? ? 
+A LEU 41  A LEU 41  HELX_RH_AL_P A ALA 47  A ALA 47  HELX_RH_AL_P2  ? ? 
+A LEU 48  A LEU 48  HELX_RH_3T_P A ARG 50  A ARG 50  HELX_RH_3T_P1  ? ? 
+A ILE 51  A ILE 51  HELX_RH_AL_P A THR 61  A THR 61  HELX_RH_AL_P3  ? ? 
+A SER 62  A SER 62  TURN_TY1_P   A LEU 64  A LEU 64  TURN_TY1_P3    ? ? 
+A THR 65  A THR 65  STRN         A PHE 68  A PHE 68  STRN3          ? ? 
+A GLY 70  A GLY 70  HELX_LH_PP_P A GLY 70  A GLY 70  HELX_LH_PP_P3  ? ? 
+A PRO 71  A PRO 71  BEND         A PRO 71  A PRO 71  BEND3          ? ? 
+A ARG 72  A ARG 72  TURN_TY1_P   A GLY 75  A GLY 75  TURN_TY1_P4    ? ? 
+A MET 78  A MET 78  STRN         A THR 81  A THR 81  STRN4          ? ? 
+A PRO 84  A PRO 84  HELX_RH_AL_P A HIS 88  A HIS 88  HELX_RH_AL_P4  ? ? 
+A HIS 89  A HIS 89  HELX_RH_PI_P A SER 93  A SER 93  HELX_RH_PI_P1  ? ? 
+A ASN 94  A ASN 94  TURN_TY1_P   A ASN 94  A ASN 94  TURN_TY1_P5    ? ? 
+A PHE 95  A PHE 95  HELX_RH_3T_P A ASN 97  A ASN 97  HELX_RH_3T_P2  ? ? 
+A TYR 98  A TYR 98  STRN         A ILE 99  A ILE 99  STRN5          ? ? 
+A PRO 102 A PRO 102 HELX_RH_AL_P A VAL 107 A VAL 107 HELX_RH_AL_P5  ? ? 
+A PHE 108 A PHE 108 BEND         A PHE 108 A PHE 108 BEND4          ? ? 
+A ASP 109 A ASP 109 HELX_RH_3T_P A LEU 111 A LEU 111 HELX_RH_3T_P3  ? ? 
+A GLY 112 A GLY 112 TURN_TY1_P   A ASP 113 A ASP 113 TURN_TY1_P6    ? ? 
+A PHE 115 A PHE 115 TURN_TY1_P   A THR 117 A THR 117 TURN_TY1_P7    ? ? 
+A SER 120 A SER 120 HELX_RH_AL_P A LEU 134 A LEU 134 HELX_RH_AL_P6  ? ? 
+A HIS 135 A HIS 135 TURN_TY1_P   A HIS 135 A HIS 135 TURN_TY1_P8    ? ? 
+A SER 136 A SER 136 BEND         A SER 136 A SER 136 BEND5          ? ? 
+A GLN 137 A GLN 137 HELX_RH_AL_P A LYS 150 A LYS 150 HELX_RH_AL_P7  ? ? 
+A LEU 151 A LEU 151 HELX_RH_PI_P A LEU 155 A LEU 155 HELX_RH_PI_P2  ? ? 
+A VAL 156 A VAL 156 HELX_RH_AL_P A GLU 165 A GLU 165 HELX_RH_AL_P8  ? ? 
+A GLY 166 A GLY 166 TURN_TY1_P   A GLY 166 A GLY 166 TURN_TY1_P9    ? ? 
+A THR 168 A THR 168 STRN         A ASP 170 A ASP 170 STRN6          ? ? 
+A LEU 171 A LEU 171 HELX_RH_AL_P A THR 188 A THR 188 HELX_RH_AL_P9  ? ? 
+A GLY 189 A GLY 189 BEND         A GLY 189 A GLY 189 BEND6          ? ? 
+A SER 196 A SER 196 BEND         A SER 196 A SER 196 BEND7          ? ? 
+A ILE 197 A ILE 197 TURN_TY1_P   A GLU 198 A GLU 198 TURN_TY1_P10   ? ? 
+A GLU 203 A GLU 203 HELX_RH_AL_P A HIS 219 A HIS 219 HELX_RH_AL_P10 ? ? 
+A PHE 220 A PHE 220 TURN_TY1_P   A PHE 220 A PHE 220 TURN_TY1_P11   ? ? 
+A LYS 221 A LYS 221 BEND         A LYS 221 A LYS 221 BEND8          ? ? 
+A ARG 223 A ARG 223 HELX_RH_AL_P A ILE 232 A ILE 232 HELX_RH_AL_P11 ? ? 
+A GLY 233 A GLY 233 TURN_TY1_P   A GLY 233 A GLY 233 TURN_TY1_P12   ? ? 
+A GLY 235 A GLY 235 TURN_TY1_P   A GLY 235 A GLY 235 TURN_TY1_P13   ? ? 
+A GLN 236 A GLN 236 HELX_RH_AL_P A SER 265 A SER 265 HELX_RH_AL_P12 ? ? 
+A GLN 266 A GLN 266 TURN_TY1_P   A GLY 267 A GLY 267 TURN_TY1_P14   ? ? 
+A ASN 270 A ASN 270 BEND         A ASN 270 A ASN 270 BEND9          ? ? 
+A ASP 275 A ASP 275 BEND         A ASP 275 A ASP 275 BEND10         ? ? 
+A LEU 276 A LEU 276 HELX_RH_AL_P A ILE 281 A ILE 281 HELX_RH_AL_P13 ? ? 
+A LYS 282 A LYS 282 TURN_TY1_P   A LYS 282 A LYS 282 TURN_TY1_P15   ? ? 
+A THR 285 A THR 285 TURN_TY1_P   A LYS 287 A LYS 287 TURN_TY1_P16   ? ? 
+A TYR 288 A TYR 288 BEND         A TYR 288 A TYR 288 BEND11         ? ? 
+A LYS 289 A LYS 289 TURN_TY1_P   A LEU 290 A LEU 290 TURN_TY1_P17   ? ? 
+A PRO 293 A PRO 293 TURN_TY1_P   A SER 294 A SER 294 TURN_TY1_P18   ? ? 
+A ASP 296 A ASP 296 HELX_RH_AL_P A SER 326 A SER 326 HELX_RH_AL_P14 ? ? 
+A GLU 327 A GLU 327 TURN_TY1_P   A GLU 327 A GLU 327 TURN_TY1_P19   ? ? 
+A PRO 329 A PRO 329 HELX_RH_AL_P A THR 343 A THR 343 HELX_RH_AL_P15 ? ? 
+A ASP 344 A ASP 344 TURN_TY1_P   A LEU 345 A LEU 345 TURN_TY1_P20   ? ? 
+A ARG 347 A ARG 347 BEND         A GLY 349 A GLY 349 BEND12         ? ? 
+A SER 351 A SER 351 HELX_RH_AL_P A ASP 356 A ASP 356 HELX_RH_AL_P16 ? ? 
+A LYS 357 A LYS 357 TURN_TY1_P   A LYS 357 A LYS 357 TURN_TY1_P21   ? ? 
+A VAL 359 A VAL 359 HELX_RH_AL_P A LEU 371 A LEU 371 HELX_RH_AL_P17 ? ? 
+A TYR 372 A TYR 372 BEND         A TYR 372 A TYR 372 BEND13         ? ? 
+A PRO 374 A PRO 374 BEND         A PRO 374 A PRO 374 BEND14         ? ? 
+A VAL 375 A VAL 375 STRN         A VAL 375 A VAL 375 STRN7          ? ? 
+A GLY 378 A GLY 378 STRN         A PRO 382 A PRO 382 STRN8          ? ? 
+A ILE 383 A ILE 383 BEND         A LYS 384 A LYS 384 BEND15         ? ? 
+A ASP 386 A ASP 386 STRN         A VAL 387 A VAL 387 STRN9          ? ? 
+A PRO 389 A PRO 389 TURN_TY1_P   A SER 390 A SER 390 TURN_TY1_P22   ? ? 
+A GLY 391 A GLY 391 BEND         A GLY 391 A GLY 391 BEND16         ? ? 
+A LYS 393 A LYS 393 STRN         A VAL 394 A VAL 394 STRN10         ? ? 
+A ALA 396 A ALA 396 TURN_TY1_P   A ASN 397 A ASN 397 TURN_TY1_P23   ? ? 
+A LYS 399 A LYS 399 STRN         A ILE 402 A ILE 402 STRN11         ? ? 
+A LEU 404 A LEU 404 HELX_RH_AL_P A LEU 407 A LEU 407 HELX_RH_AL_P18 ? ? 
+A GLY 408 A GLY 408 TURN_TY1_P   A ARG 409 A ARG 409 TURN_TY1_P24   ? ? 
+A ARG 411 A ARG 411 HELX_RH_AL_P A TRP 414 A TRP 414 HELX_RH_AL_P19 ? ? 
+A GLU 416 A GLU 416 TURN_TY1_P   A SER 419 A SER 419 TURN_TY1_P25   ? ? 
+A GLN 420 A GLN 420 BEND         A GLN 420 A GLN 420 BEND17         ? ? 
+A PRO 423 A PRO 423 HELX_RH_3T_P A TRP 426 A TRP 426 HELX_RH_3T_P4  ? ? 
+A ILE 427 A ILE 427 STRN         A ILE 427 A ILE 427 STRN12         ? ? 
+A GLU 429 A GLU 429 TURN_TY1_P   A ASN 430 A ASN 430 TURN_TY1_P26   ? ? 
+A GLY 431 A GLY 431 BEND         A GLY 432 A GLY 432 BEND18         ? ? 
+A ILE 433 A ILE 433 STRN         A ILE 433 A ILE 433 STRN13         ? ? 
+A LYS 434 A LYS 434 HELX_LH_PP_P A PRO 437 A PRO 437 HELX_LH_PP_P4  ? ? 
+A SER 438 A SER 438 TURN_TY1_P   A LYS 440 A LYS 440 TURN_TY1_P27   ? ? 
+A LEU 442 A LEU 442 HELX_RH_3T_P A PHE 444 A PHE 444 HELX_RH_3T_P5  ? ? 
+A GLY 447 A GLY 447 HELX_RH_3T_P A ARG 449 A ARG 449 HELX_RH_3T_P6  ? ? 
+A LEU 452 A LEU 452 TURN_TY1_P   A GLY 453 A GLY 453 TURN_TY1_P28   ? ? 
+A LYS 454 A LYS 454 HELX_RH_AL_P A ASN 471 A ASN 471 HELX_RH_AL_P20 ? ? 
+A TYR 472 A TYR 472 STRN         A VAL 476 A VAL 476 STRN14         ? ? 
+A LEU 477 A LEU 477 HELX_LH_PP_P A LEU 477 A LEU 477 HELX_LH_PP_P5  ? ? 
+A GLN 478 A GLN 478 TURN_TY1_P   A GLY 479 A GLY 479 TURN_TY1_P29   ? ? 
+A PRO 484 A PRO 484 STRN         A PRO 484 A PRO 484 STRN15         ? ? 
+A LEU 486 A LEU 486 BEND         A PHE 488 A PHE 488 BEND19         ? ? 
+A ILE 489 A ILE 489 STRN         A ILE 489 A ILE 489 STRN16         ? ? 
+A MET 492 A MET 492 STRN         A MET 492 A MET 492 STRN17         ? ? 
+A LYS 493 A LYS 493 TURN_TY1_P   A HIS 494 A HIS 494 TURN_TY1_P30   ? ? 
+A GLN 497 A GLN 497 STRN         A LYS 502 A LYS 502 STRN18         ? ? 
+A ARG 503 A ARG 503 HELX_LH_PP_P A CYS 504 A CYS 504 HELX_LH_PP_P6  ? ? 
 #
 loop_
 _struct_conf_type.criteria
@@ -1942,6 +1945,7 @@ _struct_ref.db_name                  UNP
 _struct_ref.entity_id                1
 _struct_ref.id                       1
 _struct_ref.pdbx_align_begin         1
+_struct_ref.pdbx_align_end           506
 _struct_ref.pdbx_db_accession        O49373
 _struct_ref.pdbx_db_isoform          ?
 _struct_ref.pdbx_seq_one_letter_code 
