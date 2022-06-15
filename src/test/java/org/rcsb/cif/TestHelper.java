@@ -60,8 +60,9 @@ public class TestHelper {
         return byteArray;
     }
 
-    public static void assertEqualsIgnoringWhitespaces(String expected, String actual) {
-        assertEquals(expected.replaceAll("[\\s\"]+", ""), actual.replaceAll("[\\s\"]+", ""));
+    public static void assertEqualsIgnoringQuotesAndDecimalZeros(String expected, String actual) {
+        assertEquals(expected.replaceAll("\"", "").replaceAll("(\\d+\\.\\d{0,2})\\d*", "$1").replaceAll("\\.0+ ", " ").replaceAll("(\\.[1-9]+)0+", "$1"),
+                actual.replaceAll("\"", "").replaceAll("(\\d+\\.\\d{0,2})\\d*", "$1").replaceAll("\\.0+ ", " ").replaceAll("(\\.[1-9]+)0+", "$1"));
     }
 
     public static int[] convertToIntArray(byte[] bytes) {

@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
 import org.rcsb.cif.binary.codec.MessagePackCodec;
+import org.rcsb.cif.model.CifFile;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -16,15 +17,17 @@ import static org.junit.jupiter.api.Assertions.fail;
 class FootprintTest {
     @Test
     void printFootprint() throws IOException {
-        byte[] bytes = CifIO.writeBinary(CifIO.readFromInputStream(TestHelper.getInputStream("source/200l_rcsb.cif")));
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("source/200l_rcsb.cif"));
+        byte[] bytes = CifIO.writeBinary(cifFile);
         Map<String, String> writtenFootprint = getFootprint(bytes);
 
         Map<String, String> ebiFootprint = getFootprint(TestHelper.getBytes("source/200l_ebi.bcif"));
-        Map<String, String> molstarFootprint = getFootprint(TestHelper.getBytes("source/200l_molstar.bcif"));
-
-        int tolerance = 25;
-        equals(ebiFootprint, writtenFootprint, tolerance);
-        equals(molstarFootprint, writtenFootprint, tolerance);
+        equals(ebiFootprint, writtenFootprint, 1);
+        Map<String, String> modelserverFootprint = getFootprint(TestHelper.getBytes("source/200l_modelserver.bcif"));
+        // some mismatches are in chem_comp, the ModelServer file doesn't contain CYS - leading to all counts being off by 1
+        equals(modelserverFootprint, writtenFootprint, 21);
+        Map<String, String> cif2bcifFootprint = getFootprint(TestHelper.getBytes("source/200l_cif2bcif.bcif"));
+        equals(cif2bcifFootprint, writtenFootprint, 0);
     }
 
     @SuppressWarnings("unchecked")
@@ -40,7 +43,9 @@ class FootprintTest {
             // coordinate server categories are not present
             if (categoryName.startsWith("_coordinate") || categoryName.equals("_chem_comp_bond") ||
                     categoryName.equals("_pdbx_sifts_unp_segments") || categoryName.equals("_pdbx_sifts_xref_db_segments") ||
-                    categoryName.equals("_pdbx_sifts_xref_db") || categoryName.equals("_software")) {
+                    categoryName.equals("_pdbx_sifts_xref_db") || categoryName.equals("_software") ||
+                    categoryName.equals("_model_server_result") || categoryName.equals("_model_server_stats") ||
+                    categoryName.equals("_audit_author")) {
                 continue;
             }
 
@@ -63,8 +68,12 @@ class FootprintTest {
                 Object[] enc = (Object[]) data.get("encoding");
 
                 List<String> chain = Stream.of(enc).map(e -> ((Map<String, Object>) e).get("kind")).map(String.class::cast).collect(Collectors.toList());
+                // seems like a bug in ModelServer: last ByteArray step occurs twice
+                if (chain.size() > 1 && chain.get(chain.size() - 2).equals("ByteArray") && chain.get(chain.size() - 1).equals("ByteArray")) {
+                    chain.remove(chain.size() - 1);
+                }
                 if (!chain.contains("StringArray")) nonStringArray++;
-                String value = category.get("rowCount") + "," + enc.length + "," + chain;
+                String value = category.get("rowCount") + "," + chain.size() + "," + chain;
                 footprint.put(key, value);
             }
         }
@@ -85,10 +94,8 @@ class FootprintTest {
                 mismatches++;
             }
         }
-
-
         if (mismatches > tolerance) {
-            fail("too many columns were encoded with wrong type");
+            fail(mismatches + " columns were encoded with wrong type, expected = " + tolerance);
         }
     }
 }

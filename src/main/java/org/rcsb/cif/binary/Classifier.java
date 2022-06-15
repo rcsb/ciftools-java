@@ -5,7 +5,6 @@ import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
-import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
@@ -31,12 +30,13 @@ public class Classifier {
      */
     public static EncodingStrategyHint classify(Int32Array data) {
         EncodingStrategyHint hint = new EncodingStrategyHint();
-        if (data.getData().length < 2) {
+        int[] d = data.getData();
+        if (d.length < 2) {
             hint.setEncoding("byte");
             return hint;
         }
 
-        EncodingSize size = getSize(data);
+        EncodingSize size = getSize(d);
         hint.setEncoding(size.kind);
         return hint;
     }
@@ -190,8 +190,15 @@ public class Classifier {
         return new EncodingSize(byteSize(size), "delta-rle");
     }
 
-    private static IntColumnInfo getInfo(IntArray data) {
-        boolean signed = data.isSigned();
+    private static IntColumnInfo getInfo(int[] data) {
+        boolean signed = false;
+        // can't rely on NumberArray#isSigned here as storage type doesn't necessarily reflect actual data
+        for (int d : data) {
+            if (d < 0) {
+                signed = true;
+                break;
+            }
+        }
         return signed ? IntColumnInfo.SIGNED_INFO : IntColumnInfo.UNSIGNED_INFO;
     }
 
@@ -210,8 +217,8 @@ public class Classifier {
         }
     }
 
-    private static EncodingSize getSize(IntArray data) {
-        return getSize(data.getData(), getInfo(data));
+    private static EncodingSize getSize(int[] data) {
+        return getSize(data, getInfo(data));
     }
 
     private static EncodingSize getSize(int[] array, IntColumnInfo info) {
@@ -242,7 +249,7 @@ public class Classifier {
             intArray[i] = (int) Math.round(doubles[i] * multiplier);
         }
 
-        EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
+        EncodingSize size = getSize(intArray);
         hint.setEncoding(size.kind);
         return hint;
     }

@@ -3,6 +3,11 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+Unreleased
+-------------
+### Bug fixes
+* fix encoding classification when converting text to binary without schema
+
 ciftools-java 4.0.0 - May 2022
 -------------
 ### Bug fixes

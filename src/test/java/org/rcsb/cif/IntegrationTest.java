@@ -16,7 +16,6 @@ import org.rcsb.cif.schema.mm.Cell;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 import org.rcsb.cif.schema.mm.MmCifFile;
 
-import javax.management.ObjectName;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -27,7 +26,7 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringQuotesAndDecimalZeros;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
@@ -275,7 +274,7 @@ class IntegrationTest {
         byte[] copyBytes = CifIO.writeText(bcifFile);
         String copyContent = new String(copyBytes);
 
-        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+        assertEqualsIgnoringQuotesAndDecimalZeros(originalContent, copyContent);
     }
 
     @Test
@@ -309,7 +308,7 @@ class IntegrationTest {
 
         String copyContent = new String(CifIO.writeText(originalFile));
 
-        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+        assertEqualsIgnoringQuotesAndDecimalZeros(originalContent, copyContent);
     }
 
     /**

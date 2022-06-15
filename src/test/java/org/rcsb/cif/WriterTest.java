@@ -24,12 +24,11 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringQuotesAndDecimalZeros;
 
 class WriterTest {
     @Test
@@ -172,7 +171,7 @@ class WriterTest {
         // convert to cif
         String copy = new String(CifIO.writeText(text));
 
-        assertEqualsIgnoringWhitespaces(original, copy);
+        assertEqualsIgnoringQuotesAndDecimalZeros(original, copy);
     }
 
     @Test
