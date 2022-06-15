@@ -20,7 +20,7 @@ public interface IntColumn extends Column<int[]> {
      */
     default IntStream values() {
         int[] array = getArray();
-        return array != null ? Arrays.stream(getArray()) : IntStream.empty();
+        return array != null ? Arrays.stream(array) : IntStream.empty();
     }
 
     /**

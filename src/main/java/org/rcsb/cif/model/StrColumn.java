@@ -20,6 +20,6 @@ public interface StrColumn extends Column<String[]> {
      */
     default Stream<String> values() {
         String[] array = getArray();
-        return array != null ? Arrays.stream(getArray()) : Stream.empty();
+        return array != null ? Arrays.stream(array) : Stream.empty();
     }
 }
