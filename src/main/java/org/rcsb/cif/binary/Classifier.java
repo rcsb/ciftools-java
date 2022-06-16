@@ -5,7 +5,6 @@ import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
-import org.rcsb.cif.binary.data.IntArray;
 import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
@@ -20,6 +19,10 @@ import java.util.stream.Stream;
  * efficient encoding strategy which results in the most compact storage of the data.
  */
 public class Classifier {
+    private Classifier() {
+        // nothing here
+    }
+
     /**
      * Auto-encodes this {@link Int32Array} by the encoding strategy with the minimal size.
      * @param data the data to encode
@@ -27,12 +30,13 @@ public class Classifier {
      */
     public static EncodingStrategyHint classify(Int32Array data) {
         EncodingStrategyHint hint = new EncodingStrategyHint();
-        if (data.getData().length < 2) {
+        int[] d = data.getData();
+        if (d.length < 2) {
             hint.setEncoding("byte");
             return hint;
         }
 
-        EncodingSize size = getSize(data);
+        EncodingSize size = getSize(d);
         hint.setEncoding(size.kind);
         return hint;
     }
@@ -186,14 +190,21 @@ public class Classifier {
         return new EncodingSize(byteSize(size), "delta-rle");
     }
 
-    private static IntColumnInfo getInfo(IntArray data) {
-        boolean signed = data.isSigned();
+    private static IntColumnInfo getInfo(int[] data) {
+        boolean signed = false;
+        // can't rely on NumberArray#isSigned here as storage type doesn't necessarily reflect actual data
+        for (int d : data) {
+            if (d < 0) {
+                signed = true;
+                break;
+            }
+        }
         return signed ? IntColumnInfo.SIGNED_INFO : IntColumnInfo.UNSIGNED_INFO;
     }
 
     static class IntColumnInfo {
-        final static IntColumnInfo SIGNED_INFO = new IntColumnInfo(true, 0x7F, 0x7FFF);
-        final static IntColumnInfo UNSIGNED_INFO = new IntColumnInfo(false, 0xFF, 0xFFFF);
+        static final IntColumnInfo SIGNED_INFO = new IntColumnInfo(true, 0x7F, 0x7FFF);
+        static final IntColumnInfo UNSIGNED_INFO = new IntColumnInfo(false, 0xFF, 0xFFFF);
 
         final boolean signed;
         final int limit8;
@@ -206,8 +217,8 @@ public class Classifier {
         }
     }
 
-    private static EncodingSize getSize(IntArray data) {
-        return getSize(data.getData(), getInfo(data));
+    private static EncodingSize getSize(int[] data) {
+        return getSize(data, getInfo(data));
     }
 
     private static EncodingSize getSize(int[] array, IntColumnInfo info) {
@@ -238,7 +249,7 @@ public class Classifier {
             intArray[i] = (int) Math.round(doubles[i] * multiplier);
         }
 
-        EncodingSize size = getSize(intArray, IntColumnInfo.SIGNED_INFO);
+        EncodingSize size = getSize(intArray);
         hint.setEncoding(size.kind);
         return hint;
     }
@@ -310,8 +321,8 @@ public class Classifier {
      * If no such M exists, return -1.
      */
     private static int getMantissaMultiplier(double v, int maxDigits) {
-        int m = 1, i;
-        for (i = 0; i < maxDigits; i++) {
+        int m = 1;
+        for (int i = 0; i < maxDigits; i++) {
             double mv = m * v;
             if (Math.abs(Math.round(mv) - mv) <= DELTA) {
                 return i;

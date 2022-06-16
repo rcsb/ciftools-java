@@ -24,16 +24,15 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Paths;
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringQuotesAndDecimalZeros;
 
-public class WriterTest {
+class WriterTest {
     @Test
-    public void testNumberFormatOfBuiltCifFile() throws IOException {
+    void testNumberFormatOfBuiltCifFile() throws IOException {
         CifFile cifFile = CifBuilder.enterFile()
                 .enterBlock("test")
                 .enterCategory("atom_site")
@@ -59,7 +58,7 @@ public class WriterTest {
     }
 
     @Test
-    public void shouldReturnIntAndFloatColumn() throws IOException {
+    void shouldReturnIntAndFloatColumn() throws IOException {
         // upon serialization int and double types were lost for built files
         CategoryBuilder<? extends BlockBuilder<? extends CifFileBuilder>, ? extends CifFileBuilder> categoryBuilder = CifBuilder.enterFile()
                 .enterBlock("test")
@@ -100,7 +99,7 @@ public class WriterTest {
     }
 
     @Test
-    public void testClassInferenceOfBuiltMmCifFile() {
+    void testClassInferenceOfBuiltMmCifFile() {
         MmCifFile cifFile = CifBuilder.enterFile(StandardSchemata.MMCIF)
                 .enterBlock("test")
                 .enterAtomSite()
@@ -122,7 +121,7 @@ public class WriterTest {
     }
 
     @Test
-    public void testClassInferenceOfBuiltCifCoreFile() {
+    void testClassInferenceOfBuiltCifCoreFile() {
         CifCoreFile cifFile = CifBuilder.enterFile(StandardSchemata.CIF_CORE)
                 .enterBlock("test")
                 .enterAtomSite()
@@ -156,7 +155,7 @@ public class WriterTest {
     }
 
     @Test
-    public void writeText() throws ParsingException, IOException {
+    void writeText() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
             writeText(id);
         }
@@ -172,11 +171,11 @@ public class WriterTest {
         // convert to cif
         String copy = new String(CifIO.writeText(text));
 
-        assertEqualsIgnoringWhitespaces(original, copy);
+        assertEqualsIgnoringQuotesAndDecimalZeros(original, copy);
     }
 
     @Test
-    public void writeBinary() throws ParsingException, IOException {
+    void writeBinary() throws ParsingException, IOException {
         for (String id : TEST_CASES.keySet()) {
             writeBinary(id);
         }
@@ -204,33 +203,5 @@ public class WriterTest {
                 " if so, update snapshot files in snapshot/");
         assertArrayEquals(originalGzip, outputGzip, "binary write output does not match snapshot of output - did the implementation change?" +
                 " if so, update snapshot files in snapshot/");
-    }
-
-    public static void main(String[] args) throws IOException {
-        // run to update snapshot files
-        for (String id : TEST_CASES.keySet()) {
-            InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
-            CifFile data = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
-
-            CifOptions options = CifOptions.builder().build();
-            CifOptions optionsGzip = CifOptions.builder().gzip(true).build();
-
-            // convert to cif/bcif
-            CifIO.writeText(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif"),
-                    options);
-
-            CifIO.writeText(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".cif.gz"),
-                    optionsGzip);
-
-            CifIO.writeBinary(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif"),
-                    options);
-
-            CifIO.writeBinary(data,
-                    Paths.get("/Users/sebastian/snapshot/").resolve(id + ".bcif.gz"),
-                    optionsGzip);
-        }
     }
 }

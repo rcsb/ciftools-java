@@ -15,12 +15,15 @@ import org.rcsb.cif.schema.DelegatingStrColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 
 import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Field;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -106,7 +109,6 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
                 "https://raw.githubusercontent.com/ihmwg/ModelCIF/master/dist/mmcif_ma.dic"); // model-extension for predicted models
 
-        // TODO pre-process cif_core files which are CIF 2.0 - TODO proper CIF 2.0 (or at least list support)
         new SchemaGenerator("CifCore", "CIF_CORE", "core", true,
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
                 "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
@@ -145,15 +147,16 @@ public class SchemaGenerator {
         Path packagePath = projectPath.resolve("src").resolve("main").resolve("java").resolve(basePackagePath).resolve(packageName);
 
         if (Files.exists(packagePath)) {
-            Files.list(packagePath)
-                    .filter(p -> !Files.isDirectory(p))
-                    .forEach(p -> {
-                        try {
-                            Files.delete(p);
-                        } catch (IOException e) {
-                            throw new UncheckedIOException(e);
-                        }
-                    });
+            try (Stream<Path> paths = Files.list(packagePath)) {
+                paths.filter(p -> !Files.isDirectory(p))
+                        .forEach(p -> {
+                            try {
+                                Files.delete(p);
+                            } catch (IOException e) {
+                                throw new UncheckedIOException(e);
+                            }
+                        });
+            }
         } else {
             Files.createDirectories(packagePath);
         }
@@ -221,9 +224,9 @@ public class SchemaGenerator {
 
         Files.write(path.resolve(schemaName + "File.java"), file.getBytes());
         Files.write(path.resolve(schemaName + "FileBuilder.java"), fileBuilder.getBytes());
-        Files.write(path.resolve(schemaName + "BlockBuilder.java"), blockBuilder.toString().getBytes());
-        Files.write(path.resolve(schemaName + "CategoryBuilder.java"), categoryBuilder.toString().getBytes());
-        Files.write(path.resolve(blockName + ".java"), block.toString().getBytes());
+        Files.write(path.resolve(schemaName + "BlockBuilder.java"), blockBuilder.getBytes());
+        Files.write(path.resolve(schemaName + "CategoryBuilder.java"), categoryBuilder.getBytes());
+        Files.write(path.resolve(blockName + ".java"), block.getBytes());
     }
 
     private String prepareDescription(String description, String prefix) {
@@ -263,9 +266,7 @@ public class SchemaGenerator {
 
             String columnClassName = toClassName(columnName);
             Class<? extends Column> baseClass = getBaseClass(column.getType());
-            Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
             String baseClassName = baseClass.getSimpleName();
-            String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
             String description = prepareDescription(column.getDescription(), "     * ");
             getters.add((flat ? CATEGORY_GETTER_FLAT : CATEGORY_GETTER).replace("{columnDescription}", description)
@@ -313,7 +314,6 @@ public class SchemaGenerator {
                                 Class<? extends Column> baseClass = getBaseClass(column.getType());
                                 Class<? extends DelegatingColumn> delegatingBaseClass = getDelegatingBaseClass(column.getType());
                                 String baseClassName = baseClass.getSimpleName();
-                                String delegatingBaseClassName = delegatingBaseClass.getSimpleName();
 
                                 String description = prepareDescription(column.getDescription(), "     * ");
                                 getters.add(CATEGORY_GETTER_FLAT.replace("{columnDescription}", description)
@@ -338,7 +338,7 @@ public class SchemaGenerator {
                 .replace("{categoryName}", categoryName)
                 .replace("{columnEnters}", enters.toString()));
 
-        Files.write(path.resolve(className + ".java"), category.toString().getBytes());
+        Files.write(path.resolve(className + ".java"), category.getBytes());
     }
 
     private Class<? extends Column> getBaseClass(String type) {
@@ -401,7 +401,7 @@ public class SchemaGenerator {
         this.aliases = new ArrayList<>();
         for (String res : resource) {
             System.out.println("Loading dictionary from: " + res);
-            CifFile cifFile = CifIO.readFromURL(new URL(res));
+            CifFile cifFile = CifIO.readFromInputStream(preprocess(res));
             if (schemaName.equals("MmCif")) {
                 getCategoryMetadataMmcif(cifFile);
             } else if (schemaName.equals("CifCore")) {
@@ -431,6 +431,16 @@ public class SchemaGenerator {
         System.out.println();
     }
 
+    private InputStream preprocess(String res) throws IOException {
+        try (InputStream inputStream = new URL(res).openStream()) {
+            String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            // this is needed for https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic
+            // TODO proper CIF 2.0 (or at least list support, or at the very least don't hard-code this here...)
+            content = content.replace("[translucent  pale  green]", "'[translucent  pale  green]'");
+            return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
+        }
+    }
+
     private void getFieldData() {
         categories.forEach((fullName, saveFrame) -> {
             String header = saveFrame.getBlockHeader();
@@ -442,7 +452,7 @@ public class SchemaGenerator {
             if (saveFrame.getCategories().containsKey("import")) {
                 parseImportGet(saveFrame.getCategory("import").getColumn("get").getStringData(0))
                         .filter(Import::isValid)
-                        .filter(i -> imports.containsKey(i.save) && imports.get(i.save).size() > 0)
+                        .filter(i -> imports.containsKey(i.save) && !imports.get(i.save).isEmpty())
                         .map(i -> imports.get(i.save))
                         .forEach(i -> saveFrame.getCategories().putAll(i));
             }
@@ -485,7 +495,7 @@ public class SchemaGenerator {
                     fields.put(itemName, new VectorCol(description));
                 } else {
                     List<String> code = getCode(saveFrame);
-                    if (code.size() > 0) {
+                    if (!code.isEmpty()) {
                         Col fieldType = getFieldType(code.get(0), description, code.subList(1, code.size()));
                         fields.put(itemName, fieldType);
                     }
@@ -504,7 +514,7 @@ public class SchemaGenerator {
             return Collections.emptyList();
         }
         return IntStream.range(0, field.getRowCount())
-                .mapToObj(i -> column.getStringData(i))
+                .mapToObj(column::getStringData)
                 .map(s -> s.substring(1))
                 .collect(Collectors.toList());
     }
@@ -521,7 +531,7 @@ public class SchemaGenerator {
             case "uchar3":
             case "uchar1":
             case "boolean":
-                return values.size() > 0 ? new EnumCol(values, "str", description) : new StrCol(description);
+                return values.isEmpty() ? new StrCol(description) : new EnumCol(values, "str", description);
             case "aliasname":
             case "name":
             case "idname":
@@ -560,7 +570,7 @@ public class SchemaGenerator {
             case "int":
             case "non_negative_int":
             case "positive_int":
-                return values.size() > 0 ? new EnumCol(values, "int", description) : new IntCol(description);
+                return values.isEmpty() ? new IntCol(description) : new EnumCol(values, "int", description);
             case "float":
                 return new FloatCol(description);
             case "ec-type":
@@ -620,12 +630,11 @@ public class SchemaGenerator {
     }
 
     private String getSubCategory(Block saveFrame) {
-        try {
-            Column value = getField("item_sub_category", "id", saveFrame);
-            return value.getStringData(0);
-        } catch (NullPointerException e) {
+        Column value = getField("item_sub_category", "id", saveFrame);
+        if (value == null) {
             return "";
         }
+        return value.getStringData(0);
     }
 
     private String getDescription(Block saveFrame) {
@@ -748,8 +757,8 @@ public class SchemaGenerator {
         }
     }
 
-    private static final Pattern savePattern = Pattern.compile("('save'|'save'):([^ \t\n]+)");
-    private static final Pattern filePattern = Pattern.compile("('file'|'file'):([^ \t\n]+)");
+    private static final Pattern savePattern = Pattern.compile("('save'|\"save\"):([^ \t\n]+)");
+    private static final Pattern filePattern = Pattern.compile("('file'|\"file\"):([^ \t\n]+)");
 
     private Stream<Import> parseImportGet(String s) {
         // [{'save':hi_ang_Fox_coeffs  'file':templ_attr.cif}   {'save':hi_ang_Fox_c0  'file':templ_enum.cif}]
@@ -823,7 +832,7 @@ public class SchemaGenerator {
 
                     Optional<List<String>> optional = aliases.stream()
                             // find sets of name referencing this
-                            .filter(set -> alias.stream().anyMatch(a -> set.contains(a)))
+                            .filter(set -> alias.stream().anyMatch(set::contains))
                             .findFirst();
 
                     if (optional.isPresent()) {
@@ -841,7 +850,7 @@ public class SchemaGenerator {
                 .filter(categoryName -> !schema.containsKey(categoryName))
                 .forEach(categoryName -> {
 //                    System.out.println("additional category: " + categoryName);
-                    Table table = schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
+                    schema.computeIfAbsent(categoryName, e -> new Table("", new HashSet<>(), new LinkedHashMap<>()));
                 });
     }
 }

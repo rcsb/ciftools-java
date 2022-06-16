@@ -10,6 +10,10 @@ import org.rcsb.cif.schema.StandardSchemata;
  * The entry point to create {@link CifFile} instances programmatically.
  */
 public class CifBuilder {
+    private CifBuilder() {
+        // nothing here
+    }
+
     /**
      * Start a new file without providing any schema.
      * @return a generic builder instance

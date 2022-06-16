@@ -47,7 +47,7 @@ public class DelegatingColumn<T> implements Column<T> {
         Object array = delegate.getArray();
         // matches expectation
         if (type.isInstance(array)) {
-            return (T) delegate.getArray();
+            return (T) array;
         }
         // empty column
         if (array == null) {

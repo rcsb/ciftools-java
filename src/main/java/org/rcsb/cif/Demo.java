@@ -121,7 +121,7 @@ class Demo {
     }
 
     private static void convertAlphaFold() throws IOException {
-        String id = "AF-Q76EI6-F1-model_v1";
+        String id = "AF-Q76EI6-F1-model_v2";
 
         CifFile cifFile = CifIO.readFromURL(new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif"));
         MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);

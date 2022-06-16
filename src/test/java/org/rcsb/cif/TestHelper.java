@@ -16,7 +16,6 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-
 /**
  * Origin of files:
  * - bcif created by Mol* encoder
@@ -61,8 +60,9 @@ public class TestHelper {
         return byteArray;
     }
 
-    public static void assertEqualsIgnoringWhitespaces(String expected, String actual) {
-        assertEquals(expected.replaceAll("[\\s\"]+", ""), actual.replaceAll("[\\s\"]+", ""));
+    public static void assertEqualsIgnoringQuotesAndDecimalZeros(String expected, String actual) {
+        assertEquals(expected.replaceAll("\"", "").replaceAll("(\\d+\\.\\d{0,2})\\d*", "$1").replaceAll("\\.0+ ", " ").replaceAll("(\\.[1-9]+)0+", "$1"),
+                actual.replaceAll("\"", "").replaceAll("(\\d+\\.\\d{0,2})\\d*", "$1").replaceAll("\\.0+ ", " ").replaceAll("(\\.[1-9]+)0+", "$1"));
     }
 
     public static int[] convertToIntArray(byte[] bytes) {
@@ -81,12 +81,12 @@ public class TestHelper {
     }
 
     @Test
-    public void shouldAcquireInputStream() {
+    void shouldAcquireInputStream() {
         assertNotNull(getInputStream("cif/1pga.cif"), "Could not acquire inputstream of local resource");
     }
 
     @Test
-    public void messagePackToUint8Array() throws IOException {
+    void messagePackToUint8Array() throws IOException {
         String id = "1j59.bcif";
         assertNotNull(new ByteArray(TestHelper.getBytes("bcif/" + id))
                 .decode()

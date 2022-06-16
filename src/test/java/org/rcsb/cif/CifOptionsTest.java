@@ -17,9 +17,9 @@ import java.util.zip.GZIPInputStream;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
-public class CifOptionsTest {
+class CifOptionsTest {
     @Test
-    public void testEncodingBehavior() throws IOException {
+    void testEncodingBehavior() throws IOException {
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
 
         byte[] binary1 = CifIO.writeBinary(textCifFile, CifOptions.builder()
@@ -64,7 +64,7 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testEncoder() throws IOException {
+    void testEncoder() throws IOException {
         // the encoder name should be honored when specified
         String encoderName = "yet-another-cif-encoder";
         CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
@@ -77,7 +77,7 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testFetchUrlText() throws IOException {
+    void testFetchUrlText() throws IOException {
         // by switching to RCSB cif files, the implementation type should be text
         CifFile cifFile = CifIO.readById("1acj", CifOptions.builder()
                 .fetchUrl("https://files.rcsb.org/download/%s.cif").build());
@@ -85,7 +85,7 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testFetchUrlBinary() throws IOException {
+    void testFetchUrlBinary() throws IOException {
         // by switching to RCSB bcif files, the implementation type should be binary
         CifFile cifFile = CifIO.readById("1acj", CifOptions.builder()
                 .fetchUrl("https://models.rcsb.org/%s.bcif").build());
@@ -93,7 +93,7 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testFilteringBehavior() throws IOException {
+    void testFilteringBehavior() throws IOException {
         for (String id : TEST_CASES.keySet()) {
             testFilteringBehavior(id);
         }
@@ -159,7 +159,7 @@ public class CifOptionsTest {
     }
 
     @Test
-    public void testGzipWritingBehavior() throws IOException {
+    void testGzipWritingBehavior() throws IOException {
         // should wrap output in gzip if requested
         for (String id : TEST_CASES.keySet()) {
             testGzipWritingBehavior(id);

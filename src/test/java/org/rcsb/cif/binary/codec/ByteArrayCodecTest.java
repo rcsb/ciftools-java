@@ -7,9 +7,9 @@ import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class ByteArrayCodecTest {
+class ByteArrayCodecTest {
     @Test
-    public void testForwardInt8() {
+    void testForwardInt8() {
         // create test case
         Int8Array plainArray = new Int8Array(new int[] { 1, 2, 3, 4, -128, 127 });
 
@@ -23,7 +23,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardInt16() {
+    void testForwardInt16() {
         // create test case
         Int16Array plainArray = new Int16Array(new int[] { 1, 2, 3, 4, -32_768, 32_767 });
 
@@ -37,7 +37,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardInt32() {
+    void testForwardInt32() {
         // create test case
         Int32Array plainArray = new Int32Array(new int[] { 1, 2, 3, 4, -2_147_483_648, 2_147_483_647 });
 
@@ -51,7 +51,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardUint8() {
+    void testForwardUint8() {
         // create test case
         Uint8Array plainArray = new Uint8Array(new int[] { 1, 2, 3, 4, 0, 255 });
 
@@ -65,7 +65,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardUint16() {
+    void testForwardUint16() {
         // create test case
         Uint16Array plainArray = new Uint16Array(new int[] { 1, 2, 3, 4, 0, 65_535 });
 
@@ -79,7 +79,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardUint32() {
+    void testForwardUint32() {
         // create test case
         Uint32Array plainArray = new Uint32Array(new int[] { 1, 2, 3, 4, 0, Integer.MAX_VALUE });
 
@@ -93,7 +93,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardFloat32() {
+    void testForwardFloat32() {
         // create test case
         Float32Array plainArray = new Float32Array(new double[] { -1.0, 2.3, -3.5, 4, -Float.MAX_VALUE, Float.MAX_VALUE });
 
@@ -107,7 +107,7 @@ public class ByteArrayCodecTest {
     }
 
     @Test
-    public void testForwardFloat64() {
+    void testForwardFloat64() {
         // create test case
         Float64Array plainArray = new Float64Array(new double[] { -1.0, 2.3, -3.5, 4, -Double.MAX_VALUE, Double.MAX_VALUE });
 

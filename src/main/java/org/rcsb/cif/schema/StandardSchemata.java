@@ -11,4 +11,8 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 public class StandardSchemata {
     public static final SchemaProvider<CifCoreFile, CifCoreFileBuilder> CIF_CORE = new CifCoreSchemaProvider();
     public static final SchemaProvider<MmCifFile, MmCifFileBuilder> MMCIF = new MmCifSchemaProvider();
+
+    private StandardSchemata() {
+        // nothing here
+    }
 }

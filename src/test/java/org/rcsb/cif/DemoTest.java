@@ -7,9 +7,9 @@ import java.io.IOException;
 /**
  * Ensure that the provided Demo is actually running.
  */
-public class DemoTest {
+class DemoTest {
     @Test
-    public void testDemo() throws IOException {
+    void testDemo() throws IOException {
         Demo.main(new String[0]);
     }
 }

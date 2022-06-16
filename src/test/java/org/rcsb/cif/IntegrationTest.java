@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.Column;
@@ -20,19 +21,21 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.rcsb.cif.TestHelper.TEST_CASES;
-import static org.rcsb.cif.TestHelper.assertEqualsIgnoringWhitespaces;
+import static org.rcsb.cif.TestHelper.assertEqualsIgnoringQuotesAndDecimalZeros;
 
 /**
  * More complex tests for interactions between various parts of the code. Especially round-trip are used to assess the
  * fidelity of the implementation. For a Cif file encoding and subsequent decoding should arrive at the original file
  * content. For Bcif decoding and encoding should do the same.
  */
-public class IntegrationTest {
+class IntegrationTest {
     @Test
-    public void testBinaryDataAccessBehavior() throws IOException {
+    void testBinaryDataAccessBehavior() throws IOException {
         // load binary data - access is basically directly to array
         MmCifFile binaryCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         AtomSite binaryAtomSite = binaryCifFile.getFirstBlock().getAtomSite();
@@ -93,7 +96,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testDelegationBehavior() throws IOException {
+    void testDelegationBehavior() throws IOException {
         // blocks and categories should report typed categories and columns respectively
         MmCifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif")).as(StandardSchemata.MMCIF);
         textCifFile.getFirstBlock()
@@ -107,7 +110,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testBehaviorForEmptyFiles() throws IOException {
+    void testBehaviorForEmptyFiles() throws IOException {
         CifFile cifFile = CifBuilder.enterFile()
                 .enterBlock("test")
                 .enterCategory("atom_site")
@@ -121,7 +124,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testVectorAndMatrixBehavior() throws IOException {
+    void testVectorAndMatrixBehavior() throws IOException {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
         testVectorAndMatrixBehavior(textCifFile);
 
@@ -166,7 +169,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testUndefinedColumnBehavior() throws IOException {
+    void testUndefinedColumnBehavior() throws IOException {
         CifFile textCifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/0red.cif"));
         testUndefinedColumnBehavior(textCifFile);
 
@@ -201,7 +204,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testUnknownFeatureText() throws IOException {
+    void testUnknownFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
@@ -215,7 +218,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testNotPresentFeatureText() throws IOException {
+    void testNotPresentFeatureText() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("cif/1acj.cif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
@@ -227,7 +230,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testUnknownFeatureBinary() throws IOException {
+    void testUnknownFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
@@ -241,7 +244,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void testNotPresentFeatureBinary() throws IOException {
+    void testNotPresentFeatureBinary() throws IOException {
         // read from cif
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         MmCifFile text = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
@@ -253,7 +256,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void roundTripViaBinary() throws IOException {
+    void roundTripViaBinary() throws IOException {
         // load cif file, encode as bcif, write as cif again - should roughly match original (number formatting will change)
         for (String id : TEST_CASES.keySet()) {
             roundTripViaBinary(id);
@@ -271,11 +274,11 @@ public class IntegrationTest {
         byte[] copyBytes = CifIO.writeText(bcifFile);
         String copyContent = new String(copyBytes);
 
-        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+        assertEqualsIgnoringQuotesAndDecimalZeros(originalContent, copyContent);
     }
 
     @Test
-    public void readCifWriteBcif() throws IOException {
+    void readCifWriteBcif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
             readCifWriteBcif(id);
         }
@@ -293,7 +296,7 @@ public class IntegrationTest {
     }
 
     @Test
-    public void readBcifWriteCif() throws IOException {
+    void readBcifWriteCif() throws IOException {
         for (String id : TEST_CASES.keySet()) {
             readBcifWriteCif(id);
         }
@@ -305,22 +308,21 @@ public class IntegrationTest {
 
         String copyContent = new String(CifIO.writeText(originalFile));
 
-        assertEqualsIgnoringWhitespaces(originalContent, copyContent);
+        assertEqualsIgnoringQuotesAndDecimalZeros(originalContent, copyContent);
     }
 
     /**
      * BinaryCIF might slightly violate the schema and lead to a ClassCastException if not handled.
      */
     @Test
-    public void readRcsbAndEbiGeneric() throws IOException {
-        CifFile rcsb = CifIO.readById("1acj");
+    void readRcsbAndEbiGeneric() throws IOException {
+        CifFile rcsb = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif"));
         Column<?> rcsbNdbSeqNum = rcsb.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
-        CifFile ebi = CifIO.readById("1acj",
-                new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build());
+        CifFile ebi = CifIO.readFromInputStream(TestHelper.getInputStream("ebi/1acj.bcif"));
         Column<?> ebiNdbSeqNum = ebi.getBlocks().get(0)
                 .getCategory("pdbx_nonpoly_scheme")
                 .getColumn("ndb_seq_num");
@@ -328,19 +330,51 @@ public class IntegrationTest {
     }
 
     @Test
-    public void readRcsbAndEbiWithSchema() throws IOException {
-        MmCifFile rcsb = CifIO.readById("1acj").as(StandardSchemata.MMCIF);
+    void readRcsbAndEbiWithSchema() throws IOException {
+        MmCifFile rcsb = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif")).as(StandardSchemata.MMCIF);
         StrColumn rcsbNdbSeqNum = rcsb.getFirstBlock()
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
         assertEquals(83, rcsbNdbSeqNum.getRowCount());
 
-        MmCifFile ebi = CifIO.readById("1acj",
-                        new CifOptions.CifOptionsBuilder().fetchUrl("https://www.ebi.ac.uk/pdbe/coordinates/%s/full?encoding=bcif").build())
+        MmCifFile ebi = CifIO.readFromInputStream(TestHelper.getInputStream("ebi/1acj.bcif"))
                 .as(StandardSchemata.MMCIF);
         StrColumn ebiNdbSeqNum = ebi.getFirstBlock()
                 .getPdbxNonpolyScheme()
                 .getNdbSeqNum();
         assertEquals(83, ebiNdbSeqNum.getRowCount());
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void testTypeInferenceWhenSchemaIsAbsent() throws IOException {
+        CifFile text = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1acj.cif"));
+        Column<?> textColumn = text.getBlocks().get(0).getCategory("pdbx_struct_assembly_gen").getColumn("assembly_id");
+        assertEquals("1", textColumn.getStringData(0));
+
+//        byte[] bytes = CifIO.writeBinary(text);
+//        Map<String, Object> binaryMap = MessagePackCodec.decode(new ByteArrayInputStream(bytes));
+        Map<String, Object> binaryMap = MessagePackCodec.decode(TestHelper.getInputStream("bcif/1acj.bcif"));
+        Map<String, Object> blocks = (Map<String, Object>) ((Object[]) binaryMap.get("dataBlocks"))[0];
+        Map<String, Object> structAssemblyGen = find(blocks.get("categories"), "_pdbx_struct_assembly_gen");
+        Map<String, Object> assemblyId = find(structAssemblyGen.get("columns"), "assembly_id");
+        Object[] encoding = (Object[]) ((Map<String, Object>) assemblyId.get("data")).get("encoding");
+        System.out.println(structAssemblyGen);
+        System.out.println(assemblyId);
+        System.out.println(Arrays.toString(encoding));
+
+//        CifFile binary = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+//        Column<?> binaryColumn = binary.getBlocks().get(0).getCategory("pdbx_struct_assembly_gen").getColumn("assembly_id");
+//        assertEquals("1", binaryColumn.getStringData(0));
+//        assertTrue(binaryColumn instanceof StrColumn);
+    }
+
+    @SuppressWarnings("unchecked")
+    private Map<String, Object> find(Object data, String name) {
+        return Arrays.stream((Object[]) data)
+                .map(c -> (Map<String, Object>) c)
+                .filter(m -> name.equals(m.get("name")))
+                .findFirst()
+                .orElseThrow();
     }
 }

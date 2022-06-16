@@ -29,6 +29,6 @@ abstract class AbstractEncodedData<D> implements EncodedData<D> {
 
     @Override
     public boolean hasNextDecodingStep() {
-        return getEncoding().size() > 0;
+        return !getEncoding().isEmpty();
     }
 }

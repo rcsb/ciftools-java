@@ -18,9 +18,9 @@ import static org.rcsb.cif.TestHelper.convertToIntArray;
  * - Obtain MessagePacked data at: https://msgpack.org/
  * - Always use a sorted Map implementation (e.g. LinkedHashMap) as order matters.
  */
-public class MessagePackCodecTest {
+class MessagePackCodecTest {
     @Test
-    public void encodeString() {
+    void encodeString() {
         int[] expected = convertToIntArray("82 a2 53 31 a0 a2 53 32 ab 4c 6f 72 65 6d 20 69 70 73 75 6d");
 
         // {"S1":"","S2":"Lorem ipsum"}
@@ -34,7 +34,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeNumbers() {
+    void encodeNumbers() {
         int[] expected = convertToIntArray("82 a2 49 31 11 a2 44 31 cb c0 50 6c cc cc cc cc cd");
 
         // {"I1": 17,"D1":-65.7}
@@ -48,7 +48,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeNull() {
+    void encodeNull() {
         int[] expected = convertToIntArray("81 a4 6e 75 6c 6c c0");
 
         // {"null":null}
@@ -61,7 +61,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeBoolean() {
+    void encodeBoolean() {
         int[] expected = convertToIntArray("82 a4 74 72 75 65 c3 a5 66 61 6c 73 65 c2");
 
         // {"true":true}
@@ -75,7 +75,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeEmptyMap() {
+    void encodeEmptyMap() {
         int[] expected = convertToIntArray("81 a3 6f 62 6a 80");
 
         // {"obj":{}}
@@ -88,7 +88,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeMap() {
+    void encodeMap() {
         int[] expected = convertToIntArray("81 a3 6f 62 6a 83 a2 53 31 a3 73 74 72 a2 49 31 f4 a2 44 31 cb 40 5f d4 b0 f2 7b b2 ff");
 
         // {"obj":{"S1":"str","I1":-12,"D1":127.3233}}
@@ -105,7 +105,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void encodeEmptyArray() {
+    void encodeEmptyArray() {
         int[] expected = convertToIntArray("81 a3 61 72 72 90");
 
         // {"arr":[]}
@@ -118,7 +118,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testForward() throws IOException {
+    void testForward() throws IOException {
         // create test case
         Map<String, Object> originalMap = new LinkedHashMap<>();
         originalMap.put("S1", "Lorem");
@@ -149,7 +149,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testNegFixInt() throws IOException {
+    void testNegFixInt() throws IOException {
         // there was a strange case when negative int values with length of 1 byte where horribly misinterpreted as 4
         // bytes of information
         Map<String, Object> originalMap = new LinkedHashMap<>();
@@ -164,7 +164,7 @@ public class MessagePackCodecTest {
     }
 
     @Test
-    public void testBackward() throws IOException {
+    void testBackward() throws IOException {
         // obtain example file
         InputStream inputStream = TestHelper.getInputStream("bcif/1pga.bcif");
 

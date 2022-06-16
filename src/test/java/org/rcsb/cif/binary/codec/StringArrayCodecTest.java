@@ -10,9 +10,9 @@ import java.util.stream.IntStream;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class StringArrayCodecTest {
+class StringArrayCodecTest {
     @Test
-    public void testForward() {
+    void testForward() {
         // create test case
         StringArray plainArray = new StringArray(new String[] { "a", "AB", "a" });
 
@@ -27,7 +27,7 @@ public class StringArrayCodecTest {
     }
 
     @Test
-    public void testRoundtrip() {
+    void testRoundtrip() {
         StringArray plainArray = new StringArray(IntStream.range(0, 536)
                 .mapToObj(i -> "n")
                 .toArray(String[]::new));
@@ -43,7 +43,7 @@ public class StringArrayCodecTest {
     }
 
     @Test
-    public void testNullAndEmpty() {
+    void testNullAndEmpty() {
         StringArray plainArray = new StringArray(new String[] { "a", "AB", null, null, "", "a", "" });
         // null and "" will be 'merged' into empty strings
         String[] expected = new String[] { "a", "AB", "", "", "", "a", "" };
@@ -59,7 +59,7 @@ public class StringArrayCodecTest {
     }
 
     @Test
-    public void testChaining() {
+    void testChaining() {
         StringArray plainArray = new StringArray(Pattern.compile(", ")
                 .splitAsStream("L-peptide linking, L-peptide linking, L-peptide linking, L-peptide linking, " +
                         "L-peptide linking, L-peptide linking, L-peptide linking, peptide linking, L-peptide linking, " +

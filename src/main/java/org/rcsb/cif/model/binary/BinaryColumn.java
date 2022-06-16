@@ -9,7 +9,7 @@ public abstract class BinaryColumn<T> implements Column<T> {
     private final boolean hasMask;
     private final int[] mask;
 
-    public BinaryColumn(String name, int rowCount, int[] mask) {
+    protected BinaryColumn(String name, int rowCount, int[] mask) {
         this.name = name;
         this.rowCount = rowCount;
         this.hasMask = mask != null && mask.length > 0;

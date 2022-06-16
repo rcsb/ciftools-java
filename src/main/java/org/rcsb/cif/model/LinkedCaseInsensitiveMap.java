@@ -1,5 +1,5 @@
 /*
- * Copyright 2002-2019 the original author or authors.
+ * Copyright 2002-2022 the original author or authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,7 +25,6 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Locale;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
 import java.util.Spliterator;
 import java.util.function.Consumer;
@@ -40,20 +39,27 @@ import java.util.function.Function;
  *
  * <p>Does <i>not</i> support {@code null} keys.
  *
- * Part of the spring-framework but really we need just this one class.
- *
  * @author Juergen Hoeller
  * @author Phillip Webb
  * @since 3.0
  * @param <V> the value type
  */
 public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable, Cloneable {
+    /**
+     * Default load factor for {@link HashMap}/{@link LinkedHashMap} variants.
+     */
+    private static final float DEFAULT_LOAD_FACTOR = 0.75f;
+
     private final LinkedHashMap<String, V> targetMap;
+
     private final HashMap<String, String> caseInsensitiveKeys;
+
     private final Locale locale;
 
     private transient volatile Set<String> keySet;
+
     private transient volatile Collection<V> values;
+
     private transient volatile Set<Entry<String, V>> entrySet;
 
 
@@ -68,40 +74,44 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
 
     /**
      * Create a new LinkedCaseInsensitiveMap that stores case-insensitive keys
-     * according to the given Locale (by default in lower case).
+     * according to the given Locale (in lower case).
      * @param locale the Locale to use for case-insensitive key conversion
      * @see #convertKey(String)
      */
     public LinkedCaseInsensitiveMap(Locale locale) {
-        this(16, locale);
+        this(12, locale);  // equivalent to LinkedHashMap's initial capacity of 16
     }
 
     /**
      * Create a new LinkedCaseInsensitiveMap that wraps a {@link LinkedHashMap}
-     * with the given initial capacity and stores case-insensitive keys
-     * according to the default Locale (by default in lower case).
-     * @param initialCapacity the initial capacity
+     * with an initial capacity that can accommodate the specified number of
+     * elements without any immediate resize/rehash operations to be expected,
+     * storing case-insensitive keys according to the default Locale (in lower case).
+     * @param expectedSize the expected number of elements (with a corresponding
+     * capacity to be derived so that no resize/rehash operations are needed)
      * @see #convertKey(String)
      */
-    public LinkedCaseInsensitiveMap(int initialCapacity) {
-        this(initialCapacity, null);
+    public LinkedCaseInsensitiveMap(int expectedSize) {
+        this(expectedSize, null);
     }
 
     /**
      * Create a new LinkedCaseInsensitiveMap that wraps a {@link LinkedHashMap}
-     * with the given initial capacity and stores case-insensitive keys
-     * according to the given Locale (by default in lower case).
-     * @param initialCapacity the initial capacity
+     * with an initial capacity that can accommodate the specified number of
+     * elements without any immediate resize/rehash operations to be expected,
+     * storing case-insensitive keys according to the given Locale (in lower case).
+     * @param expectedSize the expected number of elements (with a corresponding
+     * capacity to be derived so that no resize/rehash operations are needed)
      * @param locale the Locale to use for case-insensitive key conversion
      * @see #convertKey(String)
      */
-    public LinkedCaseInsensitiveMap(int initialCapacity, Locale locale) {
-        this.targetMap = new LinkedHashMap<String, V>(initialCapacity) {
+    public LinkedCaseInsensitiveMap(int expectedSize, Locale locale) {
+        this.targetMap = new LinkedHashMap<String, V>(
+                (int) (expectedSize / DEFAULT_LOAD_FACTOR), DEFAULT_LOAD_FACTOR) {
             @Override
             public boolean containsKey(Object key) {
                 return LinkedCaseInsensitiveMap.this.containsKey(key);
             }
-
             @Override
             protected boolean removeEldestEntry(Map.Entry<String, V> eldest) {
                 boolean doRemove = LinkedCaseInsensitiveMap.this.removeEldestEntry(eldest);
@@ -111,7 +121,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
                 return doRemove;
             }
         };
-        this.caseInsensitiveKeys = new HashMap<>(initialCapacity);
+        this.caseInsensitiveKeys = new HashMap<>((int) (expectedSize / DEFAULT_LOAD_FACTOR), DEFAULT_LOAD_FACTOR);
         this.locale = (locale != null ? locale : Locale.getDefault());
     }
 
@@ -124,6 +134,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
         this.caseInsensitiveKeys = (HashMap<String, String>) other.caseInsensitiveKeys.clone();
         this.locale = other.locale;
     }
+
 
     // Implementation of java.util.Map
 
@@ -192,7 +203,13 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     public V putIfAbsent(String key, V value) {
         String oldKey = this.caseInsensitiveKeys.putIfAbsent(convertKey(key), key);
         if (oldKey != null) {
-            return this.targetMap.get(oldKey);
+            V oldKeyValue = this.targetMap.get(oldKey);
+            if (oldKeyValue != null) {
+                return oldKeyValue;
+            }
+            else {
+                key = oldKey;
+            }
         }
         return this.targetMap.putIfAbsent(key, value);
     }
@@ -201,7 +218,13 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     public V computeIfAbsent(String key, Function<? super String, ? extends V> mappingFunction) {
         String oldKey = this.caseInsensitiveKeys.putIfAbsent(convertKey(key), key);
         if (oldKey != null) {
-            return this.targetMap.get(oldKey);
+            V oldKeyValue = this.targetMap.get(oldKey);
+            if (oldKeyValue != null) {
+                return oldKeyValue;
+            }
+            else {
+                key = oldKey;
+            }
         }
         return this.targetMap.computeIfAbsent(key, mappingFunction);
     }
@@ -254,21 +277,18 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        LinkedCaseInsensitiveMap<?> that = (LinkedCaseInsensitiveMap<?>) o;
-        return Objects.equals(targetMap, that.targetMap) &&
-                Objects.equals(caseInsensitiveKeys, that.caseInsensitiveKeys) &&
-                Objects.equals(locale, that.locale) &&
-                Objects.equals(keySet, that.keySet) &&
-                Objects.equals(values, that.values) &&
-                Objects.equals(entrySet, that.entrySet);
+    public LinkedCaseInsensitiveMap<V> clone() {
+        return new LinkedCaseInsensitiveMap<>(this);
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        return (this == other || this.targetMap.equals(other));
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(targetMap, caseInsensitiveKeys, locale, keySet, values, entrySet);
+        return this.targetMap.hashCode();
     }
 
     @Override
@@ -276,12 +296,13 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
         return this.targetMap.toString();
     }
 
+
     // Specific to LinkedCaseInsensitiveMap
 
     /**
      * Return the locale used by this {@code LinkedCaseInsensitiveMap}.
      * Used for case-insensitive key conversion.
-     * @return the locale used
+     * @since 4.3.10
      * @see #LinkedCaseInsensitiveMap(Locale)
      * @see #convertKey(String)
      */
@@ -297,7 +318,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
      * @return the key to use for storing
      * @see String#toLowerCase(Locale)
      */
-    private String convertKey(String key) {
+    protected String convertKey(String key) {
         return key.toLowerCase(getLocale());
     }
 
@@ -306,7 +327,7 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
      * @param eldest the candidate entry
      * @return {@code true} for removing it, {@code false} for keeping it
      */
-    private boolean removeEldestEntry(Map.Entry<String, V> eldest) {
+    protected boolean removeEldestEntry(Map.Entry<String, V> eldest) {
         return false;
     }
 
@@ -314,7 +335,9 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
         return this.caseInsensitiveKeys.remove(convertKey(key));
     }
 
-    class KeySet extends AbstractSet<String> {
+
+    private class KeySet extends AbstractSet<String> {
+
         private final Set<String> delegate;
 
         KeySet(Set<String> delegate) {
@@ -357,7 +380,9 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
         }
     }
 
-    class Values extends AbstractCollection<V> {
+
+    private class Values extends AbstractCollection<V> {
+
         private final Collection<V> delegate;
 
         Values(Collection<V> delegate) {
@@ -395,10 +420,12 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
         }
     }
 
-    class EntrySet extends AbstractSet<Entry<String, V>> {
+
+    private class EntrySet extends AbstractSet<Entry<String, V>> {
+
         private final Set<Entry<String, V>> delegate;
 
-        EntrySet(Set<Entry<String, V>> delegate) {
+        public EntrySet(Set<Entry<String, V>> delegate) {
             this.delegate = delegate;
         }
 
@@ -445,16 +472,17 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
 
-    abstract class EntryIterator<T> implements Iterator<T> {
+    private abstract class EntryIterator<T> implements Iterator<T> {
+
         private final Iterator<Entry<String, V>> delegate;
 
         private Entry<String, V> last;
 
-        EntryIterator() {
+        public EntryIterator() {
             this.delegate = targetMap.entrySet().iterator();
         }
 
-        Entry<String, V> nextEntry() {
+        protected Entry<String, V> nextEntry() {
             Entry<String, V> entry = this.delegate.next();
             this.last = entry;
             return entry;
@@ -476,7 +504,8 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
 
-    class KeySetIterator extends EntryIterator<String> {
+    private class KeySetIterator extends EntryIterator<String> {
+
         @Override
         public String next() {
             return nextEntry().getKey();
@@ -484,7 +513,8 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
 
-    class ValuesIterator extends EntryIterator<V> {
+    private class ValuesIterator extends EntryIterator<V> {
+
         @Override
         public V next() {
             return nextEntry().getValue();
@@ -492,10 +522,12 @@ public class LinkedCaseInsensitiveMap<V> implements Map<String, V>, Serializable
     }
 
 
-    class EntrySetIterator extends EntryIterator<Entry<String, V>> {
+    private class EntrySetIterator extends EntryIterator<Entry<String, V>> {
+
         @Override
         public Entry<String, V> next() {
             return nextEntry();
         }
     }
+
 }

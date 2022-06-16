@@ -8,9 +8,9 @@ import org.rcsb.cif.binary.encoding.IntervalQuantizationEncoding;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class IntervalQuantizationCodecTest {
+class IntervalQuantizationCodecTest {
     @Test
-    public void testEncode() {
+    void testEncode() {
         // create test case
         FloatArray plainArray = new Float32Array(new double[] { 0.5, 1, 1.5, 2, 3, 1.345 });
         Int32Array expected = new Int32Array( new int[] { 0, 0, 1, 2, 2, 1 });

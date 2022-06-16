@@ -17,9 +17,9 @@ import static org.junit.jupiter.api.Assertions.fail;
  * CIF specification states that case does not matter. This test defines the behavior of the implementation: case should
  * not matter during category/column retrieval but it should be honored during file writing.
  */
-public class CaseSensitivityTest {
+class CaseSensitivityTest {
     @Test
-    public void shouldIgnoreReadCaseForBinaryFiles() throws IOException {
+    void shouldIgnoreReadCaseForBinaryFiles() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         CifFile cifFile = CifIO.readFromInputStream(inputStream);
 
@@ -27,7 +27,7 @@ public class CaseSensitivityTest {
     }
 
     @Test
-    public void shouldIgnoreReadCaseForTextFiles() throws IOException {
+    void shouldIgnoreReadCaseForTextFiles() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("bcif/1acj.bcif");
         CifFile cifFile = CifIO.readFromInputStream(inputStream);
 
@@ -97,7 +97,7 @@ public class CaseSensitivityTest {
     }
 
     @Test
-    public void shouldPropagateCaseForBinaryFiles() throws IOException {
+    void shouldPropagateCaseForBinaryFiles() throws IOException {
         CifFile cifFile = CifBuilder.enterFile()
                 .enterBlock("TEST")
                 .enterCategory("ATOM_SITE")
@@ -116,7 +116,7 @@ public class CaseSensitivityTest {
     }
 
     @Test
-    public void shouldPropagateCaseForTextFiles() throws IOException {
+    void shouldPropagateCaseForTextFiles() throws IOException {
         CifFile cifFile = CifBuilder.enterFile()
                 .enterBlock("TEST")
                 .enterCategory("ATOM_SITE")
@@ -135,7 +135,7 @@ public class CaseSensitivityTest {
     }
 
     @Test
-    public void shouldReadTamperedFileCaseInsensitively() throws IOException {
+    void shouldReadTamperedFileCaseInsensitively() throws IOException {
         InputStream inputStream = TestHelper.getInputStream("cif/1acj-cases.cif");
         CifFile cifFile = CifIO.readFromInputStream(inputStream);
 

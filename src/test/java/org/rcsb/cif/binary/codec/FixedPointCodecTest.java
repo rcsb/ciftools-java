@@ -7,9 +7,9 @@ import org.rcsb.cif.binary.encoding.FixedPointEncoding;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class FixedPointCodecTest {
+class FixedPointCodecTest {
     @Test
-    public void testForward() {
+    void testForward() {
         // create test case
         int factor = 1000;
         Float64Array plainArray = new Float64Array(new double[] { -1, 2.04, -100.5893, 42, Integer.MAX_VALUE / (double) factor,
@@ -26,7 +26,7 @@ public class FixedPointCodecTest {
     }
 
     @Test
-    public final void testFixedPoint() {
+    void testFixedPoint() {
         Int32Array intArray = new Int32Array(new int[] { 10001, 100203, 124542 });
         FloatArray testFloatArray = new Float64Array(new double[] { 10.001, 100.203, 124.542 });
 

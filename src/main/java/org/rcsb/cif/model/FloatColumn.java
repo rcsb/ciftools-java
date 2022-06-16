@@ -20,7 +20,7 @@ public interface FloatColumn extends Column<double[]> {
      */
     default DoubleStream values() {
         double[] array = getArray();
-        return array != null ? Arrays.stream(getArray()) : DoubleStream.empty();
+        return array != null ? Arrays.stream(array) : DoubleStream.empty();
     }
 
     /**

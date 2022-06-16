@@ -26,7 +26,6 @@ import org.rcsb.cif.model.ValueKind;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class BinaryCifWriter {
@@ -90,22 +89,23 @@ public class BinaryCifWriter {
         return file;
     }
 
-    private ByteArray encodeFloatArray(String categoryName, String columnName, Float64Array column) {
-        Optional<EncodingStrategyHint> optional = options.getEncodingStrategyHint(categoryName, columnName);
-
-        // if no hint given, auto-classify column
-        EncodingStrategyHint hint = optional.orElseGet(() -> Classifier.classify(column));
-        // if no encoding given, auto-classify encoding
-        String encoding = hint.getEncoding() != null ? hint.getEncoding() : Classifier.classify(column).getEncoding();
-        // if multiplier/precision not given, auto-classify only precision
-        EncodingStrategyHint precisionClassification = Classifier.classifyPrecision(column);
-        if ("byte".equals(precisionClassification.getEncoding())) {
+    private ByteArray encodeFloatArray(Float64Array column, EncodingStrategyHint optional) {
+        // if no hint given, classify column
+        EncodingStrategyHint hint = optional != null ? optional : Classifier.classify(column);
+        if (hint.getEncoding() == null) {
+            hint.setEncoding(Classifier.classify(column).getEncoding());
+        }
+        if ("byte".equals(hint.getEncoding())) {
             return column.encode();
         }
-        int multiplier = getMultiplier(hint.getPrecision() != null ? hint.getPrecision() : precisionClassification.getPrecision());
+        if (hint.getPrecision() == null) {
+            hint.setPrecision(Classifier.classify(column).getPrecision());
+        }
+
+        int multiplier = getMultiplier(hint.getPrecision());
 
         Int32Array fixedPoint = column.encode(new FixedPointEncoding(multiplier));
-        return Classifier.encode(fixedPoint, encoding);
+        return Classifier.encode(fixedPoint, hint.getEncoding());
     }
 
     private static int getMultiplier(int mantissaDigits) {
@@ -116,36 +116,150 @@ public class BinaryCifWriter {
         return m;
     }
 
-    private ByteArray encodeIntArray(String categoryName, String columnName, Int32Array column) {
-        Optional<String> optional = options.getEncodingStrategyHint(categoryName, columnName).map(EncodingStrategyHint::getEncoding);
-
-        // if no hint given, auto-classify column
-        String encoding = optional.orElseGet(() -> Classifier.classify(column).getEncoding());
-
+    private ByteArray encodeIntArray(Int32Array column, EncodingStrategyHint optional) {
+        // if no hint given, classify column
+        String encoding = optional != null && optional.getEncoding() != null ? optional.getEncoding() : Classifier.classify(column).getEncoding();
         return Classifier.encode(column, encoding);
     }
 
     private Map<String, Object> encodeColumn(String categoryName, Column<?> cifColumn) {
-        if (cifColumn instanceof FloatColumn) {
-            FloatColumn floatCol = (FloatColumn) cifColumn;
-            double[] array = floatCol.getArray();
-            ByteArray byteArray = encodeFloatArray(categoryName, cifColumn.getColumnName(), new Float64Array(array));
-            return encodeColumnUsingByteArray(cifColumn, byteArray);
-        } else if (cifColumn instanceof IntColumn) {
-            IntColumn intCol = (IntColumn) cifColumn;
-            int[] array = intCol.getArray();
-            ByteArray byteArray = encodeIntArray(categoryName, cifColumn.getColumnName(), new Int32Array(array));
-            return encodeColumnUsingByteArray(cifColumn, byteArray);
-        } else if (cifColumn instanceof StrColumn) {
-            StrColumn strCol = (StrColumn) cifColumn;
-            String[] array = strCol.getArray();
-            ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
-            return encodeColumnUsingByteArray(cifColumn, byteArray);
-        } else {
-            // column is typed but unknown
-            String[] array = cifColumn.stringData().toArray(String[]::new);
-            ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
-            return encodeColumnUsingByteArray(cifColumn, byteArray);
+        // TODO encoding provider support and/or make auto-classify configurable
+        EncodingStrategyHint optional = options.getEncodingStrategyHint(categoryName, cifColumn.getColumnName()).orElse(null);
+        ColumnType type = ColumnType.of(cifColumn);
+        switch (type) {
+            case Str:
+                return encodeStr(cifColumn);
+            case Float:
+                return encodeFloat(cifColumn, optional);
+            case Int:
+                return encodeInt(cifColumn, optional);
+            default:
+                throw new UnsupportedOperationException(type + " not handled");
+        }
+    }
+
+    private Map<String, Object> encodeStr(Column<?> cifColumn) {
+        String[] array = cifColumn instanceof StrColumn ?
+                ((StrColumn) cifColumn).getArray() :
+                cifColumn.stringData().toArray(String[]::new);
+        ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
+        return encodeColumnUsingByteArray(cifColumn, byteArray);
+    }
+
+    private Map<String, Object> encodeFloat(Column<?> cifColumn, EncodingStrategyHint optional) {
+        double[] array = cifColumn instanceof FloatColumn ?
+                ((FloatColumn) cifColumn).getArray() :
+                cifColumn.stringData().mapToDouble(FloatColumn::parseFloat).toArray();
+        ByteArray byteArray = encodeFloatArray(new Float64Array(array), optional);
+        return encodeColumnUsingByteArray(cifColumn, byteArray);
+    }
+
+    private Map<String, Object> encodeInt(Column<?> cifColumn, EncodingStrategyHint optional) {
+        int[] array = cifColumn instanceof IntColumn ?
+                ((IntColumn) cifColumn).getArray() :
+                cifColumn.stringData().mapToInt(IntColumn::parseInt).toArray();
+        ByteArray byteArray = encodeIntArray(new Int32Array(array), optional);
+        return encodeColumnUsingByteArray(cifColumn, byteArray);
+    }
+
+    enum ColumnType {
+        Int,
+        Float,
+        Str;
+
+        static ColumnType of(Column<?> column) {
+            int floatCount = 0;
+            boolean hasStringOrScientific = false;
+            int undefinedCount = 0;
+            for (int i = 0; i < column.getRowCount(); i++) {
+                ValueKind valueKind = column.getValueKind(i);
+                if (valueKind != ValueKind.PRESENT) {
+                    undefinedCount++;
+                    continue;
+                }
+                NumberType type = NumberType.of(column.getStringData(i));
+                if (type == NumberType.Int) {
+                    continue;
+                } else if (type == NumberType.Float) {
+                    floatCount++;
+                } else {
+                    hasStringOrScientific = true;
+                    break;
+                }
+            }
+            if (hasStringOrScientific || undefinedCount == column.getRowCount()) {
+                return Str;
+            }
+            if (floatCount > 0) {
+                return Float;
+            }
+            return Int;
+        }
+    }
+
+    enum NumberType {
+        Int,
+        Float,
+        Scientific,
+        NaN;
+
+        static NumberType of(String v) {
+            int start = 0;
+            int end = v.length();
+
+            if (v.charAt(start) == '-') {
+                start++;
+            }
+
+            if (v.charAt(start) == '.' && end - start == 1) {
+                return NaN;
+            }
+
+            while (start < end) {
+                int c = v.charAt(start);
+                if (c >= '0' && c < ':') {
+                    start++;
+                } else if (c == '.') {
+                    start++;
+                    boolean hasDigit = false;
+                    while (start < end) {
+                        c = v.charAt(start);
+                        if (c >= '0' && c < ':') {
+                            hasDigit = true;
+                            start++;
+                        } else if (c == 'e' || c == 'E') {
+                            return getNumberTypeScientific(v, start + 1, end);
+                        } else {
+                            return NaN;
+                        }
+                    }
+                    return hasDigit ? Float : Int;
+                } else if (c == 'e' || c == 'E') {
+                    if (start == 0 || start == 1 && v.charAt(0) == '-') {
+                        return NaN;
+                    }
+                    return getNumberTypeScientific(v, start + 1, end);
+                } else {
+                    break;
+                }
+            }
+            return start == end ? Int : NaN;
+        }
+
+        // check for "scientific integers?"
+        static NumberType getNumberTypeScientific(String v, int start, int end) {
+            // handle + in '1e+1' separately.
+            if (v.charAt(start) == '+') start++;
+            return isInt(v, start, end) ? NumberType.Scientific : NumberType.NaN;
+        }
+
+        static boolean isInt(String v, int start, int end) {
+            if (v.charAt(start) == '-') { start++; }
+            for (; start < end; start++) {
+                int c = v.charAt(start) - '0';
+                if (c > 9 || c < 0) return false;
+            }
+            return true;
         }
     }
 

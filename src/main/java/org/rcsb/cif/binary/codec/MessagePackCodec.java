@@ -17,6 +17,10 @@ import java.util.Map;
  * considered.
  */
 public class MessagePackCodec {
+    private MessagePackCodec() {
+        // nothing here
+    }
+
     public static byte[] encode(Map<String, Object> input) {
         try {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
@@ -171,9 +175,9 @@ public class MessagePackCodec {
             }
         } else {
             Map<?, ?> value = (Map<?, ?>) input;
-            for (Object key : value.keySet()) {
-                encodeInternal(key, stream);
-                encodeInternal(value.get(key), stream);
+            for (Map.Entry<?, ?> entry : value.entrySet()) {
+                encodeInternal(entry.getKey(), stream);
+                encodeInternal(entry.getValue(), stream);
             }
         }
     }
@@ -279,9 +283,9 @@ public class MessagePackCodec {
             // map32
             case 0xDF:
                 return map(inputStream, readUnsignedInt(inputStream));
+            default:
+                throw new IllegalArgumentException("Unknown MessagePack type 0x" + type);
         }
-
-        throw new IllegalArgumentException("Unknown MessagePack type 0x" + type);
     }
 
     private static int readUnsignedInt(DataInputStream inputStream) throws IOException {

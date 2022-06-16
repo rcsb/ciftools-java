@@ -28,6 +28,10 @@ public class CifIO {
     private static final int BUFFER_SIZE = 65536;
     private static final CifOptions DEFAULT_OPTIONS = CifOptions.builder().build();
 
+    private CifIO() {
+        // nothing here
+    }
+
     /**
      * Read a {@link CifFile} from web. Refine the address via {@link CifOptions.CifOptionsBuilder#fetchUrl(String)}. Otherwise
      * binaryCIF will be loaded.

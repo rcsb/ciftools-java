@@ -104,10 +104,6 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         Packing packing = determinePacking(input);
         if (packing.bytesPerElement == 4) {
             Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
-            this.byteCount = 4;
-            this.isUnsigned = false;
-            this.srcSize = input.length;
-            enc.add(this);
             return new Int32Array(input, enc);
         }
 
@@ -182,7 +178,7 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         long size8 = packingSize(input, signed ? 0x7F : 0xFF);
         long size16 = packingSize(input, signed ? 0x7FFF : 0xFFFF);
 
-        if (input.length * 4 < size16 * 2) {
+        if (input.length * 4L < size16 * 2) {
             // 4 byte packing is the most effective
             return new Packing(signed, input.length, 4);
         } else if (size16 * 2 < size8) {
