@@ -16,6 +16,7 @@ import org.rcsb.cif.schema.StandardSchemata;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -433,11 +434,40 @@ public class SchemaGenerator {
 
     private InputStream preprocess(String res) throws IOException {
         try (InputStream inputStream = new URL(res).openStream()) {
-            String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
+            String content = new String(readAllBytes(inputStream), StandardCharsets.UTF_8);
             // this is needed for https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic
             // TODO proper CIF 2.0 (or at least list support, or at the very least don't hard-code this here...)
             content = content.replace("[translucent  pale  green]", "'[translucent  pale  green]'");
             return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
+        }
+    }
+
+    private byte[] readAllBytes(InputStream inputStream) throws IOException {
+        final int bufLen = 4 * 0x400; // 4KB
+        byte[] buf = new byte[bufLen];
+        int readLen;
+        IOException exception = null;
+
+        try {
+            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+                while ((readLen = inputStream.read(buf, 0, bufLen)) != -1)
+                    outputStream.write(buf, 0, readLen);
+
+                return outputStream.toByteArray();
+            }
+        } catch (IOException e) {
+            exception = e;
+            throw e;
+        } finally {
+            if (exception == null) {
+                inputStream.close();
+            } else {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    exception.addSuppressed(e);
+                }
+            }
         }
     }
 
