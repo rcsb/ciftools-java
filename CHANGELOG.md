@@ -3,6 +3,11 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 4.0.2 - June 2022
+-------------
+### Bug fixes
+* write `null` instead of empty map if all values are present and no mask is needed - otherwise other software might refuse to load files written by ciftools-java
+
 ciftools-java 4.0.1 - June 2022
 -------------
 ### Bug fixes

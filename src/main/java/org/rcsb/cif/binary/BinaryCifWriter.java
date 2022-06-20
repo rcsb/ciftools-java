@@ -291,8 +291,9 @@ public class BinaryCifWriter {
         encodedMap.put("data", byteArray.getData());
 
         // encode mask
-        Map<String, Object> maskData = new LinkedHashMap<>();
+        Map<String, Object> maskData = null;
         if (!allPresent) {
+            maskData = new LinkedHashMap<>();
             ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode();
 
             if (maskRLE.getData().length < mask.getData().length) {

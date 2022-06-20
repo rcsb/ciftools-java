@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.BlockBuilder;
 import org.rcsb.cif.model.Category;
 import org.rcsb.cif.model.CategoryBuilder;
@@ -24,6 +25,8 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Arrays;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -203,5 +206,19 @@ class WriterTest {
                 " if so, update snapshot files in snapshot/");
         assertArrayEquals(originalGzip, outputGzip, "binary write output does not match snapshot of output - did the implementation change?" +
                 " if so, update snapshot files in snapshot/");
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    void shouldWriteNullMaskIfAllValuesPresent() throws IOException {
+        CifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1a2c.cif"));
+        byte[] bytes = CifIO.writeBinary(cifFile);
+        Map<String, Object> message = MessagePackCodec.decode(new ByteArrayInputStream(bytes));
+        Map<String, Object> block = (Map<String, Object>) ((Object[]) message.get("dataBlocks"))[0];
+        Map<String, Object> atomSite = (Map<String, Object>) Arrays.stream((Object[]) block.get("categories")).map(Map.class::cast).filter(m -> m.get("name").equals("_atom_site")).findFirst().orElse(null);
+        assertNotNull(atomSite);
+        Map<String, Object> authAsymId = (Map<String, Object>) Arrays.stream((Object[]) atomSite.get("columns")).map(Map.class::cast).filter(m -> m.get("name").equals("auth_asym_id")).findFirst().orElse(null);
+        assertNotNull(authAsymId);
+        assertNull(authAsymId.get("mask"), "empty mask must be encoded by 'null' value");
     }
 }
