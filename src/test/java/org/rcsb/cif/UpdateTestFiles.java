@@ -10,6 +10,9 @@ import java.nio.file.Paths;
 
 import static org.rcsb.cif.TestHelper.TEST_CASES;
 
+/**
+ * Args[0] points to snapshot directory: ciftools-java/src/test/resources/snapshot/
+ */
 public class UpdateTestFiles {
     public static void main(String[] args) throws IOException {
         Path dest = Paths.get(args[0]);
