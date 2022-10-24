@@ -68,7 +68,7 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
     }
 
     /**
-     * Ordinal key for the em_entity_assembly_naturalsource category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -84,7 +84,7 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
     }
 
     /**
-     * The genus-species of the natural organism from which the component was obtained.
+     * The scientific name of the source organism for the component
      * @return StrColumn
      */
     public StrColumn getOrganism() {

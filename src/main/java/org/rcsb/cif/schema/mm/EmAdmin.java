@@ -103,7 +103,7 @@ public class EmAdmin extends DelegatingCategory {
     }
 
     /**
-     * date of the embargo expiration for this map entry
+     * Date when the map is due to be released after a specific hold period.
      * @return StrColumn
      */
     public StrColumn getMapHoldDate() {
@@ -127,7 +127,10 @@ public class EmAdmin extends DelegatingCategory {
     }
 
     /**
-     * This item indicates that the current entry replaced a previously released structure.
+     * Please indicate whether the current entry is intended to supersede a
+     * previously released entry.  Please contact wwPDB annotation staff using the
+     * "Communication" page if you have any questions regarding how to answer this
+     * question.
      * @return StrColumn
      */
     public StrColumn getReplaceExistingEntryFlag() {

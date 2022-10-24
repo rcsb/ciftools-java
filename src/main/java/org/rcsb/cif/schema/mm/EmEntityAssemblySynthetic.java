@@ -68,7 +68,7 @@ public class EmEntityAssemblySynthetic extends DelegatingCategory {
     }
 
     /**
-     * Ordinal key for the em_entity_assembly_synthetic category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -84,7 +84,7 @@ public class EmEntityAssemblySynthetic extends DelegatingCategory {
     }
 
     /**
-     * The genus-species of the synthetic organism from which the component was obtained.
+     * The scientific name of the source organism for the component
      * @return StrColumn
      */
     public StrColumn getOrganism() {

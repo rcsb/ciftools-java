@@ -69,7 +69,7 @@ public class EmTomographySpecimen extends DelegatingCategory {
     }
 
     /**
-     * This data item is the primary key of the category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -85,7 +85,7 @@ public class EmTomographySpecimen extends DelegatingCategory {
     }
 
     /**
-     * Foreign key relationship to the EMD SPECIMEN category
+     * Foreign key relationship to the EM SPECIMEN category
      * @return StrColumn
      */
     public StrColumn getSpecimenId() {

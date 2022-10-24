@@ -52,8 +52,7 @@ public class EmVirusShell extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_em_virus_shell.id is a unique identifier for
-     * one virus shell.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -69,11 +68,10 @@ public class EmVirusShell extends DelegatingCategory {
     }
 
     /**
-     * The triangulation number (T number) is a geometric
-     * concept that refers to the organisation of subunits within the icosahedron.
-     * The triangulation number, T is given by the relationship
-     * T= h*2 + hk +k*2,  where h and k are positive integers which define the
-     * position of the five-fold vertex on the original hexagonal net.
+     * The triangulation number, T, describes the organization of subunits within an
+     * icosahedron. T is defined as T= h^2 + h*k + k^2, where h and k are positive
+     * integers that define the position of the five-fold vertex on the original
+     * hexagonal net.
      * @return IntColumn
      */
     public IntColumn getTriangulation() {

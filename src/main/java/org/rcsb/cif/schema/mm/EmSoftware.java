@@ -57,7 +57,7 @@ public class EmSoftware extends DelegatingCategory {
     }
 
     /**
-     * Unique identifier for each software description.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

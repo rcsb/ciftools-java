@@ -45,7 +45,7 @@ public class EmVolumeSelection extends DelegatingCategory {
     }
 
     /**
-     * Ordinal identifier
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

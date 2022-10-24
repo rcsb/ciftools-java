@@ -75,8 +75,7 @@ public class EmEntityAssembly extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_entity_assembly.id identifies
-     * one component of the complex.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -103,7 +102,8 @@ public class EmEntityAssembly extends DelegatingCategory {
     }
 
     /**
-     * The assembly type.
+     * The type of source (e.g., natural source) for the component (sample or sample
+     * subcomponent)
      * @return StrColumn
      */
     public StrColumn getSource() {
@@ -111,8 +111,7 @@ public class EmEntityAssembly extends DelegatingCategory {
     }
 
     /**
-     * A description of types of components of the
-     * assembly of the biological structure.
+     * The general type of the sample or sample subcomponent.
      * @return StrColumn
      */
     public StrColumn getType() {
@@ -120,7 +119,7 @@ public class EmEntityAssembly extends DelegatingCategory {
     }
 
     /**
-     * Name of this component in the observed assembly.
+     * The name of the sample or sample subcomponent.
      * @return StrColumn
      */
     public StrColumn getName() {
@@ -128,7 +127,7 @@ public class EmEntityAssembly extends DelegatingCategory {
     }
 
     /**
-     * Additional details about the component.
+     * Additional details about the sample or sample subcomponent.
      * @return StrColumn
      */
     public StrColumn getDetails() {

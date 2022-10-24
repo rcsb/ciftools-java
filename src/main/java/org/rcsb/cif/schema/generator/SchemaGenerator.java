@@ -140,7 +140,8 @@ public class SchemaGenerator {
 
     private void writeClasses() throws IOException {
         // create or clear out destination directory
-        // be careful with this and point to temp directory when in trouble - the impl must be in a heavily state to bootstrap itself and generate schema-related code
+        // be careful with this and point to temp directory when in trouble - the impl must be in a healthy state to
+        // bootstrap itself and generate schema-related code
         Path projectPath = Paths.get(new File("").getAbsolutePath());
         String basePackagePath = BASE_PACKAGE.substring(0, BASE_PACKAGE.length() - 1).replace(".", "/");
         Path packagePath = projectPath.resolve("src").resolve("main").resolve("java").resolve(basePackagePath).resolve(packageName);

@@ -59,6 +59,8 @@ public class EmMap extends DelegatingCategory {
                 return getEndianType();
             case "file":
                 return getFile();
+            case "original_file":
+                return getOriginalFile();
             case "format":
                 return getFormat();
             case "id":
@@ -275,6 +277,14 @@ public class EmMap extends DelegatingCategory {
     }
 
     /**
+     * Depositiors original map file name.
+     * @return StrColumn
+     */
+    public StrColumn getOriginalFile() {
+        return delegate.getColumn("original_file", DelegatingStrColumn::new);
+    }
+
+    /**
      * map format
      * @return StrColumn
      */
@@ -283,7 +293,7 @@ public class EmMap extends DelegatingCategory {
     }
 
     /**
-     * Unique id for the EMD_MAP category.
+     * PRIMARY KEY
      * @return IntColumn
      */
     public IntColumn getId() {
@@ -291,8 +301,7 @@ public class EmMap extends DelegatingCategory {
     }
 
     /**
-     * Identifies the archive file partition number of a primary map,
-     * half map, additional map, or mask.
+     * Identifies the archive file partition number of any map file
      * @return IntColumn
      */
     public IntColumn getPartition() {
@@ -478,7 +487,7 @@ public class EmMap extends DelegatingCategory {
     }
 
     /**
-     * map format
+     * Map type
      * @return StrColumn
      */
     public StrColumn getType() {

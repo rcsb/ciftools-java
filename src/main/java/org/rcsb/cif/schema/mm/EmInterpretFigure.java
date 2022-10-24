@@ -45,7 +45,7 @@ public class EmInterpretFigure extends DelegatingCategory {
     }
 
     /**
-     * This data item is the unique identifier for the image file.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

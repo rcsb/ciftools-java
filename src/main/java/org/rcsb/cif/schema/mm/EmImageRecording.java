@@ -88,7 +88,7 @@ public class EmImageRecording extends DelegatingCategory {
 
     /**
      * The detector type used for recording images.
-     * Usually film or CCD camera.
+     * Usually film , CCD camera or direct electron detector.
      * @return StrColumn
      */
     public StrColumn getFilmOrDetectorModel() {
@@ -96,8 +96,7 @@ public class EmImageRecording extends DelegatingCategory {
     }
 
     /**
-     * The item _em_image_recording.id uniquely identifies
-     * a set of recorded images.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -39,7 +39,7 @@ public class EmObsolete extends DelegatingCategory {
     }
 
     /**
-     * Details
+     * Description of the reason(s) for entry obsoletion
      * @return StrColumn
      */
     public StrColumn getDetails() {
@@ -55,7 +55,7 @@ public class EmObsolete extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -72,7 +72,7 @@ public class EmDiffractionStats extends DelegatingCategory {
     }
 
     /**
-     * Identifier for this category
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

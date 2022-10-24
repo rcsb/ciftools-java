@@ -46,7 +46,7 @@ public class EmFscCurve extends DelegatingCategory {
     }
 
     /**
-     * This data item provides a unique identifier for each archived FSC curve.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

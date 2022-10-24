@@ -73,8 +73,7 @@ public class EmSpecimen extends DelegatingCategory {
     }
 
     /**
-     * The item  _em_specimen.id uniquely identifies a specimen along with
-     * its preparation methods.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

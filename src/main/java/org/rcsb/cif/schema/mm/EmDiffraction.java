@@ -31,7 +31,10 @@ public class EmDiffraction extends DelegatingCategory {
     }
 
     /**
-     * 
+     * The camera length (in millimeters). The camera length is the
+     * product of the objective focal length and the combined magnification
+     * of the intermediate and projector lenses when the microscope is
+     * operated in the diffraction mode.
      * @return FloatColumn
      */
     public FloatColumn getCameraLength() {
@@ -39,7 +42,7 @@ public class EmDiffraction extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -1158,6 +1158,10 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxEntityRemapping();
             case "pdbx_chain_remapping":
                 return getPdbxChainRemapping();
+            case "pdbx_initial_refinement_model":
+                return getPdbxInitialRefinementModel();
+            case "pdbx_investigation":
+                return getPdbxInvestigation();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -7305,6 +7309,22 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public PdbxChainRemapping getPdbxChainRemapping() {
         return delegate.getCategory("pdbx_chain_remapping", PdbxChainRemapping::new);
+    }
+
+    /**
+     * Data items in the pdbx_initial_refinement_model record the starting model(s) used in structure determination.
+     * @return PdbxInitialRefinementModel
+     */
+    public PdbxInitialRefinementModel getPdbxInitialRefinementModel() {
+        return delegate.getCategory("pdbx_initial_refinement_model", PdbxInitialRefinementModel::new);
+    }
+
+    /**
+     * The PDBX_INVESTIGATION category provides a information of an investigation associated with this file.
+     * @return PdbxInvestigation
+     */
+    public PdbxInvestigation getPdbxInvestigation() {
+        return delegate.getCategory("pdbx_investigation", PdbxInvestigation::new);
     }
 
     /**

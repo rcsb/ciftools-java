@@ -45,8 +45,7 @@ public class EmSampleSupport extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_sample_support.id must uniquely identify
-     * the sample support.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

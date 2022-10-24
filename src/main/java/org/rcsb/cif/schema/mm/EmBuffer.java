@@ -34,8 +34,7 @@ public class EmBuffer extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_buffer.id must
-     * uniquely identify the sample buffer.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

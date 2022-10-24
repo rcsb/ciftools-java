@@ -51,7 +51,7 @@ public class EmShadowing extends DelegatingCategory {
     }
 
     /**
-     * This data item is the primary key of the category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -59,7 +59,7 @@ public class EmShadowing extends DelegatingCategory {
     }
 
     /**
-     * The material used in the shadowing.
+     * The chemical, compound or material used for shadowing
      * @return StrColumn
      */
     public StrColumn getMaterial() {
@@ -67,7 +67,7 @@ public class EmShadowing extends DelegatingCategory {
     }
 
     /**
-     * Foreign key relationship to the EMD SPECIMEN category
+     * Foreign key relationship to the EM SPECIMEN category
      * @return StrColumn
      */
     public StrColumn getSpecimenId() {

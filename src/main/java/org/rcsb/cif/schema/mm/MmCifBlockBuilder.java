@@ -2308,6 +2308,14 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxChainRemappingBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxInitialRefinementModelBuilder enterPdbxInitialRefinementModel() {
+        return new MmCifCategoryBuilder.PdbxInitialRefinementModelBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxInvestigationBuilder enterPdbxInvestigation() {
+        return new MmCifCategoryBuilder.PdbxInvestigationBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {
         return new MmCifCategoryBuilder.IhmEntityPolySegmentBuilder(this);
     }

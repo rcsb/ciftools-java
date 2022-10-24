@@ -42,8 +42,7 @@ public class EmHelicalEntity extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_helical_entity.id must uniquely identify
-     * a set of the filament parameters for this assembly component.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -63,8 +62,6 @@ public class EmHelicalEntity extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_helical_entity.reconstruction_id identifies a particular reconstruction.
-     * 
      * This data item is a pointer to _em_image_processing.id.
      * @return StrColumn
      */
@@ -97,7 +94,7 @@ public class EmHelicalEntity extends DelegatingCategory {
     }
 
     /**
-     * The angular rotation per helical subunit in degrees.
+     * The angular rotation per helical subunit in degrees. Negative values indicate left-handed helices; positive values indicate right handed helices.
      * @return FloatColumn
      */
     public FloatColumn getAngularRotationPerSubunit() {

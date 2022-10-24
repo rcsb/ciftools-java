@@ -31,13 +31,17 @@ public class Em3dFittingList extends DelegatingCategory {
                 return getPdbChainResidueRange();
             case "details":
                 return getDetails();
+            case "chain_id":
+                return getChainId();
+            case "chain_residue_range":
+                return getChainResidueRange();
             default:
                 return new DelegatingColumn(column);
         }
     }
 
     /**
-     * This data item is a unique identifier.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -72,7 +76,7 @@ public class Em3dFittingList extends DelegatingCategory {
     }
 
     /**
-     * The molecular entities represented in this fitting description.
+     * Residue range for the identified chain.
      * @return StrColumn
      */
     public StrColumn getPdbChainResidueRange() {
@@ -85,6 +89,24 @@ public class Em3dFittingList extends DelegatingCategory {
      */
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The ID of the biopolymer chain used for fitting, e.g., A.  Please note that
+     * only one chain can be specified per instance.  If all chains of a particular
+     * structure have been used for fitting, this field can be left blank.
+     * @return StrColumn
+     */
+    public StrColumn getChainId() {
+        return delegate.getColumn("chain_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The residue ranges of the initial model used in this fitting.
+     * @return StrColumn
+     */
+    public StrColumn getChainResidueRange() {
+        return delegate.getColumn("chain_residue_range", DelegatingStrColumn::new);
     }
 
 }

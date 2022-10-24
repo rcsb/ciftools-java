@@ -43,7 +43,7 @@ public class EmGridPretreatment extends DelegatingCategory {
     }
 
     /**
-     * This data item is the primary key of the category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -59,7 +59,7 @@ public class EmGridPretreatment extends DelegatingCategory {
     }
 
     /**
-     * Pointer to  EM SAMPLE SUPPORT
+     * Pointer to EM SAMPLE SUPPORT
      * @return StrColumn
      */
     public StrColumn getSampleSupportId() {
