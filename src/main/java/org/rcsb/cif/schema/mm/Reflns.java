@@ -84,12 +84,6 @@ public class Reflns extends DelegatingCategory {
                 return getThresholdExpression();
             case "pdbx_redundancy":
                 return getPdbxRedundancy();
-            case "pdbx_Rmerge_I_obs":
-                return getPdbxRmergeIObs();
-            case "pdbx_Rmerge_I_all":
-                return getPdbxRmergeIAll();
-            case "pdbx_Rsym_value":
-                return getPdbxRsymValue();
             case "pdbx_netI_over_av_sigmaI":
                 return getPdbxNetIOverAvSigmaI();
             case "pdbx_netI_over_sigmaI":
@@ -138,6 +132,12 @@ public class Reflns extends DelegatingCategory {
                 return getPdbxRpimIAllAnomalous();
             case "pdbx_Rmerge_I_anomalous":
                 return getPdbxRmergeIAnomalous();
+            case "pdbx_Rmerge_I_obs":
+                return getPdbxRmergeIObs();
+            case "pdbx_Rmerge_I_all":
+                return getPdbxRmergeIAll();
+            case "pdbx_Rsym_value":
+                return getPdbxRsymValue();
             case "pdbx_aniso_diffraction_limit_axis_1_ortho[1]":
                 return getPdbxAnisoDiffractionLimitAxis1Ortho1();
             case "pdbx_aniso_diffraction_limit_axis_1_ortho[2]":
@@ -572,31 +572,6 @@ public class Reflns extends DelegatingCategory {
     }
 
     /**
-     * The R value for merging intensities satisfying the observed
-     * criteria in this data set.
-     * @return FloatColumn
-     */
-    public FloatColumn getPdbxRmergeIObs() {
-        return delegate.getColumn("pdbx_Rmerge_I_obs", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The R value for merging all intensities in this data set.
-     * @return FloatColumn
-     */
-    public FloatColumn getPdbxRmergeIAll() {
-        return delegate.getColumn("pdbx_Rmerge_I_all", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The R sym value as a decimal number.
-     * @return FloatColumn
-     */
-    public FloatColumn getPdbxRsymValue() {
-        return delegate.getColumn("pdbx_Rsym_value", DelegatingFloatColumn::new);
-    }
-
-    /**
      * The ratio of the average intensity to the average uncertainty,
      * &lt;I&gt;/&lt;sigma(I)&gt;.
      * @return FloatColumn
@@ -870,6 +845,31 @@ public class Reflns extends DelegatingCategory {
      */
     public FloatColumn getPdbxRmergeIAnomalous() {
         return delegate.getColumn("pdbx_Rmerge_I_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The R value for merging intensities satisfying the observed
+     * criteria in this data set.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRmergeIObs() {
+        return delegate.getColumn("pdbx_Rmerge_I_obs", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The R value for merging all intensities in this data set.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRmergeIAll() {
+        return delegate.getColumn("pdbx_Rmerge_I_all", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The R sym value as a decimal number.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRsymValue() {
+        return delegate.getColumn("pdbx_Rsym_value", DelegatingFloatColumn::new);
     }
 
     /**

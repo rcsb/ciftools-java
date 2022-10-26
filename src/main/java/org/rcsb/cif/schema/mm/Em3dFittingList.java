@@ -35,6 +35,12 @@ public class Em3dFittingList extends DelegatingCategory {
                 return getChainId();
             case "chain_residue_range":
                 return getChainResidueRange();
+            case "source_name":
+                return getSourceName();
+            case "type":
+                return getType();
+            case "accession_code":
+                return getAccessionCode();
             default:
                 return new DelegatingColumn(column);
         }
@@ -107,6 +113,31 @@ public class Em3dFittingList extends DelegatingCategory {
      */
     public StrColumn getChainResidueRange() {
         return delegate.getColumn("chain_residue_range", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This item identifies the resource of initial model used for refinement
+     * @return StrColumn
+     */
+    public StrColumn getSourceName() {
+        return delegate.getColumn("source_name", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This item describes the type of the initial model was generated
+     * @return StrColumn
+     */
+    public StrColumn getType() {
+        return delegate.getColumn("type", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This item identifies an accession code of the resource where the initial model
+     * is used
+     * @return StrColumn
+     */
+    public StrColumn getAccessionCode() {
+        return delegate.getColumn("accession_code", DelegatingStrColumn::new);
     }
 
 }

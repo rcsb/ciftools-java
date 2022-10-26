@@ -37,18 +37,12 @@ public class ReflnsShell extends DelegatingCategory {
                 return getNumberUniqueAll();
             case "number_unique_obs":
                 return getNumberUniqueObs();
-            case "percent_possible_all":
-                return getPercentPossibleAll();
             case "percent_possible_obs":
                 return getPercentPossibleObs();
             case "Rmerge_F_all":
                 return getRmergeFAll();
             case "Rmerge_F_obs":
                 return getRmergeFObs();
-            case "Rmerge_I_all":
-                return getRmergeIAll();
-            case "Rmerge_I_obs":
-                return getRmergeIObs();
             case "meanI_over_sigI_gt":
                 return getMeanIOverSigIGt();
             case "meanI_over_uI_all":
@@ -67,8 +61,6 @@ public class ReflnsShell extends DelegatingCategory {
                 return getRmergeIGt();
             case "pdbx_redundancy":
                 return getPdbxRedundancy();
-            case "pdbx_Rsym_value":
-                return getPdbxRsymValue();
             case "pdbx_chi_squared":
                 return getPdbxChiSquared();
             case "pdbx_netI_over_sigmaI_all":
@@ -101,6 +93,14 @@ public class ReflnsShell extends DelegatingCategory {
                 return getPdbxRpimIAllAnomalous();
             case "pdbx_Rmerge_I_all_anomalous":
                 return getPdbxRmergeIAllAnomalous();
+            case "percent_possible_all":
+                return getPercentPossibleAll();
+            case "Rmerge_I_all":
+                return getRmergeIAll();
+            case "Rmerge_I_obs":
+                return getRmergeIObs();
+            case "pdbx_Rsym_value":
+                return getPdbxRsymValue();
             case "pdbx_percent_possible_ellipsoidal":
                 return getPdbxPercentPossibleEllipsoidal();
             case "pdbx_percent_possible_spherical":
@@ -213,15 +213,6 @@ public class ReflnsShell extends DelegatingCategory {
 
     /**
      * The percentage of geometrically possible reflections represented
-     * by all reflections measured for this shell.
-     * @return FloatColumn
-     */
-    public FloatColumn getPercentPossibleAll() {
-        return delegate.getColumn("percent_possible_all", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The percentage of geometrically possible reflections represented
      * by reflections classified as 'observed' (see
      * _reflns.observed_criterion) for this shell.
      * @return FloatColumn
@@ -271,45 +262,6 @@ public class ReflnsShell extends DelegatingCategory {
      */
     public FloatColumn getRmergeFObs() {
         return delegate.getColumn("Rmerge_F_obs", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The value of Rmerge(I) for all reflections in a given shell.
-     * 
-     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
-     * Rmerge(I) = --------------------------
-     * sum~i~(sum~j~&lt;I&gt;)
-     * 
-     * I~j~ = the intensity of the jth observation of reflection i
-     * &lt;I&gt;  = the mean of the intensities of all observations of
-     * reflection i
-     * 
-     * sum~i~ is taken over all reflections
-     * sum~j~ is taken over all observations of each reflection
-     * @return FloatColumn
-     */
-    public FloatColumn getRmergeIAll() {
-        return delegate.getColumn("Rmerge_I_all", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * The value of Rmerge(I) for reflections classified as 'observed'
-     * (see _reflns.observed_criterion) in a given shell.
-     * 
-     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
-     * Rmerge(I) = --------------------------
-     * sum~i~(sum~j~&lt;I&gt;)
-     * 
-     * I~j~ = the intensity of the jth observation of reflection i
-     * &lt;I&gt;  = the mean of the intensities of all observations of
-     * reflection i
-     * 
-     * sum~i~ is taken over all reflections
-     * sum~j~ is taken over all observations of each reflection
-     * @return FloatColumn
-     */
-    public FloatColumn getRmergeIObs() {
-        return delegate.getColumn("Rmerge_I_obs", DelegatingFloatColumn::new);
     }
 
     /**
@@ -424,14 +376,6 @@ public class ReflnsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxRedundancy() {
         return delegate.getColumn("pdbx_redundancy", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * R sym value in percent.
-     * @return FloatColumn
-     */
-    public FloatColumn getPdbxRsymValue() {
-        return delegate.getColumn("pdbx_Rsym_value", DelegatingFloatColumn::new);
     }
 
     /**
@@ -633,6 +577,62 @@ public class ReflnsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxRmergeIAllAnomalous() {
         return delegate.getColumn("pdbx_Rmerge_I_all_anomalous", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The percentage of geometrically possible reflections represented
+     * by all reflections measured for this shell.
+     * @return FloatColumn
+     */
+    public FloatColumn getPercentPossibleAll() {
+        return delegate.getColumn("percent_possible_all", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The value of Rmerge(I) for all reflections in a given shell.
+     * 
+     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
+     * Rmerge(I) = --------------------------
+     * sum~i~(sum~j~&lt;I&gt;)
+     * 
+     * I~j~ = the intensity of the jth observation of reflection i
+     * &lt;I&gt;  = the mean of the intensities of all observations of
+     * reflection i
+     * 
+     * sum~i~ is taken over all reflections
+     * sum~j~ is taken over all observations of each reflection
+     * @return FloatColumn
+     */
+    public FloatColumn getRmergeIAll() {
+        return delegate.getColumn("Rmerge_I_all", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The value of Rmerge(I) for reflections classified as 'observed'
+     * (see _reflns.observed_criterion) in a given shell.
+     * 
+     * sum~i~(sum~j~|I~j~ - &lt;I&gt;|)
+     * Rmerge(I) = --------------------------
+     * sum~i~(sum~j~&lt;I&gt;)
+     * 
+     * I~j~ = the intensity of the jth observation of reflection i
+     * &lt;I&gt;  = the mean of the intensities of all observations of
+     * reflection i
+     * 
+     * sum~i~ is taken over all reflections
+     * sum~j~ is taken over all observations of each reflection
+     * @return FloatColumn
+     */
+    public FloatColumn getRmergeIObs() {
+        return delegate.getColumn("Rmerge_I_obs", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * R sym value in percent.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxRsymValue() {
+        return delegate.getColumn("pdbx_Rsym_value", DelegatingFloatColumn::new);
     }
 
     /**

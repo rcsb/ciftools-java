@@ -694,8 +694,6 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxNmrSystematicChemShiftOffset();
             case "pdbx_nmr_upload":
                 return getPdbxNmrUpload();
-            case "pdbx_audit_support":
-                return getPdbxAuditSupport();
             case "pdbx_chem_comp_subcomponent_struct_conn":
                 return getPdbxChemCompSubcomponentStructConn();
             case "pdbx_chem_comp_subcomponent_entity_list":
@@ -1132,6 +1130,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxSerialCrystallographySampleDeliveryFixedTarget();
             case "pdbx_serial_crystallography_data_reduction":
                 return getPdbxSerialCrystallographyDataReduction();
+            case "pdbx_audit_support":
+                return getPdbxAuditSupport();
             case "pdbx_entity_branch_list":
                 return getPdbxEntityBranchList();
             case "pdbx_entity_branch_link":
@@ -5150,15 +5150,6 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * Data items in the PDBX_AUDIT_SUPPORT category record details about
-     * funding support for the entry.
-     * @return PdbxAuditSupport
-     */
-    public PdbxAuditSupport getPdbxAuditSupport() {
-        return delegate.getCategory("pdbx_audit_support", PdbxAuditSupport::new);
-    }
-
-    /**
      * Data items in the pdbx_chem_comp_subcomponent_struct_conn
      * list the chemical interactions among the subcomponents in
      * the chemical component.
@@ -7191,6 +7182,15 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public PdbxSerialCrystallographyDataReduction getPdbxSerialCrystallographyDataReduction() {
         return delegate.getCategory("pdbx_serial_crystallography_data_reduction", PdbxSerialCrystallographyDataReduction::new);
+    }
+
+    /**
+     * Data items in the PDBX_AUDIT_SUPPORT category record details about
+     * funding support for the entry.
+     * @return PdbxAuditSupport
+     */
+    public PdbxAuditSupport getPdbxAuditSupport() {
+        return delegate.getCategory("pdbx_audit_support", PdbxAuditSupport::new);
     }
 
     /**

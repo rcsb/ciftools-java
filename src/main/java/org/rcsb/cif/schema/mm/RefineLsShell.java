@@ -41,8 +41,6 @@ public class RefineLsShell extends DelegatingCategory {
                 return getRFactorAll();
             case "R_factor_obs":
                 return getRFactorObs();
-            case "R_factor_R_free":
-                return getRFactorRFree();
             case "R_factor_R_free_error":
                 return getRFactorRFreeError();
             case "R_factor_R_work":
@@ -69,6 +67,8 @@ public class RefineLsShell extends DelegatingCategory {
                 return getPdbxFscWork();
             case "pdbx_fsc_free":
                 return getPdbxFscFree();
+            case "R_factor_R_free":
+                return getRFactorRFree();
             default:
                 return new DelegatingColumn(column);
         }
@@ -221,30 +221,6 @@ public class RefineLsShell extends DelegatingCategory {
      */
     public FloatColumn getRFactorObs() {
         return delegate.getColumn("R_factor_obs", DelegatingFloatColumn::new);
-    }
-
-    /**
-     * Residual factor R for reflections that satisfy the resolution
-     * limits established by _refine_ls_shell.d_res_high and
-     * _refine_ls_shell.d_res_low and the observation limit
-     * established by _reflns.observed_criterion, and that were
-     * used as the test reflections (i.e. were excluded from the
-     * refinement) when the refinement included the calculation
-     * of a 'free' R factor. Details of how reflections were assigned
-     * to the working and test sets are given in _reflns.R_free_details.
-     * 
-     * sum|F~obs~ - F~calc~|
-     * R = ---------------------
-     * sum|F~obs~|
-     * 
-     * F~obs~  = the observed structure-factor amplitudes
-     * F~calc~ = the calculated structure-factor amplitudes
-     * 
-     * sum is taken over the specified reflections
-     * @return FloatColumn
-     */
-    public FloatColumn getRFactorRFree() {
-        return delegate.getColumn("R_factor_R_free", DelegatingFloatColumn::new);
     }
 
     /**
@@ -491,6 +467,30 @@ public class RefineLsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxFscFree() {
         return delegate.getColumn("pdbx_fsc_free", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Residual factor R for reflections that satisfy the resolution
+     * limits established by _refine_ls_shell.d_res_high and
+     * _refine_ls_shell.d_res_low and the observation limit
+     * established by _reflns.observed_criterion, and that were
+     * used as the test reflections (i.e. were excluded from the
+     * refinement) when the refinement included the calculation
+     * of a 'free' R factor. Details of how reflections were assigned
+     * to the working and test sets are given in _reflns.R_free_details.
+     * 
+     * sum|F~obs~ - F~calc~|
+     * R = ---------------------
+     * sum|F~obs~|
+     * 
+     * F~obs~  = the observed structure-factor amplitudes
+     * F~calc~ = the calculated structure-factor amplitudes
+     * 
+     * sum is taken over the specified reflections
+     * @return FloatColumn
+     */
+    public FloatColumn getRFactorRFree() {
+        return delegate.getColumn("R_factor_R_free", DelegatingFloatColumn::new);
     }
 
 }
