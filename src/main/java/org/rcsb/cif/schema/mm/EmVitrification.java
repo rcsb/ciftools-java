@@ -60,8 +60,7 @@ public class EmVitrification extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_vitrification.id must uniquely identify
-     * the vitrification procedure.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -94,7 +93,8 @@ public class EmVitrification extends DelegatingCategory {
     }
 
     /**
-     * The humidity (%) in the vicinity of the vitrification process.
+     * Relative humidity (%) of air surrounding the specimen just prior to
+     * vitrification.
      * @return FloatColumn
      */
     public FloatColumn getHumidity() {

@@ -35,7 +35,7 @@ public class EmFinalClassification extends DelegatingCategory {
     }
 
     /**
-     * The average number of images per class in the final 2D classification
+     * The average number of images per class in the final 2D/3D classification
      * @return IntColumn
      */
     public IntColumn getAvgNumImagesPerClass() {
@@ -43,7 +43,7 @@ public class EmFinalClassification extends DelegatingCategory {
     }
 
     /**
-     * Additional details about the final 2D classification
+     * Additional details about the final 2D/3D classification
      * @return StrColumn
      */
     public StrColumn getDetails() {
@@ -51,7 +51,7 @@ public class EmFinalClassification extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -67,7 +67,7 @@ public class EmFinalClassification extends DelegatingCategory {
     }
 
     /**
-     * The number of classes used in the final 2D classification
+     * The number of classes used in the final 2D/3D classification
      * @return IntColumn
      */
     public IntColumn getNumClasses() {

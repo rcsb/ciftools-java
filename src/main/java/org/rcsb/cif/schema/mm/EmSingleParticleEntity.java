@@ -42,7 +42,7 @@ public class EmSingleParticleEntity extends DelegatingCategory {
     }
 
     /**
-     * Unique category label.
+     * PRIMARY KEY
      * @return IntColumn
      */
     public IntColumn getId() {

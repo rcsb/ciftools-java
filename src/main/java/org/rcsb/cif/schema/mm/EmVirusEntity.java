@@ -46,7 +46,7 @@ public class EmVirusEntity extends DelegatingCategory {
     }
 
     /**
-     * Is the unique identifier for VIRUS_ENTITY category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

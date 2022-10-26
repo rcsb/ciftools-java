@@ -1380,10 +1380,6 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxNmrUploadBuilder(this);
     }
 
-    public MmCifCategoryBuilder.PdbxAuditSupportBuilder enterPdbxAuditSupport() {
-        return new MmCifCategoryBuilder.PdbxAuditSupportBuilder(this);
-    }
-
     public MmCifCategoryBuilder.PdbxChemCompSubcomponentStructConnBuilder enterPdbxChemCompSubcomponentStructConn() {
         return new MmCifCategoryBuilder.PdbxChemCompSubcomponentStructConnBuilder(this);
     }
@@ -2256,6 +2252,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxSerialCrystallographyDataReductionBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxAuditSupportBuilder enterPdbxAuditSupport() {
+        return new MmCifCategoryBuilder.PdbxAuditSupportBuilder(this);
+    }
+
     public MmCifCategoryBuilder.PdbxEntityBranchListBuilder enterPdbxEntityBranchList() {
         return new MmCifCategoryBuilder.PdbxEntityBranchListBuilder(this);
     }
@@ -2306,6 +2306,14 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.PdbxChainRemappingBuilder enterPdbxChainRemapping() {
         return new MmCifCategoryBuilder.PdbxChainRemappingBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxInitialRefinementModelBuilder enterPdbxInitialRefinementModel() {
+        return new MmCifCategoryBuilder.PdbxInitialRefinementModelBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxInvestigationBuilder enterPdbxInvestigation() {
+        return new MmCifCategoryBuilder.PdbxInvestigationBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {

@@ -110,8 +110,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_imaging.id must uniquely identify
-     * each imaging experiment.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -135,7 +134,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * residual tilt of the electron beam
+     * Residual tilt of the electron beam (in miliradians)
      * @return FloatColumn
      */
     public FloatColumn getResidualTilt() {
@@ -254,7 +253,7 @@ public class EmImaging extends DelegatingCategory {
 
     /**
      * The minimum defocus value of the objective lens (in nanometers) used
-     * to obtain the recorded images.
+     * to obtain the recorded images. Negative values refer to overfocus.
      * @return FloatColumn
      */
     public FloatColumn getNominalDefocusMin() {
@@ -263,7 +262,7 @@ public class EmImaging extends DelegatingCategory {
 
     /**
      * The maximum defocus value of the objective lens (in nanometers) used
-     * to obtain the recorded images.
+     * to obtain the recorded images. Negative values refer to overfocus.
      * @return FloatColumn
      */
     public FloatColumn getNominalDefocusMax() {
@@ -271,8 +270,8 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The minimum defocus value of the objective lens (in nanometers) used
-     * to obtain the recorded images.
+     * The minimum calibrated defocus value of the objective lens (in nanometers) used
+     * to obtain the recorded images. Negative values refer to overfocus.
      * @return FloatColumn
      */
     public FloatColumn getCalibratedDefocusMin() {
@@ -280,8 +279,8 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * The maximum defocus value of the objective lens (in nanometers) used
-     * to obtain the recorded images.
+     * The maximum calibrated defocus value of the objective lens (in nanometers) used
+     * to obtain the recorded images. Negative values refer to overfocus.
      * @return FloatColumn
      */
     public FloatColumn getCalibratedDefocusMax() {
@@ -403,7 +402,7 @@ public class EmImaging extends DelegatingCategory {
     }
 
     /**
-     * microscope alignment procedure
+     * The type of procedure used to align the microscope electron beam.
      * @return StrColumn
      */
     public StrColumn getAlignmentProcedure() {

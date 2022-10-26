@@ -71,7 +71,7 @@ public class EmFocusedIonBeam extends DelegatingCategory {
     }
 
     /**
-     * Milling time in seconds (is seconds most appropriate unit?)
+     * Milling time in seconds
      * @return FloatColumn
      */
     public FloatColumn getDuration() {
@@ -95,7 +95,7 @@ public class EmFocusedIonBeam extends DelegatingCategory {
     }
 
     /**
-     * This data item is the primary key of the category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

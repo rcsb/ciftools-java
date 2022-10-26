@@ -20,11 +20,27 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     }
 
     /**
+     * Details of the radiation source or energy spectrum.
+     * @return StrColumn
+     */
+    public StrColumn getType() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_type"));
+    }
+
+    /**
      * Relative intensity of a radiation used in the diffraction measurements.
      * @return FloatColumn
      */
     public FloatColumn getWt() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_radiation_wavelength_wt"));
+    }
+
+    /**
+     * IUPAC symbol for the X-ray wavelength for probe radiation.
+     * @return StrColumn
+     */
+    public StrColumn getXraySymbol() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_radiation_wavelength_xray_symbol"));
     }
 
     /**

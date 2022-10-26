@@ -129,7 +129,7 @@ public class EmImageScans extends DelegatingCategory {
     }
 
     /**
-     * height of scanned image
+     * Height of scanned image, in pixels
      * @return IntColumn
      */
     public IntColumn getDimensionHeight() {
@@ -137,7 +137,7 @@ public class EmImageScans extends DelegatingCategory {
     }
 
     /**
-     * width of scanned image
+     * Width of scanned image, in pixels
      * @return IntColumn
      */
     public IntColumn getDimensionWidth() {

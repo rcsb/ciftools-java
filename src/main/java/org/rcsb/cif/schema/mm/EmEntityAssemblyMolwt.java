@@ -36,8 +36,7 @@ public class EmEntityAssemblyMolwt extends DelegatingCategory {
     }
 
     /**
-     * A reference to  _em_entity_assembly.id which uniquely identifies
-     * one assembly or assembly component of the imaged sample.
+     * A reference to em_entity_assembly.id which uniquely identifies one sample or sample subcomponent of the imaged specimen.
      * @return StrColumn
      */
     public StrColumn getEntityAssemblyId() {
@@ -53,7 +52,7 @@ public class EmEntityAssemblyMolwt extends DelegatingCategory {
     }
 
     /**
-     * Ordinal key for the em_entity_assembly_molwt category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -69,7 +68,7 @@ public class EmEntityAssemblyMolwt extends DelegatingCategory {
     }
 
     /**
-     * The molecular weight of the assembly component.
+     * The molecular weight of the sample or sample subcomponent
      * @return FloatColumn
      */
     public FloatColumn getValue() {

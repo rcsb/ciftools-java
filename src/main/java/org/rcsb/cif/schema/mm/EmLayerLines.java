@@ -55,7 +55,7 @@ public class EmLayerLines extends DelegatingCategory {
     }
 
     /**
-     * This data item is the unique identifier for the layer line file.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

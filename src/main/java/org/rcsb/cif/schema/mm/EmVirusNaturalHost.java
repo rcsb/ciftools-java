@@ -41,7 +41,7 @@ public class EmVirusNaturalHost extends DelegatingCategory {
     }
 
     /**
-     * Unique identifier for the virus natural host.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -49,7 +49,7 @@ public class EmVirusNaturalHost extends DelegatingCategory {
     }
 
     /**
-     * The NCBI taxonomy of the host species from which the virus was isolated.
+     * The NCBI taxonomy id for the natural host organism of the virus
      * @return IntColumn
      */
     public IntColumn getNcbiTaxId() {

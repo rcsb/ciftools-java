@@ -72,8 +72,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The value of _em_3d_reconstruction.id must
-     * uniquely identify the 3d reconstruction.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -89,7 +88,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The algorithm used project from 2D orientations to 3D map.
+     * The reconstruction algorithm/technique used to generate the map.
      * @return StrColumn
      */
     public StrColumn getAlgorithm() {
@@ -114,7 +113,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The final resolution (in angstroms)of the 3D reconstruction.
+     * The final resolution (in angstroms) of the 3D reconstruction.
      * @return FloatColumn
      */
     public FloatColumn getResolution() {
@@ -160,7 +159,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The nominal pixel size of the projection set of images.
+     * The nominal pixel size of the projection set of images in Angstroms.
      * @return FloatColumn
      */
     public FloatColumn getNominalPixelSize() {
@@ -168,7 +167,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * The actual pixel size of projection set of images.
+     * The actual pixel size of the projection set of images in Angstroms.
      * @return FloatColumn
      */
     public FloatColumn getActualPixelSize() {
@@ -192,9 +191,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * This item was correspondence to two type of em dataset
-     * processing_emDataSet_singleParticle.numClassAverages
-     * processing_emDataSet_icosahedral.numClassAverages
+     * The number of classes used in the final 3d reconstruction
      * @return IntColumn
      */
     public IntColumn getNumClassAverages() {
@@ -210,7 +207,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * type of FSC curve used to determine map resolution
+     * Half-set refinement protocol (semi-independent or gold standard)
      * @return StrColumn
      */
     public StrColumn getFscType() {
@@ -218,7 +215,7 @@ public class Em3dReconstruction extends DelegatingCategory {
     }
 
     /**
-     * type of refinement performed in order to determine map resolution
+     * Indicates details on how the half-map used for resolution determination (usually by FSC) have been generated.
      * @return StrColumn
      */
     public StrColumn getRefinementType() {

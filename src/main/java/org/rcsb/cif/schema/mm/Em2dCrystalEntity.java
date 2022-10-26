@@ -66,7 +66,7 @@ public class Em2dCrystalEntity extends DelegatingCategory {
     }
 
     /**
-     * Unique key for the 2d_crystal_entity category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

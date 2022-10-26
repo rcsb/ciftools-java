@@ -44,7 +44,7 @@ public class EmExperiment extends DelegatingCategory {
     }
 
     /**
-     * Placeholder ID.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

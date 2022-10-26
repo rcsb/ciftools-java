@@ -55,7 +55,7 @@ public class EmSupersede extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -64,7 +64,7 @@ public class EmDiffractionShell extends DelegatingCategory {
     }
 
     /**
-     * Unique identifier for the category em_diffraction_shell
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

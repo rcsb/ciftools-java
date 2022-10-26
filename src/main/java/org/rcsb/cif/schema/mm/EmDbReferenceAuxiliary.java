@@ -30,7 +30,7 @@ public class EmDbReferenceAuxiliary extends DelegatingCategory {
     }
 
     /**
-     * Unique identifier for a provided link.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

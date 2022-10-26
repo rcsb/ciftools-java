@@ -55,7 +55,7 @@ public class EmStructureFactors extends DelegatingCategory {
     }
 
     /**
-     * This data item is the unique identifier for the structure factor file.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

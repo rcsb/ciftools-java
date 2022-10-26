@@ -33,7 +33,7 @@ public class EmSupportFilm extends DelegatingCategory {
     }
 
     /**
-     * This data item is the primary key of the category.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -4464,10 +4464,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "seeding_ref", this);
         }
 
-        public FloatColumnBuilder<ExptlCrystalGrowBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTemp() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temp", this);
-        }
-
         public StrColumnBuilder<ExptlCrystalGrowBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTempDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "temp_details", this);
         }
@@ -4486,6 +4482,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<ExptlCrystalGrowBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPHRange() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_pH_range", this);
+        }
+
+        public FloatColumnBuilder<ExptlCrystalGrowBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterTemp() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "temp", this);
         }
 
     }
@@ -7726,10 +7726,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_obs", this);
         }
 
-        public FloatColumnBuilder<RefineLsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRFactorRFree() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_R_free", this);
-        }
-
         public FloatColumnBuilder<RefineLsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRFactorRFreeError() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_R_free_error", this);
         }
@@ -7780,6 +7776,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public FloatColumnBuilder<RefineLsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxFscFree() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_fsc_free", this);
+        }
+
+        public FloatColumnBuilder<RefineLsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRFactorRFree() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "R_factor_R_free", this);
         }
 
     }
@@ -8274,18 +8274,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_redundancy", this);
         }
 
-        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIObs() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_obs", this);
-        }
-
-        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_all", this);
-        }
-
-        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRsymValue() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rsym_value", this);
-        }
-
         public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxNetIOverAvSigmaI() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_netI_over_av_sigmaI", this);
         }
@@ -8380,6 +8368,18 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAnomalous() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_anomalous", this);
+        }
+
+        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIObs() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_obs", this);
+        }
+
+        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_all", this);
+        }
+
+        public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRsymValue() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rsym_value", this);
         }
 
         public FloatColumnBuilder<ReflnsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAnisoDiffractionLimitAxis1Ortho1() {
@@ -8604,10 +8604,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number_unique_obs", this);
         }
 
-        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPercentPossibleAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "percent_possible_all", this);
-        }
-
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPercentPossibleObs() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "percent_possible_obs", this);
         }
@@ -8618,14 +8614,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRmergeFObs() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_F_obs", this);
-        }
-
-        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRmergeIAll() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_all", this);
-        }
-
-        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRmergeIObs() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_obs", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMeanIOverSigIGt() {
@@ -8662,10 +8650,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRedundancy() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_redundancy", this);
-        }
-
-        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRsymValue() {
-            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rsym_value", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxChiSquared() {
@@ -8730,6 +8714,22 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRmergeIAllAnomalous() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rmerge_I_all_anomalous", this);
+        }
+
+        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPercentPossibleAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "percent_possible_all", this);
+        }
+
+        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRmergeIAll() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_all", this);
+        }
+
+        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRmergeIObs() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "Rmerge_I_obs", this);
+        }
+
+        public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRsymValue() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_Rsym_value", this);
         }
 
         public FloatColumnBuilder<ReflnsShellBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxPercentPossibleEllipsoidal() {
@@ -20087,35 +20087,6 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
     }
 
-    public static class PdbxAuditSupportBuilder extends MmCifCategoryBuilder {
-        private static final String CATEGORY_NAME = "pdbx_audit_support";
-
-        public PdbxAuditSupportBuilder(MmCifBlockBuilder parent) {
-            super(CATEGORY_NAME, parent);
-        }
-
-        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFundingOrganization() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "funding_organization", this);
-        }
-
-        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCountry() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "country", this);
-        }
-
-        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGrantNumber() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "grant_number", this);
-        }
-
-        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
-            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
-        }
-
-        public IntColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
-            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
-        }
-
-    }
-
     public static class PdbxChemCompSubcomponentStructConnBuilder extends MmCifCategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_chem_comp_subcomponent_struct_conn";
 
@@ -21896,6 +21867,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ref_protocol", this);
         }
 
+        public IntColumnBuilder<Em3dFittingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterInitialRefinementModelId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "initial_refinement_model_id", this);
+        }
+
     }
 
     public static class Em3dFittingListBuilder extends MmCifCategoryBuilder {
@@ -21927,6 +21902,26 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+        public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChainId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chain_id", this);
+        }
+
+        public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterChainResidueRange() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "chain_residue_range", this);
+        }
+
+        public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSourceName() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source_name", this);
+        }
+
+        public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<Em3dFittingListBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAccessionCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "accession_code", this);
         }
 
     }
@@ -23718,6 +23713,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<EmMapBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFile() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "file", this);
+        }
+
+        public StrColumnBuilder<EmMapBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOriginalFile() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "original_file", this);
         }
 
         public StrColumnBuilder<EmMapBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFormat() {
@@ -30290,6 +30289,35 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
     }
 
+    public static class PdbxAuditSupportBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_audit_support";
+
+        public PdbxAuditSupportBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFundingOrganization() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "funding_organization", this);
+        }
+
+        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCountry() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "country", this);
+        }
+
+        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGrantNumber() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "grant_number", this);
+        }
+
+        public StrColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+        public IntColumnBuilder<PdbxAuditSupportBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+    }
+
     public static class PdbxEntityBranchListBuilder extends MmCifCategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_entity_branch_list";
 
@@ -30787,6 +30815,68 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<PdbxChainRemappingBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAppliedOperations() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "applied_operations", this);
+        }
+
+    }
+
+    public static class PdbxInitialRefinementModelBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_initial_refinement_model";
+
+        public PdbxInitialRefinementModelBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEntityIdList() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "entity_id_list", this);
+        }
+
+        public StrColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSourceName() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "source_name", this);
+        }
+
+        public StrColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAccessionCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "accession_code", this);
+        }
+
+        public StrColumnBuilder<PdbxInitialRefinementModelBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+    }
+
+    public static class PdbxInvestigationBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_investigation";
+
+        public PdbxInvestigationBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxInvestigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<PdbxInvestigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxInvestigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterResourceName() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "resource_name", this);
+        }
+
+        public StrColumnBuilder<PdbxInvestigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterResourceAccession() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "resource_accession", this);
+        }
+
+        public StrColumnBuilder<PdbxInvestigationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
 
     }

@@ -568,8 +568,16 @@ public class CifCoreCategoryBuilder extends CategoryBuilderImpl<CifCoreBlockBuil
             super(CATEGORY_NAME, parent);
         }
 
+        public StrColumnBuilder<DiffrnRadiationWavelengthBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
         public FloatColumnBuilder<DiffrnRadiationWavelengthBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterWt() {
             return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "wt", this);
+        }
+
+        public StrColumnBuilder<DiffrnRadiationWavelengthBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterXraySymbol() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "xray_symbol", this);
         }
 
         public StrColumnBuilder<DiffrnRadiationWavelengthBuilder, CifCoreBlockBuilder, CifCoreFileBuilder> enterDetails() {

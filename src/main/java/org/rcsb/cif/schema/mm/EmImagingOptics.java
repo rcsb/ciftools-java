@@ -83,7 +83,7 @@ public class EmImagingOptics extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -115,7 +115,7 @@ public class EmImagingOptics extends DelegatingCategory {
     }
 
     /**
-     * Details on the use of the phase plate specified in _em_imaging_optics.phase_plate
+     * Details on the use of the phase plate
      * @return StrColumn
      */
     public StrColumn getDetails() {

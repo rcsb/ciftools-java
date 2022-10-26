@@ -37,7 +37,8 @@ public class EmParticleSelection extends DelegatingCategory {
     }
 
     /**
-     * Any additional details used for selecting particles
+     * Additional detail such as description of filters used, if selection was
+     * manual or automated, and/or template details.
      * @return StrColumn
      */
     public StrColumn getDetails() {
@@ -45,7 +46,7 @@ public class EmParticleSelection extends DelegatingCategory {
     }
 
     /**
-     * Ordinal identifier
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

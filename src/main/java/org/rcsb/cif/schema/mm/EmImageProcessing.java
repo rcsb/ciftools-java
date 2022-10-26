@@ -38,7 +38,7 @@ public class EmImageProcessing extends DelegatingCategory {
     }
 
     /**
-     * This data item provides a unique identifier for each data processing block.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

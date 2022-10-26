@@ -38,6 +38,8 @@ public class Em3dFitting extends DelegatingCategory {
                 return getRefSpace();
             case "ref_protocol":
                 return getRefProtocol();
+            case "initial_refinement_model_id":
+                return getInitialRefinementModelId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -121,6 +123,15 @@ public class Em3dFitting extends DelegatingCategory {
      */
     public StrColumn getRefProtocol() {
         return delegate.getColumn("ref_protocol", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The value of _em_3d_fitting.initial_refinement_model_id itentifies the id
+     * in the _pdbx_initial_refinement_model
+     * @return IntColumn
+     */
+    public IntColumn getInitialRefinementModelId() {
+        return delegate.getColumn("initial_refinement_model_id", DelegatingIntColumn::new);
     }
 
 }

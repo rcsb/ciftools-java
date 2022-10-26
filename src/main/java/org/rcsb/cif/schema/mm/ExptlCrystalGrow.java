@@ -40,8 +40,6 @@ public class ExptlCrystalGrow extends DelegatingCategory {
                 return getSeeding();
             case "seeding_ref":
                 return getSeedingRef();
-            case "temp":
-                return getTemp();
             case "temp_details":
                 return getTempDetails();
             case "temp_esd":
@@ -52,6 +50,8 @@ public class ExptlCrystalGrow extends DelegatingCategory {
                 return getPdbxDetails();
             case "pdbx_pH_range":
                 return getPdbxPHRange();
+            case "temp":
+                return getTemp();
             default:
                 return new DelegatingColumn(column);
         }
@@ -156,18 +156,6 @@ public class ExptlCrystalGrow extends DelegatingCategory {
     }
 
     /**
-     * The temperature in kelvins at which the crystal was grown.
-     * If more than one temperature was employed during the
-     * crystallization process, the final temperature should be noted
-     * here and the protocol  involving multiple temperatures should be
-     * described in _exptl_crystal_grow.details.
-     * @return FloatColumn
-     */
-    public FloatColumn getTemp() {
-        return delegate.getColumn("temp", DelegatingFloatColumn::new);
-    }
-
-    /**
      * A description of special aspects of temperature control during
      * crystal growth.
      * @return StrColumn
@@ -209,6 +197,18 @@ public class ExptlCrystalGrow extends DelegatingCategory {
      */
     public StrColumn getPdbxPHRange() {
         return delegate.getColumn("pdbx_pH_range", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The temperature in kelvins at which the crystal was grown.
+     * If more than one temperature was employed during the
+     * crystallization process, the final temperature should be noted
+     * here and the protocol  involving multiple temperatures should be
+     * described in _exptl_crystal_grow.details.
+     * @return FloatColumn
+     */
+    public FloatColumn getTemp() {
+        return delegate.getColumn("temp", DelegatingFloatColumn::new);
     }
 
 }

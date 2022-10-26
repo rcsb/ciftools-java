@@ -58,7 +58,7 @@ public class EmDbReference extends DelegatingCategory {
     }
 
     /**
-     * The name of the database containing the related entry.
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {

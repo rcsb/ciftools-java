@@ -85,7 +85,8 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * Details of the radiation source or energy spectrum.
+     * DEPRECATED. Use _diffrn_radiation_wavelength.type. Details of the
+     * radiation source or energy spectrum.
      * @return StrColumn
      */
     public StrColumn getType() {
@@ -93,7 +94,8 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * IUPAC symbol for the X-ray wavelength for probe radiation.
+     * DEPRECATED. Use _diffrn_radiation_wavelength.xray_symbol. IUPAC
+     * symbol for the X-ray wavelength for probe radiation.
      * @return StrColumn
      */
     public StrColumn getXraySymbol() {

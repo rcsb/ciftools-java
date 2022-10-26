@@ -69,7 +69,7 @@ public class EmTomography extends DelegatingCategory {
 
     /**
      * The angle increment of specimen tilting to obtain the
-     * recorded images (axis 1).
+     * recorded images (axis 2).
      * @return FloatColumn
      */
     public FloatColumn getAxis2AngleIncrement() {
@@ -78,7 +78,7 @@ public class EmTomography extends DelegatingCategory {
 
     /**
      * The maximum angle at which the specimen was tilted to obtain
-     * recorded images (axis 1).
+     * recorded images (axis 2).
      * @return FloatColumn
      */
     public FloatColumn getAxis2MaxAngle() {
@@ -87,7 +87,7 @@ public class EmTomography extends DelegatingCategory {
 
     /**
      * The minimum angle at which the specimen was tilted to obtain
-     * recorded images (axis 1).
+     * recorded images (axis 2).
      * @return FloatColumn
      */
     public FloatColumn getAxis2MinAngle() {
@@ -103,7 +103,7 @@ public class EmTomography extends DelegatingCategory {
     }
 
     /**
-     * Primary key
+     * PRIMARY KEY
      * @return StrColumn
      */
     public StrColumn getId() {
