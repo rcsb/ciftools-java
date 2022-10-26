@@ -14,7 +14,7 @@ CIFTools is distributed by maven. To get started, append your `pom.xml` by:
 <dependency>
   <groupId>org.rcsb</groupId>
   <artifactId>ciftools-java-jdk8</artifactId>
-  <version>4.0.2</version>
+  <version>4.0.3</version>
 </dependency>
 ```
 
@@ -146,7 +146,7 @@ not overloaded, but rather will only accept `String` values while in `entry.id` 
 ```Java
 class Demo {
     public static void main(String[] args) {
-        String id = "AF-Q76EI6-F1-model_v2";
+        String id = "AF-Q76EI6-F1-model_v4";
 
         CifFile cifFile = CifIO.readFromURL(new URL("https://alphafold.ebi.ac.uk/files/" + id + ".cif"));
         MmCifFile mmCifFile = cifFile.as(StandardSchemata.MMCIF);
