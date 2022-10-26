@@ -102,8 +102,8 @@ class ReaderTest {
 
 
     @Test
-    void whenReadingAlphaFoldData_thenConfidenceScoresAvailable() throws IOException {
-        String id = "AF-Q76EI6-F1-model_v2";
+    void whenReadingAlphaFoldText_thenConfidenceScoresAvailable() throws IOException {
+        String id = "AF-Q76EI6-F1-model_v4";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
@@ -118,7 +118,7 @@ class ReaderTest {
 
     @Test
     void whenReadingStringWithEmptyQuotation_thenValueAvailable() throws IOException {
-        String id = "AF-O49373-F1-model_v2";
+        String id = "AF-O49373-F1-model_v4";
         InputStream inputStream = TestHelper.getInputStream("cif/" + id + ".cif");
         MmCifFile cifFile = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF);
 
