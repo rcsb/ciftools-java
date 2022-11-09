@@ -188,7 +188,8 @@ class WriterTest {
         // a snapshot of the ciftools output is used - the implementation will not exactly recreate Mol* output
         // this test is to check if some code change breaks
         byte[] original = TestHelper.getBytes("snapshot/" + testCase + ".bcif");
-        byte[] originalGzip = TestHelper.getBytes("snapshot/" + testCase + ".bcif.gz");
+        // create gzip on the fly so differences in gzip impl don't cause test failures on Java 17
+        byte[] originalGzip = TestHelper.compress(original);
 
         // read from bcif
         InputStream inputStream = TestHelper.getInputStream("snapshot/" + testCase + ".bcif");
