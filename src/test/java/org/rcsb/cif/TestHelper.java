@@ -12,6 +12,7 @@ import java.util.Objects;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.zip.GZIPOutputStream;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
@@ -78,6 +79,17 @@ public class TestHelper {
                 .map(s -> "0x" + s)
                 .mapToInt(Integer::decode)
                 .toArray();
+    }
+
+    public static byte[] compress(byte[] bytes) throws IOException {
+        byte[] output;
+        try (ByteArrayOutputStream byteStream = new ByteArrayOutputStream(bytes.length)) {
+            try (GZIPOutputStream zipStream = new GZIPOutputStream(byteStream)) {
+                zipStream.write(bytes);
+            }
+            output = byteStream.toByteArray();
+        }
+        return output;
     }
 
     @Test
