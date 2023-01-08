@@ -26,6 +26,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
 
@@ -221,5 +222,22 @@ class WriterTest {
         Map<String, Object> authAsymId = (Map<String, Object>) Arrays.stream((Object[]) atomSite.get("columns")).map(Map.class::cast).filter(m -> m.get("name").equals("auth_asym_id")).findFirst().orElse(null);
         assertNotNull(authAsymId);
         assertNull(authAsymId.get("mask"), "empty mask must be encoded by 'null' value");
+    }
+
+    @Test
+    void testNonEnglishLocaleSupport() throws IOException {
+        // set to some locale that has a different number format
+        Locale.setDefault(Locale.FRANCE);
+
+        MmCifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1a2c.cif"))
+                .as(StandardSchemata.MMCIF);
+        byte[] written = CifIO.writeText(cifFile);
+
+        MmCifFile back = CifIO.readFromInputStream(new ByteArrayInputStream(written))
+                .as(StandardSchemata.MMCIF);
+        org.rcsb.cif.schema.mm.AtomSite atomSite = back.getFirstBlock().getAtomSite();
+        assertEquals(18.623, atomSite.getCartnX().get(0));
+        assertEquals(1.00, atomSite.getOccupancy().get(0));
+        assertEquals(0.013895, back.getFirstBlock().getAtomSites().getFractTransfMatrix11().get(0));
     }
 }

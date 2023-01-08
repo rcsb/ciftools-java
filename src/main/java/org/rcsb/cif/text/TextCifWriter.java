@@ -11,7 +11,9 @@ import org.rcsb.cif.model.ValueKind;
 
 import java.nio.charset.StandardCharsets;
 import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.List;
+import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -136,9 +138,10 @@ public class TextCifWriter {
         return false;
     }
 
-    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00");
-    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000");
-    private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######");
+    private static final DecimalFormatSymbols SYMBOLS = new DecimalFormatSymbols(Locale.US);
+    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00", SYMBOLS);
+    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000", SYMBOLS);
+    private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######", SYMBOLS);
     /**
      * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values they report.
      * @param val the double value
