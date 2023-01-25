@@ -27,6 +27,8 @@ public class IhmEnsembleInfo extends DelegatingCategory {
                 return getPostProcessId();
             case "model_group_id":
                 return getModelGroupId();
+            case "model_group_superimposed_flag":
+                return getModelGroupSuperimposedFlag();
             case "ensemble_clustering_method":
                 return getEnsembleClusteringMethod();
             case "ensemble_clustering_feature":
@@ -84,6 +86,14 @@ public class IhmEnsembleInfo extends DelegatingCategory {
      */
     public IntColumn getModelGroupId() {
         return delegate.getColumn("model_group_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Flag to identify if the models in a group or cluster are structurally aligned.
+     * @return StrColumn
+     */
+    public StrColumn getModelGroupSuperimposedFlag() {
+        return delegate.getColumn("model_group_superimposed_flag", DelegatingStrColumn::new);
     }
 
     /**

@@ -25,7 +25,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Mean hydrostatic  pressure at which intensities were measured.
+     * Mean hydrostatic pressure at which intensities were measured.
      * @return FloatColumn
      */
     public FloatColumn getAmbientPressure() {

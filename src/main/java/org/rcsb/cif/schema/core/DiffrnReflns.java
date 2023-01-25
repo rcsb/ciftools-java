@@ -107,18 +107,18 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Maximum Miller indices of measured diffraction reflections.
-     * @return FloatColumn
+     * @return IntColumn
      */
-    public FloatColumn getLimitMax() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_limit_max"));
+    public IntColumn getLimitMax() {
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_max"));
     }
 
     /**
      * Minimum Miller indices of measured diffraction reflections.
-     * @return FloatColumn
+     * @return IntColumn
      */
-    public FloatColumn getLimitMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_reflns_limit_min"));
+    public IntColumn getLimitMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_reflns_limit_min"));
     }
 
     /**
@@ -190,7 +190,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Theta angle at which the count of measured reflections is almost
-     * complete.  The fraction of unique reflections measured out to
+     * complete. The fraction of unique reflections measured out to
      * this angle is given by _diffrn.measured_fraction_theta_full.
      * @return FloatColumn
      */

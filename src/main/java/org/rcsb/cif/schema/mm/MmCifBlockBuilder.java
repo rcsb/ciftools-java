@@ -2316,6 +2316,82 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxInvestigationBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxDiffrnBatchBuilder enterPdbxDiffrnBatch() {
+        return new MmCifCategoryBuilder.PdbxDiffrnBatchBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxDiffrnCellBuilder enterPdbxDiffrnCell() {
+        return new MmCifCategoryBuilder.PdbxDiffrnCellBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxDiffrnOrientationBuilder enterPdbxDiffrnOrientation() {
+        return new MmCifCategoryBuilder.PdbxDiffrnOrientationBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxDiffrnBatchScanBuilder enterPdbxDiffrnBatchScan() {
+        return new MmCifCategoryBuilder.PdbxDiffrnBatchScanBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxDiffrnDetectorPanelMappingBuilder enterPdbxDiffrnDetectorPanelMapping() {
+        return new MmCifCategoryBuilder.PdbxDiffrnDetectorPanelMappingBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnScanBuilder enterDiffrnScan() {
+        return new MmCifCategoryBuilder.DiffrnScanBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnScanAxisBuilder enterDiffrnScanAxis() {
+        return new MmCifCategoryBuilder.DiffrnScanAxisBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnScanCollectionBuilder enterDiffrnScanCollection() {
+        return new MmCifCategoryBuilder.DiffrnScanCollectionBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnScanFrameBuilder enterDiffrnScanFrame() {
+        return new MmCifCategoryBuilder.DiffrnScanFrameBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnScanFrameAxisBuilder enterDiffrnScanFrameAxis() {
+        return new MmCifCategoryBuilder.DiffrnScanFrameAxisBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayIntensitiesBuilder enterArrayIntensities() {
+        return new MmCifCategoryBuilder.ArrayIntensitiesBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayStructureBuilder enterArrayStructure() {
+        return new MmCifCategoryBuilder.ArrayStructureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayDataBuilder enterArrayData() {
+        return new MmCifCategoryBuilder.ArrayDataBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayStructureListBuilder enterArrayStructureList() {
+        return new MmCifCategoryBuilder.ArrayStructureListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayStructureListAxisBuilder enterArrayStructureListAxis() {
+        return new MmCifCategoryBuilder.ArrayStructureListAxisBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.ArrayStructureListSectionBuilder enterArrayStructureListSection() {
+        return new MmCifCategoryBuilder.ArrayStructureListSectionBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnDataFrameBuilder enterDiffrnDataFrame() {
+        return new MmCifCategoryBuilder.DiffrnDataFrameBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnDetectorAxisBuilder enterDiffrnDetectorAxis() {
+        return new MmCifCategoryBuilder.DiffrnDetectorAxisBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.DiffrnDetectorElementBuilder enterDiffrnDetectorElement() {
+        return new MmCifCategoryBuilder.DiffrnDetectorElementBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {
         return new MmCifCategoryBuilder.IhmEntityPolySegmentBuilder(this);
     }
@@ -2614,6 +2690,14 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder enterIhmGeometricObjectDistanceRestraint() {
         return new MmCifCategoryBuilder.IhmGeometricObjectDistanceRestraintBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmEntryCollectionBuilder enterIhmEntryCollection() {
+        return new MmCifCategoryBuilder.IhmEntryCollectionBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmEntryCollectionMappingBuilder enterIhmEntryCollectionMapping() {
+        return new MmCifCategoryBuilder.IhmEntryCollectionMappingBuilder(this);
     }
 
     public MmCifCategoryBuilder.MaModelListBuilder enterMaModelList() {

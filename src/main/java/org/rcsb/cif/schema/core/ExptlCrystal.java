@@ -18,8 +18,10 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Colour description of a crystal as a list of the allowed
-     * exptl_crystal_appearance states for general, intensity and hue.
+     * Colour description of the crystal.
+     * 
+     * Data items from EXPTL_CRYSTAL_APPEARANCE category should be used in
+     * preference to this item when possible.
      * @return StrColumn
      */
     public StrColumn getColour() {
@@ -212,7 +214,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The median dimension of a crystal.
+     * The medial dimension of a crystal.
      * @return FloatColumn
      */
     public FloatColumn getSizeMid() {

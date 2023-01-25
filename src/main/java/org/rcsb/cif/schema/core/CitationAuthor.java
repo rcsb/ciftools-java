@@ -38,6 +38,8 @@ public class CitationAuthor extends DelegatingCategory.DelegatingCifCoreCategory
      * Name of citation author; relevant for articles and book chapters.
      * The family name(s), followed by a comma and including any
      * dynastic components, precedes the first name(s) or initial(s).
+     * For authors with only one name, provide the full name without
+     * abbreviation.
      * @return StrColumn
      */
     public StrColumn getName() {

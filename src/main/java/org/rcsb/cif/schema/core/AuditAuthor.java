@@ -50,6 +50,8 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * authors, _audit_author.name is looped with _audit_author.address.
      * The family name(s), followed by a comma and including any
      * dynastic components, precedes the first name(s) or initial(s).
+     * For authors with only one name, provide the full name without
+     * abbreviation.
      * @return StrColumn
      */
     public StrColumn getName() {

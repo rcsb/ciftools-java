@@ -6,8 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the anisotropic
- * thermal parameters of the atomic sites in a crystal structure.
+ * The CATEGORY of data items used to describe the anisotropic atomic
+ * displacement parameters of the atomic sites in a crystal structure.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -318,8 +318,8 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
     }
 
     /**
-     * Ratio of the maximum to minimum eigenvalues of the atomic
-     * displacement (thermal) ellipsoids.
+     * Ratio of the maximum to minimum eigenvalues of the atomic displacement
+     * ellipsoids.
      * @return FloatColumn
      */
     public FloatColumn getRatio() {
@@ -327,9 +327,9 @@ public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory 
     }
 
     /**
-     * This _atom_type.symbol code links the anisotropic atom parameters to
-     * the atom type data associated with this site and must match one of
-     * the _atom_type.symbol codes in this list.
+     * This _atom_type.symbol code links the anisotropic atomic displacement
+     * parameters to the atom type data associated with this site and must match
+     * one of the _atom_type.symbol codes in this list.
      * @return StrColumn
      */
     public StrColumn getTypeSymbol() {

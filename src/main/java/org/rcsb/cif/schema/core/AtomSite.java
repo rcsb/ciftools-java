@@ -48,7 +48,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Isotropic atomic displacement parameter, or equivalent isotropic
      * atomic displacement parameter, B(equiv), in angstroms squared,
-     * calculated from anisotropic temperature factor parameters.
+     * calculated from anisotropic atomic displacement parameters.
      * 
      * B(equiv) = (1/3) sum~i~[sum~j~(B^ij^ a*~i~ a*~j~ a~i~.a~j~)]
      * 
@@ -67,8 +67,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The _atom_site.label of the atom site to which the 'geometry-
-     * calculated' atom site is attached.
+     * The _atom_site.label of the atom site to which the 'geometry-calculated'
+     * atom site is attached.
      * @return StrColumn
      */
     public StrColumn getCalcAttachedAtom() {
@@ -142,7 +142,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * A description of the constraints applied to parameters at this
-     * site during refinement. See also _atom_site.refinement_flags
+     * site during refinement. See also _atom_site.refinement_flags_*
      * and _refine_ls.number_constraints.
      * @return StrColumn
      */
@@ -343,7 +343,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * A description of restraints applied to specific parameters at
-     * this site during refinement. See also _atom_site.refinement_flags
+     * this site during refinement. See also _atom_site.refinement_flags_*
      * and _refine_ls.number_restraints.
      * @return StrColumn
      */
@@ -415,8 +415,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Isotropic atomic displacement parameter, or equivalent isotropic
-     * atomic  displacement parameter, U(equiv), in angstroms squared,
-     * calculated from anisotropic atomic displacement  parameters.
+     * atomic displacement parameter, U(equiv), in angstroms squared,
+     * calculated from anisotropic atomic displacement parameters.
      * 
      * U(equiv) = (1/3) sum~i~[sum~j~(U^ij^ a*~i~ a*~j~ a~i~.a~j~)]
      * 
@@ -477,8 +477,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Standard uncertainty of the isotropic atomic displacement parameter,
      * or equivalent isotropic atomic displacement parameter, B(equiv),
-     * in angstroms squared, calculated from anisotropic temperature
-     * factor parameters.
+     * in angstroms squared, calculated from anisotropic atomic displacement
+     * parameters.
      * @return FloatColumn
      */
     public FloatColumn getBIsoOrEquivEsd() {
@@ -488,8 +488,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Standard uncertainty of the isotropic atomic displacement parameter,
      * or equivalent isotropic atomic displacement parameter, B(equiv),
-     * in angstroms squared, calculated from anisotropic temperature
-     * factor parameters.
+     * in angstroms squared, calculated from anisotropic atomic displacement
+     * parameters.
      * @return FloatColumn
      */
     public FloatColumn getBIsoOrEquivSu() {
@@ -564,7 +564,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * A description of special aspects of this site. See also
-     * _atom_site.refinement_flags.
+     * _atom_site.refinement_flags_*.
      * @return StrColumn
      */
     public StrColumn getDetails() {
@@ -573,7 +573,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * A description of special aspects of this site. See also
-     * _atom_site.refinement_flags.
+     * _atom_site.refinement_flags_*.
      * @return StrColumn
      */
     public StrColumn getDescription() {
@@ -708,6 +708,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Vol. A (2002). It is equal to the multiplicity of the general
      * position divided by the order of the site symmetry given in
      * _atom_site.site_symmetry_order.
+     * 
+     * The _atom_site_symmetry_multiplicity form of this data name is
+     * deprecated because of historical inconsistencies in practice among
+     * structure refinement software packages and should not be used.
      * @return IntColumn
      */
     public IntColumn getSymmetryMultiplicity() {
@@ -722,6 +726,10 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
      * Vol. A (2002). It is equal to the multiplicity of the general
      * position divided by the order of the site symmetry given in
      * _atom_site.site_symmetry_order.
+     * 
+     * The _atom_site_symmetry_multiplicity form of this data name is
+     * deprecated because of historical inconsistencies in practice among
+     * structure refinement software packages and should not be used.
      * @return IntColumn
      */
     public IntColumn getSiteSymmetryMultiplicity() {
@@ -1187,8 +1195,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Ratio of the maximum to minimum eigenvalues of the atomic
-     * displacement (thermal) ellipsoids.
+     * Ratio of the maximum to minimum eigenvalues of the atomic displacement
+     * ellipsoids.
      * @return FloatColumn
      */
     public FloatColumn getRatio() {
@@ -1196,8 +1204,8 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Ratio of the maximum to minimum eigenvalues of the atomic
-     * displacement (thermal) ellipsoids.
+     * Ratio of the maximum to minimum eigenvalues of the atomic displacement
+     * ellipsoids.
      * @return FloatColumn
      */
     public FloatColumn getAnisoRatio() {

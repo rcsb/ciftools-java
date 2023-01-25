@@ -17,7 +17,7 @@ public class PublManuscript extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * A description of the wordprocessor package and computer used to
+     * A description of the word processor package and computer used to
      * create the manuscript stored as _publ_manuscript.processed.
      * @return StrColumn
      */

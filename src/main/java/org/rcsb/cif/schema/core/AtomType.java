@@ -44,7 +44,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * A description of the atom(s) designated by this atom type. In
      * most cases this will be the element name and oxidation state of
-     * a single atom  species. For disordered or nonstoichiometric
+     * a single atom species. For disordered or nonstoichiometric
      * structures it will describe a combination of atom species.
      * @return StrColumn
      */

@@ -56,7 +56,7 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * which are significantly intense (see _reflns.threshold_expression). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberGt() {
@@ -67,7 +67,7 @@ public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {
      * Count of reflections in this REFLN class (not the DIFFRN_REFLN set). It
      * may include Friedel equivalent reflections (those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberTotal() {

@@ -208,8 +208,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * Ratio of the maximum to minimum eigenvalues of the atomic
-     * displacement (thermal) ellipsoids.
+     * Ratio of the maximum to minimum eigenvalues of the atomic displacement
+     * ellipsoids.
      * @return FloatColumn
      */
     public FloatColumn getRatio() {
@@ -217,9 +217,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * This _atom_type.symbol code links the anisotropic atom parameters to
-     * the atom type data associated with this site and must match one of
-     * the _atom_type.symbol codes in this list.
+     * This _atom_type.symbol code links the anisotropic atomic displacement
+     * parameters to the atom type data associated with this site and must match
+     * one of the _atom_type.symbol codes in this list.
      * @return StrColumn
      */
     public StrColumn getTypeSymbol() {

@@ -1162,6 +1162,44 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxInitialRefinementModel();
             case "pdbx_investigation":
                 return getPdbxInvestigation();
+            case "pdbx_diffrn_batch":
+                return getPdbxDiffrnBatch();
+            case "pdbx_diffrn_cell":
+                return getPdbxDiffrnCell();
+            case "pdbx_diffrn_orientation":
+                return getPdbxDiffrnOrientation();
+            case "pdbx_diffrn_batch_scan":
+                return getPdbxDiffrnBatchScan();
+            case "pdbx_diffrn_detector_panel_mapping":
+                return getPdbxDiffrnDetectorPanelMapping();
+            case "diffrn_scan":
+                return getDiffrnScan();
+            case "diffrn_scan_axis":
+                return getDiffrnScanAxis();
+            case "diffrn_scan_collection":
+                return getDiffrnScanCollection();
+            case "diffrn_scan_frame":
+                return getDiffrnScanFrame();
+            case "diffrn_scan_frame_axis":
+                return getDiffrnScanFrameAxis();
+            case "array_intensities":
+                return getArrayIntensities();
+            case "array_structure":
+                return getArrayStructure();
+            case "array_data":
+                return getArrayData();
+            case "array_structure_list":
+                return getArrayStructureList();
+            case "array_structure_list_axis":
+                return getArrayStructureListAxis();
+            case "array_structure_list_section":
+                return getArrayStructureListSection();
+            case "diffrn_data_frame":
+                return getDiffrnDataFrame();
+            case "diffrn_detector_axis":
+                return getDiffrnDetectorAxis();
+            case "diffrn_detector_element":
+                return getDiffrnDetectorElement();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -1312,6 +1350,10 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmGeometricObjectPlane();
             case "ihm_geometric_object_distance_restraint":
                 return getIhmGeometricObjectDistanceRestraint();
+            case "ihm_entry_collection":
+                return getIhmEntryCollection();
+            case "ihm_entry_collection_mapping":
+                return getIhmEntryCollectionMapping();
             case "ma_model_list":
                 return getMaModelList();
             case "ma_template_details":
@@ -7328,6 +7370,268 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the PDBX_DIFFRN_BATCH category provide a
+     * mechanism to describe common characteristics of a group of
+     * reflections within the DIFFRN_REFLN category.
+     * 
+     * This grouping can be due to reflections occuring on the
+     * same image, within the same lattice, on the same
+     * detector panel or a combination of these.
+     * @return PdbxDiffrnBatch
+     */
+    public PdbxDiffrnBatch getPdbxDiffrnBatch() {
+        return delegate.getCategory("pdbx_diffrn_batch", PdbxDiffrnBatch::new);
+    }
+
+    /**
+     * Data items in the PDBX_DIFFRN_CELL category record details about
+     * a particular set of unit cell parameters.
+     * @return PdbxDiffrnCell
+     */
+    public PdbxDiffrnCell getPdbxDiffrnCell() {
+        return delegate.getCategory("pdbx_diffrn_cell", PdbxDiffrnCell::new);
+    }
+
+    /**
+     * Data items in the PDBX_DIFFRN_ORIENTATION category record details about
+     * a particular crystal orientation.
+     * @return PdbxDiffrnOrientation
+     */
+    public PdbxDiffrnOrientation getPdbxDiffrnOrientation() {
+        return delegate.getCategory("pdbx_diffrn_orientation", PdbxDiffrnOrientation::new);
+    }
+
+    /**
+     * Data items in the PDBX_DIFFRN_BATCH_SCAN category provide a
+     * mechanism to associate derived quantities
+     * (PDBX_DIFFRACTION_BATCH category) with experimental
+     * information about scans within the DIFFRN_SCAN
+     * category.
+     * @return PdbxDiffrnBatchScan
+     */
+    public PdbxDiffrnBatchScan getPdbxDiffrnBatchScan() {
+        return delegate.getCategory("pdbx_diffrn_batch_scan", PdbxDiffrnBatchScan::new);
+    }
+
+    /**
+     * Data items in the PDBX_DIFFRN_DETECTOR_PANEL_MAPPING category provide
+     * a mechanism to associate detector panel information with an actual
+     * detector.
+     * @return PdbxDiffrnDetectorPanelMapping
+     */
+    public PdbxDiffrnDetectorPanelMapping getPdbxDiffrnDetectorPanelMapping() {
+        return delegate.getCategory("pdbx_diffrn_detector_panel_mapping", PdbxDiffrnDetectorPanelMapping::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_SCAN  category describe the parameters of one
+     * or more scans, relating axis positions to frames.
+     * @return DiffrnScan
+     */
+    public DiffrnScan getDiffrnScan() {
+        return delegate.getCategory("diffrn_scan", DiffrnScan::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_SCAN_AXIS  category describe the settings of
+     * axes for particular scans.  Unspecified axes are assumed to be at
+     * their zero points.
+     * @return DiffrnScanAxis
+     */
+    public DiffrnScanAxis getDiffrnScanAxis() {
+        return delegate.getCategory("diffrn_scan_axis", DiffrnScanAxis::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_SCAN_COLLECTION  category describe
+     * the collection strategy for each scan.
+     * 
+     * This category is a preliminary version being developed as
+     * synchrotron and XFEL collection strategies evolve.
+     * @return DiffrnScanCollection
+     */
+    public DiffrnScanCollection getDiffrnScanCollection() {
+        return delegate.getCategory("diffrn_scan_collection", DiffrnScanCollection::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_SCAN_FRAME  category describe
+     * the relationships of particular frames to scans.
+     * @return DiffrnScanFrame
+     */
+    public DiffrnScanFrame getDiffrnScanFrame() {
+        return delegate.getCategory("diffrn_scan_frame", DiffrnScanFrame::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_SCAN_FRAME_AXIS  category describe the
+     * settings of axes for particular frames.  Unspecified axes are
+     * assumed to be at their zero points.  If, for any given frame,
+     * nonzero values apply for any of the data items in this category,
+     * those values should be given explicitly in this category and not
+     * simply inferred from values in DIFFRN_SCAN_AXIS.
+     * @return DiffrnScanFrameAxis
+     */
+    public DiffrnScanFrameAxis getDiffrnScanFrameAxis() {
+        return delegate.getCategory("diffrn_scan_frame_axis", DiffrnScanFrameAxis::new);
+    }
+
+    /**
+     * Data items in the ARRAY_INTENSITIES  category record the
+     * information required to recover the intensity data from
+     * the set of data values stored in the ARRAY_DATA  category.
+     * 
+     * The detector may have a complex relationship
+     * between the raw intensity values and the number of
+     * incident photons.  In most cases, the number stored
+     * in the final array will have a simple linear relationship
+     * to the actual number of incident photons, given by
+     * _array_intensities.gain.  If raw, uncorrected values
+     * are presented (e.g. for calibration experiments), the
+     * value of _array_intensities.linearity  will be 'raw'
+     * and _array_intensities.gain will not be used.
+     * @return ArrayIntensities
+     */
+    public ArrayIntensities getArrayIntensities() {
+        return delegate.getCategory("array_intensities", ArrayIntensities::new);
+    }
+
+    /**
+     * Data items in the ARRAY_STRUCTURE  category record the organization and
+     * encoding of array data that may be stored in the ARRAY_DATA  category.
+     * @return ArrayStructure
+     */
+    public ArrayStructure getArrayStructure() {
+        return delegate.getCategory("array_structure", ArrayStructure::new);
+    }
+
+    /**
+     * Data items in the ARRAY_DATA  category are the containers for
+     * the array data items described in the category ARRAY_STRUCTURE.
+     * 
+     * It is recognized that the data in this category need to be used in
+     * two distinct ways.  During a data collection the lack of ancillary
+     * data and timing constraints in processing data may dictate the
+     * need to make a 'miniCBF', nothing more than an essential minimum
+     * of information to record the results of the data collection.  In that
+     * case it is proper to use the ARRAY_DATA  category as a
+     * container for just a single image and a compacted, beamline-dependent
+     * list of data collection parameter values.  In such
+     * a case, only the tags '_array_data.header_convention',
+     * '_array_data.header_contents'  and '_array_data.data' need be
+     * populated.
+     * 
+     * For full processing and archiving, most of the tags in this
+     * dictionary will need to be populated.
+     * @return ArrayData
+     */
+    public ArrayData getArrayData() {
+        return delegate.getCategory("array_data", ArrayData::new);
+    }
+
+    /**
+     * Data items in the ARRAY_STRUCTURE_LIST  category record the size
+     * and organization of each array dimension.
+     * 
+     * The relationship to physical axes may be given.
+     * @return ArrayStructureList
+     */
+    public ArrayStructureList getArrayStructureList() {
+        return delegate.getCategory("array_structure_list", ArrayStructureList::new);
+    }
+
+    /**
+     * Data items in the ARRAY_STRUCTURE_LIST_AXIS  category describe
+     * the physical settings of sets of axes for the centres of pixels that
+     * correspond to data points described in the
+     * ARRAY_STRUCTURE_LIST  category.
+     * 
+     * In the simplest cases, the physical increments of a single axis correspond
+     * to the increments of a single array index.  More complex organizations,
+     * e.g. spiral scans, may require coupled motions along multiple axes.
+     * 
+     * Note that a spiral scan uses two coupled axes: one for the angular
+     * direction and one for the radial direction.  This differs from a
+     * cylindrical scan for which the two axes are not coupled into one
+     * set.
+     * 
+     * Axes may be specified either for an entire array or for just a section
+     * of an array.
+     * @return ArrayStructureListAxis
+     */
+    public ArrayStructureListAxis getArrayStructureListAxis() {
+        return delegate.getCategory("array_structure_list_axis", ArrayStructureListAxis::new);
+    }
+
+    /**
+     * Data items in the ARRAY_STRUCTURE_LIST_SECTION  category identify
+     * the dimension-by-dimension start, end and stride of each section of an
+     * array that is to be referenced.
+     * 
+     * For any array with identifier ARRAYID, array section ids of the form
+     * ARRAYID(start1:end1:stride1,start2:end2:stride2, ...) are defined
+     * by default.
+     * 
+     * For the given index, the elements in the section are of indices:
+     * _array_structure_list_section.start,
+     * _array_structure_list_section.start + _array_structure_list_section.stride,
+     * _array_structure_list_section.start + 2*_array_structure_list_section.stride,
+     * ...
+     * 
+     * stopping either when the indices leave the limits of the indices
+     * of that dimension or
+     * [min(_array_structure_list_section.start, _array_structure_list_section.end),
+     * max(_array_structure_list_section.start, _array_structure_list_section.end)].
+     * 
+     * 
+     * The ordering of these elements is determined by the overall ordering of
+     * _array_structure_list_section.array_id  and not by the ordering implied
+     * by the stride.
+     * @return ArrayStructureListSection
+     */
+    public ArrayStructureListSection getArrayStructureListSection() {
+        return delegate.getCategory("array_structure_list_section", ArrayStructureListSection::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_DATA_FRAME  category record
+     * the details about each frame of data.
+     * 
+     * The items in this category were previously in a
+     * DIFFRN_FRAME_DATA category, which is now deprecated.
+     * The items from the old category are provided
+     * as aliases but should not be used for new work.
+     * @return DiffrnDataFrame
+     */
+    public DiffrnDataFrame getDiffrnDataFrame() {
+        return delegate.getCategory("diffrn_data_frame", DiffrnDataFrame::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_DETECTOR_AXIS  category associate
+     * axes with detectors.
+     * @return DiffrnDetectorAxis
+     */
+    public DiffrnDetectorAxis getDiffrnDetectorAxis() {
+        return delegate.getCategory("diffrn_detector_axis", DiffrnDetectorAxis::new);
+    }
+
+    /**
+     * Data items in the DIFFRN_DETECTOR_ELEMENT  category record
+     * the details about spatial layout and other characteristics
+     * of each element of a detector which may have multiple elements.
+     * 
+     * In most cases, giving more detailed information
+     * in ARRAY_STRUCTURE_LIST and ARRAY_STRUCTURE_LIST_AXIS
+     * is preferable to simply providing the centre of the
+     * detector element.
+     * @return DiffrnDetectorElement
+     */
+    public DiffrnDetectorElement getDiffrnDetectorElement() {
+        return delegate.getCategory("diffrn_detector_element", DiffrnDetectorElement::new);
+    }
+
+    /**
      * Data items in the IHM_ENTITY_POLY_SEGMENT category identifies
      * segments of polymeric entities.
      * @return IhmEntityPolySegment
@@ -8091,6 +8395,24 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmGeometricObjectDistanceRestraint getIhmGeometricObjectDistanceRestraint() {
         return delegate.getCategory("ihm_geometric_object_distance_restraint", IhmGeometricObjectDistanceRestraint::new);
+    }
+
+    /**
+     * Data items in the IHM_ENTRY_COLLECTION category identify a
+     * collection of IHM entries belonging to a single deposition or group.
+     * @return IhmEntryCollection
+     */
+    public IhmEntryCollection getIhmEntryCollection() {
+        return delegate.getCategory("ihm_entry_collection", IhmEntryCollection::new);
+    }
+
+    /**
+     * Data items in the IHM_ENTRY_COLLECTION_MAPPING category identify the
+     * entries that belong to a collection.
+     * @return IhmEntryCollectionMapping
+     */
+    public IhmEntryCollectionMapping getIhmEntryCollectionMapping() {
+        return delegate.getCategory("ihm_entry_collection_mapping", IhmEntryCollectionMapping::new);
     }
 
     /**

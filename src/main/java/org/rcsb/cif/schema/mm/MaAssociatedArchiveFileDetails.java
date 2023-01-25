@@ -32,6 +32,8 @@ public class MaAssociatedArchiveFileDetails extends DelegatingCategory {
                 return getFileContent();
             case "description":
                 return getDescription();
+            case "data_id":
+                return getDataId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -85,6 +87,15 @@ public class MaAssociatedArchiveFileDetails extends DelegatingCategory {
      */
     public StrColumn getDescription() {
         return delegate.getColumn("description", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The data_id identifier corresponding to the associated archive file, if availble.
+     * This data item is a pointer to _ma_data.id in the MA_DATA category.
+     * @return IntColumn
+     */
+    public IntColumn getDataId() {
+        return delegate.getColumn("data_id", DelegatingIntColumn::new);
     }
 
 }

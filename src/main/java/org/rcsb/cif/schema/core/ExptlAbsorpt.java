@@ -7,8 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * The CATEGORY of data items used to specify the experimental details
- * of the  absorption measurements and corrections to the diffraction
- * data.
+ * of the absorption measurements and corrections to the diffraction data.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -16,6 +15,16 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
 
     public ExptlAbsorpt(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
+    }
+
+    /**
+     * Details of the absorption correction process applied to the
+     * measured intensities that cannot otherwise be given using
+     * other data items from the EXPTL_ABSORBT category.
+     * @return StrColumn
+     */
+    public StrColumn getSpecialDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_absorpt_special_details"));
     }
 
     /**
@@ -60,7 +69,7 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Code identifying the absorption correction type and method.
      * The 'empirical' approach should NOT be used if more detailed
-     * information on the crystal shape  is available.
+     * information on the crystal shape is available.
      * @return StrColumn
      */
     public StrColumn getCorrectionType() {

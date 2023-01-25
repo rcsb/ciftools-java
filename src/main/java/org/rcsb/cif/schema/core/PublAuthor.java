@@ -89,7 +89,8 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * The name of a publication author. If there are multiple authors,
      * this will be looped with _publ_author.address. The family
      * name(s), followed by a comma and including any dynastic
-     * components, precedes the first names or initials.
+     * components, precedes the first names or initials. For authors
+     * with only one name, provide the full name without abbreviation.
      * @return StrColumn
      */
     public StrColumn getName() {

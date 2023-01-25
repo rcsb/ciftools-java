@@ -8,7 +8,7 @@ import javax.annotation.Generated;
 /**
  * The CATEGORY of data items used to specify the experimental work
  * prior to diffraction measurements. These include crystallization
- * crystal measurements and absorption-correction techniques used..
+ * crystal measurements and absorption-correction techniques used.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -183,7 +183,7 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Code identifying the absorption correction type and method.
      * The 'empirical' approach should NOT be used if more detailed
-     * information on the crystal shape  is available.
+     * information on the crystal shape is available.
      * @return StrColumn
      */
     public StrColumn getAbsorptCorrectionType() {
@@ -193,7 +193,7 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Code identifying the absorption correction type and method.
      * The 'empirical' approach should NOT be used if more detailed
-     * information on the crystal shape  is available.
+     * information on the crystal shape is available.
      * @return StrColumn
      */
     public StrColumn getCorrectionType() {

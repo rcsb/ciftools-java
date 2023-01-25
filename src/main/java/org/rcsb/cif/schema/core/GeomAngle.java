@@ -52,8 +52,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items which specify the symmetry operation codes
-     * which must be applied to the atom sites involved in the geometry angle.
+     * Data item specifying the symmetry operation codes applied to the atom
+     * sites involved in a specific geometric configuration.
      * 
      * The symmetry code of each atom site as the symmetry-equivalent position
      * number 'n' and the cell translation number 'pqr'. These numbers are
@@ -62,8 +62,9 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * The character string n_pqr is composed as follows:
      * 
      * n refers to the symmetry operation that is applied to the
-     * coordinates stored in _atom_site.fract_xyz. It must match a
-     * number given in _symmetry_equiv.pos_site_id.
+     * coordinates stored in _atom_site.fract_xyz. It must match
+     * a number given in _space_group_symop.id (or one of its
+     * aliases, such as _symmetry_equiv_pos_site_id).
      * 
      * p, q and r refer to the translations that are subsequently
      * applied to the symmetry transformed coordinates to generate
@@ -79,8 +80,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items which specify the symmetry operation codes
-     * which must be applied to the atom sites involved in the geometry angle.
+     * Data item specifying the symmetry operation codes applied to the atom
+     * sites involved in a specific geometric configuration.
      * 
      * The symmetry code of each atom site as the symmetry-equivalent position
      * number 'n' and the cell translation number 'pqr'. These numbers are
@@ -89,8 +90,9 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * The character string n_pqr is composed as follows:
      * 
      * n refers to the symmetry operation that is applied to the
-     * coordinates stored in _atom_site.fract_xyz. It must match a
-     * number given in _symmetry_equiv.pos_site_id.
+     * coordinates stored in _atom_site.fract_xyz. It must match
+     * a number given in _space_group_symop.id (or one of its
+     * aliases, such as _symmetry_equiv_pos_site_id).
      * 
      * p, q and r refer to the translations that are subsequently
      * applied to the symmetry transformed coordinates to generate
@@ -106,8 +108,8 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items which specify the symmetry operation codes
-     * which must be applied to the atom sites involved in the geometry angle.
+     * Data item specifying the symmetry operation codes applied to the atom
+     * sites involved in a specific geometric configuration.
      * 
      * The symmetry code of each atom site as the symmetry-equivalent position
      * number 'n' and the cell translation number 'pqr'. These numbers are
@@ -116,8 +118,9 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
      * The character string n_pqr is composed as follows:
      * 
      * n refers to the symmetry operation that is applied to the
-     * coordinates stored in _atom_site.fract_xyz. It must match a
-     * number given in _symmetry_equiv.pos_site_id.
+     * coordinates stored in _atom_site.fract_xyz. It must match
+     * a number given in _space_group_symop.id (or one of its
+     * aliases, such as _symmetry_equiv_pos_site_id).
      * 
      * p, q and r refer to the translations that are subsequently
      * applied to the symmetry transformed coordinates to generate

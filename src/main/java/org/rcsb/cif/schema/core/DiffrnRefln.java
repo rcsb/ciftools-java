@@ -94,10 +94,15 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items which specify the diffractometer counts.
-     * Background counts before the peak, background after the peak,
-     * net counts after background removed, counts for peak scan or position,
-     * and the total counts (background plus peak).
+     * The measured background scattering on one side of a diffraction
+     * peak when measuring using a point detector.
+     * 
+     * Note that counts-per-second values should be converted to
+     * total counts.
+     * 
+     * Standard uncertainties should not be quoted for these values.
+     * If the standard uncertainties differ from the square root of
+     * the number of counts, _diffrn_refln.intensity_* should be used.
      * @return IntColumn
      */
     public IntColumn getCountsBg1() {
@@ -105,18 +110,16 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _diffrn_refln.counts_bg_1.
-     * @return FloatColumn
-     */
-    public FloatColumn getCountsBg1Su() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_bg_1_su"));
-    }
-
-    /**
-     * The set of data items which specify the diffractometer counts.
-     * Background counts before the peak, background after the peak,
-     * net counts after background removed, counts for peak scan or position,
-     * and the total counts (background plus peak).
+     * The measured background counts on the other side of the
+     * peak to the measurement of _diffrn_refln.counts_bg_1
+     * when measuring using a point detector.
+     * 
+     * Note that counts-per-second values should be converted to
+     * total counts.
+     * 
+     * Standard uncertainties should not be quoted for these values.
+     * If the standard uncertainties differ from the square root of
+     * the number of counts, _diffrn_refln.intensity_* should be used.
      * @return IntColumn
      */
     public IntColumn getCountsBg2() {
@@ -124,22 +127,20 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _diffrn_refln.counts_bg_2.
+     * Counts measured in the reflection peak after background
+     * subtraction. If background and peak counts were collected
+     * for different times, the background counts must be scaled to
+     * the peak counts prior to subtraction.
+     * 
+     * Note that counts-per-second values should be converted to
+     * total counts.
+     * 
+     * The value for this data item must be derived from count values.
+     * If not, _diffrn_refln.intensity_* should be used.
      * @return FloatColumn
      */
-    public FloatColumn getCountsBg2Su() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_bg_2_su"));
-    }
-
-    /**
-     * The set of data items which specify the diffractometer counts.
-     * Background counts before the peak, background after the peak,
-     * net counts after background removed, counts for peak scan or position,
-     * and the total counts (background plus peak).
-     * @return IntColumn
-     */
-    public IntColumn getCountsNet() {
-        return new DelegatingIntColumn(parentBlock.getColumn("diffrn_refln_counts_net"));
+    public FloatColumn getCountsNet() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_net"));
     }
 
     /**
@@ -151,10 +152,16 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items which specify the diffractometer counts.
-     * Background counts before the peak, background after the peak,
-     * net counts after background removed, counts for peak scan or position,
-     * and the total counts (background plus peak).
+     * Counts measured in the reflection peak before background
+     * subtraction. That is, the region of interest consists of
+     * only the diffraction peak.
+     * 
+     * Note that counts-per-second values should be converted to
+     * total counts.
+     * 
+     * Standard uncertainties should not be quoted for these values.
+     * If the standard uncertainties differ from the square root of
+     * the number of counts, _diffrn_refln.intensity_* should be used.
      * @return IntColumn
      */
     public IntColumn getCountsPeak() {
@@ -162,30 +169,21 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of _diffrn_refln.counts_peak.
-     * @return FloatColumn
-     */
-    public FloatColumn getCountsPeakSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_peak_su"));
-    }
-
-    /**
-     * The set of data items which specify the diffractometer counts.
-     * Background counts before the peak, background after the peak,
-     * net counts after background removed, counts for peak scan or position,
-     * and the total counts (background plus peak).
+     * Counts measured in the total reflection including background
+     * and peak regions. That is, the region of interest consists of the
+     * diffraction peak and an area of background immediately surrounding
+     * the peak of interest.
+     * 
+     * Note that counts-per-second values should be converted to
+     * total counts.
+     * 
+     * Standard uncertainties should not be quoted for these values.
+     * If the standard uncertainties differ from the square root of
+     * the number of counts, _diffrn_refln.intensity_* should be used.
      * @return IntColumn
      */
     public IntColumn getCountsTotal() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_refln_counts_total"));
-    }
-
-    /**
-     * Standard uncertainty of _diffrn_refln.counts_total.
-     * @return FloatColumn
-     */
-    public FloatColumn getCountsTotalSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_counts_total_su"));
     }
 
     /**
@@ -247,12 +245,105 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Net intensity calculated from the diffraction counts after the
-     * attenuator and standard scales have been applied.
+     * The measured background intensity on one side of a diffraction
+     * peak when measuring using a point detector.
+     * 
+     * Use these entries for measurements where intensity values are not
+     * counts (use _diffrn_refln.counts_* for event-counting measurements
+     * where the standard uncertainty is estimated as the square root of
+     * the number of counts).
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityBg1() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_bg_1"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.intensity_bg_1.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityBg1Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_bg_1_su"));
+    }
+
+    /**
+     * The measured background counts on the other side of the
+     * peak to the measurement of _diffrn_refln.intensity_bg_1
+     * when measuring using a point detector.
+     * 
+     * Use these entries for measurements where intensity values are not
+     * counts (use _diffrn_refln.counts_* for event-counting measurements
+     * where the standard uncertainty is estimated as the square root of
+     * the number of counts).
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityBg2() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_bg_2"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.intensity_bg_2.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityBg2Su() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_bg_2_su"));
+    }
+
+    /**
+     * Net intensity in the reflection peak calculated from the
+     * diffraction counts after the attenuator and standard scales
+     * have been applied.
      * @return FloatColumn
      */
     public FloatColumn getIntensityNet() {
         return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_net"));
+    }
+
+    /**
+     * Intensity measured in the reflection peak before background
+     * subtraction. That is, the region of interest consists of
+     * only the diffraction peak.
+     * 
+     * Use these entries for measurements where intensity values are not
+     * counts (use _diffrn_refln.counts_* for event-counting measurements
+     * where the standard uncertainty is estimated as the square root of
+     * the number of counts).
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityPeak() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_peak"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.intensity_peak.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityPeakSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_peak_su"));
+    }
+
+    /**
+     * Intensity measured in the total reflection including background
+     * and peak regions. That is, the region of interest consists of the
+     * diffraction peak and an area of background immediately surrounding
+     * the peak of interest.
+     * 
+     * Use these entries for measurements where intensity values are not
+     * counts (use _diffrn_refln.counts_* for event-counting measurements
+     * where the standard uncertainty is estimated as the square root of
+     * the number of counts).
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityTotal() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_total"));
+    }
+
+    /**
+     * Standard uncertainty of _diffrn_refln.intensity_total.
+     * @return FloatColumn
+     */
+    public FloatColumn getIntensityTotalSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("diffrn_refln_intensity_total_su"));
     }
 
     /**
@@ -265,7 +356,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Code identifying the mode of scanning with a diffractometer.
-     * See also  _diffrn_refln.scan_width and _diffrn_refln.scan_mode_backgd.
+     * See also _diffrn_refln.scan_width and _diffrn_refln.scan_mode_backgd.
      * @return StrColumn
      */
     public StrColumn getScanMode() {
@@ -331,9 +422,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
+     * Standard uncertainty of _diffrn_refln.intensity_net.
      * @return FloatColumn
      */
     public FloatColumn getIntensitySigma() {
@@ -341,9 +430,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
+     * Standard uncertainty of _diffrn_refln.intensity_net.
      * @return FloatColumn
      */
     public FloatColumn getIntensityU() {
@@ -351,9 +438,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the net intensity calculated from the
-     * diffraction counts after the attenuator and standard scales
-     * have been applied.
+     * Standard uncertainty of _diffrn_refln.intensity_net.
      * @return FloatColumn
      */
     public FloatColumn getIntensityNetSu() {

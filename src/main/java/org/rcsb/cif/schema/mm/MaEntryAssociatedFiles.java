@@ -35,6 +35,8 @@ public class MaEntryAssociatedFiles extends DelegatingCategory {
                 return getDetails();
             case "file_content":
                 return getFileContent();
+            case "data_id":
+                return getDataId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -96,6 +98,15 @@ public class MaEntryAssociatedFiles extends DelegatingCategory {
      */
     public StrColumn getFileContent() {
         return delegate.getColumn("file_content", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The data_id identifier corresponding to the entry associated file, if available.
+     * This data item is a pointer to _ma_data.id in the MA_DATA category.
+     * @return IntColumn
+     */
+    public IntColumn getDataId() {
+        return delegate.getColumn("data_id", DelegatingIntColumn::new);
     }
 
 }

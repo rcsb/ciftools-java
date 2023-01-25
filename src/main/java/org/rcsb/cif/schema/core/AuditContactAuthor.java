@@ -63,7 +63,8 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
      * The name of the author of the data block to whom correspondence
      * should be addressed. The family name(s), followed by a comma and
      * including any dynastic components, precedes the first name(s) or
-     * initial(s).
+     * initial(s). For authors with only one name, provide the full name
+     * without abbreviation.
      * @return StrColumn
      */
     public StrColumn getName() {

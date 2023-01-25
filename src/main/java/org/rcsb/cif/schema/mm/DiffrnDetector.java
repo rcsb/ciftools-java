@@ -39,6 +39,10 @@ public class DiffrnDetector extends DelegatingCategory {
                 return getPdbxCollectionDate();
             case "pdbx_frequency":
                 return getPdbxFrequency();
+            case "id":
+                return getId();
+            case "number_of_axes":
+                return getNumberOfAxes();
             default:
                 return new DelegatingColumn(column);
         }
@@ -126,6 +130,41 @@ public class DiffrnDetector extends DelegatingCategory {
      */
     public FloatColumn getPdbxFrequency() {
         return delegate.getColumn("pdbx_frequency", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The value of _diffrn_detector.id  must uniquely identify
+     * each detector used to collect each diffraction data set.
+     * 
+     * If the value of _diffrn_detector.id  is not given, it is
+     * implicitly equal to the value of
+     * _diffrn_detector.diffrn_id.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return delegate.getColumn("id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The value of _diffrn_detector.number_of_axes  gives the
+     * number of axes of the positioner for the detector identified
+     * by _diffrn_detector.id.
+     * 
+     * The word 'positioner' is a general term used in
+     * instrumentation design for devices that are used to change
+     * the positions of portions of apparatus by linear
+     * translation, rotation or combinations of such motions.
+     * 
+     * Axes which are used to provide a coordinate system for the
+     * face of an area detector should not be counted for this
+     * data item.
+     * 
+     * The description of each axis should be provided by entries
+     * in DIFFRN_DETECTOR_AXIS.
+     * @return IntColumn
+     */
+    public IntColumn getNumberOfAxes() {
+        return delegate.getColumn("number_of_axes", DelegatingIntColumn::new);
     }
 
 }

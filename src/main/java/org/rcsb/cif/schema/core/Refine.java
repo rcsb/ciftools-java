@@ -350,8 +350,8 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Description of or reference to the extinction-correction equation
      * used to apply the data item  _refine_ls.extinction_coef. This
-     * information should be sufficient to reproduce the extinction-
-     * correction factors applied to the structure factors.
+     * information should be sufficient to reproduce the extinction-correction
+     * factors applied to the structure factors.
      * @return StrColumn
      */
     public StrColumn getLsExtinctionExpression() {
@@ -361,8 +361,8 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * Description of or reference to the extinction-correction equation
      * used to apply the data item  _refine_ls.extinction_coef. This
-     * information should be sufficient to reproduce the extinction-
-     * correction factors applied to the structure factors.
+     * information should be sufficient to reproduce the extinction-correction
+     * factors applied to the structure factors.
      * @return StrColumn
      */
     public StrColumn getExtinctionExpression() {
@@ -689,7 +689,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of constrained (non-refined or dependent) parameters
      * in the least-squares process. These may be due to symmetry or any
      * other constraint process (e.g. rigid-body refinement). See also
-     * _atom_site.constraints and _atom_site.refinement_flags. A general
+     * _atom_site.constraints and _atom_site.refinement_flags_*. A general
      * description of constraints may appear in _refine.special_details.
      * @return IntColumn
      */
@@ -701,7 +701,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of constrained (non-refined or dependent) parameters
      * in the least-squares process. These may be due to symmetry or any
      * other constraint process (e.g. rigid-body refinement). See also
-     * _atom_site.constraints and _atom_site.refinement_flags. A general
+     * _atom_site.constraints and _atom_site.refinement_flags_*. A general
      * description of constraints may appear in _refine.special_details.
      * @return IntColumn
      */
@@ -781,7 +781,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of restrained parameters in the least-squares refinement. These
      * parameters do not directly dependent on another refined parameter. Often
      * restrained parameters involve geometry or energy dependencies. See also
-     * _atom_site.constraints and _atom_site.refinement_flags. A description
+     * _atom_site.constraints and _atom_site.refinement_flags_*. A description
      * of refinement constraints may appear in _refine.special_details.
      * @return IntColumn
      */
@@ -793,7 +793,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of restrained parameters in the least-squares refinement. These
      * parameters do not directly dependent on another refined parameter. Often
      * restrained parameters involve geometry or energy dependencies. See also
-     * _atom_site.constraints and _atom_site.refinement_flags. A description
+     * _atom_site.constraints and _atom_site.refinement_flags_*. A description
      * of refinement constraints may appear in _refine.special_details.
      * @return IntColumn
      */

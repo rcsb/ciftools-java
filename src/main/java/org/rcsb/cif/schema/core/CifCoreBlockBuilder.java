@@ -120,8 +120,8 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.DiffrnSourceBuilder(this);
     }
 
-    public CifCoreCategoryBuilder.DiffrnStandardBuilder enterDiffrnStandard() {
-        return new CifCoreCategoryBuilder.DiffrnStandardBuilder(this);
+    public CifCoreCategoryBuilder.DiffrnStandardsBuilder enterDiffrnStandards() {
+        return new CifCoreCategoryBuilder.DiffrnStandardsBuilder(this);
     }
 
     public CifCoreCategoryBuilder.DiffrnStandardReflnBuilder enterDiffrnStandardRefln() {
@@ -384,6 +384,18 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.AtomBuilder(this);
     }
 
+    public CifCoreCategoryBuilder.AtomAnalyticalBuilder enterAtomAnalytical() {
+        return new CifCoreCategoryBuilder.AtomAnalyticalBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.AtomAnalyticalMassLossBuilder enterAtomAnalyticalMassLoss() {
+        return new CifCoreCategoryBuilder.AtomAnalyticalMassLossBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.AtomAnalyticalSourceBuilder enterAtomAnalyticalSource() {
+        return new CifCoreCategoryBuilder.AtomAnalyticalSourceBuilder(this);
+    }
+
     public CifCoreCategoryBuilder.AtomSiteBuilder enterAtomSite() {
         return new CifCoreCategoryBuilder.AtomSiteBuilder(this);
     }
@@ -434,10 +446,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.SymmetryBuilder enterSymmetry() {
         return new CifCoreCategoryBuilder.SymmetryBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.DiffrnStandardsBuilder enterDiffrnStandards() {
-        return new CifCoreCategoryBuilder.DiffrnStandardsBuilder(this);
     }
 
     public CifCoreCategoryBuilder.CellAngleBuilder enterCellAngle() {

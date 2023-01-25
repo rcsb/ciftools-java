@@ -62,8 +62,8 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getDiffrnScaleGroup();
             case "diffrn_source":
                 return getDiffrnSource();
-            case "diffrn_standard":
-                return getDiffrnStandard();
+            case "diffrn_standards":
+                return getDiffrnStandards();
             case "diffrn_standard_refln":
                 return getDiffrnStandardRefln();
             case "refln":
@@ -194,6 +194,12 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getStructure();
             case "atom":
                 return getAtom();
+            case "atom_analytical":
+                return getAtomAnalytical();
+            case "atom_analytical_mass_loss":
+                return getAtomAnalyticalMassLoss();
+            case "atom_analytical_source":
+                return getAtomAnalyticalSource();
             case "atom_site":
                 return getAtomSite();
             case "atom_site_aniso":
@@ -220,8 +226,6 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getFunction();
             case "symmetry":
                 return getSymmetry();
-            case "diffrn_standards":
-                return getDiffrnStandards();
             case "cell_angle":
                 return getCellAngle();
             case "chem_comp_bond":
@@ -273,7 +277,7 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * The CATEGORY of data items which specify the detectors used in the
+     * The CATEGORY of data items which specify the detectors used
      * in the measurement of diffraction intensities.
      * @return DiffrnDetector
      */
@@ -401,10 +405,10 @@ public class CifCoreBlock extends DelegatingBlock {
     /**
      * The CATEGORY of data items which specify information about the
      * standard reflections used in the diffraction measurement process.
-     * @return DiffrnStandard
+     * @return DiffrnStandards
      */
-    public DiffrnStandard getDiffrnStandard() {
-        return new DiffrnStandard(this);
+    public DiffrnStandards getDiffrnStandards() {
+        return new DiffrnStandards(this);
     }
 
     /**
@@ -470,7 +474,7 @@ public class CifCoreBlock extends DelegatingBlock {
     /**
      * The CATEGORY of data items used to specify the experimental work
      * prior to diffraction measurements. These include crystallization
-     * crystal measurements and absorption-correction techniques used..
+     * crystal measurements and absorption-correction techniques used.
      * @return Exptl
      */
     public Exptl getExptl() {
@@ -553,8 +557,8 @@ public class CifCoreBlock extends DelegatingBlock {
      * _chemical_formula.analytical, *.structural and *.sum. For the
      * data item *.moiety the formula construction is broken up into
      * residues or moieties, i.e. groups of atoms that form a molecular
-     * unit or molecular ion. The  rules given below apply within each
-     * moiety but different requirements apply to the way that moieties
+     * unit or molecular ion. The rules given below apply within each
+     * moiety, but different requirements apply to the way that moieties
      * are connected (see _chemical_formula.moiety).
      * 
      * 1. Only recognized element symbols may be used.
@@ -578,7 +582,7 @@ public class CifCoreBlock extends DelegatingBlock {
      * depends on whether or not carbon is present. If carbon is
      * present, the order should be: C, then H, then the other
      * elements in alphabetical order of their symbol. If carbon is
-     * not present, the elements are listed purely in alphabetic order
+     * not present, the elements are listed purely in alphabetical order
      * of their symbol. This is the 'Hill' system used by Chemical
      * Abstracts. This ordering is used in _chemical_formula.moiety
      * and _chemical_formula.sum.
@@ -596,8 +600,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The CATEGORY of data items used to specify the experimental details
-     * of the  absorption measurements and corrections to the diffraction
-     * data.
+     * of the absorption measurements and corrections to the diffraction data.
      * @return ExptlAbsorpt
      */
     public ExptlAbsorpt getExptlAbsorpt() {
@@ -645,7 +648,7 @@ public class CifCoreBlock extends DelegatingBlock {
      * stored in this dictionary.
      * 
      * The commonly used Hermann-Mauguin symbol determines the
-     * space-group type uniquely but several different Hermann-Mauguin
+     * space-group type uniquely, but several different Hermann-Mauguin
      * symbols may refer to the same space-group type. A
      * Hermann-Mauguin symbol contains information on the choice of
      * the basis, but not on the choice of origin.
@@ -679,7 +682,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * Contains information about Wyckoff positions of a space group.
-     * Only one site can be given for each special position but the
+     * Only one site can be given for each special position, but the
      * remainder can be generated by applying the symmetry operations
      * stored in _space_group_symop.operation_xyz.
      * @return SpaceGroupWyckoff
@@ -1105,6 +1108,37 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
+     * The CATEGORY of data items used to describe elemental
+     * composition information used in crystallographic
+     * structure studies.
+     * @return AtomAnalytical
+     */
+    public AtomAnalytical getAtomAnalytical() {
+        return new AtomAnalytical(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to describe information
+     * pertaining to mass loss during specimen preparation for
+     * the purposes of determining elemental composition
+     * information for use in crystallographic structure studies.
+     * @return AtomAnalyticalMassLoss
+     */
+    public AtomAnalyticalMassLoss getAtomAnalyticalMassLoss() {
+        return new AtomAnalyticalMassLoss(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to describe the source
+     * of elemental composition information used in crystallographic
+     * structure studies.
+     * @return AtomAnalyticalSource
+     */
+    public AtomAnalyticalSource getAtomAnalyticalSource() {
+        return new AtomAnalyticalSource(this);
+    }
+
+    /**
      * The CATEGORY of data items used to describe atom site information
      * used in crystallographic structure studies.
      * @return AtomSite
@@ -1114,8 +1148,8 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * The CATEGORY of data items used to describe the anisotropic
-     * thermal parameters of the atomic sites in a crystal structure.
+     * The CATEGORY of data items used to describe the anisotropic atomic
+     * displacement parameters of the atomic sites in a crystal structure.
      * @return AtomSiteAniso
      */
     public AtomSiteAniso getAtomSiteAniso() {
@@ -1179,7 +1213,7 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * The CATEGORY of data items which specify the electron density limits
+     * The CATEGORY of data items which specify the scattering density limits
      * in a difference Fourier map after the structure has been refined. The
      * RMS value is with respect to the arithmetic mean density, and is derived
      * from summations over each grid point in the asymmetric unit of the cell.
@@ -1223,14 +1257,6 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public Symmetry getSymmetry() {
         return new Symmetry(this);
-    }
-
-    /**
-     * 
-     * @return DiffrnStandards
-     */
-    public DiffrnStandards getDiffrnStandards() {
-        return new DiffrnStandards(this);
     }
 
     /**

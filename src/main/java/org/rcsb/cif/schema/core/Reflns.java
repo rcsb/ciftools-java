@@ -176,10 +176,10 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Minimum Miller indices of refined diffraction reflections.
-     * @return FloatColumn
+     * @return IntColumn
      */
-    public FloatColumn getLimitMin() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("reflns_limit_min"));
+    public IntColumn getLimitMin() {
+        return new DelegatingIntColumn(parentBlock.getColumn("reflns_limit_min"));
     }
 
     /**
@@ -187,7 +187,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * are significantly intense (see _reflns.threshold_expression). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberObs() {
@@ -199,7 +199,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * are significantly intense (see _reflns.threshold_expression). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberGt() {
@@ -210,7 +210,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of reflections in the REFLN set (not the DIFFRN_REFLN set). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberAll() {
@@ -221,7 +221,7 @@ public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {
      * Number of reflections in the REFLN set (not the DIFFRN_REFLN set). It may
      * include Friedel equivalent reflections (i.e. those which are equivalent
      * under the Laue symmetry but inequivalent under the crystal class),
-     * depending to the nature of the structure and the procedures used.
+     * depending on the nature of the structure and the procedures used.
      * @return IntColumn
      */
     public IntColumn getNumberTotal() {

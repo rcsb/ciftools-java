@@ -14,8 +14,8 @@ import javax.annotation.Generated;
  * _chemical_formula.analytical, *.structural and *.sum. For the
  * data item *.moiety the formula construction is broken up into
  * residues or moieties, i.e. groups of atoms that form a molecular
- * unit or molecular ion. The  rules given below apply within each
- * moiety but different requirements apply to the way that moieties
+ * unit or molecular ion. The rules given below apply within each
+ * moiety, but different requirements apply to the way that moieties
  * are connected (see _chemical_formula.moiety).
  * 
  * 1. Only recognized element symbols may be used.
@@ -39,7 +39,7 @@ import javax.annotation.Generated;
  * depends on whether or not carbon is present. If carbon is
  * present, the order should be: C, then H, then the other
  * elements in alphabetical order of their symbol. If carbon is
- * not present, the elements are listed purely in alphabetic order
+ * not present, the elements are listed purely in alphabetical order
  * of their symbol. This is the 'Hill' system used by Chemical
  * Abstracts. This ordering is used in _chemical_formula.moiety
  * and _chemical_formula.sum.
@@ -108,10 +108,10 @@ public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategor
      * trace elements not included in atom type and atom site lists should
      * not be included. See category description for the rules for writing
      * chemical formulae for inorganics, organometallics, metal complexes
-     * etc., in which  bonded groups are preserved as discrete entities
+     * etc., in which bonded groups are preserved as discrete entities
      * within parentheses, with post-multipliers as required. The order of
      * the elements should give as much information as possible about the
-     * chemical structure.  Parentheses may be used and nested as required.
+     * chemical structure. Parentheses may be used and nested as required.
      * This formula should correspond to the structure as actually reported,
      * i.e. trace elements not included in atom-type and atom-site lists
      * should not be included (see also _chemical_formula.analytical).

@@ -19,7 +19,7 @@ import javax.annotation.Generated;
  * stored in this dictionary.
  * 
  * The commonly used Hermann-Mauguin symbol determines the
- * space-group type uniquely but several different Hermann-Mauguin
+ * space-group type uniquely, but several different Hermann-Mauguin
  * symbols may refer to the same space-group type. A
  * Hermann-Mauguin symbol contains information on the choice of
  * the basis, but not on the choice of origin.
@@ -127,7 +127,7 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * symbols. Bars should be given as negative signs before the
      * numbers to which they apply.
      * The commonly used Hermann-Mauguin symbol determines the space
-     * group type uniquely but a given space group type may be
+     * group type uniquely, but a given space group type may be
      * described by more than one Hermann-Mauguin symbol. The space
      * group type is best described using _space_group.IT_number.
      * The Hermann-Mauguin symbol may contain information on the
@@ -263,13 +263,13 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      * Subscripts should appear without special symbols. Bars should
      * be given as negative signs before the numbers to which they
      * apply. The commonly used Hermann-Mauguin symbol determines the
-     * space-group type uniquely but a given space-group type may
+     * space-group type uniquely, but a given space-group type may
      * be described by more than one Hermann-Mauguin symbol. The
      * space-group type is best described using
      * _space_group.IT_number or _space_group.name_Schoenflies. The
      * full international Hermann-Mauguin symbol contains information
      * about the choice of basis for monoclinic and orthorhombic
-     * space groups but does not give information about the choice
+     * space groups, but does not give information about the choice
      * of origin. To define the setting uniquely use
      * _space_group.name_Hall, or list the symmetry operations
      * or generators.

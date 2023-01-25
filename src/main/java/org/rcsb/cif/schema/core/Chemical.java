@@ -32,8 +32,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Description of the source of the compound under study, or of the
-     * parent  molecule if a simple derivative is studied. This includes
-     * the place of  discovery for minerals or the actual source of a
+     * parent molecule if a simple derivative is studied. This includes
+     * the place of discovery for minerals or the actual source of a
      * natural product.
      * @return StrColumn
      */

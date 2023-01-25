@@ -56,13 +56,13 @@ public class Symmetry extends DelegatingCategory.DelegatingCifCoreCategory {
      * Subscripts should appear without special symbols. Bars should
      * be given as negative signs before the numbers to which they
      * apply. The commonly used Hermann-Mauguin symbol determines the
-     * space-group type uniquely but a given space-group type may
+     * space-group type uniquely, but a given space-group type may
      * be described by more than one Hermann-Mauguin symbol. The
      * space-group type is best described using
      * _space_group.IT_number or _space_group.name_Schoenflies. The
      * full international Hermann-Mauguin symbol contains information
      * about the choice of basis for monoclinic and orthorhombic
-     * space groups but does not give information about the choice
+     * space groups, but does not give information about the choice
      * of origin. To define the setting uniquely use
      * _space_group.name_Hall, or list the symmetry operations
      * or generators.

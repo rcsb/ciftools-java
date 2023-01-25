@@ -106,6 +106,20 @@ public class DiffrnRefln extends DelegatingCategory {
                 return getPdbxRotationAngle();
             case "pdbx_scale_value":
                 return getPdbxScaleValue();
+            case "frame_id":
+                return getFrameId();
+            case "pdbx_batch_id":
+                return getPdbxBatchId();
+            case "pdbx_detector_obs_fast":
+                return getPdbxDetectorObsFast();
+            case "pdbx_detector_obs_slow":
+                return getPdbxDetectorObsSlow();
+            case "pdbx_detector_calc_fast":
+                return getPdbxDetectorCalcFast();
+            case "pdbx_detector_calc_slow":
+                return getPdbxDetectorCalcSlow();
+            case "pdbx_panel_mapping_id":
+                return getPdbxPanelMappingId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -531,6 +545,104 @@ public class DiffrnRefln extends DelegatingCategory {
      */
     public FloatColumn getPdbxScaleValue() {
         return delegate.getColumn("pdbx_scale_value", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Pointer to _diffrn_scan_frame.frame_id in the DIFFRN_SCAN_FRAME
+     * category.
+     * @return StrColumn
+     */
+    public StrColumn getFrameId() {
+        return delegate.getColumn("frame_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Pointer to _pdbx_diffrn_batch.id in the PDBX_DIFFRN_BATCH category.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxBatchId() {
+        return delegate.getColumn("pdbx_batch_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the direction of
+     * the fast changing array index (of the 2D diffraction
+     * data) as observed for this reflection. This is often
+     * the position where the reflection centroid is observed.
+     * 
+     * The fast changing array index of the 2D diffraction
+     * array is often also defined as the detector
+     * X-coordinate, while the slow changing array index is
+     * defined as the Y-coordinate. This can vary depending on
+     * the convention of the detector and the facility,
+     * especially for multi-panel detectors.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorObsFast() {
+        return delegate.getColumn("pdbx_detector_obs_fast", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the direction of
+     * the slow changing array index (of the 2D diffraction
+     * data) as observed for this reflection. This is often
+     * the position where the reflection centroid is observed.
+     * 
+     * The slow changing array index of the 2D diffraction
+     * array is often also defined as the detector
+     * Y-coordinate, while the fast changing array index is
+     * defined as the X-coordinate. This can vary depending on
+     * the convention of the detector and the facility,
+     * especially for multi-panel detectors.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorObsSlow() {
+        return delegate.getColumn("pdbx_detector_obs_slow", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the direction of
+     * the fast changing array index (of the 2D diffraction
+     * data) for this reflection. This is often the position
+     * where the calculated reflection is predicted to occur.
+     * 
+     * The fast changing array index of the 2D diffraction
+     * array is often also defined as the detector
+     * X-coordinate, while the slow changing array index is
+     * defined as the Y-coordinate. This can vary depending on
+     * the convention of the detector and the facility,
+     * especially for multi-panel detectors.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorCalcFast() {
+        return delegate.getColumn("pdbx_detector_calc_fast", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Detector coordinate (in pixels) along the direction of
+     * the slow changing array index (of the 2D diffraction
+     * data) for this reflection. This is often the position
+     * where the calculated reflection is predicted to occur.
+     * 
+     * The slow changing array index of the 2D diffraction
+     * array is often also defined as the detector
+     * Y-coordinate, while the fast changing array index is
+     * defined as the X-coordinate. This can vary depending on
+     * the convention of the detector and the facility,
+     * especially for multi-panel detectors.
+     * @return FloatColumn
+     */
+    public FloatColumn getPdbxDetectorCalcSlow() {
+        return delegate.getColumn("pdbx_detector_calc_slow", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Pointer to _pdbx_diffrn_detector_panel_mapping.id in the
+     * PDBX_DIFFRN_DETECTOR_PANEL_MAPPING category
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPanelMappingId() {
+        return delegate.getColumn("pdbx_panel_mapping_id", DelegatingStrColumn::new);
     }
 
 }
