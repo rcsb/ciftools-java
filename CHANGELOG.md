@@ -3,6 +3,12 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 5.0.0 - January 2023
+-------------
+### Breaking schema changes
+* cif-core:
+  * dropped `diffrn_standard` (duplicate of `diffrn_standards`) and renaming/retyping of several diffraction-related categories
+
 ciftools-java 4.0.5 - January 2023
 -------------
 ### Bug fixes
