@@ -248,6 +248,7 @@ public class BinaryCifWriter {
 
         // check for "scientific integers?"
         static NumberType getNumberTypeScientific(String v, int start, int end) {
+            if (start >= v.length()) return NaN; // might happen to end with e/E
             // handle + in '1e+1' separately.
             if (v.charAt(start) == '+') start++;
             return isInt(v, start, end) ? NumberType.Scientific : NumberType.NaN;
