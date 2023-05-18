@@ -240,4 +240,12 @@ class WriterTest {
         assertEquals(1.00, atomSite.getOccupancy().get(0));
         assertEquals(0.013895, back.getFirstBlock().getAtomSites().getFractTransfMatrix11().get(0));
     }
+
+    @Test
+    void whenReading5E_thenNotTreatedAsScientificNumber() throws IOException {
+        // might treat the 5E in `TNT    refinement        5E ? 4 ` as scientific notation
+        MmCifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/1onx.cif"))
+                .as(StandardSchemata.MMCIF);
+        assertNotNull(CifIO.writeBinary(cifFile));
+    }
 }
