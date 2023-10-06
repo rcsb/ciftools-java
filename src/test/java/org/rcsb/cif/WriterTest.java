@@ -248,4 +248,13 @@ class WriterTest {
                 .as(StandardSchemata.MMCIF);
         assertNotNull(CifIO.writeBinary(cifFile));
     }
+
+    @Test
+    void whenReadingChecksum_thenNotTreatedAsInt() throws IOException {
+        // might treat the CRC64 in `_ma_target_ref_db_details.seq_db_sequence_checksum     0197355516942160` as int
+        MmCifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("cif/AF-P41068-F1-model_v4.cif"))
+                .as(StandardSchemata.MMCIF);
+        assertEquals("0197355516942160", cifFile.getFirstBlock().getMaTargetRefDbDetails().getSeqDbSequenceChecksum().get(0));
+        assertNotNull(CifIO.writeBinary(cifFile));
+    }
 }

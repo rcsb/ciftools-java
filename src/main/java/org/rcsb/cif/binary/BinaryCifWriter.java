@@ -243,6 +243,17 @@ public class BinaryCifWriter {
                     break;
                 }
             }
+
+            // long sequences of numbers might exceed what can actually be stored as int
+            if (end >= 10) {
+                try {
+                    // 'expensive' check to see whether some String fits into 32 bit
+                    Integer.parseInt(v);
+                } catch (NumberFormatException e) {
+                    return NaN;
+                }
+            }
+
             return start == end ? Int : NaN;
         }
 
