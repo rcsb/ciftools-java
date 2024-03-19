@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * The DICTIONARY group encompassing the CORE STRUCTURE data items defined
- * and used with in the Crystallographic Information Framework (CIF).
+ * and used within the Crystallographic Information Framework (CIF).
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Structure extends DelegatingCategory.DelegatingCifCoreCategory {

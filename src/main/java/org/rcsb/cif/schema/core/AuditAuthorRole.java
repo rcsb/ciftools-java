@@ -21,7 +21,7 @@ public class AuditAuthorRole extends DelegatingCategory.DelegatingCifCoreCategor
      * Unique identifier for the author for whom a role is identified.
      * This may be repeated where an author took on multiple roles.
      * The identifier for the author is drawn from the list of authors
-     * given in the audit_author category.
+     * given in the AUDIT_AUTHOR category.
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -199,7 +199,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Maximum theta angle of the measured reflections.
+     * Maximum θ angle of the measured reflections.
      * @return FloatColumn
      */
     public FloatColumn getThetaMax() {
@@ -207,7 +207,7 @@ public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Minimum theta angle of the measured reflections.
+     * Minimum θ angle of the measured reflections.
      * @return FloatColumn
      */
     public FloatColumn getThetaMin() {

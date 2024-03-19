@@ -20,8 +20,7 @@ public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * An identifier for the database that contains the
-     * related dataset.
+     * An identifier for the database that contains the related dataset.
      * @return StrColumn
      */
     public StrColumn getDatabaseId() {

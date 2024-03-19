@@ -1162,6 +1162,10 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxInitialRefinementModel();
             case "pdbx_investigation":
                 return getPdbxInvestigation();
+            case "pdbx_chem_comp_pcm":
+                return getPdbxChemCompPcm();
+            case "pdbx_modification_feature":
+                return getPdbxModificationFeature();
             case "pdbx_diffrn_batch":
                 return getPdbxDiffrnBatch();
             case "pdbx_diffrn_cell":
@@ -1354,6 +1358,16 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmEntryCollection();
             case "ihm_entry_collection_mapping":
                 return getIhmEntryCollectionMapping();
+            case "ihm_multi_state_scheme":
+                return getIhmMultiStateScheme();
+            case "ihm_multi_state_scheme_connectivity":
+                return getIhmMultiStateSchemeConnectivity();
+            case "ihm_kinetic_rate":
+                return getIhmKineticRate();
+            case "ihm_relaxation_time":
+                return getIhmRelaxationTime();
+            case "ihm_relaxation_time_multi_state_scheme":
+                return getIhmRelaxationTimeMultiStateScheme();
             case "ma_model_list":
                 return getMaModelList();
             case "ma_template_details":
@@ -7370,6 +7384,26 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the PDBX_CHEM_COMP_PCM category provide
+     * information about the protein modifications that are described
+     * by the chemical component.
+     * @return PdbxChemCompPcm
+     */
+    public PdbxChemCompPcm getPdbxChemCompPcm() {
+        return delegate.getCategory("pdbx_chem_comp_pcm", PdbxChemCompPcm::new);
+    }
+
+    /**
+     * Data items in the PDBX_MODIFICATION_FEATURE category provides
+     * information about all the protein modifications that have been
+     * modeled in the entry.
+     * @return PdbxModificationFeature
+     */
+    public PdbxModificationFeature getPdbxModificationFeature() {
+        return delegate.getCategory("pdbx_modification_feature", PdbxModificationFeature::new);
+    }
+
+    /**
      * Data items in the PDBX_DIFFRN_BATCH category provide a
      * mechanism to describe common characteristics of a group of
      * reflections within the DIFFRN_REFLN category.
@@ -8413,6 +8447,51 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public IhmEntryCollectionMapping getIhmEntryCollectionMapping() {
         return delegate.getCategory("ihm_entry_collection_mapping", IhmEntryCollectionMapping::new);
+    }
+
+    /**
+     * Data items in the IHM_MULTI_STATE_SCHEME category provide details about
+     * collection of multiple states that can form a connected/ordered scheme.
+     * @return IhmMultiStateScheme
+     */
+    public IhmMultiStateScheme getIhmMultiStateScheme() {
+        return delegate.getCategory("ihm_multi_state_scheme", IhmMultiStateScheme::new);
+    }
+
+    /**
+     * Data items in the IHM_MULTI_STATE_SCHEME_CONNECTIVITY category record the
+     * details of the ordered connectivities among states in a multi-state scheme.
+     * @return IhmMultiStateSchemeConnectivity
+     */
+    public IhmMultiStateSchemeConnectivity getIhmMultiStateSchemeConnectivity() {
+        return delegate.getCategory("ihm_multi_state_scheme_connectivity", IhmMultiStateSchemeConnectivity::new);
+    }
+
+    /**
+     * Data items in the IHM_KINETIC_RATE category records the
+     * details of kinetic rates obtained from biophysical experiments.
+     * @return IhmKineticRate
+     */
+    public IhmKineticRate getIhmKineticRate() {
+        return delegate.getCategory("ihm_kinetic_rate", IhmKineticRate::new);
+    }
+
+    /**
+     * Data items in the IHM_RELAXATION_TIME category records the details
+     * of the relaxation times obtained from biophysical experiments.
+     * @return IhmRelaxationTime
+     */
+    public IhmRelaxationTime getIhmRelaxationTime() {
+        return delegate.getCategory("ihm_relaxation_time", IhmRelaxationTime::new);
+    }
+
+    /**
+     * Data items in the IHM_RELAXATION_TIME_MULTI_STATE_SCHEME category map the experimentally
+     * measured relaxation times with the multi-state schemes.
+     * @return IhmRelaxationTimeMultiStateScheme
+     */
+    public IhmRelaxationTimeMultiStateScheme getIhmRelaxationTimeMultiStateScheme() {
+        return delegate.getCategory("ihm_relaxation_time_multi_state_scheme", IhmRelaxationTimeMultiStateScheme::new);
     }
 
     /**

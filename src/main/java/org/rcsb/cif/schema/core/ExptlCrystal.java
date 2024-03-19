@@ -129,8 +129,8 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * F(000) = [ (sum f~r~)^2^ + (sum f~i~)^2^ ]^1/2^
      * 
-     * f~r~   = real part of the scattering factors at theta = 0
-     * f~i~   = imaginary part of the scattering factors at theta = 0
+     * f~r~   = real part of the scattering factors at θ = 0
+     * f~i~   = imaginary part of the scattering factors at θ = 0
      * 
      * the sum is taken over each atom in the unit cell
      * 
@@ -138,7 +138,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      * the effective number of electrons in the unit cell; for neutrons,
      * non-dispersive F(000) (which may be negative) counts the total
      * nuclear scattering power in the unit cell. See
-     * http://reference.iucr.org/dictionary/F(000)
+     * https://dictionary.iucr.org/F(000)
      * @return FloatColumn
      */
     public FloatColumn getF000() {
@@ -155,7 +155,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Details of crystal growth and preparation of the crystals
-     * (e.g.  mounting) prior to the intensity measurements.
+     * (e.g. mounting) prior to the intensity measurements.
      * @return StrColumn
      */
     public StrColumn getPreparation() {

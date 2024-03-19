@@ -25,7 +25,7 @@ public class AtomSites extends DelegatingCategory.DelegatingCifCoreCategory {
      * *_hydrogens code identifies how the hydrogen sites were located.
      * 
      * Ref: Sheldrick, G. M., Hauptman, H. A., Weeks, C. M.,
-     * Miller, R. and Us\'on, I. (2001). Ab initio phasing.
+     * Miller, R. and Usón, I. (2001). Ab initio phasing.
      * In International Tables for Crystallography,
      * Vol. F. Crystallography of biological macromolecules,
      * edited by M. G. Rossmann and E. Arnold, ch. 16.1.
@@ -44,7 +44,7 @@ public class AtomSites extends DelegatingCategory.DelegatingCifCoreCategory {
      * *_hydrogens code identifies how the hydrogen sites were located.
      * 
      * Ref: Sheldrick, G. M., Hauptman, H. A., Weeks, C. M.,
-     * Miller, R. and Us\'on, I. (2001). Ab initio phasing.
+     * Miller, R. and Usón, I. (2001). Ab initio phasing.
      * In International Tables for Crystallography,
      * Vol. F. Crystallography of biological macromolecules,
      * edited by M. G. Rossmann and E. Arnold, ch. 16.1.
@@ -63,7 +63,7 @@ public class AtomSites extends DelegatingCategory.DelegatingCifCoreCategory {
      * *_hydrogens code identifies how the hydrogen sites were located.
      * 
      * Ref: Sheldrick, G. M., Hauptman, H. A., Weeks, C. M.,
-     * Miller, R. and Us\'on, I. (2001). Ab initio phasing.
+     * Miller, R. and Usón, I. (2001). Ab initio phasing.
      * In International Tables for Crystallography,
      * Vol. F. Crystallography of biological macromolecules,
      * edited by M. G. Rossmann and E. Arnold, ch. 16.1.

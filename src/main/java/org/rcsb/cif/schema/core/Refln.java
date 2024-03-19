@@ -133,10 +133,10 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Standard uncertainty of _refln.F_complex.
-     * @return FloatColumn
+     * @return StrColumn
      */
-    public FloatColumn getFComplexSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("refln_f_complex_su"));
+    public StrColumn getFComplexSu() {
+        return new DelegatingStrColumn(parentBlock.getColumn("refln_f_complex_su"));
     }
 
     /**
@@ -177,13 +177,13 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The figure of merit m for this reflection.
      * 
-     * int P~alpha~ exp(i*alpha) dalpha
-     * m = --------------------------------
-     * int P~alpha~ dalpha
+     * int P~α~ exp(i*α) dα
+     * m = --------------------
+     * int P~α~ dα
      * 
-     * P~a~ = the probability that the phase angle a is correct
+     * P~α~ = the probability that the phase angle α is correct
      * 
-     * int is taken over the range alpha = 0 to 2 pi.
+     * int is taken over the range α = 0 to 2 π.
      * @return FloatColumn
      */
     public FloatColumn getFom() {
@@ -440,7 +440,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The (sin theta)/lambda value for this reflection.
+     * The sin(θ)/λ value for this reflection.
      * @return FloatColumn
      */
     public FloatColumn getSintOverLambda() {
@@ -448,7 +448,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The (sin theta)/lambda value for this reflection.
+     * The sin(θ)/λ value for this reflection.
      * @return FloatColumn
      */
     public FloatColumn getSinThetaOverLambda() {

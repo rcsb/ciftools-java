@@ -34,6 +34,12 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getDiffraction();
             case "diffrn":
                 return getDiffrn();
+            case "cell":
+                return getCell();
+            case "cell_measurement":
+                return getCellMeasurement();
+            case "cell_measurement_refln":
+                return getCellMeasurementRefln();
             case "diffrn_attenuator":
                 return getDiffrnAttenuator();
             case "diffrn_detector":
@@ -78,12 +84,6 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getReflnsShell();
             case "exptl":
                 return getExptl();
-            case "cell":
-                return getCell();
-            case "cell_measurement":
-                return getCellMeasurement();
-            case "cell_measurement_refln":
-                return getCellMeasurementRefln();
             case "chemical":
                 return getChemical();
             case "chemical_conn_atom":
@@ -200,6 +200,8 @@ public class CifCoreBlock extends DelegatingBlock {
                 return getAtomAnalyticalMassLoss();
             case "atom_analytical_source":
                 return getAtomAnalyticalSource();
+            case "atom_scat_versus_stol":
+                return getAtomScatVersusStol();
             case "atom_site":
                 return getAtomSite();
             case "atom_site_aniso":
@@ -252,7 +254,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The DICTIONARY group encompassing the CORE DIFFRACTION data items defined
-     * and used with in the Crystallographic Information Framework (CIF).
+     * and used within the Crystallographic Information Framework (CIF).
      * @return Diffraction
      */
     public Diffraction getDiffraction() {
@@ -265,6 +267,33 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public Diffrn getDiffrn() {
         return new Diffrn(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to describe the parameters of
+     * the crystal unit cell.
+     * @return Cell
+     */
+    public Cell getCell() {
+        return new Cell(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to describe the measurement of
+     * the cell parameters.
+     * @return CellMeasurement
+     */
+    public CellMeasurement getCellMeasurement() {
+        return new CellMeasurement(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to describe the reflection data
+     * used in the measurement of the crystal unit cell.
+     * @return CellMeasurementRefln
+     */
+    public CellMeasurementRefln getCellMeasurementRefln() {
+        return new CellMeasurementRefln(this);
     }
 
     /**
@@ -324,9 +353,9 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The CATEGORY of data items which specify the wavelength of the
-     * radiation used in measuring diffraction intensities. Items may be
-     * looped to identify and assign weights to distinct wavelength
-     * components from a polychromatic beam.
+     * radiation used in measuring diffraction intensities. To identify
+     * and assign weights to distinct wavelength components from a
+     * polychromatic beam, see DIFFRN_RADIATION_WAVELENGTH.
      * @return DiffrnRadiation
      */
     public DiffrnRadiation getDiffrnRadiation() {
@@ -479,33 +508,6 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public Exptl getExptl() {
         return new Exptl(this);
-    }
-
-    /**
-     * The CATEGORY of data items used to describe the parameters of
-     * the crystal unit cell and their measurement.
-     * @return Cell
-     */
-    public Cell getCell() {
-        return new Cell(this);
-    }
-
-    /**
-     * The CATEGORY of data items used to describe the angles between
-     * the axes in the crystal unit cell.
-     * @return CellMeasurement
-     */
-    public CellMeasurement getCellMeasurement() {
-        return new CellMeasurement(this);
-    }
-
-    /**
-     * The CATEGORY of data items used to describe the reflection data
-     * used in the measurement of the crystal unit cell.
-     * @return CellMeasurementRefln
-     */
-    public CellMeasurementRefln getCellMeasurementRefln() {
-        return new CellMeasurementRefln(this);
     }
 
     /**
@@ -804,7 +806,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The DICTIONARY group encompassing the CORE PUBLICATION data items defined
-     * and used with in the Crystallographic Information Framework (CIF).
+     * and used within the Crystallographic Information Framework (CIF).
      * @return Publication
      */
     public Publication getPublication() {
@@ -1077,7 +1079,7 @@ public class CifCoreBlock extends DelegatingBlock {
     }
 
     /**
-     * Manuscript section data if submitted in parts. see also
+     * Manuscript section data if submitted in parts. See also
      * _publ_manuscript.text and _publ_manuscript.processed.
      * The _publ_section.exptl_prep, _publ_section.exptl_refinement
      * and _publ_section.exptl_solution items are preferred for
@@ -1091,7 +1093,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The DICTIONARY group encompassing the CORE STRUCTURE data items defined
-     * and used with in the Crystallographic Information Framework (CIF).
+     * and used within the Crystallographic Information Framework (CIF).
      * @return Structure
      */
     public Structure getStructure() {
@@ -1136,6 +1138,15 @@ public class CifCoreBlock extends DelegatingBlock {
      */
     public AtomAnalyticalSource getAtomAnalyticalSource() {
         return new AtomAnalyticalSource(this);
+    }
+
+    /**
+     * The CATEGORY of data items used to list atomic scattering factor values for
+     * use in crystallographic structure studies.
+     * @return AtomScatVersusStol
+     */
+    public AtomScatVersusStol getAtomScatVersusStol() {
+        return new AtomScatVersusStol(this);
     }
 
     /**
@@ -1243,7 +1254,7 @@ public class CifCoreBlock extends DelegatingBlock {
 
     /**
      * The crystallographic functions the invoked in the definition
-     * methods of CORE STRUCTURE data items defined and used with in
+     * methods of CORE STRUCTURE data items defined and used within
      * the Crystallographic Information Framework (CIF).
      * @return Function
      */

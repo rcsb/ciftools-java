@@ -47,7 +47,7 @@ public class AtomAnalyticalMassLoss extends DelegatingCategory.DelegatingCifCore
      * is represented by a negative value.
      * 
      * This data name would be used to record mass loss on drying, or mass
-     * loss on ignitition, during, for example, fusion bead preparation for
+     * loss on ignition, during, for example, fusion bead preparation for
      * XRF analysis.
      * @return FloatColumn
      */
@@ -77,7 +77,7 @@ public class AtomAnalyticalMassLoss extends DelegatingCategory.DelegatingCifCore
      * The temperature, in kelvin, at which the mass loss was recorded
      * as given by _atom_analytical_mass_loss.percent.
      * 
-     * This would be used to record the temperature of drying or ignitition,
+     * This would be used to record the temperature of drying or ignition,
      * during, for example, fusion bead preparation for XRF analysis.
      * @return FloatColumn
      */

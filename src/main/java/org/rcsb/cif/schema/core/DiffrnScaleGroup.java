@@ -19,8 +19,7 @@ public class DiffrnScaleGroup extends DelegatingCategory.DelegatingCifCoreCatego
 
     /**
      * Code identifying a specific scale group of reflections (e.g. for
-     * multi-film or multi-crystal data). The code must match a
-     * _diffrn_refln.scale_group_code in the DIFFRN_REFLN list.
+     * multi-film or multi-crystal data).
      * @return StrColumn
      */
     public StrColumn getCode() {

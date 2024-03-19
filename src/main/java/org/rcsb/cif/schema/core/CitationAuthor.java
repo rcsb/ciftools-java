@@ -26,15 +26,6 @@ public class CitationAuthor extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * Value is a unique key to a set of CITATION_AUTHOR items
-     * in a looped list.
-     * @return StrColumn
-     */
-    public StrColumn getKey() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_author_key"));
-    }
-
-    /**
      * Name of citation author; relevant for articles and book chapters.
      * The family name(s), followed by a comma and including any
      * dynastic components, precedes the first name(s) or initial(s).

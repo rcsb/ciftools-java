@@ -41,6 +41,10 @@ public class EmAdmin extends DelegatingCategory {
                 return getReplaceExistingEntryFlag();
             case "title":
                 return getTitle();
+            case "process_site":
+                return getProcessSite();
+            case "composite_map":
+                return getCompositeMap();
             default:
                 return new DelegatingColumn(column);
         }
@@ -143,6 +147,22 @@ public class EmAdmin extends DelegatingCategory {
      */
     public StrColumn getTitle() {
         return delegate.getColumn("title", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The site where the file was deposited.
+     * @return StrColumn
+     */
+    public StrColumn getProcessSite() {
+        return delegate.getColumn("process_site", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Indicates whether the authors have declared that this is a composite map deposition
+     * @return StrColumn
+     */
+    public StrColumn getCompositeMap() {
+        return delegate.getColumn("composite_map", DelegatingStrColumn::new);
     }
 
 }

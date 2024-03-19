@@ -64,6 +64,18 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.DiffrnBuilder(this);
     }
 
+    public CifCoreCategoryBuilder.CellBuilder enterCell() {
+        return new CifCoreCategoryBuilder.CellBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.CellMeasurementBuilder enterCellMeasurement() {
+        return new CifCoreCategoryBuilder.CellMeasurementBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.CellMeasurementReflnBuilder enterCellMeasurementRefln() {
+        return new CifCoreCategoryBuilder.CellMeasurementReflnBuilder(this);
+    }
+
     public CifCoreCategoryBuilder.DiffrnAttenuatorBuilder enterDiffrnAttenuator() {
         return new CifCoreCategoryBuilder.DiffrnAttenuatorBuilder(this);
     }
@@ -150,18 +162,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.ExptlBuilder enterExptl() {
         return new CifCoreCategoryBuilder.ExptlBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.CellBuilder enterCell() {
-        return new CifCoreCategoryBuilder.CellBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.CellMeasurementBuilder enterCellMeasurement() {
-        return new CifCoreCategoryBuilder.CellMeasurementBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.CellMeasurementReflnBuilder enterCellMeasurementRefln() {
-        return new CifCoreCategoryBuilder.CellMeasurementReflnBuilder(this);
     }
 
     public CifCoreCategoryBuilder.ChemicalBuilder enterChemical() {
@@ -394,6 +394,10 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.AtomAnalyticalSourceBuilder enterAtomAnalyticalSource() {
         return new CifCoreCategoryBuilder.AtomAnalyticalSourceBuilder(this);
+    }
+
+    public CifCoreCategoryBuilder.AtomScatVersusStolBuilder enterAtomScatVersusStol() {
+        return new CifCoreCategoryBuilder.AtomScatVersusStolBuilder(this);
     }
 
     public CifCoreCategoryBuilder.AtomSiteBuilder enterAtomSite() {

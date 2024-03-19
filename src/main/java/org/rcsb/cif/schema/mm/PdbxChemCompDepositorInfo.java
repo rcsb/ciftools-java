@@ -38,6 +38,10 @@ public class PdbxChemCompDepositorInfo extends DelegatingCategory {
                 return getInDictionaryFlag();
             case "details":
                 return getDetails();
+            case "upload_file_name":
+                return getUploadFileName();
+            case "upload_file_type":
+                return getUploadFileType();
             default:
                 return new DelegatingColumn(column);
         }
@@ -140,6 +144,24 @@ public class PdbxChemCompDepositorInfo extends DelegatingCategory {
      */
     public StrColumn getDetails() {
         return delegate.getColumn("details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The filename of an uploaded description of a component
+     * component.
+     * @return StrColumn
+     */
+    public StrColumn getUploadFileName() {
+        return delegate.getColumn("upload_file_name", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The type of an uploaded description of a component
+     * component.
+     * @return StrColumn
+     */
+    public StrColumn getUploadFileType() {
+        return delegate.getColumn("upload_file_type", DelegatingStrColumn::new);
     }
 
 }

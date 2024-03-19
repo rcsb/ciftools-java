@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * The CATEGORY of data items used to describe the parameters of
- * the crystal unit cell and their measurement.
+ * the crystal unit cell.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -56,13 +56,13 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      * atomic displacement parameters to a dimensionless beta(IJ) matrix.
      * The ADP factor in a structure factor expression:
      * 
-     * t = exp -2pi**2 ( U11    h h a* a* + ...... 2 U23    k l b* c* )
-     * t = exp - 0.25  ( B11    h h a* a* + ...... 2 B23    k l b* c* )
-     * = exp -       ( beta11 h h + ............ 2 beta23 k l )
+     * t = exp - 2π^2^ ( U11 h h a* a* + ...... 2 U23 k l b* c* )
+     * t = exp - 0.25  ( B11 h h a* a* + ...... 2 B23 k l b* c* )
+     * = exp -       ( β11 h h + ............ 2 β23 k l )
      * 
-     * The conversion of the U or B matrices to the beta matrix
+     * The conversion of the U or B matrices to the β matrix
      * 
-     * beta =   C U C   =    C B C /8pi**2
+     * β =   C U C   =    C B C /8π^2^
      * 
      * where C is conversion matrix defined here.
      * @return FloatColumn
@@ -83,9 +83,9 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      * The reciprocal space matrix for converting the isotropic Uiso
      * atomic displacement parameter to the anisotropic matrix Uij.
      * 
-     * | 1            cos(gamma*)   cos(beta*)  |
-     * U[i,j]  = Uiso * | cos(gamma*)  1             cos(alpha*) |
-     * | cos(beta*)   cos(alpha*)   1           |
+     * | 1        cos(γ*)  cos(β*) |
+     * U[i,j]  = Uiso * | cos(γ*)  1        cos(α*) |
+     * | cos(β*)  cos(α*)  1       |
      * @return FloatColumn
      */
     public FloatColumn getConvertUisoToUij() {
@@ -98,6 +98,19 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getConvertUisoToUijSu() {
         return new DelegatingFloatColumn(parentBlock.getColumn("cell_convert_uiso_to_uij_su"));
+    }
+
+    /**
+     * A pointer to the diffraction conditions to which this cell has been applied,
+     * for example, to locate and extract diffraction peaks. These will normally be
+     * the same conditions as those under which the cell was measured, but some
+     * legacy data sets may have used a cell measured under differing conditions,
+     * in which case those conditions should be indicated using the
+     * _cell_measurement.condition_id data item.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrnId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("cell_diffrn_id"));
     }
 
     /**

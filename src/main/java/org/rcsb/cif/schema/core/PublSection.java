@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Manuscript section data if submitted in parts. see also
+ * Manuscript section data if submitted in parts. See also
  * _publ_manuscript.text and _publ_manuscript.processed.
  * The _publ_section.exptl_prep, _publ_section.exptl_refinement
  * and _publ_section.exptl_solution items are preferred for

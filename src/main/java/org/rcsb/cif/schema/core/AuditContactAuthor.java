@@ -52,7 +52,7 @@ public class AuditContactAuthor extends DelegatingCategory.DelegatingCifCoreCate
     }
 
     /**
-     * Arbitrary identifier for this author
+     * Arbitrary identifier for this author.
      * @return StrColumn
      */
     public StrColumn getId() {

@@ -7,9 +7,9 @@ import javax.annotation.Generated;
 
 /**
  * The CATEGORY of data items which specify the wavelength of the
- * radiation used in measuring diffraction intensities. Items may be
- * looped to identify and assign weights to distinct wavelength
- * components from a polychromatic beam.
+ * radiation used in measuring diffraction intensities. To identify
+ * and assign weights to distinct wavelength components from a
+ * polychromatic beam, see DIFFRN_RADIATION_WAVELENGTH.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -147,7 +147,7 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * Code identifying a radiation used in the diffraction measurements.
+     * Code identifying the radiation used in the diffraction measurements.
      * This is linked to _diffrn_refln.wavelength_id and _refln.wavelength_id
      * @return StrColumn
      */
@@ -156,7 +156,7 @@ public class DiffrnRadiation extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * Code identifying a radiation used in the diffraction measurements.
+     * Code identifying the radiation used in the diffraction measurements.
      * This is linked to _diffrn_refln.wavelength_id and _refln.wavelength_id
      * @return StrColumn
      */

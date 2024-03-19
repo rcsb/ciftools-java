@@ -17,18 +17,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB11() {
@@ -37,9 +42,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB11Esd() {
@@ -47,18 +52,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB12() {
@@ -67,9 +77,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB12Esd() {
@@ -77,18 +87,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB13() {
@@ -97,9 +112,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB13Esd() {
@@ -107,18 +122,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB22() {
@@ -127,9 +147,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB22Esd() {
@@ -137,18 +157,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB23() {
@@ -157,9 +182,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB23Esd() {
@@ -167,18 +192,23 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement components
-     * in angstroms squared which appear in the structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
+     * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
-     * The IUCr Commission on Nomenclature recommends against the use
-     * of B for reporting atomic displacement parameters. U, being
-     * directly proportional to B, is preferred.
+     * The IUCr Commission on Nomenclature recommends against the use of B for
+     * reporting atomic displacement parameters. U, being directly proportional
+     * to B, is preferred .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getB33() {
@@ -187,9 +217,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Bij anisotropic atomic displacement components (see
-     * _aniso_BIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Bij calculation.
+     * form of the B^ij^ anisotropic atomic displacement components (see
+     * aniso_BIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the B^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getB33Esd() {
@@ -227,16 +257,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU11() {
@@ -245,9 +281,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU11Esd() {
@@ -255,16 +291,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU12() {
@@ -273,9 +315,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU12Esd() {
@@ -283,16 +325,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU13() {
@@ -301,9 +349,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU13Esd() {
@@ -311,16 +359,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU22() {
@@ -329,9 +383,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU22Esd() {
@@ -339,16 +393,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU23() {
@@ -357,9 +417,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU23Esd() {
@@ -367,16 +427,22 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard anisotropic atomic displacement
-     * components in angstroms squared which appear in the
-     * structure factor term:
+     * These are the standard anisotropic atomic displacement components, in
+     * angstroms squared, which appear in the structure factor term:
      * 
-     * T = exp{-2pi^2^ sum~i~ [sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
+     * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
      * a* = the reciprocal-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
+     * 
+     * The IUCr Commission on Nomenclature recommends the use of U for reporting
+     * atomic displacement parameters .
+     * 
+     * Note that U^ij^ = β^ij^/(2 π^2^ a*~i~ a*~j~) = B^ij^/(8 π^2^) .
+     * 
+     *  Trueblood, K. N. et al. (1996). Acta Crystallogr. A52(5), 770-781.
      * @return FloatColumn
      */
     public FloatColumn getU33() {
@@ -385,9 +451,9 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * These are the standard uncertainty values (SU) for the standard
-     * form of the Uij anisotropic atomic displacement components (see
-     * _aniso_UIJ). Because these values are TYPE measurand, the su values
-     * may in practice be auto generated as part of the Uij calculation.
+     * form of the U^ij^ anisotropic atomic displacement components (see
+     * aniso_UIJ). Because these values are TYPE measurand, the su values
+     * may in practice be auto generated as part of the U^ij^ calculation.
      * @return FloatColumn
      */
     public FloatColumn getU33Esd() {

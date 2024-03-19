@@ -100,6 +100,34 @@ public class Journal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Article number that is used by some journals instead of a page range.
+     * Usually applies to electronic-only journals.
+     * @return StrColumn
+     */
+    public StrColumn getPaperNumber() {
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_paper_number"));
+    }
+
+    /**
+     * Number of pages in the journal article.
+     * @return IntColumn
+     */
+    public IntColumn getPaperPages() {
+        return new DelegatingIntColumn(parentBlock.getColumn("journal_paper_pages"));
+    }
+
+    /**
+     * The Uniform Resource Locator (URL) of the publication.
+     * 
+     * The _journal.paper_DOI data item should be used in preference to this item
+     * when possible.
+     * @return StrColumn
+     */
+    public StrColumn getPaperUrl() {
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_paper_url"));
+    }
+
+    /**
      * Number of the supplementary publication.
      * @return StrColumn
      */

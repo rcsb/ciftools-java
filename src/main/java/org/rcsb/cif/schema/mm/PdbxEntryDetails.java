@@ -30,6 +30,8 @@ public class PdbxEntryDetails extends DelegatingCategory {
                 return getSourceDetails();
             case "has_ligand_of_interest":
                 return getHasLigandOfInterest();
+            case "has_protein_modification":
+                return getHasProteinModification();
             default:
                 return new DelegatingColumn(column);
         }
@@ -84,6 +86,14 @@ public class PdbxEntryDetails extends DelegatingCategory {
      */
     public StrColumn getHasLigandOfInterest() {
         return delegate.getColumn("has_ligand_of_interest", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag to indicate if the model contains any protein modifications.
+     * @return StrColumn
+     */
+    public StrColumn getHasProteinModification() {
+        return delegate.getColumn("has_protein_modification", DelegatingStrColumn::new);
     }
 
 }

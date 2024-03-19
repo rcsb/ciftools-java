@@ -103,7 +103,7 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Absorption coefficient mu calculated from the atomic content of
+     * Linear absorption coefficient, μ, calculated from the atomic content of
      * the cell, the density and the radiation wavelength.
      * @return FloatColumn
      */
@@ -112,7 +112,7 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Absorption coefficient mu calculated from the atomic content of
+     * Linear absorption coefficient, μ, calculated from the atomic content of
      * the cell, the density and the radiation wavelength.
      * @return FloatColumn
      */

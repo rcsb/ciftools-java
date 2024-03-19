@@ -6,8 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the angles between
- * the axes in the crystal unit cell.
+ * The CATEGORY of data items used to describe the measurement of
+ * the cell parameters.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -18,8 +18,30 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * A pointer to the diffraction conditions used for cell measurement,
+     * where different to the diffraction conditions used for data
+     * collection.
+     * @return StrColumn
+     */
+    public StrColumn getConditionId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("cell_measurement_condition_id"));
+    }
+
+    /**
+     * A pointer to the diffraction experiment to which the measured cell
+     * has been applied.
+     * @return StrColumn
+     */
+    public StrColumn getDiffrnId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("cell_measurement_diffrn_id"));
+    }
+
+    /**
+     * **DEPRECATED**
+     * 
      * The pressure at which the unit-cell parameters were measured
      * (not the pressure used to synthesize the sample).
+     * Replaced by '_diffrn.ambient_pressure'
      * @return FloatColumn
      */
     public FloatColumn getPressure() {
@@ -27,7 +49,11 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Description of the radiation used to measure the unit-cell data.
+     * Items from the DIFFRN_RADIATION category should be used instead
+     * of this item.
      * @return StrColumn
      */
     public StrColumn getRadiation() {
@@ -44,7 +70,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * Maximum theta scattering angle of reflections used to measure
+     * Maximum θ scattering angle of reflections used to measure
      * the crystal unit cell.
      * @return FloatColumn
      */
@@ -53,7 +79,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
-     * Minimum theta scattering angle of reflections used to measure
+     * Minimum θ scattering angle of reflections used to measure
      * the crystal unit cell.
      * @return FloatColumn
      */
@@ -62,9 +88,11 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Wavelength of the radiation used to measure the unit cell.
-     * If this is not specified, the wavelength is assumed to be the
-     * same as that given in _diffrn_radiation_wavelength.value
+     * Items from the DIFFRN_RADIATION_WAVELENGTH category should
+     * be used instead of this item.
      * @return FloatColumn
      */
     public FloatColumn getWavelength() {
@@ -72,6 +100,8 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Standard uncertainty of the pressure at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
@@ -81,6 +111,8 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Standard uncertainty of the pressure at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
@@ -90,8 +122,11 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * The temperature at which the unit-cell parameters were measured
      * (not the temperature of synthesis).
+     * _diffrn.ambient_temperature should be used instead of this item.
      * @return FloatColumn
      */
     public FloatColumn getTemp() {
@@ -99,8 +134,11 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * The temperature at which the unit-cell parameters were measured
      * (not the temperature of synthesis).
+     * _diffrn.ambient_temperature should be used instead of this item.
      * @return FloatColumn
      */
     public FloatColumn getTemperature() {
@@ -108,6 +146,8 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Standard uncertainty of the temperature of at which
      * the unit-cell parameters were measured.
      * @return FloatColumn
@@ -117,6 +157,8 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     }
 
     /**
+     * ** DEPRECATED **
+     * 
      * Standard uncertainty of the temperature of at which
      * the unit-cell parameters were measured.
      * @return FloatColumn

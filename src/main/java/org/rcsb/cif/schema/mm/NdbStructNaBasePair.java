@@ -68,6 +68,8 @@ public class NdbStructNaBasePair extends DelegatingCategory {
                 return getHbondType12();
             case "hbond_type_28":
                 return getHbondType28();
+            case "hbond_type_leontis_westhof":
+                return getHbondTypeLeontisWesthof();
             default:
                 return new DelegatingColumn(column);
         }
@@ -314,6 +316,32 @@ public class NdbStructNaBasePair extends DelegatingCategory {
      */
     public IntColumn getHbondType28() {
         return delegate.getColumn("hbond_type_28", DelegatingIntColumn::new);
+    }
+
+    /**
+     * Base pair classification of Leontis and Westhof.
+     * 
+     * The Leontis-Westhof classification system annotates
+     * basepairs according to the interacting edge used by
+     * each base (Watson-Crick, Hoogsteen, or Sugar), and
+     * glycosidic bond orientation (cis, trans).  For six of
+     * twelve classes, the correct Leontis-Westhof notation
+     * depends upon the order (i,j) of the identified
+     * nucleotides.
+     * 
+     * Leontis NB and Westhof E (2001) Geometric nomenclature
+     * and classification of RNA base pairs.  RNA 7:499-512.
+     * https://doi.org/10.1017/s1355838201002515
+     * 
+     * Replacement for category item
+     * _ndb_struct_na_base_pair.hbond_type_12. The older item
+     * encodes the 12 classes by a numerical index, without
+     * identifying the interacting edges used by each base in
+     * nucleotides i,j.
+     * @return StrColumn
+     */
+    public StrColumn getHbondTypeLeontisWesthof() {
+        return delegate.getColumn("hbond_type_leontis_westhof", DelegatingStrColumn::new);
     }
 
 }

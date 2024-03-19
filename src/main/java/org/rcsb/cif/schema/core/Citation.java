@@ -37,7 +37,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * International Standard Book Number (ISBN) for book chap. cited.
+     * International Standard Book Number (ISBN) for book chapter cited.
      * @return StrColumn
      */
     public StrColumn getBookIdIsbn() {
@@ -116,7 +116,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * of the Internet concepts of Uniform Resource Name and
      * Universal Resource Locator managed according to the
      * specifications of the International DOI Foundation
-     * (see http://www.doi.org).
+     * (see https://www.doi.org/).
      * @return StrColumn
      */
     public StrColumn getDoi() {
@@ -127,7 +127,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      * Unique identifier to the CITATION list. A value of 'primary'
      * should be used to indicate the citation that the author(s)
      * consider to be the most pertinent to the contents of the data
-     * block.  Note that this item need not be a number;  it can be
+     * block. Note that this item need not be a number; it can be
      * any unique identifier.
      * @return StrColumn
      */
@@ -174,7 +174,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The International Standard Serial Number (ISSN) code assigned to
-     * the journal cited;  relevant for journal articles.
+     * the journal cited. Relevant for journal articles.
      * @return StrColumn
      */
     public StrColumn getJournalIdIssn() {
@@ -182,7 +182,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Issue identifier of the journal cited;  relevant for articles.
+     * Issue identifier of the journal cited; relevant for articles.
      * @return StrColumn
      */
     public StrColumn getJournalIssue() {
@@ -190,7 +190,7 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Volume number of the journal cited;  relevant for articles.
+     * Volume number of the journal cited; relevant for articles.
      * @return IntColumn
      */
     public IntColumn getJournalVolume() {
@@ -238,6 +238,17 @@ public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getTitle() {
         return new DelegatingStrColumn(parentBlock.getColumn("citation_title"));
+    }
+
+    /**
+     * The Uniform Resource Locator (URL) of the cited work.
+     * 
+     * The _citation.DOI data item should be used in preference to this item when
+     * possible.
+     * @return StrColumn
+     */
+    public StrColumn getUrl() {
+        return new DelegatingStrColumn(parentBlock.getColumn("citation_url"));
     }
 
     /**

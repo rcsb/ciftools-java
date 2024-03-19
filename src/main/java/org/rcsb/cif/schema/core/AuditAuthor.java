@@ -27,7 +27,30 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Arbitrary identifier for this author
+     * The electronic mail address of an author of the data block, in a form
+     * recognizable to international networks. The format of e-mail addresses is
+     * given in Section 3.4, Address Specification, of Internet Message Format,
+     * RFC 2822, P. Resnick (Editor), Network Standards Group, April 2001.
+     * @return StrColumn
+     */
+    public StrColumn getEmail() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_email"));
+    }
+
+    /**
+     * Facsimile telephone number of an author of the data block.
+     * The recommended style is the international dialing prefix, followed
+     * by the area code in parentheses, followed by the local number with
+     * no spaces. The earlier convention of including the international
+     * dialing prefix in parentheses is no longer recommended.
+     * @return StrColumn
+     */
+    public StrColumn getFax() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_fax"));
+    }
+
+    /**
+     * Arbitrary identifier for this author.
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -38,7 +61,7 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * Identifier in the ORCID Registry of a publication
      * author. ORCID is an open, non-profit, community-driven
      * service to provide a registry of unique researcher
-     * identifiers (http://orcid.org).
+     * identifiers (https://orcid.org/).
      * @return StrColumn
      */
     public StrColumn getIdOrcid() {
@@ -56,6 +79,19 @@ public class AuditAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getName() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_author_name"));
+    }
+
+    /**
+     * Telephone number of an author of the data block.
+     * The recommended style is the international dialing prefix,
+     * followed by the area code in parentheses, followed by the
+     * local number and any extension number prefixed by 'x', with
+     * no spaces. The earlier convention of including the international
+     * dialing prefix in parentheses is no longer recommended.
+     * @return StrColumn
+     */
+    public StrColumn getPhone() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_author_phone"));
     }
 
 }

@@ -48,7 +48,7 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Arbitrary identifier for this author
+     * Arbitrary identifier for this author.
      * @return StrColumn
      */
     public StrColumn getId() {
@@ -56,8 +56,8 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Identifier corresponding to this author in the audit_author
-     * list, if present.
+     * Identifier corresponding to this author in the AUDIT_AUTHOR category list,
+     * if present.
      * @return StrColumn
      */
     public StrColumn getIdAudit() {
@@ -66,7 +66,7 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Identifier in the IUCr contact database of a publication
-     * author.  This identifier may be available from the World
+     * author. This identifier may be available from the World
      * Directory of Crystallographers (http://wdc.iucr.org).
      * @return StrColumn
      */
@@ -78,7 +78,7 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
      * Identifier in the ORCID Registry of a publication
      * author. ORCID is an open, non-profit, community-driven
      * service to provide a registry of unique researcher
-     * identifiers (http://orcid.org).
+     * identifiers (https://orcid.org/).
      * @return StrColumn
      */
     public StrColumn getIdOrcid() {

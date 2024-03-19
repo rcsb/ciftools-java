@@ -132,9 +132,9 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The measure of absolute structure as defined by Rogers (1981).
      * The value must lie in the 99.97% Gaussian confidence interval
-     * -1 -3u =&lt; \h =&lt; 1 + 3u and a standard uncertainty (e.s.d.) u must
+     * -1 -3u =&lt; η =&lt; 1 + 3u and a standard uncertainty (e.s.d.) u must
      * be supplied. The _enumeration.range of -1.0:1.0 is correctly
-     * interpreted as meaning (-1.0 - 3u) =&lt; \h =&lt; (1.0 + 3u).
+     * interpreted as meaning (-1.0 - 3u) =&lt; η =&lt; (1.0 + 3u).
      * Ref: Rogers, D. (1981). Acta Cryst. A37, 734-741.
      * @return FloatColumn
      */

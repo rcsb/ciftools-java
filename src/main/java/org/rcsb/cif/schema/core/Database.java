@@ -40,7 +40,7 @@ public class Database extends DelegatingCategory.DelegatingCifCoreCategory {
      * of the Internet concepts of Uniform Resource Name and
      * Universal Resource Locator managed according to the
      * specifications of the International DOI Foundation
-     * (see http://www.doi.org).
+     * (see https://www.doi.org/).
      * @return StrColumn
      */
     public StrColumn getDatasetDoi() {

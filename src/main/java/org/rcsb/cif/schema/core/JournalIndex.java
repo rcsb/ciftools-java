@@ -17,11 +17,11 @@ public class JournalIndex extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Index number identifier of the JOURNAL_INDEX category.
-     * @return IntColumn
+     * Unique identifier for a journal index entry.
+     * @return StrColumn
      */
-    public IntColumn getId() {
-        return new DelegatingIntColumn(parentBlock.getColumn("journal_index_id"));
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("journal_index_id"));
     }
 
     /**

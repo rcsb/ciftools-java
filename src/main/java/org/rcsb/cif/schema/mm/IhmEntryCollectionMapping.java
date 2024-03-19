@@ -18,8 +18,6 @@ public class IhmEntryCollectionMapping extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
-            case "id":
-                return getId();
             case "collection_id":
                 return getCollectionId();
             case "entry_id":
@@ -27,14 +25,6 @@ public class IhmEntryCollectionMapping extends DelegatingCategory {
             default:
                 return new DelegatingColumn(column);
         }
-    }
-
-    /**
-     * A unique identifier for the entry collection mapping.
-     * @return IntColumn
-     */
-    public IntColumn getId() {
-        return delegate.getColumn("id", DelegatingIntColumn::new);
     }
 
     /**

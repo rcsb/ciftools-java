@@ -29,6 +29,8 @@ public class PdbxDepuiEntryDetails extends DelegatingCategory {
                 return getRequestedAccessionTypes();
             case "validated_contact_email":
                 return getValidatedContactEmail();
+            case "validated_identifier_ORCID":
+                return getValidatedIdentifierORCID();
             case "country":
                 return getCountry();
             case "structural_genomics_flag":
@@ -82,6 +84,14 @@ public class PdbxDepuiEntryDetails extends DelegatingCategory {
      */
     public StrColumn getValidatedContactEmail() {
         return delegate.getColumn("validated_contact_email", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The validated contact Open Researcher and Contributor ID (ORCID).
+     * @return StrColumn
+     */
+    public StrColumn getValidatedIdentifierORCID() {
+        return delegate.getColumn("validated_identifier_ORCID", DelegatingStrColumn::new);
     }
 
     /**

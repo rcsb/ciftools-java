@@ -131,7 +131,7 @@ public class ModelSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Code identifies a site in the atom_site category of data.
+     * Code identifies a site in the ATOM_SITE category of data.
      * @return StrColumn
      */
     public StrColumn getLabel() {

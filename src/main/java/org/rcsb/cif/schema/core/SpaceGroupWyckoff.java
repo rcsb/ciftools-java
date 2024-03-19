@@ -42,8 +42,8 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
     /**
      * The Wyckoff letter associated with this position, as given in
      * International Tables for Crystallography Volume A. The
-     * enumeration value '\a' corresponds to the Greek letter 'alpha'
-     * used in International Tables.
+     * enumeration values '\a' and α are equivalent, and correspond to
+     * the Greek letter 'alpha' used in International Tables.
      * 
      * Ref: International Tables for Crystallography (2002). Volume A,
      * Space-group symmetry, edited by Th. Hahn, 5th ed.
@@ -56,7 +56,7 @@ public class SpaceGroupWyckoff extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * The multiplicity of this Wyckoff position as given in
-     * International Tables Volume A.  It is the number of equivalent
+     * International Tables Volume A. It is the number of equivalent
      * sites per conventional unit cell.
      * 
      * Ref: International Tables for Crystallography (2002). Volume A,

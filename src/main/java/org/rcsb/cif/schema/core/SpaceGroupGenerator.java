@@ -18,8 +18,7 @@ public class SpaceGroupGenerator extends DelegatingCategory.DelegatingCifCoreCat
     }
 
     /**
-     * Arbitrary identifier for each entry in the _space_group_generator.xyz
-     * list.
+     * Arbitrary identifier for each entry in the _space_group_generator.xyz list.
      * @return StrColumn
      */
     public StrColumn getKey() {

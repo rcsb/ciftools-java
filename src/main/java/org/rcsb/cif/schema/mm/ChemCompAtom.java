@@ -84,6 +84,12 @@ public class ChemCompAtom extends DelegatingCategory {
                 return getPdbxComponentEntityId();
             case "pdbx_stnd_atom_id":
                 return getPdbxStndAtomId();
+            case "pdbx_backbone_atom_flag":
+                return getPdbxBackboneAtomFlag();
+            case "pdbx_n_terminal_atom_flag":
+                return getPdbxNTerminalAtomFlag();
+            case "pdbx_c_terminal_atom_flag":
+                return getPdbxCTerminalAtomFlag();
             default:
                 return new DelegatingColumn(column);
         }
@@ -385,6 +391,30 @@ public class ChemCompAtom extends DelegatingCategory {
      */
     public StrColumn getPdbxStndAtomId() {
         return delegate.getColumn("pdbx_stnd_atom_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag indicating the backbone atoms in polypeptide units.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxBackboneAtomFlag() {
+        return delegate.getColumn("pdbx_backbone_atom_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag indicating the N-terminal group atoms in polypeptide units.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxNTerminalAtomFlag() {
+        return delegate.getColumn("pdbx_n_terminal_atom_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag indicating the C-terminal group atoms in polypeptide units.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxCTerminalAtomFlag() {
+        return delegate.getColumn("pdbx_c_terminal_atom_flag", DelegatingStrColumn::new);
     }
 
 }

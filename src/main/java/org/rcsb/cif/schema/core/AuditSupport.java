@@ -45,8 +45,8 @@ public class AuditSupport extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The name of the organization providing funding support for
      * the data collected and analysed in the data block. The
-     * recommended source for such names is the Open Funder
-     * Registry (https://github.com/CrossRef/open-funder-registry)
+     * recommended source for such names is the Open Funder Registry
+     * (https://gitlab.com/crossref/open_funder_registry).
      * @return StrColumn
      */
     public StrColumn getFundingOrganization() {

@@ -19,7 +19,7 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of Cromer-Mann coefficients for generating X-ray scattering
-     * factors. [ a1, b1, a2, b2, a3, b3, a4, b4, c]
+     * factors. [ c, a1, b1, a2, b2, a3, b3, a4, b4 ]
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.4
      * @return FloatColumn
@@ -39,7 +39,7 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The imaginary component of the anomalous dispersion scattering factors
-     * for this atom type and Cu K alpha radiation
+     * for this atom type and Cu Kα radiation.
      * @return FloatColumn
      */
     public FloatColumn getDispersionImagCu() {
@@ -48,7 +48,7 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The imaginary component of the anomalous dispersion scattering factors
-     * for this atom type and Mo K alpha radiation
+     * for this atom type and Mo Kα radiation.
      * @return FloatColumn
      */
     public FloatColumn getDispersionImagMo() {
@@ -57,7 +57,7 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The real component of the anomalous dispersion scattering factors
-     * for this atom type and Cu K alpha radiation
+     * for this atom type and Cu Kα radiation.
      * @return FloatColumn
      */
     public FloatColumn getDispersionRealCu() {
@@ -66,7 +66,7 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The real component of the anomalous dispersion scattering factors
-     * for this atom type and Mo K alpha radiation
+     * for this atom type and Mo Kα radiation.
      * @return FloatColumn
      */
     public FloatColumn getDispersionRealMo() {
@@ -74,8 +74,101 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items used to define Fox et al.  coefficients
-     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * The set of polynomial coefficients for generating X-ray scattering factors:
+     * [ a_0, a_1, ... , a_N ].
+     * 
+     * f(s; Z) = exp(Sum(a~i~ * s^i^), i=0:N)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
+     * @return FloatColumn
+     */
+    public FloatColumn getExponentialPolynomialCoefs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_exponential_polynomial_coefs"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.exponential_polynomial_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getExponentialPolynomialCoefsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_exponential_polynomial_coefs_su"));
+    }
+
+    /**
+     * The inclusive lower limit of s for which the corresponding exponential
+     * polynomial coefficients are valid.
+     * 
+     * See _atom_type_scat.exponential_polynomial_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getExponentialPolynomialLowerLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_exponential_polynomial_lower_limit"));
+    }
+
+    /**
+     * The exclusive upper limit of s for which the corresponding exponential
+     * polynomial coefficients are valid.
+     * 
+     * See _atom_type_scat.exponential_polynomial_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getExponentialPolynomialUpperLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_exponential_polynomial_upper_limit"));
+    }
+
+    /**
+     * The set of Gaussian coefficients for generating X-ray scattering factors:
+     * [ c, a_1, b_1, a_2, b_2, ... , a_N, b_N ].
+     * 
+     * f(s; Z) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:N)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianCoefs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_coefs"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.Gaussian_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianCoefsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_coefs_su"));
+    }
+
+    /**
+     * The inclusive lower limit of s for which the corresponding Gaussian
+     * coefficients are valid.
+     * 
+     * See _atom_type_scat.Gaussian_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianLowerLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_lower_limit"));
+    }
+
+    /**
+     * The exclusive upper limit of s for which the corresponding Gaussian
+     * coefficients are valid.
+     * 
+     * See _atom_type_scat.Gaussian_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianUpperLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_upper_limit"));
+    }
+
+    /**
+     * The set of data items used to define Fox et al. coefficients
+     * for generation of high angle (2.0 &lt; s &lt; 6.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = exp(Sum(c~i~ * s^i^, i=0:3))
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
@@ -86,8 +179,13 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items used to define Fox et al.  coefficients
-     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * The set of data items used to define Fox et al. coefficients
+     * for generation of high angle (2.0 &lt; s &lt; 6.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = exp(Sum(c~i~ * s^i^, i=0:3))
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
@@ -98,8 +196,13 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items used to define Fox et al.  coefficients
-     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * The set of data items used to define Fox et al. coefficients
+     * for generation of high angle (2.0 &lt; s &lt; 6.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = exp(Sum(c~i~ * s^i^, i=0:3))
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
@@ -110,8 +213,13 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of data items used to define Fox et al.  coefficients
-     * for generation of high angle (s &gt;2.0) X-ray scattering factors.
+     * The set of data items used to define Fox et al. coefficients
+     * for generation of high angle (2.0 &lt; s &lt; 6.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = exp(Sum(c~i~ * s^i^, i=0:3))
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for Crystallography, Vol. C
      * (1991) Table 6.1.1.5
@@ -133,6 +241,53 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * The set of Gaussian coefficients for use in the inverse Mott-Bethe
+     * relationship for generating X-ray scattering factors:
+     * [ e, c_1, d_1, c_2, d_2, ... , c_N, d_N ].
+     * 
+     * f(s; Z) =
+     * Z - 8π * a~0~ * s^2^ * (e + Sum( c~i~ * exp(-d~i~ * s^2^), i=1:N))
+     * 
+     * where s = sin(θ)/λ, a~0~ is the Bohr radius, and Z is the atomic number.
+     * θ is the diffraction angle and λ is the wavelength of the incident
+     * radiation in angstroms.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheCoefs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_coefs"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.inv_Mott_Bethe_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheCoefsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_coefs_su"));
+    }
+
+    /**
+     * The inclusive lower limit of s for which the corresponding Gaussian
+     * coefficients are valid.
+     * 
+     * See _atom_type_scat.inv_Mott_Bethe_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheLowerLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_lower_limit"));
+    }
+
+    /**
+     * The exclusive upper limit of s for which the corresponding Gaussian
+     * coefficients are valid.
+     * 
+     * See _atom_type_scat.inv_Mott_Bethe_coefs.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheUpperLimit() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_upper_limit"));
+    }
+
+    /**
      * The identity of the atom specie(s) representing this atom type.
      * See _atom_type.symbol for further details.
      * @return StrColumn
@@ -143,7 +298,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -157,7 +317,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -171,7 +336,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -185,7 +355,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -199,7 +374,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -213,7 +393,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -227,7 +412,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -241,7 +431,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -255,7 +450,12 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The set of data items used to define Cromer-Mann coefficients
-     * for generation of X-ray scattering factors.
+     * for generation of (0.0 &lt; s &lt; 2.0 Å^-1^) X-ray scattering factors.
+     * 
+     * f(s) = c + Sum(a~i~ * exp(-b~i~ * s^2^), i=1:4)
+     * 
+     * where s = sin(θ)/λ and θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
      * 
      * Ref: International Tables for X-ray Crystallography, Vol. IV
      * (1974) Table 2.2B
@@ -312,13 +512,16 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * List of scattering factors as a function of sin theta on lambda.
-     * List has the form [[&lt;stol value 1&gt; &lt;scatfac 1&gt;] [&lt;stol value 2&gt; &lt;scatfac
-     * 2&gt;] ....] in increments of 0.01, increasing from 0.0.
-     * @return FloatColumn
+     * Deprecated. Data items from the ATOM_SCAT_VERSUS_STOL category should be
+     * used instead of this item.
+     * 
+     * A table of scattering factors as a function of sin(θ)/λ (sin theta over
+     * lambda, stol). This table should be well-commented to indicate the items
+     * present. Regularly formatted lists are strongly recommended.
+     * @return StrColumn
      */
-    public FloatColumn getVersusStolList() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
+    public StrColumn getVersusStolList() {
+        return new DelegatingStrColumn(parentBlock.getColumn("atom_type_scat_versus_stol_list"));
     }
 
 }

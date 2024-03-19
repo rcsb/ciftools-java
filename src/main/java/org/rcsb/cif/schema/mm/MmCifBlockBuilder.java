@@ -2316,6 +2316,14 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxInvestigationBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxChemCompPcmBuilder enterPdbxChemCompPcm() {
+        return new MmCifCategoryBuilder.PdbxChemCompPcmBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxModificationFeatureBuilder enterPdbxModificationFeature() {
+        return new MmCifCategoryBuilder.PdbxModificationFeatureBuilder(this);
+    }
+
     public MmCifCategoryBuilder.PdbxDiffrnBatchBuilder enterPdbxDiffrnBatch() {
         return new MmCifCategoryBuilder.PdbxDiffrnBatchBuilder(this);
     }
@@ -2698,6 +2706,26 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.IhmEntryCollectionMappingBuilder enterIhmEntryCollectionMapping() {
         return new MmCifCategoryBuilder.IhmEntryCollectionMappingBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmMultiStateSchemeBuilder enterIhmMultiStateScheme() {
+        return new MmCifCategoryBuilder.IhmMultiStateSchemeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmMultiStateSchemeConnectivityBuilder enterIhmMultiStateSchemeConnectivity() {
+        return new MmCifCategoryBuilder.IhmMultiStateSchemeConnectivityBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmKineticRateBuilder enterIhmKineticRate() {
+        return new MmCifCategoryBuilder.IhmKineticRateBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmRelaxationTimeBuilder enterIhmRelaxationTime() {
+        return new MmCifCategoryBuilder.IhmRelaxationTimeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.IhmRelaxationTimeMultiStateSchemeBuilder enterIhmRelaxationTimeMultiStateScheme() {
+        return new MmCifCategoryBuilder.IhmRelaxationTimeMultiStateSchemeBuilder(this);
     }
 
     public MmCifCategoryBuilder.MaModelListBuilder enterMaModelList() {

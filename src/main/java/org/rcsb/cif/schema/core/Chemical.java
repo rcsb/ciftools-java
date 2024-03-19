@@ -20,10 +20,12 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Necessary conditions for this assignment are given by
-     * Flack, H. D. &amp; Bernardinelli, G. (1999). Acta Cryst. A55,
-     * 908-915. (http://www.iucr.org/paper?sh0129)
-     * Flack, H. D. &amp; Bernardinelli, G. (2000). J. Appl. Cryst.
-     * 33, 1143-1148. (http://www.iucr.org/paper?ks0021)
+     * Flack, H. D. &amp; Bernardinelli, G. (1999). Acta Cryst. A55, 908-915.
+     * https://doi.org/10.1107/S0108767399004262
+     * https://www.iucr.org/paper?sh0129
+     * Flack, H. D. &amp; Bernardinelli, G. (2000). J. Appl. Cryst. 33, 1143-1148.
+     * https://doi.org/10.1107/S0021889800007184
+     * https://www.iucr.org/paper?ks0021
      * @return StrColumn
      */
     public StrColumn getAbsoluteConfiguration() {
@@ -48,9 +50,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * Enantioexcess is defined in the IUPAC Recommendations
      * (Moss et al., 1996). The composition of the crystal
      * and bulk must be the same.
-     * Ref: Moss G. P. et al. (1996). Basic Terminology of
-     * Stereochemistry. Pure Appl. Chem., 68, 2193-2222.
-     * http://www.chem.qmul.ac.uk/iupac/stereo/index.html
+     * Ref: Moss G. P. et al. (1996). Basic Terminology of Stereochemistry.
+     * Pure Appl. Chem., 68, 2193-2222.
+     * https://doi.org/10.1351/pac199668122193
+     * https://iupac.qmul.ac.uk/stereo/
      * @return FloatColumn
      */
     public FloatColumn getEnantioexcessBulk() {
@@ -79,9 +82,10 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * 1.0 indicates that the crystal is enantiomerically pure.
      * Enantioexcess is defined in the IUPAC Recommendations
      * (Moss et al., 1996).
-     * Ref: Moss G. P. et al. (1996). Basic Terminology of
-     * Stereochemistry. Pure Appl. Chem., 68, 2193-2222.
-     * http://www.chem.qmul.ac.uk/iupac/stereo/index.html
+     * Ref: Moss G. P. et al. (1996). Basic Terminology of Stereochemistry.
+     * Pure Appl. Chem., 68, 2193-2222.
+     * https://doi.org/10.1351/pac199668122193
+     * https://iupac.qmul.ac.uk/stereo/
      * @return FloatColumn
      */
     public FloatColumn getEnantioexcessCrystal() {
@@ -111,7 +115,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * and to facilitate the search for such information in databases
      * and on the web.
      * Ref: McNaught, A. (2006). Chem. Int. (IUPAC), 28 (6), 12-14.
-     * http://www.iupac.org/inchi/
+     * https://doi.org/10.1515/ci.2006.28.6.12
+     * https://www.iupac.org/inchi/
      * @return StrColumn
      */
     public StrColumn getIdentifierInchi() {
@@ -122,7 +127,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * The InChIKey is a compact hashed version of the full InChI
      * (IUPAC International Chemical Identifier), designed to allow
      * for easy web searches of chemical compounds. See
-     * http://www.iupac.org/inchi/
+     * https://www.iupac.org/inchi/
      * @return StrColumn
      */
     public StrColumn getIdentifierInchiKey() {
@@ -210,7 +215,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * The optical rotation in solution of the compound is
      * specified in the following format:
      * 
-     * '[\a]^TEMP^~WAVE~ = SORT (c = CONC, SOLV)'
+     * '[α]^TEMP^~WAVE~ = SORT (c = CONC, SOLV)'
      * 
      * where: TEMP is the temperature of the measurement in degrees Celsius,
      * WAVE is an indication of the wavelength of the light
@@ -218,7 +223,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
      * CONC is the concentration of the solution given as the
      * mass of the substance in g in 100 ml of solution,
      * SORT is the signed value (preceded by a + or a - sign)
-     * of 100.\a/(l.c), where \a is the signed optical
+     * of 100.α/(l.c), where α is the signed optical
      * rotation in degrees measured in a cell of length l in
      * dm and c is the value of CONC in g, and
      * SOLV is the chemical formula of the solvent.

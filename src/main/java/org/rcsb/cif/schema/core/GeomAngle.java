@@ -34,8 +34,7 @@ public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * An arbitrary, unique identifier for the angle formed by the
-     * three atoms.
+     * An arbitrary, unique identifier for the angle formed by the three atoms.
      * @return StrColumn
      */
     public StrColumn getId() {

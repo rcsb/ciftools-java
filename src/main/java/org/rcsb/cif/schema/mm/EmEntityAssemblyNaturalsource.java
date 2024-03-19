@@ -38,6 +38,8 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
                 return getStrain();
             case "tissue":
                 return getTissue();
+            case "details":
+                return getDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -122,6 +124,14 @@ public class EmEntityAssemblyNaturalsource extends DelegatingCategory {
      */
     public StrColumn getTissue() {
         return delegate.getColumn("tissue", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Additional details describing this natural source.
+     * @return StrColumn
+     */
+    public StrColumn getDetails() {
+        return delegate.getColumn("details", DelegatingStrColumn::new);
     }
 
 }

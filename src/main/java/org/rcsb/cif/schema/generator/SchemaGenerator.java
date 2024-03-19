@@ -103,7 +103,7 @@ public class SchemaGenerator {
     public static void main(String[] args) throws IOException {
         new SchemaGenerator("MmCif", "MMCIF", "mm", false,
                 "https://mmcif.wwpdb.org/dictionaries/ascii/mmcif_pdbx_v50.dic",
-                "https://raw.githubusercontent.com/ihmwg/IHM-dictionary/master/ihm-extension.dic",
+                "https://raw.githubusercontent.com/ihmwg/IHMCIF/master/dist/mmcif_ihm_ext.dic",
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/entity_branch-extension.dic",
                 "https://raw.githubusercontent.com/pdbxmmcifwg/carbohydrate-extension/master/dict/chem_comp-extension.dic",
                 "https://raw.githubusercontent.com/ihmwg/ModelCIF/master/dist/mmcif_ma.dic"); // model-extension for predicted models

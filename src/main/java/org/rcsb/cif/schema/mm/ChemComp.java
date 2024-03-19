@@ -113,6 +113,8 @@ public class ChemComp extends DelegatingCategory {
                 return getPdbxSmiles();
             case "pdbx_nscnum":
                 return getPdbxNscnum();
+            case "pdbx_pcm":
+                return getPdbxPcm();
             case "ma_provenance":
                 return getMaProvenance();
             default:
@@ -548,6 +550,14 @@ public class ChemComp extends DelegatingCategory {
      */
     public StrColumn getPdbxNscnum() {
         return delegate.getColumn("pdbx_nscnum", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag to indicate if the CCD can be used to represent a protein modification.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxPcm() {
+        return delegate.getColumn("pdbx_pcm", DelegatingStrColumn::new);
     }
 
     /**

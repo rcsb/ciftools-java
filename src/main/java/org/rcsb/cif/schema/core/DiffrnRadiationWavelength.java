@@ -62,7 +62,7 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     }
 
     /**
-     * Code identifying a radiation used in the diffraction measurements.
+     * Code identifying the radiation used in the diffraction measurements.
      * This is linked to _diffrn_refln.wavelength_id and _refln.wavelength_id
      * @return StrColumn
      */

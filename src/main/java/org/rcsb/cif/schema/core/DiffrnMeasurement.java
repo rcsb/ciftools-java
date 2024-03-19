@@ -22,9 +22,8 @@ public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCateg
      * including the type of adhesive material used if relevant. The sample
      * holder is usually wholly outside the beam, whereas the attachment
      * method may cause non-sample material to be illuminated. If the
-     * attachment method is not included in the list below, 'Other' should be
-     * chosen and details provided in
-     * _diffrn_measurement.specimen_support
+     * attachment method is not included in the list below, 'other' should be
+     * chosen and details provided in _diffrn_measurement.specimen_support.
      * @return StrColumn
      */
     public StrColumn getSpecimenAttachmentType() {

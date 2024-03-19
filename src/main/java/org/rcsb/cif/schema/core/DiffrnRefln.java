@@ -19,7 +19,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -29,7 +29,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -39,7 +39,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -49,7 +49,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -59,7 +59,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -69,7 +69,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Diffractometer angle at which the intensity is measured. This was
-     * calculated from the specified  orientation matrix and the original
+     * calculated from the specified orientation matrix and the original
      * measured cell dimensions before any subsequent transformations.
      * @return FloatColumn
      */
@@ -347,7 +347,8 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Code identifying the scale applying to this reflection.
+     * Code identifying the scale applying to this reflection. The code must match
+     * a _diffrn_scale_group.code in the DIFFRN_SCALE_GROUP list.
      * @return StrColumn
      */
     public StrColumn getScaleGroupCode() {
@@ -397,8 +398,8 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Code identifying reflections measured repeated as standard intensity.
-     * Must match a _diffrn_standard_refln.code values OR set to '.' if
-     * it was not used as a intensity standard.
+     * Must match a _diffrn_standard_refln.code value or set to '.' if
+     * it was not used as an intensity standard.
      * @return StrColumn
      */
     public StrColumn getStandardCode() {
@@ -446,7 +447,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * (sin theta)/lambda value for this reflection.
+     * sin(θ)/λ value for this reflection.
      * @return FloatColumn
      */
     public FloatColumn getSintOverLambda() {
@@ -454,7 +455,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * (sin theta)/lambda value for this reflection.
+     * sin(θ)/λ value for this reflection.
      * @return FloatColumn
      */
     public FloatColumn getSinThetaOverLambda() {

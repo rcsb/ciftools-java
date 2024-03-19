@@ -41,6 +41,8 @@ public class Em3dFittingList extends DelegatingCategory {
                 return getType();
             case "accession_code":
                 return getAccessionCode();
+            case "initial_refinement_model_id":
+                return getInitialRefinementModelId();
             default:
                 return new DelegatingColumn(column);
         }
@@ -138,6 +140,15 @@ public class Em3dFittingList extends DelegatingCategory {
      */
     public StrColumn getAccessionCode() {
         return delegate.getColumn("accession_code", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The value of _em_3d_fitting.initial_refinement_model_id itentifies the id
+     * in the _pdbx_initial_refinement_model
+     * @return IntColumn
+     */
+    public IntColumn getInitialRefinementModelId() {
+        return delegate.getColumn("initial_refinement_model_id", DelegatingIntColumn::new);
     }
 
 }

@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * The crystallographic functions the invoked in the definition
- * methods of CORE STRUCTURE data items defined and used with in
+ * methods of CORE STRUCTURE data items defined and used within
  * the Crystallographic Information Framework (CIF).
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
@@ -60,7 +60,7 @@ public class Function extends DelegatingCategory.DelegatingCifCoreCategory {
      * 
      * returns a fractional coordinate vector xyz' which is input vector
      * xyz transformed by the input symop 'n_pqr' applied to the symmetry
-     * equivalent matrix extracted from the category space_group_symop.
+     * equivalent matrix extracted from the category SPACE_GROUP_SYMOP.
      * @return FloatColumn
      */
     public FloatColumn getSymequiv() {

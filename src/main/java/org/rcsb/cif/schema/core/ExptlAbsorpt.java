@@ -18,9 +18,17 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * Standard uncertainty of _exptl_absorpt.coefficient_mu.
+     * @return FloatColumn
+     */
+    public FloatColumn getCoefficientMuSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("exptl_absorpt_coefficient_mu_su"));
+    }
+
+    /**
      * Details of the absorption correction process applied to the
      * measured intensities that cannot otherwise be given using
-     * other data items from the EXPTL_ABSORBT category.
+     * other data items from the EXPTL_ABSORPT category.
      * @return StrColumn
      */
     public StrColumn getSpecialDetails() {
@@ -28,7 +36,7 @@ public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Absorption coefficient mu calculated from the atomic content of
+     * Linear absorption coefficient, μ, calculated from the atomic content of
      * the cell, the density and the radiation wavelength.
      * @return FloatColumn
      */

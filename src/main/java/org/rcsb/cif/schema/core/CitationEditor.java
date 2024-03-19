@@ -26,15 +26,6 @@ public class CitationEditor extends DelegatingCategory.DelegatingCifCoreCategory
     }
 
     /**
-     * Value is a unique key to a set of CITATION_EDITOR items
-     * in a looped list.
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("citation_editor_id"));
-    }
-
-    /**
      * Name of citation editor; relevant for book chapters.
      * The family name(s), followed by a comma and including any
      * dynastic components, precedes the first name(s) or initial(s).
