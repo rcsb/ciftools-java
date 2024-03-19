@@ -3,6 +3,19 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 6.0.0 - March 2024
+-------------
+### Breaking schema changes
+* cif-core:
+  * renaming of `atom_site` tensors
+  * `atom_type_scat_versus_stol_list` from float to String
+  * drops `citation_author_key`
+  * drops `citation_editor_id`
+  * `journal_index_id` from int to String
+  * `refln_f_complex_su` from float to String
+* mmCIF/ihm-extension:
+  * drops `ihm_entry_collection_mapping.id`
+
 ciftools-java 5.0.2 - October 2023
 -------------
 ### Bug fixes
