@@ -6,6 +6,7 @@ This project uses semantic versioning. Furthermore, this project provides code t
 ciftools-java 6.0.0 - March 2024
 -------------
 ### Breaking schema changes
+* now requires Java 17
 * cif-core:
   * renaming of `atom_site` tensors
   * `atom_type_scat_versus_stol_list` from float to String
