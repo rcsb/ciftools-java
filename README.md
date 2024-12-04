@@ -80,7 +80,7 @@ from the CIF dictionary are provided.
 
 Just as in Mol* implementation, all parsing and decoding is done as lazily as possible. This makes it cheap to acquire 
 the data structure and hardly wastes any time on preparing information you will never access. In contrast to 
-[MMTF](https://mmtf.rcsb.org/), all data can be accessed if needed.
+[MMTF](https://doi.org/10.1371/journal.pcbi.1005575), all data can be accessed if needed.
 
 ## Model Creation Example
 ```Java
@@ -188,7 +188,7 @@ CIF categories (i.e. they provide primarily atomic coordinates).
 The implementation is based on a number of other projects, namely:
 - [CIFtools.js](https://github.com/dsehnal/CIFTools.js) by David Sehnal
 - [Mol*](https://molstar.github.io) by Alexander Rose and David Sehnal
-- [MMTF](https://mmtf.rcsb.org/) by RCSB
+- [MMTF](https://doi.org/10.1371/journal.pcbi.1005575) by RCSB
 
 ## References
 - Sehnal D, Bittrich S, Velankar S, Koča J, Svobodová R, Burley SK, Rose AS (2020) BinaryCIF and CIFTools—Lightweight, efficient and extensible macromolecular data management. PLoS Comput Biol 16(10): e1008247. https://doi.org/10.1371/journal.pcbi.1008247
