@@ -7,7 +7,7 @@ ciftools-java 7.0.0 - March 2025
 -------------
 ### Breaking schema changes
 * cif-core:
-  * removal of ``
+  * removal of `Atom`, `CifCore`, `Diffraction`, `DiffrnOrient`, `Display`, `Model`, `Publication`, `Structure`, and `Valence` categories
 
 ### General
 * dependency and schema updates
