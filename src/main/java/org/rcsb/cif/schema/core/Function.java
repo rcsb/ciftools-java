@@ -6,9 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The crystallographic functions the invoked in the definition
- * methods of CORE STRUCTURE data items defined and used within
- * the Crystallographic Information Framework (CIF).
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Function extends DelegatingCategory.DelegatingCifCoreCategory {

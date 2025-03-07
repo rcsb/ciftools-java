@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of items for listing valence references.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ValenceRef extends DelegatingCategory.DelegatingCifCoreCategory {

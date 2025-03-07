@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify information about the
- * refinement of the structural model.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -121,8 +120,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Flack (1983).
+     * Standard uncertainty of _refine_ls.abs_structure_Flack.
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureFlackSu() {
@@ -143,8 +141,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Rogers (1981).
+     * Standard uncertainty of _refine_ls.abs_structure_Rogers.
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureRogersSu() {
@@ -190,7 +187,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the extinction coefficient.
+     * Standard uncertainty of _refine_ls.extinction_coef.
      * @return FloatColumn
      */
     public FloatColumn getExtinctionCoefSu() {
@@ -263,8 +260,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for all reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_all.
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitAllSu() {
@@ -299,8 +295,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for gt reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_gt.
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitGtSu() {
@@ -386,8 +381,7 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The number of reflections that satisfy the resolution limits
      * established by _refine_ls.d_res_high and _refine_ls.d_res_low
-     * and the observation limit established by
-     * _reflns.observed_criterion.
+     * and the observation limit established by _reflns.threshold_expression.
      * @return IntColumn
      */
     public IntColumn getNumberReflnsGt() {

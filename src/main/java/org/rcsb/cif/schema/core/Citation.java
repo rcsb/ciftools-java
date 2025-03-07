@@ -6,9 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the CITATION category record details about the
- * literature cited as being relevant to the contents of the data
- * block.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Citation extends DelegatingCategory.DelegatingCifCoreCategory {

@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify information about the
- * standard reflections used in the diffraction measurement process.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnStandards extends DelegatingCategory.DelegatingCifCoreCategory {

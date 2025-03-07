@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Category of items recording details of the technical editor
- * processing this publication.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class JournalTecheditor extends DelegatingCategory.DelegatingCifCoreCategory {

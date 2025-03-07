@@ -6,27 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify space group
- * information about the crystal used in the diffraction measurements.
  * 
- * Space-group types are identified by their number as listed in
- * International Tables for Crystallography Volume A, or by their
- * Schoenflies symbol. Specific settings of the space groups can
- * be identified by their Hall symbol, by specifying their
- * symmetry operations or generators, or by giving the
- * transformation that relates the specific setting to the
- * reference setting based on International Tables Volume A and
- * stored in this dictionary.
- * 
- * The commonly used Hermann-Mauguin symbol determines the
- * space-group type uniquely, but several different Hermann-Mauguin
- * symbols may refer to the same space-group type. A
- * Hermann-Mauguin symbol contains information on the choice of
- * the basis, but not on the choice of origin.
- * 
- * Ref: International Tables for Crystallography (2002). Volume A,
- * Space-group symmetry, edited by Th. Hahn, 5th ed.
- * Dordrecht: Kluwer Academic Publishers.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {

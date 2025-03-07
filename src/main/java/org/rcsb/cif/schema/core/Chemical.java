@@ -6,9 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which describe the composition and
- * chemical properties of the compound under study. The formula data
- * items must be consistent with the density, unit-cell and Z values.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -302,8 +300,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at which
-     * a crystalline solid decomposes.
+     * Standard uncertainty of _chemical.temperature_decomposition.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionEsd() {
@@ -311,8 +308,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at which
-     * a crystalline solid decomposes.
+     * Standard uncertainty of _chemical.temperature_decomposition.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureDecompositionSu() {
@@ -320,8 +316,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at which
-     * a crystalline solid sublimates.
+     * Standard uncertainty of _chemical.temperature_sublimation.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationEsd() {
@@ -329,8 +324,7 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at which
-     * a crystalline solid sublimates.
+     * Standard uncertainty of _chemical.temperature_sublimation.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSublimationSu() {

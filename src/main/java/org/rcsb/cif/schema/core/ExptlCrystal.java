@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify information about
- * crystals used in the diffraction measurements.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -270,8 +269,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the crystal density measured
-     * using standard chemical and physical methods.
+     * Standard uncertainty of _exptl_crystal.density_meas.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasEsd() {
@@ -279,8 +277,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the crystal density measured
-     * using standard chemical and physical methods.
+     * Standard uncertainty of _exptl_crystal.density_meas.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasSu() {
@@ -288,8 +285,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at
-     * which _exptl_crystal.density_meas was determined.
+     * Standard uncertainty of _exptl_crystal.density_meas_temp.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempEsd() {
@@ -297,8 +293,7 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the temperature at
-     * which _exptl_crystal.density_meas was determined.
+     * Standard uncertainty of _exptl_crystal.density_meas_temp.
      * @return FloatColumn
      */
     public FloatColumn getDensityMeasTempSu() {

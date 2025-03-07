@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the reflection data
- * used in the refinement of a crystallographic structure model.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -208,6 +207,17 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * _refln.id must uniquely identify the reflection.
+     * 
+     * Note that this item need not be a number; it can be any unique
+     * identifier.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("refln_id"));
+    }
+
+    /**
      * The index of a reciprocal space vector.
      * @return IntColumn
      */
@@ -365,7 +375,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of _refln.F_meas.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSigma() {
@@ -373,7 +383,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured structure factor amplitude.
+     * Standard uncertainty of _refln.F_meas.
      * @return FloatColumn
      */
     public FloatColumn getFMeasSu() {
@@ -381,7 +391,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of _refln.F_squared_meas.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredSigma() {
@@ -389,7 +399,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured structure factor squared.
+     * Standard uncertainty of _refln.F_squared_meas.
      * @return FloatColumn
      */
     public FloatColumn getFSquaredMeasSu() {
@@ -424,7 +434,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured intensity.
+     * Standard uncertainty of _refln.intensity_meas.
      * @return FloatColumn
      */
     public FloatColumn getIntensitySigma() {
@@ -432,7 +442,7 @@ public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measured intensity.
+     * Standard uncertainty of _refln.intensity_meas.
      * @return FloatColumn
      */
     public FloatColumn getIntensityMeasSu() {

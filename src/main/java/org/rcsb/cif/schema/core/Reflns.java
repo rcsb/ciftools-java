@@ -6,13 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify parameters for the complete
- * set of reflections used in the structure refinement process. Note that
- * these parameters are often similar measures to those defined in the
- * DIFFRN categories, but differ in that the parameters refer to the
- * reduced/transformed reflections which have been used to refine the
- * atom site data in the ATOM_SITE category. The DIFFRN definitions refer
- * to the diffraction measurements and the raw reflection data.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Reflns extends DelegatingCategory.DelegatingCifCoreCategory {

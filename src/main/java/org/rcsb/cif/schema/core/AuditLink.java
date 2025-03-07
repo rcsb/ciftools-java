@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to record details about the
- * relationships between data blocks in the current CIF.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AuditLink extends DelegatingCategory.DelegatingCifCoreCategory {

@@ -6,8 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * IHM_MODEL_GROUP_LINK category provides the list of models present in
- * a particular model group.
+ * IHM_MODEL_GROUP_LINK category provides the list of structure models present in
+ * a particular structure model group.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmModelGroupLink extends DelegatingCategory {

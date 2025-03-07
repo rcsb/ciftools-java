@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the information about
- * reflections divided into shells bounded by d resolution limits.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {

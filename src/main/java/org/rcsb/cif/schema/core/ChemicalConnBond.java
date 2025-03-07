@@ -6,13 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the connections between
- * the atoms sites in the chemical_conn_atom list and the nature
- * of the chemical bond between these atoms. These are details about
- * the two-dimensional (2D) chemical structure of the molecular species.
- * They allow a 2D chemical diagram to be reconstructed for use in a
- * publication or in a database search for structural and substructural
- * relationships.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ChemicalConnBond extends DelegatingCategory.DelegatingCifCoreCategory {

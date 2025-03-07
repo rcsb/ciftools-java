@@ -6,10 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * A category of items recording entries in databases that describe
- * the same or related data. Databases wishing to insert their own
- * canonical codes when archiving and delivering data blocks should
- * use items from the DATABASE category.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DatabaseRelated extends DelegatingCategory.DelegatingCifCoreCategory {

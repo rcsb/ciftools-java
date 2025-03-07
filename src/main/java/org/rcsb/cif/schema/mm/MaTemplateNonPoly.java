@@ -41,7 +41,7 @@ public class MaTemplateNonPoly extends DelegatingCategory {
     /**
      * A unique identifier for the template.
      * This data item is a pointer to _ma_template_details.template_id
-     * in the MA_TEMPLATE_DETAILS caategory.
+     * in the MA_TEMPLATE_DETAILS category.
      * @return IntColumn
      */
     public IntColumn getTemplateId() {

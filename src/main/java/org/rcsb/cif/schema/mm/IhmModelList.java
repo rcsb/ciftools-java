@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * Data items in the IHM_MODEL_LIST category record the
- * details of the models being deposited.
+ * details of the structure models being deposited.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmModelList extends DelegatingCategory {

@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to list generators for
- * the space group
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class SpaceGroupGenerator extends DelegatingCategory.DelegatingCifCoreCategory {

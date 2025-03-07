@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify the experimental details
- * of the absorption measurements and corrections to the diffraction data.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlAbsorpt extends DelegatingCategory.DelegatingCifCoreCategory {

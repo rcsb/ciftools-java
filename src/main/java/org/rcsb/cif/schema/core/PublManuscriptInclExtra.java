@@ -6,14 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Category of data items that allow the authors of a manuscript to
- * submit for publication data names that should be added to the
- * standard request list employed by journal printing software.
- * Although these fields are primarily intended to identify CIF data
- * items that the author wishes to include in a published paper, they
- * can also be used to identify data names created so that non-CIF items
- * can be included in the publication. Note that *.item names MUST be
- * enclosed in single quotes.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublManuscriptInclExtra extends DelegatingCategory.DelegatingCifCoreCategory {

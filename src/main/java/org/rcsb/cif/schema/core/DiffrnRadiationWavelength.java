@@ -6,10 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the wavelength of the
- * radiation used in measuring diffraction intensities. Items may be
- * looped to identify and assign weights to distinct wavelength
- * components from a polychromatic beam.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -87,8 +84,7 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     }
 
     /**
-     * Standard uncertainty of the wavelength of radiation used in diffraction
-     * measurements.
+     * Standard uncertainty of _diffrn_radiation_wavelength.value.
      * @return FloatColumn
      */
     public FloatColumn getWavelengthSu() {
@@ -96,8 +92,7 @@ public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifC
     }
 
     /**
-     * Standard uncertainty of the wavelength of radiation used in diffraction
-     * measurements.
+     * Standard uncertainty of _diffrn_radiation_wavelength.value.
      * @return FloatColumn
      */
     public FloatColumn getValueSu() {

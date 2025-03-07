@@ -96,6 +96,12 @@ public class EmImaging extends DelegatingCategory {
                 return getSpecimenId();
             case "cryogen":
                 return getCryogen();
+            case "objective_aperture":
+                return getObjectiveAperture();
+            case "microscope_serial_number":
+                return getMicroscopeSerialNumber();
+            case "microscope_version":
+                return getMicroscopeVersion();
             default:
                 return new DelegatingColumn(column);
         }
@@ -433,6 +439,30 @@ public class EmImaging extends DelegatingCategory {
      */
     public StrColumn getCryogen() {
         return delegate.getColumn("cryogen", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Diameter, in microns, of the objective aperture.
+     * @return FloatColumn
+     */
+    public FloatColumn getObjectiveAperture() {
+        return delegate.getColumn("objective_aperture", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * Microscope serial number
+     * @return StrColumn
+     */
+    public StrColumn getMicroscopeSerialNumber() {
+        return delegate.getColumn("microscope_serial_number", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Version of the microscope
+     * @return StrColumn
+     */
+    public StrColumn getMicroscopeVersion() {
+        return delegate.getColumn("microscope_version", DelegatingStrColumn::new);
     }
 
 }

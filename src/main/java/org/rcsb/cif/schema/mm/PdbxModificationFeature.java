@@ -27,12 +27,16 @@ public class PdbxModificationFeature extends DelegatingCategory {
                 return getLabelAsymId();
             case "label_seq_id":
                 return getLabelSeqId();
+            case "label_alt_id":
+                return getLabelAltId();
             case "modified_residue_label_comp_id":
                 return getModifiedResidueLabelCompId();
             case "modified_residue_label_asym_id":
                 return getModifiedResidueLabelAsymId();
             case "modified_residue_label_seq_id":
                 return getModifiedResidueLabelSeqId();
+            case "modified_residue_label_alt_id":
+                return getModifiedResidueLabelAltId();
             case "auth_comp_id":
                 return getAuthCompId();
             case "auth_asym_id":
@@ -67,10 +71,6 @@ public class PdbxModificationFeature extends DelegatingCategory {
                 return getType();
             case "category":
                 return getCategory();
-            case "biological_function":
-                return getBiologicalFunction();
-            case "biological_function_details":
-                return getBiologicalFunctionDetails();
             default:
                 return new DelegatingColumn(column);
         }
@@ -122,6 +122,18 @@ public class PdbxModificationFeature extends DelegatingCategory {
 
     /**
      * A component of the identifier for the chemical component that
+     * describes the protein modification.
+     * 
+     * This data item is a pointer to _atom_site.label_alt_id in the
+     * ATOM_SITE category.
+     * @return StrColumn
+     */
+    public StrColumn getLabelAltId() {
+        return delegate.getColumn("label_alt_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A component of the identifier for the chemical component that
      * is being modified.
      * 
      * This data item is a pointer to _atom_site.label_comp_id in the
@@ -154,6 +166,18 @@ public class PdbxModificationFeature extends DelegatingCategory {
      */
     public IntColumn getModifiedResidueLabelSeqId() {
         return delegate.getColumn("modified_residue_label_seq_id", DelegatingIntColumn::new);
+    }
+
+    /**
+     * A component of the identifier for the chemical component that
+     * is being modified.
+     * 
+     * This data item is a pointer to _atom_site.label_alt_id in the
+     * ATOM_SITE category.
+     * @return StrColumn
+     */
+    public StrColumn getModifiedResidueLabelAltId() {
+        return delegate.getColumn("modified_residue_label_alt_id", DelegatingStrColumn::new);
     }
 
     /**
@@ -340,24 +364,6 @@ public class PdbxModificationFeature extends DelegatingCategory {
      */
     public StrColumn getCategory() {
         return delegate.getColumn("category", DelegatingStrColumn::new);
-    }
-
-    /**
-     * A flag to indicate if the protein modification at this site can
-     * occur naturally and that it is expected to have a biological
-     * function.
-     * @return StrColumn
-     */
-    public StrColumn getBiologicalFunction() {
-        return delegate.getColumn("biological_function", DelegatingStrColumn::new);
-    }
-
-    /**
-     * Details of the biological function of the protein modification at this site.
-     * @return StrColumn
-     */
-    public StrColumn getBiologicalFunctionDetails() {
-        return delegate.getColumn("biological_function_details", DelegatingStrColumn::new);
     }
 
 }

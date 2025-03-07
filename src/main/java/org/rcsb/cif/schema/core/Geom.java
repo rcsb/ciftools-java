@@ -6,19 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify the geometry
- * of the structural model as derived from the atomic sites.
- * The geometry is expressed in terms of the interatomic
- * angles (GEOM_ANGLE data), covalent bond distances
- * (GEOM_BOND data), contact distances (GEOM_CONTACT data),
- * hydrogen bonds (GEOM_HBOND data) and torsion geometry
- * (GEOM_TORSION data).
- * Geometry data are usually redundant, in that they can be
- * calculated from other more fundamental quantities in the data
- * block. However, they serve the dual purposes of providing a
- * check on the correctness of both sets of data and of enabling
- * the most important geometric data to be identified for
- * publication by setting the appropriate publication flag.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Geom extends DelegatingCategory.DelegatingCifCoreCategory {

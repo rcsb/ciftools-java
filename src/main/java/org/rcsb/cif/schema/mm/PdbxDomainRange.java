@@ -19,6 +19,8 @@ public class PdbxDomainRange extends DelegatingCategory {
     @Override
     protected Column createDelegate(String columnName, Column column) {
         switch (columnName) {
+            case "id":
+                return getId();
             case "beg_label_alt_id":
                 return getBegLabelAltId();
             case "beg_label_asym_id":
@@ -52,6 +54,15 @@ public class PdbxDomainRange extends DelegatingCategory {
             default:
                 return new DelegatingColumn(column);
         }
+    }
+
+    /**
+     * The value of _pdbx_domain_range.id uniquely identifies
+     * a range in the PDBX_DOMAIN_RANGE category.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return delegate.getColumn("id", DelegatingStrColumn::new);
     }
 
     /**

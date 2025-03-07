@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the detectors used
- * in the measurement of diffraction intensities.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnDetector extends DelegatingCategory.DelegatingCifCoreCategory {

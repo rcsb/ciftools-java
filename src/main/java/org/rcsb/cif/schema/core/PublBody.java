@@ -6,13 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the PUBL_BODY category permit labelling of
- * different text sections within the body of a submitted paper.
- * Note that these should not be used in a paper which has
- * a standard format with sections tagged by specific data names
- * (such as in Acta Crystallographica Section C). Typically,
- * each journal will supply a list of the specific items it
- * requires in its Notes for Authors.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublBody extends DelegatingCategory.DelegatingCifCoreCategory {

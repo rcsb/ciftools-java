@@ -8,6 +8,15 @@ import javax.annotation.Generated;
 /**
  * Data items in the MA_QA_METRIC_LOCAL_PAIRWISE category captures the
  * details of the local QA metrics, calculated at the pairwise residue level.
+ * In cases where the metric is symmetric, it is enough to store just one value per pair.
+ * For asymmetric metrics, the order of residues is expected to be meaningful
+ * (e.g. PAE where PAE_ij is defined by aligning residue i (label_*_1) and measuring
+ * the error on residue j (label_*_2)).
+ * In all cases, it is perfectly valid to only provide values for a subset of residue pairs.
+ * Data in this category is expected to be very large and can be extracted into a
+ * separate file which is linked to the main file using the categories
+ * ma_associated_archive_file_details or ma_entry_associated_files with file_content
+ * set to "QA metrics".
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class MaQaMetricLocalPairwise extends DelegatingCategory {
@@ -53,7 +62,7 @@ public class MaQaMetricLocalPairwise extends DelegatingCategory {
 
     /**
      * The identifier for the structural model, for which local QA metric is provided.
-     * This data item is a pointer to _ma_model_list.model_id
+     * This data item is a pointer to _ma_model_list.ordinal_id
      * in the MA_MODEL_LIST category.
      * @return IntColumn
      */

@@ -10,6 +10,7 @@ import javax.annotation.Generated;
  * details of the ensembles ordered by time or other order.
  * Ordered ensembles are described as directed graphs with
  * edges between nodes representing models or model groups.
+ * This category will be deprecated and superseded by ihm_ordered_model.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmOrderedEnsemble extends DelegatingCategory {

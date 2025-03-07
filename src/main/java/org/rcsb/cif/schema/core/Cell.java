@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the parameters of
- * the crystal unit cell.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -475,8 +474,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_b and _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_angle_alpha.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleAlphaEsd() {
@@ -484,8 +482,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_b and _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_angle_alpha.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleAlphaSu() {
@@ -493,8 +490,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_a and _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_angle_beta.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleBetaEsd() {
@@ -502,8 +498,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_a and _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_angle_beta.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleBetaSu() {
@@ -511,8 +506,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_a and _cell.length_b.
+     * Standard uncertainty of _cell.reciprocal_angle_gamma.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleGammaEsd() {
@@ -520,8 +514,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the angle
-     * between _cell.length_a and _cell.length_b.
+     * Standard uncertainty of _cell.reciprocal_angle_gamma.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalAngleGammaSu() {
@@ -529,7 +522,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_a.
+     * Standard uncertainty of _cell.reciprocal_length_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthAEsd() {
@@ -537,7 +530,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_a.
+     * Standard uncertainty of _cell.reciprocal_length_a.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthASu() {
@@ -545,7 +538,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_b.
+     * Standard uncertainty of _cell.reciprocal_length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthBEsd() {
@@ -553,7 +546,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_b.
+     * Standard uncertainty of _cell.reciprocal_length_b.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthBSu() {
@@ -561,7 +554,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthCEsd() {
@@ -569,7 +562,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the reciprocal of the _cell.length_c.
+     * Standard uncertainty of _cell.reciprocal_length_c.
      * @return FloatColumn
      */
     public FloatColumn getReciprocalLengthCSu() {
@@ -595,7 +588,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the volume of the crystal unit cell.
+     * Standard uncertainty of _cell.volume.
      * @return FloatColumn
      */
     public FloatColumn getVolumeEsd() {
@@ -603,7 +596,7 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the volume of the crystal unit cell.
+     * Standard uncertainty of _cell.volume.
      * @return FloatColumn
      */
     public FloatColumn getVolumeSu() {

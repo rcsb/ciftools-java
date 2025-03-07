@@ -41,7 +41,7 @@ public class MaQaMetricGlobal extends DelegatingCategory {
 
     /**
      * The identifier for the structural model, for which global QA metric is provided.
-     * This data item is a pointer to _ma_model_list.model_id
+     * This data item is a pointer to _ma_model_list.ordinal_id
      * in the MA_MODEL_LIST category.
      * @return IntColumn
      */

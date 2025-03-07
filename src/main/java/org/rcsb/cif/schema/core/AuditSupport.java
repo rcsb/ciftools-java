@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the AUDIT_SUPPORT category record details about the
- * funding support for the data collected and analysed in the data set.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AuditSupport extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -68,12 +67,32 @@ public class AuditSupport extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
+     * The Uniform Resource Locator (URL) associated with the funding organisation.
+     * 
+     * The _audit_support.funding_organization_DOI data item should be provided
+     * alongside this item when possible.
+     * @return StrColumn
+     */
+    public StrColumn getFundingOrganizationUrl() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_support_funding_organization_url"));
+    }
+
+    /**
      * An arbitrary unique identifier for each source of support for
      * the data collected and analysed in the data block.
      * @return StrColumn
      */
     public StrColumn getId() {
         return new DelegatingStrColumn(parentBlock.getColumn("audit_support_id"));
+    }
+
+    /**
+     * Details of the funding support that cannot be specified by other data items
+     * from the AUDIT_SUPPORT category.
+     * @return StrColumn
+     */
+    public StrColumn getSpecialDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("audit_support_special_details"));
     }
 
 }

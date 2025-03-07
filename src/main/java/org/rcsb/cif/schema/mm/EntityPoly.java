@@ -178,7 +178,7 @@ public class EntityPoly extends DelegatingCategory {
      * (DT) for Thymidine-5'-monophosphate
      * (MSE) for Selenomethionine
      * (SEP) for Phosphoserine
-     * (PTO) for Phosphothreonine
+     * (TPO) for Phosphothreonine
      * (PTR) for Phosphotyrosine
      * (PCA) for Pyroglutamic acid
      * (UNK) for Unknown amino acid

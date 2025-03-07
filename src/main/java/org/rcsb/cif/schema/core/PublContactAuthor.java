@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Category of items describing contact author(s) details.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -56,6 +56,18 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
+     * DEPRECATED. The _publ_contact_author.name and _publ_contact_author.address
+     * data items should be used instead of this item.
+     * 
+     * The name and address of the author submitting the manuscript and data block.
+     * This is the person contacted by the journal editorial staff.
+     * @return StrColumn
+     */
+    public StrColumn getContactDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_contact_details"));
+    }
+
+    /**
      * E-mail address in a form recognizable to international networks.
      * The format of e-mail addresses is given in Section 3.4, Address
      * Specification, of Internet Message Format, RFC 2822, P. Resnick
@@ -86,7 +98,7 @@ public class PublContactAuthor extends DelegatingCategory.DelegatingCifCoreCateg
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_name"));
     }
 
     /**

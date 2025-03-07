@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Category of items recording coeditor details.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class JournalCoeditor extends DelegatingCategory.DelegatingCifCoreCategory {

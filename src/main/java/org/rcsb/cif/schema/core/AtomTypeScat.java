@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe atomic scattering
- * information used in crystallographic structure studies.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {

@@ -97,7 +97,7 @@ public class MaTemplateDetails extends DelegatingCategory {
      * A unique identifier for the target instance for which the
      * structural template is used.
      * This data item is a pointer to _ma_target_entity_instance.asym_id
-     * in the MA_TARGET_ENTITY_INSTANCE caategory.
+     * in the MA_TARGET_ENTITY_INSTANCE category.
      * @return StrColumn
      */
     public StrColumn getTargetAsymId() {

@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe symmetry equivalent sites
- * in the crystal unit cell.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class SpaceGroupSymop extends DelegatingCategory.DelegatingCifCoreCategory {

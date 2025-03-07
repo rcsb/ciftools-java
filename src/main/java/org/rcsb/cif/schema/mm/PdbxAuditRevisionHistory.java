@@ -32,6 +32,10 @@ public class PdbxAuditRevisionHistory extends DelegatingCategory {
                 return getInternalVersion();
             case "internal_deposition_id":
                 return getInternalDepositionId();
+            case "internal_part_number":
+                return getInternalPartNumber();
+            case "part_number":
+                return getPartNumber();
             default:
                 return new DelegatingColumn(column);
         }
@@ -91,6 +95,22 @@ public class PdbxAuditRevisionHistory extends DelegatingCategory {
      */
     public StrColumn getInternalDepositionId() {
         return delegate.getColumn("internal_deposition_id", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The internal part number of the content_type file correspondng to this milestone file
+     * @return IntColumn
+     */
+    public IntColumn getInternalPartNumber() {
+        return delegate.getColumn("internal_part_number", DelegatingIntColumn::new);
+    }
+
+    /**
+     * The part number of the content_type file correspondng to this milestone file
+     * @return IntColumn
+     */
+    public IntColumn getPartNumber() {
+        return delegate.getColumn("part_number", DelegatingIntColumn::new);
     }
 
 }

@@ -42,7 +42,7 @@ public class MaModelList extends DelegatingCategory {
     }
 
     /**
-     * A unique identifier for the model / model group combination.
+     * A unique identifier for the structural model being deposited.
      * @return IntColumn
      */
     public IntColumn getOrdinalId() {
@@ -51,6 +51,8 @@ public class MaModelList extends DelegatingCategory {
 
     /**
      * A unique identifier for the structural model being deposited.
+     * This data item was practically a duplicate of _ma_model_list.ordinal_id
+     * and has been deprecated with dictionary version 1.4.7.
      * @return IntColumn
      */
     public IntColumn getModelId() {
@@ -59,16 +61,8 @@ public class MaModelList extends DelegatingCategory {
 
     /**
      * An identifier to group structural models into collections or sets.
-     * A cluster of models and its representative can either be grouped together
-     * or can be separate groups in the ma_model_list table. The choice between
-     * the two options should be decided based on how the modeling was carried out
-     * and how the representative was chosen. If the representative is a member of
-     * the ensemble (i.e., best scoring model), then it is recommended that the
-     * representative and the ensemble belong to the same model group. If the
-     * representative is calculated from the ensemble (i.e., centroid), then it is
-     * recommended that the representative be separated into a different group.
-     * If the models do not need to be grouped into collections, then the
-     * _ma_model_list.model_group_id is the same as _ma_model_list.model_id.
+     * This data item has been deprecated with dictionary version 1.4.7.
+     * See ma_model_group category.
      * @return IntColumn
      */
     public IntColumn getModelGroupId() {
@@ -85,6 +79,8 @@ public class MaModelList extends DelegatingCategory {
 
     /**
      * A decsriptive name for the model group.
+     * This data item has been deprecated with dictionary version 1.4.7.
+     * See ma_model_group category.
      * @return StrColumn
      */
     public StrColumn getModelGroupName() {

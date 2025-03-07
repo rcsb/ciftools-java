@@ -1728,6 +1728,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.EmLayerLinesDepositorInfoBuilder(this);
     }
 
+    public MmCifCategoryBuilder.EmMotionCorrectionBuilder enterEmMotionCorrection() {
+        return new MmCifCategoryBuilder.EmMotionCorrectionBuilder(this);
+    }
+
     public MmCifCategoryBuilder.EmStructureFactorsDepositorInfoBuilder enterEmStructureFactorsDepositorInfo() {
         return new MmCifCategoryBuilder.EmStructureFactorsDepositorInfoBuilder(this);
     }
@@ -2460,6 +2464,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.IhmMultiStateModelGroupLinkBuilder(this);
     }
 
+    public MmCifCategoryBuilder.IhmOrderedModelBuilder enterIhmOrderedModel() {
+        return new MmCifCategoryBuilder.IhmOrderedModelBuilder(this);
+    }
+
     public MmCifCategoryBuilder.IhmOrderedEnsembleBuilder enterIhmOrderedEnsemble() {
         return new MmCifCategoryBuilder.IhmOrderedEnsembleBuilder(this);
     }
@@ -2732,6 +2740,18 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.MaModelListBuilder(this);
     }
 
+    public MmCifCategoryBuilder.MaModelGroupBuilder enterMaModelGroup() {
+        return new MmCifCategoryBuilder.MaModelGroupBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaModelGroupLinkBuilder enterMaModelGroupLink() {
+        return new MmCifCategoryBuilder.MaModelGroupLinkBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaModelRepresentativeBuilder enterMaModelRepresentative() {
+        return new MmCifCategoryBuilder.MaModelRepresentativeBuilder(this);
+    }
+
     public MmCifCategoryBuilder.MaTemplateDetailsBuilder enterMaTemplateDetails() {
         return new MmCifCategoryBuilder.MaTemplateDetailsBuilder(this);
     }
@@ -2742,6 +2762,10 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.MaTemplateNonPolyBuilder enterMaTemplateNonPoly() {
         return new MmCifCategoryBuilder.MaTemplateNonPolyBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaTemplateBranchedBuilder enterMaTemplateBranched() {
+        return new MmCifCategoryBuilder.MaTemplateBranchedBuilder(this);
     }
 
     public MmCifCategoryBuilder.MaTemplatePolySegmentBuilder enterMaTemplatePolySegment() {
@@ -2882,6 +2906,30 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.MaQaMetricLocalPairwiseBuilder enterMaQaMetricLocalPairwise() {
         return new MmCifCategoryBuilder.MaQaMetricLocalPairwiseBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaFeatureListBuilder enterMaFeatureList() {
+        return new MmCifCategoryBuilder.MaFeatureListBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaAtomFeatureBuilder enterMaAtomFeature() {
+        return new MmCifCategoryBuilder.MaAtomFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaPolyResidueFeatureBuilder enterMaPolyResidueFeature() {
+        return new MmCifCategoryBuilder.MaPolyResidueFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaEntityInstanceFeatureBuilder enterMaEntityInstanceFeature() {
+        return new MmCifCategoryBuilder.MaEntityInstanceFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaQaMetricFeatureBuilder enterMaQaMetricFeature() {
+        return new MmCifCategoryBuilder.MaQaMetricFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.MaQaMetricFeaturePairwiseBuilder enterMaQaMetricFeaturePairwise() {
+        return new MmCifCategoryBuilder.MaQaMetricFeaturePairwiseBuilder(this);
     }
 
     public MmCifCategoryBuilder.MaEntryAssociatedFilesBuilder enterMaEntryAssociatedFiles() {

@@ -59,6 +59,14 @@ public class RefineLsShell extends DelegatingCategory {
                 return getWRFactorRWork();
             case "pdbx_R_complete":
                 return getPdbxRComplete();
+            case "correlation_coeff_Fo_to_Fc":
+                return getCorrelationCoeffFoToFc();
+            case "correlation_coeff_Fo_to_Fc_free":
+                return getCorrelationCoeffFoToFcFree();
+            case "correlation_coeff_I_to_Fcsqd_work":
+                return getCorrelationCoeffIToFcsqdWork();
+            case "correlation_coeff_I_to_Fcsqd_free":
+                return getCorrelationCoeffIToFcsqdFree();
             case "pdbx_total_number_of_bins_used":
                 return getPdbxTotalNumberOfBinsUsed();
             case "pdbx_phase_error":
@@ -393,6 +401,101 @@ public class RefineLsShell extends DelegatingCategory {
      */
     public FloatColumn getPdbxRComplete() {
         return delegate.getColumn("pdbx_R_complete", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The correlation coefficient between the observed and
+     * calculated structure factors for reflections that satisfy the
+     * resolution limits established by _refine_ls_shell.d_res_high
+     * and _refine_ls_shell.d_res_low included in the refinement.
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * sum~i~(Fo~i~ Fc~i~ - &lt;Fo&gt;&lt;Fc&gt;)
+     * R~corr~ = ------------------------------------------------------------
+     * SQRT{sum~i~(Fo~i~)^2^-&lt;Fo&gt;^2^} SQRT{sum~i~(Fc~i~)^2^-&lt;Fc&gt;^2^}
+     * 
+     * Fo = observed structure factors
+     * Fc = calculated structure factors
+     * &lt;&gt;   denotes average value
+     * 
+     * summation is over reflections included in the refinement
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffFoToFc() {
+        return delegate.getColumn("correlation_coeff_Fo_to_Fc", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The correlation coefficient between the observed and
+     * calculated structure factors for reflections
+     * that satisfy the resolution limits established
+     * by _refine_ls_shell.d_res_high and
+     * _refine_ls_shell.d_res_low not included in the
+     * refinement (free reflections).
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * sum~i~(Fo~i~ Fc~i~ - &lt;Fo&gt;&lt;Fc&gt;)
+     * R~corr~ = ------------------------------------------------------------
+     * SQRT{sum~i~(Fo~i~)^2^-&lt;Fo&gt;^2^} SQRT{sum~i~(Fc~i~)^2^-&lt;Fc&gt;^2^}
+     * 
+     * Fo  = observed structure factors
+     * Fc  = calculated structure factors
+     * &lt;&gt;    denotes average value
+     * 
+     * summation is over reflections not included
+     * in the refinement (free reflections)
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffFoToFcFree() {
+        return delegate.getColumn("correlation_coeff_Fo_to_Fc_free", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The Pearson correlation coefficient between the observed (merged)
+     * intensities and the intensities calculated from a model for reflections
+     * included in the refinement (work reflections).
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * &lt;Io Ic&gt; - &lt;Io&gt; &lt;Ic&gt;
+     * Corr = ----------------------------------------------
+     * SQRT{&lt;Io^2^&gt;-&lt;Io&gt;^2^} SQRT{&lt;Ic^2^&gt;-&lt;Ic&gt;^2^}
+     * 
+     * Io = observed intensities
+     * Ic = |Fc|^2^ = calculated intensities
+     * &lt;&gt; denotes the average value, where the average is taken over
+     * the reflections included in the refinement (work reflections)
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffIToFcsqdWork() {
+        return delegate.getColumn("correlation_coeff_I_to_Fcsqd_work", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The Pearson correlation coefficient between the observed (merged)
+     * intensities and the intensities calculated from a model for reflections
+     * not included in the refinement (free reflections).
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * &lt;Io Ic&gt; - &lt;Io&gt; &lt;Ic&gt;
+     * Corr = ----------------------------------------------
+     * SQRT{&lt;Io^2^&gt;-&lt;Io&gt;^2^} SQRT{&lt;Ic^2^&gt;-&lt;Ic&gt;^2^}
+     * 
+     * Io = observed intensities
+     * Ic = |Fc|^2^ = calculated intensities
+     * &lt;&gt; denotes the average value, where the average is taken over
+     * the reflections not included in the refinement (free reflections)
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffIToFcsqdFree() {
+        return delegate.getColumn("correlation_coeff_I_to_Fcsqd_free", DelegatingFloatColumn::new);
     }
 
     /**

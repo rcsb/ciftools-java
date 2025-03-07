@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of ENUMERATION items used to specify information about the
- * crystal colour and appearance.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlCrystalAppearance extends DelegatingCategory.DelegatingCifCoreCategory {

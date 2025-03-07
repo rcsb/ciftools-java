@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * Data items in the IHM_MODEL_REPRESENTATIVE category record the
- * details of the representative model in an ensemble or cluster.
+ * details of the representative structure model in an ensemble or cluster.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmModelRepresentative extends DelegatingCategory {

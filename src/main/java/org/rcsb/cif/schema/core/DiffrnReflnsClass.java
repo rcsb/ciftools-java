@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify different classes of
- * reflections in the raw measured diffraction data.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {

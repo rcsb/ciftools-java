@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the dimensions of the
- * crystal used in the diffraction measurements.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlCrystalFace extends DelegatingCategory.DelegatingCifCoreCategory {

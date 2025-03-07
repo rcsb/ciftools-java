@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify the hydrogen bond
- * distances in the structural model as derived from atomic sites.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -129,8 +128,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the angle subtended by the sites identified
-     * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
+     * Standard uncertainty of _geom_hbond.angle_DHA.
      * @return FloatColumn
      */
     public FloatColumn getAngleDHAEsd() {
@@ -138,8 +136,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the angle subtended by the sites identified
-     * by _geom_hbond.id. The hydrogen at site H is at the apex of the angle.
+     * Standard uncertainty of _geom_hbond.angle_DHA.
      * @return FloatColumn
      */
     public FloatColumn getAngleDhaSu() {
@@ -219,8 +216,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_DA.
      * @return FloatColumn
      */
     public FloatColumn getDistDAEsd() {
@@ -228,8 +224,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_DA.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDaSu() {
@@ -255,8 +250,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_DH.
      * @return FloatColumn
      */
     public FloatColumn getDistDHEsd() {
@@ -264,8 +258,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_DH.
      * @return FloatColumn
      */
     public FloatColumn getDistanceDhSu() {
@@ -291,8 +284,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_HA.
      * @return FloatColumn
      */
     public FloatColumn getDistHAEsd() {
@@ -300,8 +292,7 @@ public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the set of data items which specify
-     * the distance between the three atom sites identified by _geom_hbond.id.
+     * Standard uncertainty of _geom_hbond.distance_HA.
      * @return FloatColumn
      */
     public FloatColumn getDistanceHaSu() {

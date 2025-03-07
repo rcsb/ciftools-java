@@ -868,6 +868,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getEmFigureDepositorInfo();
             case "em_layer_lines_depositor_info":
                 return getEmLayerLinesDepositorInfo();
+            case "em_motion_correction":
+                return getEmMotionCorrection();
             case "em_structure_factors_depositor_info":
                 return getEmStructureFactorsDepositorInfo();
             case "pdbx_seq_map_depositor_info":
@@ -1234,6 +1236,8 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmMultiStateModeling();
             case "ihm_multi_state_model_group_link":
                 return getIhmMultiStateModelGroupLink();
+            case "ihm_ordered_model":
+                return getIhmOrderedModel();
             case "ihm_ordered_ensemble":
                 return getIhmOrderedEnsemble();
             case "ihm_modeling_post_process":
@@ -1370,12 +1374,20 @@ public class MmCifBlock extends DelegatingBlock {
                 return getIhmRelaxationTimeMultiStateScheme();
             case "ma_model_list":
                 return getMaModelList();
+            case "ma_model_group":
+                return getMaModelGroup();
+            case "ma_model_group_link":
+                return getMaModelGroupLink();
+            case "ma_model_representative":
+                return getMaModelRepresentative();
             case "ma_template_details":
                 return getMaTemplateDetails();
             case "ma_template_poly":
                 return getMaTemplatePoly();
             case "ma_template_non_poly":
                 return getMaTemplateNonPoly();
+            case "ma_template_branched":
+                return getMaTemplateBranched();
             case "ma_template_poly_segment":
                 return getMaTemplatePolySegment();
             case "ma_template_ref_db_details":
@@ -1446,6 +1458,18 @@ public class MmCifBlock extends DelegatingBlock {
                 return getMaQaMetricLocal();
             case "ma_qa_metric_local_pairwise":
                 return getMaQaMetricLocalPairwise();
+            case "ma_feature_list":
+                return getMaFeatureList();
+            case "ma_atom_feature":
+                return getMaAtomFeature();
+            case "ma_poly_residue_feature":
+                return getMaPolyResidueFeature();
+            case "ma_entity_instance_feature":
+                return getMaEntityInstanceFeature();
+            case "ma_qa_metric_feature":
+                return getMaQaMetricFeature();
+            case "ma_qa_metric_feature_pairwise":
+                return getMaQaMetricFeaturePairwise();
             case "ma_entry_associated_files":
                 return getMaEntryAssociatedFiles();
             case "ma_associated_archive_file_details":
@@ -5985,6 +6009,15 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the EM_MOTION_CORRECTION category record details
+     * corrections made during imaging the sample in the electron microscope.
+     * @return EmMotionCorrection
+     */
+    public EmMotionCorrection getEmMotionCorrection() {
+        return delegate.getCategory("em_motion_correction", EmMotionCorrection::new);
+    }
+
+    /**
      * Structure factor files associated with the EM entry
      * @return EmStructureFactorsDepositorInfo
      */
@@ -7817,10 +7850,22 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the IHM_ORDERED_MODEL category records the
+     * details of the models ordered by time or other order.
+     * Ordered models are described as directed graphs with
+     * edges between nodes representing model groups.
+     * @return IhmOrderedModel
+     */
+    public IhmOrderedModel getIhmOrderedModel() {
+        return delegate.getCategory("ihm_ordered_model", IhmOrderedModel::new);
+    }
+
+    /**
      * Data items in the IHM_ORDERED_ENSEMBLE category records the
      * details of the ensembles ordered by time or other order.
      * Ordered ensembles are described as directed graphs with
      * edges between nodes representing models or model groups.
+     * This category will be deprecated and superseded by ihm_ordered_model.
      * @return IhmOrderedEnsemble
      */
     public IhmOrderedEnsemble getIhmOrderedEnsemble() {
@@ -7858,7 +7903,7 @@ public class MmCifBlock extends DelegatingBlock {
 
     /**
      * Data items in the IHM_MODEL_LIST category record the
-     * details of the models being deposited.
+     * details of the structure models being deposited.
      * @return IhmModelList
      */
     public IhmModelList getIhmModelList() {
@@ -7867,7 +7912,7 @@ public class MmCifBlock extends DelegatingBlock {
 
     /**
      * IHM_MODEL_GROUP category defines collections or groups of integrative
-     * structural models.
+     * structure models.
      * @return IhmModelGroup
      */
     public IhmModelGroup getIhmModelGroup() {
@@ -7875,8 +7920,8 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
-     * IHM_MODEL_GROUP_LINK category provides the list of models present in
-     * a particular model group.
+     * IHM_MODEL_GROUP_LINK category provides the list of structure models present in
+     * a particular structure model group.
      * @return IhmModelGroupLink
      */
     public IhmModelGroupLink getIhmModelGroupLink() {
@@ -7885,7 +7930,7 @@ public class MmCifBlock extends DelegatingBlock {
 
     /**
      * Data items in the IHM_MODEL_REPRESENTATIVE category record the
-     * details of the representative model in an ensemble or cluster.
+     * details of the representative structure model in an ensemble or cluster.
      * @return IhmModelRepresentative
      */
     public IhmModelRepresentative getIhmModelRepresentative() {
@@ -8504,6 +8549,33 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * MA_MODEL_GROUP category defines collections or groups of
+     * structure models.
+     * @return MaModelGroup
+     */
+    public MaModelGroup getMaModelGroup() {
+        return delegate.getCategory("ma_model_group", MaModelGroup::new);
+    }
+
+    /**
+     * MA_MODEL_GROUP_LINK category provides the list of structure models present in
+     * a particular structure model group.
+     * @return MaModelGroupLink
+     */
+    public MaModelGroupLink getMaModelGroupLink() {
+        return delegate.getCategory("ma_model_group_link", MaModelGroupLink::new);
+    }
+
+    /**
+     * Data items in the MA_MODEL_REPRESENTATIVE category record the
+     * details of the representative structure model when multiple models are submitted.
+     * @return MaModelRepresentative
+     */
+    public MaModelRepresentative getMaModelRepresentative() {
+        return delegate.getCategory("ma_model_representative", MaModelRepresentative::new);
+    }
+
+    /**
      * Data items in the MA_TEMPLATE_DETAILS category record details about
      * the structural templates used in to obtain the homology/comparative models.
      * The template can be a polymer or a non-polymer and can be either
@@ -8532,6 +8604,19 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public MaTemplateNonPoly getMaTemplateNonPoly() {
         return delegate.getCategory("ma_template_non_poly", MaTemplateNonPoly::new);
+    }
+
+    /**
+     * Data items in the MA_TEMPLATE_BRANCHED category record details about
+     * the structural templates for branched polymers used in the
+     * homology/comparative modeling.
+     * The table can be populated using values from PDBx/mmCIF tables
+     * _pdbx_entity_branch_descriptor and _pdbx_entity_branch for the template,
+     * if available.
+     * @return MaTemplateBranched
+     */
+    public MaTemplateBranched getMaTemplateBranched() {
+        return delegate.getCategory("ma_template_branched", MaTemplateBranched::new);
     }
 
     /**
@@ -8865,6 +8950,10 @@ public class MmCifBlock extends DelegatingBlock {
     /**
      * Data items in the MA_QA_METRIC_LOCAL category captures the
      * details of the local QA metrics, calculated at the residue-level.
+     * Data in this category can be extracted into a separate file which
+     * is linked to the main file using the categories
+     * ma_associated_archive_file_details or ma_entry_associated_files
+     * with file_content set to "QA metrics".
      * @return MaQaMetricLocal
      */
     public MaQaMetricLocal getMaQaMetricLocal() {
@@ -8874,10 +8963,87 @@ public class MmCifBlock extends DelegatingBlock {
     /**
      * Data items in the MA_QA_METRIC_LOCAL_PAIRWISE category captures the
      * details of the local QA metrics, calculated at the pairwise residue level.
+     * In cases where the metric is symmetric, it is enough to store just one value per pair.
+     * For asymmetric metrics, the order of residues is expected to be meaningful
+     * (e.g. PAE where PAE_ij is defined by aligning residue i (label_*_1) and measuring
+     * the error on residue j (label_*_2)).
+     * In all cases, it is perfectly valid to only provide values for a subset of residue pairs.
+     * Data in this category is expected to be very large and can be extracted into a
+     * separate file which is linked to the main file using the categories
+     * ma_associated_archive_file_details or ma_entry_associated_files with file_content
+     * set to "QA metrics".
      * @return MaQaMetricLocalPairwise
      */
     public MaQaMetricLocalPairwise getMaQaMetricLocalPairwise() {
         return delegate.getCategory("ma_qa_metric_local_pairwise", MaQaMetricLocalPairwise::new);
+    }
+
+    /**
+     * MA_FEATURE_LIST is the high level category that provides definitions
+     * to select atoms, polymeric residues, and entity instances (asym_ids)
+     * from all types of entities.
+     * @return MaFeatureList
+     */
+    public MaFeatureList getMaFeatureList() {
+        return delegate.getCategory("ma_feature_list", MaFeatureList::new);
+    }
+
+    /**
+     * Data items in the MA_ATOM_FEATURE category provides the definitions
+     * required to select specific atoms independent of entity type.
+     * @return MaAtomFeature
+     */
+    public MaAtomFeature getMaAtomFeature() {
+        return delegate.getCategory("ma_atom_feature", MaAtomFeature::new);
+    }
+
+    /**
+     * Data items in the MA_POLY_RESIDUE_FEATURE category provides the definitions
+     * required to select specific polymer residues.
+     * @return MaPolyResidueFeature
+     */
+    public MaPolyResidueFeature getMaPolyResidueFeature() {
+        return delegate.getCategory("ma_poly_residue_feature", MaPolyResidueFeature::new);
+    }
+
+    /**
+     * Data items in the MA_ENTITY_INSTANCE_FEATURE category provides the definitions
+     * required to select an entity instance (asym_id) feature.
+     * @return MaEntityInstanceFeature
+     */
+    public MaEntityInstanceFeature getMaEntityInstanceFeature() {
+        return delegate.getCategory("ma_entity_instance_feature", MaEntityInstanceFeature::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC_FEATURE category captures the
+     * QA metrics calculated per feature as defined in ma_feature_list.
+     * Data in this category can be extracted into a separate file which
+     * is linked to the main file using the categories
+     * ma_associated_archive_file_details or ma_entry_associated_files
+     * with file_content set to "QA metrics".
+     * @return MaQaMetricFeature
+     */
+    public MaQaMetricFeature getMaQaMetricFeature() {
+        return delegate.getCategory("ma_qa_metric_feature", MaQaMetricFeature::new);
+    }
+
+    /**
+     * Data items in the MA_QA_METRIC_FEATURE_PAIRWISE category captures the
+     * QA metrics calculated per pair of features as defined in ma_feature_list.
+     * In cases where the metric is symmetric, it is enough to store just one value per pair.
+     * For asymmetric metrics, the order of features is expected to be meaningful
+     * (e.g. PAE where PAE_ij is defined by aligning token i (feature_id_1) and measuring
+     * the error on token j (feature_id_2)).
+     * It is valid to only provide values for a subset of feature pairs.
+     * Data in this category is expected to be very large and can be extracted into a
+     * separate file which is linked to the main file using the categories
+     * ma_associated_archive_file_details or ma_entry_associated_files with file_content
+     * set to "QA metrics".
+     * @return MaQaMetricFeaturePairwise
+     */
+    public MaQaMetricFeaturePairwise getMaQaMetricFeaturePairwise() {
+        return delegate.getCategory("ma_qa_metric_feature_pairwise", MaQaMetricFeaturePairwise::new);
     }
 
     /**

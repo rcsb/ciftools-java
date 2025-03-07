@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe information which applies
- * to all atom sites in a crystal structure.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSites extends DelegatingCategory.DelegatingCifCoreCategory {

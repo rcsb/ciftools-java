@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the measurement of
- * the cell parameters.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -102,8 +101,17 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     /**
      * ** DEPRECATED **
      * 
-     * Standard uncertainty of the pressure at which
-     * the unit-cell parameters were measured.
+     * Standard uncertainty of _cell_measurement.wavelength.
+     * @return FloatColumn
+     */
+    public FloatColumn getWavelengthSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_measurement_wavelength_su"));
+    }
+
+    /**
+     * ** DEPRECATED **
+     * 
+     * Standard uncertainty of _cell_measurement.pressure.
      * @return FloatColumn
      */
     public FloatColumn getPressureEsd() {
@@ -113,8 +121,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     /**
      * ** DEPRECATED **
      * 
-     * Standard uncertainty of the pressure at which
-     * the unit-cell parameters were measured.
+     * Standard uncertainty of _cell_measurement.pressure.
      * @return FloatColumn
      */
     public FloatColumn getPressureSu() {
@@ -148,8 +155,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     /**
      * ** DEPRECATED **
      * 
-     * Standard uncertainty of the temperature of at which
-     * the unit-cell parameters were measured.
+     * Standard uncertainty of _cell_measurement.temperature.
      * @return FloatColumn
      */
     public FloatColumn getTempEsd() {
@@ -159,8 +165,7 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
     /**
      * ** DEPRECATED **
      * 
-     * Standard uncertainty of the temperature of at which
-     * the unit-cell parameters were measured.
+     * Standard uncertainty of _cell_measurement.temperature.
      * @return FloatColumn
      */
     public FloatColumn getTemperatureSu() {

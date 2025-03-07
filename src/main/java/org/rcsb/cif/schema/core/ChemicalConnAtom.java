@@ -6,15 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which describe the 2D chemical structure of
- * the molecular species. They allow a 2D chemical diagram to be
- * reconstructed for use in a publication or in a database search
- * for structural and substructural relationships. In particular,
- * the chemical_conn_atom data items provide information about the
- * chemical properties of the atoms in the structure. In cases
- * where crystallographic and molecular symmetry elements coincide
- * they must also contain symmetry-generated atoms, so as to describe
- * a complete chemical entity.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCategory {

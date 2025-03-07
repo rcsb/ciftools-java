@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the anisotropic atomic
- * displacement parameters of the atomic sites in a crystal structure.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSiteAniso extends DelegatingCategory.DelegatingCifCoreCategory {

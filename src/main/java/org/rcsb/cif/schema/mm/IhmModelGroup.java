@@ -7,7 +7,7 @@ import javax.annotation.Generated;
 
 /**
  * IHM_MODEL_GROUP category defines collections or groups of integrative
- * structural models.
+ * structure models.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class IhmModelGroup extends DelegatingCategory {

@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify the interatomic
- * contact distances in the structural model.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -146,8 +145,7 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intermolecular distance between
-     * the atomic sites identified by _geom_contact.id.
+     * Standard uncertainty of _geom_contact.distance.
      * @return FloatColumn
      */
     public FloatColumn getDistEsd() {
@@ -155,8 +153,7 @@ public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intermolecular distance between
-     * the atomic sites identified by _geom_contact.id.
+     * Standard uncertainty of _geom_contact.distance.
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {

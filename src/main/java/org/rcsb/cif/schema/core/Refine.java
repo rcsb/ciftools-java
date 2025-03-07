@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify information about the
- * refinement of the structural model.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -50,8 +49,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the maximum density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_max.
      * @return FloatColumn
      */
     public FloatColumn getDiffDensityMaxEsd() {
@@ -59,8 +57,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the maximum density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_max.
      * @return FloatColumn
      */
     public FloatColumn getDensityMaxSu() {
@@ -84,8 +81,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the minimum density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_min.
      * @return FloatColumn
      */
     public FloatColumn getDiffDensityMinEsd() {
@@ -93,8 +89,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the minimum density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_min.
      * @return FloatColumn
      */
     public FloatColumn getDensityMinSu() {
@@ -128,8 +123,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the root mean square density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_RMS.
      * @return FloatColumn
      */
     public FloatColumn getDiffDensityRMSEsd() {
@@ -137,8 +131,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the root mean square density value
-     * in a difference Fourier map.
+     * Standard uncertainty of _refine_diff.density_RMS.
      * @return FloatColumn
      */
     public FloatColumn getDensityRmsSu() {
@@ -194,8 +187,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Flack (1983).
+     * Standard uncertainty of _refine_ls.abs_structure_Flack.
      * @return FloatColumn
      */
     public FloatColumn getLsAbsStructureFlackEsd() {
@@ -203,8 +195,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Flack (1983).
+     * Standard uncertainty of _refine_ls.abs_structure_Flack.
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureFlackSu() {
@@ -238,8 +229,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Rogers (1981).
+     * Standard uncertainty of _refine_ls.abs_structure_Rogers.
      * @return FloatColumn
      */
     public FloatColumn getLsAbsStructureRogersEsd() {
@@ -247,8 +237,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the measure of absolute structure
-     * as defined by Rogers (1981).
+     * Standard uncertainty of _refine_ls.abs_structure_Rogers.
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureRogersSu() {
@@ -332,7 +321,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the extinction coefficient.
+     * Standard uncertainty of _refine_ls.extinction_coef.
      * @return FloatColumn
      */
     public FloatColumn getLsExtinctionCoefEsd() {
@@ -340,7 +329,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the extinction coefficient.
+     * Standard uncertainty of _refine_ls.extinction_coef.
      * @return FloatColumn
      */
     public FloatColumn getExtinctionCoefSu() {
@@ -478,8 +467,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for all reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_all.
      * @return FloatColumn
      */
     public FloatColumn getLsGoodnessOfFitAllEsd() {
@@ -487,8 +475,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for all reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_all.
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitAllSu() {
@@ -577,8 +564,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for gt reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_gt.
      * @return FloatColumn
      */
     public FloatColumn getLsGoodnessOfFitGtEsd() {
@@ -586,8 +572,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for gt reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_gt.
      * @return FloatColumn
      */
     public FloatColumn getLsGoodnessOfFitObsEsd() {
@@ -595,8 +580,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the least-squares goodness-of-fit
-     * parameter S for gt reflections after the final cycle of refinement.
+     * Standard uncertainty of _refine_ls.goodness_of_fit_gt.
      * @return FloatColumn
      */
     public FloatColumn getGoodnessOfFitGtSu() {
@@ -758,8 +742,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The number of reflections that satisfy the resolution limits
      * established by _refine_ls.d_res_high and _refine_ls.d_res_low
-     * and the observation limit established by
-     * _reflns.observed_criterion.
+     * and the observation limit established by _reflns.threshold_expression.
      * @return IntColumn
      */
     public IntColumn getLsNumberReflnsObs() {
@@ -769,8 +752,7 @@ public class Refine extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The number of reflections that satisfy the resolution limits
      * established by _refine_ls.d_res_high and _refine_ls.d_res_low
-     * and the observation limit established by
-     * _reflns.observed_criterion.
+     * and the observation limit established by _reflns.threshold_expression.
      * @return IntColumn
      */
     public IntColumn getNumberReflnsGt() {

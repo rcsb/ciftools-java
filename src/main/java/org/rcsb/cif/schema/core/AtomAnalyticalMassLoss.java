@@ -6,10 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe information
- * pertaining to mass loss during specimen preparation for
- * the purposes of determining elemental composition
- * information for use in crystallographic structure studies.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomAnalyticalMassLoss extends DelegatingCategory.DelegatingCifCoreCategory {

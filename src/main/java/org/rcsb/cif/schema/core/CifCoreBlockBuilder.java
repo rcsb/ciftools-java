@@ -52,14 +52,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         categories.put(flatName, new TextCategory(flatName, Map.of("", column)));
     }
 
-    public CifCoreCategoryBuilder.CifCoreBuilder enterCifCore() {
-        return new CifCoreCategoryBuilder.CifCoreBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.DiffractionBuilder enterDiffraction() {
-        return new CifCoreCategoryBuilder.DiffractionBuilder(this);
-    }
-
     public CifCoreCategoryBuilder.DiffrnBuilder enterDiffrn() {
         return new CifCoreCategoryBuilder.DiffrnBuilder(this);
     }
@@ -86,10 +78,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.DiffrnMeasurementBuilder enterDiffrnMeasurement() {
         return new CifCoreCategoryBuilder.DiffrnMeasurementBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.DiffrnOrientBuilder enterDiffrnOrient() {
-        return new CifCoreCategoryBuilder.DiffrnOrientBuilder(this);
     }
 
     public CifCoreCategoryBuilder.DiffrnOrientMatrixBuilder enterDiffrnOrientMatrix() {
@@ -200,6 +188,10 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.SpaceGroupBuilder(this);
     }
 
+    public CifCoreCategoryBuilder.SymmetryBuilder enterSymmetry() {
+        return new CifCoreCategoryBuilder.SymmetryBuilder(this);
+    }
+
     public CifCoreCategoryBuilder.SpaceGroupGeneratorBuilder enterSpaceGroupGenerator() {
         return new CifCoreCategoryBuilder.SpaceGroupGeneratorBuilder(this);
     }
@@ -210,10 +202,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.SpaceGroupWyckoffBuilder enterSpaceGroupWyckoff() {
         return new CifCoreCategoryBuilder.SpaceGroupWyckoffBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.ModelBuilder enterModel() {
-        return new CifCoreCategoryBuilder.ModelBuilder(this);
     }
 
     public CifCoreCategoryBuilder.GeomBuilder enterGeom() {
@@ -244,20 +232,12 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.ModelSiteBuilder(this);
     }
 
-    public CifCoreCategoryBuilder.ValenceBuilder enterValence() {
-        return new CifCoreCategoryBuilder.ValenceBuilder(this);
-    }
-
     public CifCoreCategoryBuilder.ValenceParamBuilder enterValenceParam() {
         return new CifCoreCategoryBuilder.ValenceParamBuilder(this);
     }
 
     public CifCoreCategoryBuilder.ValenceRefBuilder enterValenceRef() {
         return new CifCoreCategoryBuilder.ValenceRefBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.PublicationBuilder enterPublication() {
-        return new CifCoreCategoryBuilder.PublicationBuilder(this);
     }
 
     public CifCoreCategoryBuilder.AuditBuilder enterAudit() {
@@ -316,10 +296,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
         return new CifCoreCategoryBuilder.DatabaseRelatedBuilder(this);
     }
 
-    public CifCoreCategoryBuilder.DisplayBuilder enterDisplay() {
-        return new CifCoreCategoryBuilder.DisplayBuilder(this);
-    }
-
     public CifCoreCategoryBuilder.DisplayColourBuilder enterDisplayColour() {
         return new CifCoreCategoryBuilder.DisplayColourBuilder(this);
     }
@@ -374,14 +350,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.PublSectionBuilder enterPublSection() {
         return new CifCoreCategoryBuilder.PublSectionBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.StructureBuilder enterStructure() {
-        return new CifCoreCategoryBuilder.StructureBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.AtomBuilder enterAtom() {
-        return new CifCoreCategoryBuilder.AtomBuilder(this);
     }
 
     public CifCoreCategoryBuilder.AtomAnalyticalBuilder enterAtomAnalytical() {
@@ -446,10 +414,6 @@ public class CifCoreBlockBuilder extends BlockBuilderImpl<CifCoreFileBuilder> {
 
     public CifCoreCategoryBuilder.FunctionBuilder enterFunction() {
         return new CifCoreCategoryBuilder.FunctionBuilder(this);
-    }
-
-    public CifCoreCategoryBuilder.SymmetryBuilder enterSymmetry() {
-        return new CifCoreCategoryBuilder.SymmetryBuilder(this);
     }
 
     public CifCoreCategoryBuilder.CellAngleBuilder enterCellAngle() {

@@ -44,6 +44,8 @@ public class MaTargetRefDbDetails extends DelegatingCategory {
                 return getSeqDbSequenceChecksum();
             case "seq_db_sequence_version_date":
                 return getSeqDbSequenceVersionDate();
+            case "is_primary":
+                return getIsPrimary();
             default:
                 return new DelegatingColumn(column);
         }
@@ -159,6 +161,14 @@ public class MaTargetRefDbDetails extends DelegatingCategory {
      */
     public StrColumn getSeqDbSequenceVersionDate() {
         return delegate.getColumn("seq_db_sequence_version_date", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Flag to identify the main input used in the modeling.
+     * @return StrColumn
+     */
+    public StrColumn getIsPrimary() {
+        return delegate.getColumn("is_primary", DelegatingStrColumn::new);
     }
 
 }

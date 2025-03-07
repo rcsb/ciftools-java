@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe atom site information
- * used in crystallographic structure studies.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -442,9 +441,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the equivalent isotropic atomic displacement
-     * parameter, B(equiv), in angstroms squared, calculated as the geometric
-     * mean of the anisotropic atomic displacement parameters.
+     * Standard uncertainty of _atom_site.B_equiv_geom_mean.
      * @return FloatColumn
      */
     public FloatColumn getBEquivGeomMeanEsd() {
@@ -452,9 +449,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the equivalent isotropic atomic displacement
-     * parameter, B(equiv), in angstroms squared, calculated as the geometric
-     * mean of the anisotropic atomic displacement parameters.
+     * Standard uncertainty of _atom_site.B_equiv_geom_mean.
      * @return FloatColumn
      */
     public FloatColumn getBEquivGeomMeanSu() {
@@ -462,10 +457,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the isotropic atomic displacement parameter,
-     * or equivalent isotropic atomic displacement parameter, B(equiv),
-     * in angstroms squared, calculated from anisotropic atomic displacement
-     * parameters.
+     * Standard uncertainty of _atom_site.B_iso_or_equiv.
      * @return FloatColumn
      */
     public FloatColumn getBIsoOrEquivEsd() {
@@ -473,10 +465,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the isotropic atomic displacement parameter,
-     * or equivalent isotropic atomic displacement parameter, B(equiv),
-     * in angstroms squared, calculated from anisotropic atomic displacement
-     * parameters.
+     * Standard uncertainty of _atom_site.B_iso_or_equiv.
      * @return FloatColumn
      */
     public FloatColumn getBIsoOrEquivSu() {
@@ -670,8 +659,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the fraction of the atom type
-     * present at this site.
+     * Standard uncertainty of _atom_site.occupancy.
      * @return FloatColumn
      */
     public FloatColumn getOccupancyEsd() {
@@ -679,8 +667,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the fraction of the atom type
-     * present at this site.
+     * Standard uncertainty of _atom_site.occupancy.
      * @return FloatColumn
      */
     public FloatColumn getOccupancySu() {
@@ -724,7 +711,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty values (esds) of the U(equiv).
+     * Standard uncertainty of _atom_site.U_equiv_geom_mean.
      * @return FloatColumn
      */
     public FloatColumn getUEquivGeomMeanEsd() {
@@ -732,7 +719,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty values (esds) of the U(equiv).
+     * Standard uncertainty of _atom_site.U_equiv_geom_mean.
      * @return FloatColumn
      */
     public FloatColumn getUEquivGeomMeanSu() {
@@ -740,7 +727,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty values (esds) of the U(iso) or U(equiv).
+     * Standard uncertainty of _atom_site.U_iso_or_equiv.
      * @return FloatColumn
      */
     public FloatColumn getUIsoOrEquivEsd() {
@@ -748,7 +735,7 @@ public class AtomSite extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty values (esds) of the U(iso) or U(equiv).
+     * Standard uncertainty of _atom_site.U_iso_or_equiv.
      * @return FloatColumn
      */
     public FloatColumn getUIsoOrEquivSu() {

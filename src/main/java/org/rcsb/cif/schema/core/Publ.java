@@ -6,15 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * Data items in the PUBL category are used when submitting a
- * manuscript for publication. They refer either to the paper as
- * a whole, or to specific named elements within a paper (such as
- * the title and abstract, or the Comment and Experimental
- * sections of Acta Crystallographica Section C). The data items
- * in the PUBL_BODY category should be used for the textual
- * content of other submissions. Typically, each journal will
- * supply a list of the specific items it requires in its Notes
- * for Authors.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -50,6 +42,30 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getAddress() {
         return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_address"));
+    }
+
+    /**
+     * DEPRECATED. The _publ_contact_author.name and _publ_contact_author.address
+     * data items should be used instead of this item.
+     * 
+     * The name and address of the author submitting the manuscript and data block.
+     * This is the person contacted by the journal editorial staff.
+     * @return StrColumn
+     */
+    public StrColumn getContactAuthor() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_contact_details"));
+    }
+
+    /**
+     * DEPRECATED. The _publ_contact_author.name and _publ_contact_author.address
+     * data items should be used instead of this item.
+     * 
+     * The name and address of the author submitting the manuscript and data block.
+     * This is the person contacted by the journal editorial staff.
+     * @return StrColumn
+     */
+    public StrColumn getContactDetails() {
+        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_contact_details"));
     }
 
     /**
@@ -106,18 +122,8 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
      * editorial staff.
      * @return StrColumn
      */
-    public StrColumn getContactAuthor() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_name"));
-    }
-
-    /**
-     * The name of the author(s) submitting the manuscript and
-     * data block. This is the person contacted by the journal
-     * editorial staff.
-     * @return StrColumn
-     */
     public StrColumn getContactAuthorName() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_name"));
     }
 
     /**
@@ -127,7 +133,7 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
      * @return StrColumn
      */
     public StrColumn getName() {
-        return new DelegatingStrColumn(parentBlock.getAliasedColumn("publ_contact_author", "publ_contact_author_name"));
+        return new DelegatingStrColumn(parentBlock.getColumn("publ_contact_author_name"));
     }
 
     /**

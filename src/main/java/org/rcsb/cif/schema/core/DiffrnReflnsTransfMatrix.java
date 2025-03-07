@@ -6,12 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the elements of the matrix
- * used to transform the reflection indices _diffrn_refln.hkl
- * into _refln.hkl.
- * |11 12 13|
- * (h k l) diffraction  |21 22 23|  =  (h' k' l')
- * |31 32 33|
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnReflnsTransfMatrix extends DelegatingCategory.DelegatingCifCoreCategory {

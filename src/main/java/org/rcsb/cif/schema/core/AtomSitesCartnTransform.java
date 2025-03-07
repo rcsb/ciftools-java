@@ -6,9 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the matrix elements
- * used to transform fractional coordinates into Cartesian coordinates
- * of all atom sites in a crystal structure.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCoreCategory {

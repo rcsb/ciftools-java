@@ -162,6 +162,10 @@ public class Refine extends DelegatingCategory {
                 return getSolventModelParamBsol();
             case "solvent_model_param_ksol":
                 return getSolventModelParamKsol();
+            case "correlation_coeff_I_to_Fcsqd_work":
+                return getCorrelationCoeffIToFcsqdWork();
+            case "correlation_coeff_I_to_Fcsqd_free":
+                return getCorrelationCoeffIToFcsqdFree();
             case "pdbx_R_complete":
                 return getPdbxRComplete();
             case "ls_R_factor_gt":
@@ -1352,6 +1356,50 @@ public class Refine extends DelegatingCategory {
      */
     public FloatColumn getSolventModelParamKsol() {
         return delegate.getColumn("solvent_model_param_ksol", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The Pearson correlation coefficient between the observed (merged)
+     * intensities and the intensities calculated from a model for reflections
+     * included in the refinement (work reflections).
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * &lt;Io Ic&gt; - &lt;Io&gt; &lt;Ic&gt;
+     * Corr = ----------------------------------------------
+     * SQRT{&lt;Io^2^&gt;-&lt;Io&gt;^2^} SQRT{&lt;Ic^2^&gt;-&lt;Ic&gt;^2^}
+     * 
+     * Io = observed intensities
+     * Ic = |Fc|^2^ = calculated intensities
+     * &lt;&gt; denotes the average value, where the average is taken over
+     * the reflections included in the refinement (work reflections)
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffIToFcsqdWork() {
+        return delegate.getColumn("correlation_coeff_I_to_Fcsqd_work", DelegatingFloatColumn::new);
+    }
+
+    /**
+     * The Pearson correlation coefficient between the observed (merged)
+     * intensities and the intensities calculated from a model for reflections
+     * not included in the refinement (free reflections).
+     * 
+     * The correlation coefficient is scale-independent and gives
+     * an idea of the quality of the refined model.
+     * 
+     * &lt;Io Ic&gt; - &lt;Io&gt; &lt;Ic&gt;
+     * Corr = ----------------------------------------------
+     * SQRT{&lt;Io^2^&gt;-&lt;Io&gt;^2^} SQRT{&lt;Ic^2^&gt;-&lt;Ic&gt;^2^}
+     * 
+     * Io = observed intensities
+     * Ic = |Fc|^2^ = calculated intensities
+     * &lt;&gt; denotes the average value, where the average is taken over
+     * the reflections not included in the refinement (free reflections)
+     * @return FloatColumn
+     */
+    public FloatColumn getCorrelationCoeffIToFcsqdFree() {
+        return delegate.getColumn("correlation_coeff_I_to_Fcsqd_free", DelegatingFloatColumn::new);
     }
 
     /**

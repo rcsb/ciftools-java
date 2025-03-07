@@ -94,6 +94,8 @@ public class MaEntryAssociatedFiles extends DelegatingCategory {
 
     /**
      * Content of the file.
+     * Note: The option "local pairwise QA scores" is deprecated in favor of
+     * "QA metrics" with dictionary version 1.4.7.
      * @return StrColumn
      */
     public StrColumn getFileContent() {

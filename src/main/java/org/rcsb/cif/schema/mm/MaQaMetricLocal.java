@@ -8,6 +8,10 @@ import javax.annotation.Generated;
 /**
  * Data items in the MA_QA_METRIC_LOCAL category captures the
  * details of the local QA metrics, calculated at the residue-level.
+ * Data in this category can be extracted into a separate file which
+ * is linked to the main file using the categories
+ * ma_associated_archive_file_details or ma_entry_associated_files
+ * with file_content set to "QA metrics".
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class MaQaMetricLocal extends DelegatingCategory {
@@ -47,7 +51,7 @@ public class MaQaMetricLocal extends DelegatingCategory {
 
     /**
      * The identifier for the structural model, for which local QA metric is provided.
-     * This data item is a pointer to _ma_model_list.model_id
+     * This data item is a pointer to _ma_model_list.ordinal_id
      * in the MA_MODEL_LIST category.
      * @return IntColumn
      */

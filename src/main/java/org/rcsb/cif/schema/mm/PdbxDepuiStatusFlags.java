@@ -68,6 +68,8 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
                 return getPostRelReplacementReasonDetails();
             case "has_accepted_assemblies":
                 return getHasAcceptedAssemblies();
+            case "assembly_inferred":
+                return getAssemblyInferred();
             default:
                 return new DelegatingColumn(column);
         }
@@ -271,6 +273,14 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
      */
     public StrColumn getHasAcceptedAssemblies() {
         return delegate.getColumn("has_accepted_assemblies", DelegatingStrColumn::new);
+    }
+
+    /**
+     * A flag to indicate whether the assembly annotation has been inferred from a previously annotated entry.
+     * @return StrColumn
+     */
+    public StrColumn getAssemblyInferred() {
+        return delegate.getColumn("assembly_inferred", DelegatingStrColumn::new);
     }
 
 }

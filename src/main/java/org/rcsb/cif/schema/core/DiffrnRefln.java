@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the reflection measurements,
- * prior to data reduction and merging.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -218,6 +217,17 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public IntColumn getHkl() {
         return new DelegatingIntColumn(parentBlock.getColumn("diffrn_refln_hkl"));
+    }
+
+    /**
+     * _diffrn_refln.id must uniquely identify the reflection.
+     * 
+     * Note that this item need not be a number; it can be any unique
+     * identifier.
+     * @return StrColumn
+     */
+    public StrColumn getId() {
+        return new DelegatingStrColumn(parentBlock.getColumn("diffrn_refln_id"));
     }
 
     /**

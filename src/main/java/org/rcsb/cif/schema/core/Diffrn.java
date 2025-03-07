@@ -6,7 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to describe the diffraction experiment.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -118,8 +118,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the mean hydrostatic pressure
-     * at which intensities were measured.
+     * Standard uncertainty of _diffrn.ambient_pressure.
      * @return FloatColumn
      */
     public FloatColumn getAmbientPressureEsd() {
@@ -127,8 +126,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the mean hydrostatic pressure
-     * at which intensities were measured.
+     * Standard uncertainty of _diffrn.ambient_pressure.
      * @return FloatColumn
      */
     public FloatColumn getAmbientPressureSu() {
@@ -152,8 +150,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the mean temperature
-     * at which intensities were measured.
+     * Standard uncertainty of _diffrn.ambient_temperature.
      * @return FloatColumn
      */
     public FloatColumn getAmbientTempEsd() {
@@ -161,8 +158,7 @@ public class Diffrn extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the mean temperature
-     * at which intensities were measured.
+     * Standard uncertainty of _diffrn.ambient_temperature.
      * @return FloatColumn
      */
     public FloatColumn getAmbientTemperatureSu() {

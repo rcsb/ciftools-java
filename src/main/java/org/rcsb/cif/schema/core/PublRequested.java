@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * CATEGORY of data items that enable the author to make
- * specific requests to the journal office for processing.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory {

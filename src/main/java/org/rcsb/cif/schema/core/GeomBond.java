@@ -6,8 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items used to specify the geometry bonds in the
- * structural model as derived from the atomic sites.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -173,8 +172,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id.
+     * Standard uncertainty of _geom_bond.distance.
      * @return FloatColumn
      */
     public FloatColumn getDistEsd() {
@@ -182,8 +180,7 @@ public class GeomBond extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Standard uncertainty of the intramolecular bond distance
-     * between the sites identified by _geom_bond.id.
+     * Standard uncertainty of _geom_bond.distance.
      * @return FloatColumn
      */
     public FloatColumn getDistanceSu() {

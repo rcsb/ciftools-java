@@ -6,49 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items which specify the composition and chemical
- * properties of the compound. The formula data items must agree
- * with those that specify the density, unit-cell and Z values.
  * 
- * The following rules apply to the construction of the data items
- * _chemical_formula.analytical, *.structural and *.sum. For the
- * data item *.moiety the formula construction is broken up into
- * residues or moieties, i.e. groups of atoms that form a molecular
- * unit or molecular ion. The rules given below apply within each
- * moiety, but different requirements apply to the way that moieties
- * are connected (see _chemical_formula.moiety).
- * 
- * 1. Only recognized element symbols may be used.
- * 
- * 2. Each element symbol is followed by a 'count' number. A count of
- * '1' may be omitted.
- * 
- * 3. A space or parenthesis must separate each cluster of (element
- * symbol + count).
- * 
- * 4. Where a group of elements is enclosed in parentheses, the
- * multiplier for the group must follow the closing parentheses.
- * That is, all element and group multipliers are assumed to be
- * printed as subscripted numbers. [An exception to this rule
- * exists for *.moiety formulae where pre- and post-multipliers
- * are permitted for molecular units].
- * 
- * 5. Unless the elements are ordered in a manner that corresponds to
- * their chemical structure, as in _chemical_formula.structural,
- * the order of the elements within any group or moiety
- * depends on whether or not carbon is present. If carbon is
- * present, the order should be: C, then H, then the other
- * elements in alphabetical order of their symbol. If carbon is
- * not present, the elements are listed purely in alphabetical order
- * of their symbol. This is the 'Hill' system used by Chemical
- * Abstracts. This ordering is used in _chemical_formula.moiety
- * and _chemical_formula.sum.
- * 
- * _chemical_formula.IUPAC      '[Mo (C O)4 (C18 H33 P)2]'
- * _chemical_formula.moiety     'C40 H66 Mo O4 P2'
- * _chemical_formula.structural '((C O)4 (P (C6 H11)3)2)Mo'
- * _chemical_formula.sum         'C40 H66 Mo O4 P2'
- * _chemical_formula.weight      768.81
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ChemicalFormula extends DelegatingCategory.DelegatingCifCoreCategory {

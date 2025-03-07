@@ -6,9 +6,7 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * The CATEGORY of data items recording database deposition. These data items
- * are assigned by database managers and should only appear in a CIF if they
- * originate from that source.
+ * 
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DatabaseCode extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -16,6 +14,15 @@ public class DatabaseCode extends DelegatingCategory.DelegatingCifCoreCategory {
 
     public DatabaseCode(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
+    }
+
+    /**
+     * Code assigned by the Bilbao Modulated Structures Database
+     * (B-IncStrDB).
+     * @return StrColumn
+     */
+    public StrColumn getBincstrdb() {
+        return new DelegatingStrColumn(parentBlock.getColumn("database_code_bincstrdb"));
     }
 
     /**
