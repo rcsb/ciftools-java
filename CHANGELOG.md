@@ -5,6 +5,7 @@ This project uses semantic versioning. Furthermore, this project provides code t
 
 ciftools-java 7.0.1 - March 2025
 -------------
+### Bug fixes
 * cache results of `DelegatingColumn#getArray()` to avoid performance penalty if schema type and actual data type differ (fixes #13)
 
 ciftools-java 7.0.0 - March 2025
