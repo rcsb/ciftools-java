@@ -10,6 +10,7 @@ import java.util.Arrays;
 public class DelegatingColumn<T> implements Column<T> {
     protected final Column<?> delegate;
     protected final Class<T> type;
+    protected T array;
 
     @SuppressWarnings("unchecked")
     public DelegatingColumn(Column<?> delegate) {
@@ -44,16 +45,12 @@ public class DelegatingColumn<T> implements Column<T> {
     @SuppressWarnings("unchecked")
     @Override
     public T getArray() {
-        Object array = delegate.getArray();
-        // matches expectation
-        if (type.isInstance(array)) {
-            return (T) array;
-        }
-        // empty column
         if (array == null) {
-            return null;
+            Object raw = delegate.getArray();
+            // 1st condition: type matches expectation, 2nd check: empty column?
+            array = (type.isInstance(raw)) ? (T) raw : (raw != null) ? forceType(raw) : null;
         }
-        return forceType(array);
+        return array;
     }
 
     @SuppressWarnings("unchecked")

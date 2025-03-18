@@ -2,6 +2,7 @@ package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
 import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
@@ -10,6 +11,8 @@ import org.rcsb.cif.schema.mm.MmCifFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
@@ -124,5 +127,26 @@ class ReaderTest {
 
         String gene = cifFile.getFirstBlock().getCategory("ma_target_ref_db_details").getColumn("gene_name").getStringData(0);
         assertEquals("''cytochrome P450", gene, "Gene name with additional quotes not parsed correctly");
+    }
+
+    @Test
+    void whenReadingBinaryColumnWithTypeMismatch_thenPerformanceNotDegrading() throws IOException {
+        String id = "9a2f";
+        InputStream inputStream = TestHelper.getInputStream("bcif/" + id + ".bcif.gz");
+        AtomSite atomSite = CifIO.readFromInputStream(inputStream).as(StandardSchemata.MMCIF).getFirstBlock().getAtomSite();
+
+        // schema type is float but data is internally encoded as int -- assert that this doesn't degrade performance when accessing values one-by-one
+        FloatColumn bIsoOrEquiv = atomSite.getBIsoOrEquiv();
+
+        long start = System.nanoTime();
+        double sum = 0.0;
+        for (int i = 0; i < bIsoOrEquiv.getRowCount(); i++) {
+            // invokes `getArray()`, which used to convert the internal array representation again and again if types diverged
+            sum += bIsoOrEquiv.get(i);
+        }
+        assertEquals(0.0, sum);
+        long end = System.nanoTime();
+        long delta_ms = (end - start) / 1_000_000;
+        assertTrue(delta_ms < 250, "Access to  took " + delta_ms + " ms and we deem that too slow");
     }
 }
