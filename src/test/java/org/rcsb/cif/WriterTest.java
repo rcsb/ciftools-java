@@ -21,11 +21,13 @@ import org.rcsb.cif.schema.core.CifCoreBlock;
 import org.rcsb.cif.schema.core.CifCoreFile;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 import org.rcsb.cif.schema.mm.MmCifFile;
+import org.rcsb.cif.schema.mm.PdbxStructModResidue;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -256,5 +258,18 @@ class WriterTest {
                 .as(StandardSchemata.MMCIF);
         assertEquals("0197355516942160", cifFile.getFirstBlock().getMaTargetRefDbDetails().getSeqDbSequenceChecksum().get(0));
         assertNotNull(CifIO.writeBinary(cifFile));
+    }
+
+    @Test
+    void whenEmptyCategory_thenNotWritten() throws IOException {
+        MmCifFile cifFile = CifIO.readFromInputStream(TestHelper.getInputStream("bcif/1acj.bcif.gz")).as(StandardSchemata.MMCIF);
+        MmCifBlock block = cifFile.getFirstBlock();
+        PdbxStructModResidue modResidue = block.getPdbxStructModResidue(); // this access adds an empty to the block
+        assertFalse(modResidue.isDefined(), "category should be undefined");
+
+        byte[] text = CifIO.writeText(cifFile);
+        assertFalse(CifIO.readFromInputStream(new ByteArrayInputStream(text)).as(StandardSchemata.MMCIF).getFirstBlock().getPdbxStructModResidue().isDefined());
+        byte[] binary = CifIO.writeBinary(cifFile);
+        assertFalse(CifIO.readFromInputStream(new ByteArrayInputStream(binary)).as(StandardSchemata.MMCIF).getFirstBlock().getPdbxStructModResidue().isDefined());
     }
 }

@@ -57,6 +57,7 @@ public class BinaryCifWriter {
 
             // filter category names
             List<Category> filteredCategories = cifBlock.categories()
+                    .filter(Category::isDefined) // at least 1 row present
                     .filter(category -> options.filterCategory(category.getCategoryName()))
                     .collect(Collectors.toList());
             Object[] categories = new Object[filteredCategories.size()];
@@ -68,9 +69,6 @@ public class BinaryCifWriter {
             for (Category category : filteredCategories) {
                 String categoryName = category.getCategoryName();
                 int rowCount = category.getRowCount();
-                if (rowCount == 0) {
-                    continue;
-                }
 
                 Map<String, Object> categoryMap = new LinkedHashMap<>();
                 categoryMap.put("name", "_" + category.getCategoryName());
