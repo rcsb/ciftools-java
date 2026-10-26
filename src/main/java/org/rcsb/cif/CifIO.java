@@ -167,7 +167,14 @@ public class CifIO {
     }
 
     private static final int GZIP_MAGIC = 31;
-    private static final int BINARY_MAGIC = 131;
+
+    /**
+     * Binary CIF is a MessagePack map: fixmap (0x80-0x8f), map16 (0xde) or map32 (0xdf). Text CIF can't start with any
+     * of these bytes.
+     */
+    private static boolean isBinaryMagic(int magicNumber) {
+        return (magicNumber & 0xF0) == 0x80 || magicNumber == 0xDE || magicNumber == 0xDF;
+    }
 
     private static CifFile readFromInputStreamByGuessingFileFormat(InputStream inputStream, CifOptions options) throws IOException {
         // check if gzipped - mark this position - the mark will become invalid after 1 byte was read
@@ -180,7 +187,7 @@ public class CifIO {
         }
 
         // determine binary or text
-        if (magicNumber == BINARY_MAGIC) {
+        if (isBinaryMagic(magicNumber)) {
             return new BinaryCifReader(options).read(inputStream);
         } else {
             return new TextCifReader(options).read(inputStream);

@@ -18,6 +18,9 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
@@ -26,6 +29,40 @@ import static org.rcsb.cif.TestHelper.TEST_CASES;
 import static org.rcsb.cif.TestHelper.assertEqualsIgnoringQuotesAndDecimalZeros;
 
 class WriterTest {
+    @Test
+    void whenWritingTextConcurrently_thenOutputEqualsSerialOutput() throws Exception {
+        // float columns go through the writer's number formats, which must not be shared between threads (OpenJDK
+        // happens to lock inside DecimalFormat for these patterns, so this guards rather than reproduces)
+        Random random = new Random(42);
+        double[] values = new double[20_000];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = (random.nextDouble() - 0.5) * 1000;
+        }
+        CifFile cifFile = CifBuilder.enterFile()
+                .enterBlock("test")
+                .enterCategory("atom_site")
+                .enterFloatColumn("Cartn_x").add(values).leaveColumn()
+                .enterFloatColumn("occupancy").add(values).leaveColumn()
+                .enterFloatColumn("B_iso_or_equiv").add(values).leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+        byte[] expected = CifIO.writeText(cifFile);
+
+        ExecutorService executor = Executors.newFixedThreadPool(8);
+        try {
+            List<Future<byte[]>> futures = new ArrayList<>();
+            for (int i = 0; i < 8 * 4; i++) {
+                futures.add(executor.submit(() -> CifIO.writeText(cifFile)));
+            }
+            for (Future<byte[]> future : futures) {
+                assertArrayEquals(expected, future.get());
+            }
+        } finally {
+            executor.shutdownNow();
+        }
+    }
+
     @Test
     void testNumberFormatOfBuiltCifFile() throws IOException {
         CifFile cifFile = CifBuilder.enterFile()

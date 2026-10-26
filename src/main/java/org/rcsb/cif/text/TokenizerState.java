@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Map;
 
 class TokenizerState {
+    static final String BYTE_ORDER_MARK = "﻿";
+
     private final String data;
     private final int length;
 
@@ -30,7 +32,8 @@ class TokenizerState {
         this.data = data;
         this.length = data.length();
 
-        this.position = 0;
+        // skip a byte order mark: it is not whitespace to the tokenizer
+        this.position = data.startsWith(BYTE_ORDER_MARK) ? 1 : 0;
         this.isEscaped = false;
         this.isImportGet = false;
         this.inSaveFrame = false;
@@ -458,6 +461,10 @@ class TokenizerState {
             end.add(new ArrayList<>(rowCountEstimate));
         }
 
+        if (columnNames.isEmpty()) {
+            throw new ParsingException("Loop without data names.", loopLine);
+        }
+
         while (tokenType == CifTokenType.VALUE) {
             int i = tokenCount % columnNames.size();
             start.get(i).add(tokenStart);
@@ -466,9 +473,9 @@ class TokenizerState {
             tokenCount++;
         }
 
-        if (start.size() % columnNames.size() != 0) {
-            throw new ParsingException("The number of values for loop starting at line " + loopLine +
-                    " is not a multiple of the number of columns.");
+        if (tokenCount % columnNames.size() != 0) {
+            throw new ParsingException("The number of values for the loop is not a multiple of the number of columns.",
+                    loopLine);
         }
 
         if (isFlat) {

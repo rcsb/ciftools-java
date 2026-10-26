@@ -28,7 +28,34 @@ public class DelegatingCategory implements Category {
 
     @Override
     public Column<?> getColumn(String name) {
-        return getColumns().computeIfAbsent(name, Column.EmptyColumn::new);
+        Column<?> column = delegate.getColumn(name);
+        String columnName = name;
+        if (column == null || column instanceof Column.EmptyColumn) {
+            // the delegate may be case-sensitive (e.g. created by a builder)
+            columnName = findColumnNameIgnoreCase(name);
+            if (columnName == null) {
+                return new Column.EmptyColumn(name);
+            }
+            column = delegate.getColumn(columnName);
+        } else if (name.equalsIgnoreCase(column.getColumnName())) {
+            // the name as registered, which typed categories rely on to pick the column type
+            columnName = column.getColumnName();
+        }
+
+        if (column instanceof DelegatingColumn) {
+            // happens when cifcore builder is at work
+            return column;
+        }
+        return createDelegate(columnName, column);
+    }
+
+    private String findColumnNameIgnoreCase(String name) {
+        for (String columnName : delegate.getColumnNames()) {
+            if (columnName.equalsIgnoreCase(name)) {
+                return columnName;
+            }
+        }
+        return null;
     }
 
     @Override

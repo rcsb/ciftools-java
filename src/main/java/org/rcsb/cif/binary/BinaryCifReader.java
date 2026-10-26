@@ -27,6 +27,8 @@ public class BinaryCifReader {
         Map<String, Object> unpacked;
         try (inputStream) {
             unpacked = MessagePackCodec.decode(inputStream);
+        } catch (ParsingException e) {
+            throw e;
         } catch (ClassCastException e) {
             throw new ParsingException("File seems to not be in binary CIF format. Encountered unexpected cast.", e);
         } catch (Exception e) {

@@ -1,13 +1,19 @@
 package org.rcsb.cif.binary.codec;
 
+import org.rcsb.cif.ParsingException;
+
 import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -38,8 +44,8 @@ public class MessagePackCodec {
     private static void encodeInternal(Object input, DataOutputStream stream) throws IOException {
         // string bytes
         if (input instanceof String) {
-            String value = (String) input;
-            int length = value.length();
+            byte[] value = ((String) input).getBytes(StandardCharsets.UTF_8);
+            int length = value.length;
             // fix str
             if (length < 0x20) {
                 stream.writeByte(length | 0xA0);
@@ -56,7 +62,7 @@ public class MessagePackCodec {
                 stream.writeByte(0xDB);
                 stream.writeInt(length);
             }
-            stream.write(value.getBytes(StandardCharsets.US_ASCII));
+            stream.write(value);
             return;
         }
 
@@ -185,7 +191,12 @@ public class MessagePackCodec {
     @SuppressWarnings("unchecked")
     public static Map<String, Object> decode(InputStream inputStream) throws IOException {
         DataInputStream dataInputStream = new DataInputStream(inputStream);
-        Map<String, Object> map = (Map<String, Object>) decodeInternal(dataInputStream);
+        Map<String, Object> map;
+        try {
+            map = (Map<String, Object>) decodeInternal(dataInputStream);
+        } catch (EOFException e) {
+            throw new ParsingException("MessagePack data truncated", e);
+        }
         dataInputStream.close();
         return map;
     }
@@ -237,7 +248,7 @@ public class MessagePackCodec {
                 return bin(inputStream, inputStream.readShort() & 0xFFFF);
             // bin32
             case 0xC6:
-                return bin(inputStream, readUnsignedInt(inputStream));
+                return bin(inputStream, readLength(inputStream));
             // float32
             case 0xCA:
                 return (double) inputStream.readFloat();
@@ -270,19 +281,19 @@ public class MessagePackCodec {
                 return str(inputStream, inputStream.readShort() & 0xFFFF);
             // str32
             case 0xDB:
-                return str(inputStream, readUnsignedInt(inputStream));
+                return str(inputStream, readLength(inputStream));
             // array16
             case 0xDC:
                 return array(inputStream, inputStream.readShort() & 0xFFFF);
             // array32
             case 0xDD:
-                return array(inputStream, readUnsignedInt(inputStream));
+                return array(inputStream, readLength(inputStream));
             // map16
             case 0xDE:
                 return map(inputStream, inputStream.readShort() & 0xFFFF);
             // map32
             case 0xDF:
-                return map(inputStream, readUnsignedInt(inputStream));
+                return map(inputStream, readLength(inputStream));
             default:
                 throw new IllegalArgumentException("Unknown MessagePack type 0x" + type);
         }
@@ -291,6 +302,25 @@ public class MessagePackCodec {
     private static int readUnsignedInt(DataInputStream inputStream) throws IOException {
         return (int) (inputStream.readInt() & 0xFFFFFFFFL);
     }
+
+    /**
+     * Reads the 32-bit length of a bin, str, array or map. Lengths come from the input, so they are bounded by what an
+     * array can hold here, and by the input itself where data is read.
+     */
+    private static int readLength(DataInputStream inputStream) throws IOException {
+        long length = inputStream.readInt() & 0xFFFFFFFFL;
+        if (length > MAX_LENGTH) {
+            throw new ParsingException("MessagePack length " + length + " exceeds the maximum of " + MAX_LENGTH);
+        }
+        return (int) length;
+    }
+
+    private static final int MAX_LENGTH = Integer.MAX_VALUE - 8;
+    // bin and str data above this size is read in growing chunks, so a length larger than the input fails before it
+    // is allocated
+    private static final int CHUNK_SIZE = 1 << 20;
+    // initial capacity of arrays, which grow as their elements are read
+    private static final int ARRAY_CAPACITY = 1024;
 
     private static Map<String, Object> map(DataInputStream inputStream, int length) throws IOException {
         Map<String, Object> value = new LinkedHashMap<>();
@@ -301,20 +331,44 @@ public class MessagePackCodec {
     }
 
     private static byte[] bin(DataInputStream inputStream, int length) throws IOException {
-        byte[] tmp = new byte[length];
-        inputStream.readFully(tmp);
+        if (length <= CHUNK_SIZE) {
+            byte[] tmp = new byte[length];
+            inputStream.readFully(tmp);
+            return tmp;
+        }
+
+        byte[] tmp = new byte[CHUNK_SIZE];
+        int read = 0;
+        while (read < length) {
+            if (read == tmp.length) {
+                tmp = Arrays.copyOf(tmp, (int) Math.min(length, 2L * tmp.length));
+            }
+            int n = inputStream.read(tmp, read, tmp.length - read);
+            if (n < 0) {
+                throw new ParsingException("MessagePack data truncated: expected " + length + " bytes, found " + read);
+            }
+            read += n;
+        }
         return tmp;
     }
 
     private static String str(DataInputStream inputStream, int length) throws IOException {
-        return new String(bin(inputStream, length), StandardCharsets.US_ASCII);
+        return new String(bin(inputStream, length), StandardCharsets.UTF_8);
     }
 
     private static Object[] array(DataInputStream inputStream, int length) throws IOException {
-        final Object[] value = new Object[length];
-        for (int i = 0; i < length; i++) {
-            value[i] = decodeInternal(inputStream);
+        if (length <= ARRAY_CAPACITY) {
+            final Object[] value = new Object[length];
+            for (int i = 0; i < length; i++) {
+                value[i] = decodeInternal(inputStream);
+            }
+            return value;
         }
-        return value;
+
+        List<Object> value = new ArrayList<>(ARRAY_CAPACITY);
+        for (int i = 0; i < length; i++) {
+            value.add(decodeInternal(inputStream));
+        }
+        return value.toArray();
     }
 }

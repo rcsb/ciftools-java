@@ -3,6 +3,23 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
+ciftools-java 8.0.2 - October 2026
+-------------
+### Bug fixes
+* BinaryCIF: MessagePack strings are written and read as UTF-8 (were US-ASCII: non-ASCII characters became `?` or
+  U+FFFD, and a character outside the BMP made a written file unreadable)
+* schema categories: `getColumn(name)` decodes and wraps only that column (it wrapped, and for BinaryCIF decoded, every
+  column of the category on each call); `getCategory(name)` of schema blocks wraps only that category
+* BinaryCIF: column lookup is a hash lookup; a column that fails to decode no longer fails the other columns of its
+  category
+* text CIF is read as UTF-8 (was the platform charset), and a leading byte order mark is skipped
+* format detection takes any MessagePack map (`0x80`-`0x8f`, `0xde`, `0xdf`) for BinaryCIF (was only `0x83`)
+* text writer perf: number formats are per writer; shared ones made concurrent text writes run one at a time
+* text CIF: a loop whose value count is not a multiple of its column count, or a loop without data names, is a
+  `ParsingException` (ragged loops used to get accepted with columns of different lengths)
+* BinaryCIF: MessagePack lengths are bounded by the input (a few bytes could request a 2 GiB allocation); truncated
+  data is a `ParsingException`
+
 ciftools-java 8.0.1 - January 2026
 -------------
 ### Bug fixes

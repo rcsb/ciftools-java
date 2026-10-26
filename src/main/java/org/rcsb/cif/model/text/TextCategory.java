@@ -34,8 +34,9 @@ public class TextCategory implements Category {
 
     @Override
     public Column<?> getColumn(String name) {
-        // let's switch to getOrDefault to not introduce any meaningless columns when called for missing data
-        return textFields.getOrDefault(name, new Column.EmptyColumn(name));
+        // don't introduce any meaningless columns when called for missing data
+        Column<?> column = textFields.get(name);
+        return column != null ? column : new Column.EmptyColumn(name);
     }
 
     @Override

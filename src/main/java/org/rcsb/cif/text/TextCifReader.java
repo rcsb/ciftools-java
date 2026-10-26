@@ -10,6 +10,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -19,7 +20,7 @@ public class TextCifReader {
     }
 
     public TextFile read(InputStream inputStream) throws ParsingException, IOException {
-        String content = new BufferedReader(new InputStreamReader(inputStream))
+        String content = new BufferedReader(new InputStreamReader(inputStream, StandardCharsets.UTF_8))
                 .lines()
                 .collect(Collectors.joining("\n"));
         inputStream.close();
@@ -27,7 +28,7 @@ public class TextCifReader {
     }
 
     public TextFile readText(String data) throws ParsingException {
-        if (data.isEmpty()) {
+        if (data.isEmpty() || data.equals(TokenizerState.BYTE_ORDER_MARK)) {
             throw new ParsingException("Cannot parse empty file.");
         }
 

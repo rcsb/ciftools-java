@@ -1,6 +1,7 @@
 package org.rcsb.cif;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.binary.codec.MessagePackCodec;
 import org.rcsb.cif.model.CifFile;
 import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
@@ -8,9 +9,13 @@ import org.rcsb.cif.schema.StandardSchemata;
 import org.rcsb.cif.schema.mm.AtomSite;
 import org.rcsb.cif.schema.mm.MmCifBlock;
 import org.rcsb.cif.schema.mm.MmCifFile;
+import org.rcsb.cif.text.TextCifReader;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.OptionalDouble;
@@ -146,5 +151,66 @@ class ReaderTest {
         long end = System.nanoTime();
         long delta_ms = (end - start) / 1_000_000;
         assertTrue(delta_ms < 250, "Access to  took " + delta_ms + " ms and we deem that too slow");
+    }
+
+    @Test
+    void whenReadingTextWithByteOrderMark_thenBomIsSkipped() throws IOException {
+        byte[] bom = { (byte) 0xEF, (byte) 0xBB, (byte) 0xBF };
+        byte[] text = "data_x\n_a.b 1\n".getBytes(StandardCharsets.UTF_8);
+        byte[] bytes = new byte[bom.length + text.length];
+        System.arraycopy(bom, 0, bytes, 0, bom.length);
+        System.arraycopy(text, 0, bytes, bom.length, text.length);
+
+        CifFile fromStream = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+        CifFile fromText = new TextCifReader(CifOptions.builder().build()).readText("﻿data_x\n_a.b 1\n");
+
+        for (CifFile cifFile : List.of(fromStream, fromText)) {
+            assertEquals("x", cifFile.getBlocks().get(0).getBlockHeader());
+            assertEquals("1", cifFile.getBlocks().get(0).getCategory("a").getColumn("b").getStringData(0));
+        }
+        assertThrows(ParsingException.class, () -> new TextCifReader(CifOptions.builder().build()).readText("﻿"));
+    }
+
+    @Test
+    void whenReadingUtf8Text_thenValuesAreDecodedAsUtf8() throws IOException {
+        byte[] bytes = "data_x\n_a.b 'Müller'\n".getBytes(StandardCharsets.UTF_8);
+
+        CifFile cifFile = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+
+        assertEquals("Müller", cifFile.getBlocks().get(0).getCategory("a").getColumn("b").getStringData(0));
+    }
+
+    @Test
+    void whenLoopValueCountIsNotAMultipleOfColumnCount_thenParsingExceptionWithLine() {
+        TextCifReader reader = new TextCifReader(CifOptions.builder().build());
+
+        ParsingException e = assertThrows(ParsingException.class, () -> reader.readText("data_x\nloop_\n_a.b\n_a.c\n1 2 3\n"));
+
+        assertTrue(e.getMessage().contains("[2]"), e.getMessage());
+    }
+
+    @Test
+    void whenLoopHasNoDataNames_thenParsingException() {
+        TextCifReader reader = new TextCifReader(CifOptions.builder().build());
+
+        assertThrows(ParsingException.class, () -> reader.readText("data_x\nloop_\n1 2\n"));
+        assertThrows(ParsingException.class, () -> reader.readText("data_x\n_a.b 1\nloop_\n"));
+    }
+
+    @Test
+    void whenTopLevelMapIsNotFixMap3_thenBinaryIsStillDetected() throws IOException {
+        // other encoders may write more keys than 'encoder', 'version' and 'dataBlocks': 0x84 and map16 (0xde)
+        for (int extraKeys : new int[] { 1, 13 }) {
+            Map<String, Object> map = new LinkedHashMap<>(MessagePackCodec.decode(TestHelper.getInputStream("bcif/1pga.bcif")));
+            for (int i = 0; i < extraKeys; i++) {
+                map.put("extra" + i, i);
+            }
+            byte[] bytes = MessagePackCodec.encode(map);
+            assertEquals(extraKeys == 1 ? 0x84 : 0xDE, bytes[0] & 0xFF);
+
+            CifFile cifFile = CifIO.readFromInputStream(new ByteArrayInputStream(bytes));
+
+            assertEquals("1PGA", cifFile.getBlocks().get(0).getCategory("entry").getColumn("id").getStringData(0));
+        }
     }
 }

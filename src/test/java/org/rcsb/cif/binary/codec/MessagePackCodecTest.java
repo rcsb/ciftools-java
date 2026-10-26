@@ -1,17 +1,26 @@
 package org.rcsb.cif.binary.codec;
 
 import org.junit.jupiter.api.Test;
+import org.rcsb.cif.CifBuilder;
+import org.rcsb.cif.CifIO;
+import org.rcsb.cif.ParsingException;
 import org.rcsb.cif.TestHelper;
+import org.rcsb.cif.model.CifFile;
+import org.rcsb.cif.model.StrColumn;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.management.ManagementFactory;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.rcsb.cif.TestHelper.convertToIntArray;
 
 /**
@@ -161,6 +170,114 @@ class MessagePackCodecTest {
 
         assertEquals(originalMap, unpacked);
         assertEquals(-5, unpacked.get("entry"));
+    }
+
+    @Test
+    void encodeNonAsciiStringAsUtf8() {
+        // {"s":"é"}
+        assertArrayEquals(convertToIntArray("81 a1 73 a2 c3 a9"), convertToIntArray(MessagePackCodec.encode(Map.of("s", "é"))));
+        // {"s":"🧬"}: one character outside the Basic Multilingual Plane, 2 UTF-16 units, 4 UTF-8 bytes
+        assertArrayEquals(convertToIntArray("81 a1 73 a4 f0 9f a7 ac"), convertToIntArray(MessagePackCodec.encode(Map.of("s", "🧬"))));
+    }
+
+    @Test
+    void encodeStringHeaderFromUtf8Length() {
+        // 16 characters but 32 bytes: needs str8, not fixstr
+        byte[] packed = MessagePackCodec.encode(Map.of("s", "é".repeat(16)));
+
+        assertArrayEquals(convertToIntArray("81 a1 73 d9 20"), convertToIntArray(Arrays.copyOf(packed, 5)));
+        assertEquals(5 + 32, packed.length);
+    }
+
+    @Test
+    void decodeUtf8String() throws IOException {
+        Map<String, Object> unpacked = MessagePackCodec.decode(new ByteArrayInputStream(toBytes("82 a1 61 a2 c3 a9 a1 62 a4 f0 9f a7 ac")));
+
+        assertEquals("é", unpacked.get("a"));
+        assertEquals("🧬", unpacked.get("b"));
+    }
+
+    @Test
+    void roundTripNonAsciiStringColumn() throws IOException {
+        CifFile cifFile = CifBuilder.enterFile()
+                .enterBlock("test")
+                .enterCategory("test")
+                .enterStrColumn("names")
+                .add("é", "🧬", "a", "é")
+                .leaveColumn()
+                .leaveCategory()
+                .leaveBlock()
+                .leaveFile();
+
+        byte[] binary = CifIO.writeBinary(cifFile);
+        StrColumn names = (StrColumn) CifIO.readFromInputStream(new ByteArrayInputStream(binary))
+                .getBlocks().get(0)
+                .getCategory("test")
+                .getColumn("names");
+
+        assertArrayEquals(new String[] { "é", "🧬", "a", "é" }, names.values().toArray());
+        // offsets count UTF-16 units, as in JavaScript (Mol*)
+        assertArrayEquals(new int[] { 0, 1, 3, 4 }, stringArrayOffsets(binary));
+    }
+
+    @SuppressWarnings("unchecked")
+    private static int[] stringArrayOffsets(byte[] binary) throws IOException {
+        Map<String, Object> file = MessagePackCodec.decode(new ByteArrayInputStream(binary));
+        Map<String, Object> block = (Map<String, Object>) ((Object[]) file.get("dataBlocks"))[0];
+        Map<String, Object> category = (Map<String, Object>) ((Object[]) block.get("categories"))[0];
+        Map<String, Object> column = (Map<String, Object>) ((Object[]) category.get("columns"))[0];
+        Map<String, Object> data = (Map<String, Object>) column.get("data");
+        Map<String, Object> stringArray = (Map<String, Object>) ((Object[]) data.get("encoding"))[0];
+        assertEquals("StringArray", stringArray.get("kind"));
+
+        Map<String, Object> offsets = new LinkedHashMap<>();
+        offsets.put("data", stringArray.get("offsets"));
+        offsets.put("encoding", stringArray.get("offsetEncoding"));
+        return (int[]) BinaryCifCodec.decode(offsets);
+    }
+
+    private static byte[] toBytes(String hex) {
+        int[] values = convertToIntArray(hex);
+        byte[] bytes = new byte[values.length];
+        for (int i = 0; i < values.length; i++) {
+            bytes[i] = (byte) values[i];
+        }
+        return bytes;
+    }
+
+    @Test
+    void decodeRejectsLengthsBeyondTheInput() {
+        String[] inputs = {
+                // bin32 claiming ~2 GiB with 4 bytes of payload
+                "81 a1 62 c6 7f ff ff f0 01 02 03 04",
+                // str32, the same
+                "81 a1 62 db 7f ff ff f0 61 62 63 64",
+                // array32 with 2^32 - 1 elements (read as a negative int)
+                "81 a1 62 dd ff ff ff ff 01",
+                // nested array32 headers of ~2^31 elements each
+                "81 a1 62 dd 7f ff ff f0 dd 7f ff ff f0 dd 7f ff ff f0 01"
+        };
+        for (String input : inputs) {
+            long before = allocatedBytes();
+
+            assertThrows(ParsingException.class, () -> MessagePackCodec.decode(new ByteArrayInputStream(toBytes(input))), input);
+
+            long allocated = allocatedBytes() - before;
+            assertTrue(allocated < 32 * 1024 * 1024, input + " allocated " + allocated + " bytes");
+        }
+    }
+
+    @Test
+    void readingTruncatedBinaryReportsTheCause() {
+        ParsingException e = assertThrows(ParsingException.class,
+                () -> CifIO.readFromInputStream(new ByteArrayInputStream(toBytes("81 a1 62 c6 7f ff ff f0 01 02 03 04"))));
+
+        assertTrue(e.getMessage().contains("truncated"), e.getMessage());
+    }
+
+    private static long allocatedBytes() {
+        com.sun.management.ThreadMXBean threadMXBean = (com.sun.management.ThreadMXBean) ManagementFactory.getThreadMXBean();
+        return threadMXBean.getThreadAllocatedBytes(Thread.currentThread().getId());
     }
 
     @Test

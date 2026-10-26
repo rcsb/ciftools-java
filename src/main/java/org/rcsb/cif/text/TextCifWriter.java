@@ -18,6 +18,9 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+/**
+ * Writes text CIF. An instance is not thread-safe; {@link org.rcsb.cif.CifIO} creates one per call.
+ */
 public class TextCifWriter {
     private final CifOptions options;
 
@@ -139,9 +142,10 @@ public class TextCifWriter {
     }
 
     private static final DecimalFormatSymbols SYMBOLS = new DecimalFormatSymbols(Locale.US);
-    private static final DecimalFormat FLOAT_2 = new DecimalFormat("0.00", SYMBOLS);
-    private static final DecimalFormat FLOAT_3 = new DecimalFormat("0.000", SYMBOLS);
-    private static final DecimalFormat FLOAT_6 = new DecimalFormat("0.######", SYMBOLS);
+    // DecimalFormat is not thread-safe: one set per writer, and a writer is used by one thread at a time
+    private final DecimalFormat float2 = new DecimalFormat("0.00", SYMBOLS);
+    private final DecimalFormat float3 = new DecimalFormat("0.000", SYMBOLS);
+    private final DecimalFormat float6 = new DecimalFormat("0.######", SYMBOLS);
     /**
      * Some columns (i.e. CartnX, CartnY, CartnZ, and Occupancy demand for more fine-grained over the values they report.
      * @param val the double value
@@ -150,12 +154,12 @@ public class TextCifWriter {
      */
     private String format(double val, String name) {
         if ("Cartn_x".equals(name) || "Cartn_y".equals(name) || "Cartn_z".equals(name)) {
-            return FLOAT_3.format(val);
+            return float3.format(val);
         } else if ("occupancy".equals(name)) {
-            return FLOAT_2.format(val);
+            return float2.format(val);
         }
 
-        return FLOAT_6.format(val);
+        return float6.format(val);
     }
 
     private boolean writeChecked(StringBuilder output, String val) {
