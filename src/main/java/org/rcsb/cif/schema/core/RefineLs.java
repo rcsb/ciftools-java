@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify information about the
+ * refinement of the structural model.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -21,10 +22,16 @@ public class RefineLs extends DelegatingCategory.DelegatingCifCoreCategory {
      * determination as described by Klar et al. (2023), based on the
      * method of Le Page et al. (1990). For centrosymmetric structures,
      * the only permitted value, if the data item is present, is
-     * 'inapplicable', represented by '.' .
+     * 'inapplicable', represented by '.' . Details on how the here
+     * reported z-score value was calculated (for example if it is
+     * a noise-adjusted value or raw value) should be provided in
+     * _refine_ls.abs_structure_details.
+     * 
      * Ref:  Klar, P. B. et al. (2023). Nature Chem. 15, 848-855.
+     * https://www.doi.org/10.1038/s41557-023-01186-1
      * Le Page, Y., Gabe, E. J. &amp; Gainsford, G. J. (1990). J. Appl. Cryst.
      * 23, 406-411.
+     * https://doi.org/10.1107/S0021889890005775
      * @return FloatColumn
      */
     public FloatColumn getAbsStructureZ_score() {

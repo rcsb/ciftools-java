@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * Data items in the AUDIT_SUPPORT category record details about the
+ * funding support for the data collected and analysed in the data set.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AuditSupport extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -55,14 +56,11 @@ public class AuditSupport extends DelegatingCategory.DelegatingCifCoreCategory {
     /**
      * The Digital Object Identifier (DOI) associated with the
      * Organization providing funding support for
-     * the data collected and analysed in the data block. In
-     * accordance with CrossRef guidelines, the full URI of
-     * the resolved page describing the funding organization
-     * should be given (i.e. including the https://doi.org/
-     * DOI resolver prefix). Note that it may be necessary to
-     * URL-encode certain special characters in the DOI suffix
-     * for the URI to resolve correctly through CrossRef
-     * (e.g. the number sign '#' must be encoded as '%23').
+     * the data collected and analysed in the data block.
+     * 
+     * The display form of the DOI may differ from the
+     * DOI itself; see, for example, the Crossref guidelines
+     * (https://www.crossref.org/display-guidelines/).
      * @return StrColumn
      */
     public StrColumn getFundingOrganizationDoi() {

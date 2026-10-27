@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the parameters of
+ * the crystal unit cell.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -100,19 +101,6 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * A pointer to the diffraction conditions to which this cell has been applied,
-     * for example, to locate and extract diffraction peaks. These will normally be
-     * the same conditions as those under which the cell was measured, but some
-     * legacy data sets may have used a cell measured under differing conditions,
-     * in which case those conditions should be indicated using the
-     * _cell_measurement.condition_id data item.
-     * @return StrColumn
-     */
-    public StrColumn getDiffrnId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("cell_diffrn_id"));
-    }
-
-    /**
      * The number of the formula units in the unit cell as specified
      * by _chemical_formula.structural, _chemical_formula.moiety or
      * _chemical_formula.sum. This is normally an integer value, but
@@ -139,6 +127,42 @@ public class Cell extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getFormulaUnitsZDetails() {
         return new DelegatingStrColumn(parentBlock.getColumn("cell_formula_units_z_details"));
+    }
+
+    /**
+     * Z' specifies the number of molecules in the asymmetric unit.
+     * It is defined as the number of formula units in the unit cell
+     * (_cell.formula_units_Z) divided by the multiplicity of the
+     * general position of the corresponding space group. Z' can be
+     * a fraction or a positive integer.
+     * 
+     * Note that correct assignment of Z' may be difficult for some
+     * complex structures (Flack, 2002; Steed et al., 2014). For such
+     * cases a justification of the assigned value should be given in
+     * _cell.formula_units_Z_prime_details.
+     * 
+     * Ref: Flack, H. D. (2002).
+     * https://www.iucr.org/__data/iucr/lists/coredmg/msg00196.html
+     * Steed, J. et al. (2014). https://zprime.co.uk/limitations
+     * @return FloatColumn
+     */
+    public FloatColumn getFormulaUnitsZPrime() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("cell_formula_units_z_prime"));
+    }
+
+    /**
+     * An account of the assigned value of Z', the number of molecules in
+     * the asymmetric unit, where there is difficulty in deciding the
+     * appropriate value for reasons of symmetry, chirality, disorder etc.
+     * (Flack, 2002; Steed et al., 2014).
+     * 
+     * Ref: Flack, H. D. (2002).
+     * https://www.iucr.org/__data/iucr/lists/coredmg/msg00196.html
+     * Steed, J. et al. (2014). https://zprime.co.uk/limitations
+     * @return StrColumn
+     */
+    public StrColumn getFormulaUnitsZPrimeDetails() {
+        return new DelegatingStrColumn(parentBlock.getColumn("cell_formula_units_z_prime_details"));
     }
 
     /**

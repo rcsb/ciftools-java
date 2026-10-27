@@ -6,7 +6,9 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify the experimental work
+ * prior to diffraction measurements. These include crystallization
+ * crystal measurements and absorption-correction techniques used.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -38,6 +40,16 @@ public class Exptl extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getMethodDetails() {
         return new DelegatingStrColumn(parentBlock.getColumn("exptl_method_details"));
+    }
+
+    /**
+     * An identifier from the PaNET ontology matching the experimental technique
+     * used to obtain the data. For more details, see
+     * https://expands-eu.github.io/ExPaNDS-experimental-techniques-ontology/.
+     * @return StrColumn
+     */
+    public StrColumn getMethodIdPanet() {
+        return new DelegatingStrColumn(parentBlock.getColumn("exptl_method_id_panet"));
     }
 
     /**

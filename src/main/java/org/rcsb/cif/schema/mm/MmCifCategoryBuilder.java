@@ -1689,6 +1689,14 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_aromatic_flag", this);
         }
 
+        public StrColumnBuilder<ChemCompBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxMetalPiFlag() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_metal_pi_flag", this);
+        }
+
+        public StrColumnBuilder<ChemCompBondBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxMetalCoordinationFlag() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_metal_coordination_flag", this);
+        }
+
     }
 
     public static class ChemCompChirBuilder extends MmCifCategoryBuilder {
@@ -3163,6 +3171,38 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxDate() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_date", this);
+        }
+
+        public FloatColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAngleStart() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_angle_start", this);
+        }
+
+        public FloatColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxAngleEnd() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_angle_end", this);
+        }
+
+        public FloatColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxRotationRate() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_rotation_rate", this);
+        }
+
+        public FloatColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPdbxExposureTimePerImage() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "pdbx_exposure_time_per_image", this);
+        }
+
+        public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRotationMode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "rotation_mode", this);
+        }
+
+        public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethodPrecession() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method_precession", this);
+        }
+
+        public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSampleTracking() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sample_tracking", this);
+        }
+
+        public StrColumnBuilder<DiffrnMeasurementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSampleTrackingMethod() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "sample_tracking_method", this);
         }
 
     }
@@ -11874,6 +11914,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "pdb_ins_code", this);
         }
 
+        public StrColumnBuilder<PdbxPolySeqSchemeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterIhmModelIdList() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "ihm_model_id_list", this);
+        }
+
     }
 
     public static class PdbxNonpolySchemeBuilder extends MmCifCategoryBuilder {
@@ -12286,6 +12330,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<PdbxExptlCrystalCryoTreatmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAnnealingDetails() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "annealing_details", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalCryoTreatmentBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCryogen() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "cryogen", this);
         }
 
     }
@@ -19935,6 +19983,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "constraint_subtype", this);
         }
 
+        public StrColumnBuilder<PdbxNmrConstraintFileBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConstraintSubsubtype() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "constraint_subsubtype", this);
+        }
+
         public StrColumnBuilder<PdbxNmrConstraintFileBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterConstraintType() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "constraint_type", this);
         }
@@ -25031,6 +25083,10 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<PdbxDepuiStatusFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAssemblyInferred() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "assembly_inferred", this);
+        }
+
+        public StrColumnBuilder<PdbxDepuiStatusFlagsBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMetalExperimentEvidence() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "metal_experiment_evidence", this);
         }
 
     }
@@ -31232,6 +31288,531 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
     }
 
+    public static class PdbxNonpolyFeatureBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_feature";
+
+        public PdbxNonpolyFeatureBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValue() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyAtomFeatureBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_atom_feature";
+
+        public PdbxNonpolyAtomFeatureBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterValue() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "value", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyAtomFeatureEvidenceBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_atom_feature_evidence";
+
+        public PdbxNonpolyAtomFeatureEvidenceBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterExperimentalSupport() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "experimental_support", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyFeatureEvidenceBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_feature_evidence";
+
+        public PdbxNonpolyFeatureEvidenceBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterOrdinal() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "ordinal", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "type", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterExperimentalSupport() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "experimental_support", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyFeatureEvidenceBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+    }
+
+    public static class PdbxChemCompAtomCoordinationBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_chem_comp_atom_coordination";
+
+        public PdbxChemCompAtomCoordinationBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "geometry_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_id", this);
+        }
+
+        public IntColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumber() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryCalculated() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_calculated", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryGeneric() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_generic", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryAbbr() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_abbr", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRepresentativeEntryId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "representative_entry_id", this);
+        }
+
+    }
+
+    public static class PdbxChemCompAtomCoordinationSphereBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_chem_comp_atom_coordination_sphere";
+
+        public PdbxChemCompAtomCoordinationSphereBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "geometry_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescriptor() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "descriptor", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+        public StrColumnBuilder<PdbxChemCompAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRepresentativeEntryId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "representative_entry_id", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyAtomCoordinationBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_atom_coordination";
+
+        public PdbxNonpolyAtomCoordinationBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "geometry_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterNumber() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "number", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryCalculated() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_calculated", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRemark() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "remark", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryGeneric() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_generic", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryAbbr() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "geometry_abbr", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAssessment() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "assessment", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyAtomCoordinationSphereBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_atom_coordination_sphere";
+
+        public PdbxNonpolyAtomCoordinationSphereBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterGeometryId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "geometry_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDescriptor() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "descriptor", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterProvenance() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "provenance", this);
+        }
+
+    }
+
+    public static class PdbxNonpolyAtomCoordinationSphereOrderBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_nonpoly_atom_coordination_sphere_order";
+
+        public PdbxNonpolyAtomCoordinationSphereOrderBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSphereId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "sphere_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_asym_id", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelSeqId() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "label_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterLabelAltId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "label_alt_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAsymId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_asym_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthSeqId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_seq_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthCompId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_comp_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAuthAtomId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "auth_atom_id", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterPDBInsCode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "PDB_ins_code", this);
+        }
+
+        public IntColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterAtomPlace() {
+            return new IntColumnBuilderImpl<>(CATEGORY_NAME, "atom_place", this);
+        }
+
+        public StrColumnBuilder<PdbxNonpolyAtomCoordinationSphereOrderBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSymmetryOperation() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "symmetry_operation", this);
+        }
+
+    }
+
     public static class PdbxDiffrnBatchBuilder extends MmCifCategoryBuilder {
         private static final String CATEGORY_NAME = "pdbx_diffrn_batch";
 
@@ -31991,6 +32572,133 @@ public class MmCifCategoryBuilder extends CategoryBuilderImpl<MmCifBlockBuilder,
 
         public StrColumnBuilder<DiffrnDetectorElementBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterReferenceCenterUnits() {
             return new StrColumnBuilderImpl<>(CATEGORY_NAME, "reference_center_units", this);
+        }
+
+    }
+
+    public static class PdbxExptlSubtypeBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_exptl_subtype";
+
+        public PdbxExptlSubtypeBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxExptlSubtypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterExptlMethod() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "exptl_method", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlSubtypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMethodType() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "method_type", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlSubtypeBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+    }
+
+    public static class PdbxExptlCrystalProcessBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_exptl_crystal_process";
+
+        public PdbxExptlCrystalProcessBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCrystalId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "crystal_id", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMicrocrystalMethod() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "microcrystal_method", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMicrocrystalInstrument() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "microcrystal_instrument", this);
+        }
+
+        public FloatColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMicrocrystalMinDim() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "microcrystal_min_dim", this);
+        }
+
+        public FloatColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMicrocrystalMaxDim() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "microcrystal_max_dim", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterMicrocrystalDescription() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "microcrystal_description", this);
+        }
+
+        public StrColumnBuilder<PdbxExptlCrystalProcessBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
+        }
+
+    }
+
+    public static class PdbxDiffrnEdBuilder extends MmCifCategoryBuilder {
+        private static final String CATEGORY_NAME = "pdbx_diffrn_ed";
+
+        public PdbxDiffrnEdBuilder(MmCifBlockBuilder parent) {
+            super(CATEGORY_NAME, parent);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "id", this);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDiffrnId() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "diffrn_id", this);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterElectronSource() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "electron_source", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterBeamDiameterSamplePlane() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "beam_diameter_sample_plane", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterCameraLength() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "camera_length", this);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterRecordingMode() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "recording_mode", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFluenceRate() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fluence_rate", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterFluenceAccumulated() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "fluence_accumulated", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterC2ApertureDiameter() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "c2_aperture_diameter", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterSaApertureDiameter() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "sa_aperture_diameter", this);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEnergyfilterName() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "energyfilter_name", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEnergyfilterUpper() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "energyfilter_upper", this);
+        }
+
+        public FloatColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterEnergyfilterLower() {
+            return new FloatColumnBuilderImpl<>(CATEGORY_NAME, "energyfilter_lower", this);
+        }
+
+        public StrColumnBuilder<PdbxDiffrnEdBuilder, MmCifBlockBuilder, MmCifFileBuilder> enterDetails() {
+            return new StrColumnBuilderImpl<>(CATEGORY_NAME, "details", this);
         }
 
     }

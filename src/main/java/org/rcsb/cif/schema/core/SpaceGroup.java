@@ -6,7 +6,27 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
+ * The category of data items used to specify space group
+ * information about the crystal used in the diffraction measurements.
  * 
+ * Space-group types are identified by their number as listed in
+ * International Tables for Crystallography Volume A, or by their
+ * Schoenflies symbol. Specific settings of the space groups can
+ * be identified by their Hall symbol, by specifying their
+ * symmetry operations or generators, or by giving the
+ * transformation that relates the specific setting to the
+ * reference setting based on International Tables Volume A and
+ * stored in this dictionary.
+ * 
+ * The commonly used Hermann-Mauguin symbol determines the
+ * space-group type uniquely, but several different Hermann-Mauguin
+ * symbols may refer to the same space-group type. A
+ * Hermann-Mauguin symbol contains information on the choice of
+ * the basis, but not on the choice of origin.
+ * 
+ * Ref: International Tables for Crystallography (2016). Volume A,
+ * Space-group symmetry, edited by M. I. Aroyo, 6th ed.
+ * Chichester: John Wiley &amp; Sons.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -215,6 +235,129 @@ public class SpaceGroup extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public StrColumn getPointGroupH_m() {
         return new DelegatingStrColumn(parentBlock.getColumn("space_group_point_group_h-m"));
+    }
+
+    /**
+     * The reference setting of a given space group is the setting
+     * chosen by the International Union of Crystallography as a
+     * unique setting to which other settings can be referred
+     * using the transformation matrix column pair given in
+     * _space_group.transform_Pp_abc and _space_group.transform_Qq_xyz.
+     * 
+     * The settings are given in the enumeration list in the form
+     * '_space_group.IT_number:_space_group.name_Hall'. The
+     * space-group number defines the space-group type and the
+     * Hall symbol specifies the symmetry generators referred to
+     * the reference coordinate system.
+     * 
+     * The 230 reference settings chosen are identical to the settings
+     * listed in International Tables for Crystallography Volume A
+     * (2002). For the space groups where more than one setting is
+     * given in International Tables, the following choices have
+     * been made.
+     * 
+     * For monoclinic space groups: unique axis b and cell choice 1.
+     * 
+     * For space groups with two origins: origin choice 2 (origin at
+     * inversion centre, indicated by adding :2 to the Hermann-Mauguin
+     * symbol in the enumeration list).
+     * 
+     * For rhombohedral space groups: hexagonal axes (indicated by
+     * adding :h to the Hermann-Mauguin symbol in the enumeration list).
+     * 
+     * Based on the symmetry table of R. W. Grosse-Kunstleve, ETH,
+     * Zurich.
+     * 
+     * In the enumeration list, each reference setting is identified
+     * by Schoenflies symbol and by the Hermann-Mauguin symbol,
+     * augmented by :2 or :h suffixes as described above.
+     * 
+     * Ref: International Tables for Crystallography (2002). Volume A,
+     * Space-group symmetry, edited by Th. Hahn, 5th ed.
+     * Dordrecht: Kluwer Academic Publishers.
+     * 
+     * Grosse-Kunstleve, R. W. (2001). Xtal System of
+     * Crystallographic Programs, System Documentation.
+     * https://xtal.sourceforge.net/man/symmetry.html
+     * (or follow links to Documentation-&gt;Xtal Users Manual-&gt;Symmetry from
+     * https://xtal.sourceforge.net).
+     * @return StrColumn
+     */
+    public StrColumn getReferenceSetting() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_reference_setting"));
+    }
+
+    /**
+     * This item specifies the transformation (P,p) of the basis
+     * vectors from the setting used in the CIF (a,b,c) to the
+     * reference setting given in _space_group.reference_setting
+     * (a',b',c'). The value is given in Jones faithful notation
+     * corresponding to the rotational matrix P combined with the
+     * origin shift vector p in the expression:
+     * 
+     * (a',b',c') = (a,b,c)P + p.
+     * 
+     * P is a post-multiplication matrix of a row (a,b,c) of column
+     * vectors. It is related to the inverse transformation (Q,q) by:
+     * 
+     * P = Q^-1^
+     * p = Pq = -(Q^-1^)q.
+     * 
+     * These transformations are applied as follows:
+     * 
+     * atomic coordinates  (x',y',z') = Q(x,y,z) + q
+     * Miller indices      (h',k',l') = (h,k,l)P
+     * symmetry operations         W' = (Q,q)W(P,p)
+     * basis vectors       (a',b',c') = (a,b,c)P + p
+     * 
+     * This item is given as a character string involving the
+     * characters a, b and c with commas separating the expressions
+     * for the a', b' and c' vectors. The numeric values may be
+     * given as integers, fractions or real numbers. Multiplication
+     * is implicit, division must be explicit. White space within
+     * the string is optional.
+     * @return StrColumn
+     */
+    public StrColumn getTransformPpAbc() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_transform_pp_abc"));
+    }
+
+    /**
+     * This item specifies the transformation (Q,q) of the atomic
+     * coordinates from the setting used in the CIF [(x,y,z) referred
+     * to the basis vectors (a,b,c)] to the reference setting given in
+     * _space_group.reference_setting [(x',y',z') referred to the
+     * basis vectors (a',b',c')].
+     * 
+     * The value given in Jones faithful notation corresponds to the
+     * rotational matrix Q combined with the origin shift vector q in
+     * the expression:
+     * 
+     * (x',y',z') = Q(x,y,z) + q.
+     * 
+     * Q is a pre-multiplication matrix of the column vector (x,y,z).
+     * It is related to the inverse transformation (P,p) by:
+     * 
+     * P = Q^-1^
+     * p = Pq = -(Q^-1^)q,
+     * 
+     * where the P and Q transformations are applied as follows:
+     * 
+     * atomic coordinates  (x',y',z') = Q(x,y,z) + q
+     * Miller indices      (h',k',l') = (h,k,l)P
+     * symmetry operations         W' = (Q,q)W(P,p)
+     * basis vectors       (a',b',c') = (a,b,c)P + p
+     * 
+     * This item is given as a character string involving the
+     * characters x, y and z with commas separating the expressions
+     * for the x', y' and z' components. The numeric values may be
+     * given as integers, fractions or real numbers. Multiplication
+     * is implicit, division must be explicit. White space within
+     * the string is optional.
+     * @return StrColumn
+     */
+    public StrColumn getTransformQqXyz() {
+        return new DelegatingStrColumn(parentBlock.getColumn("space_group_transform_qq_xyz"));
     }
 
     /**

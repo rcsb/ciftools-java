@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the measurement of
+ * the cell parameters.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -14,25 +15,6 @@ public class CellMeasurement extends DelegatingCategory.DelegatingCifCoreCategor
 
     public CellMeasurement(CifCoreBlock parentBlock) {
         super(NAME, parentBlock);
-    }
-
-    /**
-     * A pointer to the diffraction conditions used for cell measurement,
-     * where different to the diffraction conditions used for data
-     * collection.
-     * @return StrColumn
-     */
-    public StrColumn getConditionId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("cell_measurement_condition_id"));
-    }
-
-    /**
-     * A pointer to the diffraction experiment to which the measured cell
-     * has been applied.
-     * @return StrColumn
-     */
-    public StrColumn getDiffrnId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("cell_measurement_diffrn_id"));
     }
 
     /**

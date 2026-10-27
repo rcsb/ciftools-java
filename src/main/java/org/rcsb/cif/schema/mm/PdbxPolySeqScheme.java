@@ -42,6 +42,8 @@ public class PdbxPolySeqScheme extends DelegatingCategory {
                 return getAuthMonId();
             case "pdb_ins_code":
                 return getPdbInsCode();
+            case "ihm_model_id_list":
+                return getIhmModelIdList();
             default:
                 return new DelegatingColumn(column);
         }
@@ -143,6 +145,17 @@ public class PdbxPolySeqScheme extends DelegatingCategory {
      */
     public StrColumn getPdbInsCode() {
         return delegate.getColumn("pdb_ins_code", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Comma-separated list of IHM model id values.
+     * This data item indicates the list of models that have coordinates for
+     * a particular residue in the sequence.
+     * The IHM model ids must match to the values in _ihm_model_list.model_id.
+     * @return StrColumn
+     */
+    public StrColumn getIhmModelIdList() {
+        return delegate.getColumn("ihm_model_id_list", DelegatingStrColumn::new);
     }
 
 }

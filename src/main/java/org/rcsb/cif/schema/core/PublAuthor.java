@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * Category of data items recording information of an author of the
+ * publication (for example the manuscript).
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -98,8 +99,7 @@ public class PublAuthor extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Telephone number of the author submitting the manuscript and
-     * data block.
+     * Telephone number of a manuscript author.
      * 
      * The recommended style starts with the international dialing
      * prefix, followed by the area code in parentheses, followed by the

@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the sample mounting,
+ * positioning, and measurement strategy.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnMeasurement extends DelegatingCategory.DelegatingCifCoreCategory {

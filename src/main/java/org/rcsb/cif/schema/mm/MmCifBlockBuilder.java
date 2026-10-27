@@ -2328,6 +2328,42 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
         return new MmCifCategoryBuilder.PdbxModificationFeatureBuilder(this);
     }
 
+    public MmCifCategoryBuilder.PdbxNonpolyFeatureBuilder enterPdbxNonpolyFeature() {
+        return new MmCifCategoryBuilder.PdbxNonpolyFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyAtomFeatureBuilder enterPdbxNonpolyAtomFeature() {
+        return new MmCifCategoryBuilder.PdbxNonpolyAtomFeatureBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyAtomFeatureEvidenceBuilder enterPdbxNonpolyAtomFeatureEvidence() {
+        return new MmCifCategoryBuilder.PdbxNonpolyAtomFeatureEvidenceBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyFeatureEvidenceBuilder enterPdbxNonpolyFeatureEvidence() {
+        return new MmCifCategoryBuilder.PdbxNonpolyFeatureEvidenceBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompAtomCoordinationBuilder enterPdbxChemCompAtomCoordination() {
+        return new MmCifCategoryBuilder.PdbxChemCompAtomCoordinationBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxChemCompAtomCoordinationSphereBuilder enterPdbxChemCompAtomCoordinationSphere() {
+        return new MmCifCategoryBuilder.PdbxChemCompAtomCoordinationSphereBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationBuilder enterPdbxNonpolyAtomCoordination() {
+        return new MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationSphereBuilder enterPdbxNonpolyAtomCoordinationSphere() {
+        return new MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationSphereBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationSphereOrderBuilder enterPdbxNonpolyAtomCoordinationSphereOrder() {
+        return new MmCifCategoryBuilder.PdbxNonpolyAtomCoordinationSphereOrderBuilder(this);
+    }
+
     public MmCifCategoryBuilder.PdbxDiffrnBatchBuilder enterPdbxDiffrnBatch() {
         return new MmCifCategoryBuilder.PdbxDiffrnBatchBuilder(this);
     }
@@ -2402,6 +2438,18 @@ public class MmCifBlockBuilder extends BlockBuilderImpl<MmCifFileBuilder> {
 
     public MmCifCategoryBuilder.DiffrnDetectorElementBuilder enterDiffrnDetectorElement() {
         return new MmCifCategoryBuilder.DiffrnDetectorElementBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxExptlSubtypeBuilder enterPdbxExptlSubtype() {
+        return new MmCifCategoryBuilder.PdbxExptlSubtypeBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxExptlCrystalProcessBuilder enterPdbxExptlCrystalProcess() {
+        return new MmCifCategoryBuilder.PdbxExptlCrystalProcessBuilder(this);
+    }
+
+    public MmCifCategoryBuilder.PdbxDiffrnEdBuilder enterPdbxDiffrnEd() {
+        return new MmCifCategoryBuilder.PdbxDiffrnEdBuilder(this);
     }
 
     public MmCifCategoryBuilder.IhmEntityPolySegmentBuilder enterIhmEntityPolySegment() {

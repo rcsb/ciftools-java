@@ -23,7 +23,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -41,11 +41,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB11Esd() {
@@ -59,7 +56,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -77,11 +74,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB12Esd() {
@@ -95,7 +89,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -113,11 +107,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB13Esd() {
@@ -131,7 +122,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -149,11 +140,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB22Esd() {
@@ -167,7 +155,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -185,11 +173,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB23Esd() {
@@ -203,7 +188,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{-1/4 sum~i~ [ sum~j~ (B^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -221,11 +206,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the B^ij^ anisotropic atomic displacement components (see
-     * aniso_BIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * B^ij^ calculation.
+     * Standard uncertainty of the indicated B^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getB33Esd() {
@@ -269,7 +251,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -286,11 +268,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU11Esd() {
@@ -304,7 +283,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -321,11 +300,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU12Esd() {
@@ -339,7 +315,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -356,11 +332,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU13Esd() {
@@ -374,7 +347,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -391,11 +364,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU22Esd() {
@@ -409,7 +379,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -426,11 +396,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU23Esd() {
@@ -444,7 +411,7 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
      * T = exp{ -2π^2^ sum~i~ [ sum~j~ (U^ij^ h~i~ h~j~ a*~i~ a*~j~) ] }
      * 
      * h = the Miller indices
-     * a* = the reciprocal-space cell lengths
+     * a* = the reciprocals of the direct-space cell lengths
      * 
      * The unique elements of the real symmetric matrix are entered by row.
      * 
@@ -461,11 +428,8 @@ public class AtomSiteAnisotrop extends DelegatingCategory.DelegatingCifCoreCateg
     }
 
     /**
-     * These are the standard uncertainty values (s.u.) for the standard
-     * form of the U^ij^ anisotropic atomic displacement components (see
-     * aniso_UIJ). Because these values are _type.purpose Measurand, the
-     * s.u. values may in practice be auto generated as part of the
-     * U^ij^ calculation.
+     * Standard uncertainty of the indicated U^ij^ anisotropic atomic
+     * displacement component.
      * @return FloatColumn
      */
     public FloatColumn getU33Esd() {

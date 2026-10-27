@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the overall reflection
+ * measurement information.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnReflns extends DelegatingCategory.DelegatingCifCoreCategory {

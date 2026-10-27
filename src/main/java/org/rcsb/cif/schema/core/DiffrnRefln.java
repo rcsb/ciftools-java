@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the reflection measurements,
+ * prior to data reduction and merging.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -425,7 +426,7 @@ public class DiffrnRefln extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Code identifying the wavelength in the diffrn_radiation_wavelength list.
+     * Code identifying the wavelength in the DIFFRN_RADIATION_WAVELENGTH list.
      * @return StrColumn
      */
     public StrColumn getWavelengthId() {

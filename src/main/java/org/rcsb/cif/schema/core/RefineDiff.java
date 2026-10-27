@@ -6,7 +6,10 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the scattering density limits
+ * in a difference Fourier map after the structure has been refined. The
+ * RMS value is with respect to the arithmetic mean density, and is derived
+ * from summations over each grid point in the asymmetric unit of the cell.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class RefineDiff extends DelegatingCategory.DelegatingCifCoreCategory {

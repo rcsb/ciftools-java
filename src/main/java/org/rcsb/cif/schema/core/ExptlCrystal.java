@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify information about
+ * crystals used in the diffraction measurements.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -142,14 +143,6 @@ public class ExptlCrystal extends DelegatingCategory.DelegatingCifCoreCategory {
      */
     public FloatColumn getF000() {
         return new DelegatingFloatColumn(parentBlock.getColumn("exptl_crystal_f_000"));
-    }
-
-    /**
-     * Code identifying a crystal.
-     * @return StrColumn
-     */
-    public StrColumn getId() {
-        return new DelegatingStrColumn(parentBlock.getColumn("exptl_crystal_id"));
     }
 
     /**

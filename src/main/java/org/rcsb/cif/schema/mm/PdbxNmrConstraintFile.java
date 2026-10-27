@@ -24,6 +24,8 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
                 return getConstraintNumber();
             case "constraint_subtype":
                 return getConstraintSubtype();
+            case "constraint_subsubtype":
+                return getConstraintSubsubtype();
             case "constraint_type":
                 return getConstraintType();
             case "entry_id":
@@ -61,6 +63,15 @@ public class PdbxNmrConstraintFile extends DelegatingCategory {
      */
     public StrColumn getConstraintSubtype() {
         return delegate.getColumn("constraint_subtype", DelegatingStrColumn::new);
+    }
+
+    /**
+     * Another level of description of the type of constraints in the file (simple,
+     * ambiguous, etc.)
+     * @return StrColumn
+     */
+    public StrColumn getConstraintSubsubtype() {
+        return delegate.getColumn("constraint_subsubtype", DelegatingStrColumn::new);
     }
 
     /**

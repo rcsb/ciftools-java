@@ -6,7 +6,15 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * Data items in the PUBL category are used when submitting a
+ * manuscript for publication. They refer either to the paper as
+ * a whole, or to specific named elements within a paper (such as
+ * the title and abstract, or the Comment and Experimental
+ * sections of Acta Crystallographica Section C). The data items
+ * in the PUBL_BODY category should be used for the textual
+ * content of other submissions. Typically, each journal will
+ * supply a list of the specific items it requires in its Notes
+ * for Authors.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -25,9 +33,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The address of the author submitting the manuscript and
-     * data block. This is the person contacted by the journal
-     * editorial staff.
+     * The address of the contact author of the associated manuscript to
+     * whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * @return StrColumn
      */
     public StrColumn getContactAuthorAddress() {
@@ -35,9 +43,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The address of the author submitting the manuscript and
-     * data block. This is the person contacted by the journal
-     * editorial staff.
+     * The address of the contact author of the associated manuscript to
+     * whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * @return StrColumn
      */
     public StrColumn getAddress() {
@@ -69,10 +77,15 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * E-mail address in a form recognizable to international networks.
-     * The format of e-mail addresses is given in Section 3.4, Address
-     * Specification, of Internet Message Format, RFC 2822, P. Resnick
-     * (Editor), Network Standards Group, April 2001.
+     * The electronic mail (e-mail) address of the contact author of the
+     * associated manuscript to whom general correspondence should be
+     * addressed.
+     * This is the person contacted by the journal editorial staff.
+     * The e-mail address should be given in a form recognizable to
+     * international networks. The format of e-mail addresses is given
+     * in Section 3.4, Address Specification, of Internet Message
+     * Format, RFC 2822, P. Resnick (Editor), Network Standards Group,
+     * April 2001.
      * @return StrColumn
      */
     public StrColumn getContactAuthorEmail() {
@@ -80,10 +93,15 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * E-mail address in a form recognizable to international networks.
-     * The format of e-mail addresses is given in Section 3.4, Address
-     * Specification, of Internet Message Format, RFC 2822, P. Resnick
-     * (Editor), Network Standards Group, April 2001.
+     * The electronic mail (e-mail) address of the contact author of the
+     * associated manuscript to whom general correspondence should be
+     * addressed.
+     * This is the person contacted by the journal editorial staff.
+     * The e-mail address should be given in a form recognizable to
+     * international networks. The format of e-mail addresses is given
+     * in Section 3.4, Address Specification, of Internet Message
+     * Format, RFC 2822, P. Resnick (Editor), Network Standards Group,
+     * April 2001.
      * @return StrColumn
      */
     public StrColumn getEmail() {
@@ -91,8 +109,10 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Facsimile telephone number of the author submitting the manuscript
-     * and data block.
+     * Facsimile telephone number of the contact author(s) of the contact
+     * author of the associated manuscript to whom general correspondence
+     * should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * The recommended style is the international dialing prefix, followed
      * by the area code in parentheses, followed by the local number with
      * no spaces. The earlier convention of including the international
@@ -104,8 +124,10 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Facsimile telephone number of the author submitting the manuscript
-     * and data block.
+     * Facsimile telephone number of the contact author(s) of the contact
+     * author of the associated manuscript to whom general correspondence
+     * should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * The recommended style is the international dialing prefix, followed
      * by the area code in parentheses, followed by the local number with
      * no spaces. The earlier convention of including the international
@@ -117,9 +139,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The name of the author(s) submitting the manuscript and
-     * data block. This is the person contacted by the journal
-     * editorial staff.
+     * The name of the contact author of the associated manuscript to
+     * whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * @return StrColumn
      */
     public StrColumn getContactAuthorName() {
@@ -127,9 +149,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The name of the author(s) submitting the manuscript and
-     * data block. This is the person contacted by the journal
-     * editorial staff.
+     * The name of the contact author of the associated manuscript to
+     * whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * @return StrColumn
      */
     public StrColumn getName() {
@@ -137,7 +159,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Telephone number of author submitting the manuscript and data block.
+     * Telephone number of the contact author of the associated
+     * manuscript to whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * The recommended style is the international dialing prefix,
      * followed by the area code in parentheses, followed by the
      * local number and any extension number prefixed by 'x', with
@@ -150,7 +174,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Telephone number of author submitting the manuscript and data block.
+     * Telephone number of the contact author of the associated
+     * manuscript to whom general correspondence should be addressed.
+     * This is the person contacted by the journal editorial staff.
      * The recommended style is the international dialing prefix,
      * followed by the area code in parentheses, followed by the
      * local number and any extension number prefixed by 'x', with
@@ -222,9 +248,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The category of paper submitted. For submission to Acta
-     * Crystallographica Section C or Acta Crystallographica
-     * Section E, ONLY those codes indicated for use with those
-     * journals should be used.
+     * Crystallographica Sections C and E or to IUCrData,
+     * ONLY those codes indicated for current use with those
+     * journals should be used for new submissions.
      * @return StrColumn
      */
     public StrColumn getRequestedCategory() {
@@ -233,9 +259,9 @@ public class Publ extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * The category of paper submitted. For submission to Acta
-     * Crystallographica Section C or Acta Crystallographica
-     * Section E, ONLY those codes indicated for use with those
-     * journals should be used.
+     * Crystallographica Sections C and E or to IUCrData,
+     * ONLY those codes indicated for current use with those
+     * journals should be used for new submissions.
      * @return StrColumn
      */
     public StrColumn getCategory() {

@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the reflection data
+ * used in the refinement of a crystallographic structure model.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Refln extends DelegatingCategory.DelegatingCifCoreCategory {

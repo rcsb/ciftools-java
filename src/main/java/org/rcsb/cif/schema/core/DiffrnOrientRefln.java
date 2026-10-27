@@ -6,7 +6,9 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the reflections used to
+ * calculate the matrix which gives the orientation of the crystal
+ * axes to the diffractometer goniometer.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -18,7 +20,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAngleChi() {
@@ -35,7 +37,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAngleKappa() {
@@ -52,7 +54,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAngleOmega() {
@@ -69,7 +71,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAnglePhi() {
@@ -86,7 +88,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAnglePsi() {
@@ -103,7 +105,7 @@ public class DiffrnOrientRefln extends DelegatingCategory.DelegatingCifCoreCateg
 
     /**
      * Diffractometer angle of a reflection measured at the centre of the
-     * diffraction peak and used to determine _diffrn_orient_matrix.UBIJ.
+     * diffraction peak and used to determine _diffrn_orient_matrix.UBij.
      * @return FloatColumn
      */
     public FloatColumn getAngleTheta() {

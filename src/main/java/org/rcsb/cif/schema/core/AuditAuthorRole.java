@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the role that
+ * authors took in the production of the dataset.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AuditAuthorRole extends DelegatingCategory.DelegatingCifCoreCategory {

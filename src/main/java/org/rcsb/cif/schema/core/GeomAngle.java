@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify the geometry angles in the
+ * structural model as derived from the atomic sites.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomAngle extends DelegatingCategory.DelegatingCifCoreCategory {

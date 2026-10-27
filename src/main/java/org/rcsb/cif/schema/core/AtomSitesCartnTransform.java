@@ -6,7 +6,9 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe the matrix elements
+ * used to transform fractional coordinates into Cartesian coordinates
+ * of all atom sites in a crystal structure.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -370,7 +372,7 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * The 3x1 translation that is used with _atom_sites_cartn_transform.matrix
+     * The 3x1 translation that is used with _atom_sites_Cartn_transform.matrix
      * to transform fractional coordinates in the ATOM_SITE category to Cartesian
      * coordinates. The axial alignments of this transformation are described
      * in _atom_sites_Cartn_transform.axes.
@@ -381,7 +383,7 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * The 3x1 translation that is used with _atom_sites_cartn_transform.matrix
+     * The 3x1 translation that is used with _atom_sites_Cartn_transform.matrix
      * to transform fractional coordinates in the ATOM_SITE category to Cartesian
      * coordinates. The axial alignments of this transformation are described
      * in _atom_sites_Cartn_transform.axes.
@@ -392,7 +394,7 @@ public class AtomSitesCartnTransform extends DelegatingCategory.DelegatingCifCor
     }
 
     /**
-     * The 3x1 translation that is used with _atom_sites_cartn_transform.matrix
+     * The 3x1 translation that is used with _atom_sites_Cartn_transform.matrix
      * to transform fractional coordinates in the ATOM_SITE category to Cartesian
      * coordinates. The axial alignments of this transformation are described
      * in _atom_sites_Cartn_transform.axes.

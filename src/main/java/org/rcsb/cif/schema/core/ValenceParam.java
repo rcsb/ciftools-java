@@ -6,7 +6,12 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
+ * The category of items that specify bond-valence parameters
+ * used to calculate bond valences from bond lengths using the
+ * model of Brown (2002).
  * 
+ * Ref: Brown, I. D. (2002). The Chemical Bond in Inorganic Chemistry:
+ * the Bond-Valence Model, eq. (3.1). Oxford: Oxford University Press.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ValenceParam extends DelegatingCategory.DelegatingCifCoreCategory {

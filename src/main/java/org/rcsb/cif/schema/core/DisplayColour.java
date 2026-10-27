@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to enumerate the display
+ * colour codes used in the discipline.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DisplayColour extends DelegatingCategory.DelegatingCifCoreCategory {

@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used describe dictionary versions
+ * by which data names in the current data block are conformant.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AuditConform extends DelegatingCategory.DelegatingCifCoreCategory {

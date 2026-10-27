@@ -38,6 +38,10 @@ public class ChemCompBond extends DelegatingCategory {
                 return getPdbxStereoConfig();
             case "pdbx_aromatic_flag":
                 return getPdbxAromaticFlag();
+            case "pdbx_metal_pi_flag":
+                return getPdbxMetalPiFlag();
+            case "pdbx_metal_coordination_flag":
+                return getPdbxMetalCoordinationFlag();
             default:
                 return new DelegatingColumn(column);
         }
@@ -125,6 +129,24 @@ public class ChemCompBond extends DelegatingCategory {
      */
     public StrColumn getPdbxAromaticFlag() {
         return delegate.getColumn("pdbx_aromatic_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item identifies if this is a bond between a metal and a pi system (alkene, arene, etc).
+     * @return StrColumn
+     */
+    public StrColumn getPdbxMetalPiFlag() {
+        return delegate.getColumn("pdbx_metal_pi_flag", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item identifies if this is a bond between a metal and its coordinating group, otherwise
+     * referred to as a dative or coordinate covalent bond. This flag is used for all bonds between
+     * metals and non-metals, including metal-pi bonds and all other metal coordination bonds.
+     * @return StrColumn
+     */
+    public StrColumn getPdbxMetalCoordinationFlag() {
+        return delegate.getColumn("pdbx_metal_coordination_flag", DelegatingStrColumn::new);
     }
 
 }

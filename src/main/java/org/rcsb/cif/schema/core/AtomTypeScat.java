@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe atomic scattering
+ * information used in crystallographic structure studies.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -17,14 +18,33 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of Cromer-Mann coefficients for generating X-ray scattering
+     * The set of Cromer-Mann 'a' coefficients for generating X-ray scattering
      * factors:
-     * [ c, a1, b1, a2, b2, a3, b3, a4, b4 ].
+     * [ a1, a2, a3, a4 ].
+     * 
+     * See also: _atom_type_scat.Cromer_Mann_bs
+     * _atom_type_scat.Cromer_Mann_c
+     * 
      * Ref: International Tables for Crystallography (2004). Vol. C, Table 6.1.1.4.
      * @return FloatColumn
      */
-    public FloatColumn getCromerMannCoeffs() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_cromer_mann_coeffs"));
+    public FloatColumn getCromerMannAs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_cromer_mann_as"));
+    }
+
+    /**
+     * The set of Cromer-Mann 'b' coefficients for generating X-ray scattering
+     * factors:
+     * [ b1, b2, b3, b4 ].
+     * 
+     * See also: _atom_type_scat.Cromer_Mann_as
+     * _atom_type_scat.Cromer_Mann_c
+     * 
+     * Ref: International Tables for Crystallography (2004). Vol. C, Table 6.1.1.4.
+     * @return FloatColumn
+     */
+    public FloatColumn getCromerMannBs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_cromer_mann_bs"));
     }
 
     /**
@@ -117,32 +137,89 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * The set of Gaussian coefficients for generating X-ray scattering factors:
-     * [ c, a_1, b_1, a_2, b_2, ... , a_N, b_N ].
+     * The set of Gaussian scalar coefficients for generating X-ray scattering
+     * factors:
+     * [ a_1, a_2, ... , a_N ].
      * 
      * f(s; Z) = c + Sum[a~i~ * exp(-b~i~ * s^2^), i=1:N]
      * 
      * where s = sin(θ)/λ, θ is the diffraction angle and λ is the wavelength
      * of the incident radiation in angstroms.
+     * 
+     * See also: _atom_type_scat.Gaussian_bs
+     * _atom_type_scat.Gaussian_c
      * @return FloatColumn
      */
-    public FloatColumn getGaussianCoefs() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_coefs"));
+    public FloatColumn getGaussianAs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_as"));
     }
 
     /**
-     * Standard uncertainty of _atom_type_scat.Gaussian_coefs.
+     * Standard uncertainty of _atom_type_scat.Gaussian_as.
      * @return FloatColumn
      */
-    public FloatColumn getGaussianCoefsSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_coefs_su"));
+    public FloatColumn getGaussianAsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_as_su"));
+    }
+
+    /**
+     * The set of Gaussian exponent coefficients for generating X-ray scattering
+     * factors:
+     * [ b_1, b_2, ... , b_N ].
+     * 
+     * f(s; Z) = c + Sum[a~i~ * exp(-b~i~ * s^2^), i=1:N]
+     * 
+     * where s = sin(θ)/λ, θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
+     * 
+     * See also: _atom_type_scat.Gaussian_as
+     * _atom_type_scat.Gaussian_c
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianBs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_bs"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.Gaussian_bs.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianBsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_bs_su"));
+    }
+
+    /**
+     * The Gaussian constant coefficient for generating X-ray scattering factors:
+     * c.
+     * 
+     * f(s; Z) = c + Sum[a~i~ * exp(-b~i~ * s^2^), i=1:N]
+     * 
+     * where s = sin(θ)/λ, θ is the diffraction angle and λ is the wavelength
+     * of the incident radiation in angstroms.
+     * 
+     * See also: _atom_type_scat.gaussian_as
+     * _atom_type_scat.gaussian_bs
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianC() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_c"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.Gaussian_c.
+     * @return FloatColumn
+     */
+    public FloatColumn getGaussianCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_gaussian_c_su"));
     }
 
     /**
      * The inclusive lower limit of s for which the corresponding Gaussian
      * coefficients are valid.
      * 
-     * See _atom_type_scat.Gaussian_coefs.
+     * See also: _atom_type_scat.Gaussian_as
+     * _atom_type_scat.Gaussian_bs
+     * _atom_type_scat.Gaussian_c
      * @return FloatColumn
      */
     public FloatColumn getGaussianLowerLimit() {
@@ -153,7 +230,9 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * The exclusive upper limit of s for which the corresponding Gaussian
      * coefficients are valid.
      * 
-     * See _atom_type_scat.Gaussian_coefs.
+     * See also: _atom_type_scat.Gaussian_as
+     * _atom_type_scat.Gaussian_bs
+     * _atom_type_scat.Gaussian_c
      * @return FloatColumn
      */
     public FloatColumn getGaussianUpperLimit() {
@@ -236,45 +315,119 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * Table 6.1.1.5
      * @return FloatColumn
      */
-    public FloatColumn getHiAngFoxCoeffs() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_hi_ang_fox_coeffs"));
+    public FloatColumn getHiAngFoxCoefs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_hi_ang_fox_coefs"));
     }
 
     /**
-     * The set of Gaussian coefficients for use in the inverse Mott-Bethe
+     * The set of Gaussian scalar coefficients for use in the inverse Mott-Bethe
      * relationship for generating X-ray scattering factors:
-     * [ e, c_1, d_1, c_2, d_2, ... , c_N, d_N ].
+     * [ a_1, a_2, ... , a_N ].
      * 
-     * f(s; Z) =
-     * Z - 8π * a~0~ * s^2^ * {e + Sum[ c~i~ * exp(-d~i~ * s^2^), i=1:N]}
+     * f(s; Z~0~) =
+     * Z~0~ - 8π^2^ * r~B~ * s^2^ * {c + Sum[ a~i~ * exp(-b~i~ * s^2^), i=1:N]}
      * 
-     * where s = sin(θ)/λ, a~0~ is the Bohr radius, and Z is the atomic number.
-     * θ is the diffraction angle and λ is the wavelength of the incident
-     * radiation in angstroms.
+     * where s = sin(θ)/λ, r~B~ is the Bohr radius, and Z~0~ is the number of
+     * electrons for the atom or ion. θ is the diffraction angle and λ is the
+     * wavelength of the incident radiation in angstroms.
      * 
-     * Ref: Thorkildsen, G. (2023). Acta Cryst. A79, 318–330.
+     * See also: _atom_type_scat.inv_mott_bethe_bs
+     * _atom_type_scat.inv_mott_bethe_c
+     * 
+     * Ref: Thorkildsen, G. (2023). Acta Cryst. A79, 318-330.
+     * Thorkildsen, G. (2024). Acta Cryst. A80, 129-136.
      * Mott, N. F. &amp; Bragg, W. L. (1930). Proc. R. Soc. Lond. Ser. A,
-     * 127, 658–665.
-     * Bethe, H. (1930). Ann. Phys. 397, 325–400.
+     * 127, 658-665.
+     * Bethe, H. (1930). Ann. Phys. 397, 325-400.
      * @return FloatColumn
      */
-    public FloatColumn getInvMottBetheCoefs() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_coefs"));
+    public FloatColumn getInvMottBetheAs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_as"));
     }
 
     /**
-     * Standard uncertainty of _atom_type_scat.inv_Mott_Bethe_coefs.
+     * Standard uncertainty of _atom_type_scat.inv_Mott_Bethe_as.
      * @return FloatColumn
      */
-    public FloatColumn getInvMottBetheCoefsSu() {
-        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_coefs_su"));
+    public FloatColumn getInvMottBetheAsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_as_su"));
+    }
+
+    /**
+     * The set of Gaussian exponent coefficients for use in the inverse Mott-Bethe
+     * relationship for generating X-ray scattering factors:
+     * [ b_1, b_2, ... , b_N ].
+     * 
+     * f(s; Z~0~) =
+     * Z~0~ - 8π^2^ * r~B~ * s^2^ * {c + Sum[ a~i~ * exp(-b~i~ * s^2^), i=1:N]}
+     * 
+     * where s = sin(θ)/λ, r~B~ is the Bohr radius, and Z~0~ is the number of
+     * electrons for the atom or ion. θ is the diffraction angle and λ is the
+     * wavelength of the incident radiation in angstroms.
+     * 
+     * See also: _atom_type_scat.inv_mott_bethe_as
+     * _atom_type_scat.inv_mott_bethe_c
+     * 
+     * Ref: Thorkildsen, G. (2023). Acta Cryst. A79, 318-330.
+     * Thorkildsen, G. (2024). Acta Cryst. A80, 129-136.
+     * Mott, N. F. &amp; Bragg, W. L. (1930). Proc. R. Soc. Lond. Ser. A,
+     * 127, 658-665.
+     * Bethe, H. (1930). Ann. Phys. 397, 325-400.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheBs() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_bs"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.inv_Mott_Bethe_bs.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheBsSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_bs_su"));
+    }
+
+    /**
+     * The set of Gaussian constant coefficient for use in the inverse Mott-Bethe
+     * relationship for generating X-ray scattering factors:
+     * c.
+     * 
+     * f(s; Z~0~) =
+     * Z~0~ - 8π^2^ * r~B~ * s^2^ * {c + Sum[ a~i~ * exp(-b~i~ * s^2^), i=1:N]}
+     * 
+     * where s = sin(θ)/λ, r~B~ is the Bohr radius, and Z~0~ is the number of
+     * electrons for the atom or ion. θ is the diffraction angle and λ is the
+     * wavelength of the incident radiation in angstroms.
+     * 
+     * See also: _atom_type_scat.inv_mott_bethe_as
+     * _atom_type_scat.inv_mott_bethe_bs
+     * 
+     * Ref: Thorkildsen, G. (2023). Acta Cryst. A79, 318-330.
+     * Thorkildsen, G. (2024). Acta Cryst. A80, 129-136.
+     * Mott, N. F. &amp; Bragg, W. L. (1930). Proc. R. Soc. Lond. Ser. A,
+     * 127, 658-665.
+     * Bethe, H. (1930). Ann. Phys. 397, 325-400.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheC() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_c"));
+    }
+
+    /**
+     * Standard uncertainty of _atom_type_scat.inv_Mott_Bethe_c.
+     * @return FloatColumn
+     */
+    public FloatColumn getInvMottBetheCSu() {
+        return new DelegatingFloatColumn(parentBlock.getColumn("atom_type_scat_inv_mott_bethe_c_su"));
     }
 
     /**
      * The inclusive lower limit of s for which the corresponding Gaussian
      * coefficients are valid.
      * 
-     * See _atom_type_scat.inv_Mott_Bethe_coefs.
+     * See also: _atom_type_scat.inv_mott_bethe_as
+     * _atom_type_scat.inv_mott_bethe_bs
+     * _atom_type_scat.inv_mott_bethe_c
      * @return FloatColumn
      */
     public FloatColumn getInvMottBetheLowerLimit() {
@@ -285,7 +438,9 @@ public class AtomTypeScat extends DelegatingCategory.DelegatingCifCoreCategory {
      * The exclusive upper limit of s for which the corresponding Gaussian
      * coefficients are valid.
      * 
-     * See _atom_type_scat.inv_Mott_Bethe_coefs.
+     * See also: _atom_type_scat.inv_mott_bethe_as
+     * _atom_type_scat.inv_mott_bethe_bs
+     * _atom_type_scat.inv_mott_bethe_c
      * @return FloatColumn
      */
     public FloatColumn getInvMottBetheUpperLimit() {

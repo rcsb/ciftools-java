@@ -6,7 +6,15 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which describe the 2D chemical structure of
+ * the molecular species. They allow a 2D chemical diagram to be
+ * reconstructed for use in a publication or in a database search
+ * for structural and substructural relationships. In particular,
+ * the CHEMICAL_CONN_ATOM data items provide information about the
+ * chemical properties of the atoms in the structure. In cases
+ * where crystallographic and molecular symmetry elements coincide
+ * they must also contain symmetry-generated atoms, so as to describe
+ * a complete chemical entity.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -54,9 +62,9 @@ public class ChemicalConnAtom extends DelegatingCategory.DelegatingCifCoreCatego
     /**
      * Total number of hydrogen atoms attached to this atom,
      * regardless of whether they are included in the refinement or
-     * the atom_site list. This number will be the same as
+     * the ATOM_SITE list. This number will be the same as
      * _atom_site.attached_hydrogens only if none of the hydrogen
-     * atoms appear in the atom_site list.
+     * atoms appear in the ATOM_SITE list.
      * @return IntColumn
      */
     public IntColumn getNh() {

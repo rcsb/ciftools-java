@@ -28,6 +28,8 @@ public class PdbxExptlCrystalCryoTreatment extends DelegatingCategory {
                 return getCoolingDetails();
             case "annealing_details":
                 return getAnnealingDetails();
+            case "cryogen":
+                return getCryogen();
             default:
                 return new DelegatingColumn(column);
         }
@@ -72,6 +74,14 @@ public class PdbxExptlCrystalCryoTreatment extends DelegatingCategory {
      */
     public StrColumn getAnnealingDetails() {
         return delegate.getColumn("annealing_details", DelegatingStrColumn::new);
+    }
+
+    /**
+     * The name of cryogen used for vitrification
+     * @return StrColumn
+     */
+    public StrColumn getCryogen() {
+        return delegate.getColumn("cryogen", DelegatingStrColumn::new);
     }
 
 }

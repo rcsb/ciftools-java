@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify the hydrogen bond
+ * distances in the structural model as derived from atomic sites.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomHbond extends DelegatingCategory.DelegatingCifCoreCategory {

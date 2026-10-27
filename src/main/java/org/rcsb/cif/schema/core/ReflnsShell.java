@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the information about
+ * reflections divided into shells bounded by d resolution limits.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -27,8 +28,7 @@ public class ReflnsShell extends DelegatingCategory.DelegatingCifCoreCategory {
 
     /**
      * Resolution for the reflections in this shell stored as
-     * the list of lowest and highest values. This is the
-     * category key.
+     * the list of lowest and highest values.
      * @return FloatColumn
      */
     public FloatColumn getDResLimits() {

@@ -6,7 +6,9 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which describe the composition and
+ * chemical properties of the compound under study. The formula data
+ * items must be consistent with the density, unit-cell and Z values.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -134,8 +136,8 @@ public class Chemical extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Version number of the InChI standard to which the associated
-     * chemical identifier string applies.
+     * InChI software release version used to generate the
+     * _chemical.identifier_InChI value.
      * @return StrColumn
      */
     public StrColumn getIdentifierInchiVersion() {

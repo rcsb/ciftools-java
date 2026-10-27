@@ -70,6 +70,8 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
                 return getHasAcceptedAssemblies();
             case "assembly_inferred":
                 return getAssemblyInferred();
+            case "metal_experiment_evidence":
+                return getMetalExperimentEvidence();
             default:
                 return new DelegatingColumn(column);
         }
@@ -281,6 +283,15 @@ public class PdbxDepuiStatusFlags extends DelegatingCategory {
      */
     public StrColumn getAssemblyInferred() {
         return delegate.getColumn("assembly_inferred", DelegatingStrColumn::new);
+    }
+
+    /**
+     * This data item will be set to Y if the author provides experimental support for metal features in the DepUI. This
+     * data item will be set to N if the author does not provide experimental support for metal features in the DepUI.
+     * @return StrColumn
+     */
+    public StrColumn getMetalExperimentEvidence() {
+        return delegate.getColumn("metal_experiment_evidence", DelegatingStrColumn::new);
     }
 
 }

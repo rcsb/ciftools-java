@@ -1168,6 +1168,24 @@ public class MmCifBlock extends DelegatingBlock {
                 return getPdbxChemCompPcm();
             case "pdbx_modification_feature":
                 return getPdbxModificationFeature();
+            case "pdbx_nonpoly_feature":
+                return getPdbxNonpolyFeature();
+            case "pdbx_nonpoly_atom_feature":
+                return getPdbxNonpolyAtomFeature();
+            case "pdbx_nonpoly_atom_feature_evidence":
+                return getPdbxNonpolyAtomFeatureEvidence();
+            case "pdbx_nonpoly_feature_evidence":
+                return getPdbxNonpolyFeatureEvidence();
+            case "pdbx_chem_comp_atom_coordination":
+                return getPdbxChemCompAtomCoordination();
+            case "pdbx_chem_comp_atom_coordination_sphere":
+                return getPdbxChemCompAtomCoordinationSphere();
+            case "pdbx_nonpoly_atom_coordination":
+                return getPdbxNonpolyAtomCoordination();
+            case "pdbx_nonpoly_atom_coordination_sphere":
+                return getPdbxNonpolyAtomCoordinationSphere();
+            case "pdbx_nonpoly_atom_coordination_sphere_order":
+                return getPdbxNonpolyAtomCoordinationSphereOrder();
             case "pdbx_diffrn_batch":
                 return getPdbxDiffrnBatch();
             case "pdbx_diffrn_cell":
@@ -1206,6 +1224,12 @@ public class MmCifBlock extends DelegatingBlock {
                 return getDiffrnDetectorAxis();
             case "diffrn_detector_element":
                 return getDiffrnDetectorElement();
+            case "pdbx_exptl_subtype":
+                return getPdbxExptlSubtype();
+            case "pdbx_exptl_crystal_process":
+                return getPdbxExptlCrystalProcess();
+            case "pdbx_diffrn_ed":
+                return getPdbxDiffrnEd();
             case "ihm_entity_poly_segment":
                 return getIhmEntityPolySegment();
             case "ihm_starting_model_details":
@@ -7445,6 +7469,90 @@ public class MmCifBlock extends DelegatingBlock {
     }
 
     /**
+     * Data items in the PDBX_NONPOLY_FEATURE category provide
+     * a selected list of atom level features for the chemical component.
+     * @return PdbxNonpolyFeature
+     */
+    public PdbxNonpolyFeature getPdbxNonpolyFeature() {
+        return delegate.getCategory("pdbx_nonpoly_feature", PdbxNonpolyFeature::new);
+    }
+
+    /**
+     * Data items in the PDBX_NONPOLY_ATOM_FEATURE category provide
+     * a selected list of atom level features for the chemical component.
+     * @return PdbxNonpolyAtomFeature
+     */
+    public PdbxNonpolyAtomFeature getPdbxNonpolyAtomFeature() {
+        return delegate.getCategory("pdbx_nonpoly_atom_feature", PdbxNonpolyAtomFeature::new);
+    }
+
+    /**
+     * Data items in the PDBX_NONPOLY_ATOM_FEATURE_EVIDENCE category provide
+     * a selected list of atom level features for the chemical component.
+     * @return PdbxNonpolyAtomFeatureEvidence
+     */
+    public PdbxNonpolyAtomFeatureEvidence getPdbxNonpolyAtomFeatureEvidence() {
+        return delegate.getCategory("pdbx_nonpoly_atom_feature_evidence", PdbxNonpolyAtomFeatureEvidence::new);
+    }
+
+    /**
+     * Data items in the PDBX_NONPOLY_FEATURE_EVIDENCE category provide
+     * a selected list of asym level features for the chemical component.
+     * @return PdbxNonpolyFeatureEvidence
+     */
+    public PdbxNonpolyFeatureEvidence getPdbxNonpolyFeatureEvidence() {
+        return delegate.getCategory("pdbx_nonpoly_feature_evidence", PdbxNonpolyFeatureEvidence::new);
+    }
+
+    /**
+     * Data items in the PDBX_CHEM_COMP_ATOM_COORDINATION category provide
+     * coordination information on selected atoms
+     * @return PdbxChemCompAtomCoordination
+     */
+    public PdbxChemCompAtomCoordination getPdbxChemCompAtomCoordination() {
+        return delegate.getCategory("pdbx_chem_comp_atom_coordination", PdbxChemCompAtomCoordination::new);
+    }
+
+    /**
+     * Data items in the PDBX_CHEM_COMP_ATOM_COORDINATION_SPHERE category provide
+     * geometric coordination information on selected atoms
+     * @return PdbxChemCompAtomCoordinationSphere
+     */
+    public PdbxChemCompAtomCoordinationSphere getPdbxChemCompAtomCoordinationSphere() {
+        return delegate.getCategory("pdbx_chem_comp_atom_coordination_sphere", PdbxChemCompAtomCoordinationSphere::new);
+    }
+
+    /**
+     * Data items in the PDBX_NONPOLY_ATOM_COORDINATION category provide
+     * coordination information on selected atoms
+     * @return PdbxNonpolyAtomCoordination
+     */
+    public PdbxNonpolyAtomCoordination getPdbxNonpolyAtomCoordination() {
+        return delegate.getCategory("pdbx_nonpoly_atom_coordination", PdbxNonpolyAtomCoordination::new);
+    }
+
+    /**
+     * Data items in the PDBX_NONPOLY_ATOM_COORDINATION_SPHERE category provide
+     * geometric coordination information on selected atoms
+     * @return PdbxNonpolyAtomCoordinationSphere
+     */
+    public PdbxNonpolyAtomCoordinationSphere getPdbxNonpolyAtomCoordinationSphere() {
+        return delegate.getCategory("pdbx_nonpoly_atom_coordination_sphere", PdbxNonpolyAtomCoordinationSphere::new);
+    }
+
+    /**
+     * This category describes the order of the atoms in the
+     * coordination sphere category:
+     * pdbx_nonpoly_atom_coordination_sphere. The order of the
+     * atoms is the encoding of the 3D arrangement of atoms
+     * for a particular coordination geometry.
+     * @return PdbxNonpolyAtomCoordinationSphereOrder
+     */
+    public PdbxNonpolyAtomCoordinationSphereOrder getPdbxNonpolyAtomCoordinationSphereOrder() {
+        return delegate.getCategory("pdbx_nonpoly_atom_coordination_sphere_order", PdbxNonpolyAtomCoordinationSphereOrder::new);
+    }
+
+    /**
      * Data items in the PDBX_DIFFRN_BATCH category provide a
      * mechanism to describe common characteristics of a group of
      * reflections within the DIFFRN_REFLN category.
@@ -7704,6 +7812,35 @@ public class MmCifBlock extends DelegatingBlock {
      */
     public DiffrnDetectorElement getDiffrnDetectorElement() {
         return delegate.getCategory("diffrn_detector_element", DiffrnDetectorElement::new);
+    }
+
+    /**
+     * Data items in the PDBX_EXPTL_SUBTYPE category record
+     * details about the method subtype under the primary
+     * method recorded in _exptl.method
+     * @return PdbxExptlSubtype
+     */
+    public PdbxExptlSubtype getPdbxExptlSubtype() {
+        return delegate.getCategory("pdbx_exptl_subtype", PdbxExptlSubtype::new);
+    }
+
+    /**
+     * Data items in the pdbx_exptl_crystal_process category
+     * record details of the post-crystallization process to
+     * prepare specific crystal samples such as microcrystals
+     * for subsequent diffraction experiments.
+     * @return PdbxExptlCrystalProcess
+     */
+    public PdbxExptlCrystalProcess getPdbxExptlCrystalProcess() {
+        return delegate.getCategory("pdbx_exptl_crystal_process", PdbxExptlCrystalProcess::new);
+    }
+
+    /**
+     * Data items in the PDBX_DIFFRN_ED record details specific to electron diffraction method.
+     * @return PdbxDiffrnEd
+     */
+    public PdbxDiffrnEd getPdbxDiffrnEd() {
+        return delegate.getCategory("pdbx_diffrn_ed", PdbxDiffrnEd::new);
     }
 
     /**

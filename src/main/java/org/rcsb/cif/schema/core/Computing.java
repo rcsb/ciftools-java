@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to record details of the
+ * computer programs used in the crystal structure analysis.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Computing extends DelegatingCategory.DelegatingCifCoreCategory {

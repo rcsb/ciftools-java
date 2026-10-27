@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of items for tabulating standard literature references
+ * from which the bond-valence parameters have been taken.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ValenceRef extends DelegatingCategory.DelegatingCifCoreCategory {

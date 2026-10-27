@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to describe atomic type information
+ * used in crystallographic structure studies.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -70,7 +71,7 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
     }
 
     /**
-     * Element symbol for of this atom type. The default value is extracted
+     * Element symbol of this atom type. The default value is extracted
      * from the ion-to-element enumeration_default list using the index
      * value of _atom_type.symbol.
      * @return StrColumn
@@ -126,8 +127,10 @@ public class AtomType extends DelegatingCategory.DelegatingCifCoreCategory {
      * The identity of the atom specie(s) representing this atom type.
      * Normally this code is the element symbol followed by the charge
      * if there is one. The symbol may be composed of any character except
-     * an underline or a blank, with the proviso that digits designate an
-     * oxidation state and must be followed by a + or - character.
+     * an underline or a blank, with the proviso that digits designate a
+     * charge and must be followed by a + or - character.
+     * 
+     * Use _atom_type.oxidation_number to indicate the oxidation state.
      * @return StrColumn
      */
     public StrColumn getSymbol() {

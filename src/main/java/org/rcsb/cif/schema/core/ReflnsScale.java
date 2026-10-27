@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the scales needed to place
+ * measured structure-factor coefficients on the same absolute scale.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ReflnsScale extends DelegatingCategory.DelegatingCifCoreCategory {

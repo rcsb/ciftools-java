@@ -6,7 +6,10 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the wavelength of the
+ * radiation used in measuring diffraction intensities. Items may be
+ * looped to identify and assign weights to distinct wavelength
+ * components from a polychromatic beam.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class DiffrnRadiationWavelength extends DelegatingCategory.DelegatingCifCoreCategory {

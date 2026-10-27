@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to specify the interatomic
+ * contact distances in the structural model.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class GeomContact extends DelegatingCategory.DelegatingCifCoreCategory {

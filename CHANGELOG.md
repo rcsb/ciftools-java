@@ -3,8 +3,16 @@ CIFTools Changelog
 
 This project uses semantic versioning. Furthermore, this project provides code that was generated from schemata. Any schema change that introduces a breaking change in the generated code is considered as breaking for the whole project. Additional information is provided below when this occurs (named `Breaking schema changes`). Most of these occur in experimental categories and are unlikely to affect your code. `Breaking API changes` will be avoided starting with version 1.0.0.
 
-ciftools-java 8.0.2 - October 2026
+ciftools-java 9.0.0 - October 2026
 -------------
+### Breaking schema changes
+* cif-core:
+  * `atom_type_scat_cromer_mann_coeffs`, `atom_type_scat_gaussian_coefs`, and `atom_type_scat_inv_mott_bethe_coefs`
+    (and their `_su`) replaced by per-parameter columns (`*_as`, `*_bs`, `*_c`)
+  * `atom_type_scat_hi_ang_fox_coeffs` renamed to `atom_type_scat_hi_ang_fox_coefs`
+  * `cell_diffrn_id`, `cell_measurement_condition_id`, `cell_measurement_diffrn_id`, `diffrn_crystal_id`, `diffrn_id`,
+    and `exptl_crystal_id` removed (multi-block identifiers, no longer part of cif-core)
+
 ### Bug fixes
 * BinaryCIF: MessagePack strings are written and read as UTF-8 (were US-ASCII: non-ASCII characters became `?` or
   U+FFFD, and a character outside the BMP made a written file unreadable)
@@ -56,6 +64,16 @@ ciftools-java 8.0.2 - October 2026
 
 ### New features
 * `DelegatingColumn#getDelegate()`
+
+### General
+* schema updates
+  * mmCIF: new `pdbx_*` categories (e.g. coordination spheres and features of non-polymers, `pdbx_diffrn_ed`) and items
+  * cif-core: new `diffrn_component_pid` category and items (e.g. `cell_formula_units_z_prime`,
+    `audit_contact_author_id_orcid`, `space_group_reference_setting`)
+* cif-core: category descriptions are back, and so are the `Atom`, `Diffraction`, `DiffrnOrient`, `Display`, `Model`,
+  `Publication`, `Structure`, and `Valence` categories plus `CifCoreHead` (formerly `CifCore`); 7.0.0 dropped them due
+  to a schema generator bug
+* schema generator: load cif-core templates from their new COMCIFS repositories
 
 ciftools-java 8.0.1 - January 2026
 -------------

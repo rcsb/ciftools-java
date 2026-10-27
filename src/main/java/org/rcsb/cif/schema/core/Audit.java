@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items used to record details about the
+ * creation and subsequent updating of the data block.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class Audit extends DelegatingCategory.DelegatingCifCoreCategory {

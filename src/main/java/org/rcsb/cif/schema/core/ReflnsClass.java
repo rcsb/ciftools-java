@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items which specify the properties of reflections
+ * in specific classes of reflections.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class ReflnsClass extends DelegatingCategory.DelegatingCifCoreCategory {

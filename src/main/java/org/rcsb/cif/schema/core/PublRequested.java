@@ -6,7 +6,8 @@ import org.rcsb.cif.schema.*;
 import javax.annotation.Generated;
 
 /**
- * 
+ * The category of data items that enable the author to make
+ * specific requests to the journal office for processing.
  */
 @Generated("org.rcsb.cif.schema.generator.SchemaGenerator")
 public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory {
@@ -18,9 +19,9 @@ public class PublRequested extends DelegatingCategory.DelegatingCifCoreCategory 
 
     /**
      * The category of paper submitted. For submission to Acta
-     * Crystallographica Section C or Acta Crystallographica
-     * Section E, ONLY those codes indicated for use with those
-     * journals should be used.
+     * Crystallographica Sections C and E or to IUCrData,
+     * ONLY those codes indicated for current use with those
+     * journals should be used for new submissions.
      * @return StrColumn
      */
     public StrColumn getCategory() {
