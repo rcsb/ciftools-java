@@ -2,13 +2,10 @@ package org.rcsb.cif.binary.codec;
 
 import org.rcsb.cif.ParsingException;
 
-import java.io.ByteArrayOutputStream;
 import java.io.DataInputStream;
-import java.io.DataOutputStream;
 import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UncheckedIOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -28,24 +25,19 @@ public class MessagePackCodec {
     }
 
     public static byte[] encode(Map<String, Object> input) {
-        try {
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-            encodeInternal(input, dataOutputStream);
-            dataOutputStream.flush();
-            dataOutputStream.close();
-
-            return byteArrayOutputStream.toByteArray();
-        } catch (IOException e) {
-            throw new UncheckedIOException(e);
-        }
+        ChunkedOutputStream stream = new ChunkedOutputStream();
+        encodeInternal(input, stream);
+        return stream.toByteArray();
     }
 
-    private static void encodeInternal(Object input, DataOutputStream stream) throws IOException {
+    private static void encodeInternal(Object input, ChunkedOutputStream stream) {
         // string bytes
         if (input instanceof String) {
-            byte[] value = ((String) input).getBytes(StandardCharsets.UTF_8);
-            int length = value.length;
+            String string = (String) input;
+            // ASCII (all keys and most values) is its own UTF-8 encoding: copied without an intermediate array
+            boolean ascii = isAscii(string);
+            byte[] value = ascii ? null : string.getBytes(StandardCharsets.UTF_8);
+            int length = ascii ? string.length() : value.length;
             // fix str
             if (length < 0x20) {
                 stream.writeByte(length | 0xA0);
@@ -62,7 +54,11 @@ public class MessagePackCodec {
                 stream.writeByte(0xDB);
                 stream.writeInt(length);
             }
-            stream.write(value);
+            if (ascii) {
+                stream.writeAscii(string);
+            } else {
+                stream.write(value);
+            }
             return;
         }
 
@@ -186,6 +182,15 @@ public class MessagePackCodec {
                 encodeInternal(entry.getValue(), stream);
             }
         }
+    }
+
+    private static boolean isAscii(String string) {
+        for (int i = 0; i < string.length(); i++) {
+            if (string.charAt(i) >= 0x80) {
+                return false;
+            }
+        }
+        return true;
     }
 
     @SuppressWarnings("unchecked")
@@ -370,5 +375,121 @@ public class MessagePackCodec {
             value.add(decodeInternal(inputStream));
         }
         return value.toArray();
+    }
+
+    /**
+     * Collects output as chunks: small writes go to a buffer, large arrays are kept by reference until the end. Every
+     * byte is copied once, into the result, instead of each time a growing array is resized. Buffers start small (many
+     * outputs are a few bytes) and double up to {@value #MAX_BUFFER_SIZE} bytes.
+     */
+    private static final class ChunkedOutputStream extends java.io.OutputStream {
+        private static final int MIN_BUFFER_SIZE = 256;
+        private static final int MAX_BUFFER_SIZE = 64 * 1024;
+        private final List<byte[]> chunks = new ArrayList<>();
+        private final List<Integer> lengths = new ArrayList<>();
+        private byte[] buffer = new byte[0];
+        private int nextBufferSize = MIN_BUFFER_SIZE;
+        private int count;
+        private long size;
+
+        @Override
+        public void write(int b) {
+            ensureRoom(1);
+            buffer[count++] = (byte) b;
+            size++;
+        }
+
+        @Override
+        public void write(byte[] b, int off, int len) {
+            if (len >= MAX_BUFFER_SIZE / 4) {
+                // keep large arrays by reference (MessagePackCodec only passes whole arrays it does not modify)
+                flushBuffer();
+                chunks.add(off == 0 && len == b.length ? b : Arrays.copyOfRange(b, off, off + len));
+                lengths.add(len);
+            } else {
+                ensureRoom(len);
+                System.arraycopy(b, off, buffer, count, len);
+                count += len;
+            }
+            size += len;
+        }
+
+        void writeByte(int v) {
+            write(v);
+        }
+
+        void writeShort(int v) {
+            ensureRoom(2);
+            buffer[count++] = (byte) (v >>> 8);
+            buffer[count++] = (byte) v;
+            size += 2;
+        }
+
+        void writeInt(int v) {
+            ensureRoom(4);
+            buffer[count++] = (byte) (v >>> 24);
+            buffer[count++] = (byte) (v >>> 16);
+            buffer[count++] = (byte) (v >>> 8);
+            buffer[count++] = (byte) v;
+            size += 4;
+        }
+
+        void writeDouble(double v) {
+            long bits = Double.doubleToLongBits(v);
+            writeInt((int) (bits >>> 32));
+            writeInt((int) bits);
+        }
+
+        @Override
+        public void write(byte[] b) {
+            write(b, 0, b.length);
+        }
+
+        /** The low byte of each char: the UTF-8 encoding of an ASCII string. */
+        void writeAscii(String string) {
+            int length = string.length();
+            int pos = 0;
+            while (pos < length) {
+                int n = Math.min(length - pos, MAX_BUFFER_SIZE);
+                ensureRoom(n);
+                for (int i = 0; i < n; i++) {
+                    buffer[count++] = (byte) string.charAt(pos++);
+                }
+                size += n;
+            }
+        }
+
+        private void ensureRoom(int len) {
+            if (buffer.length - count >= len) {
+                return;
+            }
+            flushBuffer();
+            buffer = new byte[Math.max(len, nextBufferSize)];
+            nextBufferSize = Math.min(MAX_BUFFER_SIZE, 2 * nextBufferSize);
+        }
+
+        private void flushBuffer() {
+            if (count > 0) {
+                chunks.add(buffer);
+                lengths.add(count);
+            }
+            buffer = new byte[0];
+            count = 0;
+        }
+
+        byte[] toByteArray() {
+            if (size > Integer.MAX_VALUE - 8) {
+                throw new IllegalStateException("MessagePack output too large: " + size + " bytes");
+            }
+            flushBuffer();
+            byte[] out = new byte[(int) size];
+            int pos = 0;
+            for (int i = 0; i < chunks.size(); i++) {
+                int len = lengths.get(i);
+                System.arraycopy(chunks.get(i), 0, out, pos, len);
+                pos += len;
+            }
+            return out;
+        }
     }
 }

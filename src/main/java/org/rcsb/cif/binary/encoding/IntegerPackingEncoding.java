@@ -12,7 +12,6 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.stream.IntStream;
 
 /**
  * <p>Stores a {@link Int32Array} using 8- or 16-bit values. Includes the size of the input array for easier decoding.
@@ -174,7 +173,13 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
     }
 
     private Packing determinePacking(int[] input) {
-        boolean signed = IntStream.of(input).anyMatch(i -> i < 0);
+        boolean signed = false;
+        for (int i : input) {
+            if (i < 0) {
+                signed = true;
+                break;
+            }
+        }
         long size8 = packingSize(input, signed ? 0x7F : 0xFF);
         long size16 = packingSize(input, signed ? 0x7FFF : 0xFFFF);
 
@@ -193,18 +198,11 @@ public class IntegerPackingEncoding implements Encoding<Int32Array, IntArray> {
         int lowerLimit = -upperLimit - 1;
         long size = 0;
         for (int value : input) {
-            if (value == 0) {
-                size += 1;
-            } else if (value > 0) {
-                size += Math.ceil(value / (double) upperLimit);
-                if (value % upperLimit == 0) {
-                    size += 1;
-                }
+            // ceil(value / limit), plus 1 when divisible: the number of limit-sized steps plus the remainder
+            if (value >= 0) {
+                size += value < upperLimit ? 1 : value / upperLimit + 1;
             } else {
-                size += Math.ceil(value / (double) lowerLimit);
-                if (value % lowerLimit == 0) {
-                    size += 1;
-                }
+                size += value > lowerLimit ? 1 : value / lowerLimit + 1;
             }
         }
 

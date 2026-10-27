@@ -5,6 +5,8 @@ import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.LinkedHashMap;
@@ -47,14 +49,31 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
         return map;
     }
 
+    /**
+     * The value times the factor, rounded half-even like text output rounds (e.g. "0.000"). Near a tie the product
+     * can be rounded across it (26.5325 * 1000 is 26532.5, while 26.5325 is stored as 26.53249999...), so the exact
+     * value decides there.
+     */
+    static int round(double value, int factor) {
+        double scaled = value * factor;
+        double fraction = scaled - Math.floor(scaled);
+        if (Math.abs(fraction - 0.5) > 1e-6) {
+            return (int) Math.round(scaled);
+        }
+        return new BigDecimal(value)
+                .multiply(BigDecimal.valueOf(factor))
+                .setScale(0, RoundingMode.HALF_EVEN)
+                .intValue();
+    }
+
     @Override
     public FloatArray decode(Int32Array data) {
-        double f = 1.0 / factor;
-
+        // divide, not multiply by 1 / factor: the quotient of two exact numbers is the double nearest to the decimal
+        // value (as parsed from text), while the product with the rounded reciprocal is one ulp off for many values
         int[] intData = data.getData();
         double[] outputArray = new double[intData.length];
         for (int i = 0; i < intData.length; i++) {
-            outputArray[i] = intData[i] * f;
+            outputArray[i] = intData[i] / (double) factor;
         }
 
         return srcType == 32 ? new Float32Array(outputArray, data.getEncoding()) :
@@ -68,7 +87,7 @@ public class FixedPointEncoding implements Encoding<FloatArray, Int32Array> {
         double[] floatData = data.getData();
         int[] outputArray = new int[floatData.length];
         for (int i = 0; i < floatData.length; i++) {
-            outputArray[i] = (int) Math.round(floatData[i] * factor);
+            outputArray[i] = round(floatData[i], factor);
         }
 
         Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());

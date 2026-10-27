@@ -1,6 +1,5 @@
 package org.rcsb.cif.binary.encoding;
 
-import org.rcsb.cif.binary.codec.BinaryCifCodec;
 import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float32Array;
 import org.rcsb.cif.binary.data.Float64Array;
@@ -103,7 +102,8 @@ public abstract class ByteArrayEncoding<T extends NumberArray<?>> implements Enc
     @Override
     public ByteArray encode(T data) {
         this.type = data.getType();
-        byte[] bytes = ensureOrder(data.toByteArray(), data.getNumberOfBytes());
+        // little-endian on any platform, as BinaryCIF stores numbers
+        byte[] bytes = data.toByteArray();
 
         Deque<Encoding<?, ?>> enc = new ArrayDeque<>(data.getEncoding());
         enc.add(this);
@@ -114,23 +114,6 @@ public abstract class ByteArrayEncoding<T extends NumberArray<?>> implements Enc
     @Override
     public Map<String, Object> getMapRepresentation() {
         return map;
-    }
-
-    private static byte[] flipByteOrder(byte[] data, int bytes) {
-        byte[] buffer = new byte[data.length];
-        for (int i = 0, n = data.length; i < n; i += bytes) {
-            for (int j = 0; j < bytes; j++) {
-                buffer[i + bytes - j - 1] = data[i + j];
-            }
-        }
-        return buffer;
-    }
-
-    private static byte[] ensureOrder(byte[] bytes, int numberOfBytes) {
-        if (!BinaryCifCodec.IS_NATIVE_LITTLE_ENDIAN) {
-            bytes = flipByteOrder(bytes, numberOfBytes);
-        }
-        return bytes;
     }
 
     @Override

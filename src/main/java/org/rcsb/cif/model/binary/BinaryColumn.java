@@ -4,6 +4,7 @@ import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ValueKind;
 
 public abstract class BinaryColumn<T> implements Column<T> {
+    private static final ValueKind[] VALUE_KINDS = ValueKind.values();
     private final String name;
     private final int rowCount;
     private final boolean hasMask;
@@ -31,7 +32,7 @@ public abstract class BinaryColumn<T> implements Column<T> {
         if (!hasMask) {
             return ValueKind.PRESENT;
         }
-        return ValueKind.values()[mask[row]];
+        return VALUE_KINDS[mask[row]];
     }
 
     public int[] getMask() {

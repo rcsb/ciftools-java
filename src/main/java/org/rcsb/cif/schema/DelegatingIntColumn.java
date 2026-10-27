@@ -11,7 +11,10 @@ public class DelegatingIntColumn extends DelegatingColumn<int[]> implements IntC
 
     @Override
     public int get(int row) {
-        if (delegate instanceof BinaryColumn) {
+        if (delegate instanceof IntColumn) {
+            // typed data of the same type: no round trip through its string representation
+            return ((IntColumn) delegate).get(row);
+        } else if (delegate instanceof BinaryColumn) {
             return getArray()[row];
         } else {
             return IntColumn.parseInt(delegate.getStringData(row));

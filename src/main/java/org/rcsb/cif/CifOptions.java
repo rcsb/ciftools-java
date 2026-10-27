@@ -103,6 +103,9 @@ public class CifOptions {
      * @see CifOptions.CifOptionsBuilder#columnBlacklist(String...)
      */
     public boolean filterColumn(String categoryName, String columnName) {
+        if (columnBlacklist.isEmpty() && columnWhitelist.isEmpty()) {
+            return true;
+        }
         String fullColumnName = categoryName + "." + columnName;
         if (columnBlacklist.contains(fullColumnName)) {
             return false;
@@ -117,6 +120,9 @@ public class CifOptions {
      * @return an optional wrapping an {@link EncodingStrategyHint}
      */
     public Optional<EncodingStrategyHint> getEncodingStrategyHint(String categoryName, String columnName) {
+        if (encodingStrategyHints.isEmpty()) {
+            return Optional.empty();
+        }
         return encodingStrategyHints.stream()
                 .filter(encodingStrategyHint -> encodingStrategyHint.getCategoryName().equals(categoryName) &&
                         encodingStrategyHint.getColumnName().equals(columnName))

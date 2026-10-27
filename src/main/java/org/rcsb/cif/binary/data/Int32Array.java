@@ -58,10 +58,7 @@ public class Int32Array extends AbstractEncodedData<int[]> implements SignedIntA
 
     static byte[] int32ToByteArray(int[] data) {
         ByteBuffer buffer = ByteBuffer.allocate(data.length * NUMBER_OF_BYTES);
-        buffer.order(ByteOrder.LITTLE_ENDIAN);
-        for (int i : data) {
-            buffer.putInt(i);
-        }
+        buffer.order(ByteOrder.LITTLE_ENDIAN).asIntBuffer().put(data);
         return buffer.array();
     }
 

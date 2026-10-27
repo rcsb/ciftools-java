@@ -19,6 +19,43 @@ ciftools-java 8.0.2 - October 2026
   `ParsingException` (ragged loops used to get accepted with columns of different lengths)
 * BinaryCIF: MessagePack lengths are bounded by the input (a few bytes could request a 2 GiB allocation); truncated
   data is a `ParsingException`
+* BinaryCIF: fixed-point values are decoded by division, so they read as the double nearest to their decimal value,
+  as from text (multiplying by the reciprocal was 1 ulp off for 13-50% of values, e.g. `0.9785300000000001`)
+* BinaryCIF writer: float values printed in E-notation (below 1e-3 or from 1e7), and text numbers in E-notation, are
+  written as float columns (they turned the whole column into strings)
+* BinaryCIF writer: fixed point rounds half-even on the exact value, as text output does (`26.5325` -> `26.532`, was
+  `26.533`)
+* BinaryCIF writer: an encoding hint with a precision but no encoding applies that precision (the encoding was chosen
+  from the unrounded values, which usually meant plain doubles); writing no longer modifies hints (their state leaked
+  between columns and files)
+* BinaryCIF writer: fixed point that would overflow an int falls back to plain doubles
+* BinaryCIF writer: numbers are written little-endian on big-endian platforms too (their bytes were reversed there,
+  so the files did not read back)
+* BinaryCIF writer: the size estimates that choose an encoding no longer overflow for columns of millions of values
+
+### Behavior changes
+* BinaryCIF writer: fixed point is used for up to 6 decimal places (was 3); float columns of up to 64 values are
+  written as plain doubles where that is smaller than fixed point with its encoding parameters
+* builders: built int, float and string columns hold typed arrays (were text columns, parsed on access) and read the
+  same; `getValues()` of int and float column builders and `getMask()` of all column builders are read-only views
+
+### Performance
+* BinaryCIF writing is more than 2x faster with about a fifth of the allocation:
+  * column types are decided from typed values instead of their text
+  * integer encodings (Delta, RunLength, IntegerPacking) are written in one pass straight to bytes instead of an array
+    per step; the classifier sizes all encodings in one pass, in integer arithmetic
+  * string columns take one map lookup per value, none for a repeated value
+  * value kinds are not copied per call, and a mask is only allocated for columns with missing values
+  * ASCII strings are written without an intermediate array, and output is assembled from chunks instead of a growing
+    array
+* files created by builders are written about 2x faster (no round trip through text); `add(int...)`/`add(double...)`
+  copy in bulk, `addMasked` and `addNullable` no longer go through a one-element array per value
+* typed schema columns (`DelegatingIntColumn`, `DelegatingFloatColumn`) read a typed delegate directly (any
+  `IntColumn`/`FloatColumn`, e.g. a view) instead of formatting and parsing each value
+* `CifOptions`: no per-column work for column filters or encoding hints when none are set
+
+### New features
+* `DelegatingColumn#getDelegate()`
 
 ciftools-java 8.0.1 - January 2026
 -------------

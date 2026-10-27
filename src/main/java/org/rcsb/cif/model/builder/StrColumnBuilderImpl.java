@@ -6,11 +6,11 @@ import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.StrColumnBuilder;
 import org.rcsb.cif.model.ValueKind;
+import org.rcsb.cif.model.binary.BinaryStrColumn;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
+import java.util.Objects;
 
 public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends BlockBuilder<PPP>, PPP extends CifFileBuilder>
         extends ColumnBuilderImpl<P, PP, PPP> implements StrColumnBuilder<P, PP, PPP> {
@@ -26,23 +26,32 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
         return values;
     }
 
+    private void append(String value, ValueKind kind) {
+        values.add(kind == ValueKind.PRESENT ? value : null);
+        appendKind(kind);
+    }
+
     @Override
     public StrColumnBuilder<P, PP, PPP> markNextNotPresent() {
-        values.add(null);
-        mask.add(ValueKind.NOT_PRESENT);
+        append(null, ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
     public StrColumnBuilder<P, PP, PPP> markNextUnknown() {
-        values.add(null);
-        mask.add(ValueKind.UNKNOWN);
+        append(null, ValueKind.UNKNOWN);
         return this;
     }
 
     @Override
     public StrColumn build() {
-        return createColumnText(getColumnName(), values, mask, StrColumn.class);
+        // rows without a value read as empty strings, like text columns
+        String[] data = new String[values.size()];
+        for (int i = 0; i < data.length; i++) {
+            String value = values.get(i);
+            data[i] = value != null ? value : "";
+        }
+        return new BinaryStrColumn(getColumnName(), data.length, data, maskOrdinals());
     }
 
     /**
@@ -67,24 +76,17 @@ public class StrColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends
     @Override
     public StrColumnBuilder<P, PP, PPP> add(String... values) {
         this.values.ensureCapacity(this.values.size() + values.length);
-        this.mask.ensureCapacity(this.mask.size() + values.length);
-
         for (String s : values) {
-            ValueKind kind = ValueKind.fromCifToken(s);
-            switch (kind) {
-                case NOT_PRESENT:
-                    markNextNotPresent();
-                    break;
-                case UNKNOWN:
-                    markNextUnknown();
-                    break;
-                case PRESENT:
-                    this.values.add(s);
-                    this.mask.add(ValueKind.PRESENT);
-                    break;
-                default:
-                    throw new IllegalStateException("Unhandled ValueKind: " + kind);
-            }
+            append(s, ValueKind.fromCifToken(s));
+        }
+        return this;
+    }
+
+    @Override
+    public StrColumnBuilder<P, PP, PPP> addNullable(Iterable<String> values) {
+        Objects.requireNonNull(values, "values");
+        for (String s : values) {
+            append(s, ValueKind.fromCifToken(s));
         }
         return this;
     }

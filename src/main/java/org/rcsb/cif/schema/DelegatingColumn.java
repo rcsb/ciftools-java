@@ -22,6 +22,14 @@ public class DelegatingColumn<T> implements Column<T> {
         this.type = type;
     }
 
+    /**
+     * The wrapped column.
+     * @return the column this one delegates to
+     */
+    public Column<?> getDelegate() {
+        return delegate;
+    }
+
     @Override
     public String getColumnName() {
         return delegate.getColumnName();

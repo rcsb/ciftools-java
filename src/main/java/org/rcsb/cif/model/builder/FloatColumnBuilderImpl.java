@@ -7,52 +7,103 @@ import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.FloatColumnBuilder;
 import org.rcsb.cif.model.ValueKind;
 
-import java.util.ArrayList;
+import java.util.AbstractList;
+import java.util.Arrays;
 import java.util.List;
-
-import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
+import java.util.Objects;
 
 public class FloatColumnBuilderImpl<P extends CategoryBuilder<PP, PPP>, PP extends BlockBuilder<PPP>, PPP extends CifFileBuilder>
         extends ColumnBuilderImpl<P, PP, PPP> implements FloatColumnBuilder<P, PP, PPP> {
-    private final ArrayList<Double> values;
+    // rows without a value hold 0
+    private double[] values;
 
     public FloatColumnBuilderImpl(String categoryName, String columnName, P parent) {
         super(categoryName, columnName, parent);
-        this.values = new ArrayList<>();
+        this.values = new double[16];
     }
 
+    /**
+     * A read-only view of the values added so far.
+     * @return the values, null for rows without a value
+     */
     @Override
     public List<Double> getValues() {
-        return values;
+        return new AbstractList<Double>() {
+            @Override
+            public Double get(int index) {
+                Objects.checkIndex(index, rowCount());
+                return valueKind(index) == ValueKind.PRESENT ? values[index] : null;
+            }
+
+            @Override
+            public int size() {
+                return rowCount();
+            }
+        };
+    }
+
+    private void ensureCapacity(int rows) {
+        if (rows > values.length) {
+            values = Arrays.copyOf(values, newCapacity(values.length, rows));
+        }
+    }
+
+    private void append(double value, ValueKind kind) {
+        ensureCapacity(rowCount() + 1);
+        values[rowCount()] = value;
+        appendKind(kind);
     }
 
     @Override
     public FloatColumnBuilder<P, PP, PPP> markNextNotPresent() {
-        values.add(null);
-        mask.add(ValueKind.NOT_PRESENT);
+        append(0, ValueKind.NOT_PRESENT);
         return this;
     }
 
     @Override
     public FloatColumnBuilder<P, PP, PPP> markNextUnknown() {
-        values.add(null);
-        mask.add(ValueKind.UNKNOWN);
+        append(0, ValueKind.UNKNOWN);
         return this;
     }
 
     @Override
     public FloatColumn build() {
-        return createColumnText(getColumnName(), values, mask, FloatColumn.class);
+        return new BuiltFloatColumn(getColumnName(), Arrays.copyOf(values, rowCount()), maskOrdinals());
     }
 
     @Override
     public FloatColumnBuilder<P, PP, PPP> add(double... values) {
-        this.values.ensureCapacity(this.values.size() + values.length);
-        this.mask.ensureCapacity(this.mask.size() + values.length);
+        ensureCapacity(rowCount() + values.length);
+        System.arraycopy(values, 0, this.values, rowCount(), values.length);
+        appendPresent(values.length);
+        return this;
+    }
 
-        for (double v : values) {
-            this.values.add(v);
-            this.mask.add(ValueKind.PRESENT);
+    @Override
+    public FloatColumnBuilder<P, PP, PPP> addMasked(double[] values, ValueKind[] mask) {
+        Objects.requireNonNull(values, "values");
+        Objects.requireNonNull(mask, "mask");
+        if (values.length != mask.length) {
+            throw new IllegalArgumentException("values.length (" + values.length + ") must equal mask.length (" + mask.length + ")");
+        }
+
+        ensureCapacity(rowCount() + values.length);
+        for (int i = 0; i < values.length; i++) {
+            ValueKind kind = Objects.requireNonNull(mask[i], "mask[" + i + "]");
+            append(kind == ValueKind.PRESENT ? values[i] : 0, kind);
+        }
+        return this;
+    }
+
+    @Override
+    public FloatColumnBuilder<P, PP, PPP> addNullable(Iterable<Double> values) {
+        Objects.requireNonNull(values, "values");
+        for (Double v : values) {
+            if (v == null) {
+                markNextNotPresent();
+            } else {
+                append(v, ValueKind.PRESENT);
+            }
         }
         return this;
     }

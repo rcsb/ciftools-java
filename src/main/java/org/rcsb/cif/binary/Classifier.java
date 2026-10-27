@@ -5,14 +5,8 @@ import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.FloatArray;
 import org.rcsb.cif.binary.data.Int32Array;
-import org.rcsb.cif.binary.encoding.DeltaEncoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
-import org.rcsb.cif.binary.encoding.IntegerPackingEncoding;
-import org.rcsb.cif.binary.encoding.RunLengthEncoding;
 
-import java.util.Comparator;
-import java.util.NoSuchElementException;
-import java.util.stream.Stream;
 
 /**
  * Classifies {@link Int32Array} and {@link Float64Array} instances, i.e. for the given information find the most
@@ -41,8 +35,13 @@ public class Classifier {
         return hint;
     }
 
+    /** ceil((value + 1) / (value >= 0 ? upperLimit : -upperLimit - 1)) in integer arithmetic; -1 counts as 0 */
     private static int packSize(int value, int upperLimit) {
-        return (int) Math.ceil((value + 1) / (double) (value >= 0 ? upperLimit : -upperLimit - 1));
+        if (value >= 0) {
+            return value < upperLimit ? 1 : (int) ((value + (long) upperLimit) / upperLimit);
+        }
+        long a = -(value + 1L);
+        return (int) ((a + upperLimit) / (upperLimit + 1L));
     }
 
     /**
@@ -52,34 +51,15 @@ public class Classifier {
      * @return encoded data
      */
     public static ByteArray encode(Int32Array column, String encoding) {
-        switch (encoding) {
-            case "byte":
-                return column.encode();
-            case "pack":
-                return column.encode(new IntegerPackingEncoding())
-                        .encode();
-            case "rle":
-                return column.encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode();
-            case "delta":
-                return column.encode(new DeltaEncoding<>())
-                        .encode(new IntegerPackingEncoding())
-                        .encode();
-            case "delta-rle":
-                return column.encode(new DeltaEncoding<>())
-                        .encode(new RunLengthEncoding())
-                        .encode(new IntegerPackingEncoding())
-                        .encode();
-            default:
-                throw new IllegalArgumentException("Determined encoding type is unknown. " + encoding);
-        }
+        // in one pass instead of an array per step: e.g. "delta-rle" is Delta, RunLength, IntegerPacking, ByteArray
+        return IntChainEncoder.encode(column.getData(), encoding, column.getEncoding());
     }
 
     static class SizeInfo {
-        int pack8;
-        int pack16;
-        int count;
+        // long: for millions of values the packed lengths exceed an int
+        long pack8;
+        long pack16;
+        long count;
     }
 
     private static void incSize(IntColumnInfo intColumnInfo, SizeInfo sizeInfo, int value) {
@@ -95,10 +75,10 @@ public class Classifier {
     }
 
     static class ByteSize {
-        final int length;
+        final long length;
         final int elem;
 
-        ByteSize(int length, int elem) {
+        ByteSize(long length, int elem) {
             this.length = length;
             this.elem = elem;
         }
@@ -129,65 +109,6 @@ public class Classifier {
                     "length=" + length +
                     '}';
         }
-    }
-
-    private static EncodingSize packingSize(int[] data, IntColumnInfo info) {
-        SizeInfo size = new SizeInfo();
-        for (int datum : data) {
-            incSize(info, size, datum);
-        }
-        return new EncodingSize(byteSize(size), "pack");
-    }
-
-    private static EncodingSize deltaSize(int[] data) {
-        SizeInfo size = new SizeInfo();
-        int prev = data[0];
-        for (int i = 1; i < data.length; i++) {
-            incSizeSigned(size, data[i] - prev);
-            prev = data[i];
-        }
-        return new EncodingSize(byteSize(size), "delta");
-    }
-
-    private static EncodingSize rleSize(int[] data, IntColumnInfo info) {
-        SizeInfo size = new SizeInfo();
-        int run = 1;
-        for (int i = 1; i < data.length; i++) {
-            if (data[i - 1] != data[i]) {
-                incSize(info, size, data[i - 1]);
-                incSize(info, size, run);
-                run = 1;
-            } else {
-                run++;
-            }
-        }
-        incSize(info, size, data[data.length - 1]);
-        incSize(info, size, run);
-
-        return new EncodingSize(byteSize(size), "rle");
-    }
-
-    private static EncodingSize deltaRleSize(int[] data) {
-        SizeInfo size = new SizeInfo();
-        int run = 1;
-        int prev = 0;
-        int prevValue = 0;
-        for (int i = 1; i < data.length; i++) {
-            int v = data[i] - prev;
-            if (prevValue != v) {
-                incSizeSigned(size, prevValue);
-                incSizeSigned(size, run);
-                run = 1;
-            } else {
-                run++;
-            }
-            prevValue = v;
-            prev = data[i];
-        }
-        incSizeSigned(size, prevValue);
-        incSizeSigned(size, run);
-
-        return new EncodingSize(byteSize(size), "delta-rle");
     }
 
     private static IntColumnInfo getInfo(int[] data) {
@@ -221,10 +142,63 @@ public class Classifier {
         return getSize(data, getInfo(data));
     }
 
-    private static EncodingSize getSize(int[] array, IntColumnInfo info) {
-        return Stream.of(packingSize(array, info), rleSize(array, info), deltaSize(array), deltaRleSize(array))
-                .min(Comparator.comparingInt(encoding -> encoding.length))
-                .orElseThrow(NoSuchElementException::new);
+    private static EncodingSize getSize(int[] data, IntColumnInfo info) {
+        // the sizes of all four encodings in one pass
+        SizeInfo pack = new SizeInfo();
+        SizeInfo rle = new SizeInfo();
+        SizeInfo delta = new SizeInfo();
+        SizeInfo deltaRle = new SizeInfo();
+        int n = data.length;
+        if (n > 0) {
+            incSize(info, pack, data[0]);
+            int run = 1;
+            // delta-rle takes the first difference from 0 (as Mol*), not from the first value
+            int deltaBase = 0;
+            int deltaValue = 0;
+            int deltaRun = 1;
+            for (int i = 1; i < n; i++) {
+                int value = data[i];
+                int previous = data[i - 1];
+                incSize(info, pack, value);
+
+                if (previous != value) {
+                    incSize(info, rle, previous);
+                    incSize(info, rle, run);
+                    run = 1;
+                } else {
+                    run++;
+                }
+
+                incSizeSigned(delta, value - previous);
+
+                int d = value - deltaBase;
+                if (deltaValue != d) {
+                    incSizeSigned(deltaRle, deltaValue);
+                    incSizeSigned(deltaRle, deltaRun);
+                    deltaRun = 1;
+                } else {
+                    deltaRun++;
+                }
+                deltaValue = d;
+                deltaBase = value;
+            }
+            incSize(info, rle, data[n - 1]);
+            incSize(info, rle, run);
+            incSizeSigned(deltaRle, deltaValue);
+            incSizeSigned(deltaRle, deltaRun);
+        }
+
+        // the first of equal sizes wins
+        EncodingSize min = new EncodingSize(byteSize(pack), "pack");
+        for (EncodingSize size : new EncodingSize[] {
+                new EncodingSize(byteSize(rle), "rle"),
+                new EncodingSize(byteSize(delta), "delta"),
+                new EncodingSize(byteSize(deltaRle), "delta-rle") }) {
+            if (size.length < min.length) {
+                min = size;
+            }
+        }
+        return min;
     }
 
     private static final double DELTA = 1e-6;
@@ -241,17 +215,19 @@ public class Classifier {
             return hint;
         }
 
-        int multiplier = getMultiplier(hint.getPrecision());
-
-        double[] doubles = data.getData();
-        int[] intArray = new int[doubles.length];
-        for (int i = 0; i < doubles.length; i++) {
-            intArray[i] = (int) Math.round(doubles[i] * multiplier);
-        }
-
-        EncodingSize size = getSize(intArray);
-        hint.setEncoding(size.kind);
+        Int32Array fixedPoint = data.encode(new FixedPointEncoding(getMultiplier(hint.getPrecision())));
+        hint.setEncoding(classifyFixedPoint(fixedPoint));
         return hint;
+    }
+
+    /**
+     * The encoding of minimal size for the fixed point values of a float column. Unlike {@link #classify(Int32Array)},
+     * also for fewer than 2 values.
+     * @param fixedPoint the values times the factor
+     * @return how to encode them
+     */
+    static String classifyFixedPoint(Int32Array fixedPoint) {
+        return getSize(fixedPoint.getData()).kind;
     }
 
     /**
@@ -261,13 +237,12 @@ public class Classifier {
      */
     public static EncodingStrategyHint classifyPrecision(Float64Array data) {
         EncodingStrategyHint hint = new EncodingStrategyHint();
-        int maxDigits = 4;
 
-        int[] arrayDigitCount = getArrayDigitCount(data.getData(), maxDigits);
+        int[] arrayDigitCount = getArrayDigitCount(data.getData(), MAX_DIGITS);
         int mantissaDigits = arrayDigitCount[0];
         int integerDigits = arrayDigitCount[1];
 
-        if (mantissaDigits < 0 || mantissaDigits + integerDigits > 10) {
+        if (mantissaDigits < 0 || mantissaDigits + integerDigits > 10 || !fitsInt(data.getData(), getMultiplier(mantissaDigits))) {
             hint.setEncoding("byte");
             return hint;
         }
@@ -277,6 +252,23 @@ public class Classifier {
 
         hint.setPrecision(mantissaDigits);
         return hint;
+    }
+
+    /**
+     * Fixed point is tried with up to 10^(MAX_DIGITS - 1), i.e. 6 decimal places (anisotropic displacements and
+     * fractional matrices carry 4 to 6); values that need more are stored as they are.
+     */
+    private static final int MAX_DIGITS = 7;
+
+    /** Whether every value times the multiplier rounds to an int. */
+    private static boolean fitsInt(double[] values, int multiplier) {
+        for (double v : values) {
+            double scaled = v * multiplier;
+            if (!(scaled >= Integer.MIN_VALUE && scaled <= Integer.MAX_VALUE)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static int getMultiplier(int mantissaDigits) {
@@ -294,7 +286,7 @@ public class Classifier {
      */
     private static int[] getArrayDigitCount(double[] xs, int maxDigits) {
         int mantissaDigits = 1;
-        int integerDigits = 0;
+        double maxAbs = 0;
         for (double x : xs) {
             if (mantissaDigits >= 0) {
                 final int t = getMantissaMultiplier(x, maxDigits);
@@ -305,12 +297,14 @@ public class Classifier {
                 }
             }
             double abs = Math.abs(x);
-            if (abs > DELTA) {
-                int d = (int) (Math.floor(Math.log10(Math.abs(abs))) + 1);
-                if (d > integerDigits) {
-                    integerDigits = d;
-                }
+            if (abs > maxAbs) {
+                maxAbs = abs;
             }
+        }
+        // floor(log10(x)) + 1 grows with x (Math.log10 is semi-monotonic): its maximum is that of the largest value
+        int integerDigits = 0;
+        if (maxAbs > DELTA) {
+            integerDigits = Math.max(0, (int) (Math.floor(Math.log10(maxAbs)) + 1));
         }
         return new int[] { mantissaDigits, integerDigits };
     }

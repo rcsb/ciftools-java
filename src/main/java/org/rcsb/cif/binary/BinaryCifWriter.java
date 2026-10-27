@@ -8,7 +8,6 @@ import org.rcsb.cif.binary.data.ByteArray;
 import org.rcsb.cif.binary.data.Float64Array;
 import org.rcsb.cif.binary.data.Int32Array;
 import org.rcsb.cif.binary.data.StringArray;
-import org.rcsb.cif.binary.data.Uint8Array;
 import org.rcsb.cif.binary.encoding.ByteArrayEncoding;
 import org.rcsb.cif.binary.encoding.Encoding;
 import org.rcsb.cif.binary.encoding.FixedPointEncoding;
@@ -22,7 +21,13 @@ import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.ValueKind;
+import org.rcsb.cif.model.binary.BinaryColumn;
+import org.rcsb.cif.model.binary.BinaryFloatColumn;
+import org.rcsb.cif.model.binary.BinaryIntColumn;
+import org.rcsb.cif.schema.DelegatingColumn;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -89,21 +94,66 @@ public class BinaryCifWriter {
 
     private ByteArray encodeFloatArray(Float64Array column, EncodingStrategyHint optional) {
         // if no hint given, classify column
-        EncodingStrategyHint hint = optional != null ? optional : Classifier.classify(column);
-        if (hint.getEncoding() == null) {
-            hint.setEncoding(Classifier.classify(column).getEncoding());
-        }
-        if ("byte".equals(hint.getEncoding())) {
+        // hints are shared by all files written with the same options: read them, never update them
+        String encoding = optional != null ? optional.getEncoding() : null;
+        Integer precision = optional != null ? optional.getPrecision() : null;
+        if ("byte".equals(encoding)) {
             return column.encode();
         }
-        if (hint.getPrecision() == null) {
-            hint.setPrecision(Classifier.classify(column).getPrecision());
+
+        boolean classified = precision == null;
+        if (classified) {
+            // the precision that keeps every value: none means the values are stored as they are
+            EncodingStrategyHint hint = Classifier.classifyPrecision(column);
+            if ("byte".equals(hint.getEncoding())) {
+                return column.encode();
+            }
+            precision = hint.getPrecision();
         }
 
-        int multiplier = getMultiplier(hint.getPrecision());
+        int multiplier = getMultiplier(precision);
+        if (!fitsFixedPoint(column.getData(), multiplier)) {
+            return column.encode();
+        }
 
         Int32Array fixedPoint = column.encode(new FixedPointEncoding(multiplier));
-        return Classifier.encode(fixedPoint, hint.getEncoding());
+        if (encoding == null) {
+            // pick the encoding for the rounded values
+            encoding = classified ? Classifier.classifyFixedPoint(fixedPoint) : Classifier.classify(fixedPoint).getEncoding();
+        }
+        ByteArray encoded = Classifier.encode(fixedPoint, encoding);
+
+        // for a few values, the encoding parameters can outweigh the 8 bytes per value of the plain doubles (which
+        // keep the values as they are). Above SMALL_COLUMN values, fixed point (at most 4 bytes per value) is smaller.
+        if (classified && column.getData().length <= SMALL_COLUMN) {
+            ByteArray plain = column.encode();
+            if (encodedSize(plain) <= encodedSize(encoded)) {
+                return plain;
+            }
+        }
+        return encoded;
+    }
+
+    private static final int SMALL_COLUMN = 64;
+
+    private static int encodedSize(ByteArray byteArray) {
+        Map<String, Object> encoding = new LinkedHashMap<>();
+        encoding.put("encoding", byteArray.getEncoding()
+                .stream()
+                .map(Encoding::getMapRepresentation)
+                .toArray(Map[]::new));
+        return byteArray.getData().length + MessagePackCodec.encode(encoding).length;
+    }
+
+    /** Whether every value times the multiplier rounds to an int (else fixed point would overflow). */
+    private static boolean fitsFixedPoint(double[] values, int multiplier) {
+        for (double v : values) {
+            double scaled = v * multiplier;
+            if (!(scaled >= Integer.MIN_VALUE && scaled <= Integer.MAX_VALUE)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private static int getMultiplier(int mantissaDigits) {
@@ -139,9 +189,37 @@ public class BinaryCifWriter {
     private Map<String, Object> encodeStr(Column<?> cifColumn) {
         String[] array = cifColumn instanceof StrColumn ?
                 ((StrColumn) cifColumn).getArray() :
-                cifColumn.stringData().toArray(String[]::new);
+                stringData(cifColumn);
         ByteArray byteArray = new StringArray(array).encode(new StringArrayEncoding());
         return encodeColumnUsingByteArray(cifColumn, byteArray);
+    }
+
+    /**
+     * The string data of a number column written as strings (e.g. all values missing). Binary number columns repeat
+     * the string of a row for rows with the same value and value kind, so it is created once per run of them.
+     */
+    private static String[] stringData(Column<?> column) {
+        Column<?> base = unwrap(column);
+        if (!(base instanceof BinaryIntColumn) && !(base instanceof BinaryFloatColumn)) {
+            return column.stringData().toArray(String[]::new);
+        }
+
+        int[] ints = base instanceof BinaryIntColumn ? ((BinaryIntColumn) base).getArray() : null;
+        double[] doubles = ints == null ? ((BinaryFloatColumn) base).getArray() : null;
+        String[] array = new String[column.getRowCount()];
+        String last = null;
+        ValueKind lastKind = null;
+        for (int row = 0; row < array.length; row++) {
+            ValueKind kind = column.getValueKind(row);
+            boolean sameValue = row > 0 && (ints != null ? ints[row] == ints[row - 1] :
+                    Double.doubleToRawLongBits(doubles[row]) == Double.doubleToRawLongBits(doubles[row - 1]));
+            if (last == null || kind != lastKind || !sameValue) {
+                last = column.getStringData(row);
+                lastKind = kind;
+            }
+            array[row] = last;
+        }
+        return array;
     }
 
     private Map<String, Object> encodeFloat(Column<?> cifColumn, EncodingStrategyHint optional) {
@@ -166,8 +244,17 @@ public class BinaryCifWriter {
         Str;
 
         static ColumnType of(Column<?> column) {
+            // the string data of binary number columns is Integer/Double#toString: classify the numbers directly
+            Column<?> base = unwrap(column);
+            if (base instanceof BinaryIntColumn) {
+                return ofInts((BinaryIntColumn) base);
+            }
+            if (base instanceof BinaryFloatColumn) {
+                return ofFloats((BinaryFloatColumn) base);
+            }
+
             int floatCount = 0;
-            boolean hasStringOrScientific = false;
+            boolean hasString = false;
             int undefinedCount = 0;
             for (int i = 0; i < column.getRowCount(); i++) {
                 ValueKind valueKind = column.getValueKind(i);
@@ -178,14 +265,14 @@ public class BinaryCifWriter {
                 NumberType type = NumberType.of(column.getStringData(i));
                 if (type == NumberType.Int) {
                     continue;
-                } else if (type == NumberType.Float) {
+                } else if (type == NumberType.Float || type == NumberType.Scientific) {
                     floatCount++;
                 } else {
-                    hasStringOrScientific = true;
+                    hasString = true;
                     break;
                 }
             }
-            if (hasStringOrScientific || undefinedCount == column.getRowCount()) {
+            if (hasString || undefinedCount == column.getRowCount()) {
                 return Str;
             }
             if (floatCount > 0) {
@@ -193,6 +280,39 @@ public class BinaryCifWriter {
             }
             return Int;
         }
+    }
+
+    private static ColumnType ofInts(BinaryIntColumn column) {
+        // Integer#toString is always an Int
+        for (int i = 0; i < column.getRowCount(); i++) {
+            if (column.getValueKind(i) == ValueKind.PRESENT) {
+                return ColumnType.Int;
+            }
+        }
+        return ColumnType.Str;
+    }
+
+    private static ColumnType ofFloats(BinaryFloatColumn column) {
+        double[] data = column.getArray();
+        int floatCount = 0;
+        for (int i = 0; i < column.getRowCount(); i++) {
+            if (column.getValueKind(i) != ValueKind.PRESENT) {
+                continue;
+            }
+            // any finite value is a number; NaN and Infinity are not numbers in CIF
+            if (!Double.isFinite(data[i])) {
+                return ColumnType.Str;
+            }
+            floatCount++;
+        }
+        return floatCount > 0 ? ColumnType.Float : ColumnType.Str;
+    }
+
+    static Column<?> unwrap(Column<?> column) {
+        while (column instanceof DelegatingColumn) {
+            column = ((DelegatingColumn<?>) column).getDelegate();
+        }
+        return column;
     }
 
     enum NumberType {
@@ -276,19 +396,19 @@ public class BinaryCifWriter {
     private Map<String, Object> encodeColumnUsingByteArray(Column<?> cifField, ByteArray byteArray) {
         String name = cifField.getColumnName();
 
-        // handle ValueKind and if needed create mask
-        int[] maskArray = new int[cifField.getRowCount()];
-        Uint8Array mask = new Uint8Array(maskArray);
-        boolean allPresent = true;
-
-        for (int row = 0; row < maskArray.length; row++) {
-            ValueKind kind = cifField.getValueKind(row);
-
-            if (kind != ValueKind.PRESENT) {
-                maskArray[row] = (byte) kind.ordinal();
-                allPresent = false;
-            } else {
-                maskArray[row] = (byte) ValueKind.PRESENT.ordinal();
+        // a mask only if some value is not present (a binary column without mask has all values present)
+        byte[] mask = null;
+        Column<?> base = unwrap(cifField);
+        if (!(base instanceof BinaryColumn) || ((BinaryColumn<?>) base).getMask() != null) {
+            int rowCount = cifField.getRowCount();
+            for (int row = 0; row < rowCount; row++) {
+                ValueKind kind = cifField.getValueKind(row);
+                if (kind != ValueKind.PRESENT) {
+                    if (mask == null) {
+                        mask = new byte[rowCount];
+                    }
+                    mask[row] = (byte) kind.ordinal();
+                }
             }
         }
 
@@ -300,27 +420,41 @@ public class BinaryCifWriter {
                 .toArray(Map[]::new));
         encodedMap.put("data", byteArray.getData());
 
-        // encode mask
-        Map<String, Object> maskData = null;
-        if (!allPresent) {
-            maskData = new LinkedHashMap<>();
-            ByteArray maskRLE = mask.encode(new RunLengthEncoding()).encode();
-
-            if (maskRLE.getData().length < mask.getData().length) {
-                RunLengthEncoding rle = (RunLengthEncoding) maskRLE.getEncoding().getFirst();
-                maskData.put("encoding", new Object[] { rle.getMapRepresentation(), ByteArrayEncoding.INT32.getMapRepresentation() });
-                maskData.put("data", maskRLE.getData());
-            } else {
-                ByteArray encodedMask = mask.encode();
-                maskData.put("encoding", new Object[] { ByteArrayEncoding.UINT8.getMapRepresentation() });
-                maskData.put("data", encodedMask.getData());
-            }
-        }
-
         Map<String, Object> map = new LinkedHashMap<>();
         map.put("name", name);
         map.put("data", encodedMap);
-        map.put("mask", maskData);
+        map.put("mask", mask != null ? encodeMask(mask) : null);
         return map;
+    }
+
+    /** The value kinds as runs (pairs of Int32 value and length) if that is smaller than a byte per row. */
+    private static Map<String, Object> encodeMask(byte[] mask) {
+        int runs = 1;
+        for (int i = 1; i < mask.length; i++) {
+            if (mask[i] != mask[i - 1]) {
+                runs++;
+            }
+        }
+
+        Map<String, Object> maskData = new LinkedHashMap<>();
+        if (runs * 8L < mask.length) {
+            ByteBuffer buffer = ByteBuffer.allocate(runs * 8).order(ByteOrder.LITTLE_ENDIAN);
+            int run = 1;
+            for (int i = 1; i < mask.length; i++) {
+                if (mask[i] != mask[i - 1]) {
+                    buffer.putInt(mask[i - 1]).putInt(run);
+                    run = 1;
+                } else {
+                    run++;
+                }
+            }
+            buffer.putInt(mask[mask.length - 1]).putInt(run);
+            maskData.put("encoding", new Object[] { new RunLengthEncoding(3, mask.length).getMapRepresentation(), ByteArrayEncoding.INT32.getMapRepresentation() });
+            maskData.put("data", buffer.array());
+        } else {
+            maskData.put("encoding", new Object[] { ByteArrayEncoding.UINT8.getMapRepresentation() });
+            maskData.put("data", mask);
+        }
+        return maskData;
     }
 }

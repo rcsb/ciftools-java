@@ -11,7 +11,10 @@ public class DelegatingFloatColumn extends DelegatingColumn<double[]> implements
 
     @Override
     public double get(int row) {
-        if (delegate instanceof BinaryColumn) {
+        if (delegate instanceof FloatColumn) {
+            // typed data of the same type: no round trip through its string representation
+            return ((FloatColumn) delegate).get(row);
+        } else if (delegate instanceof BinaryColumn) {
             return getArray()[row];
         } else {
             return FloatColumn.parseFloat(delegate.getStringData(row));

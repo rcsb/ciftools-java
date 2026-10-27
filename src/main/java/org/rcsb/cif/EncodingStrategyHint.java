@@ -62,7 +62,7 @@ public class EncodingStrategyHint {
 
     /**
      * Report the encoding strategy to employ.
-     * @return a string of "pack" | "rle" | "delta" | "delta-rle"
+     * @return a string of "pack" | "rle" | "delta" | "delta-rle" | "byte"
      */
     public String getEncoding() {
         return encoding;

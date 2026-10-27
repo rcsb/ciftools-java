@@ -89,7 +89,7 @@ class FootprintTest {
                 fail("key " + key + " not present");
             }
 
-            if (!expected.get(key).equals(actual.get(key))) {
+            if (!expected.get(key).equals(actual.get(key)) && !isSmallPlainFloat(expected.get(key), actual.get(key))) {
                 System.out.println("mismatch in column " + key + "\n" + expected.get(key) + " vs " + actual.get(key));
                 mismatches++;
             }
@@ -97,5 +97,15 @@ class FootprintTest {
         if (mismatches > tolerance) {
             fail(mismatches + " columns were encoded with wrong type, expected = " + tolerance);
         }
+    }
+
+    /**
+     * Float columns of a few values are written as plain doubles where that is smaller than fixed point plus its
+     * encoding parameters, where other encoders always use fixed point.
+     */
+    private static boolean isSmallPlainFloat(String expected, String actual) {
+        String[] e = expected.split(",", 3);
+        String[] a = actual.split(",", 3);
+        return Integer.parseInt(a[0]) <= 64 && a[2].equals("[ByteArray]") && e[2].startsWith("[FixedPoint");
     }
 }

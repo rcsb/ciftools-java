@@ -97,21 +97,30 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
         Map<String, Integer> map = new HashMap<>();
         List<String> strings = new ArrayList<>();
         int[] outputArray = new int[input.length];
-        List<Integer> offsetList = new ArrayList<>();
-        offsetList.add(0);
+        int[] offsetArray = new int[16];
+        int offsetCount = 1;
 
         int accLength = 0;
         int i = 0;
+        String last = null;
+        int lastIndex = 0;
         for (String s : input) {
             // handle null strings
             if (s == null) {
                 outputArray[i++] = -1;
                 continue;
             }
+            // runs of the same instance (e.g. per residue or chain) need no lookup
+            if (s == last) {
+                outputArray[i++] = lastIndex;
+                continue;
+            }
 
-            if (map.containsKey(s)) {
-                int index = map.get(s);
-                outputArray[i++] = index;
+            Integer known = map.putIfAbsent(s, strings.size());
+            last = s;
+            if (known != null) {
+                lastIndex = known;
+                outputArray[i++] = known;
             } else {
                 // increment the length
                 accLength += s.length();
@@ -119,18 +128,17 @@ public class StringArrayEncoding implements Encoding<StringArray, ByteArray> {
                 // store the string and index
                 int index = strings.size();
                 strings.add(s);
-                map.put(s, index);
 
                 // store offset
-                offsetList.add(accLength);
+                if (offsetCount == offsetArray.length) {
+                    offsetArray = Arrays.copyOf(offsetArray, 2 * offsetCount);
+                }
+                offsetArray[offsetCount++] = accLength;
+                lastIndex = index;
                 outputArray[i++] = index;
             }
         }
-
-        int[] offsetArray = new int[offsetList.size()];
-        for (int j = 0; j < offsetList.size(); j++) {
-            offsetArray[j] = offsetList.get(j);
-        }
+        offsetArray = Arrays.copyOf(offsetArray, offsetCount);
 
         Int32Array offsetPlain = new Int32Array(offsetArray);
         EncodingStrategyHint offsetHint = Classifier.classify(offsetPlain);

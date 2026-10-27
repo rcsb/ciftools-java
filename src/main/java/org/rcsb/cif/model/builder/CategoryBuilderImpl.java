@@ -6,11 +6,8 @@ import org.rcsb.cif.model.CategoryBuilder;
 import org.rcsb.cif.model.CifFileBuilder;
 import org.rcsb.cif.model.Column;
 import org.rcsb.cif.model.ColumnBuilder;
-import org.rcsb.cif.model.FloatColumn;
 import org.rcsb.cif.model.FloatColumnBuilder;
-import org.rcsb.cif.model.IntColumn;
 import org.rcsb.cif.model.IntColumnBuilder;
-import org.rcsb.cif.model.StrColumn;
 import org.rcsb.cif.model.StrColumnBuilder;
 import org.rcsb.cif.model.text.TextCategory;
 
@@ -19,7 +16,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-import static org.rcsb.cif.model.CategoryBuilder.createColumnText;
 
 public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileBuilder> implements CategoryBuilder<P, PP> {
     private final String categoryName;
@@ -95,31 +91,19 @@ public class CategoryBuilderImpl<P extends BlockBuilder<PP>, PP extends CifFileB
 
     @Override
     public void digest(IntColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
-        columns.put(columnBuilder.getColumnName(),
-                createColumnText(columnBuilder.getColumnName(),
-                        columnBuilder.getValues(),
-                        columnBuilder.getMask(),
-                        IntColumn.class));
+        columns.put(columnBuilder.getColumnName(), columnBuilder.build());
         finishedDigests.add(columnBuilder);
     }
 
     @Override
     public void digest(FloatColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
-        columns.put(columnBuilder.getColumnName(),
-                createColumnText(columnBuilder.getColumnName(),
-                        columnBuilder.getValues(),
-                        columnBuilder.getMask(),
-                        FloatColumn.class));
+        columns.put(columnBuilder.getColumnName(), columnBuilder.build());
         finishedDigests.add(columnBuilder);
     }
 
     @Override
     public void digest(StrColumnBuilder<? extends CategoryBuilder<P, PP>, P, PP> columnBuilder) {
-        columns.put(columnBuilder.getColumnName(),
-                createColumnText(columnBuilder.getColumnName(),
-                        columnBuilder.getValues(),
-                        columnBuilder.getMask(),
-                        StrColumn.class));
+        columns.put(columnBuilder.getColumnName(), columnBuilder.build());
         finishedDigests.add(columnBuilder);
     }
 
