@@ -23,7 +23,6 @@ import java.io.InputStreamReader;
 import java.io.UncheckedIOException;
 import java.lang.reflect.Field;
 import java.net.URL;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -109,9 +108,9 @@ public class SchemaGenerator {
                 "https://raw.githubusercontent.com/ihmwg/ModelCIF/master/dist/mmcif_ma.dic"); // model-extension for predicted models
 
         new SchemaGenerator("CifCore", "CIF_CORE", "core", true,
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_enum.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/templ_attr.cif",
-                "https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic"); // has to be last
+                "https://raw.githubusercontent.com/COMCIFS/Enumeration_Templates/main/templ_enum.cif",
+                "https://raw.githubusercontent.com/COMCIFS/Attribute_Templates/main/templ_attr.cif",
+                "https://raw.githubusercontent.com/COMCIFS/cif_core/main/cif_core.dic"); // has to be last
 
         // NMR Exchange Format - TODO special usage of save-frames
 //        new SchemaGenerator("Nef", "NEF", "nef", false,
@@ -401,7 +400,7 @@ public class SchemaGenerator {
         this.aliases = new ArrayList<>();
         for (String res : resource) {
             System.out.println("Loading dictionary from: " + res);
-            CifFile cifFile = CifIO.readFromInputStream(preprocess(res));
+            CifFile cifFile = CifIO.readFromInputStream(download(res));
             if (schemaName.equals("MmCif")) {
                 getCategoryMetadataMmcif(cifFile);
             } else if (schemaName.equals("CifCore")) {
@@ -431,13 +430,9 @@ public class SchemaGenerator {
         System.out.println();
     }
 
-    private InputStream preprocess(String res) throws IOException {
+    private InputStream download(String res) throws IOException {
         try (InputStream inputStream = new URL(res).openStream()) {
-            String content = new String(inputStream.readAllBytes(), StandardCharsets.UTF_8);
-            // this is needed for https://raw.githubusercontent.com/COMCIFS/cif_core/master/cif_core.dic
-            // TODO proper CIF 2.0 (or at least list support, or at the very least don't hard-code this here...)
-            content = content.replace("[translucent  pale  green]", "'[translucent  pale  green]'");
-            return new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_8));
+            return new ByteArrayInputStream(inputStream.readAllBytes());
         }
     }
 
@@ -728,7 +723,8 @@ public class SchemaGenerator {
         final String cifCoreDicVersion = block.getCategory("dictionary").getColumn("version").getStringData(0);
         System.out.println("Dictionary versions: CifCore " + cifCoreDicVersion);
 
-        if ("CORE_DIC".equals(cifFile.getBlocks().get(0).getBlockHeader())) {
+        // templates (templ_attr.cif, templ_enum.cif) are of class 'Template', cif_core.dic is of class 'Instance'
+        if ("Instance".equalsIgnoreCase(block.getCategory("dictionary").getColumn("class").getStringData(0))) {
             block.getSaveFrames()
                     .stream()
                     // category definitions in cif don't include a '.'
